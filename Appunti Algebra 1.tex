@@ -69,12 +69,12 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
                 pertanto $\varphi_g$ è iniettivo.
             \item Verifichiamo che $\Inn(G) \trianglelefteqslant \Aut(G)$, mostriamo prima che $\Inn(G)$ è un sottogruppo di $\Aut(G)$, infatti: 
             $id = \varphi_e \in \Inn(G)$, $\forall g_1,g_2 \in G$ vale che $\varphi_{g_{1}} \circ \varphi_{g_{2}} = \varphi_{g_1g_2} \in \Inn(G)$, infatti:
-                    \[ \varphi_{g_{1}} \circ \varphi_{g_{2}}(x) = \varphi_{g_{1}}(g_2xg_2^{-1}) = g_1g_2xg_1^{-1}g_2^{-1} = \varphi_{g_1g_2}(x)
+                    \[ \varphi_{g_{1}} \circ \varphi_{g_{2}}(x) = \varphi_{g_{1}}(g_2xg_2^{-1}) = g_1g_2xg_2^{-1}g_1^{-1} = \varphi_{g_1g_2}(x)
                         \]
                 infine, $(\varphi_{g})^{-1} = \varphi_{g^{-1}} \in \Inn(G)$:
-                    \[ (\varphi_{g})^{-1} \circ \varphi_{g}(x) = (\varphi_{g})^{-1} (gxg^{-1}) = e \iff (\varphi_{g})^{-1} = \varphi_{g^{-1}}
+                    \[ (\varphi_{g})^{-1} \circ \varphi_{g}(x) = (\varphi_{g})^{-1} (gxg^{-1}) = x \iff (\varphi_{g})^{-1} = \varphi_{g^{-1}}
                         \]
-                e analogamente a destra. Per verificare la normalità bisogna mostrare che:
+                e analogamente per l'inversa a destra. Per verificare la normalità bisogna mostrare che:
                     \[ f \circ \Inn(G) \circ f^{-1} \subseteq \Inn(G)
                     \qquad \qquad \forall f \in \Aut(G)
                         \]
@@ -90,7 +90,7 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
 \end{proof}
 
 \begin{remark}
-    Se $G$ è abeliano, allora $\Inn(G) = \{e\}$, infatti:
+    Se $G$ è abeliano, allora $\Inn(G) = \{id\}$, infatti:
         \[ gxg^{-1} = gg^{-1}x = x \qquad \qquad \forall x \in G, \forall g \in G
             \]
 \end{remark}
@@ -101,7 +101,7 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
 \end{proposition}
 
 \begin{proof}
-    Per dimostrare il teorema ci basta trovare un'applicazione surgettiva da $G$ in $\Inn(G)$ e poi sfruttare il Primo Teorema di Omomorfismo. Sia:
+    Per dimostrare il teorema ci basta trovare un omomorfismo surgettivo da $G$ in $\Inn(G)$ e poi sfruttare il Primo Teorema di Omomorfismo. Sia:
         \[ \phi : G \longrightarrow \Inn(G) : g \longmapsto \varphi_g
             \]
     tale applicazione è chiaramente ben definita, ed è surgettiva per come abbiamo definito $\Inn(G)$. Verifichiamo che è un omomorfismo:
@@ -247,7 +247,8 @@ ciò significa che si hanno al più $3!$ automorfismi, dunque:
 Sia $\varphi: G \longrightarrow S(X)$ un'azione, $\varphi$ definisce una relazione di equivalenza su $X$:
     \[ x \sim y \iff \exists g \in G : \varphi_g(x) = y
         \]
-    la relazione è appunto di equivalenza, infatti: $x \sim x$, per $g = e$ si ha (essendo $\varphi$ un omomorfismo) $\varphi_e(x) = id = x$, 
+    ovvero due elementi sono in relazione se esiste un'applicazione $\varphi_g \in S(X)$, per cui un elemento è l'immagine dell'altro mediante 
+    tale applicazione. La relazione è appunto di equivalenza, infatti: $x \sim x$, per $g = e$ si ha (essendo $\varphi$ un omomorfismo) $\varphi_e(x) = id = x$, 
     $x \sim y \implies y \sim x$:
         \[ \varphi_g(x) = y \implies x = (\varphi_g(y))^{-1} = \varphi_{g^{-1}}(y)
             \]
@@ -263,16 +264,17 @@ Sia $\varphi: G \longrightarrow S(X)$ un'azione, $\varphi$ definisce una relazio
 Da cui:
     \[ X = \bigcupdot_{x \in \mathcal{R}} \Orb(x)
         \]
-Con $\mathcal{R}$ insieme di rappresentanti.
+Con $\mathcal{R}$ insieme di rappresentanti. Un'orbita è quindi l'insieme delle immagini di un elemento in un insieme, mediante tutte le possibili 
+applicazioni dell'insieme $\varphi(G)$.
 
 \begin{definition}
     Per ogni $x \in X$ si dice \vocab{stabilizzatore} di $x$:
         \[ \St(x) = \{g \in G | \varphi_g(x) = x\}
             \]
 \end{definition}
-
+Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in S(X)$ che lasciano fisso un determinato elemento.
 \begin{proposition}
-    $\St(x) \leqslant G$.
+    Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow S(X)$, si ha che $\St(x) \leqslant G$.
 \end{proposition}
 
 \begin{proof}
