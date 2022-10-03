@@ -248,7 +248,7 @@ Sia $\varphi: G \longrightarrow S(X)$ un'azione, $\varphi$ definisce una relazio
     \[ x \sim y \iff \exists g \in G : \varphi_g(x) = y
         \]
     ovvero due elementi sono in relazione se esiste un'applicazione $\varphi_g \in S(X)$, per cui un elemento è l'immagine dell'altro mediante 
-    tale applicazione. La relazione è appunto di equivalenza, infatti: $x \sim x$, per $g = e$ si ha (essendo $\varphi$ un omomorfismo) $\varphi_e(x) = id = x$, 
+    tale applicazione. La relazione è appunto di equivalenza, infatti: $x \sim x$, per $g = e$ si ha (essendo $\varphi$ un omomorfismo) $\varphi_e(x) = id(x) = x$, 
     $x \sim y \implies y \sim x$:
         \[ \varphi_g(x) = y \implies x = (\varphi_g(y))^{-1} = \varphi_{g^{-1}}(y)
             \]
@@ -264,8 +264,8 @@ Sia $\varphi: G \longrightarrow S(X)$ un'azione, $\varphi$ definisce una relazio
 Da cui:
     \[ X = \bigcupdot_{x \in \mathcal{R}} \Orb(x)
         \]
-Con $\mathcal{R}$ insieme di rappresentanti. Un'orbita è quindi l'insieme delle immagini di un elemento in un insieme, mediante tutte le possibili 
-applicazioni dell'insieme $\varphi(G)$.
+Con $\mathcal{R}$ insieme di rappresentanti. Un'orbita è quindi l'insieme di tutte le immagini di un elemento in un insieme, mediante tutte le possibili 
+applicazioni (permutazioni) dell'insieme $\varphi(G)$.
 
 \begin{definition}
     Per ogni $x \in X$ si dice \vocab{stabilizzatore} di $x$:
@@ -273,12 +273,23 @@ applicazioni dell'insieme $\varphi(G)$.
             \]
 \end{definition}
 Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in S(X)$ che lasciano fisso un determinato elemento.
+
 \begin{proposition}
+    [$\St(x) \leqslant G$]
     Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow S(X)$, si ha che $\St(x) \leqslant G$.
 \end{proposition}
 
 \begin{proof}
-    
+    Si osserva che $e \in \St(x)$, in quanto $\varphi_e(x) = id(x) = x$, inoltre, presi $g,h \in \St(x)$, ovvero $\varphi_g (x) = \varphi_h(x) = x$, allora:
+        \[ \varphi(gh) = \varphi_{gh}(x) = \varphi_g \circ \varphi_h (x) = \varphi_g(\varphi_h(x)) = \varphi_g(x) = x \implies gh \in \St(x)
+            \]
+    dove si ha che $ \varphi_{gh}(x) = \varphi_g \circ \varphi_h (x)$ in quanto $\varphi$ è un omomorfismo.
+    Infine, preso $g \in \St(x)$, si ha $g^{-1} \in \St(x)$, infatti $\varphi_g$ è bigettiva e quindi ammette inversa:
+        \[ (\varphi_g)^{-1} \circ \varphi_g (x) = x \implies (\varphi_g)^{-1}(\varphi_g(x)) = x \implies (\varphi_g)^{-1}(x) = x
+            \]
+    con $(\varphi_g)^{-1}(x) = (\varphi(g))^{-1}(x) = (\varphi(g^{-1}))(x) = \varphi_{g^{-1}}(x)$ e per quanto detto:
+        \[ \varphi_{g^{-1}} (x) = x \implies g^{-1} \in \St(x)
+            \]
 \end{proof}
 
 \begin{remark}
@@ -286,24 +297,33 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 \end{remark}
 
 \begin{remark}
-    Sia $x \in G$ e $g,h \in G$, allora:
+    Sia $x \in X$ e $g,h \in G$, allora:
         \[ \varphi_g(x) = \varphi_h(x) \iff \varphi_{h^{-1}}(\varphi_g(x)) = x
             \]
-    e sfruttando sempre le proprietà già viste nella dimostrazione dell'($1$) della
-    \hyperref[prop1]{Proposizione 1.3}, si ha:
+    e per le proprietà di omomorfismo dell'azione $\varphi$, si ha:
         \[ \varphi_{h^{-1}}(\varphi_g(x)) = x \iff \varphi_{h^{-1}g}(x) = x \iff h^{-1}g \in \St(x)
             \]
-    ovvero $g \St(x) = h \St(x)$, quindi:
-        \[ \Orb(x) \longleftrightarrow \text{classi laterali di $\St(x)$ in $G$}
-            \]\[ \varphi_g(x) \longrightarrow g \St(x)
+    ovvero $g \St(x) = h \St(x)$, in quanto $\St(x) \leqslant G$ e la condizione ottenuta è esattamente quella dell'equivalenza modulo $\St(x)$,
+    quindi:
+    \[ \Orb(x) \longleftrightarrow \text{classi laterali di $\St(x)$ in $G$}
+        \]
+    cioè due elementi danno la stessa immagine se e solo se stanno nella stessa classe laterale modulo $\St(x)$:
+    \[ \varphi_g(x) \longrightarrow g \St(x)
                 \]
+    che è ben definita per quanto detto all'inizio.
 \end{remark}
 
 \begin{proposition}
     Sia $G$ un gruppo finito e $X$ un insieme, allora:
         \[ |G| = |\Orb(x)||\St(x)|
+            \qquad \forall x \in X
             \]
 \end{proposition}
+
+\begin{remark}
+    Si osserva che essendo $\St(x) \leqslant G$, allora è ovvio (per Lagrange) che $|\St(x)| \mid |G|$, tuttavia, per la proposizione precedente, si ha che:
+    $|\Orb(x)| \mid |G| $ con $\Orb(x) \subseteq X$.
+\end{remark}
 
 \newpage
 \subsection{Azione di coniugio}
