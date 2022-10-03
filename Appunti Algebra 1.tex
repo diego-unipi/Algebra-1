@@ -272,11 +272,12 @@ applicazioni (permutazioni) dell'insieme $\varphi(G)$.
         \[ \St(x) = \{g \in G | \varphi_g(x) = x\}
             \]
 \end{definition}
-Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in S(X)$ che lasciano fisso un determinato elemento.
+Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in S(X)$, che lasciano fisso un determinato elemento.
 
 \begin{proposition}
     [$\St(x) \leqslant G$]
-    Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow S(X)$, si ha che $\St(x) \leqslant G$.
+    Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow S(X)$, si ha che $\St(x) \leqslant G$.\footnote{In generale lo
+     stabilizzatore non è un sottogruppo normale.}
 \end{proposition}
 
 \begin{proof}
@@ -292,9 +293,6 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
             \]
 \end{proof}
 
-\begin{remark}
-    In generale lo stabilizzatore non è un sottogruppo normale.
-\end{remark}
 
 \begin{remark}
     Sia $x \in X$ e $g,h \in G$, allora:
@@ -325,11 +323,12 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
     $|\Orb(x)| \mid |G| $ con $\Orb(x) \subseteq X$.
 \end{remark}
 
+
 \newpage
 \subsection{Azione di coniugio}
 \begin{definition}
     Si parla di \vocab{azione di coniugio}, quando si ha un'azione di $G$ su $G$ stesso:
-        \[ \varphi : G \longrightarrow \Inn(G) \leqslant S(G)
+        \[ \varphi : G \longrightarrow \Inn(G) (\trianglelefteqslant S(G)) : g \longrightarrow \varphi_g
             \]
 \end{definition}
 
