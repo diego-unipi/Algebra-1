@@ -440,7 +440,7 @@ In particolare $|C_x| \mid |G|$ e :
 ma, per quanto detto, se $x \in Z(G)$, allora $\displaystyle\frac{|G|}{|Z_G(x)|} = |C_x| = \{x\}$, segue dunque la relazione:
     \[ \colorboxed{red}{|G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}}
         \]
-che prende il nome di \vocab{formula delle classi}.
+che prende il nome di \vocab{formula delle classi} (di coniugio).
 
 \newpage
 \subsection{Applicazioni ai $p$-gruppi}
@@ -451,5 +451,61 @@ che prende il nome di \vocab{formula delle classi}.
 Se $G$ è un $p$-gruppo la formula delle classi diventa:
     \[ p^n = |G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}
         \]
-con $|Z(G)| = p^z$, $0 \leq z \leq n$,
+con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
+    \begin{enumerate}[(1)]
+        \ii Il centro di un $p$-gruppo non è mai banale, infatti, se osserviamo la formula delle classi, si ha:
+            \[ p^n = |Z(G)| +  \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|} \implies
+             |Z(G)| +  \sum_{x \in \mathcal{R}\setminus Z(G)}\frac{|G|}{|Z_G(x)|} \equiv 0 \pmod p
+                \]
+            con $\displaystyle \frac{|G|}{|Z_G(x)|} > 1$, poiché se un elemento sta nel centro tutti gli addendi sono $1$ per quanto detto,
+            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^kx$, $k>0$, poiché $G$ è un $p$-gruppo, dunque:
+                \[ |Z(G)| \equiv 0 \pmod p \implies |Z(G)| \geq 2
+                    \]
+            e quindi il centro di un $p$-gruppo non è mai banale.
+        \ii Un gruppo di ordine $p^2$ è abeliano, infatti, si ha:
+            \[ |G| = p^2 \implies |Z(G)| = \begin{cases}
+                                                1 &\text{non può accadere per (1)} \\
+                                                p &\text{no perché allora $G/Z(G)$ ciclico, ma $G$ non è abeliano}\\
+                                                p^2
+                                            \end{cases}
+                \]
+            dunque l'unica possibilità è che $Z(G) = G \iff G$ abeliano.
+    \end{enumerate}
+
+\newpage
+\subsection{Teorema di Cauchy}
+
+\begin{theorem}
+    [Teorema di Cauchy]
+    Dato un gruppo $G$ e un primo $p$, se $p \mid |G|$, allora $\exists x \in G : \ord_G(x) = p$. \footnote{Si considera già noto il teorema per gruppi abeliani.}
+\end{theorem}
+
+\begin{proof}
+    Sia $|G| = pn$, procediamo per induzione su $n$, nel caso $n = 1$ il teorema è ovvio. Supponiamo vera la tesi per i gruppi di ordine $pm$, con 
+    $1 \leq m < n$ e proviamola per $n$. Distinguiamo due casi:
+        \begin{itemize}
+            \item Se esiste $H \lneq G$ con $p \mid H$, ovvero $|H| = pm \implies$ vale il teorema di Cauchy per ipotesi induttiva (essendo $m<n$), quindi 
+            $\exists x \in H : \ord_H(x) = p$, ma essendo $H \subset G \implies x \in G$ e quindi la tesi è vera.
+            \item Se $\forall H \lneq G$ si ha $p \nmid |H|$, allora si può applicare a $G$ la formula delle classi:
+                \[ pn = |G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus{Z(G)}} \frac{|G|}{|Z_G(x)|}
+                    \]
+                ricordando il centralizzatore di $x$ è uno stabilizzatore (e quindi un sottogruppo di $G$), si ha $p \nmid |Z_G(x)|$, e quindi:
+                    \[ p \Bigm| \sum_{x \in \mathcal{R}\setminus{Z(G)}} \frac{|G|}{|Z_G(x)|}
+                        \]
+                da cui segue che $p \mid |Z(G)| = |G| - \sum pl_x$, per quanto premesso ($\forall H \lneq G$ si ha $p \nmid |H|$), ed essendo $Z(G) \leqslant G$, l'unica 
+                possibilità è che $Z(G) = G$ e vale il teorema poiché è già stato dimostrato per il caso in cui $G$ è abeliano.
+        \end{itemize}
+\end{proof}
+
+\newpage
+\subsection{Azione di coniugio su un sottogruppo}
+
+
+
+
+
+
+
+
+
 \end{document}
