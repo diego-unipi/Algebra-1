@@ -3,10 +3,37 @@
 \usepackage[sexy]{evan}
 
 \begin{document}
+\title{Complementi di Algebra 1}
+\maketitle
+\newpage
+
 \tableofcontents
 \eject
 
 \newpage
 
-AO
+\section{Insiemi di generatori}
+
+\begin{definition}
+    Dati un gruppo $G$ e $x_1, \dots, x_n$ elementi di $G$, chiamiamo \vocab{sottogruppo 
+    generato} da $x_1, \dots, x_n$ il più piccolo sottogruppo $\left< x_1, \dots x_n
+    \right>$ di $G$ contenente $x_1, \dots, x_n$, cioè \[\left<x_1, \dots, x_n\right> =
+    \bigcap_{\substack{H\leq G\\ \{x_1, \dots, x_n\} \subseteq H}} H\] 
+\end{definition}
+
+\begin{remark}
+    La definizione è ben posta, infatti l'intersezione avviene su una 
+    famiglia non vuota di insiemi dal momento che $G$ è un sottogruppo di 
+    $G$ contenente $x_1, \dots, x_n$. Inoltre l'intersezione non è vuota in 
+    quanto contiene almeno l'identità e gli elementi $x_1, \dots, x_n$.
+\end{remark}
+
+La definizione data non dà informazioni su come sono fatti gli elementi di 
+$\left<x_1, dots, x_n\right>$, cerchiamo quindi di caratterizzare in modo
+diverso tale sottogruppo. In quanto sottogruppo, $\left<x_1, \dots, x_n\right>$
+deve contenere tutti i prodotti finiti, in qualsiasi ordine, delle potenze di
+$x_1, \dots, x_n$, cioè deve contenere l'insieme 
+\[\{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r \in \N, g_i \in \{x_1, \dots, x_n\}
+~\forall i \in \{1, \dots, r\}\}\]
+
 \end{document}
