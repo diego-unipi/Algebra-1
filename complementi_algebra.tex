@@ -161,4 +161,34 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
     elementi distinti. Allora $|D_n| = 2n$.
 \end{proof}
 
+\begin{remark}
+    Abbiamo mostrato che effettivamente $D_n = \left<r, s\right>$, quindi i
+    suoi elementi sono tutti della forma $r^k$, $sr^h$. 
+\end{remark}
+
+
+\subsection{Sottogruppi}
+
+Consideriamo un sottogruppo $H\leq D_n$, abbiamo due casi distinti: 
+$H \subseteq \mathcal{R}$ oppure $H \nsubseteq \mathcal{R}$. Nel primo caso
+abbiamo che $|H|\mid n$, ed è l'unico sottogruppo di $\mathcal{R}$ con questa 
+proprietà in quanto $\mathcal{R}$ è ciclico, in particolare $H$ è ciclico 
+della forma $\left<r^{\frac n d}\right>$, con $d \mid n$. \newline
+Studiamo quindi il caso $H \nsubseteq \mathcal{R}$. Osserviamo che 
+$\mathcal{R}\trianglelefteqslant D_n$ in quanto $[D_n : \mathcal{R}] = 2$,
+pertanto il gruppo $\faktor{D_n}{\mathcal{R}}$ è ben definito e risulta essere 
+isomorfo a $\Z2$. \newline
+Consideriamo la proiezione al quoziente \[
+    \pi_{\mathcal{R}}: D_n \longrightarrow \faktor{D_n}{\mathcal{R}} : g \mapsto [g],
+\]poiché $H \nsubseteq \mathcal{R}$ abbiamo che esiste $h \in H$ tale che 
+$h \notin \mathcal{R}$, pertanto $\pi_{\mathcal{R}}(h) \notin [\mathcal{R}]$ e
+in particolare $\pi_{\mathcal{R}}(H) \nsubseteq [\mathcal{R}]$. Dato che i 
+sottogruppi di $\faktor{D_n}{\mathcal{R}}$ sono solo $\{[\mathcal{R}]\}$ e
+$\faktor{D_n}{\mathcal{R}}$ abbiamo quindi $\pi_{\mathcal{R}}(H) = 
+\faktor{D_n}{\mathcal{R}}$. Osserviamo che $\ker \pi_{\mid H} = 
+\ker \pi \cap H = \mathcal{R}\cap H$, per il Primo Teorema di Omomorfismo
+allora $\faktor{H}{H\cap \mathcal{R}} \cong \Z2$, quindi 
+$|H\cap\mathcal{R}| = \displaystyle\frac 1 2 |H|$.
+
+
 \end{document}
