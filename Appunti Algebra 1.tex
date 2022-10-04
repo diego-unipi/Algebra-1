@@ -2,7 +2,6 @@
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
 
-
 \begin{document}
 \title{Appunti Algebra 1}
 \subtitle{\large\normalfont\rmfamily\scshape APPUNTI DEL CORSO DI ALGEBRA 1 TENUTO\\ DALLA PROF. DEL CORSO E DAL PROF. LOMBARDO}
@@ -183,6 +182,39 @@ da cui si ottiene:
     se $H$ è caratteristico in $G$, allora è anche normale. Il viceversa è falso.
 \end{remark}
 
+\begin{remark}
+    Se $H$ è caratteristico in $G$ (dunque normale), si può scrivere un'applicazione:
+        \[ \Aut(G) \longrightarrow \Aut(H) : f \longmapsto f_{\mid H}
+            \]
+    dove $f_{\mid H}$ è un automorfismo di $H$.
+\end{remark}
+
+\begin{remark}
+    Si osserva che se $H$ è l'unico sottogruppo di $G$ di un certo ordine, allora $H$ è caratteristico in $G$ (segue immediatamente dal fatto che gli automorfismi
+    preservano gli ordini degli elementi).
+\end{remark}
+
+\begin{exercise}
+    Il centro di un gruppo, $Z(G)$ è un sottogruppo caratteristico.
+\end{exercise}
+        
+\begin{soln}
+    Per dimostrare che $Z(G)$ è caratteristico è sufficiente far vedere che:
+        \[ f(Z(G)) \subseteq Z(G)
+        \qquad \forall f \in \Aut(G)
+            \]
+    ovvero:
+        \[ f(z) \in Z(G)
+        \qquad \forall f \in \Aut(G), \forall z \in Z(G)
+            \]
+    dunque bisogna verificare che:
+        \[ gf(z) = f(z)g \qquad \forall g \in G
+            \]
+    poiché $f$ è un automorfismo, allora $\exists h \in G : f(h) = g$, dunque:
+        \[ gf(z) = f(h)f(z) = f(hz) = f(zh) = f(z)f(h) = f(z)g \qquad \forall g \in G
+            \]
+\end{soln}
+
 \begin{example}
     Sia $G = \Z2 \times \Z2 = \{(\ol 0, \ol 0),(\ol 1, \ol 0),(\ol 0, \ol 1),(\ol 1, \ol 1)\}$, $G$ ha ordine $4$ ed ha tre sottogruppi ciclici di ordine 2:
         \[ H_1 = \left<(\ol 1, \ol 0)\right> \qquad H_2 = \left<(\ol 0, \ol 1)\right> \qquad H_3 = \left<(\ol 1, \ol 1)\right>
@@ -274,6 +306,33 @@ applicazioni (permutazioni) dell'insieme $\varphi(G)$.
 \end{definition}
 Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in S(X)$, che lasciano fisso un determinato elemento.
 
+\begin{example}
+    Se $X = \RR^2$ e $G$ è il gruppo di traslazioni di vettore $\ul v = (0, l)$, allora:
+        \[ \varphi : G \longrightarrow S(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)}
+            \]
+    con:
+        \[ \Orb(x,y) = \{(x,y + l) | l \in \RR\}
+        \quad \text e \quad
+        \St(x,y) = \{\tau_{(0,l)} | (x, y + l) = (x,y)\}= \{id\}
+            \]
+\end{example}
+
+\begin{example}
+    Se $X = \RR^2$ e $G$ è il gruppo delle rotazioni di centro $O$, allora:
+        \[ \varphi: G \longrightarrow S(\RR^2) : r_\theta \longmapsto r_\theta
+            \]
+    con:
+        \[ \St(x,y) =
+        \begin{cases}
+            \{id\} & \text{se $(x,y) \ne (0,0)$}\\
+            G & \text{se $(x,y) = (0,0)$}
+        \end{cases}
+            \]
+    e, detta $\omega$ la circonferenza di centro $O$ raggio $\sqrt{x^2+y^2}$:
+        \[ \Orb(x,y) = \{(x^{\prime},y^{\prime}) \in \RR^2 | (x^{\prime}, y^{\prime}) \in \omega\}
+            \]
+\end{example}
+
 \begin{proposition}
     [$\St(x) \leqslant G$]
     Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow S(X)$, si ha che $\St(x) \leqslant G$.\footnote{In generale lo
@@ -293,7 +352,6 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
             \]
 \end{proof}
 
-
 \begin{remark}
     Sia $x \in X$ e $g,h \in G$, allora:
         \[ \varphi_g(x) = \varphi_h(x) \iff \varphi_{h^{-1}}(\varphi_g(x)) = x
@@ -305,11 +363,22 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
     quindi:
     \[ \Orb(x) \longleftrightarrow \text{classi laterali di $\St(x)$ in $G$}
         \]
-    cioè due elementi danno la stessa immagine se e solo se stanno nella stessa classe laterale modulo $\St(x)$:
-    \[ \varphi_g(x) \longrightarrow g \St(x)
+    cioè due elementi danno la stessa immagine se e solo se stanno nella stessa classe laterale modulo $\St(x)$, e la corrispondenza biunivoca tra orbita e classi
+    laterali è data da:
+    \[ g\St(x) \longmapsto \varphi_g(x) \qquad \text e \qquad h\St(x) \longmapsto \varphi_h(x)
                 \]
-    che è ben definita per quanto detto all'inizio.
+    che è ben definita per quanto detto all'inizio, è iniettiva:
+        \[ \varphi_g(x) = \varphi_h(x) \iff g\St(x) = h\St(x)
+            \]
+    (quindi due elementi di un orbita sono uguali se e solo se lo sono le classi laterali dei rispettivi elementi che generano le applicazioni sono uguali modulo $\St(x)$) e surgettiva:
+        \[ \forall y \in \Orb(x), y = \varphi_g(x) \implies g\St(x) \longmapsto y
+            \]
 \end{remark}
+
+Per quanto detto si ha:
+    \[ |G| = |\St(x)| [G : \St(x)]
+        \]
+ma $[G : \St(x)]$ è il numero di classi laterali di $\St(x)$ in $G$, che è proprio uguale a $|\Orb(x)|$ pertanto vale la seguente:
 
 \begin{proposition}
     Sia $G$ un gruppo finito e $X$ un insieme, allora:
@@ -322,6 +391,14 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
     Si osserva che essendo $\St(x) \leqslant G$, allora è ovvio (per Lagrange) che $|\St(x)| \mid |G|$, tuttavia, per la proposizione precedente, si ha che:
     $|\Orb(x)| \mid |G| $ con $\Orb(x) \subseteq X$.
 \end{remark}
+
+Ricordando che:
+    \[ X = \bigcupdot_{x \in \mathcal R} \Orb(x)
+        \]
+se $|X|<+\infty$ si ha:
+    \[ \colorboxed{red}{
+        |X| = \sum_{x \in \mathcal{R}} |\Orb(x)| = \sum_{x \in \mathcal{R}} \frac{|G|}{|\St(x)|}
+    }\]
 
 
 \newpage
@@ -341,17 +418,38 @@ dove $C_x$ prende il nome di \vocab{classe di coniugio} di $x$. Mentre:
 dove $Z_G(x)$ si dice \vocab{centralizzatore} di $x$. Per quanto detto in precedenza si ha:
     \[ |G| = |C_x||Z_G(x)|
         \]
+In particolare $|C_x| \mid |G|$ e :
+    \[ |X| = \sum_{x \in \mathcal{R}} |C_x| = \sum_{x \in \mathcal{R}} \frac{|G|}{|Z_G(x)|}
+        \]
+
 \begin{remark}
-    $C_x$ è un sottoinsieme, non un sottogruppo di $G$.
+    $C_x$ è un sottoinsieme, non un sottogruppo di $G$, poiché non c'è mai l'identità.
 \end{remark}
 
+\begin{remark}
+    Osserviamo che $Z_G(x) = G \iff x \in Z(G)$, infatti la per un elemento del centro si ha che 
+    $\forall g \in G$ l'elemento commuta, e dunque il suo centralizzatore è tutto il gruppo.
+\end{remark}
 
+\begin{remark}
+    Per un'azione di coniugio ha che $x \in Z(G)$ se e solo se $\Orb(x) = \{x\}$ (ovvero $\varphi_g(x) = x$, $\forall g \in G$).
+\end{remark}
 
+    \[ |G| = \sum_{x \in Z(G)} \frac{|G|}{|Z_G(x)|} + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}
+        \]
+ma, per quanto detto, se $x \in Z(G)$, allora $\displaystyle\frac{|G|}{|Z_G(x)|} = |C_x| = \{x\}$, segue dunque la relazione:
+    \[ \colorboxed{red}{|G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}}
+        \]
+che prende il nome di \vocab{formula delle classi}.
 
+\newpage
+\subsection{Applicazioni ai $p$-gruppi}
+\begin{definition}
+    Si definisce \vocab{$p$-gruppo} un gruppo di ordine $p^n$, con $p$ primo e $n \geq 1$.
+\end{definition}
 
-
-
-
-
-
+Se $G$ è un $p$-gruppo la formula delle classi diventa:
+    \[ p^n = |G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}
+        \]
+con $|Z(G)| = p^z$, $0 \leq z \leq n$,
 \end{document}
