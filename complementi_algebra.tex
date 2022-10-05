@@ -16,8 +16,8 @@
 
 \begin{definition}
     Dati un gruppo $G$ e $x_1, \dots, x_n$ elementi di $G$, chiamiamo \vocab{sottogruppo 
-    generato} da $x_1, \dots, x_n$ il più piccolo sottogruppo $\left< x_1, \dots x_n
-    \right>$ di $G$ contenente $x_1, \dots, x_n$, cioè \[\left<x_1, \dots, x_n\right> =
+    generato} da $x_1, \dots, x_n$ il più piccolo sottogruppo $\langle x_1, \dots x_n
+    \rangle$ di $G$ contenente $x_1, \dots, x_n$, cioè \[\langle x_1, \dots, x_n\rangle =
     \bigcap_{\substack{H\leq G\\ \{x_1, \dots, x_n\} \subseteq H}} H\] 
 \end{definition}
 
@@ -29,8 +29,8 @@
 \end{remark}
 
 La definizione data non dà informazioni su come sono fatti gli elementi di 
-$\left<x_1, dots, x_n\right>$, cerchiamo quindi di caratterizzare in modo
-diverso tale sottogruppo. In quanto sottogruppo, $\left<x_1, \dots, x_n\right>$
+$\langle <x_1, dots, x_n\rangle$, cerchiamo quindi di caratterizzare in modo
+diverso tale sottogruppo. In quanto sottogruppo, $\langle x_1, \dots, x_n\rangle$
 deve contenere tutti i prodotti finiti, in qualsiasi ordine, delle potenze di
 $x_1, \dots, x_n$, cioè deve contenere l'insieme 
 \[\{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \dots, x_n\}
@@ -39,7 +39,7 @@ $x_1, \dots, x_n$, cioè deve contenere l'insieme
 \begin{proposition}
 \label{prop1.0}
 Dati un gruppo $G$ e $x_1, \dots, x_n$ elementi di $G$, allora \[
-    \left<x_1, \dots, x_n\right> = \{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r 
+    \langle <x_1, \dots, x_n\rangle = \{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r 
     \in \NN, g_i \in \{x_1, \dots, x_n\}~\forall i \in \{1, \dots, r\}\}.
     \]
 \end{proposition}
@@ -53,21 +53,21 @@ prodotto finito di potenze di $x_1, \dots, x_n$ e l'inverso di un elemento
 $g_1^{\pm 1}\dots g_r^{\pm 1} \in\nolinebreak S$ è $(g_1^{\pm 1}\dots 
 g_r^{\pm 1})^{-1} = g_r^{\mp 1}\dots g_1^{\mp 1}$, che è un elemento di $S$.
 Abbiamo quindi che $S$ è un sottogruppo di $G$ contenente $x_1, \dots, x_n$,
-pertanto $\left<x_1, \dots, x_n\right>\subseteq S$ per minimalità di $\left<x_1,
-\dots, x_n\right>$. D'altra parte, per quanto osservato sopra abbiamo che
+pertanto $\langle x_1, \dots, x_n\rangle\subseteq S$ per minimalità di $\langle <x_1,
+\dots, x_n\rangle$. D'altra parte, per quanto osservato sopra abbiamo che
 tutti gli elementi della forma $g_1^{\pm 1}\dots g_r^{\pm 1}$ con $r \in \NN$, 
 $g_i \in \{x_1, \dots, x_n\}$ per ogni $i \in \{1, \dots, r\}$ devono essere
-contenuti in $\left<x_1, \dots, x_n\right>$, pertanto i due sottogruppi
+contenuti in $\langle <x_1, \dots, x_n\rangle$, pertanto i due sottogruppi
 coincidono.
 \end{proof}
 
 \begin{remark}
     Se $G$ è un gruppo ciclico abbiamo che esiste $x \in G$ tale che 
-    $\left<x\right> = G$, cioè tutti gli elementi di $G$ sono potenze di $x$.
+    $\langle x\rangle = G$, cioè tutti gli elementi di $G$ sono potenze di $x$.
 \end{remark}
 
 Diciamo che $x_1, \dots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
-l'insieme $\{x_1, \dots, x_n\}$ \vocab{genera} $G$ se $\left<x_1, \dots, x_n\right> = G$.
+l'insieme $\{x_1, \dots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \dots, x_n\rangle = G$.
 
 
 
@@ -103,7 +103,7 @@ angolo negativo una rotazione in senso orario).
 
 \begin{definition}
     Data $r \in D_n$ una rotazione di ordine $n$, indichiamo con $\mathcal{R}$ il
-    \vocab{sottogruppo delle rotazioni} $\left<r\right>$.
+    \vocab{sottogruppo delle rotazioni} $\langle r\rangle$.
 \end{definition}
 
 \begin{remark}
@@ -114,7 +114,7 @@ angolo negativo una rotazione in senso orario).
 \end{remark}
 
 Per determinare come sono fatti gli elementi di $D_n$, studiamo il sottogruppo
-$\left<r, s\right>$. Sicuramente $\left<r, s\right>$ contiene il sottogruppo $\mathcal{R}$
+$\langle r, s\rangle$. Sicuramente $\langle r, s\rangle$ contiene il sottogruppo $\mathcal{R}$
 e tutti gli elementi della forma $sr^k$, $sr^ks$, $sr^ksr^h$ e così via, vogliamo
 mostrare che in effetti $D_n$ è generato da $r$ e $s$
 
@@ -162,7 +162,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
 \end{proof}
 
 \begin{remark}
-    Abbiamo mostrato che effettivamente $D_n = \left<r, s\right>$, quindi i
+    Abbiamo mostrato che effettivamente $D_n = \langle r, s\rangle$, quindi i
     suoi elementi sono tutti della forma $r^k$, $sr^h$. 
 \end{remark}
 
@@ -173,7 +173,7 @@ Consideriamo un sottogruppo $H\leq D_n$, abbiamo due casi distinti:
 $H \subseteq \mathcal{R}$ oppure $H \nsubseteq \mathcal{R}$. Nel primo caso
 abbiamo che $|H|\mid n$, ed è l'unico sottogruppo di $\mathcal{R}$ con questa 
 proprietà in quanto $\mathcal{R}$ è ciclico, in particolare $H$ è ciclico 
-della forma $\left<r^{\frac n d}\right>$, con $d \mid n$. \newline
+della forma $\langle ^{\frac n d}\rangle$, con $d \mid n$. \newline
 Studiamo quindi il caso $H \nsubseteq \mathcal{R}$. Osserviamo che 
 $\mathcal{R}\trianglelefteqslant D_n$ in quanto $[D_n : \mathcal{R}] = 2$,
 pertanto il gruppo $\faktor{D_n}{\mathcal{R}}$ è ben definito e risulta essere 
@@ -188,7 +188,123 @@ $\faktor{D_n}{\mathcal{R}}$ abbiamo quindi $\pi_{\mathcal{R}}(H) =
 \faktor{D_n}{\mathcal{R}}$. Osserviamo che $\ker \pi_{\mid H} = 
 \ker \pi \cap H = \mathcal{R}\cap H$, per il Primo Teorema di Omomorfismo
 allora $\faktor{H}{H\cap \mathcal{R}} \cong \Z2$, quindi 
-$|H\cap\mathcal{R}| = \displaystyle\frac 1 2 |H|$.
+$|H\cap\mathcal{R}| = \displaystyle\frac 1 2 |H|$. Dato che $R\cap H \subseteq
+\mathcal{R}$, esiste $k \in \ZZ$ tale che $H\cap\mathcal{R} = \langle r^k\rangle$
+in particolare $\langle r^k\rangle$ e $\langle sr^h\rangle$, $h \in \ZZ$, sono
+contenuti in $H$. 
+
+\begin{proposition}
+    \label{prop2.0}
+    Dati $H\leq D_n$ un sottogruppo tale che $H\nsubseteq \mathcal{R}$, se
+    $r \in \mathcal{R}$ è tale che $H\cap\mathcal{R} = \langle r^k\rangle$ 
+    e $s$ è una simmetria allora \[
+    H = \langle r^k\rangle\cdot\langle sr^h\rangle = \{xy \mid x \in \langle r^k\rangle,
+    y \in \langle sr^h\rangle\}, h, k \in \ZZ.    
+    \]
+\end{proposition}
+
+\begin{proof}
+    Per quanto visto sopra, abbiamo che $|\langle r^k\rangle| = 
+    \displaystyle\frac 1 2|H|$, osserviamo inoltre che $(sr^h)^2 = sr^hsr^h = 
+    (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e$, pertanto 
+    $\langle sr^h\rangle \cong \Z2$. Ricordiamo che, se $K, N$ sono sottogruppi
+    di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
+    $N \subseteq N_G(K)$. Nel nostro caso abbiamo che $\langle sr^h\rangle
+    \subseteq N_{D_n}(\langle r^k\rangle)$, infatti per ogni $m \in \ZZ$ abbiamo\[
+        (sr^h)r^{mk}(sr^h)^{-1} = sr^{h + mk} sr^h = r^{-h-mk}r^h = r^{-mk}
+        \in \langle r^k \rangle,
+    \]cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$, quindi
+    $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$.
+    Poiché $\langle r^k\rangle$ e $\langle sr^h\rangle$ sono contenuti in $H$
+    abbiamo che $\langle r^k\rangle\cdot\langle sr^h\rangle \subseteq H$, inoltre
+    \[|\langle r^k\rangle\cdot\langle sr^h\rangle| = \displaystyle\frac 1 2 |H|\cdot 2 = |H|\]
+    in quanto $\langle r^k\rangle\cap\langle sr^h\rangle = \{e\}$, quindi 
+    i due sottogruppi coincidono.
+\end{proof}
+
+\begin{remark}
+    Per $k \mid n$ e $0\leq h < k$, i sottogruppi $H_{k, h} = \langle r^k, sr^h\rangle$
+    e $H = \langle r^k\rangle\cdot\langle sr^h\rangle$ coincidono. Infatti 
+    $H_{k, h}\subseteq H$ in quanto $r^k, sr^h$ sono elementi di $H$, 
+    d'altra parte $H \subseteq H_{k, h}$ in quanto $H_{h, k}$ contiene tutti i 
+    prodotti finiti delle potenze di $r^k$ e $sr^h$, in particolare gli elementi di $H$.
+\end{remark}
+
+\begin{remark}
+    Per $k \mid n$ e $0\leq h < k$, $\langle r^k, sr^h\rangle = 
+    \langle r^k, sr^{h + k}\rangle$, infatti $\langle r^k, sr^h\rangle \subseteq
+    \langle r^k, sr^{h + k}\rangle$ in quanto $sr^h = (sr^{h + k})r^{-k}$ è
+    un elemento del secondo gruppo, simmetricamente $\langle r^k, sr^{h + k}\rangle
+    \subseteq \langle r^k, sr^h\rangle$ in quanto $sr^{h + k} = (sr^h)r^k$ è un
+    elemento del primo gruppo.
+\end{remark}
+
+Abbiamo quindi finito la classificazione dei sottogruppi di $D_n$.
+
+\begin{theorem}
+    [Classificazione dei sottogruppi di $D_n$]
+I sottogruppi di $D_n$ sono della forma \begin{itemize}
+    \item[(1)] $\langle r^k\rangle$ con $k\mid n$;
+    \item[(2)] $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leq h < k$, 
+\end{itemize}
+con $r \in \mathcal{R}$ e $s$ una simmetria. Inoltre tali sottogruppi sono
+tutti distinti.
+\end{theorem}
+
+\begin{proof}
+    Abbiamo già visto che i sottogruppi di $D_n$ hanno una di queste forme, 
+    mostriamo quindi che sono tutti distinti. A meno di cambiare $k$, possiamo
+    supporre che $r$ generi $\mathcal{R}$, cioè $\ord(r) = n$. 
+    Consideriamo $H, K\leq D_n$ due sottogruppi, distinguiamo tre casi 
+    \begin{itemize}
+        \item se $H = \langle r^k\rangle$ e $K = \langle r^m\rangle$, $m \in \ZZ$,
+        allora $H = K\iff k = m$ in quanto entrambi sottogruppi di un gruppo 
+        ciclico, pertanto esiste un unico sottogruppo della forma $\langle r^k\rangle$
+        per ogni $k \mid n$;
+        \item se $H = \langle r^k\rangle$ e $K = \langle sr^h\rangle$ allora $H \neq K$
+        in quanto $H$ è ciclico e $K$ no;
+        \item se $H = \langle r^k, sr^h\rangle$ e $K = \langle r^m, sr^l\rangle$, 
+        con $m \mid n$ e $0\leq l < m$, considerando le intersezioni con $\mathcal{R}$ 
+        $H \cap \mathcal{R} = \langle r^k\rangle$ e $K \cap \mathcal{R} = \langle r^m\rangle$ 
+        abbiamo \[
+        H \cap \mathcal{R} = K\cap\mathcal{R} \iff \langle r^k\rangle = \langle r^m\rangle
+        \iff k = m.
+        \] Inoltre, se $sr^h \in \langle r^m, sr^l\rangle = \langle r^m\rangle
+        \cdot \langle sr^l\rangle$, allora esiste $t \in \ZZ$ tale che \[
+        sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
+        \iff h \equiv l - mt \mod n,
+        \]da cui ricaviamo $h \equiv l \mod m$. Ma allora $h =l$ in quanto 
+        $0 \leq h < k$, $0\leq l < m$.
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}
+    Dati un gruppo $G$ e $A, B$ due sottogruppi tali che $A \leq B \leq G$,
+    se $B\trianglelefteqslant G$ e $A$ è caratteristico in $B$ allora 
+    $A \trianglelefteqslant G$.
+\end{lemma}
+
+\begin{proof}
+    Fissato $g \in G$, consideriamo l'omomorfismo di coniugio 
+    \[
+        \varphi_g : G\longrightarrow G : x\longmapsto gxg^{-1},
+    \] poiché 
+    $B\trianglelefteqslant G$ è ben definita la restrizione \[
+        \varphi_{g\mid B} : B\longrightarrow B :  b \longmapsto gbg^{-1},
+    \]in particolare $\varphi_{g\mid B} \in Aut(G)$. Dal momento che $A$ è
+    un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) = A$,
+    pertanto $A \trianglelefteqslant G$.
+\end{proof}
+
+
+\begin{corollary}
+    Ogni sottogruppo di $\mathcal{R}$ è normale in $D_n$.
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
 
 
 \end{document}
