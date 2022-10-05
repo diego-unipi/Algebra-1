@@ -127,7 +127,6 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
 \end{remark}
 
 \begin{lemma}
-    \label{lemma1.0}
     Per ogni rotazione $r \in D_n$ e per ogni simmetria $s \in D_n$ vale
     \[srs^{-1} = r^{-1}.\]
 \end{lemma}
@@ -279,6 +278,7 @@ tutti distinti.
 \end{proof}
 
 \begin{lemma}
+    \label{lemma1}
     Dati un gruppo $G$ e $A, B$ due sottogruppi tali che $A \leq B \leq G$,
     se $B\trianglelefteqslant G$ e $A$ è caratteristico in $B$ allora 
     $A \trianglelefteqslant G$.
@@ -302,7 +302,12 @@ tutti distinti.
 \end{corollary}
 
 \begin{proof}
-    
+    Siano $\langle r^k\rangle$ un sottogruppo di $\mathcal{R}$ e $\varphi
+    \in Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
+    in quanto $\varphi$ preserva l'ordine del sottogruppo e $\langle r^k\rangle$
+    è l'unico sottogruppo di $\mathcal{R}$ di tale ordine, pertanto $\langle r^k\rangle$
+    è caratteristico in $\mathcal{R}$. Allora per il \hyperref[lemma1]{Lemma 2.14}
+    abbiamo che $\langle r^k\rangle\trianglelefteqslant D_n$.
 \end{proof}
 
 
