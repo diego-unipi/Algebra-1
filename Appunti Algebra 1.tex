@@ -308,7 +308,8 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 
 \begin{example}
     Se $X = \RR^2$ e $G$ è il gruppo di traslazioni di vettore $\ul v = (0, l)$, allora:
-        \[ \varphi : G \longrightarrow S(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)}
+        \[ \varphi : G \longrightarrow S(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)} \footnote{Il primo $\tau_{(0,l)}$ è l'elemento del gruppo (ovvero la traslazione), mentre il secondo è l'applicazione
+        bigettiva da $X$ in $X$}
             \]
     con:
         \[ \Orb(x,y) = \{(x,y + l) | l \in \RR\}
@@ -381,6 +382,7 @@ Per quanto detto si ha:
 ma $[G : \St(x)]$ è il numero di classi laterali di $\St(x)$ in $G$, che è proprio uguale a $|\Orb(x)|$ pertanto vale la seguente:
 
 \begin{proposition}
+    \label{p:1.25}
     Sia $G$ un gruppo finito e $X$ un insieme, allora:
         \[ |G| = |\Orb(x)||\St(x)|
             \qquad \forall x \in X
@@ -499,8 +501,78 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
 
 \newpage
 \subsection{Azione di coniugio su un sottogruppo}
-ciao
+Sia $X = \{H \leqslant G\}$ e $\varphi : G \longrightarrow S(X) : g \longmapsto \varphi_g(X)$, con $\varphi_g : X \longrightarrow X : H \longmapsto gHg^{-1}$. 
+    Si verifica facilmente che $\varphi$ è un omomorfismo, per verificare l'iniettività si osserva che:
+        \[ \varphi_g(H) = \varphi_g(K) \iff gHg^{-1} = gKg^{-1} \iff H = K
+            \]
+    mentre per la surgettività si ha che $\forall H \in X, \exists L \in X$:
+        \[ \varphi_g(L) = H \iff gLg^{-1} = H \implies L = g^{-1}Hg
+            \]
+    inoltre si ha anche:
+        \[ \Orb(H) = \{\varphi_g(H) | g \in G\} = \{gHg^{-1}| g \in G\} \quad \St(H) = \{g \in G | \varphi_g(H) = H\} = N_G(H)
+            \]
+    dove $\Orb(H)$ è l'insieme dei coniugati di $H$, mentre $\St(H) = N_G(H)$ prende il nome di \vocab{normalizzatore} di $H$.
 
+\begin{remark}
+    Si osserva che $N \trianglelefteqslant G$ se e solo se $\Orb(H) = \{H\} \iff N_G(H) = G$, ovvero se $H$ è sempre chiuso per coniugio in $G$.
+\end{remark}
 
+Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
+    \[ |G| = |\Orb(H)||N_G(H)| \implies |\Orb(H)| = \frac{|G|}{|N_G(H)|}
+    \]
+\begin{remark}
+    Quindi in generale, dato $H \leqslant G$ si ha che $\#\{gH\} = [G:H]$ e $\#\{gHg^{-1}\} = [G : N_G(H)]$.
+\end{remark}
+
+\begin{remark}
+    [Sulla definizione di sottogruppo normale]
+    I sottogruppi normali possono essere ridefiniti nella maniera seguente, $H \trianglelefteqslant G$ se e solo se:
+        \[ H = \bigcupdot_{h \in H} C_h
+            \]
+    cioè un sottogruppo è normale se e solo se è l'unione delle classi di coniugio dei suoi elementi. Infatti:
+        \[ H \trianglelefteqslant G \iff ghg^{-1} \in H \qquad \forall h \in H, \forall g \in G
+            \]
+    che equivale a:
+        \[ C_h = \{ghg^{-1} | h \in H\} \subseteq H  \quad \forall h \in H \implies \bigcupdot_{h \in H} C_h \subseteq H
+            \]
+    d'altra parte se $H$ è normale è chiuso per coniugio, ovvero il coniugio di ogni suo elemento è ancora in $H$ e in particolare
+    ciò significa che:
+        \[ H \subseteq \bigcupdot_{h \in H} C_h
+            \] 
+    
+\end{remark}
+
+\newpage
+\subsection{Teorema di Cayley}
+
+\begin{theorem}
+    Ogni gruppo è isomorfo ad un sottogruppo di un gruppo di permutazioni. In particolare, se $|G| = n$, allora 
+    $G$ è isomorfo a un sottogruppo di $S_n$.
+\end{theorem}
+
+\begin{proof}
+    Definiamo la mappa:
+        \[ \lambda : G \longrightarrow S(G) : g \longmapsto \varphi_g
+            \]
+    con $\varphi_g : G \longrightarrow G : g \longmapsto gx$, l'applicazione $\lambda$ prende il nome di \vocab{rappresentazione regolare a sinistra} di $G$, si 
+    vuole dimostrare che $\lambda$ è un omomorfismo iniettivo.
+    Osserviamo innanzitutto che $\lambda$ è ben definita, cioè $\varphi_g \in S(G)$, infatti $\varphi_g$ è iniettiva (segue dalle leggi di cancellazione) e 
+    surgettiva, perché $\forall y \in G$, $\exists g^{-1}y \in G : \varphi_g(g^{-1}y) = y$. Verifichiamo che $\lambda$ è un omomorfismo:
+        \[ \lambda(g_1g_2) = \varphi_{g_1g_2}
+            \]
+    con $\varphi_{g_1g_2} (x) = \varphi_{g_1} \circ \varphi_{g_2} (x)$, $\forall x \in G$, e quindi:
+        \[ \lambda(g_1g_2) = \lambda(g_1) \lambda(g_2)
+        \qquad \forall g_1,g_2 \in G
+            \]
+    infine, per l'iniettività si ha che:
+        \[ \ker \lambda = \{g \in G | \lambda(g) = \varphi_g = id = \varphi_e\} = \{e\}
+            \]
+\end{proof}
+
+\begin{remark}
+    In generale, dato $G = \left\{g_1 = e,g_2, \ldots, g_n\right\}$ e $\lambda : G \longrightarrow S(G) \cong S_n$, si ha che:
+        \[ g_1 = e \longmapsto \varphi_{g_1}
+            \]
+\end{remark}
 
 \end{document}
