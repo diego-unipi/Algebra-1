@@ -4,6 +4,9 @@
 
 \begin{document}
 \title{Complementi di Algebra 1}
+\subtitle{\large\normalfont\rmfamily\scshape APPUNTI DEL CORSO DI ALGEBRA 1 TENUTO\\ DALLA PROF. DEL CORSO E DAL PROF. LOMBARDO}
+\author{Leonardo Migliorini \\ \textnormal{\href{l.migliorini@studenti.unipi.it}{l.migliorini@studenti.unipi.it}}}
+\date{Anno Accademico 2022-23}
 \maketitle
 \newpage
 
@@ -15,49 +18,49 @@
 \section{Insiemi di generatori}
 
 \begin{definition}
-    Dati un gruppo $G$ e $x_1, \dots, x_n$ elementi di $G$, chiamiamo \vocab{sottogruppo 
-    generato} da $x_1, \dots, x_n$ il più piccolo sottogruppo $\langle x_1, \dots x_n
-    \rangle$ di $G$ contenente $x_1, \dots, x_n$, cioè \[\langle x_1, \dots, x_n\rangle =
-    \bigcap_{\substack{H\leq G\\ \{x_1, \dots, x_n\} \subseteq H}} H\] 
+    Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, chiamiamo \vocab{sottogruppo 
+    generato} da $x_1, \ldots, x_n$ il più piccolo sottogruppo $\langle x_1, \ldots x_n
+    \rangle$ di $G$ contenente $x_1, \ldots, x_n$, cioè \[\langle x_1, \ldots, x_n\rangle =
+    \bigcap_{\substack{H\leq G\\ \{x_1, \ldots, x_n\} \subseteq H}} H\] 
 \end{definition}
 
 \begin{remark}
     La definizione è ben posta, infatti l'intersezione avviene su una 
     famiglia non vuota di insiemi dal momento che $G$ è un sottogruppo di 
-    $G$ contenente $x_1, \dots, x_n$. Inoltre l'intersezione non è vuota in 
-    quanto contiene almeno l'identità e gli elementi $x_1, \dots, x_n$.
+    $G$ contenente $x_1, \ldots, x_n$. Inoltre l'intersezione non è vuota in 
+    quanto contiene almeno l'identità e gli elementi $x_1, \ldots, x_n$.
 \end{remark}
 
 La definizione data non dà informazioni su come sono fatti gli elementi di 
 $\langle <x_1, dots, x_n\rangle$, cerchiamo quindi di caratterizzare in modo
-diverso tale sottogruppo. In quanto sottogruppo, $\langle x_1, \dots, x_n\rangle$
+diverso tale sottogruppo. In quanto sottogruppo, $\langle x_1, \ldots, x_n\rangle$
 deve contenere tutti i prodotti finiti, in qualsiasi ordine, delle potenze di
-$x_1, \dots, x_n$, cioè deve contenere l'insieme 
-\[\{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \dots, x_n\}
-~\forall i \in \{1, \dots, r\}\}\]
+$x_1, \ldots, x_n$, cioè deve contenere l'insieme 
+\[\{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
+~\forall i \in \{1, \ldots, r\}\}\]
 
 \begin{proposition}
 \label{prop1.0}
-Dati un gruppo $G$ e $x_1, \dots, x_n$ elementi di $G$, allora \[
-    \langle <x_1, \dots, x_n\rangle = \{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r 
-    \in \NN, g_i \in \{x_1, \dots, x_n\}~\forall i \in \{1, \dots, r\}\}.
+Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, allora \[
+    \langle <x_1, \ldots, x_n\rangle = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r 
+    \in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}.
     \]
 \end{proposition}
 
 \begin{proof}
-Poniamo $S = \{g_1^{\pm 1}, \dots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \dots, x_n\}
-~\forall i \in \{1, \dots, r\}\}$, mostriamo che $S$ è un sottogruppo di $G$. 
-Effettivamente $e \in S$ in quanto è prodotto nessuna potenza di $x_1, \dots, x_n$, 
+Poniamo $S = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
+~\forall i \in \{1, \ldots, r\}\}$, mostriamo che $S$ è un sottogruppo di $G$. 
+Effettivamente $e \in S$ in quanto è prodotto nessuna potenza di $x_1, \ldots, x_n$, 
 il prodotto di due elementi di $S$ è ancora un elemento di $S$ in quanto
-prodotto finito di potenze di $x_1, \dots, x_n$ e l'inverso di un elemento
-$g_1^{\pm 1}\dots g_r^{\pm 1} \in\nolinebreak S$ è $(g_1^{\pm 1}\dots 
-g_r^{\pm 1})^{-1} = g_r^{\mp 1}\dots g_1^{\mp 1}$, che è un elemento di $S$.
-Abbiamo quindi che $S$ è un sottogruppo di $G$ contenente $x_1, \dots, x_n$,
-pertanto $\langle x_1, \dots, x_n\rangle\subseteq S$ per minimalità di $\langle <x_1,
-\dots, x_n\rangle$. D'altra parte, per quanto osservato sopra abbiamo che
-tutti gli elementi della forma $g_1^{\pm 1}\dots g_r^{\pm 1}$ con $r \in \NN$, 
-$g_i \in \{x_1, \dots, x_n\}$ per ogni $i \in \{1, \dots, r\}$ devono essere
-contenuti in $\langle <x_1, \dots, x_n\rangle$, pertanto i due sottogruppi
+prodotto finito di potenze di $x_1, \ldots, x_n$ e l'inverso di un elemento
+$g_1^{\pm 1}\ldots g_r^{\pm 1} \in\nolinebreak S$ è $(g_1^{\pm 1}\ldots 
+g_r^{\pm 1})^{-1} = g_r^{\mp 1}\ldots g_1^{\mp 1}$, che è un elemento di $S$.
+Abbiamo quindi che $S$ è un sottogruppo di $G$ contenente $x_1, \ldots, x_n$,
+pertanto $\langle x_1, \ldots, x_n\rangle\subseteq S$ per minimalità di $\langle <x_1,
+\ldots, x_n\rangle$. D'altra parte, per quanto osservato sopra abbiamo che
+tutti gli elementi della forma $g_1^{\pm 1}\ldots g_r^{\pm 1}$ con $r \in \NN$, 
+$g_i \in \{x_1, \ldots, x_n\}$ per ogni $i \in \{1, \ldots, r\}$ devono essere
+contenuti in $\langle <x_1, \ldots, x_n\rangle$, pertanto i due sottogruppi
 coincidono.
 \end{proof}
 
@@ -66,8 +69,8 @@ coincidono.
     $\langle x\rangle = G$, cioè tutti gli elementi di $G$ sono potenze di $x$.
 \end{remark}
 
-Diciamo che $x_1, \dots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
-l'insieme $\{x_1, \dots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \dots, x_n\rangle = G$.
+Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
+l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n\rangle = G$.
 
 
 
@@ -143,8 +146,8 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
 \end{proposition}
 
 \begin{proof}
-    Indicando con $1, \dots, n$ gli $n$ vertici di un poligono regolare, notiamo
-    che un elemento $g \in D_n$ è univocamente determinato da $g(1), \dots, g(n)$.
+    Indicando con $1, \ldots, n$ gli $n$ vertici di un poligono regolare, notiamo
+    che un elemento $g \in D_n$ è univocamente determinato da $g(1), \ldots, g(n)$.
     In particolare, fissato $g(1)$, per il quale abbiamo $n$ possibili scelte,
     abbiamo al massimo due valori per $g(2)$, cioè $g(2) \in \{g(1) + 1, g(1) - 1\}$
     (a meno di sommare $n$ se uno dei due elementi è negativo). Poiché $g(1)$
@@ -324,6 +327,37 @@ tutti distinti.
         N_{D_n}(H_{k, h})$, pertanto $H_{k, h} \trianglelefteqslant D_n$.
     \end{itemize}
 \end{proof}
+
+Vediamo effettivamente quali sono i sottogruppi normali della forma 
+$\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
+    \varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\]
+\[
+    \varphi_r: D_n \longrightarrow D_n :x \longmapsto rxr^{-1}
+\]e sia $x_1^{\pm 1}\ldots x_m^{\pm 1} \in H_{k, h} = \langle r^k, sr^h\rangle$, allora
+\[
+    \varphi_s(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_s(x_1)^{\pm 1}\ldots \varphi_s(x_m)^{\pm 1}
+    \in \langle srs, r^hs^{-1}\rangle = \langle sr^ks, r^hs^{-1}\rangle = \langle
+    r^k, sr^{-h}\rangle,
+\]
+\[
+    \varphi_r(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_r(x_1)^{\pm 1}\ldots \varphi_r(x_m)^{\pm 1}
+    \in \langle r^k, rsr^{h - 1}\rangle = \langle r^k, sr^{h - 2}\rangle.
+\]
+
+Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2}\rangle
+= \langle r^k, sr^{-h}\rangle = \langle r^k, sr^h\rangle$, se e solo se 
+$h \equiv h - 2 \mod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
+    \item Se $k = 1$ allora $H_{k, h} = \langle r, s\rangle = D_n$;
+    \item se $k = 2$ allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
+    $H_{k, h} = \langle r^2, s\rangle$.
+\end{itemize}
+
+\begin{remark}
+    Il secondo caso si presenta solo se $n$ è pari, questo corrisponde al fatto 
+    che in un poligono con un numero pari di lati gli assi di simmetria sono 
+    metà sui lati e metà lungo le diagonali. In un poligono con un numero dispari
+    di lati gli assi di simmetria sono tutti sui lati.
+\end{remark}
 
 
 
