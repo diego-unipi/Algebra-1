@@ -588,8 +588,8 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 \end{remark}
 
 \begin{example}
-    Nel caso in cui $G = \Z8$ e $X = \{0,\dots,7\}$, si ha l'azione:
-        \[ \lambda : G \longrightarrow S_8 (= S(X)) : \ol a \longmapsto \lambda_a
+    Nel caso in cui $G = \Z8$ consideriamo l'azione:
+        \[ \lambda : G \longrightarrow S(\Z8) \cong S_8: \ol a \longmapsto \lambda_a
             \]
     che genera ad esempio le applicazioni:\footnote{Per $+$ si intende la somma modulo $8$.}
             \begin{align*}
@@ -675,6 +675,41 @@ da cui $\lambda$ fedele.
             \]
     ma $H_j \subset Z(G)$ (sta nel centro, quindi è invariante per coniugio con tutti i $g \in G$, e in particolare quelli richiesti) dunque è sempre verificata l'ultima uguaglianza.
 \end{soln}
+
+\newpage
+\subsection{Permutazioni}
+Ricordiamo brevemente che:
+
+\begin{definition}
+    Dato un insieme $X$ si definsce \vocab{permutazione} un'applicazione bigettiva di $X$ in se stesso.
+\end{definition}
+
+Indichiamo con $S(X)$ il gruppo delle permutazioni di $X$ e con $S_n$ il gruppo delle permutazioni di un insieme di cardinalità $n$, che 
+per semplicità indichiamo con $\{1,\ldots,n\}$.
+Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in S_{12}$ si possono rappresentare mediante la matrice di permutazione:
+    \[ \sigma = \left(\begin{array}{cccccccccccc}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+        3 & 2 & 4 & 5 & 1 & 9 & 8 & 7 & 6 & 12 & 11 & 10 
+        \end{array}\right)
+        \]
+o anche con la notazione dei cicli:
+    \[ \sigma = \cycle{1,3,4,5} \cycle{6,9} \cycle{7,8} \cycle{10,12}
+            \]
+ogni ciclo prende il nome di \vocab{$k$-ciclo} (dove $k$ indica la sua lunghezza), come si osserva i cicli di lunghezza $1$ sono stati omessi,
+ in quanto lasciano fissi gli elementi, inoltre, i $2$-cicli prendono il nome di \vocab{trasposizioni}.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
