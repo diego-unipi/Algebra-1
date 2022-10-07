@@ -250,14 +250,14 @@ contenuti in $H$.
 
 \begin{remark}
     Per $k \mid n$ e $0\leqslant h < k$, $\langle r^k, sr^h\rangle = 
-    \langle r^k, sr^{h + k}\rangle$, infatti $\langle r^k, sr^h\rangle \subseteq
+    \langle r^k, sr^{h + k}\rangle$. Infatti $\langle r^k, sr^h\rangle \subseteq
     \langle r^k, sr^{h + k}\rangle$ in quanto $sr^h = (sr^{h + k})r^{-k}$ è
     un elemento del secondo gruppo, simmetricamente $\langle r^k, sr^{h + k}\rangle
     \subseteq \langle r^k, sr^h\rangle$ in quanto $sr^{h + k} = (sr^h)r^k$ è un
     elemento del primo gruppo.
 \end{remark}
 
-Abbiamo quindi finito la classificazione dei sottogruppi di $D_n$.
+Abbiamo finito la classificazione dei sottogruppi di $D_n$.
 
 \begin{theorem}
     [Classificazione dei sottogruppi di $D_n$]
@@ -273,16 +273,16 @@ tutti distinti.
     Abbiamo già visto che i sottogruppi di $D_n$ hanno una di queste forme, 
     mostriamo quindi che sono tutti distinti. A meno di cambiare $k$, possiamo
     supporre che $r$ generi $\mathcal{R}$, cioè $\ord(r) = n$. 
-    Consideriamo $H, K\leqslant D_n$ due sottogruppi, distinguiamo tre casi 
+    Consideriamo $H, K\leqslant D_n$ due sottogruppi, abbiamo tre casi 
     \begin{itemize}
         \item se $H = \langle r^k\rangle$ e $K = \langle r^m\rangle$, $m \in \ZZ$,
         allora $H = K\iff k = m$ in quanto entrambi sottogruppi di un gruppo 
         ciclico, pertanto esiste un unico sottogruppo della forma $\langle r^k\rangle$
         per ogni $k \mid n$;
-        \item se $H = \langle r^k\rangle$ e $K = \langle sr^h\rangle$ allora $H \neq K$
-        in quanto $H$ è ciclico e $K$ no;
+        \item se $H = \langle r^k\rangle$ e $K = \langle r^m, sr^h\rangle$, con $m \mid n$,
+        allora $H \neq K$ in quanto $H$ è ciclico e $K$ no;
         \item se $H = \langle r^k, sr^h\rangle$ e $K = \langle r^m, sr^l\rangle$, 
-        con $m \mid n$ e $0\leqslant l < m$, considerando le intersezioni con $\mathcal{R}$ 
+        con $m \mid n$ e $0\leqslant l < m$, considerando le intersezioni
         $H \cap \mathcal{R} = \langle r^k\rangle$ e $K \cap \mathcal{R} = \langle r^m\rangle$ 
         abbiamo \[
         H \cap \mathcal{R} = K\cap\mathcal{R} \iff \langle r^k\rangle = \langle r^m\rangle
@@ -291,8 +291,8 @@ tutti distinti.
         \cdot \langle sr^l\rangle$, allora esiste $t \in \ZZ$ tale che \[
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
         \iff h \equiv l - mt \mod n,
-        \]da cui ricaviamo $h \equiv l \mod m$. Ma allora $h =l$ in quanto 
-        $0 \leqslant h < k$, $0\leqslant l < m$.
+        \]da cui ricaviamo $h \equiv l \mod m$ in quanto $m \mid n$. Ma allora 
+        $h =l$ in quanto $0 \leqslant h < k$ e $0\leqslant l < m$.
     \end{itemize}
 \end{proof}
 
@@ -310,8 +310,9 @@ tutti distinti.
     \] poiché 
     $B\trianglelefteqslant G$ è ben definita la restrizione \[
         \varphi_{g\mid B} : B\longrightarrow B :  b \longmapsto gbg^{-1},
-    \]in particolare $\varphi_{g\mid B} \in Aut(G)$. Dal momento che $A$ è
-    un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) = A$,
+    \]che è un elemento di $Aut(B)$. Dal momento che $A$ è
+    un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) =
+    \varphi_g(A) = A$,
     pertanto $A \trianglelefteqslant G$.
 \end{proof}
 
@@ -324,9 +325,11 @@ tutti distinti.
     Siano $\langle r^k\rangle$ un sottogruppo di $\mathcal{R}$ e $\varphi
     \in Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
     in quanto $\varphi$ preserva l'ordine del sottogruppo e $\langle r^k\rangle$
-    è l'unico sottogruppo di $\mathcal{R}$ di tale ordine, pertanto $\langle r^k\rangle$
-    è caratteristico in $\mathcal{R}$. Allora per il \hyperref[lemma1]{Lemma 2.14}
-    abbiamo che $\langle r^k\rangle\trianglelefteqslant D_n$.
+    è l'unico sottogruppo di $\mathcal{R}$ di tale ordine ($\mathcal{R}$ è ciclico),
+    pertanto $\langle r^k\rangle$
+    è caratteristico in $\mathcal{R}$. Poiché $\mathcal{R}$ è un sottogruppo
+    normale di $D_n$, per il \hyperref[lemma1]{Lemma 2.15}
+    abbiamo $\langle r^k\rangle\trianglelefteqslant D_n$.
 \end{proof}
 
 \begin{corollary}
@@ -371,15 +374,15 @@ $h \equiv h - 2 \mod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
     Il secondo caso si presenta solo se $n$ è pari, questo corrisponde al fatto 
     che in un poligono con un numero pari di lati gli assi di simmetria sono 
     per metà passanti per i lati e metà passanti per i vertici opposti. In un poligono con un numero dispari
-    di lati gli assi di simmetria sono tutti sui lati.
+    di lati gli assi di simmetria sono tutti passanti per i lati.
 \end{remark}
 
 
 \subsection{Classi di coniugio}
 
-Per quanto visto fino a ora, possiamo scrivere ogni elemento di $D_n$ nella
-forma $s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera
-il sottogruppo $\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$
+Abbiamo visto che possiamo scrivere ogni elemento di $D_n$ nella forma
+ $s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera 
+ $\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$
 in quanto $\ord(s)= 2$ e $\ord(r) = n$. Inoltre tutti gli elementi della
 forma $sr^h$ hanno ordine $2$.
 
