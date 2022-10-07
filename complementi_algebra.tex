@@ -81,13 +81,13 @@ l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n
 \begin{definition}
     Dato $n \geq 2$ un naturale, consideriamo un poligono regolare di $n$ vertici,
     definiamo il \vocab{gruppo diedrale} su $n$ vertici $D_n$ come l'insieme 
-    delle isometrie del piano che mandano i vertici in se stessi, cioè che 
+    delle isometrie del piano che mandano i vertici in se stessi,F cioè che 
     fissano il poligono (per $n = 2$ consideriamo le isometrie che mandano un 
-    segmento si se stesso).
+    segmento in se stesso).
 \end{definition}
 
 \begin{remark}
-    $D_n$ è effettivamente un gruppo, in quanto l'applicazione identità che 
+    $D_n$ è un gruppo, in quanto l'applicazione identità che 
     fissa tutti i vertici è un'isometria dal poligono in se stesso, la 
     composizione di isometrie è un'isometria e un'isometria ammette sempre 
     un'inversa, che è anch'essa un'isometria.
@@ -141,7 +141,6 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
 \end{proof}
 
 \begin{proposition}
-    \label{prop2.0}
     Se $n \geq 3$ allora $|D_n| = 2n$.
 \end{proposition}
 
@@ -166,6 +165,15 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
 \begin{remark}
     Abbiamo mostrato che effettivamente $D_n = \langle r, s\rangle$, quindi i
     suoi elementi sono tutti della forma $r^k$, $sr^h$. 
+\end{remark}
+
+\begin{remark}
+    Il risultato è valido anche per $D_2$, ma con motivazioni diverse. 
+    Se consideriamo un segmento nel piano $\RR^2$ giacente sulla retta $y = 0$, 
+    le isometrie che possiamo applicare sono l'identità, la rotazione di 
+    angolo $\pi$, la simmetria lungo la retta $y = 0$ e la simmetria lungo la
+    retta passante per il suo punto medio. $D_2$ contiene quindi quattro elementi,
+    l'identità e tre elementi di ordine due, pertanto è isomorfo a $\Z2\times\Z2$.
 \end{remark}
 
 
@@ -330,8 +338,7 @@ tutti distinti.
 
 Vediamo effettivamente quali sono i sottogruppi normali della forma 
 $\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
-    \varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\]
-\[
+    \varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\qquad
     \varphi_r: D_n \longrightarrow D_n :x \longmapsto rxr^{-1}
 \]e sia $x_1^{\pm 1}\ldots x_m^{\pm 1} \in H_{k, h} = \langle r^k, sr^h\rangle$, allora
 \[
@@ -348,17 +355,68 @@ Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2
 = \langle r^k, sr^{-h}\rangle = \langle r^k, sr^h\rangle$, se e solo se 
 $h \equiv h - 2 \mod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
     \item Se $k = 1$ allora $H_{k, h} = \langle r, s\rangle = D_n$;
-    \item se $k = 2$ allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
+    \item se $k = 2$ (e $n$ pari) allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
     $H_{k, h} = \langle r^2, s\rangle$.
 \end{itemize}
 
 \begin{remark}
     Il secondo caso si presenta solo se $n$ è pari, questo corrisponde al fatto 
     che in un poligono con un numero pari di lati gli assi di simmetria sono 
-    metà sui lati e metà lungo le diagonali. In un poligono con un numero dispari
+    per metà passanti per i lati e metà passanti per i vertici opposti. In un poligono con un numero dispari
     di lati gli assi di simmetria sono tutti sui lati.
 \end{remark}
 
 
+\section{Classi di coniugio}
 
+Per quanto visto fino a ora, possiamo scrivere ogni elemento di $D_n$ nella
+forma $s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera
+il sottogruppo $\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$
+in quanto $\ord(s)= 2$ e $\ord(r) = n$. Inoltre tutti gli elementi della
+forma $sr^h$ hanno ordine $2$.
+
+Consideriamo la classe di coniugio di $r$, $C_r = \{grg^{-1}\mid g \in D_n\}$,
+fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
+\begin{itemize}
+    \item se $g \in \mathcal{R}$ allora $g$ è una potenza di $r$, pertanto i
+    due elementi commutano e si ha $grg^{-1} = r$;
+    \item se $g\notin\mathcal{R}$ allora $g = sr^h$ con $h \in \ZZ$, quindi
+    \[
+        (sr^h)r(sr^h)^{-1} = (sr^h)r(sr^h) = sr^{h + 1}sr^h = s^2r^{-1-h}r^h = r^{-1},
+    \]
+\end{itemize}
+cioè $C_r = \{r, r^{-1}\}$. In modo analogo si mostra che $C_{r^k} = \{r^k, r^{-k}\}$
+per ogni $k \in \ZZ$.
+
+\begin{remark}
+    Se $n$ è pari, scriviamo $n = 2m$ e consideriamo la classe di coniugio
+    di $r^m$. Poiché $r^m \neq e$ e $r^{2m} = (r^m)^2 = e$ abbiamo che
+    $\ord(r^m) = 2$, cioè $(r^m)^{-1} = r^m$. Allora $C_{r^m} = \{r^m\}$,
+    pertanto abbiamo trovato un elemento del centro di $D_n$ (infatti se $G$
+    è un gruppo e $x \in G$, allora $x \in Z(G)$ se e solo se $C_x = \{x\}$).
+\end{remark}
+
+Consideriamo adesso la classe di coniugio di $sr^h$, $C_{sr^h} = 
+\{g(sr^h)g^{-1}\mid g\in D_n\}$, fissato $g \in D_n$ abbiamo due possibili
+valori per $g(sr^h)g^{-1}$:
+\begin{itemize}
+    \item se $g \in \mathcal{R}$ allora $g = r^k$ con $k \in \ZZ$, pertanto
+    \[
+        r^k(sr^h)r^{-k} = sr^{-k}r^h r^{-k} = sr^{h - 2k};
+    \]
+    \item se $g \notin \mathcal{R}$ allora $g = sr^k$ con $k \in \ZZ$, pertanto
+    \[
+        (sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h},
+    \]
+\end{itemize}
+cioè $C_{sr^k} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
+
+\begin{remark}
+    La classe di coniugio di $sr^h$ contiene tutte le simmetrie in cui 
+    l'esponente di $r$ ha la stessa parità di $h$. Se $n$ è 
+    dispari tutte le simmetrie appartengono alla stessa classe,
+    mentre se $n$ è pari abbiamo due classi distinte: quella 
+    delle simmetrie rispetto agli assi passanti per i vertici opposti e quella 
+    delle simmetrie rispetto agli assi passanti per i lati.
+\end{remark}
 \end{document}
