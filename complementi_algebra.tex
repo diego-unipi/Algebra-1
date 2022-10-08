@@ -21,19 +21,19 @@
     Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, chiamiamo \vocab{sottogruppo 
     generato} da $x_1, \ldots, x_n$ il più piccolo sottogruppo $\langle x_1, \ldots x_n
     \rangle$ di $G$ contenente $x_1, \ldots, x_n$, cioè \[\langle x_1, \ldots, x_n\rangle =
-    \bigcap_{\substack{H\leq G\\ \{x_1, \ldots, x_n\} \subseteq H}} H\] 
+    \bigcap_{\substack{H\leqslant G\\ \{x_1, \ldots, x_n\} \subseteq H}} H\] 
 \end{definition}
 
 \begin{remark}
     La definizione è ben posta, infatti l'intersezione avviene su una 
     famiglia non vuota di insiemi dal momento che $G$ è un sottogruppo di 
-    $G$ contenente $x_1, \ldots, x_n$. Inoltre l'intersezione non è vuota in 
+    se stesso contenente $x_1, \ldots, x_n$. Inoltre l'intersezione non è vuota in 
     quanto contiene almeno l'identità e gli elementi $x_1, \ldots, x_n$.
 \end{remark}
 
 La definizione data non dà informazioni su come sono fatti gli elementi di 
-$\langle <x_1, dots, x_n\rangle$, cerchiamo quindi di caratterizzare in modo
-diverso tale sottogruppo. In quanto sottogruppo, $\langle x_1, \ldots, x_n\rangle$
+$\langle x_1, \ldots, x_n\rangle$, cerchiamo quindi di caratterizzare in modo
+diverso tale sottogruppo. Poiché chiuso per l'operazione indotta da $G$, $\langle x_1, \ldots, x_n\rangle$
 deve contenere tutti i prodotti finiti, in qualsiasi ordine, delle potenze di
 $x_1, \ldots, x_n$, cioè deve contenere l'insieme 
 \[\{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
@@ -42,7 +42,7 @@ $x_1, \ldots, x_n$, cioè deve contenere l'insieme
 \begin{proposition}
 \label{prop1.0}
 Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, allora \[
-    \langle <x_1, \ldots, x_n\rangle = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r 
+    \langle x_1, \ldots, x_n\rangle = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r 
     \in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}.
     \]
 \end{proposition}
@@ -56,11 +56,11 @@ prodotto finito di potenze di $x_1, \ldots, x_n$ e l'inverso di un elemento
 $g_1^{\pm 1}\ldots g_r^{\pm 1} \in\nolinebreak S$ è $(g_1^{\pm 1}\ldots 
 g_r^{\pm 1})^{-1} = g_r^{\mp 1}\ldots g_1^{\mp 1}$, che è un elemento di $S$.
 Abbiamo quindi che $S$ è un sottogruppo di $G$ contenente $x_1, \ldots, x_n$,
-pertanto $\langle x_1, \ldots, x_n\rangle\subseteq S$ per minimalità di $\langle <x_1,
+pertanto $\langle x_1, \ldots, x_n\rangle\subseteq S$ per minimalità di $\langle x_1,
 \ldots, x_n\rangle$. D'altra parte, per quanto osservato sopra abbiamo che
 tutti gli elementi della forma $g_1^{\pm 1}\ldots g_r^{\pm 1}$ con $r \in \NN$, 
 $g_i \in \{x_1, \ldots, x_n\}$ per ogni $i \in \{1, \ldots, r\}$ devono essere
-contenuti in $\langle <x_1, \ldots, x_n\rangle$, pertanto i due sottogruppi
+contenuti in $\langle x_1, \ldots, x_n\rangle$, pertanto i due sottogruppi
 coincidono.
 \end{proof}
 
@@ -79,28 +79,28 @@ l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n
 \subsection{Elementi del gruppo}
 
 \begin{definition}
-    Dato $n \geq 2$ un naturale, consideriamo un poligono regolare di $n$ vertici,
+    Dato $n \geqslant 2$ un naturale, consideriamo un poligono regolare di $n$ vertici,
     definiamo il \vocab{gruppo diedrale} su $n$ vertici $D_n$ come l'insieme 
     delle isometrie del piano che mandano i vertici in se stessi, cioè che 
     fissano il poligono (per $n = 2$ consideriamo le isometrie che mandano un 
-    segmento si se stesso).
+    segmento in se stesso).
 \end{definition}
 
 \begin{remark}
-    $D_n$ è effettivamente un gruppo, in quanto l'applicazione identità che 
+    $D_n$ è un gruppo, in quanto l'applicazione identità che 
     fissa tutti i vertici è un'isometria dal poligono in se stesso, la 
     composizione di isometrie è un'isometria e un'isometria ammette sempre 
     un'inversa, che è anch'essa un'isometria.
 \end{remark}
 
 \begin{remark}
-    Una rotazione di angolo $\displaystyle\frac{2\pi}{5}$ è un elemento di $D_n$,
+    Una rotazione di angolo $\displaystyle\frac{2\pi}{n}$ è un elemento di $D_n$,
     così come una simmetria rispetto a un asse.
 \end{remark}
 
 Proseguendo con questa intuizione geometrica, indicheremo con $r$ una rotazione
 di angolo $\displaystyle \frac{2\pi}{n}$ e con $s$ una simmetria rispetto a
-un qualsiasi asse, notiamo che $\ord(r) = n$ e $\ord(s) = 2$ (per convenzione, 
+un qualsiasi asse. Notiamo che $\ord(r) = n$ e $\ord(s) = 2$ (per convenzione, 
 indichiamo con un angolo positivo una rotazione in senso antiorario e con un 
 angolo negativo una rotazione in senso orario).
 
@@ -119,14 +119,14 @@ angolo negativo una rotazione in senso orario).
 Per determinare come sono fatti gli elementi di $D_n$, studiamo il sottogruppo
 $\langle r, s\rangle$. Sicuramente $\langle r, s\rangle$ contiene il sottogruppo $\mathcal{R}$
 e tutti gli elementi della forma $sr^k$, $sr^ks$, $sr^ksr^h$ e così via, vogliamo
-mostrare che in effetti $D_n$ è generato da $r$ e $s$
+mostrare che in effetti $D_n$ è generato da $r$ e $s$.
 
 \begin{remark}
     Gli elementi della forma $r^k$ e $sr^h$ sono distinti per ogni $h, k \in \ZZ$. 
     Infatti sappiamo dall'algebra lineare che il determinante di una simmetria
-    è $-1$ mentre il determinante di una rotazione è $1$, per la moltiplicatività
-    del determinante abbiamo quindi $\det (r^k) = (\det r)^k = 1$ e
-    $\det (sr^h) = (\det s)(\det r)^h = -1$, cioè $r^k \neq sr^h$.
+    è $-1$ e che il determinante di una rotazione è $1$, per la moltiplicatività
+    del determinante quindi $\det (r^k) = (\det r)^k = 1$ e
+    $\det (sr^h) = (\det s)(\det r)^h = -1$, da cui $r^k \neq sr^h$.
 \end{remark}
 
 \begin{lemma}
@@ -135,59 +135,73 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$
 \end{lemma}
 
 \begin{proof}
-    $srs^{-1} = r^{-1} \iff sr = r^{-1}s = (s^{-1}r)^{-1}$. Si conclude
-    osservando che $s^2 = 1$, pertanto $s^{-1} = s$ e $(s^{-1}r)^{-1} =
-    (sr)^{-1} = r^{-1}s^{-1} = r^{-1}s$.
+    \[
+        srs^{-1} = r^{-1} \iff sr = r^{-1}s = (s^{-1}r)^{-1}.
+    \] Si conclude
+    osservando che $s^2 = 1$, pertanto $s^{-1} = s$ e 
+    \[
+        (s^{-1}r)^{-1} = (sr)^{-1} = r^{-1}s^{-1} = r^{-1}s.
+    \]
 \end{proof}
 
 \begin{proposition}
-    \label{prop2.0}
-    Se $n \geq 3$ allora $|D_n| = 2n$.
+    Se $n \geqslant 3$ allora $|D_n| = 2n$.
 \end{proposition}
 
 \begin{proof}
-    Indicando con $1, \ldots, n$ gli $n$ vertici di un poligono regolare, notiamo
+    Indicando con $1, \ldots, n$ gli $n$ vertici di un poligono regolare di $n$ lati, notiamo
     che un elemento $g \in D_n$ è univocamente determinato da $g(1), \ldots, g(n)$.
     In particolare, fissato $g(1)$, per il quale abbiamo $n$ possibili scelte,
     abbiamo al massimo due valori per $g(2)$, cioè $g(2) \in \{g(1) + 1, g(1) - 1\}$
     (a meno di sommare $n$ se uno dei due elementi è negativo). Poiché $g(1)$
-    e $g(2)$ determinano due vettori nel piano non allineati, che sono quindi
-    linearmente indipendenti e determinano una base del piano. Una volta 
-    determinati i valori di $g(1)$ e $g(2)$ abbiamo quindi determinato ogni
+    e $g(2)$ individuano due vettori nel piano non allineati, cioè
+    linearmente indipendenti, ne costituiscono una base: fissati i valori di 
+    $g(1)$ e $g(2)$ abbiamo quindi determinato ogni
     elemento di $D_n$ in modo unico e, poiché possiamo farlo in al più $2n$ modi, 
-    abbiamo che $|D_n| \leq 2n$. Ricordiamo adesso che $D_n$ contiene gli elementi
-    della forma $r^k$, $sr^h$ per $h, k \in \ZZ$, mostriamo che questi sono 
-    infatti $2n$: gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
-    di ordine $r$, pertanto sono $n$ elementi distinti. Inoltre $sr^i = sr^j
-    \iff r^i = r^j\iff i \equiv j \mod n$, pertanto anche questi sono $n$
+    $|D_n| \leqslant 2n$. Ricordiamo adesso che $D_n$ contiene gli elementi
+    della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$, mostriamo che questi sono 
+    infatti $2n$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
+    di ordine $r$, pertanto sono $n$ elementi distinti, inoltre 
+    \[
+        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \mod n,
+    \] pertanto anche questi sono $n$
     elementi distinti. Allora $|D_n| = 2n$.
 \end{proof}
 
 \begin{remark}
     Abbiamo mostrato che effettivamente $D_n = \langle r, s\rangle$, quindi i
-    suoi elementi sono tutti della forma $r^k$, $sr^h$. 
+    suoi elementi sono tutti della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$. 
+\end{remark}
+
+\begin{remark}
+    Il risultato è valido anche per $D_2$, ma con motivazioni diverse. 
+    Se consideriamo un segmento nel piano $\RR^2$ giacente sulla retta $y = 0$, 
+    le isometrie che possiamo applicare sono l'identità, la rotazione di 
+    angolo $\pi$, la simmetria lungo la retta $y = 0$ e la simmetria lungo l'asse
+    passante per il suo punto medio. $D_2$ contiene quindi quattro elementi,
+    l'identità e tre elementi di ordine due, pertanto è isomorfo a $\Z2\times\Z2$.
 \end{remark}
 
 
 \subsection{Sottogruppi}
 
-Consideriamo un sottogruppo $H\leq D_n$, abbiamo due casi distinti: 
+Consideriamo un sottogruppo $H\leqslant D_n$, distinguiamo due possibilità: 
 $H \subseteq \mathcal{R}$ oppure $H \nsubseteq \mathcal{R}$. Nel primo caso
 abbiamo che $|H|\mid n$, ed è l'unico sottogruppo di $\mathcal{R}$ con questa 
 proprietà in quanto $\mathcal{R}$ è ciclico, in particolare $H$ è ciclico 
-della forma $\langle ^{\frac n d}\rangle$, con $d \mid n$. \newline
-Studiamo quindi il caso $H \nsubseteq \mathcal{R}$. Osserviamo che 
+della forma $ \displaystyle\left<\frac n d\right>$, con $d \mid n$. \newline
+Studiamo quindi il caso $H \nsubseteq \mathcal{R}$: notiamo che 
 $\mathcal{R}\trianglelefteqslant D_n$ in quanto $[D_n : \mathcal{R}] = 2$,
-pertanto il gruppo $\faktor{D_n}{\mathcal{R}}$ è ben definito e risulta essere 
-isomorfo a $\Z2$. \newline
+pertanto $\faktor{D_n}{\mathcal{R}}$ è un gruppo con l'operazione indotta da $D_n$
+e risulta essere isomorfo a $\Z2$. \newline
 Consideriamo la proiezione al quoziente \[
     \pi_{\mathcal{R}}: D_n \longrightarrow \faktor{D_n}{\mathcal{R}} : g \mapsto [g],
 \]poiché $H \nsubseteq \mathcal{R}$ abbiamo che esiste $h \in H$ tale che 
 $h \notin \mathcal{R}$, pertanto $\pi_{\mathcal{R}}(h) \notin [\mathcal{R}]$ e
 in particolare $\pi_{\mathcal{R}}(H) \nsubseteq [\mathcal{R}]$. Dato che i 
 sottogruppi di $\faktor{D_n}{\mathcal{R}}$ sono solo $\{[\mathcal{R}]\}$ e
-$\faktor{D_n}{\mathcal{R}}$ abbiamo quindi $\pi_{\mathcal{R}}(H) = 
-\faktor{D_n}{\mathcal{R}}$. Osserviamo che $\ker \pi_{\mid H} = 
+$\faktor{D_n}{\mathcal{R}}$ abbiamo $\pi_{\mathcal{R}}(H) = 
+\faktor{D_n}{\mathcal{R}}$. Osserviamo inoltre che $\ker \pi_{\mid H} = 
 \ker \pi \cap H = \mathcal{R}\cap H$, per il Primo Teorema di Omomorfismo
 allora $\faktor{H}{H\cap \mathcal{R}} \cong \Z2$, quindi 
 $|H\cap\mathcal{R}| = \displaystyle\frac 1 2 |H|$. Dato che $R\cap H \subseteq
@@ -196,9 +210,8 @@ in particolare $\langle r^k\rangle$ e $\langle sr^h\rangle$, $h \in \ZZ$, sono
 contenuti in $H$. 
 
 \begin{proposition}
-    \label{prop2.0}
-    Dati $H\leq D_n$ un sottogruppo tale che $H\nsubseteq \mathcal{R}$, se
-    $r \in \mathcal{R}$ è tale che $H\cap\mathcal{R} = \langle r^k\rangle$ 
+    Dati $H\leqslant D_n$ un sottogruppo tale che $H\nsubseteq \mathcal{R}$, se
+    $r$ è un generatore di $\mathcal{R}$ tale che $H\cap\mathcal{R} = \langle r^k\rangle$ 
     e $s$ è una simmetria allora \[
     H = \langle r^k\rangle\cdot\langle sr^h\rangle = \{xy \mid x \in \langle r^k\rangle,
     y \in \langle sr^h\rangle\}, h, k \in \ZZ.    
@@ -206,26 +219,29 @@ contenuti in $H$.
 \end{proposition}
 
 \begin{proof}
-    Per quanto visto sopra, abbiamo che $|\langle r^k\rangle| = 
-    \displaystyle\frac 1 2|H|$, osserviamo inoltre che $(sr^h)^2 = sr^hsr^h = 
-    (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e$, pertanto 
-    $\langle sr^h\rangle \cong \Z2$. Ricordiamo che, se $K, N$ sono sottogruppi
+    Per quanto visto sopra abbiamo che $|\langle r^k\rangle| = 
+    \displaystyle\frac 1 2|H|$, inoltre osserviamo che $\ord(sr^h) = 2$ in quanto
+    \[
+        (sr^h)^2 = sr^hsr^h = (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e,
+    \]
+    pertanto $\langle sr^h\rangle \cong \Z2$. Ricordiamo che, dati $K, N$ sottogruppi
     di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
-    $N \subseteq N_G(K)$. Nel nostro caso abbiamo che $\langle sr^h\rangle
+    $N \subseteq N_G(K)$ allora $HK = KH$ e quindi $HK$ è un sottogruppo di $G$. 
+    Nel nostro caso abbiamo che $\langle sr^h\rangle
     \subseteq N_{D_n}(\langle r^k\rangle)$, infatti per ogni $m \in \ZZ$ abbiamo\[
         (sr^h)r^{mk}(sr^h)^{-1} = sr^{h + mk} sr^h = r^{-h-mk}r^h = r^{-mk}
         \in \langle r^k \rangle,
-    \]cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$, quindi
+    \]cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$ e quindi
     $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$.
     Poiché $\langle r^k\rangle$ e $\langle sr^h\rangle$ sono contenuti in $H$
     abbiamo che $\langle r^k\rangle\cdot\langle sr^h\rangle \subseteq H$, inoltre
     \[|\langle r^k\rangle\cdot\langle sr^h\rangle| = \displaystyle\frac 1 2 |H|\cdot 2 = |H|\]
-    in quanto $\langle r^k\rangle\cap\langle sr^h\rangle = \{e\}$, quindi 
+    in quanto $\langle r^k\rangle\cap\langle sr^h\rangle = \{e\}$, pertanto 
     i due sottogruppi coincidono.
 \end{proof}
 
 \begin{remark}
-    Per $k \mid n$ e $0\leq h < k$, i sottogruppi $H_{k, h} = \langle r^k, sr^h\rangle$
+    Per $k \mid n$ e $0\leqslant h < k$, i sottogruppi $H_{k, h} = \langle r^k, sr^h\rangle$
     e $H = \langle r^k\rangle\cdot\langle sr^h\rangle$ coincidono. Infatti 
     $H_{k, h}\subseteq H$ in quanto $r^k, sr^h$ sono elementi di $H$, 
     d'altra parte $H \subseteq H_{k, h}$ in quanto $H_{h, k}$ contiene tutti i 
@@ -233,21 +249,21 @@ contenuti in $H$.
 \end{remark}
 
 \begin{remark}
-    Per $k \mid n$ e $0\leq h < k$, $\langle r^k, sr^h\rangle = 
-    \langle r^k, sr^{h + k}\rangle$, infatti $\langle r^k, sr^h\rangle \subseteq
+    Per $k \mid n$ e $0\leqslant h < k$, $\langle r^k, sr^h\rangle = 
+    \langle r^k, sr^{h + k}\rangle$. Infatti $\langle r^k, sr^h\rangle \subseteq
     \langle r^k, sr^{h + k}\rangle$ in quanto $sr^h = (sr^{h + k})r^{-k}$ è
     un elemento del secondo gruppo, simmetricamente $\langle r^k, sr^{h + k}\rangle
     \subseteq \langle r^k, sr^h\rangle$ in quanto $sr^{h + k} = (sr^h)r^k$ è un
     elemento del primo gruppo.
 \end{remark}
 
-Abbiamo quindi finito la classificazione dei sottogruppi di $D_n$.
+Abbiamo finito la classificazione dei sottogruppi di $D_n$.
 
 \begin{theorem}
     [Classificazione dei sottogruppi di $D_n$]
 I sottogruppi di $D_n$ sono della forma \begin{itemize}
     \item[(1)] $\langle r^k\rangle$ con $k\mid n$;
-    \item[(2)] $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leq h < k$, 
+    \item[(2)] $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leqslant h < k$, 
 \end{itemize}
 con $r \in \mathcal{R}$ e $s$ una simmetria. Inoltre tali sottogruppi sono
 tutti distinti.
@@ -257,16 +273,16 @@ tutti distinti.
     Abbiamo già visto che i sottogruppi di $D_n$ hanno una di queste forme, 
     mostriamo quindi che sono tutti distinti. A meno di cambiare $k$, possiamo
     supporre che $r$ generi $\mathcal{R}$, cioè $\ord(r) = n$. 
-    Consideriamo $H, K\leq D_n$ due sottogruppi, distinguiamo tre casi 
+    Consideriamo $H, K\leqslant D_n$ due sottogruppi, abbiamo tre casi 
     \begin{itemize}
         \item se $H = \langle r^k\rangle$ e $K = \langle r^m\rangle$, $m \in \ZZ$,
         allora $H = K\iff k = m$ in quanto entrambi sottogruppi di un gruppo 
         ciclico, pertanto esiste un unico sottogruppo della forma $\langle r^k\rangle$
         per ogni $k \mid n$;
-        \item se $H = \langle r^k\rangle$ e $K = \langle sr^h\rangle$ allora $H \neq K$
-        in quanto $H$ è ciclico e $K$ no;
+        \item se $H = \langle r^k\rangle$ e $K = \langle r^m, sr^h\rangle$, con $m \mid n$,
+        allora $H \neq K$ in quanto $H$ è ciclico e $K$ no;
         \item se $H = \langle r^k, sr^h\rangle$ e $K = \langle r^m, sr^l\rangle$, 
-        con $m \mid n$ e $0\leq l < m$, considerando le intersezioni con $\mathcal{R}$ 
+        con $m \mid n$ e $0\leqslant l < m$, considerando le intersezioni
         $H \cap \mathcal{R} = \langle r^k\rangle$ e $K \cap \mathcal{R} = \langle r^m\rangle$ 
         abbiamo \[
         H \cap \mathcal{R} = K\cap\mathcal{R} \iff \langle r^k\rangle = \langle r^m\rangle
@@ -275,14 +291,14 @@ tutti distinti.
         \cdot \langle sr^l\rangle$, allora esiste $t \in \ZZ$ tale che \[
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
         \iff h \equiv l - mt \mod n,
-        \]da cui ricaviamo $h \equiv l \mod m$. Ma allora $h =l$ in quanto 
-        $0 \leq h < k$, $0\leq l < m$.
+        \]da cui ricaviamo $h \equiv l \mod m$ in quanto $m \mid n$. Ma allora 
+        $h =l$ in quanto $0 \leqslant h < k$ e $0\leqslant l < m$.
     \end{itemize}
 \end{proof}
 
 \begin{lemma}
     \label{lemma1}
-    Dati un gruppo $G$ e $A, B$ due sottogruppi tali che $A \leq B \leq G$,
+    Dati un gruppo $G$ e $A, B$ due sottogruppi tali che $A \leqslant B \leqslant G$,
     se $B\trianglelefteqslant G$ e $A$ è caratteristico in $B$ allora 
     $A \trianglelefteqslant G$.
 \end{lemma}
@@ -294,8 +310,9 @@ tutti distinti.
     \] poiché 
     $B\trianglelefteqslant G$ è ben definita la restrizione \[
         \varphi_{g\mid B} : B\longrightarrow B :  b \longmapsto gbg^{-1},
-    \]in particolare $\varphi_{g\mid B} \in Aut(G)$. Dal momento che $A$ è
-    un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) = A$,
+    \]che è un elemento di $Aut(B)$. Dal momento che $A$ è
+    un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) =
+    \varphi_g(A) = A$,
     pertanto $A \trianglelefteqslant G$.
 \end{proof}
 
@@ -308,13 +325,15 @@ tutti distinti.
     Siano $\langle r^k\rangle$ un sottogruppo di $\mathcal{R}$ e $\varphi
     \in Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
     in quanto $\varphi$ preserva l'ordine del sottogruppo e $\langle r^k\rangle$
-    è l'unico sottogruppo di $\mathcal{R}$ di tale ordine, pertanto $\langle r^k\rangle$
-    è caratteristico in $\mathcal{R}$. Allora per il \hyperref[lemma1]{Lemma 2.14}
-    abbiamo che $\langle r^k\rangle\trianglelefteqslant D_n$.
+    è l'unico sottogruppo di $\mathcal{R}$ di tale ordine ($\mathcal{R}$ è ciclico),
+    pertanto $\langle r^k\rangle$
+    è caratteristico in $\mathcal{R}$. Poiché $\mathcal{R}$ è un sottogruppo
+    normale di $D_n$, per il \hyperref[lemma1]{Lemma 2.15}
+    abbiamo $\langle r^k\rangle\trianglelefteqslant D_n$.
 \end{proof}
 
 \begin{corollary}
-    Per $k\mid n$ e $0\leq h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
+    Per $k\mid n$ e $0\leqslant h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
     è normale in $D_n$ se e solo se $r, s \in N_{D_n}(H_{k, h})$.
 \end{corollary}
 
@@ -330,8 +349,7 @@ tutti distinti.
 
 Vediamo effettivamente quali sono i sottogruppi normali della forma 
 $\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
-    \varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\]
-\[
+    \varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\qquad
     \varphi_r: D_n \longrightarrow D_n :x \longmapsto rxr^{-1}
 \]e sia $x_1^{\pm 1}\ldots x_m^{\pm 1} \in H_{k, h} = \langle r^k, sr^h\rangle$, allora
 \[
@@ -348,17 +366,68 @@ Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2
 = \langle r^k, sr^{-h}\rangle = \langle r^k, sr^h\rangle$, se e solo se 
 $h \equiv h - 2 \mod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
     \item Se $k = 1$ allora $H_{k, h} = \langle r, s\rangle = D_n$;
-    \item se $k = 2$ allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
+    \item se $k = 2$ (e $n$ pari) allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
     $H_{k, h} = \langle r^2, s\rangle$.
 \end{itemize}
 
 \begin{remark}
     Il secondo caso si presenta solo se $n$ è pari, questo corrisponde al fatto 
     che in un poligono con un numero pari di lati gli assi di simmetria sono 
-    metà sui lati e metà lungo le diagonali. In un poligono con un numero dispari
-    di lati gli assi di simmetria sono tutti sui lati.
+    per metà passanti per i lati e metà passanti per i vertici opposti. In un poligono con un numero dispari
+    di lati gli assi di simmetria sono tutti passanti per i lati.
 \end{remark}
 
 
+\subsection{Classi di coniugio}
 
+Abbiamo visto che possiamo scrivere ogni elemento di $D_n$ nella forma
+ $s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera 
+ $\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$
+in quanto $\ord(s)= 2$ e $\ord(r) = n$. Inoltre tutti gli elementi della
+forma $sr^h$ hanno ordine $2$.
+
+Consideriamo la classe di coniugio di $r$, $C_r = \{grg^{-1}\mid g \in D_n\}$,
+fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
+\begin{itemize}
+    \item se $g \in \mathcal{R}$ allora $g$ è una potenza di $r$, pertanto i
+    due elementi commutano e si ha $grg^{-1} = r$;
+    \item se $g\notin\mathcal{R}$ allora $g = sr^h$ con $h \in \ZZ$, quindi
+    \[
+        (sr^h)r(sr^h)^{-1} = (sr^h)r(sr^h) = sr^{h + 1}sr^h = s^2r^{-1-h}r^h = r^{-1},
+    \]
+\end{itemize}
+cioè $C_r = \{r, r^{-1}\}$. In modo analogo si mostra che $C_{r^k} = \{r^k, r^{-k}\}$
+per ogni $k \in \ZZ$.
+
+\begin{remark}
+    Se $n$ è pari, scriviamo $n = 2m$ e consideriamo la classe di coniugio
+    di $r^m$. Poiché $r^m \neq e$ e $r^{2m} = (r^m)^2 = e$ abbiamo che
+    $\ord(r^m) = 2$, cioè $(r^m)^{-1} = r^m$. Allora $C_{r^m} = \{r^m\}$,
+    pertanto abbiamo trovato un elemento del centro di $D_n$ (infatti se $G$
+    è un gruppo e $x \in G$, allora $x \in Z(G)$ se e solo se $C_x = \{x\}$).
+\end{remark}
+
+Consideriamo adesso la classe di coniugio di $sr^h$, $C_{sr^h} = 
+\{g(sr^h)g^{-1}\mid g\in D_n\}$, fissato $g \in D_n$ abbiamo due possibili
+valori per $g(sr^h)g^{-1}$:
+\begin{itemize}
+    \item se $g \in \mathcal{R}$ allora $g = r^k$ con $k \in \ZZ$, pertanto
+    \[
+        r^k(sr^h)r^{-k} = sr^{-k}r^h r^{-k} = sr^{h - 2k};
+    \]
+    \item se $g \notin \mathcal{R}$ allora $g = sr^k$ con $k \in \ZZ$, pertanto
+    \[
+        (sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h},
+    \]
+\end{itemize}
+cioè $C_{sr^k} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
+
+\begin{remark}
+    La classe di coniugio di $sr^h$ contiene tutte le simmetrie in cui 
+    l'esponente di $r$ ha la stessa parità di $h$. Se $n$ è 
+    dispari tutte le simmetrie appartengono alla stessa classe,
+    mentre se $n$ è pari abbiamo due classi distinte: quella 
+    delle simmetrie rispetto agli assi passanti per i vertici opposti e quella 
+    delle simmetrie rispetto agli assi passanti per i lati.
+\end{remark}
 \end{document}
