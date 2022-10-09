@@ -71,6 +71,7 @@ coincidono.
 Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
 l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n\rangle = G$.
 
+\newpage
 
 \section{Automorfismi di $(\Zp)^n$}
 \label{aut sp vet}
@@ -93,10 +94,10 @@ $\lambda = \lambda' + kp$, allora \[
 Si verifica che $((\Zp)^n, +, \cdot)$ è effettivamente uno spazio vettoriale
 sul campo $\FF_p = \Zp$ (dove $\cdot$ è il prodotto per scalari appena definito).
 Per come abbiamo definito il prodotto per scalari, abbiamo che per ogni
-$\varphi \in Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$ 
+$\varphi \in \Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$ 
 per ogni $\lambda \in \FF_p$, pertanto
 \[
-    Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
+    \Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
     \mid\varphi\text{ isomorfismo di spazi vettoriali}\}.
 \]
 
@@ -106,15 +107,15 @@ di taglia $n\times n$ a coefficienti in $\FF_p$.
 
 \begin{proposition}
 Dato $p$ un primo, allora \[
-    |Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1} (p^n - p^i)
+    |\Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1} (p^n - p^i)
     \]
 \end{proposition}
 
 \begin{proof}
-    Osserviamo che un elemento di $Aut((\Zp)^n)$ deve necessariamente mandare 
+    Osserviamo che un elemento di $\Aut((\Zp)^n)$ deve necessariamente mandare 
     una base di $(\Zp)^n$ in un'altra base, e si dermina univocamente in questo 
     modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
-    Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
+    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
     qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
     l'immagine del primo vettore. Per quanto riguarda $v_2$, $\varphi(v_2)$
     può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$,
@@ -122,11 +123,11 @@ Dato $p$ un primo, allora \[
     valore non nullo che non sia combinazione lineare di $v_1$ e $v_2$, che sono
     $p^n - p^2$, e così via. Reiteriamo questo ragionamento fino a $\varphi(v_n)$,
     che può essere scelto in $p^n - p^{n - 1}$ modi, da cui \[
-        |Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1}(p^n - p^i)
+        |\Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1}(p^n - p^i)
     \]
 \end{proof}
 
-
+\newpage
 
 \section{Gruppo diedrale}
 
@@ -363,7 +364,7 @@ tutti distinti.
     \[
         \varphi_g : G\longrightarrow G : x\longmapsto gxg^{-1}
     \] poiché 
-    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in Aut(B)$. 
+    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in \Aut(B)$. 
     Dal momento che $A$ è
     un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) =
     \varphi_g(A) = A$,
@@ -377,7 +378,7 @@ tutti distinti.
 
 \begin{proof}
     Siano $\langle r^k\rangle$ un sottogruppo di $\mathcal{R}$ e $\varphi
-    \in Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
+    \in \Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
     in quanto $\varphi$ preserva l'ordine del sottogruppo e $\langle r^k\rangle$
     è l'unico sottogruppo di $\mathcal{R}$ di tale ordine ($\mathcal{R}$ è ciclico),
     pertanto $\langle r^k\rangle$
@@ -393,7 +394,7 @@ tutti distinti.
     Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
     quindi $|\varphi(r)| = n = 2$, che è assurdo in quanto $|D_n| = 2n \geqslant 6$.
     Questo non è vero per $D_2$, che contiene una rotazione e due
-    simmetrie. Poiché $Aut(D_2) \cong S_3$, esiste un automorfismo che manda 
+    simmetrie. Poiché $\Aut(D_2) \cong S_3$, esiste un automorfismo che manda 
     la rotazione in una riflessione, quindi che non fissa $\mathcal{R}$.
 \end{remark}
 
@@ -564,7 +565,7 @@ e $\ord(y)\mid 2$, cioè $x^n = e_G$ e $y^n = e_G$, inoltre \[
 \subsection{Automorfismi}
 
 Studiamo separatamente gli automorfismi di $D_n$ per $n \geqslant 3$ e di $D_2$.\newline
-Per $n\geqslant 3$ consideriamo $\varphi \in Aut(D_n)$, poiché $D_n = \langle
+Per $n\geqslant 3$ consideriamo $\varphi \in \Aut(D_n)$, poiché $D_n = \langle
 r, s\rangle$ è sufficiente studiare le immagini di $r, s$ per determinare $\varphi$.
 Osserviamo che necessariamente $\varphi(r) = r^k$ con $(n, k) = 1$, infatti 
 $\varphi$ deve preservare l'ordine di $r$ e la sua immagine deve essere un 
@@ -595,16 +596,16 @@ cioè
 è un automorfismo. Gli automorfismi di $D_n = \langle r, s\rangle$ quindi sono
 tutti e soli gli omomorfismi da $D_n$ in $D_n$ che mandano $r$ in un generatore
 di $\mathcal{R}$, che sono $\phi(n)$, e $s$ in un'altra simmetria, che sono 
-$n$, pertanto $|Aut(D_n)| = n\phi(n)$.\newline
+$n$, pertanto $|\Aut(D_n)| = n\phi(n)$.\newline
 
 Per $n = 2$, sappiamo che $D_2 \cong (\Z2)^2$, pertanto 
 \[
-    Aut(D_2) \cong Aut((\Z2)^2) \cong S_3
+    \Aut(D_2) \cong \Aut((\Z2)^2) \cong S_3
 \]
 Alternativamente possiamo considerare $(\Z2)^2$ come spazio vettoriale su $\FF_2$,
 pertanto abbiamo 
 \[
-    Aut(D_2) \cong GL_2(\FF_2)
+    \Aut(D_2) \cong GL_2(\FF_2)
 \]Per quanto visto nella sezione \hyperref[aut sp vet]{(2)}, $GL_2(\FF_2)$ 
 contiene $(4 - 1)(4 - 2) = 6$ elementi, inoltre $GL_2$ non è un gruppo 
 commutativo (con l'operazione di prodotto tra matrici), pertanto $GL_2(\FF_2) \cong S_3$.
@@ -634,14 +635,15 @@ In particolare, gli elementi di $GL_2(\FF_2)$ sono:
     \end{pmatrix}$ che sono gli elementi di ordine $3$ corrispondenti ai $3$-cicli.
 \end{itemize}
 
+\newpage
 
 \section{Automorfismi di un prodotto diretto}
 
 Consideriamo due gruppi finiti $H, K$, studiamo il gruppo degli automorfismi 
-di $H\times K$. Chiaramente esiste un'inclusione di $Aut(H)\times Aut(K)$ in 
-$Aut(H\times K)$ data dall'omomorfismo 
+di $H\times K$. Chiaramente esiste un'inclusione di $\Aut(H)\times \Aut(K)$ in 
+$\Aut(H\times K)$ data dall'omomorfismo 
 \[
-    \iota: Aut(H)\times Aut(K)\longrightarrow Aut(H\times K) :
+    \iota: \Aut(H)\times \Aut(K)\longrightarrow \Aut(H\times K) :
     (\varphi_1, \varphi_2)\longmapsto \varphi_1\times \varphi_2
 \]con 
 \[
@@ -650,7 +652,7 @@ $Aut(H\times K)$ data dall'omomorfismo
 \]
 Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
 \begin{itemize}
-    \item per ogni $(\varphi_1, \varphi_2)\in Aut(H)\times Aut(K)$, per ogni
+    \item per ogni $(\varphi_1, \varphi_2)\in \Aut(H)\times \Aut(K)$, per ogni
      $(g_1, g_2), (h_1, h_2)\in H\times K$ abbiamo 
      \begin{multline*}
         (\varphi_1\times\varphi_2)((g_1, g_2)(h_1, h_2)) = 
@@ -661,12 +663,12 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
      \end{multline*}
      cioè $\varphi_1\times\varphi_2$ è un omomorfismo. Inoltre 
     \[
-        \Ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
+        \ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
         (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)\} = \{(0, 0)\}
     \]
-    quindi $\varphi_1\times \varphi_2 \in Aut(H\times K)$
+    quindi $\varphi_1\times \varphi_2 \in \Aut(H\times K)$
     in quanto $H\times K$ è finito, pertanto $\iota$ è ben definita;
-    \item per ogni $(\varphi_1, \varphi_2), (\psi_1, \psi_2) \in Aut(H)\times Aut(K)$,
+    \item per ogni $(\varphi_1, \varphi_2), (\psi_1, \psi_2) \in \Aut(H)\times \Aut(K)$,
     per ogni $(g_1, g_2) \in H\times K$ abbiamo 
     \begin{multline*}
         \iota((\varphi_1, \varphi_2)(\psi_1, \psi_2))(g_1, g_2) = 
@@ -680,30 +682,30 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
     \iota(\varphi_1, \varphi_2)\iota(\psi_1, \psi_2)$, quindi $\iota$ è un 
     omomorfismo;
     \item$\iota$ è iniettiva, infatti \begin{multline*}
-        \Ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times Aut(K) \mid
-        \iota(\varphi_1, \varphi_2) = e_{Aut(H\times K)}\} = \\
-        = \{(\varphi_1, \varphi_2) \in Aut(H)\times Aut(K)\mid 
+        \ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K) \mid
+        \iota(\varphi_1, \varphi_2) = e_{\Aut(H\times K)}\} = \\
+        = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K)\mid 
         (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)~\forall 
         (g_1, g_2) \in H\times K\}
-    \end{multline*} Poiché gli unici elementi $\varphi_1 \in Aut(H)$,
-    $\varphi_2 \in Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
-    sono rispettivamente $e_{Aut(H)}$, $e_{Aut(K)}$ abbiamo \[
-        \Ker\iota = \{(e_{Aut(H)}, e_{Aut(K)})\} = \{e_{Aut(H \times K)}\}
+    \end{multline*} Poiché gli unici elementi $\varphi_1 \in \Aut(H)$,
+    $\varphi_2 \in \Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
+    sono rispettivamente $e_{\Aut(H)}$, $e_{\Aut(K)}$ abbiamo \[
+        \ker\iota = \{(e_{\Aut(H)}, e_{\Aut(K)})\} = \{e_{\Aut(H \times K)}\}
     \] 
 
 \end{itemize}
 
 \begin{proposition}
-    Dati due gruppi finiti $H, K$, $Aut(H)\times Aut(K)\cong Aut(H\times K)$
+    Dati due gruppi finiti $H, K$, $\Aut(H)\times \Aut(K)\cong \Aut(H\times K)$
     se e solo se $H\times \{e_K\}$ e $\{e_H\}\times K$ sono sottogruppi 
     caratteristici di $H\times K$.
 \end{proposition}
 
 \begin{proof}
-    Sia $\iota$ l'immersione da $Aut(H)\times Aut(K)$ in $Aut(H\times K)$ 
+    Sia $\iota$ l'immersione da $\Aut(H)\times \Aut(K)$ in $\Aut(H\times K)$ 
     definita come sopra, se $\iota$ è surgettiva allora ogni elemento di 
-    $\Aut(H\times K)$ può essere scritto come $\varphi_1\times\varphi_2$ con
-    $\varphi_1 \in Aut(H)$ e $\varphi_2 \in Aut(K)$. Allora abbiamo 
+    $\\Aut(H\times K)$ può essere scritto come $\varphi_1\times\varphi_2$ con
+    $\varphi_1 \in \Aut(H)$ e $\varphi_2 \in \Aut(K)$. Allora abbiamo 
     \[
         (\varphi_1\times\varphi_2)(H\times\{e_K\}) = 
         (\varphi_1(H), \varphi_2(\{e_K\})) = H\times\{e_K\}
@@ -713,8 +715,8 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         (\varphi_1(\{e_H\}), \varphi_2(K)) = \{e_H\}\times K
     \]cioè $H\times\{e_K\}$ e $\{e_H\}\times K$ sono caratteristici in
     $H\times K$. Viceversa, se i due sottogruppi sono caratteristici, dato
-    $\varphi \in Aut(H\times K)$ poniamo $\varphi_1 \in Aut(H)$ tale che 
-    $\varphi(g_1, e_K) = (\varphi_1(g_1), e_K)$ e $\varphi_2 \in Aut(K)$ 
+    $\varphi \in \Aut(H\times K)$ poniamo $\varphi_1 \in \Aut(H)$ tale che 
+    $\varphi(g_1, e_K) = (\varphi_1(g_1), e_K)$ e $\varphi_2 \in \Aut(K)$ 
     tale che $\varphi(e_H, g_2) = (e_H, \varphi_2(g_2))$ per ogni $g_1 \in H$,
     per ogni $g_2 \in K$ (questo possiamo farlo in quanto $H\times\{e_K\}$ 
     e $\{e_H\}\times K$ sono caratteristici). Allora abbiamo 
@@ -724,7 +726,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         = (\varphi_1(g_1), e_K)(e_H, \varphi_2(g_2)) = 
         (\varphi_1(g_1), \varphi_2(g_2)) = (\varphi_1\times\varphi_2)(g_1, g_2)
     \end{multline*}cioè $\iota$ è surgettiva e quindi un isomorfismo tra
-    $Aut(H)\times Aut(K)$ e $Aut(H\times K)$.
+    $\Aut(H)\times \Aut(K)$ e $\Aut(H\times K)$.
 \end{proof}
 
 \begin{example}
@@ -750,7 +752,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         \varphi(x, y) = (x_0a^2, x_0ab + d d^{-1}(y_0 - x_0ab)) = (x_0, y_0)
     \]e questo ci permette di concludere che $\ZZ\times\{0\}$ non è un sottogruppo
     caratteristico. In questo caso abbiamo solo un'immersione del gruppo
-    $Aut(\ZZ) \times Aut(\Zn)$ dentro a $Aut(\ZZ\times \Zn)$, in quanto 
+    $\Aut(\ZZ) \times \Aut(\Zn)$ dentro a $\Aut(\ZZ\times \Zn)$, in quanto 
     gli automorfismi che mandano $(\pm 1, 0)$ in $(a, b)$ con $a = \pm 1$ e 
     $b \neq 0$ non possono essere ristretti ad automorfismi di $\ZZ\times \{0\}$.
 \end{example}
@@ -782,10 +784,11 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 \begin{corollary}
     Se $m, n \geqslant 2$ sono interi coprimi allora
     \[
-        Aut(\Zn\times\Zm) \cong Aut(\Zn)\times Aut(\Zm)
+        \Aut(\Zn\times\Zm) \cong \Aut(\Zn)\times \Aut(\Zm)
     \]
 \end{corollary}
 
+\newpage
 
 \section{Azioni transitive}
 
