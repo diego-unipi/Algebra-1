@@ -71,6 +71,7 @@ coincidono.
 Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
 l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n\rangle = G$.
 
+\newpage
 
 \section{Automorfismi di $(\Zp)^n$}
 \label{aut sp vet}
@@ -93,10 +94,10 @@ $\lambda = \lambda' + kp$, allora \[
 Si verifica che $((\Zp)^n, +, \cdot)$ è effettivamente uno spazio vettoriale
 sul campo $\FF_p = \Zp$ (dove $\cdot$ è il prodotto per scalari appena definito).
 Per come abbiamo definito il prodotto per scalari, abbiamo che per ogni
-$\varphi \in Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$ 
+$\varphi \in \Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$ 
 per ogni $\lambda \in \FF_p$, pertanto
 \[
-    Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
+    \Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
     \mid\varphi\text{ isomorfismo di spazi vettoriali}\}.
 \]
 
@@ -106,15 +107,15 @@ di taglia $n\times n$ a coefficienti in $\FF_p$.
 
 \begin{proposition}
 Dato $p$ un primo, allora \[
-    |Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1} (p^n - p^i)
+    |\Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1} (p^n - p^i)
     \]
 \end{proposition}
 
 \begin{proof}
-    Osserviamo che un elemento di $Aut((\Zp)^n)$ deve necessariamente mandare 
+    Osserviamo che un elemento di $\Aut((\Zp)^n)$ deve necessariamente mandare 
     una base di $(\Zp)^n$ in un'altra base, e si dermina univocamente in questo 
     modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
-    Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
+    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
     qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
     l'immagine del primo vettore. Per quanto riguarda $v_2$, $\varphi(v_2)$
     può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$,
@@ -122,11 +123,11 @@ Dato $p$ un primo, allora \[
     valore non nullo che non sia combinazione lineare di $v_1$ e $v_2$, che sono
     $p^n - p^2$, e così via. Reiteriamo questo ragionamento fino a $\varphi(v_n)$,
     che può essere scelto in $p^n - p^{n - 1}$ modi, da cui \[
-        |Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1}(p^n - p^i)
+        |\Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1}(p^n - p^i)
     \]
 \end{proof}
 
-
+\newpage
 
 \section{Gruppo diedrale}
 
@@ -278,19 +279,22 @@ contenuti in $H$.
     \[
         (sr^h)^2 = sr^hsr^h = (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e
     \]
-    pertanto $\langle sr^h\rangle \cong \Z2$. Ricordiamo che, dati $K, N$ sottogruppi
-    di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
-    $N \subseteq N_G(K)$ allora $HK = KH$ e quindi $HK$ è un sottogruppo di $G$. 
-    Nel nostro caso abbiamo che $\langle sr^h\rangle
+    pertanto $\langle sr^h\rangle \cong \Z2$. Da questo ricaviamo $\langle sr^h\rangle
     \subseteq N_{D_n}(\langle r^k\rangle)$, infatti per ogni $m \in \ZZ$ abbiamo\[
         (sr^h)r^{mk}(sr^h)^{-1} = sr^{h + mk} sr^h = r^{-h-mk}r^h = r^{-mk}
         \in \langle r^k \rangle
     \]cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$ e quindi
-    $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$.
+    $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$\footnote
+    {Dati $K, N$ sottogruppi
+    di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
+    $N \subseteq N_G(K)$ allora $HK = KH$, quindi $HK$ è un sottogruppo di $G$.}.
     Poiché $\langle r^k\rangle$ e $\langle sr^h\rangle$ sono contenuti in $H$
     abbiamo che $\langle r^k\rangle\cdot\langle sr^h\rangle \subseteq H$, inoltre
     \[|\langle r^k\rangle\cdot\langle sr^h\rangle| = \displaystyle\frac 1 2 |H|\cdot 2 = |H|\]
-    in quanto $\langle r^k\rangle\cap\langle sr^h\rangle = \{e\}$, pertanto 
+    in quanto $\langle r^k\rangle\cap\langle sr^h\rangle = \{e\}$\footnote{
+        Se $H, K$ sono sottogruppi finiti di un gruppo $G$ e $HK\leqslant G$ allora
+        vale $|HK| = \displaystyle\frac{|H|\cdot|K|}{|H\cap K|}$.
+    }, pertanto 
     i due sottogruppi coincidono.
 \end{proof}
 
@@ -313,24 +317,24 @@ contenuti in $H$.
 
 \begin{theorem}
     [Classificazione dei sottogruppi di $D_n$]
-I sottogruppi di $D_n$ sono della forma \begin{itemize}
-    \item[(1)] $\langle r^k\rangle$ con $k\mid n$;
-    \item[(2)] $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leqslant h < k$, 
-\end{itemize}
+I sottogruppi di $D_n$ sono della forma \begin{enumerate}[(1)]
+    \item $\langle r^k\rangle$ con $k\mid n$;
+    \item $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leqslant h < k$, 
+\end{enumerate}
 con $r \in \mathcal{R}$ e $s$ una simmetria. Inoltre tali sottogruppi sono
 tutti distinti.
 \end{theorem}
 
 \begin{proof}
-    Abbiamo già visto che i sottogruppi di $D_n$ hanno una di queste forme, 
+    Abbiamo già visto che i sottogruppi di $D_n$ sono di questo tipo, 
     mostriamo quindi che sono tutti distinti. A meno di cambiare $k$, possiamo
-    supporre che $\mathcal{R} = \langle r\rangle$, cioè $\ord(r) = n$. 
+    supporre $\mathcal{R} = \langle r\rangle$, cioè $\ord(r) = n$. 
     Consideriamo $H, K\leqslant D_n$ due sottogruppi, abbiamo tre casi:
     \begin{itemize}
         \item se $H = \langle r^k\rangle$ e $K = \langle r^m\rangle$, $m \in \ZZ$,
-        allora $H = K\iff k = m$ in quanto entrambi sottogruppi di un gruppo 
-        ciclico, pertanto esiste un unico sottogruppo della forma $\langle r^k\rangle$
-        per ogni $k \mid n$;
+        allora $H = K\iff k = m$ in quanto entrambi sottogruppi di $\mathcal{R}$, 
+        pertanto esiste un unico sottogruppo della forma $\langle r^k\rangle$
+        per $k \mid n$;
         \item se $H = \langle r^k\rangle$ e $K = \langle r^m, sr^h\rangle$, $m \mid n$,
         allora $H \neq K$ in quanto $H$ è ciclico e $K$ no;
         \item se $H = \langle r^k, sr^h\rangle$ e $K = \langle r^m, sr^l\rangle$, 
@@ -349,7 +353,7 @@ tutti distinti.
 \end{proof}
 
 \begin{lemma}
-    \label{lemma1}
+    \label{lemma1.0}
     Dati un gruppo $G$ e $A, B$ due sottogruppi tali che $A \leqslant B \leqslant G$,
     se $B\trianglelefteqslant G$ e $A$ è caratteristico in $B$ allora 
     $A \trianglelefteqslant G$.
@@ -360,7 +364,7 @@ tutti distinti.
     \[
         \varphi_g : G\longrightarrow G : x\longmapsto gxg^{-1}
     \] poiché 
-    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in Aut(B)$. 
+    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in \Aut(B)$. 
     Dal momento che $A$ è
     un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) =
     \varphi_g(A) = A$,
@@ -374,12 +378,12 @@ tutti distinti.
 
 \begin{proof}
     Siano $\langle r^k\rangle$ un sottogruppo di $\mathcal{R}$ e $\varphi
-    \in Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
+    \in \Aut(\mathcal{R})$, allora $\varphi(\langle r^k\rangle) = \langle r^k\rangle$
     in quanto $\varphi$ preserva l'ordine del sottogruppo e $\langle r^k\rangle$
     è l'unico sottogruppo di $\mathcal{R}$ di tale ordine ($\mathcal{R}$ è ciclico),
     pertanto $\langle r^k\rangle$
     è caratteristico in $\mathcal{R}$. Poiché $\mathcal{R}$ è un sottogruppo
-    normale di $D_n$, per il \hyperref[lemma1]{Lemma 2.15}
+    normale di $D_n$, per il \hyperref[lemma1.0]{Lemma 2.15}
     abbiamo $\langle r^k\rangle\trianglelefteqslant D_n$.
 \end{proof}
 
@@ -390,7 +394,7 @@ tutti distinti.
     Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
     quindi $|\varphi(r)| = n = 2$, che è assurdo in quanto $|D_n| = 2n \geqslant 6$.
     Questo non è vero per $D_2$, che contiene una rotazione e due
-    simmetrie. Poiché $Aut(D_2) \cong S_3$, esiste un automorfismo che manda 
+    simmetrie. Poiché $\Aut(D_2) \cong S_3$, esiste un automorfismo che manda 
     la rotazione in una riflessione, quindi che non fissa $\mathcal{R}$.
 \end{remark}
 
@@ -561,7 +565,7 @@ e $\ord(y)\mid 2$, cioè $x^n = e_G$ e $y^n = e_G$, inoltre \[
 \subsection{Automorfismi}
 
 Studiamo separatamente gli automorfismi di $D_n$ per $n \geqslant 3$ e di $D_2$.\newline
-Per $n\geqslant 3$ consideriamo $\varphi \in Aut(D_n)$, poiché $D_n = \langle
+Per $n\geqslant 3$ consideriamo $\varphi \in \Aut(D_n)$, poiché $D_n = \langle
 r, s\rangle$ è sufficiente studiare le immagini di $r, s$ per determinare $\varphi$.
 Osserviamo che necessariamente $\varphi(r) = r^k$ con $(n, k) = 1$, infatti 
 $\varphi$ deve preservare l'ordine di $r$ e la sua immagine deve essere un 
@@ -569,10 +573,10 @@ generatore di $\mathcal{R}$, in quanto $\mathcal{R}$ è caratteristico in $D_n$
 è isomorfo a $\Zn$. Per quanto riguarda $\varphi(s)$, se $n$ è dispari allora le simmetrie
 sono gli unici elementi di ordine 2, pertanto $\varphi(s) = sr^h$ con 
 $0\leqslant h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
-\begin{itemize}
-    \item[(1)]$\varphi(s) = sr^h$, con $0\leqslant h < n$;
-    \item[(2)]$\varphi(s) = r^{\frac n 2}$, se $n$ è pari.
-\end{itemize}
+\begin{enumerate}[(1)]
+    \item $\varphi(s) = sr^h$, con $0\leqslant h < n$;
+    \item $\varphi(s) = r^{\frac n 2}$, se $n$ è pari.
+\end{enumerate}
 
 D'altra parte, se fosse $\varphi(s) = r^{\frac n 2}$ allora $\varphi$ non
 sarebbe né iniettiva né surgettiva, pertanto $\varphi(s) = sr^h$ con 
@@ -592,16 +596,16 @@ cioè
 è un automorfismo. Gli automorfismi di $D_n = \langle r, s\rangle$ quindi sono
 tutti e soli gli omomorfismi da $D_n$ in $D_n$ che mandano $r$ in un generatore
 di $\mathcal{R}$, che sono $\phi(n)$, e $s$ in un'altra simmetria, che sono 
-$n$, pertanto $|Aut(D_n)| = n\phi(n)$.\newline
+$n$, pertanto $|\Aut(D_n)| = n\phi(n)$.\newline
 
 Per $n = 2$, sappiamo che $D_2 \cong (\Z2)^2$, pertanto 
 \[
-    Aut(D_2) \cong Aut((\Z2)^2) \cong S_3
+    \Aut(D_2) \cong \Aut((\Z2)^2) \cong S_3
 \]
 Alternativamente possiamo considerare $(\Z2)^2$ come spazio vettoriale su $\FF_2$,
 pertanto abbiamo 
 \[
-    Aut(D_2) \cong GL_2(\FF_2)
+    \Aut(D_2) \cong GL_2(\FF_2)
 \]Per quanto visto nella sezione \hyperref[aut sp vet]{(2)}, $GL_2(\FF_2)$ 
 contiene $(4 - 1)(4 - 2) = 6$ elementi, inoltre $GL_2$ non è un gruppo 
 commutativo (con l'operazione di prodotto tra matrici), pertanto $GL_2(\FF_2) \cong S_3$.
@@ -631,14 +635,15 @@ In particolare, gli elementi di $GL_2(\FF_2)$ sono:
     \end{pmatrix}$ che sono gli elementi di ordine $3$ corrispondenti ai $3$-cicli.
 \end{itemize}
 
+\newpage
 
 \section{Automorfismi di un prodotto diretto}
 
 Consideriamo due gruppi finiti $H, K$, studiamo il gruppo degli automorfismi 
-di $H\times K$. Chiaramente esiste un'inclusione di $Aut(H)\times Aut(K)$ in 
-$Aut(H\times K)$ data dall'omomorfismo 
+di $H\times K$. Chiaramente esiste un'inclusione di $\Aut(H)\times \Aut(K)$ in 
+$\Aut(H\times K)$ data dall'omomorfismo 
 \[
-    \iota: Aut(H)\times Aut(K)\longrightarrow Aut(H\times K) :
+    \iota: \Aut(H)\times \Aut(K)\longrightarrow \Aut(H\times K) :
     (\varphi_1, \varphi_2)\longmapsto \varphi_1\times \varphi_2
 \]con 
 \[
@@ -647,7 +652,7 @@ $Aut(H\times K)$ data dall'omomorfismo
 \]
 Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
 \begin{itemize}
-    \item per ogni $(\varphi_1, \varphi_2)\in Aut(H)\times Aut(K)$, per ogni
+    \item per ogni $(\varphi_1, \varphi_2)\in \Aut(H)\times \Aut(K)$, per ogni
      $(g_1, g_2), (h_1, h_2)\in H\times K$ abbiamo 
      \begin{multline*}
         (\varphi_1\times\varphi_2)((g_1, g_2)(h_1, h_2)) = 
@@ -658,12 +663,12 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
      \end{multline*}
      cioè $\varphi_1\times\varphi_2$ è un omomorfismo. Inoltre 
     \[
-        \Ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
+        \ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
         (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)\} = \{(0, 0)\}
     \]
-    quindi $\varphi_1\times \varphi_2 \in Aut(H\times K)$
+    quindi $\varphi_1\times \varphi_2 \in \Aut(H\times K)$
     in quanto $H\times K$ è finito, pertanto $\iota$ è ben definita;
-    \item per ogni $(\varphi_1, \varphi_2), (\psi_1, \psi_2) \in Aut(H)\times Aut(K)$,
+    \item per ogni $(\varphi_1, \varphi_2), (\psi_1, \psi_2) \in \Aut(H)\times \Aut(K)$,
     per ogni $(g_1, g_2) \in H\times K$ abbiamo 
     \begin{multline*}
         \iota((\varphi_1, \varphi_2)(\psi_1, \psi_2))(g_1, g_2) = 
@@ -677,30 +682,30 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
     \iota(\varphi_1, \varphi_2)\iota(\psi_1, \psi_2)$, quindi $\iota$ è un 
     omomorfismo;
     \item$\iota$ è iniettiva, infatti \begin{multline*}
-        \Ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times Aut(K) \mid
-        \iota(\varphi_1, \varphi_2) = e_{Aut(H\times K)}\} = \\
-        = \{(\varphi_1, \varphi_2) \in Aut(H)\times Aut(K)\mid 
+        \ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K) \mid
+        \iota(\varphi_1, \varphi_2) = e_{\Aut(H\times K)}\} = \\
+        = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K)\mid 
         (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)~\forall 
         (g_1, g_2) \in H\times K\}
-    \end{multline*} Poiché gli unici elementi $\varphi_1 \in Aut(H)$,
-    $\varphi_2 \in Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
-    sono rispettivamente $e_{Aut(H)}$, $e_{Aut(K)}$ abbiamo \[
-        \Ker\iota = \{(e_{Aut(H)}, e_{Aut(K)})\} = \{e_{Aut(H \times K)}\}
+    \end{multline*} Poiché gli unici elementi $\varphi_1 \in \Aut(H)$,
+    $\varphi_2 \in \Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
+    sono rispettivamente $e_{\Aut(H)}$, $e_{\Aut(K)}$ abbiamo \[
+        \ker\iota = \{(e_{\Aut(H)}, e_{\Aut(K)})\} = \{e_{\Aut(H \times K)}\}
     \] 
 
 \end{itemize}
 
 \begin{proposition}
-    Dati due gruppi finiti $H, K$, $Aut(H)\times Aut(K)\cong Aut(H\times K)$
+    Dati due gruppi finiti $H, K$, $\Aut(H)\times \Aut(K)\cong \Aut(H\times K)$
     se e solo se $H\times \{e_K\}$ e $\{e_H\}\times K$ sono sottogruppi 
     caratteristici di $H\times K$.
 \end{proposition}
 
 \begin{proof}
-    Sia $\iota$ l'immersione da $Aut(H)\times Aut(K)$ in $Aut(H\times K)$ 
+    Sia $\iota$ l'immersione da $\Aut(H)\times \Aut(K)$ in $\Aut(H\times K)$ 
     definita come sopra, se $\iota$ è surgettiva allora ogni elemento di 
-    $\Aut(H\times K)$ può essere scritto come $\varphi_1\times\varphi_2$ con
-    $\varphi_1 \in Aut(H)$ e $\varphi_2 \in Aut(K)$. Allora abbiamo 
+    $\\Aut(H\times K)$ può essere scritto come $\varphi_1\times\varphi_2$ con
+    $\varphi_1 \in \Aut(H)$ e $\varphi_2 \in \Aut(K)$. Allora abbiamo 
     \[
         (\varphi_1\times\varphi_2)(H\times\{e_K\}) = 
         (\varphi_1(H), \varphi_2(\{e_K\})) = H\times\{e_K\}
@@ -710,8 +715,8 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         (\varphi_1(\{e_H\}), \varphi_2(K)) = \{e_H\}\times K
     \]cioè $H\times\{e_K\}$ e $\{e_H\}\times K$ sono caratteristici in
     $H\times K$. Viceversa, se i due sottogruppi sono caratteristici, dato
-    $\varphi \in Aut(H\times K)$ poniamo $\varphi_1 \in Aut(H)$ tale che 
-    $\varphi(g_1, e_K) = (\varphi_1(g_1), e_K)$ e $\varphi_2 \in Aut(K)$ 
+    $\varphi \in \Aut(H\times K)$ poniamo $\varphi_1 \in \Aut(H)$ tale che 
+    $\varphi(g_1, e_K) = (\varphi_1(g_1), e_K)$ e $\varphi_2 \in \Aut(K)$ 
     tale che $\varphi(e_H, g_2) = (e_H, \varphi_2(g_2))$ per ogni $g_1 \in H$,
     per ogni $g_2 \in K$ (questo possiamo farlo in quanto $H\times\{e_K\}$ 
     e $\{e_H\}\times K$ sono caratteristici). Allora abbiamo 
@@ -721,10 +726,38 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         = (\varphi_1(g_1), e_K)(e_H, \varphi_2(g_2)) = 
         (\varphi_1(g_1), \varphi_2(g_2)) = (\varphi_1\times\varphi_2)(g_1, g_2)
     \end{multline*}cioè $\iota$ è surgettiva e quindi un isomorfismo tra
-    $Aut(H)\times Aut(K)$ e $Aut(H\times K)$.
+    $\Aut(H)\times \Aut(K)$ e $\Aut(H\times K)$.
 \end{proof}
 
-È quindi utile riuscire a determinare se i sottogruppi $H\times\{e_K\}$, $\{e_H\}\times K$
+\begin{example}
+    Consideriamo il gruppo $G = \ZZ \times \Zn$, osserviamo che il sottogruppo 
+    $\{0\}\times \Zn$ è caratteristico in quanto un automorfismo $\varphi$ di $G$ deve
+    preservare gli ordini degli elementi, in particolare quello di un generatore,
+    quindi l'immagine di un generatore è un altro generatore del sottogruppo.
+    Poiché gli elementi di $G$ di ordine finito sono tutti della forma $(0, d)$
+    abbiamo che $\varphi(\{0\}\times\Zn) = \{0\}\times\Zn$. Viceversa, l'immagine
+    di $\varphi$ su un generatore di $\ZZ\times\{0\}$, ad esempio 
+    $\varphi(1, 0)$, è della forma $(a, b)$,
+    e questo implica che $\ZZ\times \{0\}$ non è caratteristico. Se $\varphi$ è
+    surgettivo, necessariamente esiste $(x, y) \in \ZZ\times \Zn$ tale che
+    $\varphi(x, y) = (\pm 1, 0)$, da cui, posti $\varphi(1, 0) = (a, b)$ e
+    $\varphi(0, 1) = (0, d)$ con $n$ e $d$ coprimi, abbiamo
+    \begin{multline*}
+        \varphi(x, y) = \varphi(x(1, 0) + y(0, 1)) = x\varphi(1, 0) + y\varphi(0, 1) = \\
+        = x(a, b) + y(0, d) = (xa, xb + yd) = (\pm 1, 0) \iff a = \pm 1
+    \end{multline*}
+    Viceversa, se $a = \pm 1$ allora $\varphi$ è surgettiva, infatti 
+    per ogni $(x_0, y_0) \in \ZZ\times\Zn$, scegliendo
+    $x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\mod n$ abbiamo \[
+        \varphi(x, y) = (x_0a^2, x_0ab + d d^{-1}(y_0 - x_0ab)) = (x_0, y_0)
+    \]e questo ci permette di concludere che $\ZZ\times\{0\}$ non è un sottogruppo
+    caratteristico. In questo caso abbiamo solo un'immersione del gruppo
+    $\Aut(\ZZ) \times \Aut(\Zn)$ dentro a $\Aut(\ZZ\times \Zn)$, in quanto 
+    gli automorfismi che mandano $(\pm 1, 0)$ in $(a, b)$ con $a = \pm 1$ e 
+    $b \neq 0$ non possono essere ristretti ad automorfismi di $\ZZ\times \{0\}$.
+\end{example}
+
+È utile riuscire a determinare se i sottogruppi $H\times\{e_K\}$, $\{e_H\}\times K$
 sono caratteristici in $H\times K$, da cui il seguente risultato:
 
 \begin{proposition}
@@ -751,11 +784,94 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 \begin{corollary}
     Se $m, n \geqslant 2$ sono interi coprimi allora
     \[
-        Aut(\Zn\times\Zm) \cong Aut(\Zn)\times Aut(\Zm)
+        \Aut(\Zn\times\Zm) \cong \Aut(\Zn)\times \Aut(\Zm)
     \]
 \end{corollary}
 
+\newpage
 
+\section{Azioni transitive}
+
+\begin{definition}
+    Siano $G$ un gruppo e $X$ un insieme, un'azione \[
+        \varphi:G\longrightarrow S(X) :g \longmapsto \varphi_g
+    \]si dice \vocab{transitiva} se per ogni $x, y \in X$ esiste $g \in G$
+    tale che $\varphi_g(x) = y$, equivalentemente se $\Orb(x) = G$ per ogni 
+    $x \in X$. Diciamo anche che G \vocab{agisce transitivamente} su $X$ 
+    tramite $\varphi$.
+\end{definition}
+
+\begin{lemma}
+    \label{lemma2.0}
+    Dato $G$ un gruppo finito e $H \lneq G$ un suo sottogruppo proprio, allora \[
+        G \neq \bigcup_{g \in G}gHg^{-1}
+    \]
+\end{lemma}
+
+\begin{proof}
+    Poniamo $K = \displaystyle\bigcup_{g \in G}gHg^{-1}$, osserviamo che gli
+    elementi della forma $xHx^{-1}$ con $x \in N_G(H)$ contribuiscono una
+    sola volta all'unione, in quanto $xHx^{-1} = H$, pertanto $K$
+    è unione di $[G:N_G(H)] = \displaystyle\frac{|G|}{|N_G(H)|}$ elementi distinti\footnote
+    {Infatti, se $X = \{N\mid N\leqslant G\}$ e $\varphi$ è l'azione di coniugio
+    su $X$, per ogni $N \in X$ abbiamo $\St(N) = N_G(N)$ e $\Orb(N) = C_N =
+    \{gNg^{-1}\mid g \in G\}$. Vale quindi la relazione $|G| = |C_N|\cdot|N_G(N)|$}. Poiché
+    $H \subseteq N_G(H)$ e $|gHg^{-1}| = |H|$ per ogni $g \in G$, possiamo stimare 
+    la cardinalità di $K$ nel seguente modo 
+    \[
+        |K| \leq \frac{|G|}{|N_G(H)|}|H| \leq \frac{|G|}{|H|}|H| = |G|.
+    \]D'altra parte, per il Principio di Inclusione-Esclusione abbiamo che $|K|$ 
+    è somma delle cardinalità dei singoli termini dell'unione se e solo se 
+    l'unione è disgiunta, ma questo è falso in quanto ogni classe di coniugio
+    di $H$ contiene l'identità del gruppo, quindi $|K| < |G|$, cioè $G \neq K$.
+\end{proof}
+
+\begin{proposition}
+    Dati un gruppo $G$ e un insieme $G$, se 
+    \[
+        \varphi:G\longrightarrow S(X) :g\longmapsto \varphi_g
+    \]è un'azione transitiva valgono i seguenti fatti:
+    \begin{enumerate}[(1)]
+        \item per ogni $x, y \in X$ esiste $g \in G$ tale che $g\St(x)g^{-1} = \St(y)$;
+        \item se $|X|\geqslant 2$ allora esiste $g \in G$ che agisce su $X$ senza
+        punti fissi, cioè tale che $\varphi_g(x) \neq x$ per ogni $x \in X$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Mostriamo i due fatti singolarmente:
+    \begin{enumerate}[(1)]
+        \item sia $g \in G$ tale che $\varphi_g(x) = y$, dato 
+        $h \in g\St(x)g^{-1}$ esiste $w \in \St(x)$ tale che $h = gwg^{-1}$. 
+        Allora
+        \[
+            \varphi_h(y) = \varphi_{gwg^{-1}}(y) = 
+            \varphi_g(\varphi_w(\varphi_h^{-1}(y))) = \varphi_g(\varphi_w(x)) =
+            \varphi_g(x) = y
+        \]pertanto $g\St(x)g^{-1} \subseteq \St(y)$. Osservando che 
+        $\varphi_{g^{-1}}(y) = x$ e ragionando in modo simmetrico otteniamo
+        l'inclusione $g^{-1}\St(y)g \subseteq \St(x)$, da cui $g\St(x)g^{-1} = \St(y)$;
+        \item un elemento $g \in G$ con tali proprietà non può essere contenuto 
+        nello stabilizzatore di nessun elemento di $X$, cioè cerchiamo $g \in G$
+        tale che
+        \[
+            g \in \bigcap_{x \in X}\St(x)^{\mathcal{C}}
+        \]
+        che è equivalente a
+        \[
+            g \notin \bigcup_{x \in X} \St(x) = \bigcup_{h \in G}h\St(x_0)h^{-1}
+        \]per il fatto precedente, fissato $x_0 \in G$. Osserviamo che 
+        $\St(x_0) \neq G$, infatti se fosse $\St(x_0) = G$ avremmo 
+        \[
+            |\Orb(x_0)| = \frac{|G|}{|\St(x_0)|} = 1
+        \]ma questo è assurdo in quanto $\Orb(x_0) = X$ per la transitività di 
+        $\varphi$ e $|X|\geqslant 2$. Allora per il \hyperref[lemma2.0]{Lemma 5.2}
+        abbiamo 
+        \[
+            G \neq \bigcap_{h \in G}h\St(x_0)h^{-1}
+        \]pertanto esiste un elemento $g\in G$ con la proprietà voluta.
+    \end{enumerate}
+\end{proof}
 
 \end{document}
 
