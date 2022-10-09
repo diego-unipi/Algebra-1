@@ -12,7 +12,6 @@
 
 \tableofcontents
 \eject
-
 \newpage
 
 \section{Insiemi di generatori}
@@ -43,7 +42,7 @@ $x_1, \ldots, x_n$, cioè deve contenere l'insieme
 \label{prop1.0}
 Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, allora \[
     \langle x_1, \ldots, x_n\rangle = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r 
-    \in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}.
+    \in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}
     \]
 \end{proposition}
 
@@ -71,6 +70,61 @@ coincidono.
 
 Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
 l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n\rangle = G$.
+
+
+\section{Automorfismi di $(\Zp)^n$}
+\label{aut sp vet}
+
+Dato $p$ un primo, vogliamo determinare quanti sono gli automorfismi di 
+$(\Zp)^n$, per fare ciò è conveniente definire una struttura di spazio vettoriale,
+quindi un prodotto per scalari\[
+    \cdot:\Zp\times (\Zp)^n \longrightarrow (\Zp)^n : 
+    (\overline{\lambda}, v)\longmapsto \overline{\lambda}v
+\]
+con $\overline{\lambda}v = \underset{\tilde{\lambda}\text{ volte}}{\underbrace{v + \ldots + v}}$
+e $\tilde{\lambda}$ un qualsiasi rappresentante di $\overline{\lambda}$.
+Tale prodotto è ben definito, infatti se $\lambda, \lambda' \in \ZZ$ sono tali che
+$\overline{\lambda} = \overline{\lambda'}$, cioè esiste $k \in \ZZ$ tale che
+$\lambda = \lambda' + kp$, allora \[
+    \overline{\lambda'} v = \underset{\lambda'\text{ volte}}{\underbrace{v + \ldots + v}} = 
+    \underset{\lambda + kp\text{ volte}}{\underbrace{v + \ldots + v}} = 
+    \underset{\lambda\text{ volte}}{\underbrace{v + \ldots + v}}
+\]in quanto $\underset{kp\text{ volte}}{\underbrace{v + \ldots + v}} = 0$. 
+Si verifica che $((\Zp)^n, +, \cdot)$ è effettivamente uno spazio vettoriale
+sul campo $\FF_p = \Zp$ (dove $\cdot$ è il prodotto per scalari appena definito).
+Per come abbiamo definito il prodotto per scalari, abbiamo che per ogni
+$\varphi \in Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$ 
+per ogni $\lambda \in \FF_p$, pertanto
+\[
+    Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
+    \mid\varphi\text{ isomorfismo di spazi vettoriali}\}.
+\]
+
+Poiché $GL((\FF_p)^n) \cong GL_n(\FF_p) = \{M \in M_{n\times n}(\FF_p)\mid \det M \neq 0\}$
+possiamo rappresentare ogni automorfismo di $(\Zp)^n$ con una matrice invertibile
+di taglia $n\times n$ a coefficienti in $\FF_p$.
+
+\begin{proposition}
+Dato $p$ un primo, allora \[
+    |Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1} (p^n - p^i)
+    \]
+\end{proposition}
+
+\begin{proof}
+    Osserviamo che un elemento di $Aut((\Zp)^n)$ deve necessariamente mandare 
+    una base di $(\Zp)^n$ in un'altra base, e si dermina univocamente in questo 
+    modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
+    Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
+    qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
+    l'immagine del primo vettore. Per quanto riguarda $v_2$, $\varphi(v_2)$
+    può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$,
+    che sono $p^n - p$, analogamente $\varphi(v_3)$ può assumere qualsiasi
+    valore non nullo che non sia combinazione lineare di $v_1$ e $v_2$, che sono
+    $p^n - p^2$, e così via. Reiteriamo questo ragionamento fino a $\varphi(v_n)$,
+    che può essere scelto in $p^n - p^{n - 1}$ modi, da cui \[
+        |Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1}(p^n - p^i)
+    \]
+\end{proof}
 
 
 
@@ -131,16 +185,16 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
 
 \begin{lemma}
     Per ogni rotazione $r \in D_n$ e per ogni simmetria $s \in D_n$ vale
-    \[srs^{-1} = r^{-1}.\]
+    \[srs^{-1} = r^{-1}\]
 \end{lemma}
 
 \begin{proof}
     \[
-        srs^{-1} = r^{-1} \iff sr = r^{-1}s = (s^{-1}r)^{-1}.
-    \] Si conclude
+        srs^{-1} = r^{-1} \iff sr = r^{-1}s = (s^{-1}r)^{-1}
+    \] si conclude
     osservando che $s^2 = 1$, pertanto $s^{-1} = s$ e 
     \[
-        (s^{-1}r)^{-1} = (sr)^{-1} = r^{-1}s^{-1} = r^{-1}s.
+        (s^{-1}r)^{-1} = (sr)^{-1} = r^{-1}s^{-1} = r^{-1}s
     \]
 \end{proof}
 
@@ -161,9 +215,9 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     $|D_n| \leqslant 2n$. Ricordiamo adesso che $D_n$ contiene gli elementi
     della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$, mostriamo che questi sono 
     infatti $2n$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
-    di ordine $r$, pertanto sono $n$ elementi distinti, inoltre 
+    di ordine $n$, pertanto sono $n$ elementi distinti, inoltre 
     \[
-        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \mod n,
+        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \mod n
     \] pertanto anche questi sono $n$
     elementi distinti. Allora $|D_n| = 2n$.
 \end{proof}
@@ -179,7 +233,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     le isometrie che possiamo applicare sono l'identità, la rotazione di 
     angolo $\pi$, la simmetria lungo la retta $y = 0$ e la simmetria lungo l'asse
     passante per il suo punto medio. $D_2$ contiene quindi quattro elementi,
-    l'identità e tre elementi di ordine due, pertanto è isomorfo a $\Z2\times\Z2$.
+    l'identità e tre elementi di ordine 2, pertanto è isomorfo a $\Z2\times\Z2$.
 \end{remark}
 
 
@@ -195,7 +249,7 @@ $\mathcal{R}\trianglelefteqslant D_n$ in quanto $[D_n : \mathcal{R}] = 2$,
 pertanto $\faktor{D_n}{\mathcal{R}}$ è un gruppo con l'operazione indotta da $D_n$
 e risulta essere isomorfo a $\Z2$. \newline
 Consideriamo la proiezione al quoziente \[
-    \pi_{\mathcal{R}}: D_n \longrightarrow \faktor{D_n}{\mathcal{R}} : g \mapsto [g],
+    \pi_{\mathcal{R}}: D_n \longrightarrow \faktor{D_n}{\mathcal{R}} : g \mapsto [g]
 \]poiché $H \nsubseteq \mathcal{R}$ abbiamo che esiste $h \in H$ tale che 
 $h \notin \mathcal{R}$, pertanto $\pi_{\mathcal{R}}(h) \notin [\mathcal{R}]$ e
 in particolare $\pi_{\mathcal{R}}(H) \nsubseteq [\mathcal{R}]$. Dato che i 
@@ -214,7 +268,7 @@ contenuti in $H$.
     $r$ è un generatore di $\mathcal{R}$ tale che $H\cap\mathcal{R} = \langle r^k\rangle$ 
     e $s$ è una simmetria allora \[
     H = \langle r^k\rangle\cdot\langle sr^h\rangle = \{xy \mid x \in \langle r^k\rangle,
-    y \in \langle sr^h\rangle\}, h, k \in \ZZ.    
+    y \in \langle sr^h\rangle\}, h, k \in \ZZ
     \]
 \end{proposition}
 
@@ -222,7 +276,7 @@ contenuti in $H$.
     Per quanto visto sopra abbiamo che $|\langle r^k\rangle| = 
     \displaystyle\frac 1 2|H|$, inoltre osserviamo che $\ord(sr^h) = 2$ in quanto
     \[
-        (sr^h)^2 = sr^hsr^h = (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e,
+        (sr^h)^2 = sr^hsr^h = (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e
     \]
     pertanto $\langle sr^h\rangle \cong \Z2$. Ricordiamo che, dati $K, N$ sottogruppi
     di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
@@ -230,7 +284,7 @@ contenuti in $H$.
     Nel nostro caso abbiamo che $\langle sr^h\rangle
     \subseteq N_{D_n}(\langle r^k\rangle)$, infatti per ogni $m \in \ZZ$ abbiamo\[
         (sr^h)r^{mk}(sr^h)^{-1} = sr^{h + mk} sr^h = r^{-h-mk}r^h = r^{-mk}
-        \in \langle r^k \rangle,
+        \in \langle r^k \rangle
     \]cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$ e quindi
     $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$.
     Poiché $\langle r^k\rangle$ e $\langle sr^h\rangle$ sono contenuti in $H$
@@ -257,8 +311,6 @@ contenuti in $H$.
     elemento del primo gruppo.
 \end{remark}
 
-Abbiamo finito la classificazione dei sottogruppi di $D_n$.
-
 \begin{theorem}
     [Classificazione dei sottogruppi di $D_n$]
 I sottogruppi di $D_n$ sono della forma \begin{itemize}
@@ -272,27 +324,27 @@ tutti distinti.
 \begin{proof}
     Abbiamo già visto che i sottogruppi di $D_n$ hanno una di queste forme, 
     mostriamo quindi che sono tutti distinti. A meno di cambiare $k$, possiamo
-    supporre che $r$ generi $\mathcal{R}$, cioè $\ord(r) = n$. 
-    Consideriamo $H, K\leqslant D_n$ due sottogruppi, abbiamo tre casi 
+    supporre che $\mathcal{R} = \langle r\rangle$, cioè $\ord(r) = n$. 
+    Consideriamo $H, K\leqslant D_n$ due sottogruppi, abbiamo tre casi:
     \begin{itemize}
         \item se $H = \langle r^k\rangle$ e $K = \langle r^m\rangle$, $m \in \ZZ$,
         allora $H = K\iff k = m$ in quanto entrambi sottogruppi di un gruppo 
         ciclico, pertanto esiste un unico sottogruppo della forma $\langle r^k\rangle$
         per ogni $k \mid n$;
-        \item se $H = \langle r^k\rangle$ e $K = \langle r^m, sr^h\rangle$, con $m \mid n$,
+        \item se $H = \langle r^k\rangle$ e $K = \langle r^m, sr^h\rangle$, $m \mid n$,
         allora $H \neq K$ in quanto $H$ è ciclico e $K$ no;
         \item se $H = \langle r^k, sr^h\rangle$ e $K = \langle r^m, sr^l\rangle$, 
         con $m \mid n$ e $0\leqslant l < m$, considerando le intersezioni
         $H \cap \mathcal{R} = \langle r^k\rangle$ e $K \cap \mathcal{R} = \langle r^m\rangle$ 
         abbiamo \[
         H \cap \mathcal{R} = K\cap\mathcal{R} \iff \langle r^k\rangle = \langle r^m\rangle
-        \iff k = m.
+        \iff k = m
         \] Inoltre, se $sr^h \in \langle r^m, sr^l\rangle = \langle r^m\rangle
         \cdot \langle sr^l\rangle$, allora esiste $t \in \ZZ$ tale che \[
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
-        \iff h \equiv l - mt \mod n,
+        \iff h \equiv l - mt \mod n
         \]da cui ricaviamo $h \equiv l \mod m$ in quanto $m \mid n$. Ma allora 
-        $h =l$ in quanto $0 \leqslant h < k$ e $0\leqslant l < m$.
+        $h =l$ dato che $0 \leqslant h < k$ e $0\leqslant l < m$.
     \end{itemize}
 \end{proof}
 
@@ -306,11 +358,10 @@ tutti distinti.
 \begin{proof}
     Fissato $g \in G$, consideriamo l'omomorfismo di coniugio 
     \[
-        \varphi_g : G\longrightarrow G : x\longmapsto gxg^{-1},
+        \varphi_g : G\longrightarrow G : x\longmapsto gxg^{-1}
     \] poiché 
-    $B\trianglelefteqslant G$ è ben definita la restrizione \[
-        \varphi_{g\mid B} : B\longrightarrow B :  b \longmapsto gbg^{-1},
-    \]che è un elemento di $Aut(B)$. Dal momento che $A$ è
+    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in Aut(B)$. 
+    Dal momento che $A$ è
     un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) =
     \varphi_g(A) = A$,
     pertanto $A \trianglelefteqslant G$.
@@ -331,6 +382,17 @@ tutti distinti.
     normale di $D_n$, per il \hyperref[lemma1]{Lemma 2.15}
     abbiamo $\langle r^k\rangle\trianglelefteqslant D_n$.
 \end{proof}
+
+\begin{remark}
+    $\mathcal{R}$ è caratteristico in $D_n$ per $n \geqslant 3$.
+    Infatti se $\mathcal{R} = \langle r \rangle$, necessariamente 
+    $\ord(r) = \ord(\varphi(r))$, da cui $|\langle\varphi(r)\rangle| = n$.
+    Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
+    quindi $|\varphi(r)| = n = 2$, che è assurdo in quanto $|D_n| = 2n \geqslant 6$.
+    Questo non è vero per $D_2$, che contiene una rotazione e due
+    simmetrie. Poiché $Aut(D_2) \cong S_3$, esiste un automorfismo che manda 
+    la rotazione in una riflessione, quindi che non fissa $\mathcal{R}$.
+\end{remark}
 
 \begin{corollary}
     Per $k\mid n$ e $0\leqslant h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
@@ -355,11 +417,11 @@ $\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
 \[
     \varphi_s(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_s(x_1)^{\pm 1}\ldots \varphi_s(x_m)^{\pm 1}
     \in \langle srs, r^hs^{-1}\rangle = \langle sr^ks, r^hs^{-1}\rangle = \langle
-    r^k, sr^{-h}\rangle,
+    r^k, sr^{-h}\rangle
 \]
 \[
     \varphi_r(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_r(x_1)^{\pm 1}\ldots \varphi_r(x_m)^{\pm 1}
-    \in \langle r^k, rsr^{h - 1}\rangle = \langle r^k, sr^{h - 2}\rangle.
+    \in \langle r^k, rsr^{h - 1}\rangle = \langle r^k, sr^{h - 2}\rangle
 \]
 
 Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2}\rangle
@@ -393,7 +455,7 @@ fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
     due elementi commutano e si ha $grg^{-1} = r$;
     \item se $g\notin\mathcal{R}$ allora $g = sr^h$ con $h \in \ZZ$, quindi
     \[
-        (sr^h)r(sr^h)^{-1} = (sr^h)r(sr^h) = sr^{h + 1}sr^h = s^2r^{-1-h}r^h = r^{-1},
+        (sr^h)r(sr^h)^{-1} = (sr^h)r(sr^h) = sr^{h + 1}sr^h = s^2r^{-1-h}r^h = r^{-1}
     \]
 \end{itemize}
 cioè $C_r = \{r, r^{-1}\}$. In modo analogo si mostra che $C_{r^k} = \{r^k, r^{-k}\}$
@@ -413,11 +475,11 @@ valori per $g(sr^h)g^{-1}$:
 \begin{itemize}
     \item se $g \in \mathcal{R}$ allora $g = r^k$ con $k \in \ZZ$, pertanto
     \[
-        r^k(sr^h)r^{-k} = sr^{-k}r^h r^{-k} = sr^{h - 2k};
+        r^k(sr^h)r^{-k} = sr^{-k}r^h r^{-k} = sr^{h - 2k}
     \]
     \item se $g \notin \mathcal{R}$ allora $g = sr^k$ con $k \in \ZZ$, pertanto
     \[
-        (sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h},
+        (sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h}
     \]
 \end{itemize}
 cioè $C_{sr^k} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
@@ -430,4 +492,270 @@ cioè $C_{sr^k} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$.
     delle simmetrie rispetto agli assi passanti per i vertici opposti e quella 
     delle simmetrie rispetto agli assi passanti per i lati.
 \end{remark}
+
+
+\subsection{Legge di gruppo e omomorfismi}
+
+Se $g$ è un elemento di $D_n$ possiamo scrivere $g$ in modo unico come $s^ar^b$ 
+con $a \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$, utilizziamo questa 
+proprietà per esplicitare la legge di gruppo di $D_n$. \newline
+Fissati $g_1, g_2 \in D_n$, scriviamo $g_1 = s^{a_1}r^{b_1}$ e $g_2 = s^{a_2}r^{b_2}$
+con $a_1, a_2 \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$, 
+\[
+    g_1g_2 = (s^{a_1}r^{b_1})(s^{a_2}r^{b_2}) = s^{a_1}s^{a_2}(s^{a_2}r^{b_1}s^{-a_2})r^{b_2} = 
+    s^{a_1}s^{a_2}\varphi_{s^{a_2}}(r^{b_1})r^{b_2}
+\]
+dove $\varphi_{s^{a_2}}$ è l'automorfismo di coniugio per $s^{a_2}$
+(ricordiamo che $s^{a_2} = s^{-a_2}$). Poiché
+$\varphi_{s^{a_2}}$ è un omomorfismo e $\varphi_x\circ\varphi_y = \varphi_{xy}$ per ogni $x, y \in G$,
+abbiamo $(\varphi_{s^{a_2}}(r^{b_1})) = (\varphi_s^{a_2}(r))^{b_1}$, quindi
+\[
+    g_1g_2 = s^{a_1}s^{a_2}(\varphi_s^{a_2}(r))^{b_1}r^{b_2} = 
+    s^{a_1 + a_2}r^{(-1)^{a_2}b_1 + b_2}
+\]
+Per l'unicità della scrittura che stiamo usando (scegliendo 
+$a \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$), possiamo identificare 
+ogni elemento $g = s^ar^b \in D_n$ con la coppia $(a, b)$, la legge di gruppo
+è quindi tale che \[
+    (a_1, b_1)(a_2, b_2) = (a_1 + a_2, (-1)^{a_2}b_1 + b_2)
+\]
+\newline 
+Usiamo il risultato appena ottenuto per descrivere gli omomorfismi da $D_n$ in 
+un qualsiasi gruppo $G$. Poiché ogni elemento $g \in D_n$ si scrive come
+$s^ar^b$, con $a, b \in \ZZ$, un omomorfismo $\varphi \in \Hom(D_, G)$ è univocamente
+determinato da $\varphi(r)$ e $\varphi(s)$: infatti \[
+    \varphi(g) = \varphi(s^ar^b) = \varphi(s)^a\varphi(r)^b
+\]Poniamo $x = \varphi(s)$, $y = \varphi(r)$, necessariamente $\ord(x) \mid n$
+e $\ord(y)\mid 2$, cioè $x^n = e_G$ e $y^n = e_G$, inoltre \[
+    xyx^{-1} = \varphi(s)\varphi(r)\varphi(s)^{-1} = \varphi(srs^{-1}) = 
+    \varphi(r^{-1}) = \varphi(r)^{-1} = y^{-1}
+\]Mostriamo che effettivamente queste condizioni sono anche sufficienti:
+
+\begin{proposition}
+    Dati un gruppo $G$ e un'applicazione
+    \[
+        \varphi:D_n\longrightarrow G :s^ar^b \longmapsto x^ay^b
+    \]dove $x = \varphi(s)$ e $y = \varphi(r)$, allora $\varphi$ è un omomorfismo
+    se e solo se $x^2 = e_G$, $y^n = e_G$ e $xyx^{-1} = y^{-1}$.
+\end{proposition}
+
+\begin{proof}
+    Mostriamo che tali condizioni sono sufficienti affinché $\varphi$ sia un 
+    omomorfismo. Poiché $x^m = x^{-m}$ per ogni $m \in \ZZ$, fissati 
+    $a_1, a_2, b_1, b_2 \in \ZZ$ abbiamo 
+    \begin{multline*}
+        (x^{a_1}y^{b_1})(x^{a_2}y^{b_2}) = x^{a_1}x^{a_2}(x^{a_2}y^{b_1}x^{-a_2})y^{b_2} = 
+        x^{a_1 + a_2}\varphi_{x^{a_2}}(y^{b_1})y^{b_2} = \\
+        = x^{a_1 + a_2} (\varphi_x^{a_2}(y))^{b_1}y^{b_2} =
+        x^{a_1 + a_2}y^{(-1)^{a_2}b_1}y^{b_2} = x^{a_1 + a_2}y^{(-1)^{a_2}b_1 + b_2}
+    \end{multline*}dove $\varphi_g$ è l'automorfismo di coniugio per $g \in G$.
+    Allora abbiamo che $\varphi$ è un omomorfismo, infatti per ogni $h_1, h_2, k_1, k_2 \in \ZZ$
+    \begin{multline*}
+        \varphi((s^{h_1}r^{k_1})(s^{h_2}r^{k_2})) = \varphi(s^{h_1 + h_2}r^{(-1)^{h_2}k_1 + k_2}) =\\
+        = x^{h_1 + h_2}y^{(-1)^{h_2}k_1 + k_2} = (x^{h_1}y^{k_1})(x^{h_2}y^{k_2}) = 
+        \varphi(s^{h_1}r^{h_2})\varphi(s^{h_2}r^{h_2})
+    \end{multline*}
+\end{proof}
+
+
+\subsection{Automorfismi}
+
+Studiamo separatamente gli automorfismi di $D_n$ per $n \geqslant 3$ e di $D_2$.\newline
+Per $n\geqslant 3$ consideriamo $\varphi \in Aut(D_n)$, poiché $D_n = \langle
+r, s\rangle$ è sufficiente studiare le immagini di $r, s$ per determinare $\varphi$.
+Osserviamo che necessariamente $\varphi(r) = r^k$ con $(n, k) = 1$, infatti 
+$\varphi$ deve preservare l'ordine di $r$ e la sua immagine deve essere un 
+generatore di $\mathcal{R}$, in quanto $\mathcal{R}$ è caratteristico in $D_n$
+è isomorfo a $\Zn$. Per quanto riguarda $\varphi(s)$, se $n$ è dispari allora le simmetrie
+sono gli unici elementi di ordine 2, pertanto $\varphi(s) = sr^h$ con 
+$0\leqslant h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
+\begin{itemize}
+    \item[(1)]$\varphi(s) = sr^h$, con $0\leqslant h < n$;
+    \item[(2)]$\varphi(s) = r^{\frac n 2}$, se $n$ è pari.
+\end{itemize}
+
+D'altra parte, se fosse $\varphi(s) = r^{\frac n 2}$ allora $\varphi$ non
+sarebbe né iniettiva né surgettiva, pertanto $\varphi(s) = sr^h$ con 
+$0\leqslant h \leq n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
+caratterizzazione che abbiamo dato sopra è sufficiente verificare che
+$\varphi(s)\varphi(r)\varphi(s)^{-1} = \nolinebreak\varphi(r)^{-1}$:
+\[
+    \varphi(s)\varphi(r)\varphi(s)^{-1} = (sr^h)r^k(sr^h)^{-1} = sr^{h + k}r^{-h}s =
+    sr^k s^{-1} = r^{-k} = \varphi(r)^{-1}
+\]
+Inoltre $\varphi$ è surgettiva, infatti $r^k, sr^h \in \mathrm{Im}\varphi$,
+cioè 
+\[
+    \langle r^k, sr^h\rangle = \langle r, sr^h\rangle = \langle s, r\rangle =
+    D_n\subseteq \mathrm{Im}\varphi
+\]da cui $\mathrm{Im}\varphi = D_n$. Poiché $D_n$ è finito abbiamo che $\varphi$
+è un automorfismo. Gli automorfismi di $D_n = \langle r, s\rangle$ quindi sono
+tutti e soli gli omomorfismi da $D_n$ in $D_n$ che mandano $r$ in un generatore
+di $\mathcal{R}$, che sono $\phi(n)$, e $s$ in un'altra simmetria, che sono 
+$n$, pertanto $|Aut(D_n)| = n\phi(n)$.\newline
+
+Per $n = 2$, sappiamo che $D_2 \cong (\Z2)^2$, pertanto 
+\[
+    Aut(D_2) \cong Aut((\Z2)^2) \cong S_3
+\]
+Alternativamente possiamo considerare $(\Z2)^2$ come spazio vettoriale su $\FF_2$,
+pertanto abbiamo 
+\[
+    Aut(D_2) \cong GL_2(\FF_2)
+\]Per quanto visto nella sezione \hyperref[aut sp vet]{(2)}, $GL_2(\FF_2)$ 
+contiene $(4 - 1)(4 - 2) = 6$ elementi, inoltre $GL_2$ non è un gruppo 
+commutativo (con l'operazione di prodotto tra matrici), pertanto $GL_2(\FF_2) \cong S_3$.
+In particolare, gli elementi di $GL_2(\FF_2)$ sono:
+\begin{itemize}
+    \item $\begin{pmatrix}
+    1 & 0\\
+    0 & 1
+    \end{pmatrix}$, che è l'identità del gruppo;
+    \item $\begin{pmatrix}
+    0 & 1\\
+    1 & 0
+    \end{pmatrix}, \begin{pmatrix}
+        1 & 0\\
+        1 & 1
+    \end{pmatrix}, \begin{pmatrix}
+        1 & 1\\
+        0 & 1
+    \end{pmatrix}$, che sono gli elementi di ordine 2 corrispondenti alle 
+    trasposizioni;
+    \item $\begin{pmatrix}
+    1 & 1\\
+    1 & 0
+    \end{pmatrix}, \begin{pmatrix}
+        0 & 1\\
+        1 & 1
+    \end{pmatrix}$ che sono gli elementi di ordine $3$ corrispondenti ai $3$-cicli.
+\end{itemize}
+
+
+\section{Automorfismi di un prodotto diretto}
+
+Consideriamo due gruppi finiti $H, K$, studiamo il gruppo degli automorfismi 
+di $H\times K$. Chiaramente esiste un'inclusione di $Aut(H)\times Aut(K)$ in 
+$Aut(H\times K)$ data dall'omomorfismo 
+\[
+    \iota: Aut(H)\times Aut(K)\longrightarrow Aut(H\times K) :
+    (\varphi_1, \varphi_2)\longmapsto \varphi_1\times \varphi_2
+\]con 
+\[
+    \varphi_1\times\varphi_2: H\times K \longrightarrow H\times K:
+    (g_1, g_2)\longmapsto (\varphi_1(g_1), \varphi_2(g_2))
+\]
+Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
+\begin{itemize}
+    \item per ogni $(\varphi_1, \varphi_2)\in Aut(H)\times Aut(K)$, per ogni
+     $(g_1, g_2), (h_1, h_2)\in H\times K$ abbiamo 
+     \begin{multline*}
+        (\varphi_1\times\varphi_2)((g_1, g_2)(h_1, h_2)) = 
+        (\varphi_1(g_1h_1), \varphi(g_2h_2)) = 
+        (\varphi_1(g_1)\varphi_1(h_2), \varphi_2(g_2)\varphi_2(h_2)) = \\
+        =(\varphi_1(g_1), \varphi_2(g_2))(\varphi_1(h_1),\varphi_2(h_2)) = 
+        ((\varphi_1\times\varphi_2)(g_1, g_2))((\varphi_1\times\varphi_2)(h_1,h_2))
+     \end{multline*}
+     cioè $\varphi_1\times\varphi_2$ è un omomorfismo. Inoltre 
+    \[
+        \Ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
+        (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)\} = \{(0, 0)\}
+    \]
+    quindi $\varphi_1\times \varphi_2 \in Aut(H\times K)$
+    in quanto $H\times K$ è finito, pertanto $\iota$ è ben definita;
+    \item per ogni $(\varphi_1, \varphi_2), (\psi_1, \psi_2) \in Aut(H)\times Aut(K)$,
+    per ogni $(g_1, g_2) \in H\times K$ abbiamo 
+    \begin{multline*}
+        \iota((\varphi_1, \varphi_2)(\psi_1, \psi_2))(g_1, g_2) = 
+        \iota(\varphi_1\psi_1, \varphi_2\psi_2)(g_1, g_2) = 
+        (\varphi_1\psi_1\times\varphi_2\psi_2)(g_1, g_2) =\\
+        = (\varphi_1(\psi_1(g_1)), \varphi_2(\psi_2(g_2))) = 
+        (\varphi_1\times\varphi_2)(\psi_1(g_1), \psi_2(g_2)) = \\
+        = ((\varphi_1\times\varphi_2)(\psi_1\times\psi_2))(g_1, g_2) = 
+        (\iota(\varphi_1, \varphi_2)\iota(\psi_1\psi_2))(g_1, g_2)
+    \end{multline*}cioè $\iota((\varphi_1, \varphi_2)(\psi_1, \psi_2)) = 
+    \iota(\varphi_1, \varphi_2)\iota(\psi_1, \psi_2)$, quindi $\iota$ è un 
+    omomorfismo;
+    \item$\iota$ è iniettiva, infatti \begin{multline*}
+        \Ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times Aut(K) \mid
+        \iota(\varphi_1, \varphi_2) = e_{Aut(H\times K)}\} = \\
+        = \{(\varphi_1, \varphi_2) \in Aut(H)\times Aut(K)\mid 
+        (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)~\forall 
+        (g_1, g_2) \in H\times K\}
+    \end{multline*} Poiché gli unici elementi $\varphi_1 \in Aut(H)$,
+    $\varphi_2 \in Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
+    sono rispettivamente $e_{Aut(H)}$, $e_{Aut(K)}$ abbiamo \[
+        \Ker\iota = \{(e_{Aut(H)}, e_{Aut(K)})\} = \{e_{Aut(H \times K)}\}
+    \] 
+
+\end{itemize}
+
+\begin{proposition}
+    Dati due gruppi finiti $H, K$, $Aut(H)\times Aut(K)\cong Aut(H\times K)$
+    se e solo se $H\times \{e_K\}$ e $\{e_H\}\times K$ sono sottogruppi 
+    caratteristici di $H\times K$.
+\end{proposition}
+
+\begin{proof}
+    Sia $\iota$ l'immersione da $Aut(H)\times Aut(K)$ in $Aut(H\times K)$ 
+    definita come sopra, se $\iota$ è surgettiva allora ogni elemento di 
+    $\Aut(H\times K)$ può essere scritto come $\varphi_1\times\varphi_2$ con
+    $\varphi_1 \in Aut(H)$ e $\varphi_2 \in Aut(K)$. Allora abbiamo 
+    \[
+        (\varphi_1\times\varphi_2)(H\times\{e_K\}) = 
+        (\varphi_1(H), \varphi_2(\{e_K\})) = H\times\{e_K\}
+    \]
+    \[
+        (\varphi_1\times \varphi_2)(\{e_K\}\times K) = 
+        (\varphi_1(\{e_H\}), \varphi_2(K)) = \{e_H\}\times K
+    \]cioè $H\times\{e_K\}$ e $\{e_H\}\times K$ sono caratteristici in
+    $H\times K$. Viceversa, se i due sottogruppi sono caratteristici, dato
+    $\varphi \in Aut(H\times K)$ poniamo $\varphi_1 \in Aut(H)$ tale che 
+    $\varphi(g_1, e_K) = (\varphi_1(g_1), e_K)$ e $\varphi_2 \in Aut(K)$ 
+    tale che $\varphi(e_H, g_2) = (e_H, \varphi_2(g_2))$ per ogni $g_1 \in H$,
+    per ogni $g_2 \in K$ (questo possiamo farlo in quanto $H\times\{e_K\}$ 
+    e $\{e_H\}\times K$ sono caratteristici). Allora abbiamo 
+    \begin{multline*}
+        \varphi(g_1, g_2) = \varphi((g_1, e_K)(e_H, g_2)) = 
+        \varphi(g_1, e_K)\varphi(e_H, g_2) = \\
+        = (\varphi_1(g_1), e_K)(e_H, \varphi_2(g_2)) = 
+        (\varphi_1(g_1), \varphi_2(g_2)) = (\varphi_1\times\varphi_2)(g_1, g_2)
+    \end{multline*}cioè $\iota$ è surgettiva e quindi un isomorfismo tra
+    $Aut(H)\times Aut(K)$ e $Aut(H\times K)$.
+\end{proof}
+
+È quindi utile riuscire a determinare se i sottogruppi $H\times\{e_K\}$, $\{e_H\}\times K$
+sono caratteristici in $H\times K$, da cui il seguente risultato:
+
+\begin{proposition}
+    Dati due gruppi finiti $H, K$, se $(|H|, |K|) = 1$ allora $H\times\{e_K\}$
+    e $\{e_H\}\times K$ sono sottogruppi caratteristici di $H\times K$.
+\end{proposition}
+
+\begin{proof}
+    Poniamo $m = |H|$, $n = |K|$, $S = \{(g_1, g_2) \in H\times K\mid 
+    (g_1, g_2)^n = (e_H, e_K)\}$, osserviamo che $H\times \{e_K\} = S$, infatti 
+    $H\times \{e_K\} \subseteq S$ in quanto tutti gli elementi di $H\times{e_K}$
+    hanno ordine che divide $n$. D'altra parte dato $(g_1, g_2) \in S$, se
+    $\ord(g_1, g_2) \mid n$ allora $\ord(g_1)\mid n$ e $\ord(g_2)\mid n$, ma 
+    $\ord(g_2) \mid m$ per il Teorema di Lagrange, quindi $\ord(g_2) = 1$ e
+    $S \subseteq H\times\{e_K\}$, da cui l'uguaglianza. Con un ragionamento
+    analogo possiamo caratterizzare $\{e_H\} \times K$ come 
+    \[
+        \{e_H\} \times K = \{(g_1, g_2) \in H\times K\mid (g_1, g_2)^m = (e_H, e_K)\}
+    \] Poiché un automorfismo di $H\times K$ deve preservare gli ordini degli
+    elementi, per la caratterizzazione data abbiamo che i due sottogruppi sono
+    caratteristici.
+\end{proof}
+
+\begin{corollary}
+    Se $m, n \geqslant 2$ sono interi coprimi allora
+    \[
+        Aut(\Zn\times\Zm) \cong Aut(\Zn)\times Aut(\Zm)
+    \]
+\end{corollary}
+
+
+
 \end{document}
+
