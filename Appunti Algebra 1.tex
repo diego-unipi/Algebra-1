@@ -879,7 +879,29 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{proposition}
 
 \begin{proof}
-    
+    Osserviamo inizialmente che $sgn$ è ben definita cioè:
+        \[ sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j} \in \{\pm 1\}
+            \]
+    al denominatore del prodotto vi sono tutte le possibili coppie $i - j$ e anche al numeratore poiché $\sigma$ è bigettiva, l'unica cosa che 
+    può cambiare è l'ordine (ovvero potrebbe comparire $i - j$ al numeratore e $j - i$ al denominatore), quindi $sgn(\sigma) \in \{\pm 1\}$. Mostriamo che $sgn$ 
+    è un omomorfismo:
+        \[ sgn(\sigma \circ \tau) = \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)} \frac{\tau(i) - \tau(j)}{ i - j}
+            \]
+    da cui:
+        \[ \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}\frac{\tau(i) - \tau(j)}{ i - j} =
+        \underbrace{\prod_{i < j} \frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}}_{sgn(\sigma)} \underbrace{\prod_{i < j}\frac{\tau(i) - \tau(j)}{ i - j}}_{sgn(\tau)}
+        \qquad \forall \sigma,\tau \in S_n
+            \]
+    Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizziamo il segno delle varie coppie, distinguiamo le seguenti possibilità:
+    \begin{itemize}
+        \item $\{i,j\} \cap \{a,b\} = \emptyset $, in tal caso $\sigma(i) = i, \sigma(j) = j \implies \frac{\sigma(i) - \sigma(j)}{i - j} = 1$.
+        \item $\{i,a\}$ (o $\{i,b\}$), in tal caso $\frac{\sigma(i) - \sigma(a)}{i - a} = \frac{i - b}{i - a}$, però vi è anche $\frac{\sigma(i) - \sigma(b)}{i - b} = \frac{i - a}{i - b}$ e quindi 
+            il fattore dà $1$.
+        \item Infine, nel caso in cui $\{i,j\} = \{a,b\}$ si ha:
+            \[ \frac{\sigma(a) - \sigma(b)}{a - b} = \frac{b - a}{a - b} = -1
+                \]
+    \end{itemize}
+    Dunque si conclude che $sgn(\cycle{a,b}) = -1$.
 \end{proof}
 
 \begin{remark}
@@ -913,5 +935,36 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \pagebreak
 
 \subsection{Classi di coniugio in $S_n$}
+\begin{theorem}
+    Due permutazioni in $S_n$ sono coniugate se e solo se hanno la stessa decomposizione in cicli disgiunti.
+\end{theorem}
+
+\begin{proof}
+    Mostriamo le due implicazioni:
+        \begin{itemize}
+            \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo.
+            \item Mostriamo ora che due permutazioni con la stessa fattorizzazione in cicli disgiunti sono coniugate. Siano:
+                \[ \sigma = \cycle{a_1, \ldots, a_l}\cycle{b_1, \ldots, b_s} \ldots \cycle{z_1, \ldots, z_t}
+                    \]\[ \rho = \cycle{a_1^{\prime}, \ldots, a_l^{\prime}}\cycle{b_1^{\prime}, \ldots, b_s^{\prime}} \ldots \cycle{z_1^{\prime}, \ldots, z_t^{\prime}}
+                        \]
+                per dimostrare la tesi è sufficiente trovare $\tau \in S_n$ tale che $\tau\circ\sigma\circ\tau^{-1} = \rho$. Scegliamo $\tau$ definita da:
+                    \[ \tau(a_i) = a_i^{\prime}, \tau(b_i) = b_i^{\prime}, \ldots, \tau(z_i) = z_i^{\prime}
+                        \]
+                ed eventualmente si aggiungono altri elementi. Verifichiamo allora che $\tau\circ\sigma\circ\tau^{-1} = \rho$, consideriamo (WLOG) il primo ciclo:
+                    \[ a_i^{\prime} \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} a_{i+1}^{\prime}
+                        \]
+                e quindi $a_i^{\prime} \longmapsto a_{i+1}^{\prime}$, pertanto $\tau\circ\sigma\circ\tau^{-1}$ e $\rho$ coincidono sempre.
+        \end{itemize}
+\end{proof}
+
+\begin{example}
+    In $S_5$ le classi di coniugio di $\sigma = \cycle{1,2}\cycle{3,4}$ sono $C_\sigma = \{\cycle{a,b}\cycle{c,d} \in S_5\}$, con:
+        \[ \#C_\sigma = \frac{\binom{5}{2}\binom{3}{2}1!1!}{2!} = 15
+            \]
+    e da ciò si ricava anche che:
+        \[ \#Z_{S_5}(\sigma) = \frac{|S_5|}{|C_\sigma|} = \frac{5!}{15} = 8
+            \]
+\end{example}
+
 
 \end{document}
