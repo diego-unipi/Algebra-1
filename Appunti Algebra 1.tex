@@ -738,7 +738,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
     Presa ad esempio $\sigma \in S_{10}$:
         \[ \sigma = \cycle{1,2,3}\cycle{4,5}\cycle{6,7,8,9}
             \]
-    chiamiamo:
+    chiamiamo i suoi cicli:
         \[ \sigma_1 = \cycle{1,2,3} \qquad \sigma_2 = \cycle{4,5} \qquad \sigma_3 = \cycle{6,7,8,9}
             \]
     dove appunto $\sigma_1,\sigma_2,\sigma_3 \in S_{10}$ e:
@@ -762,11 +762,47 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{remark}
 
 \begin{proposition}
-    Ogni permutazione si scrive in modo unico (a meno dell'ordine e della scrittura di cicli) come prodotto di cicli disgiunti.
+    Ogni permutazione si scrive in modo unico (a meno dell'ordine e della scrittura di cicli) come prodotto di cicli disgiunti,
+     ovvero come composizione di permutazioni cicliche che agiscono su insiemi disgiunti.
 \end{proposition}
 
 \begin{proof}
-    
+    I cicli della permutazione sono univocamente determinati in quanto orbite della permutazione, sappiamo che ogni permutazione si scrive come prodotto dei suoi cicli,
+    e per concludere basta osservare che i cicli disgiunti commutano.
 \end{proof}
+
+\begin{corollary}
+    $S_n$ è generato dalle permutazioni cicliche.
+\end{corollary}
+
+\begin{proof}
+    Segue immediatamente dal fatto che ogni permutazione si ottiene mediante composizione di permutazioni cicliche. 
+\end{proof}
+\pagebreak
+\begin{example}
+    Per esempio, preso $S_4$, le permutazioni possibili sono cicli del tipo:
+        \[ id \qquad \cycle{a,b} \qquad \cycle{a,b,c} \qquad \cycle{a,b,c,d} \qquad \cycle{a,b}\cycle{c,d}
+            \]
+    per contare il numero di $2$-cicli, ci basta scegliere $2$ elementi dell'insieme in $\binom{4}{2}$ modi e poi considerare tutti i possibili 
+    riordinamenti ciclici (dove la scelta del primo elemento è arbitraria), e ciò può essere fatto in $\frac{2!}{2}$ modi, per un totale di:
+        \[ \binom{4}{2}\frac{2!}{2} = 6
+            \]
+    e ragionando analogamente per i $3$-cicli e i $4$-cicli si ottiene:
+        \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{3}\frac{3!}{3} = 6
+            \]
+    infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cilci, possiamo scegliere e permutare due coppie di elementi, come 
+    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutanto (banlmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
+    dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
+        \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 4
+            \]
+    e dal conteggio delle permutazioni di $S_4$ divise per cicli di diversa lunghezza si ottiene: $6+8+6+4 = 24 = |S_4|$.
+\end{example}
+
+\begin{remark}
+    Quanto visto nell'esempio precedente può essere generalizzato ottenendo:
+        \[ \#\{\sigma \in S_n | \sigma\,\text{è un $k$-ciclo}\} = \binom{n}{k}\frac{k!}{k} = \binom{n}{k}(k-1)!
+            \]
+\end{remark}
+
 
 \end{document}
