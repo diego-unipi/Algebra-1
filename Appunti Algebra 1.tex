@@ -943,6 +943,12 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
     Mostriamo le due implicazioni:
         \begin{itemize}
             \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo.
+                Sia $\tau(a_i) = b_i$, allora $\tau\sigma\tau^{-1} = \cycle{b_1,\ldots,b_k}$, con $b_i \ne b_j$, $\forall i \ne j$, poiché $\tau$ è bigettiva; verifichiamo
+                l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
+                    \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
+                        \]
+                Se, invece, $x \ne b_i$, a sinistra si ha $\tau\sigma\underbrace{\tau^{-1}(x)}_{\ne a_1,\ldots,a_k}$ (ciò poiché non si parte da alcun $b_i$), quindi $\sigma(\tau^{-1}(x)) = \tau^{-1}(x)$, e quindi
+                $\tau \circ \tau^{-1} (x) = x$; a destra invece, non essendo $x$ alcun $b_i$ viene lasciato fisso, ciò conclude che le due funzioni sono uguali e che quella a sinistra è quindi un $k$-ciclo.
             \item Mostriamo ora che due permutazioni con la stessa fattorizzazione in cicli disgiunti sono coniugate. Siano:
                 \[ \sigma = \cycle{a_1, \ldots, a_l}\cycle{b_1, \ldots, b_s} \ldots \cycle{z_1, \ldots, z_t}
                     \]\[ \rho = \cycle{a_1^{\prime}, \ldots, a_l^{\prime}}\cycle{b_1^{\prime}, \ldots, b_s^{\prime}} \ldots \cycle{z_1^{\prime}, \ldots, z_t^{\prime}}
@@ -966,5 +972,21 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
             \]
 \end{example}
 
+\begin{example}
+    Sia $\sigma = \cycle{3,5}\cycle{14} \in S_5$ e sia $\rho = \cycle{1,2}\cycle{3,4}$, cerchiamo $\tau \in S_5$ tale che:
+        \[ \tau\circ\sigma\circ\tau^{-1} = \rho
+            \]
+    si può scegliere $\tau = \cycle{1,3}\cycle{2,5}$, da cui:
+        \[ \cycle{1,3}\cycle{2,5}\cycle{3,5}\cycle{14}\cycle{1,3}\cycle{2,5} = \cycle{1,2}\cycle{3,4} = \rho
+            \]
+\end{example}
+
+\begin{corollary}
+    Valgono i seguenti fatti:
+        \begin{enumerate}[(1)]
+            \item Il numero di classi di coniugio in $S_n$ è uguale al numero di partizioni di $n$.
+            \item Se $H \leqslant S_n$, allora $H \trianglelefteqslant S_n$ se e solo se contiene tutte le permutazioni di un certo tipo o nessuna.
+        \end{enumerate}
+\end{corollary}
 
 \end{document}
