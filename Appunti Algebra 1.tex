@@ -695,7 +695,7 @@ Ricordiamo brevemente che:
 
 Indichiamo con $S(X)$ il gruppo delle permutazioni di $X$ e con $S_n$ il gruppo delle permutazioni di un insieme di cardinalità $n$, che 
 per semplicità indichiamo con $\{1,\ldots,n\}$.
-Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in S_{12}$ si possono rappresentare mediante la matrice di permutazione:
+Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in S_{12}$ si può rappresentare mediante la matrice di permutazione:
     \[ \sigma = \left(\begin{array}{cccccccccccc}
         1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
         3 & 2 & 4 & 5 & 1 & 9 & 8 & 7 & 6 & 12 & 11 & 10 
@@ -704,7 +704,7 @@ Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in 
 o anche con la notazione dei cicli:
     \[ \sigma = \cycle{1,3,4,5} \cycle{6,9} \cycle{7,8} \cycle{10,12}
             \]
-ogni ciclo prende il nome di \vocab{$k$-ciclo} (dove $k$ indica la sua lunghezza), come si osserva i cicli di lunghezza $1$ (che lasciano fissi gli elementi) sono stati omessi,
+ogni ciclo prende il nome di \vocab{$k$-ciclo} (dove $k$ indica la sua lunghezza), come si osserva i cicli di lunghezza $1$ sono stati omessi,
  in quanto lasciano fissi gli elementi, inoltre, i $2$-cicli prendono il nome di \vocab{trasposizioni}. Formalmente, sia $\sigma \in S_n$ una permutazione di un insieme di $n$ elementi,
  possiamo considerare l'insieme $X$, con $|X| = n$, il gruppo $G = \left<\sigma\right>$ e definire l'azione:
     \[ \varphi : G = \left<\sigma\right> \longrightarrow S(X) \cong S_n : \sigma \longmapsto \sigma
@@ -747,7 +747,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{example}
 
 \begin{definition}
-    Una permutazione si dice \vocab{ciclica} se ha un unico ciclo non banale.
+    Una permutazione si dice \vocab{ciclica} se ha un unico ciclo (orbita) non banale.
 \end{definition}
 
 \begin{remark}
@@ -762,6 +762,8 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{remark}
 
 \begin{proposition}
+    [Struttura Delle Permutazioni]
+    \label{perm}
     Ogni permutazione si scrive in modo unico (a meno dell'ordine e della scrittura di cicli) come prodotto di cicli disgiunti,
      ovvero come composizione di permutazioni cicliche che agiscono su insiemi disgiunti.
 \end{proposition}
@@ -771,6 +773,16 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
     e per concludere basta osservare che i cicli disgiunti commutano.
 \end{proof}
 
+\begin{remark}
+    Si osserva che l'unicità della scrittura di una permutazione vista nella \hyperref[perm]{Proposizione 1.50} è effettivamente valida solo nel caso di cicli disgiunti, infatti, prendendo ad esempio:
+        \[ \sigma = \cycle{1,2}\cycle{2,4} \in S_4 \qquad \text{con}\qquad \sigma_1 = \cycle{2,4} \quad \text e \quad \sigma_2 = \cycle{1,2}
+            \]
+    non essendo $\sigma_1,\sigma_2$ cicli disgiunti, si osserva che $\sigma_2 \circ \sigma_1 = \cycle{2,4,1}$ e quindi $\sigma$ era in realtà un $3$-ciclo, e la sua fattorizzazione è unica come tale 
+    (mentre non era unica come prodotto di cicli non disgiunti). 
+\end{remark}
+
+\pagebreak
+
 \begin{corollary}
     $S_n$ è generato dalle permutazioni cicliche.
 \end{corollary}
@@ -778,7 +790,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \begin{proof}
     Segue immediatamente dal fatto che ogni permutazione si ottiene mediante composizione di permutazioni cicliche. 
 \end{proof}
-\pagebreak
+
 \begin{example}
     Per esempio, preso $S_4$, le permutazioni possibili sono cicli del tipo:
         \[ id \qquad \cycle{a,b} \qquad \cycle{a,b,c} \qquad \cycle{a,b,c,d} \qquad \cycle{a,b}\cycle{c,d}
@@ -804,5 +816,177 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
             \]
 \end{remark}
 
+\begin{example}
+    Per quanto detto risulta semplice ad esempio calcolare:
+        \[ \#\{\sigma \in S_{20} | \text{$\sigma$ si fattorizza in cicli del tipo $2+2+2+4+5+5$}\}
+            \]
+    applicando quanto detto nell'osservazione pretendente si trovano:
+        \[ \frac{\binom{20}{2}\binom{18}{2}\binom{16}{2}1!1!1!}{3!} \cdot \binom{14}{4}3! \cdot \frac{\binom{10}{5}\binom{5}{5}4!4!}{2!}
+            \]
+\end{example}
+
+\begin{proposition}
+    [Ordine Di Una Permutazione]
+    Data $\sigma \in S_n$ con $\sigma = \sigma_1\ldots\sigma_k$, con $\sigma_i$ cicli disgiunti, allora:
+        \[ \ord \sigma = [\ord \sigma_1,\ldots, \ord\sigma_k]
+            \]
+\end{proposition}
+
+\begin{proof}
+    Sia $\sigma_i$ un $l_i$-ciclo, ovvero $\ord\sigma_i = l_i$, vogliamo dimostrare che:
+        \[ \ord\sigma = [l_1,\ldots,l_k] = d
+            \]
+    osserviamo che $\sigma^d = (\sigma_1\ldots\sigma_k)^d = \sigma_1^d\ldots\sigma_k^d$, in quanto i cicli $\sigma_i$ sono disgiunti (pertanto commutano),
+    essendo $d = [l_1,\ldots,l_k] \implies d \mid l_i$, $\forall \in \{1,\ldots,k\}$, pertanto:
+        \[ \sigma^d = \sigma_1^d\ldots\sigma_k^d = id \implies \ord \sigma = m \mid d
+            \]
+    d'altra parte, si ha che:
+        \[ \sigma^m = \sigma_1^m\ldots\sigma_k^m = id \iff \sigma_i = id, \forall i \in\{1,\ldots,k\}
+            \]
+    dunque $\ord \sigma_i = l_i \mid m$, $\forall i \in\{1,\ldots,k\}$, ovvero $[l_1,\ldots,l_k] \mid m$ da cui si conclude che $m = [l_1,\ldots,l_k]$.
+\end{proof}
+
+\begin{proposition}
+    \label{trasp}
+    Le trasposizioni generano $S_n$, $\forall n \geq 3$.
+\end{proposition}
+
+\begin{proof}
+    Per dimostrare l'affermazione bisogna mostrare che ogni permutazione è prodotto di trasposizioni (in generale non disgiunte).
+    Poiché ogni permutazione, per quanto affermato nella \hyperref[perm]{Proposizione 1.50}, è il prodotto di cicli (permutazioni cicliche) disgiunti,
+    è sufficiente mostrare che i cicli sono tutti prodotto di trasposizioni, infatti si può osservare che:
+        \[ \cycle{1,\ldots,k} = \cycle{1,k}\cycle{1,k-1}\ldots\cycle{1,2}
+            \]
+    dove l'uguaglianza è tra funzioni, quindi ci basta mostrare che danno la stessa immagine. Se $i>k$, allora entrambe le funzioni mandano $i \longmapsto i$, se 
+    $i \leq k$, allora la funzione a sinistra manda $i \longmapsto i+1$ e $k \longmapsto 1$, quella a destra lascia fisso $i$ fino al ciclo $\cycle{1,i}$ che manda $i \longmapsto 1 \longmapsto i+1$
+    che rimane fisso in $i+1$, mentre $k \longmapsto \ldots \longmapsto 1$.
+\end{proof}
+
+\begin{remark}
+    La scrittura di una permutazione come prodotto di trasposzioni non è unica. Ad esempio in $S_4$:
+        \[ \sigma = \cycle{1,2}\cycle{2,4} = \cycle{1,2}\cycle{3,4}\cycle{3,4}\cycle{2,4}
+            \]
+\end{remark}
+
+La segeunte proposizione ci mostra invece che è fissata la parità della decomposizione in trasposizioni, cioè se $\sigma$ si compone come prodotto di $m$ trasposizioni,
+ogni altra decomposizione come prodotto di trasposizioni ha un numero di trasposizioni con la stessa parità.
+
+\begin{proposition}
+    L'applicazione:
+        \[ sgn : S_n \longmapsto \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j}
+            \]
+    è un omomorfismo di gruppi. Inoltre, se $\sigma$ è una trasposizione, allora $sgn(\sigma) = -1$.
+\end{proposition}
+
+\begin{proof}
+    Osserviamo inizialmente che $sgn$ è ben definita cioè:
+        \[ sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j} \in \{\pm 1\}
+            \]
+    al denominatore del prodotto vi sono tutte le possibili coppie $i - j$ e anche al numeratore poiché $\sigma$ è bigettiva, l'unica cosa che 
+    può cambiare è l'ordine (ovvero potrebbe comparire $i - j$ al numeratore e $j - i$ al denominatore), quindi $sgn(\sigma) \in \{\pm 1\}$. Mostriamo che $sgn$ 
+    è un omomorfismo:
+        \[ sgn(\sigma \circ \tau) = \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)} \frac{\tau(i) - \tau(j)}{ i - j}
+            \]
+    da cui:
+        \[ \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}\frac{\tau(i) - \tau(j)}{ i - j} =
+        \underbrace{\prod_{i < j} \frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}}_{sgn(\sigma)} \underbrace{\prod_{i < j}\frac{\tau(i) - \tau(j)}{ i - j}}_{sgn(\tau)}
+        \qquad \forall \sigma,\tau \in S_n
+            \]
+    Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizziamo il segno delle varie coppie, distinguiamo le seguenti possibilità:
+    \begin{itemize}
+        \item $\{i,j\} \cap \{a,b\} = \emptyset $, in tal caso $\sigma(i) = i, \sigma(j) = j \implies \frac{\sigma(i) - \sigma(j)}{i - j} = 1$.
+        \item $\{i,a\}$ (o $\{i,b\}$), in tal caso $\frac{\sigma(i) - \sigma(a)}{i - a} = \frac{i - b}{i - a}$, però vi è anche $\frac{\sigma(i) - \sigma(b)}{i - b} = \frac{i - a}{i - b}$ e quindi 
+            il fattore dà $1$.
+        \item Infine, nel caso in cui $\{i,j\} = \{a,b\}$ si ha:
+            \[ \frac{\sigma(a) - \sigma(b)}{a - b} = \frac{b - a}{a - b} = -1
+                \]
+    \end{itemize}
+    Dunque si conclude che $sgn(\cycle{a,b}) = -1$.
+\end{proof}
+
+\begin{remark}
+    La proposizione appena vista dimostra quanto detto sopra, ovvero:
+        \[ \sigma = \tau_1 \ldots \tau_m \qquad \text{con $\tau_i$ trasposizione}
+            \]
+    allora $sgn(\sigma) = \prod_{1\leq i \leq m}sgn(\tau_i) = (-1)^m$.
+\end{remark}
+
+\begin{definition}
+    Una permutazione $\sigma \in S_n$ si dice \vocab{pari} se $sgn(\sigma) = 1$, \vocab{dispari} se $sgn(\sigma) = -1$.
+\end{definition}
+
+\begin{definition}
+    Dato l'omomorfismo $sgn : S_n \longmapsto \{\pm 1\}$, si definisce \vocab{gruppo alterno}:
+        \[ \mathcal{A}_n = \ker sgn = \{\sigma \in S_n |\, \text{$\sigma$ è pari}\}
+            \]
+\end{definition}
+
+\begin{remark}
+    Si osserva che $\mathcal{A}_n \trianglelefteqslant S_n$, $|\mathcal{A}_n| = \frac{n!}{2}$ e $\faktor{S_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
+\end{remark}
+
+\begin{remark}
+    Per quanto detto nella \hyperref[trasp]{Proposizione 1.57}, un $k$-ciclo si può scrivere nella forma:
+        \[ \cycle{1,\ldots,k} = \underbrace{\cycle{1,k}\cycle{1,k-1}\ldots\cycle{1,2}}_{k-1 \, \text{trasposizioni}}
+            \]
+    dunque un $k$-ciclo è pari se $k \equiv 0 \pmod 2$, dispari se $k \equiv 1 \pmod 2$.
+\end{remark}
+
+\pagebreak
+
+\subsection{Classi di coniugio in $S_n$}
+\begin{theorem}
+    Due permutazioni in $S_n$ sono coniugate se e solo se hanno la stessa decomposizione in cicli disgiunti.
+\end{theorem}
+
+\begin{proof}
+    Mostriamo le due implicazioni:
+        \begin{itemize}
+            \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo.
+                Sia $\tau(a_i) = b_i$, allora $\tau\sigma\tau^{-1} = \cycle{b_1,\ldots,b_k}$, con $b_i \ne b_j$, $\forall i \ne j$, poiché $\tau$ è bigettiva; verifichiamo
+                l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
+                    \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
+                        \]
+                Se, invece, $x \ne b_i$, a sinistra si ha $\tau\sigma\underbrace{\tau^{-1}(x)}_{\ne a_1,\ldots,a_k}$ (ciò poiché non si parte da alcun $b_i$), quindi $\sigma(\tau^{-1}(x)) = \tau^{-1}(x)$, e quindi
+                $\tau \circ \tau^{-1} (x) = x$; a destra invece, non essendo $x$ alcun $b_i$ viene lasciato fisso, ciò conclude che le due funzioni sono uguali e che quella a sinistra è quindi un $k$-ciclo.
+            \item Mostriamo ora che due permutazioni con la stessa fattorizzazione in cicli disgiunti sono coniugate. Siano:
+                \[ \sigma = \cycle{a_1, \ldots, a_l}\cycle{b_1, \ldots, b_s} \ldots \cycle{z_1, \ldots, z_t}
+                    \]\[ \rho = \cycle{a_1^{\prime}, \ldots, a_l^{\prime}}\cycle{b_1^{\prime}, \ldots, b_s^{\prime}} \ldots \cycle{z_1^{\prime}, \ldots, z_t^{\prime}}
+                        \]
+                per dimostrare la tesi è sufficiente trovare $\tau \in S_n$ tale che $\tau\circ\sigma\circ\tau^{-1} = \rho$. Scegliamo $\tau$ definita da:
+                    \[ \tau(a_i) = a_i^{\prime}, \tau(b_i) = b_i^{\prime}, \ldots, \tau(z_i) = z_i^{\prime}
+                        \]
+                ed eventualmente si aggiungono altri elementi. Verifichiamo allora che $\tau\circ\sigma\circ\tau^{-1} = \rho$, consideriamo (WLOG) il primo ciclo:
+                    \[ a_i^{\prime} \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} a_{i+1}^{\prime}
+                        \]
+                e quindi $a_i^{\prime} \longmapsto a_{i+1}^{\prime}$, pertanto $\tau\circ\sigma\circ\tau^{-1}$ e $\rho$ coincidono sempre.
+        \end{itemize}
+\end{proof}
+
+\begin{example}
+    In $S_5$ le classi di coniugio di $\sigma = \cycle{1,2}\cycle{3,4}$ sono $C_\sigma = \{\cycle{a,b}\cycle{c,d} \in S_5\}$, con:
+        \[ \#C_\sigma = \frac{\binom{5}{2}\binom{3}{2}1!1!}{2!} = 15
+            \]
+    e da ciò si ricava anche che:
+        \[ \#Z_{S_5}(\sigma) = \frac{|S_5|}{|C_\sigma|} = \frac{5!}{15} = 8
+            \]
+\end{example}
+
+\begin{example}
+    Sia $\sigma = \cycle{3,5}\cycle{14} \in S_5$ e sia $\rho = \cycle{1,2}\cycle{3,4}$, cerchiamo $\tau \in S_5$ tale che:
+        \[ \tau\circ\sigma\circ\tau^{-1} = \rho
+            \]
+    si può scegliere $\tau = \cycle{1,3}\cycle{2,5}$, da cui:
+        \[ \cycle{1,3}\cycle{2,5}\cycle{3,5}\cycle{14}\cycle{1,3}\cycle{2,5} = \cycle{1,2}\cycle{3,4} = \rho
+            \]
+\end{example}
+
+\begin{corollary}
+    Valgono i seguenti fatti:
+        \begin{enumerate}[(1)]
+            \item Il numero di classi di coniugio in $S_n$ è uguale al numero di partizioni di $n$.
+            \item Se $H \leqslant S_n$, allora $H \trianglelefteqslant S_n$ se e solo se contiene tutte le permutazioni di un certo tipo o nessuna.
+        \end{enumerate}
+\end{corollary}
 
 \end{document}
