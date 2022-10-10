@@ -790,7 +790,106 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 
 \newpage
 
-\section{Azioni transitive}
+\section{Gruppo derivato}
+
+\begin{definition}
+    Dati un gruppo $G$ e $x, y$ elementi di $G$, chiamiamo \vocab{commutatore}
+    di $x$ e $y$ l'elemento $[x, y] = xyx^{-1}y^{-1}$. Chiamiamo \vocab{sottogruppo
+    derivato} di $G$, oppure \vocab{sottogruppo dei commutatori} di $G$
+     il sottogruppo 
+    \[
+        G' = \langle\{[x, y]\mid x, y \in G\}\rangle
+    \]
+\end{definition}
+
+\begin{remark}
+    $[x, y] = e$ se e solo se $x$ e $y$ commutano.
+\end{remark}
+
+\begin{proposition}
+    Dato un gruppo $G$, valgono i seguenti fatti:
+    \begin{enumerate}[(1)]
+        \item $G'$ è un sottogruppo caratteristico di $G$;
+        \item $\faktor{G}{G'}$ è un gruppo abeliano;
+        \item dato $A$ un gruppo abeliano e $\varphi \in \Hom(G, A)$,
+        allora $G' \subseteq \ker\varphi$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Mostriamo le affermazioni singolarmente:
+    \begin{enumerate}[(1)]
+        \item consideriamo $\varphi \in \Aut(G)$, poiché $\varphi$ preserva la struttura
+        di gruppo è sufficiente descrivere come $\varphi$ agisce sui 
+        generatori di $G'$ per determinare $\varphi(G')$. 
+        Fissati $x, y \in G$, abbiamo 
+        \[
+            \varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = \varphi(x)\varphi(y)
+            \varphi(x)^{-1}\varphi(y)^{-1} \in G'
+        \]pertanto $\varphi(G') \subseteq G'$, da cui l'uguaglianza in quanto 
+        $\varphi$ è bigettiva;
+        \item dati $x, y \in G$, $xG'\cdot yG' = yG'\cdot xG'$ se e solo se 
+        $xyG' = yxG'$, che è equivalente a richiedere $xyx^{-1}y^{-1}$. 
+        Dato che effettivamente $xyx^{-1}y^{-1} = [x, y]$ è un elemento di $G'$
+        abbiamo che $\faktor{G}{G'}$ è abeliano;
+        \item dati $x, y \in G$, abbiamo 
+        \[
+            \varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = 
+        \varphi(x)\varphi(y)\varphi(x)^{-1}\varphi(y)^{-1}
+        \]
+        e questo coincide con
+        l'identità di $A$ in quanto $A$ è abeliano. Poiché l'immagine di $\varphi$
+        è un sottogruppo di $A$ allora $G' \subseteq \ker\varphi$, in quanto
+        il commutatore di ogni coppia di elementi di $G$ è contenuto in $\ker \varphi$.
+    \end{enumerate}
+\end{proof}
+
+\begin{remark}
+    Come conseguenza del Primo Teorema di Omomorfismo abbiamo che $\faktor{G}{G'}$ è 
+    isomorfo al "più grande" sottogruppo abeliano di $G$, o analogamente che 
+    $G'$ è il "più piccolo" sottogruppo di $G$ che produce un quoziente abeliano.
+    In questo senso, $G'$ misura quanto è abeliano il gruppo $G$.
+\end{remark}
+
+\begin{remark}
+    Dato $A$ un gruppo abeliano, il Primo Teorema di Omomorfismo produce una bigezione naturale tra 
+    $\Hom(G, A)$ e $\Hom\left(\faktor{G}{G'}, A\right)$. Consideriamo infatti $\varphi \in \Hom(G, A)$,
+    $\pi_{G'}: G \longrightarrow \faktor{G}{G'}$ la proiezione al quoziente e 
+    $\overline{\varphi} : \faktor{G}{G'}\longrightarrow A$, il Teorema
+    fornisce un'unico omomorfismo $\overline{\varphi}: \faktor{G}{G'}\longrightarrow A$
+    che rende commutativo il diagramma
+    \begin{center}
+        \begin{tikzcd}[column sep = small, row sep = small]
+            G\arrow[rrr, "\varphi"]\arrow[ddd, "\pi_{G'}"', two heads]& & &A \\
+            {}\arrow[rr, "\circlearrowleft", phantom]& & {}& \\
+            & & & \\
+            \faktor{G}{G'}\arrow[uuurrr, "\overline{\varphi}"', hook]& & &
+        \end{tikzcd}
+    \end{center}
+    Viceversa, dato un omomorfismo $\overline{\varphi}:\faktor{G}{G'}\longrightarrow A$
+    otteniamo un'unico omomorfismo $\varphi:G\longrightarrow A$ con la 
+    composizione $\pi_{G'}\circ\overline{\varphi}$.
+\end{remark}
+
+\begin{example}
+    Consideriamo il gruppo $S_3$, chiaramente $(S_3)' \neq \{id\}$ in quanto
+    $\faktor{S_3}{\langle id\rangle} \cong S_3$ che non è abeliano, pertanto 
+    abbiamo due possibilità: $(S_3)' = S_3$ oppure $(S_3)' = \langle\cycle{1, 2, 3}\rangle$\footnote{
+        Gli unici sottogruppi normali di $S_3$ sono $\{id\}$, 
+        $\langle\cycle{1, 2, 3}\rangle$, $S_3$.}. D'altra parte 
+        $\faktor{S_3}{\langle\cycle{1, 2, 3}\rangle}$ è isomorfo a $\Z2$, che
+        è abeliano, pertanto $(S_3)'$ è contenuto in $\langle\cycle{1, 2, 3}\rangle$,
+        da cui necessariamente $(S_3)' = \langle\cycle{1, 2, 3}\rangle$.
+        Più in generale vedremo che $(S_n)' = \mathcal{A}_n$, dove $\mathcal{A}_n$ è il sottogruppo
+        di $S_n$ delle permutazioni pari (sappiamo già che $(S_n)' \subseteq
+        \mathcal{A}_n$ in quanto $\faktor{S_n}{\mathcal{A}_n}\cong\Z2$).
+\end{example}
+
+\newpage
+
+\section{Azioni di gruppo}
+
+\subsection{Azioni transitive}
 
 \begin{definition}
     Siano $G$ un gruppo e $X$ un insieme, un'azione \[
@@ -815,7 +914,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     è unione di $[G:N_G(H)] = \displaystyle\frac{|G|}{|N_G(H)|}$ elementi distinti\footnote
     {Infatti, se $X = \{N\mid N\leqslant G\}$ e $\varphi$ è l'azione di coniugio
     su $X$, per ogni $N \in X$ abbiamo $\St(N) = N_G(N)$ e $\Orb(N) = C_N =
-    \{gNg^{-1}\mid g \in G\}$. Vale quindi la relazione $|G| = |C_N|\cdot|N_G(N)|$}. Poiché
+    \{gNg^{-1}\mid g \in G\}$. Vale quindi la relazione $|G| = |C_N|\cdot|N_G(N)|$.}. Poiché
     $H \subseteq N_G(H)$ e $|gHg^{-1}| = |H|$ per ogni $g \in G$, possiamo stimare 
     la cardinalità di $K$ nel seguente modo 
     \[
@@ -873,90 +972,24 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     \end{enumerate}
 \end{proof}
 
-\newpage
-
-\section{Gruppo derivato}
-
-\begin{definition}
-    Dati un gruppo $G$ e $x, y$ elementi di $G$, chiamiamo \vocab{commutatore}
-    di $x$ e $y$ l'elemento $[x, y] = xyx^{-1}y^{-1}$. Chiamiamo \vocab{sottogruppo
-    derivato} di $G$, oppure \vocab{sottogruppo dei commutatori} di $G$
-     il sottogruppo 
-    \[
-        G' = \langle\{[x, y]\mid x, y \in G\}\rangle
-    \]
-\end{definition}
-
-\begin{remark}
-    $[x, y] = e$ se e solo se $x$ e $y$ commutano.
-\end{remark}
-
-Il gruppo derivato $G'$ "misura quanto è abeliano" $G$, nel senso specificato 
-dal seguente risultato:
-
 \begin{proposition}
-    Dato un gruppo $G$, valgono i seguenti fatti:
-    \begin{enumerate}[(1)]
-        \item $G'$ è un sottogruppo caratteristico di $G$;
-        \item $\faktor{G}{G'}$ è un gruppo abeliano;
-        \item dato $A$ un gruppo abeliano e $\varphi \in \Hom(G, A)$,
-        allora $G' \subseteq \ker\varphi$.
-    \end{enumerate}
+    Dato $G$ un gruppo finito e $H \lneq G$ un sottogruppo proprio, se $[G:H] = p$
+    con $p$ il più piccolo primo che divide l'ordine di $G$ allora $H$ è normale
+    in $G$.
 \end{proposition}
 
 \begin{proof}
-    Mostriamo le affermazioni singolarmente:
-    \begin{enumerate}[(1)]
-        \item consideriamo $\varphi \in \Aut(G)$, poiché $\varphi$ preserva la struttura
-        di gruppo è sufficiente descrivere come $\varphi$ agisce sui 
-        generatori di $G'$ per determinare $\varphi(G')$. 
-        Fissati $x, y \in G$, abbiamo 
-        \[
-            \varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = \varphi(x)\varphi(y)
-            \varphi(x)^{-1}\varphi(y)^{-1} \in G'
-        \]pertanto $\varphi(G') \subseteq G'$, da cui l'uguaglianza in quanto 
-        $\varphi$ è bigettiva;
-        \item dati $x, y \in G$, $xG'\cdot yG' = yG'\cdot xG'$ se e solo se 
-        $xyG' = yxG'$, che è equivalente a richiedere $xyx^{-1}y^{-1}$. 
-        Dato che effettivamente $xyx^{-1}y^{-1} = [x, y]$ è un elemento di $G'$
-        abbiamo che $\faktor{G}{G'}$ è abeliano;
-        \item dati $x, y \in G$, abbiamo 
-        \[
-            \varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = 
-        \varphi(x)\varphi(y)\varphi(x)^{-1}\varphi(y)^{-1}
-        \]
-        e questo coincide con
-        l'identità di $A$ in quanto $A$ è abeliano. Poiché l'immagine di $\varphi$
-        è un sottogruppo di $A$ allora $G' \subseteq \ker\varphi$, in quanto
-        il commutatore di ogni coppia di elementi di $G$ è contenuto in $\ker \varphi$.
-    \end{enumerate}
+    Consideriamo l'azione di $G$ sull'insieme quoziente $\faktor{G}{H}$ 
+    \[
+        \psi: G\longrightarrow S\left(\faktor{G}{H}\right) : g \longmapsto \psi_g
+    \]con 
+    \[
+        \psi_g : \faktor{G}{H}\longrightarrow\faktor{G}{H} : g'H\longmapsto gg'H
+    \]Poiché l'immagine di $\psi$ è un sottogruppo di $S\left(\faktor{G}{H}\right)$,
+    che è isomorfo a $S_p$, abbiamo che $|\mathrm{Im}\psi| \mid p!$, inoltre 
+    $|\mathrm{Im}\psi| = \displaystyle\frac{|G|}{|\ker \psi|}$ come conseguenza
+    del Primo Teorema di Omomorfismo. Pertanto $|\mathrm{Im}\psi| \mid (p!, |G|) = p$,
+    in quanto $p$ è il più piccolo primo che divide $|G|$, quindi $|\mathrm{Im}\psi| \in \{1, p\}$.
 \end{proof}
-
-\begin{remark}
-    Come conseguenza del Primo Teorema di Omomorfismo abbiamo che $\faktor{G}{G'}$ è 
-    isomorfo al "più grande" sottogruppo abeliano di $G$, o analogamente che 
-    $G'$ è il "più piccolo" sottogruppo di $G$ che produce un quoziente abeliano.
-\end{remark}
-
-\begin{remark}
-    Dato $A$ un gruppo abeliano, il Primo Teorema di Omomorfismo produce una bigezione naturale tra 
-    $\Hom(G, A)$ e $\Hom(\faktor{G}{G'}, A)$. Consideriamo infatti $\varphi \in \Hom(G, A)$,
-    $\pi_{G'}: G \longrightarrow \faktor{G}{G'}$ la proiezione al quoziente e 
-    $\overline{\varphi} : \faktor{G}{G'}\longrightarrow A$, il Teorema
-    fornisce un'unico omomorfismo $\overline{\varphi}: \faktor{G}{G'}\longrightarrow A$
-    che rende commutativo il diagramma
-    \begin{center}
-        \begin{tikzcd}[column sep = small, row sep = small]
-            G\arrow[rrr, "\varphi"]\arrow[ddd, "\pi_{G'}"', two heads]& & &A \\
-            {}\arrow[rr, "\circlearrowright", phantom]& & {}& \\
-            & & & \\
-            \faktor{G}{G'}\arrow[uuurrr, "\overline{\varphi}"', hook]& & &
-        \end{tikzcd}
-    \end{center}
-    Viceversa, dato un omomorfismo $\overline{\varphi}:\faktor{G}{G'}\longrightarrow A$
-    otteniamo un'unico omomorfismo $\varphi:G\longrightarrow A$ con la 
-    composizione $\pi_{G'}\circ\overline{\varphi}$.
-\end{remark}
-
 
 \end{document}
