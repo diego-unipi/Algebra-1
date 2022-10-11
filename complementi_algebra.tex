@@ -1003,6 +1003,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     che effettivamente $\ker\psi = H$, cioè $H$ è normale in $G$.
 \end{proof}
 
+
 \subsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
 
 Vediamo una dimostrazione alternativa del Teorema di Cauchy e del Piccolo
@@ -1057,6 +1058,55 @@ quindi due casi:
     $n^{p - 1} \equiv 1 \pmod p$ (\hyperref[teorema2.0]{Piccolo Teorema di Fermat}).
 \end{itemize}
 
+\begin{exercise}
+    Mostrare che i gruppi di ordine $15$ sono ciclici.
+\end{exercise}
+
+\begin{soln}
+    Sia $G$ un gruppo di ordine 15, poiché 5 è un primo che divide $|G|$
+    esiste $h \in G$ tale che $\ord(h) = 15$ per il \hyperref[teorema1.0]{Teorema di Cauchy}.
+    Inoltre, posto $H = \langle h\rangle$, abbiamo che $[G:H] = 3$ e quindi,
+    dato che 3 è il più piccolo primo che divide $|G|$, $H$ è un sottogruppo 
+    normale di $G$. Mostriamo che $H \subseteq Z(G)$, questo è equivalente a 
+    richiedere che l'omomorfismo \[
+        \varphi: G\longrightarrow \Aut(H) :g\longmapsto \varphi_{g\mid H}
+    \]
+    dove $\varphi_g$ è il coniugio per $g$, abbia come unico elemento dell'immagine
+    l'applicazione
+    \[
+        id_H:H\longrightarrow H: h \longmapsto h
+    \]
+    Poiché $H \cong \Z5$, abbiamo $\Aut(H)\cong (\Z5)^* \cong \Z4$, d'altra 
+    parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |H|) = 1$, pertanto
+    $|\mathrm{Im}\varphi = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
+    Diamo adesso due modi per concludere l'esercizio:
+    \begin{enumerate}[(1)]
+        \item osserviamo che se $G$ è un gruppo abeliano, cioè se $Z(G) = G$,
+        allora abbiamo che $G$ è ciclico. Infatti posto $k \in G$ un elemento di 
+        ordine 3 (che esiste in virtù del \hyperref[teorema1.0]{Teorema di Cauchy}),
+        abbiamo che $\ord(hk) = \ord(h)\ord(k) = 15$ in quanto i due elementi hanno
+        ordine coprimo. D'altra parte, se $G$ non fosse abeliano allora avremmo 
+        necessariamente $Z(G) = H$, quindi $\faktor{G}{Z(G)}$ sarebbe ciclico 
+        in quanto di ordine 3, pertanto $G$ sarebbe un gruppo abeliano, da cui 
+        la tesi per quanto appena detto;
+        \item sia $k \in G$ un elemento di ordine 3, consideriamo il centralizzatore
+        di $k$
+        \[
+            Z_G(k) = \{x \in G\mid xk = kx\}
+        \]Osserviamo che $k \in Z_G(k)$ e $Z(G) \subseteq Z_G(k)$, pertanto $h$ è un elemento 
+        di $Z_G(k)$. Abbiamo quindi che $\ord(h)\mid |Z_G(k)|$ e $\ord(k)\mid |Z_G(k)|$, 
+        da cui $|Z_G(k)| = 15$. Abbiamo che tutti gli elementi di ordine 3
+        sono contenuti nel centro di $G$, che quindi coincide con $G$. Allora $G$
+        è ciclico in quanto abeliano e contenente un elemento di ordine 3 e uno
+        di ordine 5, quindi uno di ordine 15.
+    \end{enumerate}
+\end{soln}
+
+\begin{remark}
+    In generale dati $x, y\in G$, se $x$ e $y$ commutano allora 
+    $\ord(xy) = [\ord(x), \ord(y)]$ anche se $G$ non è un gruppo abeliano.
+\end{remark}
+
 \subsection{Teorema di Poincaré}
 
 Vediamo un risultato che sarà utile nel futuro, che permette di esibire,
@@ -1098,5 +1148,10 @@ se esistono, sottogruppi normali non banali di un gruppo finito.
     Poiché $\ker\psi$ è normale in $G$ abbiamo che $N = \ker\psi$ è un sottogruppo
     con le proprietà cercate.
 \end{proof}
+
+\begin{remark}
+    In particolare, se $G$ ha un sottogruppo di indice $n$ e $n! \leqslant |G|$
+    allora $G$ ammette sottogruppi normali non banali.
+\end{remark}
 
 \end{document}
