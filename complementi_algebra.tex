@@ -218,7 +218,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     infatti $2n$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
     di ordine $n$, pertanto sono $n$ elementi distinti, inoltre 
     \[
-        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \mod n
+        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \pmod n
     \] pertanto anche questi sono $n$
     elementi distinti. Allora $|D_n| = 2n$.
 \end{proof}
@@ -346,8 +346,8 @@ tutti distinti.
         \] Inoltre, se $sr^h \in \langle r^m, sr^l\rangle = \langle r^m\rangle
         \cdot \langle sr^l\rangle$, allora esiste $t \in \ZZ$ tale che \[
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
-        \iff h \equiv l - mt \mod n
-        \]da cui ricaviamo $h \equiv l \mod m$ in quanto $m \mid n$. Ma allora 
+        \iff h \equiv l - mt \pmod n
+        \]da cui ricaviamo $h \equiv l \pmod m$ in quanto $m \mid n$. Ma allora 
         $h =l$ dato che $0 \leqslant h < k$ e $0\leqslant l < m$.
     \end{itemize}
 \end{proof}
@@ -430,7 +430,7 @@ $\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
 
 Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2}\rangle
 = \langle r^k, sr^{-h}\rangle = \langle r^k, sr^h\rangle$, se e solo se 
-$h \equiv h - 2 \mod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
+$h \equiv h - 2 \pmod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
     \item Se $k = 1$ allora $H_{k, h} = \langle r, s\rangle = D_n$;
     \item se $k = 2$ (e $n$ pari) allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
     $H_{k, h} = \langle r^2, s\rangle$.
@@ -580,7 +580,7 @@ $0\leqslant h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
 
 D'altra parte, se fosse $\varphi(s) = r^{\frac n 2}$ allora $\varphi$ non
 sarebbe né iniettiva né surgettiva, pertanto $\varphi(s) = sr^h$ con 
-$0\leqslant h \leq n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
+$0\leqslant h \leqslant n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
 caratterizzazione che abbiamo dato sopra è sufficiente verificare che
 $\varphi(s)\varphi(r)\varphi(s)^{-1} = \nolinebreak\varphi(r)^{-1}$:
 \[
@@ -748,7 +748,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
     \end{multline*}
     Viceversa, se $a = \pm 1$ allora $\varphi$ è surgettiva, infatti 
     per ogni $(x_0, y_0) \in \ZZ\times\Zn$, scegliendo
-    $x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\mod n$ abbiamo \[
+    $x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\pmod n$ abbiamo \[
         \varphi(x, y) = (x_0a^2, x_0ab + d d^{-1}(y_0 - x_0ab)) = (x_0, y_0)
     \]e questo ci permette di concludere che $\ZZ\times\{0\}$ non è un sottogruppo
     caratteristico. In questo caso abbiamo solo un'immersione del gruppo
@@ -918,7 +918,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     $H \subseteq N_G(H)$ e $|gHg^{-1}| = |H|$ per ogni $g \in G$, possiamo stimare 
     la cardinalità di $K$ nel seguente modo 
     \[
-        |K| \leq \frac{|G|}{|N_G(H)|}|H| \leq \frac{|G|}{|H|}|H| = |G|.
+        |K| \leqslant\frac{|G|}{|N_G(H)|}|H| \leqslant\frac{|G|}{|H|}|H| = |G|.
     \]D'altra parte, per il Principio di Inclusione-Esclusione abbiamo che $|K|$ 
     è somma delle cardinalità dei singoli termini dell'unione se e solo se 
     l'unione è disgiunta, ma questo è falso in quanto ogni classe di coniugio
@@ -990,6 +990,113 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     $|\mathrm{Im}\psi| = \displaystyle\frac{|G|}{|\ker \psi|}$ come conseguenza
     del Primo Teorema di Omomorfismo. Pertanto $|\mathrm{Im}\psi| \mid (p!, |G|) = p$,
     in quanto $p$ è il più piccolo primo che divide $|G|$, quindi $|\mathrm{Im}\psi| \in \{1, p\}$.
+    D'altra parte osserviamo che $\psi$ è un'azione transitiva, infatti per 
+    ogni $g_1, g_2 \in G$ abbiamo $\psi_{g_2g_1^{-1}}(g_1H) = g_2g_1^{-1}g_1H = g_2H$,
+    pertanto non è possibile $\mathrm{Im}\psi = \{id\}$, da cui $|\mathrm{Im}\psi| = p$
+    e $[G:\ker\psi] = p$. Consideriamo il nucleo di $\psi$
+    \[
+        \ker\psi = \{g\in G\mid gg'H = g'H~\forall g' \in G\}
+    \]indebolendo la condizione di appartenenza otteniamo l'inclusione
+    \[
+        \ker\psi \subseteq \{g \in G\mid gH = H\} = H
+    \]Poiché $[G:\ker \psi] = [G : H] = p$ e $G$ è un gruppo finito abbiamo
+    che effettivamente $\ker\psi = H$, cioè $H$ è normale in $G$.
+\end{proof}
+
+\subsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
+
+Vediamo una dimostrazione alternativa del Teorema di Cauchy e del Piccolo
+Teorema di Fermat, di cui ricordiamo gli enunciati, che fa uso del concetto
+ di azione. 
+
+\begin{theorem}
+    [Teorema di Cauchy]
+    \label{teorema1.0}
+    Dato un gruppo $G$ e un numero primo $p$, se $p\mid |G|$ allora esiste 
+    $g \in G$ tale che $\ord(g) = p$.
+\end{theorem}
+
+\begin{theorem}
+    [Piccolo Teorema di Fermat]
+    \label{teorema2.0}
+    Dato un numero primo $p$, se $n \in \ZZ$ è coprimo con $p$ allora 
+    $n^{p - 1} \equiv 1 \pmod p$.
+\end{theorem}
+
+Dati un gruppo $G$ e un numero primo $p$, consideriamo l'insieme 
+\[
+    X = \{(g_1, \ldots, g_p) \in G^p\mid g_1\ldots g_p = e\}
+\]osserviamo che $|X| = |G|^{p - 1}$, possiamo infatti scegliere liberamente
+i primi $p - 1$ elementi di ogni $p$-upla, che ne determinano l'ultimo in 
+modo univoco (per unicità dell'inverso). Definiamo un'azione di $\Zp$ su $X$
+nel seguente modo:
+\[
+    \psi: \Zp \longrightarrow S(X) : g \longmapsto \psi_g
+\]
+con
+\[
+    \psi_g:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
+\]
+
+Fissato $x \in X$, poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$
+abbiamo che $|\Orb(x)| \in \{1, p\}$, in particolare le orbite di cardinalità
+1 sono date dalle $p$-uple della forma $(g, \ldots, g)$ con $g^p = e$.
+Poniamo $S = \{g\in G \mid \ord(g) = p\}$ e $\mathcal{R}$ un insieme di 
+rappresentanti per la relazione di equivalenza indotta da $\psi$, poiché 
+le orbite degli elementi di $X$ formano una partizione dell'insieme abbiamo
+\[
+    |G|^{p - 1} = |X| = \sum_{x \in \mathcal{R}} |\Orb(x)| = 1 + |S| + \sum_{x \in \mathcal{R}\setminus S}|\Orb(x)|
+\]dove l'ultimo termine della somma è divisibile per $p$. Distinguiamo 
+quindi due casi:
+\begin{itemize}
+    \item se $p\mid G$, riducendo modulo $p$ la formula sopra otteniamo
+    $|S| \equiv -1 \pmod p$, in particolare esiste almeno un elemento di
+    ordine $p$ (\hyperref[teorema1.0]{Teorema di Cauchy});
+    \item se $G = \Zn$ con $p$ e $n$ coprimi, $\Zn$ non contiene elementi
+    di ordine $p$, pertanto riducendo modulo $p$ la formula sopra otteniamo
+    $n^{p - 1} \equiv 1 \pmod p$ (\hyperref[teorema2.0]{Piccolo Teorema di Fermat}).
+\end{itemize}
+
+\subsection{Teorema di Poincaré}
+
+Vediamo un risultato che sarà utile nel futuro, che permette di esibire,
+se esistono, sottogruppi normali non banali di un gruppo finito.
+
+\begin{theorem}
+    [Teorema di Poincaré]
+    Dato un gruppo $G$ finito e $H\leqslant G$ un suo sottogruppo, 
+    se $[G:H] = n$ allora esiste un sottogruppo normale $N\triangleleft G$ 
+    tale che:
+    \begin{enumerate}[(1)]
+        \item $N\leqslant H \leqslant G$;
+        \item $n \mid [G:N] \mid n!$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Consideriamo l'azione di $G$ su $\faktor{G}{H}$
+    \[
+        \psi: G\longrightarrow S\left(\faktor{G}{H}\right)S:g\longmapsto \psi_g
+    \]
+    con
+    \[
+        \psi_g:\faktor{G}{H}\longrightarrow\faktor{G}{H} : g'H\longmapsto gg'H
+    \]
+    \begin{enumerate}[(1)]
+        \item Consideriamo il nucleo di $\psi$
+        \[
+            \ker\psi = \{g \in G\mid gg'H = g'H~\forall g' \in G\}
+        \]indebolendo la condizione di appartenenza otteniamo l'inclusione
+        \[
+            \ker\psi \subseteq \{g \in G \mid gH = H\} = H
+        \]pertanto $\ker\psi \leqslant H$;
+        \item poiché $\ker\psi \leqslant H$ abbiamo $[G:H]\mid [G:\ker\psi]$, cioè
+        $n \mid [G:\ker\psi]$. Dal Primo Teorema di Omomorfismo abbiamo che
+        $\faktor{G}{\ker\psi} \cong \mathrm{Im\psi}$, che è un sottogruppo
+        di $S\left(\faktor{G}{H}\right)\cong S_n$, pertanto $[G:\ker\psi]\mid n!$.
+    \end{enumerate}
+    Poiché $\ker\psi$ è normale in $G$ abbiamo che $N = \ker\psi$ è un sottogruppo
+    con le proprietà cercate.
 \end{proof}
 
 \end{document}
