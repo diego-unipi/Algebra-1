@@ -15,10 +15,10 @@
 \newpage
 
 \section*{Ringraziamenti}
-Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce.
+Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce, Leonardo Migliorini.
 
 \newpage
-\section{Automorfismi}
+\section{Gruppi}
 \subsection{Automorfismi di $G$}
 Dato un gruppo $G$ possiamo definire l'insieme degli automorfismi di $G$ come segue:
     \[ \Aut(G) = \{\varphi : G \longrightarrow G |\, \varphi \, \text{isomorfismo}\}
@@ -316,7 +316,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 
 \begin{example}
     Se $X = \RR^2$ e $G$ è il gruppo di traslazioni di vettore $\ul v = (0, l)$, allora:
-        \[ \varphi : G \longrightarrow S(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)} \footnote{Si osserva che il primo $\lambda_{(0,l)}$ è un elemento del gruppo $G$, mentre il secondo è un'applicazione bigettiva di $X$.}
+        \[ \varphi : G \longrightarrow S(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)} \footnote{Si osserva che il primo $\tau_{(0,l)}$ è un elemento del gruppo $G$, mentre il secondo è un'applicazione bigettiva di $X$.}
             \]
     con:
         \[ \Orb(x,y) = \{(x,y + l) | l \in \RR\}
@@ -336,7 +336,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
             G & \text{se $(x,y) = (0,0)$}
         \end{cases}
             \]
-    e, detta $\omega$ la circonferenza di centro $O$ raggio $\sqrt{x^2+y^2}$:
+    e, detta $\omega$ la circonferenza di centro $O$ e raggio $\sqrt{x^2+y^2}$:
         \[ \Orb(x,y) = \{(x^{\prime},y^{\prime}) \in \RR^2 | (x^{\prime}, y^{\prime}) \in \omega\}
             \]
 \end{example}
@@ -988,5 +988,190 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
             \item Se $H \leqslant S_n$, allora $H \trianglelefteqslant S_n$ se e solo se contiene tutte le permutazioni di un certo tipo o nessuna.
         \end{enumerate}
 \end{corollary}
+
+\pagebreak
+
+\subsection{Prodotto diretto}
+Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \times G_2$ con l'operazione fatta componente per componente prende il nome di \vocab{prodotto diretto}.
+
+\begin{example}
+    Presi ad esempio $\Z7$ e $S_4$, si ha $\Z7 \times S_4$, con $\sigma = (\ol 1, \cycle{1,2,3})$ e $\rho = (\ol 4, \cycle{1,4,2,4})$ in $\Z7 \times S_4$ e l'operazione:
+        \[ \sigma \cdot \rho = (\ol 1 + \ol 4, \cycle{1,2,3} \circ \cycle{1,4,2,3}) = (\ol 5, \cycle{1,4,3,2})
+            \]
+\end{example}
+
+\begin{remark}
+    Si ricordano i seguenti fatti:
+    \begin{itemize}
+        \item Se $H,K \leqslant G$ in generale $HK$ non è un sottogruppo, ma $HK \leqslant G \iff HK = KH$. Ovviamente se uno tra $H$ e $K$ è normale in $G$, allora questo
+        è sempre vero.
+        \item $H \times K \leqslant G \times G$.
+    \end{itemize}
+\end{remark}
+
+\begin{lemma}
+    \label{l:1.71}
+    Siano $H,K \trianglelefteqslant G$ e $H \cap K = \{e\}$, allora $hk = kh$, $\forall h \in H$, $\forall k \in K$.
+\end{lemma}
+
+\begin{proof}
+    Preso $hkh^{-1}k^{-1}$, si ha:
+        \[ hkh^{-1}k^{-1} = \underbrace{\underbrace{(hkh^{-1})}_{= k^{\prime}}k^{-1}}_{\in K} = \underbrace{h\underbrace{(kh^{-1}k^{-1})}_{= h^{\prime}}}_{\in H}
+            \]
+    dunque $hkh^{-1}k^{-1} \in H \cap K \implies hkh^{-1}k^{-1} = e$, da cui segue la tesi.
+\end{proof}
+
+\begin{theorem}
+    \label{t:1.72}
+    Sia $G$ un gruppo e siano $H,K \trianglelefteqslant G$ tali che:
+        \begin{enumerate}[(1)]
+            \item HK = G.
+            \item $H \cap K = \{e\}$.
+        \end{enumerate}
+    Allora $G \cong H \times K$.
+\end{theorem}
+
+\begin{proof}
+    Definiamo l'applicazione:
+        \[ \varphi : H \times K \longrightarrow : (h,k) \mapsto hk
+            \]
+    Si verifica che è un omomorfismo:
+        \[\varphi((h_1,k_1)(h_2,k_2)) = \varphi((h_1h_2,k_1k_2)) = h_1h_2k_1k_2
+            \]
+    per il \hyperref[l:1.71]{Lemma 1.71} si ha che $h_1h_2k_1k_2 = h_1k_1h_2k_2 = \varphi((h_1,k_1))\varphi((h_2,k_2))$, $\forall h_1,h_2 \in H$, $\forall k_1,k_2 \in K$.
+    Si osserva ora che $\varphi$ è surgettiva, per l'ipotesi ($1$); infine, è iniettiva in quanto:
+        \[ \ker \varphi = \{(h,k) \in H \times K | hk = e\} = \{(h,k) \in H \times K | h = k^{-1}\} = \{e\}
+            \]
+    dove nell'ultima uguaglianza si è usato il fatto che $H \cap K = \{e\}$.
+\end{proof}
+
+\begin{remark}
+    Se abbiamo due sottogruppi $G_1$ e $G_2$ e costruiamo $G = G_1 \times G_2$, allora presi:
+        \[ H = G_1 \times \{e_2\} \trianglelefteqslant G \qquad \text e \qquad K = \{e_1\} \times G_2 \trianglelefteqslant G
+            \]
+    $H,K$ sono normali, hanno intersezione banale e sono tali che $HK = G$, quindi verificamo le ipotesi del teorema, pertanto $G \cong H \times K$.
+\end{remark}
+
+\begin{example}
+    Sia $G$ un gruppo con $|G| = p^2$, dalla formula delle classi avevamo ottenuto che $G$ è necessariamente abeliano, quindi $G$ è 
+    isomorfo a $\ZZ/p^2\ZZ$ o $\Zp \times \Zp$. Se $G$ è ciclico, allora $G \cong \ZZ/p^2\ZZ$, se non lo è $G \cong \Zp \times \Zp$ e in 
+    questo caso tutti gli elementi di $G$ hanno ordine $p$. \\
+    Consideriamo $(e \ne) x \in G$ e $H = \left<x\right> \trianglelefteqslant G$ (in quanto $G$ abeliano); prendiamo $y \in G \setminus\left<x\right>$
+    e analogamente $K = \left<y\right> \trianglelefteqslant G$, da ciò segue che $H \cap K = \{e\}$, infatti $H$ e $K$ sono sottogruppi ciclici di $G$ di 
+    ordine $p$ e quindi hanno in comune solo l'elemento neutro.
+    Osservando infine che $HK = G$, per cardinalità:
+        \[ |HK| = \frac{|H||K|}{|H \cap K|} = \frac{p\cdot p}{1} = p^2
+            \]
+    le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono verificate, dunque:
+        \[ G \cong H \times K \cong \Zp \times \Zp
+            \]
+\end{example}
+
+\newpage
+\subsection{Prodotto semidiretto}
+
+\begin{definition}
+    Dati due gruppi $H,K$ e l'azione:
+        \[ \varphi : K \longrightarrow \Aut(H) (\leqslant S(H)) : k \longmapsto \varphi_k
+            \]
+    si dice \vocab{prodotto semidiretto} di $H$ e $K$ via $\varphi$:
+        \[ H \rtimes_{\varphi} K
+            \]
+    (o anche $H {_\varphi}\rtimes K$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
+        \[ (h,k) (h^{\prime},k^{\prime}) = (h \cdot_H \varphi_k(h^{\prime}), k \cdot_K k^{\prime})
+            \]
+\end{definition}
+
+\begin{proposition}
+    [Il Prodotto Semidiretto è un gruppo]
+    Dati due gruppi $H,K$, allora $H \rtimes_{\varphi} K$ è un gruppo.
+\end{proposition}
+
+\begin{proof}
+    Come si verifica facilmente l'operazione indotta dal prodotto semidiretto è associativa, verifichiamo che $(e_H,e_K)$ è 
+    l'elemento neutro:
+        \[ (h,k)(e_H,e_K) = (h \cdot \varphi_k(e_H), k e_K) = (h e_H, k) = (h,k)
+            \]
+    dove $\varphi_k(e_H) = e_H$ poiché $\varphi_k$ è un automorfismo (e quindi in particolare un omomorfismo), a sinistra, invece, si ha:
+        \[(e_H,e_K)(h,k) = (e_H \cdot \varphi_{e_K}(h), e_Kk) = (e_H \cdot id(h), k) = (e_H h, k) = (h,k)
+            \]
+    Per l'inverso si osserva:
+        \[ (h,k)^{-1} = ((\varphi_k)^{-1}(h^{-1}), k^{-1}) = (\varphi_{k^{-1}}(h^{-1}), k^{-1})\,\footnote{L'uguaglianza $(\varphi_k)^{-1} = \varphi_{k^{-1}}$
+         segue dal fatto che $\varphi$ è un omomorfismo e quindi manda inversi in inversi.}
+            \]
+    dunque si verifica a destra:
+        \begin{multline*}
+            (h,k)(\varphi_{k^{-1}}(h^{-1}), k^{-1}) = (h \cdot \varphi_k(\varphi_{k^{-1}}(h^{-1})), kk^{-1}) = \\
+            =(h \cdot id(h^{-1}), e_K) = (hh^{-1}, e_K) = (e_H, e_K)
+        \end{multline*}
+    e analogamente a sinistra:
+        \begin{multline*}
+            (\varphi_{k^{-1}}(h^{-1}), k^{-1})(h,k) = (\varphi_{k^{-1}}(h^{-1}) \cdot \varphi_{k^{-1}}(h), k^{-1}k) = \\
+            = (\varphi_{k^{-1}}(h^{-1}h), e_K) = (\varphi_{k^{-1}}(e_H), e_K) = (e_H, e_K)
+        \end{multline*}
+\end{proof}
+
+\pagebreak
+
+\begin{remark}
+    Si osserva che $H \rtimes_{\varphi} K$ è il prodotto diretto se e solo se $\varphi_k = e$, $\forall k \in K$.
+    Infatti:
+        \[ (h,k)(h^{\prime},k^{\prime}) = (h\cdot \varphi_k(h^{\prime}), kk^{\prime}) = (hh^{\prime}, kk^{\prime}) \iff \varphi_k(h^{\prime}) = h^{\prime}
+        \qquad \forall k \in K
+            \]
+        e dunque $\varphi_k = id_H$.
+\end{remark}
+
+\begin{theorem}
+    \label{t:1.79}
+    Sia $G$ un gruppo e siano $H,K \leqslant G$, con $H \trianglelefteqslant G$, tali che:
+        \begin{enumerate}[(1)]
+            \item $HK = G$.
+            \item $H \cap K = \{e\}$. 
+        \end{enumerate}
+    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : h \longmapsto khk^{-1}$.
+\end{theorem}
+
+\begin{proof}
+    Costruiamo esplicitamente un isomorfismo tra i due gruppi:
+        \[ \mathcal{F} : H \rtimes_{\varphi} K \longrightarrow G : (h,k) \longmapsto hk
+            \]
+    Verifichiamo che è un omomorfismo:
+        \[
+            \mathcal{F}((h,k)(h^{\prime},k^{\prime})) = \mathcal{F}(h\cdot \varphi_k(h^{\prime}),kk^{\prime}) = \mathcal{F}(h\underbrace{kh^{\prime}k^{-1}}_{= \varphi_k(h^{\prime})},kk^{\prime})
+            = hkh^{\prime}k^{-1}kk^{\prime} = \underbrace{hk}_{= \mathcal{F}(h,k)}\underbrace{h^{\prime}k^{\prime}}_{= \mathcal{F}(h^{\prime},k^{\prime})}
+        \]
+    Si vede inoltre che $\mathcal{F}$ è surgettiva per l'ipotesi ($1$) e iniettiva per la ($2$), infatti:
+        \[ \ker\mathcal{F} = \{(h,k) \in  H \rtimes_{\varphi} K | \mathcal{F}(h,k) = hk = e\} = \{e\}
+            \]
+\end{proof}
+
+\begin{remark}
+    Si osserva che $\varphi_k$ è la restrizione al sottogruppo $H$ dell'automorfismo interno $g \longmapsto kgk^{-1}$, poiché
+    $H \trianglelefteqslant G$, allora la restrizione a $H$ di ogni elemento di $\Inn(G)$ è un automorfismo di $H$.
+\end{remark}
+
+\pagebreak
+
+\begin{remark}
+    Siano $\ol H = H \times \{e_K\}$ e $\ol K = \{e_H\} \times K$, si osserva che $\ol H, \ol K \leqslant G = H \rtimes_{\varphi} K$, infatti sono chiusi per prodotto (ristretto):
+        \[ (h,e_K)(h^{\prime},e_K) = (h \cdot \varphi_{e_K}(h^{\prime}), e_K) = (h \cdot id(h^{\prime}), e_K) = (hh^{\prime},e_K)
+        \]\[ (e_H,k)(e_H,k^{\prime}) = (e_H \cdot \varphi_k(e_H), kk^{\prime}) = (e_H,kk^{\prime})
+            \]
+    e si verifica facilmente anche per inverso. Si osserva che $\ol H \trianglelefteqslant G$\footnote{$\ol K$ in generale non è normale, lo è solo se il prodotto è diretto, infatti in quel caso vale il \hyperref[t:1.72]{Teorema 1.72}.},
+    in quanto $H = \ker \pi$, con:
+        \[ \pi : H \rtimes_{\varphi} K \longrightarrow : (h,k) \longmapsto k
+            \]
+    con $\pi$ omomorfismo come si vede:
+        \[ \pi((h,k)(h^{\prime},k^{\prime})) = \pi(h \cdot \varphi_k(h^{\prime}),kk^{\prime}) = kk^{\prime} = \pi((h,k))\pi((h^{\prime},k^{\prime}))
+            \]
+    Per come li abbiamo presi si nota subito che $\ol H \ol K = G$ e $\ol H \cap \ol K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.79]{Teorema 1.79}, pertanto:
+        \[ \ol H \times \ol K \cong G = H \rtimes_{\varphi} K
+            \]
+\end{remark}
+
+\begin{example}
+    [$S_n \cong \mathcal{A}_n \rtimes \left<\cycle{1,2}\right>$]
+\end{example}
 
 \end{document}
