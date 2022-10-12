@@ -14,6 +14,9 @@
 \eject
 \newpage
 
+\section*{Ringraziamenti}
+Diego Monaco, Niccolò Nannicini.
+
 \section{Insiemi di generatori}
 
 \begin{definition}
@@ -218,7 +221,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     infatti $2n$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
     di ordine $n$, pertanto sono $n$ elementi distinti, inoltre 
     \[
-        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \mod n
+        sr^i = sr^j \iff r^i = r^j\iff i \equiv j \pmod n
     \] pertanto anche questi sono $n$
     elementi distinti. Allora $|D_n| = 2n$.
 \end{proof}
@@ -346,8 +349,8 @@ tutti distinti.
         \] Inoltre, se $sr^h \in \langle r^m, sr^l\rangle = \langle r^m\rangle
         \cdot \langle sr^l\rangle$, allora esiste $t \in \ZZ$ tale che \[
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
-        \iff h \equiv l - mt \mod n
-        \]da cui ricaviamo $h \equiv l \mod m$ in quanto $m \mid n$. Ma allora 
+        \iff h \equiv l - mt \pmod n
+        \]da cui ricaviamo $h \equiv l \pmod m$ in quanto $m \mid n$. Ma allora 
         $h =l$ dato che $0 \leqslant h < k$ e $0\leqslant l < m$.
     \end{itemize}
 \end{proof}
@@ -430,7 +433,7 @@ $\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
 
 Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2}\rangle
 = \langle r^k, sr^{-h}\rangle = \langle r^k, sr^h\rangle$, se e solo se 
-$h \equiv h - 2 \mod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
+$h \equiv h - 2 \pmod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
     \item Se $k = 1$ allora $H_{k, h} = \langle r, s\rangle = D_n$;
     \item se $k = 2$ (e $n$ pari) allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
     $H_{k, h} = \langle r^2, s\rangle$.
@@ -529,8 +532,8 @@ un qualsiasi gruppo $G$. Poiché ogni elemento $g \in D_n$ si scrive come
 $s^ar^b$, con $a, b \in \ZZ$, un omomorfismo $\varphi \in \Hom(D_, G)$ è univocamente
 determinato da $\varphi(r)$ e $\varphi(s)$: infatti \[
     \varphi(g) = \varphi(s^ar^b) = \varphi(s)^a\varphi(r)^b
-\]Poniamo $x = \varphi(s)$, $y = \varphi(r)$, necessariamente $\ord(x) \mid n$
-e $\ord(y)\mid 2$, cioè $x^n = e_G$ e $y^n = e_G$, inoltre \[
+\]Poniamo $x = \varphi(s)$, $y = \varphi(r)$, necessariamente $\ord(x) \mid 2$
+e $\ord(y)\mid n$, cioè $x^2 = e_G$ e $y^n = e_G$, inoltre \[
     xyx^{-1} = \varphi(s)\varphi(r)\varphi(s)^{-1} = \varphi(srs^{-1}) = 
     \varphi(r^{-1}) = \varphi(r)^{-1} = y^{-1}
 \]Mostriamo che effettivamente queste condizioni sono anche sufficienti:
@@ -561,6 +564,33 @@ e $\ord(y)\mid 2$, cioè $x^n = e_G$ e $y^n = e_G$, inoltre \[
     \end{multline*}
 \end{proof}
 
+\begin{remark}
+    Abbiamo visto che le condizioni $D_n = \langle r, s\rangle$ con $\ord(r) = n$,
+    $\ord(s) = 2$ e $srs^{-1} = r^{-1}$ determinano in modo univoco 
+    la struttura astratta di $D_n$, racchiudiamo queste proprietà fondamentali
+    nella scrittura
+    \[
+        \langle r, s\mid r^n = s^2 = e, srs^{-1} = r^{-1}\rangle
+    \]
+    Tale scrittura si chiama \vocab{presentazione di un gruppo} e ne determina 
+    in modo univoco la classe di isomorfismo. Senza scendere troppo nei dettagli,
+    nella presentazione indichiamo un insieme di generatori minimale e il 
+    minor numero di proprietà che i generatori devono rispettare affinché il 
+    gruppo abbia la struttura desiderata. Altri esempi di presentazioni sono
+    \[
+        \langle x \mid x^n = e\rangle
+    \]
+    \[
+        \langle x\rangle
+    \]
+    \[
+        \langle x, y \mid x^2 = y^2 = e, xy = yx\rangle
+    \]
+    e sono rispettivamente le presentazioni di $\Zn$, $\ZZ$, $\Z2\times\Z2$
+    (notiamo che $\Z2\times\Z2$ e $D_2$ hanno la stessa presentazione,
+    e questo ha senso in quanto i due gruppi sono isomorfi).
+\end{remark}
+
 
 \subsection{Automorfismi}
 
@@ -580,7 +610,7 @@ $0\leqslant h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
 
 D'altra parte, se fosse $\varphi(s) = r^{\frac n 2}$ allora $\varphi$ non
 sarebbe né iniettiva né surgettiva, pertanto $\varphi(s) = sr^h$ con 
-$0\leqslant h \leq n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
+$0\leqslant h \leqslant n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
 caratterizzazione che abbiamo dato sopra è sufficiente verificare che
 $\varphi(s)\varphi(r)\varphi(s)^{-1} = \nolinebreak\varphi(r)^{-1}$:
 \[
@@ -748,7 +778,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
     \end{multline*}
     Viceversa, se $a = \pm 1$ allora $\varphi$ è surgettiva, infatti 
     per ogni $(x_0, y_0) \in \ZZ\times\Zn$, scegliendo
-    $x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\mod n$ abbiamo \[
+    $x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\pmod n$ abbiamo \[
         \varphi(x, y) = (x_0a^2, x_0ab + d d^{-1}(y_0 - x_0ab)) = (x_0, y_0)
     \]e questo ci permette di concludere che $\ZZ\times\{0\}$ non è un sottogruppo
     caratteristico. In questo caso abbiamo solo un'immersione del gruppo
@@ -918,7 +948,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     $H \subseteq N_G(H)$ e $|gHg^{-1}| = |H|$ per ogni $g \in G$, possiamo stimare 
     la cardinalità di $K$ nel seguente modo 
     \[
-        |K| \leq \frac{|G|}{|N_G(H)|}|H| \leq \frac{|G|}{|H|}|H| = |G|.
+        |K| \leqslant\frac{|G|}{|N_G(H)|}|H| \leqslant\frac{|G|}{|H|}|H| = |G|.
     \]D'altra parte, per il Principio di Inclusione-Esclusione abbiamo che $|K|$ 
     è somma delle cardinalità dei singoli termini dell'unione se e solo se 
     l'unione è disgiunta, ma questo è falso in quanto ogni classe di coniugio
@@ -990,6 +1020,260 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     $|\mathrm{Im}\psi| = \displaystyle\frac{|G|}{|\ker \psi|}$ come conseguenza
     del Primo Teorema di Omomorfismo. Pertanto $|\mathrm{Im}\psi| \mid (p!, |G|) = p$,
     in quanto $p$ è il più piccolo primo che divide $|G|$, quindi $|\mathrm{Im}\psi| \in \{1, p\}$.
+    D'altra parte osserviamo che $\psi$ è un'azione transitiva, infatti per 
+    ogni $g_1, g_2 \in G$ abbiamo $\psi_{g_2g_1^{-1}}(g_1H) = g_2g_1^{-1}g_1H = g_2H$,
+    pertanto non è possibile $\mathrm{Im}\psi = \{id\}$, da cui $|\mathrm{Im}\psi| = p$
+    e $[G:\ker\psi] = p$. Consideriamo il nucleo di $\psi$
+    \[
+        \ker\psi = \{g\in G\mid gg'H = g'H~\forall g' \in G\}
+    \]indebolendo la condizione di appartenenza otteniamo l'inclusione
+    \[
+        \ker\psi \subseteq \{g \in G\mid gH = H\} = H
+    \]Poiché $[G:\ker \psi] = [G : H] = p$ e $G$ è un gruppo finito abbiamo
+    che effettivamente $\ker\psi = H$, cioè $H$ è normale in $G$.
 \end{proof}
+
+
+\subsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
+
+Vediamo una dimostrazione alternativa del Teorema di Cauchy e del Piccolo
+Teorema di Fermat, di cui ricordiamo gli enunciati, che fa uso del concetto
+ di azione. 
+
+\begin{theorem}
+    [Teorema di Cauchy]
+    \label{teorema1.0}
+    Dato un gruppo $G$ e un numero primo $p$, se $p\mid |G|$ allora esiste 
+    $g \in G$ tale che $\ord(g) = p$.
+\end{theorem}
+
+\begin{theorem}
+    [Piccolo Teorema di Fermat]
+    \label{teorema2.0}
+    Dato un numero primo $p$, se $n \in \ZZ$ è coprimo con $p$ allora 
+    $n^{p - 1} \equiv 1 \pmod p$.
+\end{theorem}
+
+Dati un gruppo $G$ e un numero primo $p$, consideriamo l'insieme 
+\[
+    X = \{(g_1, \ldots, g_p) \in G^p\mid g_1\ldots g_p = e\}
+\]osserviamo che $|X| = |G|^{p - 1}$, possiamo infatti scegliere liberamente
+i primi $p - 1$ elementi di ogni $p$-upla, che ne determinano l'ultimo in 
+modo univoco (per unicità dell'inverso). Definiamo un'azione di $\Zp$ su $X$
+nel seguente modo:
+\[
+    \psi: \Zp \longrightarrow S(X) : g \longmapsto \psi_g
+\]
+con
+\[
+    \psi_g:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
+\]
+
+Fissato $x \in X$, poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$
+abbiamo che $|\Orb(x)| \in \{1, p\}$, in particolare le orbite di cardinalità
+1 sono date dalle $p$-uple della forma $(g, \ldots, g)$ con $g^p = e$.
+Poniamo $S = \{g\in G \mid \ord(g) = p\}$ e $\mathcal{R}$ un insieme di 
+rappresentanti per la relazione di equivalenza indotta da $\psi$, poiché 
+le orbite degli elementi di $X$ formano una partizione dell'insieme abbiamo
+\[
+    |G|^{p - 1} = |X| = \sum_{x \in \mathcal{R}} |\Orb(x)| = 1 + |S| + \sum_{x \in \mathcal{R}\setminus S}|\Orb(x)|
+\]dove l'ultimo termine della somma è divisibile per $p$. Distinguiamo 
+quindi due casi:
+\begin{itemize}
+    \item se $p\mid G$, riducendo modulo $p$ la formula sopra otteniamo
+    $|S| \equiv -1 \pmod p$, in particolare esiste almeno un elemento di
+    ordine $p$ (\hyperref[teorema1.0]{Teorema di Cauchy});
+    \item se $G = \Zn$ con $p$ e $n$ coprimi, $\Zn$ non contiene elementi
+    di ordine $p$, pertanto riducendo modulo $p$ la formula sopra otteniamo
+    $n^{p - 1} \equiv 1 \pmod p$ (\hyperref[teorema2.0]{Piccolo Teorema di Fermat}).
+\end{itemize}
+
+\begin{exercise}
+    Mostrare che i gruppi di ordine $15$ sono ciclici.
+\end{exercise}
+
+\begin{soln}
+    Sia $G$ un gruppo di ordine 15, poiché 5 è un primo che divide $|G|$
+    esiste $h \in G$ tale che $\ord(h) = 15$ per il \hyperref[teorema1.0]{Teorema di Cauchy}.
+    Inoltre, posto $H = \langle h\rangle$, abbiamo che $[G:H] = 3$ e quindi,
+    dato che 3 è il più piccolo primo che divide $|G|$, $H$ è un sottogruppo 
+    normale di $G$. Mostriamo che $H \subseteq Z(G)$, questo è equivalente a 
+    richiedere che l'omomorfismo \[
+        \varphi: G\longrightarrow \Aut(H) :g\longmapsto \varphi_{g\mid H}
+    \]
+    dove $\varphi_g$ è il coniugio per $g$, abbia come unico elemento dell'immagine
+    l'applicazione
+    \[
+        id_H:H\longrightarrow H: h \longmapsto h
+    \]
+    Poiché $H \cong \Z5$, abbiamo $\Aut(H)\cong (\Z5)^* \cong \Z4$, d'altra 
+    parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |H|) = 1$, pertanto
+    $|\mathrm{Im}\varphi = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
+    Diamo adesso due modi per concludere l'esercizio:
+    \begin{enumerate}[(1)]
+        \item osserviamo che se $G$ è un gruppo abeliano, cioè se $Z(G) = G$,
+        allora abbiamo che $G$ è ciclico. Infatti posto $k \in G$ un elemento di 
+        ordine 3 (che esiste in virtù del \hyperref[teorema1.0]{Teorema di Cauchy}),
+        abbiamo che $\ord(hk) = \ord(h)\ord(k) = 15$ in quanto i due elementi hanno
+        ordine coprimo. D'altra parte, se $G$ non fosse abeliano allora avremmo 
+        necessariamente $Z(G) = H$, quindi $\faktor{G}{Z(G)}$ sarebbe ciclico 
+        in quanto di ordine 3, pertanto $G$ sarebbe un gruppo abeliano, da cui 
+        la tesi per quanto appena detto;
+        \item sia $k \in G$ un elemento di ordine 3, consideriamo il centralizzatore
+        di $k$
+        \[
+            Z_G(k) = \{x \in G\mid xk = kx\}
+        \]Osserviamo che $k \in Z_G(k)$ e $Z(G) \subseteq Z_G(k)$, pertanto $h$ è un elemento 
+        di $Z_G(k)$. Abbiamo quindi che $\ord(h)\mid |Z_G(k)|$ e $\ord(k)\mid |Z_G(k)|$, 
+        da cui $|Z_G(k)| = 15$. Abbiamo che tutti gli elementi di ordine 3
+        sono contenuti nel centro di $G$, che quindi coincide con $G$. Allora $G$
+        è ciclico in quanto abeliano e contenente un elemento di ordine 3 e uno
+        di ordine 5, quindi uno di ordine 15.
+    \end{enumerate}
+\end{soln}
+
+\begin{remark}
+    In generale dati $x, y\in G$, se $x$ e $y$ commutano allora 
+    $\ord(xy) = [\ord(x), \ord(y)]$ anche se $G$ non è un gruppo abeliano.
+\end{remark}
+
+\begin{exercise}
+    Dato $d$ un numero dispari, mostrare che ogni gruppo di ordine $2d$ ammette
+    un sottogruppo normale di indice 2.
+\end{exercise}
+
+\begin{soln}
+    Consideriamo la rappresentazione regolare a sinistra di $G$
+    \[
+        \lambda: G \longrightarrow S(G) : g\longmapsto \lambda_g
+    \]
+    con
+    \[
+        \lambda_g : G\longrightarrow G : x\longmapsto gx
+    \]
+    Fissato un isomorfismo $\psi: S(G) \longmapsto S_{2d}$ poniamo
+    $\varphi = \psi\circ\lambda :G\longrightarrow S_{2d}$, $\varphi$ è 
+    un omomorfismo iniettivo (infatti nella dimostrazione del Teorema di Cayley
+    abbiamo visto che $\lambda$ è un omomorfismo iniettivo). Consideriamo 
+    il sottogruppo $\varphi^{-1}(\mathcal{A}_{2d})$, mostriamo che il suo 
+    indice in $G$ è al più 2:
+    posta $\pi_{\mathcal{A}_{2d}}$ la proiezione al quoziente
+    \[
+        \pi_{\mathcal{A}_{2d}}:G\longrightarrow \faktor{S_{2d}}{\mathcal{A}_{2d}}\cong \Z2
+    \]
+    possiamo caratterizzare $\varphi^{-1}(\mathcal{A}_{2d})$ come
+    \[
+        \varphi^{-1}(\mathcal{A}_{2d}) = \{g \in G \mid \varphi(g) \in \mathcal{A}_{2d}\}
+        = \ker (\pi_{\mathcal{A}_{2d}}\circ\varphi)
+    \]
+    pertanto $\varphi^{-1}(\mathcal{A}_{2d})\trianglelefteqslant G$. 
+    Per il Primo Teorema di Omomorfismo abbiamo che esiste un omomorfismo
+    iniettivo da $\faktor{G}{\ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)}$ in
+    $\Z2$, da cui $[G:\ker(\pi_{\mathcal{A}_{2d}})] \leqslant 2$. Tale 
+    sottogruppo ha indice 1 se e solo se $G = \ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)$,
+    cioè $\varphi(G) \subseteq \mathcal{A}_{2d}$, mostriamo che in effetti esiste 
+    un elemento di $G$ la cui immagine tramite $\varphi$ è una permutazione 
+    dispari. Consideriamo $g \in G$ un elemento di ordine 2, poiché $\varphi$
+    è un omomorfismo iniettivo abbiamo che $\ord(\varphi(g)) = \ord(g) = 2$,
+    pertanto la permutazione $\varphi(g)$ ha una decomposizione in $d$ 2-cicli,
+    cioè è dispari. Pertanto $G \neq \varphi^{-1}(\mathcal{A}_{2d})$,
+    da cui $[G: \varphi^{-1}(\mathcal{A}_{2d})] = 2$,
+\end{soln}
+
+\subsection{Teorema di Poincaré}
+
+Vediamo un risultato che sarà utile nel futuro, che permette di esibire,
+se esistono, sottogruppi normali non banali di un gruppo finito.
+
+\begin{theorem}
+    [Teorema di Poincaré]
+    Dato un gruppo $G$ finito e $H\leqslant G$ un suo sottogruppo, 
+    se $[G:H] = n$ allora esiste un sottogruppo normale $N\triangleleft G$ 
+    tale che:
+    \begin{enumerate}[(1)]
+        \item $N\leqslant H \leqslant G$;
+        \item $n \mid [G:N] \mid n!$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Consideriamo l'azione di $G$ su $\faktor{G}{H}$
+    \[
+        \psi: G\longrightarrow S\left(\faktor{G}{H}\right)S:g\longmapsto \psi_g
+    \]
+    con
+    \[
+        \psi_g:\faktor{G}{H}\longrightarrow\faktor{G}{H} : g'H\longmapsto gg'H
+    \]
+    \begin{enumerate}[(1)]
+        \item Consideriamo il nucleo di $\psi$
+        \[
+            \ker\psi = \{g \in G\mid gg'H = g'H~\forall g' \in G\}
+        \]indebolendo la condizione di appartenenza otteniamo l'inclusione
+        \[
+            \ker\psi \subseteq \{g \in G \mid gH = H\} = H
+        \]pertanto $\ker\psi \leqslant H$;
+        \item poiché $\ker\psi \leqslant H$ abbiamo $[G:H]\mid [G:\ker\psi]$, cioè
+        $n \mid [G:\ker\psi]$. Dal Primo Teorema di Omomorfismo abbiamo che
+        $\faktor{G}{\ker\psi} \cong \mathrm{Im\psi}$, che è un sottogruppo
+        di $S\left(\faktor{G}{H}\right)\cong S_n$, pertanto $[G:\ker\psi]\mid n!$.
+    \end{enumerate}
+    Poiché $\ker\psi$ è normale in $G$ abbiamo che $N = \ker\psi$ è un sottogruppo
+    con le proprietà cercate.
+\end{proof}
+
+\begin{remark}
+    In particolare, se $G$ ha un sottogruppo di indice $n$ e $n! \leqslant |G|$
+    allora $G$ ammette sottogruppi normali non banali.
+\end{remark}
+
+\newpage
+
+\section{Studio di $S_5$}
+
+\begin{lemma}
+    Dati $\sigma = \cycle{x_1, \ldots, x_k}\in S_n$ un $k$-ciclo e $\tau \in S_n$
+    una trasposizione, allora 
+    \[
+        \tau\sigma\tau^{-1} = \cycle{\tau(x_1),\ldots, \tau(x_n)}
+    \]
+\end{lemma}
+
+\begin{proof}
+    Se $\sigma$ e $\tau$ sono cicli disgiunti allora abbiamo che
+    $\sigma$ e $\tau$ commutano e che $\tau$ fissa
+    gli elementi $x_1, \ldots, x_k$, pertanto 
+    \[
+        \cycle{\tau(x_1), \ldots, \tau(x_k)}=
+        \cycle{x_1, \ldots, x_k} = \sigma = \sigma\tau^2 = \tau\sigma\tau^{-1}
+    \]
+    Sia allora $\tau = \cycle{x_a, x_b}$ con $a, b \in \{1, \ldots, k\}$ distinti,
+    allora
+    \[
+        (\tau\sigma\tau^{-1})(\tau(x_i)) = (\tau\sigma)(x_i) = \tau(x_{i + 1})
+    \]per ogni $i \in \{1, \ldots, k\}$, pertanto
+    \[
+        \tau\sigma\tau^{-1} = \cycle{\tau(x_1), \ldots, \tau(x_k)}
+    \]
+\end{proof}
+
+Consideriamo gli elementi di $S_5$ $\sigma = \cycle{1, 2, 3, 4, 5}, 
+\tau = \cycle{2, 5}\cycle{3, 4}$, studiamo il sottogruppo $H = \langle\sigma, \tau\rangle$,
+in particolare siamo interessati a determinare una regola di commutazione
+per $\sigma$ e $\tau$. Osserviamo che 
+\[
+    \tau\sigma\tau^{-1} = \cycle{\tau(1), \tau(2), \tau(3), \tau(4), \tau(5)} = 
+    \cycle{1, 5, 4, 3, 2}
+\]
+e che questo coincide con $\sigma^{-1}$. Abbiamo quindi che $H$ è generato 
+da un elemento $\tau$ di ordine 2 e da un elemento $\sigma$ di ordine 5 
+che soddisfano la relazione $\tau\sigma\tau^{-1} = \sigma^{-1}$, pertanto 
+$H$ è isomorfo a un sottogruppo del gruppo diedrale $D_5$. D'altra parte, 
+da questa relazione ricaviamo che $\langle \tau\rangle \subseteq N_{S_5}(\langle\sigma\rangle)$,
+pertanto possiamo scrivere $H = \langle\sigma\rangle\cdot\langle\tau\rangle$
+in quanto $\langle\sigma\rangle\cdot\langle\tau\rangle$ è un sottogruppo di $H$
+che ha la sua stessa cardinalità. In particolare otteniamo che $|H| = 10 = |D_5|$,
+quindi $H \cong D_5$.
+
 
 \end{document}
