@@ -15,7 +15,7 @@
 \newpage
 
 \section*{Ringraziamenti}
-Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce, Leonardo Migliorini, Matteo Gori.
+Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu.
 
 \newpage
 \section{Gruppi}
@@ -471,7 +471,7 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
              |Z(G)| +  \sum_{x \in \mathcal{R}\setminus Z(G)}\frac{|G|}{|Z_G(x)|} \equiv 0 \pmod p
                 \]
             con $\displaystyle \frac{|G|}{|Z_G(x)|} > 1$, poiché se un elemento sta nel centro tutti gli addendi sono $1$ per quanto detto,
-            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^kx$, $k>0$, poiché $G$ è un $p$-gruppo, dunque:
+            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^{k_x}$, $k>0$, poiché $G$ è un $p$-gruppo, dunque:
                 \[ |Z(G)| \equiv 0 \pmod p \implies |Z(G)| \geq 2
                     \]
             e quindi il centro di un $p$-gruppo non è mai banale.
@@ -584,9 +584,9 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 
 \begin{remark}
     In generale, dato $G = \left\{g_1 = e,g_2, \ldots, g_n\right\}$ e $\lambda : G \longrightarrow S(G) \cong S_n$, si ha che:
-        \[ g_1 = e \longmapsto \lambda_{g_1} : G \longrightarrow G : g_i \longmapsto g_i
+        \[ g_1 = e \longmapsto \lambda_{g_1} \qquad \text{con} \qquad \lambda_{g_1}: G \longrightarrow G : g_i \longmapsto g_i
             \]
-        \[ g_2 \longmapsto \lambda_{g_2} : G \longrightarrow G : x \longmapsto g_2x : g_2^2x \longmapsto \ldots \longmapsto g_2^{k-1}x
+        \[ g_2 \longmapsto \lambda_{g_2} \qquad \text{con} \qquad \lambda_{g_2} : G \longrightarrow G : x \longmapsto g_2x \longmapsto g_2^2x \longmapsto \ldots \longmapsto g_2^{k-1}x
             \]
         con $k = \ord_G(g_2)$. $\lambda_{g_2}$ può essere rappresentata mediante la notazione dei cicli:
             \[ (x,g_2x,\ldots,g_2^{k-1}x)
@@ -800,14 +800,14 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \binom{4}{2}\frac{2!}{2} = 6
             \]
     e ragionando analogamente per i $3$-cicli e i $4$-cicli si ottiene:
-        \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{3}\frac{3!}{3} = 6
+        \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{4}\frac{4!}{4} = 6
             \]
     infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cilci, possiamo scegliere e permutare due coppie di elementi, come 
     nei casi precedenti, tuttavia, essendo i cicli disgiunti commutanto (banlmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
     dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
-        \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 4
+        \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
-    e dal conteggio delle permutazioni di $S_4$ divise per cicli di diversa lunghezza si ottiene: $6+8+6+4 = 24 = |S_4|$.
+    e dal conteggio delle permutazioni di $S_4$ divise per cicli di diversa lunghezza si ottiene: $6+8+6+3+1 = 24 = |S_4|$.
 \end{example}
 
 \begin{remark}
@@ -982,6 +982,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{example}
 
 \begin{corollary}
+    \label{c:1.68}
     Valgono i seguenti fatti:
         \begin{enumerate}[(1)]
             \item Il numero di classi di coniugio in $S_n$ è uguale al numero di partizioni di $n$.
@@ -1054,7 +1055,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 
 \begin{example}
     Sia $G$ un gruppo con $|G| = p^2$, dalla formula delle classi avevamo ottenuto che $G$ è necessariamente abeliano, quindi $G$ è 
-    isomorfo a $\ZZ/p^2\ZZ$ o $\Zp \times \Zp$. Se $G$ è ciclico, allora $G \cong \ZZ/p^2\ZZ$, se non lo è $G \cong \Zp \times \Zp$ e in 
+    isomorfo a $\ZZ/p^2\ZZ$ o $\Zp \times \Zp$. Se $G$ è ciclico, allora $G \cong \ZZ/p^2\ZZ$. Mostriamo che se non lo è, allora $G \cong \Zp \times \Zp$ e in 
     questo caso tutti gli elementi di $G$ hanno ordine $p$. \\
     Consideriamo $(e \ne) x \in G$ e $H = \left<x\right> \trianglelefteqslant G$ (in quanto $G$ abeliano); prendiamo $y \in G \setminus\left<x\right>$
     e analogamente $K = \left<y\right> \trianglelefteqslant G$, da ciò segue che $H \cap K = \{e\}$, infatti $H$ e $K$ sono sottogruppi ciclici di $G$ di 
@@ -1077,7 +1078,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     si dice \vocab{prodotto semidiretto} di $H$ e $K$ via $\varphi$:
         \[ H \rtimes_{\varphi} K
             \]
-    (o anche $H {_\varphi}\rtimes K$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
+    (o anche $H \rtimes_{\varphi} K$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
         \[ (h,k) (h^{\prime},k^{\prime}) = (h \cdot_H \varphi_k(h^{\prime}), k \cdot_K k^{\prime})
             \]
 \end{definition}
@@ -1151,6 +1152,11 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     $H \trianglelefteqslant G$, allora la restrizione a $H$ di ogni elemento di $\Inn(G)$ è un automorfismo di $H$.
 \end{remark}
 
+\begin{remark}
+    Sapendo che $G \cong H \rtimes_{\varphi} K$ e seguendo i passaggi della verifica di omomorfismo al contrario, si ricava che necessariamente $\varphi$ è esattamente
+    l'azione di coniugio su $H$.
+\end{remark}
+
 \pagebreak
 
 \begin{remark}
@@ -1172,14 +1178,107 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 
 \begin{example}
     [$S_n \cong \mathcal{A}_n \rtimes \left<\cycle{1,2}\right>$]
+    Verifichiamo che $S_n$ è prodotto semidiretto di $H = \mathcal{A}_n$ e $ K = \left<\cycle{1,2}\right>$ \footnote{In generale va bene qualsiasi trasposizione (che esiste sempre in $S_n$ per $n \geq 2$).}
+    usando il \hyperref[t:1.72]{Teorema 1.72}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft S_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
+    per cardinalità che $HK = S_n$. Essendo $\mathcal{A}_n = \ker sgn$ e $\left<\cycle{1,2}\right>$ una trasposizione $H \cap K = \{e\}$ (in quanto il nucleo dell'omomorfismo segno contiene solo permutazioni pari), pertanto segue la tesi:
+        \[ S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>
+            \]
+    Osserviamo inoltre che:
+        \[ \varphi : \left<\cycle{1,2}\right> \longrightarrow \Aut(\mathcal{A}_n) : \cycle{1,2} \longmapsto \varphi_{\cycle{1,2}}, id \longmapsto id
+            \]
+    con $\varphi_{\cycle{1,2}} : \mathcal{A}_n \longrightarrow \mathcal{A}_n : \rho \longmapsto \cycle{1,2}\rho\cycle{1,2}$.
 \end{example}
 
 \begin{example}
     [$D_n \cong \Zn \rtimes_{\varphi}\Z2$]
+    Ricordando che $D_n = \left<r,s | r^n = s^2 = id, srs^{-1} = r^{-1}\right>$, possiamo osservare ancora una volta che le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono soddisfatte. Poiché $\ord r = n$, allora $|\left<r\right>| = n$, 
+    e in particolare $[D_n : \left<r\right>] = 2 \implies \left<r\right> \triangleleft D_n$; inoltre, $\left<r\right> \cap \left<s\right> = \{id\}$ perché $\det(r_i) = 1$, mentre $\det(sr_i) = -1$, $\forall i \in \{1,\ldots,n\}$. Infine, essendo $\ord s = 2$, allora il prodotto di sottogruppi avrà cardinalità:
+        \[ \left<r\right>\left<s\right> = \frac{|\left<r\right>||\left<s\right>|}{|\left<r\right> \cap \left<s\right>|} = \frac{2n}{1} = 2n
+            \]
+    pertanto $\left<r\right>\left<s\right> = D_n$. Pertanto $D_n \cong \left<r\right> \rtimes_{\varphi} \left<s\right>$, dove $\left<r\right> \cong \Zn$ e $\left<s\right> \cong \Z2$, pertanto:
+        \[ D_n \cong \Zn \rtimes_{\varphi} \Z2
+            \]
+    con:
+        \[ \varphi : \left<s\right> \longrightarrow \Aut(\left<r\right>) : s \longmapsto \varphi_s
+            \]
+    dove $\varphi_s : \left<r\right> \longrightarrow \left<r\right> : r \longmapsto srs^{-1} (= r^{-1})$. Si osserva che deve essere $\ord \varphi_s | \ord s = 2$, quindi ci sono soltanto due possibilità:
+        \[ \varphi_s = \begin{cases}
+            id \\
+            r \longmapsto r^{-1}
+            \end{cases}
+        \]
+    nel caso in cui $\varphi_s = id$ si ottiene il prodotto diretto, nell'altro caso si ottiene il prodotto semidiretto che definisce $D_n$.Se in $\Aut(\Zn)$ ci sono altri elementi di ordine due (ad esempio se $\Aut(\Z8) \cong \Z8^* \cong \Z2 \times \Z2$) si possono definire anche altri prodotti semidiretti:
+    \[ \Zn \rtimes_{\varphi} \Z2
+        \]
+    Rimane il problema di verificare se danno o meno due gruppi isomorfi.
 \end{example}
 
 \begin{example}
     [Gruppi di ordine $pq$]
+    Sia $|G| = pq$, per il \hyperref[p:Cauchy]{Teorema Di Cauchy} esistono $x,y \in G$ tali che $\ord x = q$, $\ord y = p$, assumiamo (WLOG) $q>p$, allora si ha che:
+        \[ H = \left<x\right> \triangleleft G
+            \]
+    poiché $[G : H] = p$, con $p$ più piccolo primo che divide $|G|$. Alternativamente si può vedere che $H$ è caratteristico in $G$ poiché è l'unico sottogruppo di quell'ordine;
+    se $H^{\prime} < G$ e $|H^{\prime}| = q$, se fosse $H \ne H^{\prime}$, allora $H \cap H^{\prime} = \{e\}$ e quindi:
+    \[ |HH^{\prime}| = \frac{|H||H^{\prime}|}{|H \cap H^{\prime}|} = \frac{q \cdot q}{1} = q^2 > pq
+        \]
+    quindi $H^{\prime}$ non può essere un sottogruppo di $G$. Si verifica che, detto $K = \left<y\right>$, le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono verificate:
+        \[ HK = G \qquad H \cap K = \{e\} \qquad H \triangleleft G
+            \]
+da ciò segue che ogni gruppo di ordine $pq$ è prodotto semidiretto: $G \cong H \rtimes_{\varphi} K$.
 \end{example}
+
+Per classificare tutti i gruppi di ordine $pq$ bisogna classificare tutti i possibili prodotti semidiretti $\ZZ/q\ZZ \rtimes_{\varphi} \Zp$ a meno di isomorfismo.
+Osserviamo che un prodotto semidiretto deve avere un'operazione definita da:
+\[ \varphi : \Zp \longrightarrow \Aut(\ZZ/q\ZZ) \cong \ZZ/q\ZZ^* \cong \ZZ/(q-1)\ZZ
+            \]
+Essendo $\Zp = \left<x\right>$ e $\ZZ/q\ZZ = \left<y\right>$ possiamo scrivere:
+    \[ \varphi : \left<y\right> \longrightarrow \Aut(\left<x\right>) (\cong \ZZ/q\ZZ^* \cong \ZZ/(q-1)\ZZ) : y \longmapsto \varphi_y
+            \]
+con $\varphi_y : \left<x\right> \longrightarrow \left<x\right> : x \longmapsto x^l$. Per definire $\varphi$ su $\left<y\right>$ (un dominio ciclico)
+basta assegnare $\varphi_y$ con la condizione $\ord \varphi_y \mid \ord y = p$, inoltre, $\varphi_y \in \Aut(\Z{q}) \cong \Z{(q-1)} \implies \ord \varphi_y \mid q-1$, 
+quindi $\ord \varphi_y \mid (p,q-1)$. Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $p \nmid q-1$, si ha che $\ord \varphi_y \mid 1 \implies \varphi_y = id$, dunque l'unico automorfismo possibile di $\Z{q}$ è l'identità, pertanto si ha un prodotto diretto tra $\Z{p}$ e
+            $\Z{q}$ e quindi esiste ed è unico il gruppo di ordine $pq$, $\Z{pq}$.  
+        \item Se $p \mid q-1$, allora o $\ord \varphi_y = 1$ e quindi ancora $\varphi_y = id$; oppure $\varphi_y = p$, e poiché ci sono $p-1$ elementi di ordine $p$ in $\Z{(q-1)}$, abbiamo $p-1$
+            scelte per $\varphi_y$ che danno un prodotto semidiretto.
+    \end{itemize}
+Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\ol l)$ e:
+    \[ \varphi_y(x) \longmapsto x^l \implies (\varphi_y(x))^k = x^{l^k}
+        \]
+quindi $\ord \varphi_y = p \iff l^p \equiv 1 \pmod q \iff \ord l = p$.
+Le $p-1$ scelte per $\varphi_y$ danno tutte gruppi isomorfi, quindi se $p \mid q-1$ ci sono esattamente due gruppi di ordine $pq$ a meno di isomorfismo. Infatti, detti:
+    \[ G_1 = \left<x\right> \rtimes_{\varphi} \left<y\right>
+    \qquad \text e \qquad 
+    G_2 = \left<x\right> \rtimes_{\psi} \left<y\right>
+        \]
+con $\varphi_y(x) = x^l$, $\ord l = p$ e $\psi_y(x) = x^\lambda$, $\ord \lambda = p$, pertanto $\left<l\right> = \left<\lambda\right>$ se e solo se 
+$l = \lambda^r$, con $0 < r < p$. Possiamo scrivere l'applicazione:
+    \[ \mathcal{F} : G_1 \longrightarrow G_2 : x \longmapsto x, y \longmapsto y^r
+        \]
+che definisce un isomorfismo tra i due gruppi:
+    \[ G_1 = \left<x,y | x^q = y^p = 1, yxy^{-1} = x^l\right> \quad \text e \quad G_2 = \left<x,y | x^q = y^p = 1, yxy^{-1} = x^\lambda\right>
+        \]
+Per mostrare che è un isomorfismo basta osservare che:
+    \[ \mathcal{F}(x^q) = (\mathcal{F}(x))^q = id \qquad \text{in quanto $x^q = id$}
+        \]
+e anche:
+    \[ \mathcal{F}(y^p) = (\mathcal{F}(y))^p = id \qquad \text{in quanto $y^q = id$}
+        \]
+ed infine:
+    \[ \mathcal{F}(yxy^{-1}) = \mathcal{F}(x^l)
+        \]
+in quanto:
+    \[ \mathcal{F}(yxy^{-1}) = \mathcal{F}(y) \mathcal{F}(x) \mathcal{F}(y^{-1}) = \underbrace{y^rxy^{-r}}_{\in G_2} = x^{\lambda^{r}} = x^e = \mathcal{F}(x)
+        \]
+ciò garantisce che $\mathcal{F}$ ottenuto estendendo l'assegnamento $x \longmapsto x, y \longmapsto y^r$ è un omomorfismo, segue banalmente che è anche una bigezione e quindi è un isomorfismo. \footnote{Quest'ultima pagina non è in versione 
+definitiva e necessita di ulteriori revisioni.}
+
+
+
+
+
+
 
 \end{document}
