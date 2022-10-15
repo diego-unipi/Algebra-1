@@ -44,7 +44,6 @@ $x_1, \ldots, x_n$, cioè deve contenere l'insieme
 ~\forall i \in \{1, \ldots, r\}\}\]
 
 \begin{proposition}
-\label{prop1.0}
 Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, allora \[
     \langle x_1, \ldots, x_n\rangle = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r 
     \in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}
@@ -958,6 +957,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 \end{proof}
 
 \begin{proposition}
+    \label{prop1.0}
     Dati un gruppo $G$ e un insieme $G$, se 
     \[
         \varphi:G\longrightarrow S(X) :g\longmapsto \varphi_g
@@ -1185,6 +1185,7 @@ quindi due casi:
 Possiamo generalizzare il ragionamento appena usato nel seguente risultato
 
 \begin{proposition}
+    \label{prop2.0}
     Dato un gruppo $G$ e $H\lneq G$ un sottogruppo tale che $[G:H] = 2$, se
     $K$ è un sottogruppo di $G$ allora $H\cap K$ ha indice 1 o 2 in $K$,
     cioè $[K:H\cap K] \in \{1, 2\}$.
@@ -1255,9 +1256,79 @@ se esistono, sottogruppi normali non banali di un gruppo finito.
 
 \newpage
 
-\section{Studio di $S_5$}
+\section{Gruppo simmetrico}
+
+\subsection{Sottogruppi abeliani massimali di $S_n$}
+
+Vogliamo studiare i sottogruppi abeliani di $S_n$, caratterizzando in particolare
+i suoi sottogruppi abeliani massimali.
+
+\begin{definition}
+    Un sottogruppo $G\leqslant S_n$ si dice \vocab{transitivo} se l'azione
+    \[
+        \varphi: G\longrightarrow S_n :\sigma \longmapsto \sigma
+    \]indotta da $G$ su $\{1, \ldots, n\}$ è transitiva, cioè se per ogni
+    $i, j \in \{1, \ldots, n\}$ esiste $\sigma \in G$ tale che $\sigma(i) = j$.
+\end{definition}
 
 \begin{lemma}
+    \label{lemma3.0}
+    Dato $G$ un sottogruppo abeliano di $S_n$, se $G$ è transitivo allora $|G| = n$.
+\end{lemma}
+
+\begin{proof}
+    Consideriamo l'azione di $G$ su $\{1, \ldots, n\}$
+    \[
+        \psi : G\longrightarrow S_n :\sigma \longmapsto \sigma
+    \]
+    poiché $G$ è transitivo, per la \hyperref[prop1.0]{Proposizione 6.3}
+    gli stabilizzatori degli elementi di $\{1, \ldots, n\}$ sono tra loro coniugati.
+    D'altra parte, poiché lo stabilizzatore è un sottogruppo di $G$, che
+    è un gruppo abeliano, la restrizione del coniugio agli
+    stabilizzatori coincide con l'applicazione identità, da cui $\St(i) = \St(j)$
+    per ogni $i, j \in \{1, \ldots, n\}$. Osserviamo infine che 
+    \[
+        \bigcap_{i = 1}^n \St(i) = \{id_{S_n}\}
+    \]in quanto $id_{S_n}$ è l'unica permutazione che fissa tutti gli elementi
+    di $\{1, \ldots, n\}$, pertanto $\St(i) = \{id_{S_n}\}$ per ogni $i \in \{1, \ldots, n\}$.
+    Fissato $i \in \{1, \ldots, n\}$, abbiamo 
+    \[
+        |G| = |\Orb(i)|\cdot|\St(i)| = |\Orb(i)| = n
+    \]
+    in quanto $G$ è transitivo.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma4.0}
+    Se $a_1, \ldots, a_k$ sono interi positivi tali che $\displaystyle
+    \sum_{i = 1}^k a_i = 3m$,
+    con $m \geqslant k$ intero, allora $\displaystyle
+        \prod_{i = 1}^k a_i \leq 3^m$, 
+        e vale l'uguaglianza se e solo se $k = m$ e $a_i = 3$ per ogni $i \in \{1, \ldots, k\}$.
+\end{lemma}
+
+\begin{proof}
+    Senza perdita di generalità, a meno di aumentare $k$ possiamo supporre
+    $a_i \in \{1, 2, 3\}$ per ogni $i \in \{1, \ldots, k\}$, infatti se 
+    uno degli $a_i$ è uguale a 4 possiamo sostituirlo con $2 + 2$, se uno degli
+    $a_i$ è uguale a 5 possiamo sostituirlo con $2 + (a_i - 2)$ e così via
+    (queste sostituzioni mantengono inalterato il valore della somma).
+    In particolare abbiamo che $a_i \leqslant 3$ per ogni $i \in \{1, \ldots, n\}$,
+    pertanto 
+    \[
+        \prod_{i = 1}^k a_i \leq 3^k \leq 3^m
+    \]
+    inoltre se $k = m$ e tutti gli $a_i$ sono uguali a 3 abbiamo chiaramente
+    \[
+        \prod_{i = 1}^k a_i = 3^k = 3^m
+    \]
+    Viceversa, se il prodotto degli $a_i$ è uguale a $3^m$ allora necessariamente
+    $k = m$ e $a_i = 3$ per ogni $i \in \{1, \ldots, k\}$ in quanto possiamo
+    supporre $a_i \in \{1, 2, 3\}$ senza perdita di generalità.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma5.0}
     Dati $\sigma, \tau \in S_n$, se $\sigma = \cycle{x_1, \ldots, x_k}$ è un 
     $k$-ciclo allora 
     \[
@@ -1274,6 +1345,200 @@ se esistono, sottogruppi normali non banali di un gruppo finito.
     \]
 \end{proof}
 
+
+\begin{exercise}
+    Posto $n = 3m$, mostrare che la massima cardinalità di un sottogruppo
+    abeliano di $S_n$ è $3^m$ e caratterizzare la sua classe di isomorfismo.
+\end{exercise}
+
+\begin{soln}
+    Per prima cosa, osserviamo che $S_n$ contiene sottogruppi abeliani di
+    cardinalità $3m$, ad esempio
+    \[
+        \langle\cycle{1, 2, 3}\rangle\cdot \langle\cycle{4, 5, 6}\rangle
+        \cdot \ldots \cdot \langle\cycle{n - 2, n - 1, n}\rangle
+    \]
+    è un sottogruppo abeliano di $S_n$ di cardinalità $3^m$, essendo 
+    isomorfo a
+    \[
+        \langle\cycle{1, 2, 3}\rangle\times\langle\cycle{4, 5, 6}\rangle
+        \times\ldots\times\langle\cycle{n - 2, n - 1, n}\rangle
+    \]
+    Sia $G$ un sottogruppo abeliano di $S_n$ di ordine massimo, data
+    \[
+        \psi: G\longrightarrow S_n : \sigma \longmapsto \sigma
+    \]
+    l'azione naturale di $G$ su $\{1, \ldots, n\}$ chiamiamo $\Omega_1, \ldots, \Omega_k$
+    le orbite. Consideriamo le mappe $\varphi_i : G \longrightarrow S(\Omega_i)$
+    tali che, data $\sigma \in G$ e fissata $\rho_1\ldots\rho_k$ una sua decomposizione
+    in cicli disgiunti, $\varphi_i(\sigma) = \rho_i$, poniamo $G_i = \mathrm{Im}\varphi_i=
+    \mathrm{Im}\psi \cap S(\Omega_i)$. Possiamo quindi costruire l'omomorfismo
+    \[
+        \varphi: G \longrightarrow G_1\times \ldots \times G_k : g \longmapsto (\varphi_1(g), \ldots, \varphi_k(g))
+    \]
+    che è iniettivo in quanto 
+    \[
+        \varphi(\sigma) = id \iff \varphi_i(\sigma) = id_{S(\Omega_i)} \iff 
+        \sigma_{\mid \Omega_i} = id_{S(\Omega_i)}
+    \]
+    per ogni $i \in \{1, \ldots, k\}$, che è equivalente a $\sigma = id_{S_n}$
+    dato che le orbite ricoprono $\{1, \ldots, n\}$, da cui $\ker\varphi = 
+    \{id_{S_n}\}$. Osserviamo adesso che ogni $G_i$ è un gruppo abeliano poiché
+    immagine omomorfa di $G$, che è un gruppo abeliano, inoltre è transitivo
+    sull'orbita $\Omega_i$ per costruzione, pertanto per il 
+    \hyperref[lemma3.0]{Lemma 7.2} abbiamo $|G_i| = |\Omega_i|$ per ogni 
+     $i \in \{1, \ldots, k\}$. Vale quindi la seguente disuguaglianza, data
+    dall'iniettività di $\varphi$
+    \[
+        |G| \leqslant \prod_{i = 1}^k|G_i| = \prod_{i = 1}^k |\Omega_i|
+    \]
+    D'altra parte
+    \[
+        3m = \sum_{i = 1}^k|\Omega_i|
+    \]pertanto per il \hyperref[lemma4.0]{Lemma 7.3} abbiamo $|G| \leq 3^m$, 
+    ma questa è effettivamente un'uguaglianza in quanto $S_n$ contiene
+    almeno un sottogruppo abeliano di ordine $3^m$ e $G$ ha ordine massimo.
+    Sempre per il \hyperref[lemma4.0]{Lemma 7.3} allora $k = m$ e $|\Omega_i| = 3$
+    per ogni $i \in \{1, \ldots, k\}$. Abbiamo quindi che $\varphi$ è un isomorfismo
+    e che $G_1\times\ldots\times G_k$ è isomorfo a $(\Z3)^k$, pertanto
+    $G$ è isomorfo a $(\Z3)^k$.
+\end{soln}
+
+\begin{remark}
+    Se $a_1, \ldots, a_k$ sono interi tali che 
+    \[
+        3m + 2 = \sum_{i = 1}^k a_i
+    \]
+    ragionando come nella dimostrazione del \hyperref[lemma4.0]{Lemma 7.3}
+    possiamo scrivere
+    \[
+        3m + 2 = 2 + \sum_{i = 1}^{k - 1}a_i
+    \]
+    da cui ricaviamo
+    \[
+        \prod_{i = 1}^k a_i \leqslant 2\cdot3^m
+    \]
+    Inoltre questa è un'uguaglianza se e solo se esiste $j \in \{1, \ldots, k\}$
+    tale che $a_j = 2$, $a_i = 3$ per ogni $i \in \{1, \ldots, k\}\setminus\{j\}$
+    e $k = m$. Ragionando come sopra otteniamo $|G| \leqslant 2\cdot 3^m$, 
+    d'altra parte osserviamo che $S_n$ contiene un sottogruppo abeliano
+    \[
+        \langle\cycle{1, 2, 3}\rangle\cdot\ldots\cdot\langle\cycle{3m - 2, 3m - 1, 3m}\rangle\cdot\langle\cycle{3m + 1, 3m + 2}\rangle
+    \]
+    di ordine $2\cdot3^m$ poiché isomorfo a 
+    \[
+        \langle\cycle{1, 2, 3}\rangle\times\ldots\times\langle\cycle{3m - 2, 3m - 1, 3m}\rangle\times\langle\cycle{3m + 1, 3m + 2}\rangle
+    \]
+    pertanto $|G| = 2\cdot3^m$ e $G \cong (\Z3)^m \times \Z2$.
+    Se $n = 3m + 1$, ragionando in modo simile abbiamo che la somma delle
+    cardinalità delle orbite $\Omega_1, \ldots, \Omega_k$ è $3m + 1$ e il 
+    loro prodotto è minore o uguale a $4\times 3^{m - 1}$, da cui $|G| \leq
+    4\cdot3^{m - 1}$. D'altra parte $S_n$ contiene almeno due tipi di 
+    sottogruppi abeliani di ordine $3m + 1$, uno isomorfo a 
+    $(\Z3)^{m - 1} \times \Z4$ e uno isomorfo a $(\Z3)^{m - 1}\times V_4$,
+    dove 
+    \[
+        V_4 = \{\cycle{1, 2}\cycle{3, 4}, \cycle{1, 3}\cycle{2, 4}, 
+    \cycle{1, 4}\cycle{2, 3}, id\}
+    \]
+    è un sottogruppo abeliano non ciclico di $S_4$, chiamato 
+    \vocab{gruppo di Klein} o \vocab{Klein 4-group}. Pertanto un sottogruppo
+    abeliano di ordine massimo deve avere una di queste due forme.
+\end{remark}
+
+\begin{remark}
+    I sottogruppi di $S_n$ di questo tipo sono tutti coniugati tra loro, infatti
+    se 
+    \[
+        G = \langle\cycle{x_1, x_2, x_3}\rangle\cdot\ldots\cdot\langle\cycle{x_{n - 2}, x_{n - 1}, x_n}
+    \]
+    \[
+        G' = \langle\cycle{y_1, y_2, y_3}\rangle\cdot\ldots\cdot\langle\cycle{y_{n - 2}, y_{n - 1}, y_n}\rangle
+    \]
+    sono due sottogruppi abeliani di $S_n$ di ordine massimo (per semplicità
+    supponiamo $n = 3m$, gli altri due casi si studiano in modo analogo)
+    consideriamo $\sigma \in S_n$ tale che $\sigma(y_i) = x_i$ per ogni 
+    $i \in \{1, \ldots, n\}$, è sufficiente mostrare che i generatori delle componenti del
+    prodotto sono tra loro coniugate. Infatti, per il \hyperref[lemma5.0]{Lemma 7.4}
+    abbiamo 
+    \[
+        \sigma\cycle{x_i, x_{i + 1}, x_{i + 2}}\sigma^{-1} = 
+        \cycle{\sigma(x_i), \sigma(x_{i + 1}), \sigma(x_{i + 2})} = 
+        \cycle{y_i, y_{i + 1}, y_{i + 2}}
+    \]
+    per ogni $i \in \{1, \ldots, n - 2\}$, pertanto $G$ e $G'$ sono coniugati.
+\end{remark}
+
+\subsection{Classi di coniugio in $\mathcal{A}_n$}
+
+Fissato $\sigma \in \mathcal{A}_n$, indichiamo con $C_{\mathcal{A}_n}(\sigma)$ la classe di
+coniugio ottenuta coniugando $\sigma$ solo con elementi di $\mathcal{A}_n$, 
+con $C_{S_n}(\sigma)$ la classe ottenuta coniugando con tutti gli elementi
+di $S_n$. Vogliamo studiare come si relazionano $C_{\mathcal{A}_n}(\sigma)$
+e $C_{S_n}(\sigma)$ al variare di $\sigma \in \mathcal{A}_n$.
+
+Dato che $|\mathcal{A}_n| = |C_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n(\sigma)}|$
+e $Z_{\mathcal{A}_n}(\sigma) = Z_{S_n}(\sigma) \cap \mathcal{A}_n$, abbiamo
+\[
+    |C_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
+    \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma) \cap \mathcal{A}_n|}
+\]
+Poiché $[S_n:\mathcal{A}_n] = 2$, per la \hyperref[prop2.0]{Proposizione 6.10}
+abbiamo $[Z_{S_n}(\sigma):Z_{S_n}(\sigma) \cap \mathcal{A}_n] \in \{1, 2\}$,
+distinguiamo quindi due casi:
+\begin{itemize}
+    \item $|Z_{S_n}(\sigma) \cap \mathcal{A}_n| = \displaystyle\frac 1 2 |Z_{S_n}(\sigma)|$;
+    \item $|Z_{S_n}(\sigma) \cap \mathcal{A}_n| = |Z_{S_n}(\sigma)|$.
+\end{itemize}
+
+Nel primo caso otteniamo 
+\[
+    |C_{\mathcal{A}_n}| = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma) \cap \mathcal{A}_n|} =
+    \frac{|S_n|}{|Z_{S_n}(\sigma)|} = C_{S_n}(\sigma)
+\]
+poiché $C_{\mathcal{A}_n}(\sigma)\subseteq C_{S_n}(\sigma)$ abbiamo che le
+due classi coincidono. In particolare questo succede se $Z_{S_n}(\sigma)
+\nsubseteq \mathcal{A}_n$.
+
+Nel secondo caso invece, che si verifica se $Z_{S_n}(\sigma)\subseteq 
+\mathcal{A}_n$,
+\[
+    |C_{\mathcal{A}_n}(\sigma)| = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma)\cap\mathcal{A}_n|}
+    = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma)|} = \frac 1 2 |C_{S_n}(\sigma)|
+\]
+Più precisamente, abbiamo $C_{S_n}(\sigma) = C_{\mathcal{A}_n}(\sigma) \cup
+C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ per ogni $\tau$ permutazione dispari. 
+Infatti $C_{\mathcal{A}_n}(\sigma) \cup C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
+\subseteq C_{S_n}(\sigma)$ (i coniugati di $\tau\sigma\tau^{-1}$ sono anche
+coniugati di $\sigma$), d'altra parte per ogni $\rho \in S_n$ abbiamo
+$\rho\sigma\rho^{-1} \in C_{\mathcal{A}_n}(\sigma)$ se $\rho$ è pari,
+$\rho\sigma\rho^{-1} = (\rho\tau^{-1})(\tau\sigma\tau^{-1})(\rho\tau^{-1})^{-1}
+\in C_{\mathcal{A}_n}(\tau\sigma\tau)$ se $\rho$ è dispari, da cui l'uguaglianza.
+Abbiamo altri due casi:
+\begin{itemize}
+    \item $|C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |C_{S_n}(\tau\sigma\tau^{-1})|$;
+    \item $|C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
+    |C_{S_n}(\tau\sigma\tau^{-1})|$.
+\end{itemize}
+Tuttavia se fosse $|C_{\mathcal{A}_n}(\tau\sigma\tau)| = |C_{S_n}(\tau\sigma\tau)|$
+avremmo $C_{\mathcal{A}_n}(\sigma) = C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
+che è assurdo in quanto $\tau\sigma\tau^{-1} \notin C_{\mathcal{A}_n}(\sigma)$,
+pertanto \[
+    |C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
+    |C_{S_n}(\tau\sigma\tau^{-1})| = \frac 1 2|C_{S_n}(\sigma)| =
+    |C_{\mathcal{A}_n}(\sigma)|
+\]
+Poiché 
+$|C_{S_n}(\sigma)| = |C_{\mathcal{A}_n}(\sigma)| + |C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})|$,
+per il Principio di Inclusione-Esclusione abbiamo che l'unione è disgiunta,
+cioè
+\[
+    C_{S_n}(\sigma) = C_{\mathcal{A}_n}(\sigma) \cupdot C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
+\]
+
+\subsection{Studio di $S_5$}
+
+%trovare un modo per incastrare meglio questo pezzo
 Consideriamo gli elementi di $S_5$ $\sigma = \cycle{1, 2, 3, 4, 5}, 
 \tau = \cycle{2, 5}\cycle{3, 4}$, studiamo il sottogruppo $H = \langle\sigma, \tau\rangle$,
 in particolare siamo interessati a determinare una regola di commutazione
@@ -1290,7 +1555,76 @@ da questa relazione ricaviamo che $\langle \tau\rangle \subseteq N_{S_5}(\langle
 pertanto possiamo scrivere $H = \langle\sigma\rangle\cdot\langle\tau\rangle$
 in quanto $\langle\sigma\rangle\cdot\langle\tau\rangle$ è un sottogruppo di $H$
 che ha la sua stessa cardinalità. In particolare otteniamo che $|H| = 10 = |D_5|$,
-quindi $H \cong D_5$.
+quindi $H \cong D_5$.\\
+
+%%%
+
+Abbiamo visto che le classi di coniugio in un gruppo simmetrico su $n$ elementi
+sono parametrizzate dalle partizioni di $n$
+\begingroup
+\renewcommand{\arraystretch}{2}
+\begin{center}
+    \begin{tabular}{c|c}
+        Partizioni di 5 & Cardinalità della classe di coniugio associata\\
+        \hline
+        5 & $\displaystyle\binom{5}{5}4! = 4!$\\
+        4 + 1 & $\displaystyle\binom{5}{4}3! = 30$\\
+        3 + 2 & $\displaystyle\binom{5}{3}2!\binom{2}{2}1! = 20$\\
+        3 + 1 + 1 & $\displaystyle\binom{5}{3}2! = 20$\\
+        2 + 2 + 1 & $\displaystyle\frac 1 2\binom{5}{2}1!\binom{3}{2}1! = 15$\footnote{
+            Dividiamo per 2 in quanto contiamo i cicli a meno dell'ordine e 
+            le trasposizioni che costituiscono questa classe di coniugio
+            commutano.}\\
+        2 + 1 + 1 + 1 & $\displaystyle\binom{5}{2}1! = 10$\\
+        1 + 1 + 1 + 1 + 1 & $1$
+    \end{tabular}
+\end{center}
+\endgroup
+
+Di queste, le permutazioni che appartengono a $\mathcal{A}_5$ sono quelle
+la cui classe di coniugio è associata alle partizioni 5, 3 + 1 + 1, 
+2 + 2 + 1, 1 + 1 + 1 + 1 + 1, cioè le permutazioni $\sigma, \tau, \rho$
+aventi una decomposizione in cicli disgiunti della forma
+\[
+    \sigma = \cycle{a_1, a_2, a_3, a_4, a_5}
+\]
+\[
+    \tau = \cycle{b_1, b_2, b_3}
+\]
+\[
+    \rho = \cycle{c_1, c_2}\cycle{d_1, d_2}
+\]
+e l'identità. Vediamo come sono fatte le loro classi di coniugio in $\mathcal{A}_5$.
+Chiaramente $C_{\mathcal{A}_n}(id) = C_{S_n}(id) = \{id\}$, studiamo quindi
+le classi di $\sigma, \tau, \rho$ fissate come sopra.
+\begin{itemize}
+    \item $Z_{S_5}(\sigma) = \langle\cycle{a_1, a_2, a_3, a_4, a_5}\rangle$,
+    infatti 
+    \[
+        |Z_{S_5}(\sigma)| = \frac{|S_5|}{|C_{S_5}(\sigma)|} = \frac{5!}{4!} = 5
+    \]
+    Allora $Z_{S_5}(\sigma)$ contiene solo permutazioni pari, quindi la sua
+    classe di coniugio in $S_5$ si scrive come
+    \[
+        C_{S_5}(\sigma) = C_{\mathcal{A}_5}(\sigma) \cupdot C_{\mathcal{A}_5}(\psi\sigma\psi^{-1})
+    \]
+    dove $\psi$ è una permutazione dispari;
+    \item $Z_{S_5}(\tau)$ non è contenuto in $\mathcal{A}_5$, infatti una
+    trasposizione $\psi$ disgiunta da $\tau$ è una permutazione dispari che
+    appartiene al centralizzatore. Pertanto
+    \[
+        C_{S_5}(\tau) = C_{\mathcal{A}_5}(\tau)
+    \]
+    \item $Z_{S_5}(\rho)$ non è contenuto in $\mathcal{A}_5$, infatti la 
+    trasposizione $\cycle{c_1, c_2}$ è una permutazione dispari che commuta
+    con $\rho$ (infatti $\cycle{c_1, c_2}$ e $\cycle{d_1, d_2}$ commutano in 
+    quanto cicli disgiunti e $\cycle{c_1, c_2}$ commuta con se stessa).
+    Pertanto 
+    \[
+        C_{S_5}(\rho) = C_{\mathcal{A}_5}(\rho)
+    \]
+\end{itemize}
+
 
 
 \end{document}
