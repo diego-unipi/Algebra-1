@@ -1603,12 +1603,12 @@ le classi di $\sigma, \tau, \rho$ fissate come sopra.
     \[
         |Z_{S_5}(\sigma)| = \frac{|S_5|}{|C_{S_5}(\sigma)|} = \frac{5!}{4!} = 5
     \]
-    Allora $Z_{S_5}(\sigma)$ contiene solo permutazioni pari, quindi la sua
+    Allora $Z_{S_5}(\sigma)$ contiene solo permutazioni pari, fissata $\psi$
+    una permutazione dispari la sua
     classe di coniugio in $S_5$ si scrive come
     \[
         C_{S_5}(\sigma) = C_{\mathcal{A}_5}(\sigma) \cupdot C_{\mathcal{A}_5}(\psi\sigma\psi^{-1})
     \]
-    dove $\psi$ è una permutazione dispari;
     \item $Z_{S_5}(\tau)$ non è contenuto in $\mathcal{A}_5$, infatti una
     trasposizione $\psi$ disgiunta da $\tau$ è una permutazione dispari che
     appartiene al centralizzatore. Pertanto
@@ -1625,6 +1625,39 @@ le classi di $\sigma, \tau, \rho$ fissate come sopra.
     \]
 \end{itemize}
 
+\subsection{Generatori di $S_n$ e $\mathcal{A}_n$}
+
+Esibiamo alcuni insiemi di generatori per $S_n$:
+
+\begin{itemize}
+    \item $\{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, abbiamo visto 
+    che ogni permutazione può essere scritta come prodotto di trasposizioni;
+    \item $\{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, infatti per ogni $i<j$ abbiamo
+    \[
+        \cycle{i, j} = \cycle{1, i}\cycle{1, j}\cycle{1, i}
+    \]
+    \item $\{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
+    infatti per ogni $j$ abbiamo 
+    \[
+        \cycle{1, j} = \cycle{j - 1, j}\cycle{1, j - 1}\cycle{j - 1, j}
+    \]
+    \item $\{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
+    $i$ abbiamo 
+    \[
+        \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i} = 
+        \cycle{i, i + 1}
+    \]
+\end{itemize}
+
+\begin{remark}
+    Non è vero in generale che una trasposizione e un $n$-ciclo generano $S_n$,
+    consideriamo ad esempio $\langle\sigma, \rho\rangle\leqslant S_4$ con
+    $\sigma = \cycle{1, 2, 3, 4}$, $\rho = \cycle{2, 4}$. Abbiamo
+    $\sigma^4 = \rho^2 = 1$ e $\rho\sigma\rho^{-1} = \cycle{1, 4, 3, 2} =
+    \sigma^{-1}$, pertanto $\langle\sigma, \rho\rangle$ è isomorfo a un 
+    quoziente di $D_4$, in effetti è proprio isomorfo a $D_4$, e quindi 
+    non genera $S_4$. 
+\end{remark}
 
 
 \end{document}
