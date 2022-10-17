@@ -15,7 +15,8 @@
 \newpage
 
 \section*{Ringraziamenti}
-Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu.
+Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
+Leonardo Alfani.
 
 \newpage
 \section{Gruppi}
@@ -566,7 +567,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
     Definiamo la mappa:
         \[ \lambda : G \longrightarrow S(G) : g \longmapsto \varphi_g
             \]
-    con $\varphi_g : G \longrightarrow G : g \longmapsto gx$, l'applicazione $\lambda$ prende il nome di \vocab{rappresentazione regolare a sinistra} di $G$, si 
+    con $\varphi_g : G \longrightarrow G : x \longmapsto gx$, l'applicazione $\lambda$ prende il nome di \vocab{rappresentazione regolare a sinistra} di $G$, si 
     vuole dimostrare che $\lambda$ è un omomorfismo iniettivo.
     Osserviamo innanzitutto che $\lambda$ è ben definita, cioè $\varphi_g \in S(G)$, infatti $\varphi_g$ è iniettiva (segue dalle leggi di cancellazione) e 
     surgettiva, perché $\forall y \in G$, $\exists g^{-1}y \in G : \varphi_g(g^{-1}y) = y$. Verifichiamo che $\lambda$ è un omomorfismo:
@@ -654,7 +655,7 @@ da cui $\lambda$ fedele.
 \end{exercise}
 
 \begin{soln}
-    Procediamo per induzione su $n$, per $n = 1$ è ovvio, infatti si ha $H_1 = \{e\} \leqslant G$.
+    Procediamo per induzione su $n$, per $n = 1$ è ovvio, infatti si ha $H_1 = \{e\} \trianglelefteqslant G$.
     Supponiamo la tesi vera $\forall 1 \leq k \leq n-1$, osserviamo che $G$ è un $p$-gruppo, pertanto il suo centro non è banale:
         \[ |Z(G)| = p^z \qquad z\geq 1
             \]
@@ -727,7 +728,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{definition}
 
 \begin{remark}
-    Un ciclo di lunghezza $k$ (un $k$-ciclo) ha $k$ scritturture distinte, in quanto possiamo scegliere arbitrariamente il primo elemento.
+    Un ciclo di lunghezza $k$ (un $k$-ciclo) ha $k$ scritture distinte, in quanto possiamo scegliere arbitrariamente il primo elemento.
 \end{remark}
 
 \begin{remark}
@@ -803,7 +804,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{4}\frac{4!}{4} = 6
             \]
     infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cilci, possiamo scegliere e permutare due coppie di elementi, come 
-    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutanto (banlmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
+    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutanto (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
     dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
@@ -863,17 +864,17 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{proof}
 
 \begin{remark}
-    La scrittura di una permutazione come prodotto di trasposzioni non è unica. Ad esempio in $S_4$:
+    La scrittura di una permutazione come prodotto di trasposizioni non è unica. Ad esempio in $S_4$:
         \[ \sigma = \cycle{1,2}\cycle{2,4} = \cycle{1,2}\cycle{3,4}\cycle{3,4}\cycle{2,4}
             \]
 \end{remark}
 
-La segeunte proposizione ci mostra invece che è fissata la parità della decomposizione in trasposizioni, cioè se $\sigma$ si compone come prodotto di $m$ trasposizioni,
+La seguente proposizione ci mostra invece che è fissata la parità della decomposizione in trasposizioni, cioè se $\sigma$ si compone come prodotto di $m$ trasposizioni,
 ogni altra decomposizione come prodotto di trasposizioni ha un numero di trasposizioni con la stessa parità.
 
 \begin{proposition}
     L'applicazione:
-        \[ sgn : S_n \longmapsto \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j}
+        \[ sgn : S_n \longrightarrow \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j}
             \]
     è un omomorfismo di gruppi. Inoltre, se $\sigma$ è una trasposizione, allora $sgn(\sigma) = -1$.
 \end{proposition}
@@ -916,7 +917,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{definition}
 
 \begin{definition}
-    Dato l'omomorfismo $sgn : S_n \longmapsto \{\pm 1\}$, si definisce \vocab{gruppo alterno}:
+    Dato l'omomorfismo $sgn : S_n \longrightarrow \{\pm 1\}$, si definisce \vocab{gruppo alterno}:
         \[ \mathcal{A}_n = \ker sgn = \{\sigma \in S_n |\, \text{$\sigma$ è pari}\}
             \]
 \end{definition}
@@ -1034,7 +1035,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 
 \begin{proof}
     Definiamo l'applicazione:
-        \[ \varphi : H \times K \longrightarrow : (h,k) \mapsto hk
+        \[ \varphi : H \times K \longrightarrow G : (h,k) \mapsto hk
             \]
     Si verifica che è un omomorfismo:
         \[\varphi((h_1,k_1)(h_2,k_2)) = \varphi((h_1h_2,k_1k_2)) = h_1h_2k_1k_2
@@ -1050,7 +1051,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     Se abbiamo due sottogruppi $G_1$ e $G_2$ e costruiamo $G = G_1 \times G_2$, allora presi:
         \[ H = G_1 \times \{e_2\} \trianglelefteqslant G \qquad \text e \qquad K = \{e_1\} \times G_2 \trianglelefteqslant G
             \]
-    $H,K$ sono normali, hanno intersezione banale e sono tali che $HK = G$, quindi verificamo le ipotesi del teorema, pertanto $G \cong H \times K$.
+    $H,K$ sono normali, hanno intersezione banale e sono tali che $HK = G$, quindi verifichiamo le ipotesi del teorema, pertanto $G \cong H \times K$.
 \end{remark}
 
 \begin{example}
@@ -1078,7 +1079,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     si dice \vocab{prodotto semidiretto} di $H$ e $K$ via $\varphi$:
         \[ H \rtimes_{\varphi} K
             \]
-    (o anche $H \rtimes_{\varphi} K$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
+    (o anche $K {_\varphi}\ltimes H$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
         \[ (h,k) (h^{\prime},k^{\prime}) = (h \cdot_H \varphi_k(h^{\prime}), k \cdot_K k^{\prime})
             \]
 \end{definition}
@@ -1274,11 +1275,5 @@ in quanto:
         \]
 ciò garantisce che $\mathcal{F}$ ottenuto estendendo l'assegnamento $x \longmapsto x, y \longmapsto y^r$ è un omomorfismo, segue banalmente che è anche una bigezione e quindi è un isomorfismo. \footnote{Quest'ultima pagina non è in versione 
 definitiva e necessita di ulteriori revisioni.}
-
-
-
-
-
-
 
 \end{document}
