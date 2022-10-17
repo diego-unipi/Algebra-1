@@ -1258,6 +1258,42 @@ se esistono, sottogruppi normali non banali di un gruppo finito.
 
 \section{Gruppo simmetrico}
 
+\subsection{Generatori di $S_n$}
+
+Esibiamo alcuni insiemi di generatori per $S_n$:
+
+\begin{itemize}
+    \item $\{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, abbiamo visto 
+    che ogni permutazione può essere scritta come prodotto di trasposizioni;
+    \item $\{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, infatti per ogni $i<j$ abbiamo
+    \[
+        \cycle{i, j} = \cycle{1, i}\cycle{1, j}\cycle{1, i}
+    \]
+    \item $\{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
+    infatti per ogni $j$ abbiamo 
+    \[
+        \cycle{1, j} = \cycle{j - 1, j}\cycle{1, j - 1}\cycle{j - 1, j}
+    \]
+    \item $\{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
+    $i$ abbiamo 
+    \[
+        \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i} = 
+        \cycle{i, i + 1}
+    \]
+\end{itemize}
+
+\begin{remark}
+    Non è vero in generale che una trasposizione e un $n$-ciclo generano $S_n$,
+    consideriamo ad esempio $\langle\sigma, \rho\rangle\leqslant S_4$ con
+    $\sigma = \cycle{1, 2, 3, 4}$, $\rho = \cycle{2, 4}$. Abbiamo
+    $\sigma^4 = \rho^2 = 1$ e $\rho\sigma\rho^{-1} = \cycle{1, 4, 3, 2} =
+    \sigma^{-1}$, pertanto $\langle\sigma, \rho\rangle$ è isomorfo a un 
+    quoziente di $D_4$. D'altra parte $\langle\sigma\rangle\cap \langle\rho\rangle = \{id\}$
+    e $\rho \in N_{S_4}(\sigma)$, pertanto $\langle\sigma, \rho\rangle =
+    \langle\sigma\rangle\langle\rho\rangle$ e $|\langle\sigma, \rho\rangle| = 8$,
+    pertanto è isomorfo a $D_4$. 
+\end{remark}
+
 \subsection{Sottogruppi abeliani massimali di $S_n$}
 
 Vogliamo studiare i sottogruppi abeliani di $S_n$, caratterizzando in particolare
@@ -1386,7 +1422,7 @@ i suoi sottogruppi abeliani massimali.
     \{id_{S_n}\}$. Osserviamo adesso che ogni $G_i$ è un gruppo abeliano poiché
     immagine omomorfa di $G$, che è un gruppo abeliano, inoltre è transitivo
     sull'orbita $\Omega_i$ per costruzione, pertanto per il 
-    \hyperref[lemma3.0]{Lemma 7.2} abbiamo $|G_i| = |\Omega_i|$ per ogni 
+    \hyperref[lemma3.0]{Lemma 7.3} abbiamo $|G_i| = |\Omega_i|$ per ogni 
      $i \in \{1, \ldots, k\}$. Vale quindi la seguente disuguaglianza, data
     dall'iniettività di $\varphi$
     \[
@@ -1395,10 +1431,10 @@ i suoi sottogruppi abeliani massimali.
     D'altra parte
     \[
         3m = \sum_{i = 1}^k|\Omega_i|
-    \]pertanto per il \hyperref[lemma4.0]{Lemma 7.3} abbiamo $|G| \leq 3^m$, 
+    \]pertanto per il \hyperref[lemma4.0]{Lemma 7.4} abbiamo $|G| \leq 3^m$, 
     ma questa è effettivamente un'uguaglianza in quanto $S_n$ contiene
     almeno un sottogruppo abeliano di ordine $3^m$ e $G$ ha ordine massimo.
-    Sempre per il \hyperref[lemma4.0]{Lemma 7.3} allora $k = m$ e $|\Omega_i| = 3$
+    Sempre per il \hyperref[lemma4.0]{Lemma 7.4} allora $k = m$ e $|\Omega_i| = 3$
     per ogni $i \in \{1, \ldots, k\}$. Abbiamo quindi che $\varphi$ è un isomorfismo
     e che $G_1\times\ldots\times G_k$ è isomorfo a $(\Z3)^k$, pertanto
     $G$ è isomorfo a $(\Z3)^k$.
@@ -1409,7 +1445,7 @@ i suoi sottogruppi abeliani massimali.
     \[
         3m + 2 = \sum_{i = 1}^k a_i
     \]
-    ragionando come nella dimostrazione del \hyperref[lemma4.0]{Lemma 7.3}
+    ragionando come nella dimostrazione del \hyperref[lemma4.0]{Lemma 7.4}
     possiamo scrivere
     \[
         3m + 2 = 2 + \sum_{i = 1}^{k - 1}a_i
@@ -1459,7 +1495,7 @@ i suoi sottogruppi abeliani massimali.
     supponiamo $n = 3m$, gli altri due casi si studiano in modo analogo)
     consideriamo $\sigma \in S_n$ tale che $\sigma(y_i) = x_i$ per ogni 
     $i \in \{1, \ldots, n\}$, è sufficiente mostrare che i generatori delle componenti del
-    prodotto sono tra loro coniugate. Infatti, per il \hyperref[lemma5.0]{Lemma 7.4}
+    prodotto sono tra loro coniugate. Infatti, per il \hyperref[lemma5.0]{Lemma 7.5}
     abbiamo 
     \[
         \sigma\cycle{x_i, x_{i + 1}, x_{i + 2}}\sigma^{-1} = 
@@ -1624,39 +1660,7 @@ le classi di $\sigma, \tau, \rho$ fissate come sopra.
     \]
 \end{itemize}
 
-\subsection{Generatori di $S_n$ e $\mathcal{A}_n$}
 
-Esibiamo alcuni insiemi di generatori per $S_n$:
-
-\begin{itemize}
-    \item $\{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, abbiamo visto 
-    che ogni permutazione può essere scritta come prodotto di trasposizioni;
-    \item $\{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, infatti per ogni $i<j$ abbiamo
-    \[
-        \cycle{i, j} = \cycle{1, i}\cycle{1, j}\cycle{1, i}
-    \]
-    \item $\{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
-    infatti per ogni $j$ abbiamo 
-    \[
-        \cycle{1, j} = \cycle{j - 1, j}\cycle{1, j - 1}\cycle{j - 1, j}
-    \]
-    \item $\{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
-    $i$ abbiamo 
-    \[
-        \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i} = 
-        \cycle{i, i + 1}
-    \]
-\end{itemize}
-
-\begin{remark}
-    Non è vero in generale che una trasposizione e un $n$-ciclo generano $S_n$,
-    consideriamo ad esempio $\langle\sigma, \rho\rangle\leqslant S_4$ con
-    $\sigma = \cycle{1, 2, 3, 4}$, $\rho = \cycle{2, 4}$. Abbiamo
-    $\sigma^4 = \rho^2 = 1$ e $\rho\sigma\rho^{-1} = \cycle{1, 4, 3, 2} =
-    \sigma^{-1}$, pertanto $\langle\sigma, \rho\rangle$ è isomorfo a un 
-    quoziente di $D_4$, in effetti è proprio isomorfo a $D_4$, e quindi 
-    non genera $S_4$. 
-\end{remark}
 
 
 \end{document}
