@@ -1082,7 +1082,7 @@ le orbite degli elementi di $X$ formano una partizione dell'insieme abbiamo
 \]dove l'ultimo termine della somma è divisibile per $p$. Distinguiamo 
 quindi due casi:
 \begin{itemize}
-    \item se $p\mid G$, riducendo modulo $p$ la formula sopra otteniamo
+    \item se $p\mid |G|$, riducendo modulo $p$ la formula sopra otteniamo
     $|S| \equiv -1 \pmod p$, in particolare esiste almeno un elemento di
     ordine $p$ (\hyperref[teorema1.0]{Teorema di Cauchy});
     \item se $G = \Zn$ con $p$ e $n$ coprimi, $\Zn$ non contiene elementi
@@ -1659,6 +1659,30 @@ le classi di $\sigma, \tau, \rho$ fissate come sopra.
         C_{S_5}(\rho) = C_{\mathcal{A}_5}(\rho)
     \]
 \end{itemize}
+
+\subsection{Sottogruppi normali di $\mathcal{A}_n$}
+
+Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
+\begin{itemize}
+    \item $\{\cycle{i, j}\cycle{k, l}\mid i\neq j, k \neq l\}$, infatti
+    ogni elemento di $\mathcal{A}_n$ può essere scritto come prodotto di 
+    coppie di trasposizioni in quanto permutazione pari;
+    \item $\{\cycle{i, j, k}\mid i, j, k\text{ distinti}\}$. Infatti se 
+    $\{i, j\} = \{k, l\}$ allora $\cycle{i, j}\cycle{k, l} = id$ è un elemento
+    generato dall'insieme, se invece $|\{i, j\}\cap\{k, l\}| = 1$, ad esempio $j = k$,
+    abbiamo $\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, l} = \cycle{i, j, l}$,
+    che è un elemento generato dall'insieme. Nel caso $\{i, j\}\cap \{k, l\} = \emptyset$ abbiamo
+    $\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, k}\cycle{j, k}\cycle{k, l}=
+    \cycle{i, j, k}\cycle{j, k, l}$, che è un elemento generato dall'insieme.
+    Possiamo quindi ottenere il precedente insieme di generatori a partire
+    da questo;
+    \item $\{\cycle{1, 2, k}\mid k \in \{3, \ldots, n\}\}$, infatti 
+\end{itemize}
+
+\begin{definition}
+    Un gruppo non banale $G$ si dice \vocab{semplice} se i suoi unici sottogruppi
+    normali sono $\{e\}$ e $G$.
+\end{definition}
 
 
 
