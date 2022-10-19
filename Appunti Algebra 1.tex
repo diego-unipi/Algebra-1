@@ -221,18 +221,18 @@ da cui si ottiene:
 \end{soln}
 
 \begin{example}
-    Sia $G = \Z2 \times \Z2 = \{(\ol 0, \ol 0),(\ol 1, \ol 0),(\ol 0, \ol 1),(\ol 1, \ol 1)\}$, $G$ ha ordine $4$ ed ha tre sottogruppi ciclici di ordine 2:
-        \[ H_1 = \left<(\ol 1, \ol 0)\right> \qquad H_2 = \left<(\ol 0, \ol 1)\right> \qquad H_3 = \left<(\ol 1, \ol 1)\right>
+    Sia $G = \Z2 \times \Z2 = \{(\overline 0, \overline 0),(\overline 1, \overline 0),(\overline 0, \overline 1),(\overline 1, \overline 1)\}$, $G$ ha ordine $4$ ed ha tre sottogruppi ciclici di ordine 2:
+        \[ H_1 = \left<(\overline 1, \overline 0)\right> \qquad H_2 = \left<(\overline 0, \overline 1)\right> \qquad H_3 = \left<(\overline 1, \overline 1)\right>
             \] 
     ed essendo $G$ abeliano si ha $H_1,H_2,H_3 \trianglelefteqslant G$ (e quindi i sottogruppi sono invarianti per automorfismi interni). Tuttavia nessuno dei sottogruppi è caratteristico,
     infatti possiamo prendere un automorfismo non banale (e quindi non uno interno) e vedere come i sottogruppi di questo tipo non siano invarianti:
         \[ f = \begin{cases}
-            (\ol 1, \ol 0) \longmapsto (\ol 1, \ol 1)\\
-            (\ol 0, \ol 1) \longmapsto (\ol 0, \ol 1)
+            (\overline 1, \overline 0) \longmapsto (\overline 1, \overline 1)\\
+            (\overline 0, \overline 1) \longmapsto (\overline 0, \overline 1)
         \end{cases}
             \]
     la definizione della mappa data tuttavia non è completa, perché abbiamo stabilito solo dove vengono mandati i generatori, dobbiamo definire cosa faccia un elemento generico:
-        \[ f ((\ol a, \ol b)) = af((\ol 1, \ol 0)) + bf((\ol 0, \ol 1)) = (\ol a, \ol a) + (\ol 0, \ol b) = (\ol a, \ol{a + b})
+        \[ f ((\overline a, \overline b)) = af((\overline 1, \overline 0)) + bf((\overline 0, \overline 1)) = (\overline a, \overline a) + (\overline 0, \overline b) = (\overline a, \overline{a + b})
             \]
     a questo punto abbiamo definito completamente l'applicazione (rimarrebbe da verificare che $f$ sia un omomorfismo),  e si verifica facilmente che
      $f(H_1) = H_3 $ quindi $H_1 \trianglelefteqslant G$, ma non caratteristico.
@@ -241,7 +241,7 @@ da cui si ottiene:
 A questo punto è facile verificare che:
     \[ \Aut(\Z2 \times \Z2) \cong S_3
         \]
-infatti, ogni automorfismo del gruppo si ottiene fissando l'elemento neutro $(\ol 0, \ol 0) \longmapsto (\ol 0, \ol 0)$, quindi il numero possibile di bigezioni è al più $3!$, occorre
+infatti, ogni automorfismo del gruppo si ottiene fissando l'elemento neutro $(\overline 0, \overline 0) \longmapsto (\overline 0, \overline 0)$, quindi il numero possibile di bigezioni è al più $3!$, occorre
 verificare che tutte e $6$ le funzioni sono omomorfismi. Dimostriamo invece che:
     \[ \boxed{\Aut(S_3) \cong S_3}
         \]
@@ -599,7 +599,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 
 \begin{example}
     Nel caso in cui $G = \Z8$ consideriamo l'azione:
-        \[ \lambda : G \longrightarrow S(\Z8) \cong S_8\footnote{Perché appunto $S(\Z8)$ è l'insieme di permutazioni di un insieme di $8$ elementi.} : \ol a \longmapsto \lambda_a
+        \[ \lambda : G \longrightarrow S(\Z8) \cong S_8\footnote{Perché appunto $S(\Z8)$ è l'insieme di permutazioni di un insieme di $8$ elementi.} : \overline a \longmapsto \lambda_a
             \]
     che, per quanto visto  genera ad esempio le applicazioni:\footnote{Per $+$ si intende la somma modulo $8$.}
             \begin{align*}
@@ -997,8 +997,8 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \times G_2$ con l'operazione fatta componente per componente prende il nome di \vocab{prodotto diretto}.
 
 \begin{example}
-    Presi ad esempio $\Z7$ e $S_4$, si ha $\Z7 \times S_4$, con $\sigma = (\ol 1, \cycle{1,2,3})$ e $\rho = (\ol 4, \cycle{1,4,2,4})$ in $\Z7 \times S_4$ e l'operazione:
-        \[ \sigma \cdot \rho = (\ol 1 + \ol 4, \cycle{1,2,3} \circ \cycle{1,4,2,3}) = (\ol 5, \cycle{1,4,3,2})
+    Presi ad esempio $\Z7$ e $S_4$, si ha $\Z7 \times S_4$, con $\sigma = (\overline 1, \cycle{1,2,3})$ e $\rho = (\overline 4, \cycle{1,4,2,4})$ in $\Z7 \times S_4$ e l'operazione:
+        \[ \sigma \cdot \rho = (\overline 1 + \overline 4, \cycle{1,2,3} \circ \cycle{1,4,2,3}) = (\overline 5, \cycle{1,4,3,2})
             \]
 \end{example}
 
@@ -1161,24 +1161,24 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \pagebreak
 
 \begin{remark}
-    Siano $\ol H = H \times \{e_K\}$ e $\ol K = \{e_H\} \times K$, si osserva che $\ol H, \ol K \leqslant G = H \rtimes_{\varphi} K$, infatti sono chiusi per prodotto (ristretto):
+    Siano $\overline H = H \times \{e_K\}$ e $\overline K = \{e_H\} \times K$, si osserva che $\overline H, \overline K \leqslant G = H \rtimes_{\varphi} K$, infatti sono chiusi per prodotto (ristretto):
         \[ (h,e_K)(h^{\prime},e_K) = (h \cdot \varphi_{e_K}(h^{\prime}), e_K) = (h \cdot id(h^{\prime}), e_K) = (hh^{\prime},e_K)
         \]\[ (e_H,k)(e_H,k^{\prime}) = (e_H \cdot \varphi_k(e_H), kk^{\prime}) = (e_H,kk^{\prime})
             \]
-    e si verifica facilmente anche per inverso. Si osserva che $\ol H \trianglelefteqslant G$\footnote{$\ol K$ in generale non è normale, lo è solo se il prodotto è diretto, infatti in quel caso vale il \hyperref[t:1.72]{Teorema 1.72}.},
+    e si verifica facilmente anche per inverso. Si osserva che $\overline H \trianglelefteqslant G$\footnote{$\overline K$ in generale non è normale, lo è solo se il prodotto è diretto, infatti in quel caso vale il \hyperref[t:1.72]{Teorema 1.72}.},
     in quanto $H = \ker \pi$, con:
-        \[ \pi : H \rtimes_{\varphi} K \longrightarrow : (h,k) \longmapsto k
+        \[ \pi : H \rtimes_{\varphi} K \longrightarrow K: (h,k) \longmapsto k
             \]
     con $\pi$ omomorfismo come si vede:
         \[ \pi((h,k)(h^{\prime},k^{\prime})) = \pi(h \cdot \varphi_k(h^{\prime}),kk^{\prime}) = kk^{\prime} = \pi((h,k))\pi((h^{\prime},k^{\prime}))
             \]
-    Per come li abbiamo presi si nota subito che $\ol H \ol K = G$ e $\ol H \cap \ol K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.79]{Teorema 1.79}, pertanto:
-        \[ \ol H \times \ol K \cong G = H \rtimes_{\varphi} K
+    Per come li abbiamo presi si nota subito che $\overline H \overline K = G$ e $\overline H \cap \overline K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.79]{Teorema 1.79}, pertanto:
+        \[ \overline H \times \overline K \cong G = H \rtimes_{\varphi} K
             \]
 \end{remark}
 
 \begin{example}
-    [$S_n \cong \mathcal{A}_n \rtimes \left<\cycle{1,2}\right>$]
+    [$S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>$]
     Verifichiamo che $S_n$ è prodotto semidiretto di $H = \mathcal{A}_n$ e $ K = \left<\cycle{1,2}\right>$ \footnote{In generale va bene qualsiasi trasposizione (che esiste sempre in $S_n$ per $n \geq 2$).}
     usando il \hyperref[t:1.72]{Teorema 1.72}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft S_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
     per cardinalità che $HK = S_n$. Essendo $\mathcal{A}_n = \ker sgn$ e $\left<\cycle{1,2}\right>$ una trasposizione $H \cap K = \{e\}$ (in quanto il nucleo dell'omomorfismo segno contiene solo permutazioni pari), pertanto segue la tesi:
@@ -1196,7 +1196,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     e in particolare $[D_n : \left<r\right>] = 2 \implies \left<r\right> \triangleleft D_n$; inoltre, $\left<r\right> \cap \left<s\right> = \{id\}$ perché $\det(r_i) = 1$, mentre $\det(sr_i) = -1$, $\forall i \in \{1,\ldots,n\}$. Infine, essendo $\ord s = 2$, allora il prodotto di sottogruppi avrà cardinalità:
         \[ \left<r\right>\left<s\right> = \frac{|\left<r\right>||\left<s\right>|}{|\left<r\right> \cap \left<s\right>|} = \frac{2n}{1} = 2n
             \]
-    pertanto $\left<r\right>\left<s\right> = D_n$. Pertanto $D_n \cong \left<r\right> \rtimes_{\varphi} \left<s\right>$, dove $\left<r\right> \cong \Zn$ e $\left<s\right> \cong \Z2$, pertanto:
+    dunque $\left<r\right>\left<s\right> = D_n$. Pertanto $D_n \cong \left<r\right> \rtimes_{\varphi} \left<s\right>$, dove $\left<r\right> \cong \Zn$ e $\left<s\right> \cong \Z2$, quindi:
         \[ D_n \cong \Zn \rtimes_{\varphi} \Z2
             \]
     con:
@@ -1208,7 +1208,8 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
             r \longmapsto r^{-1}
             \end{cases}
         \]
-    nel caso in cui $\varphi_s = id$ si ottiene il prodotto diretto, nell'altro caso si ottiene il prodotto semidiretto che definisce $D_n$.Se in $\Aut(\Zn)$ ci sono altri elementi di ordine due (ad esempio se $\Aut(\Z8) \cong \Z8^* \cong \Z2 \times \Z2$) si possono definire anche altri prodotti semidiretti:
+    nel caso in cui $\varphi_s = id$ si ottiene il prodotto diretto, nell'altro caso si ottiene il prodotto semidiretto che definisce $D_n$. Se in $\Aut(\Zn)$ ci sono altri elementi di ordine due
+     (ad esempio se $\Aut(\Z8) \cong \Z8^* \cong \Z2 \times \Z2$) si possono definire anche altri prodotti semidiretti:
     \[ \Zn \rtimes_{\varphi} \Z2
         \]
     Rimane il problema di verificare se danno o meno due gruppi isomorfi.
@@ -1223,7 +1224,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     se $H^{\prime} < G$ e $|H^{\prime}| = q$, se fosse $H \ne H^{\prime}$, allora $H \cap H^{\prime} = \{e\}$ e quindi:
     \[ |HH^{\prime}| = \frac{|H||H^{\prime}|}{|H \cap H^{\prime}|} = \frac{q \cdot q}{1} = q^2 > pq
         \]
-    quindi $H^{\prime}$ non può essere un sottogruppo di $G$. Si verifica che, detto $K = \left<y\right>$, le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono verificate:
+    quindi $H^{\prime}$ non può essere un sottogruppo di $G$. Si verifica che, detto $K = \left<y\right>$, le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono soddisfatte:
         \[ HK = G \qquad H \cap K = \{e\} \qquad H \triangleleft G
             \]
 da ciò segue che ogni gruppo di ordine $pq$ è prodotto semidiretto: $G \cong H \rtimes_{\varphi} K$.
@@ -1233,7 +1234,7 @@ Per classificare tutti i gruppi di ordine $pq$ bisogna classificare tutti i poss
 Osserviamo che un prodotto semidiretto deve avere un'operazione definita da:
 \[ \varphi : \Zp \longrightarrow \Aut(\ZZ/q\ZZ) \cong \ZZ/q\ZZ^* \cong \ZZ/(q-1)\ZZ
             \]
-Essendo $\Zp = \left<x\right>$ e $\ZZ/q\ZZ = \left<y\right>$ possiamo scrivere:
+Essendo $\Zp = \left<y\right>$ e $\ZZ/q\ZZ = \left<x\right>$ possiamo scrivere:
     \[ \varphi : \left<y\right> \longrightarrow \Aut(\left<x\right>) (\cong \ZZ/q\ZZ^* \cong \ZZ/(q-1)\ZZ) : y \longmapsto \varphi_y
             \]
 con $\varphi_y : \left<x\right> \longrightarrow \left<x\right> : x \longmapsto x^l$. Per definire $\varphi$ su $\left<y\right>$ (un dominio ciclico)
@@ -1245,7 +1246,7 @@ quindi $\ord \varphi_y \mid (p,q-1)$. Distinguiamo due casi:
         \item Se $p \mid q-1$, allora o $\ord \varphi_y = 1$ e quindi ancora $\varphi_y = id$; oppure $\varphi_y = p$, e poiché ci sono $p-1$ elementi di ordine $p$ in $\Z{(q-1)}$, abbiamo $p-1$
             scelte per $\varphi_y$ che danno un prodotto semidiretto.
     \end{itemize}
-Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\ol l)$ e:
+Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\overline l)$ e:
     \[ \varphi_y(x) \longmapsto x^l \implies (\varphi_y(x))^k = x^{l^k}
         \]
 quindi $\ord \varphi_y = p \iff l^p \equiv 1 \pmod q \iff \ord l = p$.
@@ -1275,5 +1276,246 @@ in quanto:
         \]
 ciò garantisce che $\mathcal{F}$ ottenuto estendendo l'assegnamento $x \longmapsto x, y \longmapsto y^r$ è un omomorfismo, segue banalmente che è anche una bigezione e quindi è un isomorfismo. \footnote{Quest'ultima pagina non è in versione 
 definitiva e necessita di ulteriori revisioni.}
+
+\newpage
+\subsection{Teorema di struttura per i gruppi abeliani finiti}
+
+\begin{theorem}
+    [Teorema Di Struttura Dei Gruppi Abeliani Finiti]
+    \label{t:struttra}
+    Sia $G$ un gruppo abeliano finito, allora $G$ è prodotto diretto di gruppi ciclici, cioè:
+        \[ G \cong \Z{n_1} \times \ldots \times \Z{n_s}
+            \]
+    Inoltre tale scrittura è unica se $n_{i+1} \mid n_i$, $\forall i \in \{1,\ldots,s-1\}$.
+\end{theorem}
+
+\begin{remark}
+    [Schema della dimostrazione]
+    Sia:
+        \[ G(p) = \{g \in G | \ord(g) = p^k, k \in \NN\}
+            \]
+    $G(p)$ prende il nome di \vocab{$p$-sottogruppo di Sylow} di $G$, o anche \vocab{$p$-componente} o componente di \vocab{$p$-torsione}.
+    Si osserva che:
+        \begin{itemize}
+            \item $G(p)$ è un sottogruppo di $G$ perché $G$ è abeliano, dunque:
+                \[ \ord(xy) \mid [\ord(x),\ord(y)] \qquad \forall x,y \in G
+                    \]
+                quindi se $x$ ed $y$ hanno per ordine una potenza di $p$, anche il prodotto ha per ordine una potenza di $p$, quindi $xy \in G(p)$, ed essendo 
+                $G$ finito allora $G(p)$ è un sottogruppo. \footnote{Si osserva che i $p$-sottogruppi di Sylow sono $p$-gruppi.}
+            \item $G(p)$ è un sottogruppo caratteristico di $G$ (ciò segue dal fatto che gli automorfismi conservano l'ordine degli elementi, e quindi $G(p)$ viene mandato in $G(p)$).
+        \end{itemize}
+\end{remark}
+
+\begin{theorem}
+    [I gruppi abeliani sono prodotti loro delle $p$-componenti]
+    \label{t:t1}
+    Sia $G$ un gruppo abeliano, con $|G| = n = p_1^{e_1}\ldots p_s^{e_s}$, con i primi $p_i \ne p_j$, $\forall i \ne j$, allora:
+        \[ G \cong G(p_1) \times \ldots \times G(p_s)
+            \]
+    Inoltre la decomposizione di $G$ come prodotto di $p$-gruppi di ordine tra loro coprimi è unica.
+\end{theorem}
+
+\begin{theorem}
+    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclci]
+    \label{t:t2}
+    Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_s$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
+     degli esponenti assicura l'unicità della fattorizzazione.}, per i quali:
+        \[ G \cong \Z{p^{r_1}} \times \ldots \times \Z{p^{r_t}}
+            \]
+\end{theorem}
+
+\pagebreak
+
+Segue la dimostrazione del \hyperref[t:struttra]{Teorema Di Struttura Dei Gruppi Abeliani Finiti}:
+
+\begin{proof}
+    \underline{\textbf{Esistenza}}: Dato il gruppo $G$, abeliano e finito, per il \hyperref[t:t1]{Teorema 1.87} si ha:
+        \[ G \cong G(p_1) \times \ldots \times G(p_s)
+            \]
+    possiamo applicare il \hyperref[t:t2]{Teorema 1.88} ad ognuno dei fattori $G(p_i)$ ed ottere:
+        \begin{multline*}
+            G \cong G(p_1) \times \ldots \times G(p_s) \cong \\
+            \cong (\Z{p_1^{r_{1_1}}} \times \ldots \Z{p_1^{r_{1_{t_1}}}}) \times \ldots \times (\Z{p_s^{r_{s_1}}} \times \ldots \Z{p_s^{r_{s_{t_r}}}})
+        \end{multline*}
+    con $r_{i_1} \geq \ldots \geq r_{i_{t_i}}$. Per il Teorema Cinese del Resto possiamo rimettere assieme i termini formati da primi distinti in modo da mantenere la relazione di divisibilità (e quindi unicità)
+    richiesta dal teorema:
+    \[ \Z{\underbrace{(p_1^{r_{1_1}}\ldots p_s^{r_{s_1}})}_{n_1}} \times \ldots \times \Z{\underbrace{(p_1^{r_{1_t}}\ldots p_s^{r_{s_t}})}_{n_t}}
+        \]
+    dove $t = \max\{t_1,\ldots,t_s\}$ e poniamo $r_{i_h} = 0$ se $h>t_i$. Si osserva che, per come abbiamo riscritto la fattorizzazione si ha: $n_t \mid n_{t-1} \mid \ldots \mid n_1$.\\
+    \underline{\textbf{Unicità:}} Segue dall'unicità del \hyperref[t:t1]{Teorema 1.87} e del \hyperref[t:t2]{Teorema 1.88}, infatti se ci fossero due decomposizioni di 
+    $G$ diverse con ordini che si dividono in catena, ripercorrendo gli isomorfismi, avremmo all'inizio due diverse decomposizioni per $G(p)$ (o per $G$ come prodotto di $p$-componenti).
+\end{proof}
+
+\begin{example}
+    Sia $G \cong \Z{100} \times \Z8 \times \Z6 \times \Z{15} \cong \Z{2^2} \times \Z{5^2} \times \Z{2^3} \times \Z2 \times \Z3 \times \Z3 \times \Z5$, e raggruppando in base all'ordine degli elementi
+    otteniamo i $p$-sottogruppi:
+        \[ G \cong \underbrace{(\Z{2^3} \times \Z{2^2} \times \Z{2})}_{G(2)} \times \underbrace{(\Z3 \times \Z3)}_{G(3)} \times \underbrace{(\Z{5^2} \times \Z5)}_{G(5)}
+            \]
+    e per il \hyperref[t:struttra]{Teorema Di Struttura} possiamo riscrivere il prodotto in ordine decrescente (rimettendo assieme $p$-gruppi cicli di ordine massimo):
+        \[ G \cong \Z{(2^3\cdot 3 \cdot 5^2)} \times \Z{(2^2 \cdot 3 \cdot 5)} \times \Z2
+            \]
+\end{example}
+
+\begin{example}
+    Classificare i gruppi abeliani di ordine $1000$. Per fare ciò osserviamo che $1000 = 2^3 \cdot 5^3$, allora:
+    \[  G = G(2) \times G(5)
+        \]
+    con $|G(2)| = 2^3$, e $|G(5)| = 5^3$ pertanto le $p$-componenti possono essere scritti come prodotto di gruppi ciclici nei seguenti modi:
+    \[ G(2) \cong \begin{cases}
+                    \Z{2^3} \\
+                    \Z{2^2} \times \Z2 \\
+                    \Z2 \times \Z2 \times \Z2
+                \end{cases}
+    \qquad \text e \qquad
+    G(5) \cong \begin{cases}
+        \Z{5^3} \\
+        \Z{5^2} \times \Z5 \\
+        \Z5 \times \Z5 \times \Z5
+    \end{cases}
+        \]
+    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quant per il \hyperref[t:struttra]{Teorema di Struttura} abbiamo
+    una fattorizzazione unica come prodotto di gruppi cicli finiti, e per tale fattorizzazione abbiamo $3$ scelte per il $3$-Sylow e $3$ scelte per il $5$-Sylow.
+\end{example}
+
+Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
+
+\begin{proof}
+    \underline{\textbf{Esistenza}}: Sia $|G| = n$, con $n = p_1^{e_1} \ldots p_s^{e_s}$, procediamo per induzione su $s$. Nel caso in cui $s = 1$, si ha $|G| = p_1^{e_1} \implies G = G(p_1)$. Supponiamo 
+    la tesi vera $\forall m : 2 \leq m < n$, possiamo scrivere $n = m m^{\prime}$ con $(m,m^{\prime}) = 1$ e $m,m^{\prime} < n$, allora (in notazione additiva) vogliamo verificare che:
+        \[ G \cong mG \times m^{\prime}G
+            \]
+        È facile verificacare che $mG,m^{\prime}G < G$ (basta verificare la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si verifica inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
+            \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \qquad \forall g \in G \implies G \subseteq mG + m^{\prime}G
+                \]
+        il contrario è ovvio, dunque:
+            \[ mG + m^{\prime}G = G
+                \]
+        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mx = nx = 0$ e $mx = mm^{\prime}x = nx = 0$, dunque:
+            \[ \ord(x) \mid m \qquad \text e \qquad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
+                \]
+        Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
+            \[ mG = G_{m^{\prime}} = \{g \in G | m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = \{g \in G | mg = 0\}
+                \]
+        Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi; $m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}x \in G_m$, perché $mm^{\prime}x = nx = 0$, viceversa, preso 
+        $x \in G_m$, ovvero $mx = 0$, per quanto visto sopra abbiamo che:
+            \[ \underbrace{mx}_{= 0}h + m^{\prime}kx = x \implies x = m^{\prime}(kx) \implies x \in m^{\prime}G
+                \]
+        quindi $G_m \subseteq m^{\prime}G \implies m^{\prime}G = G_m$. Pertanto possiamo scrivere:
+            \[ G \cong G_m \times G_{m^\prime}
+                \]
+        Poiché $|G_m|,|G_{m^\prime}| < |G|$, perché $G_m$ contiene tutti e soli gli elementi di $G$ di ordine che divide $m$, inoltre $G_m \ne \{0\}$ (per \hyperref[p:Cauchy]{Cauchy}, dato che $1 < m < n$),
+        quindi $G_{m^{\prime}} \lneq G$ e viceversa. Possiamo quindi applicare l'ipotesi induttiva e scrivere:
+            \[ G_m = \prod_{i \in I}G(p_i) \qquad \text e \qquad G_{m^{\prime}} = \prod_{j \in J}G(p_j)
+                \]
+        con $I \cup J = \{1,\ldots,s\}$ e $I \cap J = \emptyset$ (poiché $(m,m^{\prime}) = 1$). \\
+        \underline{\textbf{Unicità}}: La scrittura come prodotto di $p$-componenti è unica, perché se $G$ fosse anche isomorfo ad altri $p$-gruppi:
+            \[ G \cong H_1 \times \ldots \times H_n \qquad \text{con $H_i$ $p_i$-gruppo e $H_i<G$}
+                \]
+        allora $H_i \subseteq G(p_i)$ (in quanto $G(p_i)$ contiene tutti gli elementi di ordine potenze di $p_i$), ma:
+            \[ |G| = |H_1| \ldots |H_s| = |G(p_1)| \ldots |G(p_s)| \implies |H_i| = |G(p_i)| \qquad \forall i \in \{1,\ldots,s\}
+                \]
+        quindi segue che $H_i = G(p_i)$, $\forall i \in \{1,\ldots,s\}$. 
+\end{proof}
+
+\begin{lemma}
+    \label{l:1.91}
+    Sia $G$ un $p$-gruppo abeliano, e sia $x_1$ un elemento di ordine massimo in $G$, preso $\overline x \in G/\left<x_1\right>$
+     esiste $y \in \pi^{-1}(\overline x) : \ord_G(y) = \ord_{G/\left<x_1\right>}(\overline x)$.
+\end{lemma}
+
+\begin{proof}
+    Osserviamo che $\pi^{-1}(\overline x) = x + \left<x_1\right>$, dunque $y \in \pi^{-1}(\overline x)$ è della forma:
+        \[ y = x + ax_1
+            \]
+    Sappiamo che $\pi(y) = \pi(x) = \overline x$, allora $p^r = \ord(\pi(y)) = \ord(\overline x) \mid \ord(y)$ (per le proprietà di omomorfismo), scegliamo $y$ (cioè $a$) in modo che:
+        \[ 0 = p^ry = p^rx + p^rax_1 \iff p^rx = -p^rax_1 
+            \]
+    dove $\ord(\overline x) = p^r \implies p^rx \in \left<x_1\right> \implies p^xr = bx_1$, tuttavia, dato che $x_1$ ha ordine massimo $p^{r_1}$, deve essere che $r \leq r_1$, ma:
+        \[ 0 = p^{r_1}x = p^{r_1-4}p^rx = p^{r_1 - r}bx_1
+            \]  
+    ma $\ord(x_1) = p^{r_1} \implies p^r \mid b \implies b = p^rb_1$. Scegliendo $a = -b_1$ si ha:
+        \[ p^ry = p^rx - p^rb_1x_1 = bx_1 - \underbrace{p^rb_1}_{= b}x_1 = 0
+            \]
+\end{proof}
+
+\pagebreak
+
+Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
+
+\begin{proof}
+    \underline{\textbf{Esistenza}}: Sia $G$ un $p$-gruppo, $|G| = p^n$, proviamo la tesi per induzione su $n$. Per $n = 1$ si ha che $|G| = p \implies G \cong \Zp$, e quindi la tesi è verificata.
+    Supponiamo la tesi vera per $1 \leq m <n$ e proviamola per $n$; sia $x_1 \in G$ un elemento di ordine massimo, $\ord(x) = p^{r_1}$:
+    \begin{itemize}
+        \item Se $r_1 = n$, allora $G$ è ciclo $\implies G \cong \Z{p^n}$.z
+        \item Se $r_1 < n$, poiché $G$ è abeliano si ha $\left<x_1\right> \triangleleft G$, quindi possiamo considerare $\faktor{G}{\left<x_1\right>}$ che ha ordine $p^{n-r_1} < p^n$, dunque vale l'ipotesi induttiva ed il gruppo quoziente può essere fattorizzato come prodotto di gruppi ciclici:
+            \[ \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \footnote{Dunque si ha $|\left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>| = p^{n - r_1}$.}
+                \]
+            sia $\ord(\overline{x_i}) = p^{r_i}$, e supponiamo di aver scritto il prodotto diretto in modo ordinato, con $r_2 \geq \ldots \geq r_t$. Consideriamo la proiezione al quoziente:
+            \[ \pi : G \longrightarrow \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>\footnote{L'isomorfismo tra i due gruppi è quello che manda $ \left(G/\left<x_1\right>\ni\right) \overline g = a_2\overline{x_2} + \ldots + a_t\overline{x_t}$ 
+            (poiché $G/\left<x_1\right>$ è finito è anche finitamente generato) in $( a_2\overline{x_2} , \ldots , a_t\overline{x_t}) (\in \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>)$.}
+                \]
+            per il \hyperref[l:1.91]{Lemma 1.91} esistono $x_2,\ldots,x_t \in G$ tali che $\ord_G(x_i) = \ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i}$. Vogliamo mostrare allora che:
+                \[ H = \left<x_2,\ldots,x_t\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
+                    \]
+            ovvero che il sottogruppo di $G$ finitamente generato da $x_2,\ldots,x_t$ è isomorfo al prodotto diretto dei singoli sottogruppi ciclici generati dai medesimi elementi. Consideriamo di nuovo la proiezione al quoziente modulo $\left<x_1\right>$, ma ristretta ad $H$:
+                \[ \pi_{\mid H} : H \longrightarrow \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> : a_2x_2 + \ldots + a_tx_t \longmapsto (a_2\overline{x_2}, \ldots, a_t\overline{x_t})
+                    \]
+            è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettivà si osserva che gli elementi del nucleo sono del tipo:
+                \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
+                    \]
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+                \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
+                    \]
+            Dove l'ultimo isomorfismo dervia dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
+            Mostriamo che $G \cong \left<x_1\right> \times H (\cong \left<x_2\right> \times \ldots \times \left<x_t\right>)$ e per farlo verifichiamo che le ipotesi del \hyperref[t:1.72]{Teorema 1.72} siano soddisfatte. \\
+            Per mostrare che l'intersezione è banale, consideriamo un elemento in quest'ultima, ovvero un elemento che può essere scritto come:
+                \[ a_1x_1 = a_2x_2 + \ldots + a_tx_t
+                    \]
+            applicando $\pi$ alle due scritture si ha:
+                \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\ol 0,\ldots, \ol 0)
+                    \]
+            in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_1}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
+            anche nel gruppo di partenza $a_i = 0$ e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
+            Per mostrare che $\left<x_1\right> + H = G$, osserviamo che $\left<x_1\right> + H = G \subseteq G$ e che la sua cardinalità è:
+                \[ |\left<x_1\right> + H| = \frac{|\left<x_1\right> + H = G||H|}{|\left<x_1\right> \cap H|} = \frac{p^{r_1}\cdot p^{n - r_1}}{1} = p^n
+                    \]
+            Le ipotesi sono soddisfatte e quindi $G \cong \left<x_1\right> \times H \cong \left<x_1\right> \times \ldots \times \left<x_t\right>$.
+    \end{itemize}
+\underline{\textbf{Unicità}}: Sia $|G| = p^n$ e procediamo ancora per induzione su $n$. Per $n = 1$ segue sempre $G \cong \Zp$ e quindi la tesi è verificata. Supponiamo la tesi vera per $m<n$ e proviamola per $n$; sia:
+        \[ G \cong \Z{p^{r_1}} \times \ldots \times \Z{p^{r_t}} \cong \Z{p^{k_1}} \times \ldots \times \Z{p^{k_s}}
+            \]
+        dove supponiamo $r_1 \geq \ldots \geq r_t$ e $k_1 \geq \ldots \geq k_s$. Deve essere necessariamente che $t = s$, perché, considerando:
+            \[ G_p = \{g \in G | pg = 0\}
+                \]
+        con $G_p$ gruppo caratteristico (poiché gli isomorfismi conservano gli ordini degli elementi) e quindi:
+            \[ G_p \cong \left(\Zp\right)^t \cong \left(\Zp\right)^s \implies t = s
+                \]
+        Qunidi le lunghezze delle fattorizzazioni sono uguali, per concludere ci basta utilizzare l'ipotesi induttiva al gruppo $pG$ (con $|pG| = p^{n-t}$):
+            \[ pG \cong \frac{p\ZZ}{p^{r_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{r_t}\ZZ} \cong \Z{p^{r_1-1}} \times \ldots \times \Z{p^{r_t-1}} \cong \Z{p^{k_1-1}} \times \ldots \times \Z{p^{k_t-1}}
+                \]
+        quindi $G_p$ ha decomposizione unica, da cui:
+            \[ r_1 - 1 = k_1 -1, \ldots, r_t - 1 = k_t - 1 \iff r_1 = k_1, \ldots , r_t = k_t
+                \]
+\end{proof}
+
+\newpage
+
+\begin{remark}
+    Il \hyperref[l:1.91]{Lemma 1.91} non vale in generale per quozienti qualsisi, ad esempio:
+        \[ \faktor{\Z{p^2}}{\left<p\right>} \cong \frac{\Z{p^2}}{\Zp}\cong \Zp
+            \]
+    e con la proiezione:
+        \[ \pi: \Z{p^2} \longrightarrow \frac{\Z{p^2}}{\Zp} \cong \Zp : 1 \longmapsto \overline 1
+            \]
+    con $\overline 1$ che ha ordine $p$ nel gruppo di arrivo, mentre:
+        \[ \pi^{-1}(\overline 1) = \{1 + kp\}_{k = 1,\ldots,p-1}
+            \]
+    con $1+kp$ che ha ordine $p^2$, $\forall k : 1 \leq k \leq p$, dunque stiamo quozientando per un elemento che non ha ordine massimo;
+     nelle condizioni del lemma, invece, stiamo quozientando per un elemento di ordine massimo.
+\end{remark}
+
+
+
+
 
 \end{document}
