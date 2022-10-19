@@ -16,7 +16,8 @@
 
 \section*{Ringraziamenti}
 
-Diego Monaco, Niccolò Nannicini, Pietro Crovetto.
+Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani, Daniele
+Lapadula.
 
 \newpage
 \section{Insiemi di generatori}
@@ -138,10 +139,11 @@ Dato $p$ un primo, allora \[
 \subsection{Elementi del gruppo}
 
 \begin{definition}
-    Dato $n \geqslant 2$ un naturale, consideriamo un poligono regolare di $n$ vertici,
-    definiamo il \vocab{gruppo diedrale} su $n$ vertici $D_n$ come l'insieme 
-    delle isometrie del piano che mandano i vertici in se stessi, cioè che 
-    fissano il poligono (per $n = 2$ consideriamo le isometrie che mandano un 
+    Dato $n \geqslant 2$ un numero naturale consideriamo un poligono regolare di $n$ vertici
+    centrato nell'origine del piano $\RR^2$,
+    chiamiamo \vocab{gruppo diedrale} su $n$ vertici l'insieme $D_n$
+    delle isometrie di $\RR^2$ che fissano il poligono, cioè che mandano i 
+    vertici in se stessi (per $n = 2$ consideriamo le isometrie che mandano un 
     segmento in se stesso).
 \end{definition}
 
@@ -194,13 +196,62 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
 \end{lemma}
 
 \begin{proof}
+    Senza perdita di generalità possiamo supporre che $r$ sia la rotazione 
+    di angolo $\displaystyle\frac{2\pi}{n}$ e che $s$ sia la simmetria che 
+    a ogni punto $x$ del piano associa il punto $-x$. Possiamo rappresentare
+    rispettivamente $r$ e $s$ tramite le matrici
+    \begingroup
+    \renewcommand{\arraystretch}{1.2}
     \[
-        srs^{-1} = r^{-1} \iff sr = r^{-1}s = (s^{-1}r)^{-1}
-    \] si conclude
-    osservando che $s^2 = 1$, pertanto $s^{-1} = s$ e 
-    \[
-        (s^{-1}r)^{-1} = (sr)^{-1} = r^{-1}s^{-1} = r^{-1}s
+        \begin{pmatrix}
+            \cos\left(\frac{2\pi}{n}\right) & -\sin\left(\frac{2\pi}{n}\right)\\
+            \sin\left(\frac{2\pi}{n}\right) & \cos\left(\frac{2\pi}{n}\right)
+        \end{pmatrix},
+        \begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix}
     \]
+    \endgroup
+
+    svolgendo esplicitamente il prodotto quindi
+    
+    \begingroup
+    \renewcommand{\arraystretch}{1.2}
+    \begin{multline*}
+        \begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos\left(\frac{2\pi}{n}\right) & -\sin\left(\frac{2\pi}{n}\right)\\
+            \sin\left(\frac{2\pi}{n}\right) & \cos\left(\frac{2\pi}{n}\right)
+        \end{pmatrix}
+        \begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix} = \\ = 
+        \begin{pmatrix}
+            -1 & 0\\
+            0 & 1
+        \end{pmatrix}
+        \begin{pmatrix}
+            -\cos\left(\frac{2\pi}{n}\right) & -\sin\left(\frac{2\pi}{n}\right)\\
+            -\sin\left(\frac{2\pi}{n}\right) & \cos\left(\frac{2\pi}{n}\right)
+        \end{pmatrix} = \\ =
+        \begin{pmatrix}
+            \cos\left(\frac{2\pi}{n}\right) & \sin\left(\frac{2\pi}{n}\right)\\
+            -\sin\left(\frac{2\pi}{n}\right) & \cos\left(\frac{2\pi}{n}\right)
+        \end{pmatrix} = 
+        \begin{pmatrix}
+            \cos\left(-\frac{2\pi}{n}\right) & -\sin\left(-\frac{2\pi}{n}\right)\\
+            \sin\left(-\frac{2\pi}{n}\right) & \cos\left(-\frac{2\pi}{n}\right)
+        \end{pmatrix}
+    \end{multline*}
+    \endgroup
+    
+    che è la matrice associata alla rotazione di angolo $-\displaystyle
+    \frac{2\pi}{n}$, cioè $r^{-1}$.
 \end{proof}
 
 \begin{proposition}
@@ -278,16 +329,18 @@ contenuti in $H$.
 \end{proposition}
 
 \begin{proof}
-    Per quanto visto sopra abbiamo che $|\langle r^k\rangle| = 
-    \displaystyle\frac 1 2|H|$, inoltre osserviamo che $\ord(sr^h) = 2$ in quanto
+    Per quanto visto sopra vale $|\langle r^k\rangle| = 
+    \displaystyle\frac 1 2|H|$, inoltre $\ord(sr^h) = 2$:
     \[
         (sr^h)^2 = sr^hsr^h = (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e
     \]
     pertanto $\langle sr^h\rangle \cong \Z2$. Da questo ricaviamo $\langle sr^h\rangle
-    \subseteq N_{D_n}(\langle r^k\rangle)$, infatti per ogni $m \in \ZZ$ abbiamo\[
+    \subseteq N_{D_n}(\langle r^k\rangle)$, infatti per ogni $m \in \ZZ$ 
+    \[
         (sr^h)r^{mk}(sr^h)^{-1} = sr^{h + mk} sr^h = r^{-h-mk}r^h = r^{-mk}
         \in \langle r^k \rangle
-    \]cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$ e quindi
+    \]
+    cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$ e quindi
     $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$\footnote
     {Dati $K, N$ sottogruppi
     di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
@@ -392,14 +445,14 @@ tutti distinti.
 \end{proof}
 
 \begin{remark}
-    $\mathcal{R}$ è caratteristico in $D_n$ per $n \geqslant 3$.
-    Infatti se $\mathcal{R} = \langle r \rangle$, necessariamente 
+    $\mathcal{R} = \langle r \rangle$ è caratteristico in $D_n$ per $n \geqslant 3$.
+    Infatti per ogni $\varphi \in \Aut(D_n)$ allora
     $\ord(r) = \ord(\varphi(r))$, da cui $|\langle\varphi(r)\rangle| = n$.
     Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
-    quindi $|\varphi(r)| = n = 2$, che è assurdo in quanto $|D_n| = 2n \geqslant 6$.
+    quindi $|\varphi(r)| = n = 2$, che è assurdo in quanto $|D_n| \geqslant 6$.
     Questo non è vero per $D_2$, che contiene una rotazione e due
-    simmetrie. Poiché $\Aut(D_2) \cong S_3$, esiste un automorfismo che manda 
-    la rotazione in una riflessione, quindi che non fissa $\mathcal{R}$.
+    simmetrie: poiché $\Aut(D_2) \cong S_3$ esiste un $\psi \in \Aut(D_2)$ che manda 
+    la rotazione in una riflessione.
 \end{remark}
 
 \begin{corollary}
@@ -417,8 +470,8 @@ tutti distinti.
     \end{itemize}
 \end{proof}
 
-Vediamo effettivamente quali sono i sottogruppi normali della forma 
-$\langle r^k, sr^h\rangle$. Consideriamo gli automorfismi di coniugio \[
+Vediamo quali sono i sottogruppi normali della forma 
+$\langle r^k, sr^h\rangle$, consideriamo i coniugi \[
     \varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\qquad
     \varphi_r: D_n \longrightarrow D_n :x \longmapsto rxr^{-1}
 \]e sia $x_1^{\pm 1}\ldots x_m^{\pm 1} \in H_{k, h} = \langle r^k, sr^h\rangle$, allora
@@ -1082,7 +1135,7 @@ le orbite degli elementi di $X$ formano una partizione dell'insieme abbiamo
 \]dove l'ultimo termine della somma è divisibile per $p$. Distinguiamo 
 quindi due casi:
 \begin{itemize}
-    \item se $p\mid G$, riducendo modulo $p$ la formula sopra otteniamo
+    \item se $p\mid |G|$, riducendo modulo $p$ la formula sopra otteniamo
     $|S| \equiv -1 \pmod p$, in particolare esiste almeno un elemento di
     ordine $p$ (\hyperref[teorema1.0]{Teorema di Cauchy});
     \item se $G = \Zn$ con $p$ e $n$ coprimi, $\Zn$ non contiene elementi
@@ -1659,6 +1712,30 @@ le classi di $\sigma, \tau, \rho$ fissate come sopra.
         C_{S_5}(\rho) = C_{\mathcal{A}_5}(\rho)
     \]
 \end{itemize}
+
+\subsection{Sottogruppi normali di $\mathcal{A}_n$}
+
+Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
+\begin{itemize}
+    \item $\{\cycle{i, j}\cycle{k, l}\mid i\neq j, k \neq l\}$, infatti
+    ogni elemento di $\mathcal{A}_n$ può essere scritto come prodotto di 
+    coppie di trasposizioni in quanto permutazione pari;
+    \item $\{\cycle{i, j, k}\mid i, j, k\text{ distinti}\}$. Infatti se 
+    $\{i, j\} = \{k, l\}$ allora $\cycle{i, j}\cycle{k, l} = id$ è un elemento
+    generato dall'insieme, se invece $|\{i, j\}\cap\{k, l\}| = 1$, ad esempio $j = k$,
+    abbiamo $\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, l} = \cycle{i, j, l}$,
+    che è un elemento generato dall'insieme. Nel caso $\{i, j\}\cap \{k, l\} = \emptyset$ abbiamo
+    $\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, k}\cycle{j, k}\cycle{k, l}=
+    \cycle{i, j, k}\cycle{j, k, l}$, che è un elemento generato dall'insieme.
+    Possiamo quindi ottenere il precedente insieme di generatori a partire
+    da questo;
+    \item $\{\cycle{1, 2, k}\mid k \in \{3, \ldots, n\}\}$, infatti 
+\end{itemize}
+
+\begin{definition}
+    Un gruppo non banale $G$ si dice \vocab{semplice} se i suoi unici sottogruppi
+    normali sono $\{e\}$ e $G$.
+\end{definition}
 
 
 
