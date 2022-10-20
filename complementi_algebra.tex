@@ -41,20 +41,20 @@ $\langle x_1, \ldots, x_n\rangle$, cerchiamo quindi di caratterizzare in modo
 diverso tale sottogruppo. Poiché chiuso per l'operazione indotta da $G$, $\langle x_1, \ldots, x_n\rangle$
 deve contenere tutti i prodotti finiti, in qualsiasi ordine, delle potenze di
 $x_1, \ldots, x_n$, cioè deve contenere l'insieme 
-\[\{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
+\[\{g_1^{\pm 1} \ldots g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
 ~\forall i \in \{1, \ldots, r\}\}\]
 
 \begin{proposition}
 Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, allora \[
-    \langle x_1, \ldots, x_n\rangle = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r 
+    \langle x_1 \ldots x_n\rangle = \{g_1^{\pm 1} \ldots g_r^{\pm 1}\mid r 
     \in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}
     \]
 \end{proposition}
 
 \begin{proof}
-Poniamo $S = \{g_1^{\pm 1}, \ldots, g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
+Poniamo $S = \{g_1^{\pm 1} \ldots g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
 ~\forall i \in \{1, \ldots, r\}\}$, mostriamo che $S$ è un sottogruppo di $G$. 
-Effettivamente $e \in S$ in quanto è prodotto nessuna potenza di $x_1, \ldots, x_n$, 
+Effettivamente $e \in S$ in quanto è prodotto di nessuna potenza di $x_1, \ldots, x_n$, 
 il prodotto di due elementi di $S$ è ancora un elemento di $S$ in quanto
 prodotto finito di potenze di $x_1, \ldots, x_n$ e l'inverso di un elemento
 $g_1^{\pm 1}\ldots g_r^{\pm 1} \in\nolinebreak S$ è $(g_1^{\pm 1}\ldots 
@@ -230,7 +230,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
         \begin{pmatrix}
             -1 & 0\\
             0 & 1
-        \end{pmatrix} = \\ = 
+        \end{pmatrix} = 
         \begin{pmatrix}
             -1 & 0\\
             0 & 1
@@ -640,7 +640,7 @@ e $\ord(y)\mid n$, cioè $x^2 = e_G$ e $y^n = e_G$, inoltre \[
     \[
         \langle x, y \mid x^2 = y^2 = e, xy = yx\rangle
     \]
-    e sono rispettivamente le presentazioni di $\Zn$, $\ZZ$, $\Z2\times\Z2$
+    rispettivamente dei gruppi $\Zn$, $\ZZ$, $\Z2\times\Z2$
     (notiamo che $\Z2\times\Z2$ e $D_2$ hanno la stessa presentazione,
     e questo ha senso in quanto i due gruppi sono isomorfi).
 \end{remark}
@@ -1656,7 +1656,7 @@ sono parametrizzate dalle partizioni di $n$
     \begin{tabular}{c|c}
         Partizioni di 5 & Cardinalità della classe di coniugio associata\\
         \hline
-        5 & $\displaystyle\binom{5}{5}4! = 4!$\\
+        5 & $\displaystyle\binom{5}{5}4! = 4! = 24$\\
         4 + 1 & $\displaystyle\binom{5}{4}3! = 30$\\
         3 + 2 & $\displaystyle\binom{5}{3}2!\binom{2}{2}1! = 20$\\
         3 + 1 + 1 & $\displaystyle\binom{5}{3}2! = 20$\\
@@ -1729,7 +1729,7 @@ Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
     \cycle{i, j, k}\cycle{j, k, l}$, che è un elemento generato dall'insieme.
     Possiamo quindi ottenere il precedente insieme di generatori a partire
     da questo;
-    \item $\{\cycle{1, 2, k}\mid k \in \{3, \ldots, n\}\}$, infatti 
+    %\item $\{\cycle{1, 2, k}\mid k \in \{3, \ldots, n\}\}$, infatti 
 \end{itemize}
 
 \begin{definition}
@@ -1738,6 +1738,73 @@ Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
 \end{definition}
 
 
+\begin{proposition}
+    \label{prop3.0}
+    $\mathcal{A}_5$ è un gruppo semplice.
+\end{proposition}
+
+\begin{proof}
+    Ricordiamo le cardinalità delle classi di coniugio in $\mathcal{A}_5$:
+
+
+    \begingroup
+    \renewcommand{\arraystretch}{1.5}
+    \begin{center}
+    \begin{tabular}{c|c}
+        Rappresentante della classe & Cardinalità della classe\\
+        \hline
+        $\cycle{1, 2, 3, 4, 5}$ & 12\\
+        $\cycle{2, 1, 3, 4, 5}$ & 12\\
+        $\cycle{1, 2}\cycle{3, 4}$ & 15\\
+        $\cycle{1, 2, 3}$ & 20\\
+        $id$ & 1 
+    \end{tabular}
+    \end{center}
+    \endgroup
+    In generale, un sottogruppo è normale se e solo se è unione disgiunta
+    delle classi di coniugio dei suoi elementi, quindi la cardinalità
+    di $N \trianglelefteqslant \mathcal{A}_5$ deve essere somma di alcuni 
+    termini nella seconda colonna, compreso 1. D'altra parte $|N| \mid \mathcal{A}_5 = 60$,
+    da cui $|N| = 1$ oppure $|N| = 60$. Pertanto $\mathcal{A}_5$ è semplice.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma6.0}
+    Dati un gruppo $G$ e $N\trianglelefteqslant G$ un sottogruppo normale di 
+    indice finito, $N$ contiene ogni elemento di $G$ il cui ordine è coprimo
+    con $[G:N]$.
+\end{lemma}
+
+\begin{proof}
+    Sia $g \in G$ tale che $(\ord(g), [G:N]) = 1$, consideriamo la proiezione
+    \[
+        \pi_N:G \longrightarrow \faktor{G}{N} (x \longmapsto xN)
+    \]
+    Poiché $\pi_N$ è un omomorfismo abbiamo $\ord(\pi_N(g)) \mid (\ord(g), [G:N]) = 1$,
+    pertanto $\pi_N(g) = N$, cioè $g \in N$.
+\end{proof}
+
+Diamo adesso una dimostrazione alternativa della semplicità di $\mathcal{A}_5$.
+
+\begin{proof}
+    Consideriamo un sottogruppo normale $N\trianglelefteqslant \mathcal{A}_5$.
+    Distinguiamo tre casi:
+    \begin{itemize}
+        \item se $2 \mid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma7.11}
+        $N$ contiene tutti gli elementi di 
+        $\mathcal{A}_5$ di ordine $2$, cioè le permutazioni della forma $\cycle{a, b}\cycle{c, d}$
+        con $a\neq b$ e $c \neq d$, da cui $N = \mathcal{A}_5$ in quanto contiene 
+        un suo insieme di generatori;
+        \item se $3\nmid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma7.11}
+        $N$ contiene tutti gli elementi di 
+        $\mathcal{A}_5$ di ordine 3, cioè i 3-cicli, da cui $N = \mathcal{A}_5$
+        in quanto contiene un suo insieme di generatori;
+        \item se $6 \mid [\mathcal{A}_5:N]$ allora $|N| \mid 10$, ma l'unica
+        classe di coniugio di $\mathcal{A}_5$ di cardinalità minore di 10 è
+        $\{id\}$, pertanto $N = \{id\}$.
+    \end{itemize}
+    Quindi $\mathcal{A}_5$ è semplice.
+\end{proof}
 
 
 \end{document}
