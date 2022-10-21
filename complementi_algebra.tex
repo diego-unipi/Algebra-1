@@ -543,7 +543,7 @@ valori per $g(sr^h)g^{-1}$:
         (sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h}
     \]
 \end{itemize}
-cioè $C_{sr^k} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
+cioè $C_{sr^h} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
 
 \begin{remark}
     La classe di coniugio di $sr^h$ contiene tutte le simmetrie in cui 
@@ -1804,6 +1804,42 @@ Diamo adesso una dimostrazione alternativa della semplicità di $\mathcal{A}_5$.
         $\{id\}$, pertanto $N = \{id\}$.
     \end{itemize}
     Quindi $\mathcal{A}_5$ è semplice.
+\end{proof}
+
+In effetti vale un risultato più generale
+
+\begin{proposition}
+    $\mathcal{A}_n$ è un gruppo semplice per $n \geq 5$.
+\end{proposition}
+
+\begin{proof}
+    Procediamo per induzione su $n$, per $n = 5$ la tesi è garantita dalla 
+    \hyperref[prop3.0]{Proposizione 7.10}, supponiamo quindi che $\mathcal{A}_n$
+    è un gruppo semplice e mostriamo che anche $\mathcal{A}_{n + 1}$ lo è.
+    Consideriamo un sottogruppo normale $N \trianglelefteqslant \mathcal{A}_{n + 1}$
+    e i sottogruppi 
+    \[
+        H_i = \{\sigma \in \mathcal{A}_{n + 1}\mid \sigma(i) = i\},~
+        i \in \{1, \ldots, n + 1\}
+    \]
+    questi sono tutti isomorfi a $\mathcal{A}_n$ (infatti
+    gli elementi di $H_i$ sono tutte e sole le permutazioni pari su $n + 1$
+    elementi che fissano l'$i$-esimo, cioè sono permutazioni pari su $n$ elementi).
+    Notiamo che l'azione naturale di $\mathcal{A}_{n + 1}$ su $\{1, \ldots, n + 1\}$
+    \[
+        \psi:\mathcal{A}_{n + 1} \longrightarrow S_{n + 1} :\sigma \longmapsto \sigma
+    \]
+    è transitiva, infatti per ogni $i, j \in \{1, \ldots, n + 1\}$ distinti la permutazione
+    $\rho = \cycle{i, j}\cycle{h, k} \in \mathcal{A}_{n + 1}$, con $\cycle{i, j}$
+    disgiunta da $\cycle{h, k}$, è tale che $\rho(i) = j$. Poiché $\St(i) = H_i$ per ogni $i \in \{1, \ldots, n + 1\}$,
+    per la \hyperref[prop1.0]{Proposizione 6.3} abbiamo che gli $H_i$ sono 
+    tutti coniugati.\newline
+    Fissato $i \in \{1, \ldots, n + 1\}$, consideriamo $N \cap H_i$: questo
+    è un sottogruppo normale di $H_i$, infatti per ogni $h \in H_i$ si ha 
+    $h(N\cap H_i)h^{-1} = N\cap H_i$ in quanto $N$ è normale in $\mathcal{A}_{n + 1}$
+    e $h \in H_i$, d'altra parte $H_i \cong \mathcal{A}_n$ è un gruppo semplice
+    per ipotesi induttiva, pertanto $N\cap H_i$ coincide con $\{id\}$ oppure 
+    con $H_i$.
 \end{proof}
 
 
