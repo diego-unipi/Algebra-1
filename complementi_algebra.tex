@@ -509,7 +509,7 @@ Abbiamo visto che possiamo scrivere ogni elemento di $D_n$ nella forma
 in quanto $\ord(s)= 2$ e $\ord(r) = n$. Inoltre tutti gli elementi della
 forma $sr^h$ hanno ordine $2$.
 
-Consideriamo la classe di coniugio di $r$, $C_r = \{grg^{-1}\mid g \in D_n\}$,
+Consideriamo la classe di coniugio di $r$, $\Cl(r) = \{grg^{-1}\mid g \in D_n\}$,
 fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
 \begin{itemize}
     \item se $g \in \mathcal{R}$ allora $g$ è una potenza di $r$, pertanto i
@@ -519,18 +519,18 @@ fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
         (sr^h)r(sr^h)^{-1} = (sr^h)r(sr^h) = sr^{h + 1}sr^h = s^2r^{-1-h}r^h = r^{-1}
     \]
 \end{itemize}
-cioè $C_r = \{r, r^{-1}\}$. In modo analogo si mostra che $C_{r^k} = \{r^k, r^{-k}\}$
+cioè $\Cl(r) = \{r, r^{-1}\}$. In modo analogo si mostra che $\Cl(r^k) = \{r^k, r^{-k}\}$
 per ogni $k \in \ZZ$.
 
 \begin{remark}
     Se $n$ è pari, scriviamo $n = 2m$ e consideriamo la classe di coniugio
     di $r^m$. Poiché $r^m \neq e$ e $r^{2m} = (r^m)^2 = e$ abbiamo che
-    $\ord(r^m) = 2$, cioè $(r^m)^{-1} = r^m$. Allora $C_{r^m} = \{r^m\}$,
+    $\ord(r^m) = 2$, cioè $(r^m)^{-1} = r^m$. Allora $\Cl(r^m) = \{r^m\}$,
     pertanto abbiamo trovato un elemento del centro di $D_n$ (infatti se $G$
-    è un gruppo e $x \in G$, allora $x \in Z(G)$ se e solo se $C_x = \{x\}$).
+    è un gruppo e $x \in G$, allora $x \in Z(G)$ se e solo se $\Cl(x) = \{x\}$).
 \end{remark}
 
-Consideriamo adesso la classe di coniugio di $sr^h$, $C_{sr^h} = 
+Consideriamo adesso la classe di coniugio di $sr^h$, $\Cl(sr^h) = 
 \{g(sr^h)g^{-1}\mid g\in D_n\}$, fissato $g \in D_n$ abbiamo due possibili
 valori per $g(sr^h)g^{-1}$:
 \begin{itemize}
@@ -543,7 +543,7 @@ valori per $g(sr^h)g^{-1}$:
         (sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h}
     \]
 \end{itemize}
-cioè $C_{sr^h} = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
+cioè $\Cl(sr^h) = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
 
 \begin{remark}
     La classe di coniugio di $sr^h$ contiene tutte le simmetrie in cui 
@@ -997,8 +997,8 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     sola volta all'unione, in quanto $xHx^{-1} = H$, pertanto $K$
     è unione di $[G:N_G(H)] = \displaystyle\frac{|G|}{|N_G(H)|}$ elementi distinti\footnote
     {Infatti, se $X = \{N\mid N\leqslant G\}$ e $\varphi$ è l'azione di coniugio
-    su $X$, per ogni $N \in X$ abbiamo $\St(N) = N_G(N)$ e $\Orb(N) = C_N =
-    \{gNg^{-1}\mid g \in G\}$. Vale quindi la relazione $|G| = |C_N|\cdot|N_G(N)|$.}. Poiché
+    su $X$, per ogni $N \in X$ abbiamo $\St(N) = N_G(N)$ e $\Orb(N) = \Cl(N) =
+    \{gNg^{-1}\mid g \in G\}$. Vale quindi la relazione $|G| = |\Cl(N)|\cdot|N_G(N)|$.}. Poiché
     $H \subseteq N_G(H)$ e $|gHg^{-1}| = |H|$ per ogni $g \in G$, possiamo stimare 
     la cardinalità di $K$ nel seguente modo 
     \[
@@ -1560,19 +1560,16 @@ i suoi sottogruppi abeliani massimali.
 
 \subsection{Classi di coniugio in $\mathcal{A}_n$}
 
-Fissato $\sigma \in \mathcal{A}_n$, indichiamo con $C_{\mathcal{A}_n}(\sigma)$ la classe di
-coniugio ottenuta coniugando $\sigma$ solo con elementi di $\mathcal{A}_n$, 
-con $C_{S_n}(\sigma)$ la classe ottenuta coniugando con tutti gli elementi
-di $S_n$. Vogliamo studiare come si relazionano $C_{\mathcal{A}_n}(\sigma)$
-e $C_{S_n}(\sigma)$ al variare di $\sigma \in \mathcal{A}_n$.
-
-Dato che $|\mathcal{A}_n| = |C_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n(\sigma)}|$
+Studiamo le classi di coniugio in $\mathcal{A}_n$. In particolare,
+fissato $\sigma \in \mathcal{A}_n$, vogliamo determinare una relazione tra
+$\Cl_{\mathcal{A}_n}(\sigma)$ e $\Cl_{S_n}(\sigma)$.
+Poiché valgono $|\mathcal{A}_n| = |\Cl_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n(\sigma)}|$
 e $Z_{\mathcal{A}_n}(\sigma) = Z_{S_n}(\sigma) \cap \mathcal{A}_n$, abbiamo
 \[
-    |C_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
+    |\Cl_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
     \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma) \cap \mathcal{A}_n|}
 \]
-Poiché $[S_n:\mathcal{A}_n] = 2$, per la \hyperref[prop2.0]{Proposizione 6.10}
+Dato che $[S_n:\mathcal{A}_n] = 2$, per la \hyperref[prop2.0]{Proposizione 6.10}
 abbiamo $[Z_{S_n}(\sigma):Z_{S_n}(\sigma) \cap \mathcal{A}_n] \in \{1, 2\}$,
 distinguiamo quindi due casi:
 \begin{itemize}
@@ -1582,47 +1579,47 @@ distinguiamo quindi due casi:
 
 Nel primo caso otteniamo 
 \[
-    |C_{\mathcal{A}_n}| = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma) \cap \mathcal{A}_n|} =
-    \frac{|S_n|}{|Z_{S_n}(\sigma)|} = C_{S_n}(\sigma)
+    |\Cl_{\mathcal{A}_n}| = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma) \cap \mathcal{A}_n|} =
+    \frac{|S_n|}{|Z_{S_n}(\sigma)|} = \Cl_{S_n}(\sigma)
 \]
-poiché $C_{\mathcal{A}_n}(\sigma)\subseteq C_{S_n}(\sigma)$ abbiamo che le
+poiché $\Cl_{\mathcal{A}_n}(\sigma)\subseteq \Cl_{S_n}(\sigma)$ abbiamo che le
 due classi coincidono. In particolare questo succede se $Z_{S_n}(\sigma)
 \nsubseteq \mathcal{A}_n$.
 
 Nel secondo caso invece, che si verifica se $Z_{S_n}(\sigma)\subseteq 
 \mathcal{A}_n$,
 \[
-    |C_{\mathcal{A}_n}(\sigma)| = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma)\cap\mathcal{A}_n|}
-    = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma)|} = \frac 1 2 |C_{S_n}(\sigma)|
+    |\Cl_{\mathcal{A}_n}(\sigma)| = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma)\cap\mathcal{A}_n|}
+    = \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma)|} = \frac 1 2 |\Cl_{S_n}(\sigma)|
 \]
-Più precisamente, abbiamo $C_{S_n}(\sigma) = C_{\mathcal{A}_n}(\sigma) \cup
-C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ per ogni $\tau$ permutazione dispari. 
-Infatti $C_{\mathcal{A}_n}(\sigma) \cup C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
-\subseteq C_{S_n}(\sigma)$ (i coniugati di $\tau\sigma\tau^{-1}$ sono anche
+Più precisamente, abbiamo $\Cl_{S_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cup
+\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ per ogni $\tau$ permutazione dispari. 
+Infatti $\Cl_{\mathcal{A}_n}(\sigma) \cup \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
+\subseteq \Cl_{S_n}(\sigma)$ (i coniugati di $\tau\sigma\tau^{-1}$ sono anche
 coniugati di $\sigma$), d'altra parte per ogni $\rho \in S_n$ abbiamo
-$\rho\sigma\rho^{-1} \in C_{\mathcal{A}_n}(\sigma)$ se $\rho$ è pari,
+$\rho\sigma\rho^{-1} \in \Cl_{\mathcal{A}_n}(\sigma)$ se $\rho$ è pari,
 $\rho\sigma\rho^{-1} = (\rho\tau^{-1})(\tau\sigma\tau^{-1})(\rho\tau^{-1})^{-1}
-\in C_{\mathcal{A}_n}(\tau\sigma\tau)$ se $\rho$ è dispari, da cui l'uguaglianza.
+\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau)$ se $\rho$ è dispari, da cui l'uguaglianza.
 Abbiamo altri due casi:
 \begin{itemize}
-    \item $|C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |C_{S_n}(\tau\sigma\tau^{-1})|$;
-    \item $|C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
-    |C_{S_n}(\tau\sigma\tau^{-1})|$.
+    \item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{S_n}(\tau\sigma\tau^{-1})|$;
+    \item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
+    |\Cl_{S_n}(\tau\sigma\tau^{-1})|$.
 \end{itemize}
-Tuttavia se fosse $|C_{\mathcal{A}_n}(\tau\sigma\tau)| = |C_{S_n}(\tau\sigma\tau)|$
-avremmo $C_{\mathcal{A}_n}(\sigma) = C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
-che è assurdo in quanto $\tau\sigma\tau^{-1} \notin C_{\mathcal{A}_n}(\sigma)$,
+Tuttavia se fosse $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau)| = |\Cl_{S_n}(\tau\sigma\tau)|$
+avremmo $\Cl_{\mathcal{A}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
+che è assurdo in quanto $\tau\sigma\tau^{-1} \notin \Cl_{\mathcal{A}_n}(\sigma)$,
 pertanto \[
-    |C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
-    |C_{S_n}(\tau\sigma\tau^{-1})| = \frac 1 2|C_{S_n}(\sigma)| =
-    |C_{\mathcal{A}_n}(\sigma)|
+    |\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
+    |\Cl_{S_n}(\tau\sigma\tau^{-1})| = \frac 1 2|\Cl_{S_n}(\sigma)| =
+    |\Cl_{\mathcal{A}_n}(\sigma)|
 \]
 Poiché 
-$|C_{S_n}(\sigma)| = |C_{\mathcal{A}_n}(\sigma)| + |C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})|$,
+$|\Cl_{S_n}(\sigma)| = |\Cl_{\mathcal{A}_n}(\sigma)| + |\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})|$,
 per il Principio di Inclusione-Esclusione abbiamo che l'unione è disgiunta,
 cioè
 \[
-    C_{S_n}(\sigma) = C_{\mathcal{A}_n}(\sigma) \cupdot C_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
+    \Cl_{S_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cupdot \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
 \]
 
 \subsection{Studio di $S_5$}
@@ -1683,25 +1680,25 @@ aventi una decomposizione in cicli disgiunti della forma
     \rho = \cycle{c_1, c_2}\cycle{d_1, d_2}
 \]
 e l'identità. Vediamo come sono fatte le loro classi di coniugio in $\mathcal{A}_5$.
-Chiaramente $C_{\mathcal{A}_n}(id) = C_{S_n}(id) = \{id\}$, studiamo quindi
+Chiaramente $\Cl_{\mathcal{A}_n}(id) = \Cl_{S_n}(id) = \{id\}$, studiamo quindi
 le classi di $\sigma, \tau, \rho$ fissate come sopra.
 \begin{itemize}
     \item $Z_{S_5}(\sigma) = \langle\cycle{a_1, a_2, a_3, a_4, a_5}\rangle$,
     infatti 
     \[
-        |Z_{S_5}(\sigma)| = \frac{|S_5|}{|C_{S_5}(\sigma)|} = \frac{5!}{4!} = 5
+        |Z_{S_5}(\sigma)| = \frac{|S_5|}{|\Cl_{S_5}(\sigma)|} = \frac{5!}{4!} = 5
     \]
     Allora $Z_{S_5}(\sigma)$ contiene solo permutazioni pari, fissata $\psi$
     una permutazione dispari la sua
     classe di coniugio in $S_5$ si scrive come
     \[
-        C_{S_5}(\sigma) = C_{\mathcal{A}_5}(\sigma) \cupdot C_{\mathcal{A}_5}(\psi\sigma\psi^{-1})
+        \Cl_{S_5}(\sigma) = \Cl_{\mathcal{A}_5}(\sigma) \cupdot \Cl_{\mathcal{A}_5}(\psi\sigma\psi^{-1})
     \]
     \item $Z_{S_5}(\tau)$ non è contenuto in $\mathcal{A}_5$, infatti una
     trasposizione $\psi$ disgiunta da $\tau$ è una permutazione dispari che
     appartiene al centralizzatore. Pertanto
     \[
-        C_{S_5}(\tau) = C_{\mathcal{A}_5}(\tau)
+        \Cl_{S_5}(\tau) = \Cl_{\mathcal{A}_5}(\tau)
     \]
     \item $Z_{S_5}(\rho)$ non è contenuto in $\mathcal{A}_5$, infatti la 
     trasposizione $\cycle{c_1, c_2}$ è una permutazione dispari che commuta
@@ -1709,7 +1706,7 @@ le classi di $\sigma, \tau, \rho$ fissate come sopra.
     quanto cicli disgiunti e $\cycle{c_1, c_2}$ commuta con se stessa).
     Pertanto 
     \[
-        C_{S_5}(\rho) = C_{\mathcal{A}_5}(\rho)
+        \Cl_{S_5}(\rho) = \Cl_{\mathcal{A}_5}(\rho)
     \]
 \end{itemize}
 
@@ -1846,7 +1843,7 @@ In effetti vale un risultato più generale
     $\mathcal{A}_{n + 1}$. Notiamo che una trasposizione $\cycle{a, b}$
     disgiunta da $\cycle{i, j, k}$ (che esiste in quanto $n \geq 5$) è una
     permutazione dispari in $Z_{S_{n + 1}}(\cycle{i, j, k})$, pertanto 
-    $C_{\mathcal{A}_{n + 1}}(\cycle{i, j, k}) = C_{S_{n + 1}}(\cycle{i, j, k})$
+    $\Cl_{\mathcal{A}_{n + 1}}(\cycle{i, j, k}) = \Cl_{S_{n + 1}}(\cycle{i, j, k})$
     e $N$ contiene l'insieme dei 3-cicli di $S_{n + 1}$, quindi $N = 
     \mathcal{A}_{n + 1}$ dal momento che contiene un suo insieme di generatori.
     \newline
