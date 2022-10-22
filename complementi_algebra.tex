@@ -449,7 +449,7 @@ tutti distinti.
     Infatti per ogni $\varphi \in \Aut(D_n)$ allora
     $\ord(r) = \ord(\varphi(r))$, da cui $|\langle\varphi(r)\rangle| = n$.
     Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
-    quindi $|\varphi(r)| = n = 2$, che è assurdo in quanto $|D_n| \geqslant 6$.
+    quindi $|\langle \varphi(r)\rangle| = n = 2$, che è assurdo in quanto $|D_n| \geqslant 6$.
     Questo non è vero per $D_2$, che contiene una rotazione e due
     simmetrie: poiché $\Aut(D_2) \cong S_3$ esiste un $\psi \in \Aut(D_2)$ che manda 
     la rotazione in una riflessione.
@@ -583,7 +583,7 @@ ogni elemento $g = s^ar^b \in D_n$ con la coppia $(a, b)$, la legge di gruppo
 \newline 
 Usiamo il risultato appena ottenuto per descrivere gli omomorfismi da $D_n$ in 
 un qualsiasi gruppo $G$. Poiché ogni elemento $g \in D_n$ si scrive come
-$s^ar^b$, con $a, b \in \ZZ$, un omomorfismo $\varphi \in \Hom(D_, G)$ è univocamente
+$s^ar^b$, con $a, b \in \ZZ$, un omomorfismo $\varphi \in \Hom(D_n, G)$ è univocamente
 determinato da $\varphi(r)$ e $\varphi(s)$: infatti \[
     \varphi(g) = \varphi(s^ar^b) = \varphi(s)^a\varphi(r)^b
 \]Poniamo $x = \varphi(s)$, $y = \varphi(r)$, necessariamente $\ord(x) \mid 2$
