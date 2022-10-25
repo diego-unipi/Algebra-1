@@ -491,6 +491,7 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
 
 \begin{theorem}
     [Teorema di Cauchy]
+    \label{p:Cauchy}
     Dato un gruppo $G$ e un primo $p$, se $p \mid |G|$, allora $\exists x \in G : \ord_G(x) = p$. \footnote{Si considera già noto il teorema per gruppi abeliani.}
 \end{theorem}
 
@@ -558,7 +559,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 \subsection{Teorema di Cayley}
 
 \begin{theorem}
-    \label{p:Cauchy}
+    \label{p:Cayley}
     Ogni gruppo è isomorfo ad un sottogruppo di un gruppo di permutazioni. In particolare, se $|G| = n$, allora 
     $G$ è isomorfo a un sottogruppo di $S_n$.
 \end{theorem}
@@ -1686,6 +1687,89 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
             \]
     con $|G| = \prod p_i^{e_i}$.
 \end{corollary}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{example}
+    [Classificazione dei gruppi di ordine $12$]
+    Poiché $12 = 2^2 \cdot 3$, per Sylow, sappiamo che $\exists P_2,P_3$, con $P_2$ $2$-Sylow, $P_3$ $3$-Sylow e $|P_2| = 4$, $|P_3| = 3$;
+    abbiamo che $P_2 \cap P_3 = \{e\}$ poiché $p$-gruppi distinti, dunque $G = P_2P_3$, in quanto:
+        \[ |P_2P_3| = \frac{|P_2||P_3|}{|P_2 \cap P_3|} = \frac{4 \cdot 3}{1} = 12
+            \]
+    inoltre, almeno uno tra $P_2$ e $P_3$ è normale. Se $P_3 \triangleleft G$ allora abbiamo un sottogruppo normale; se $P_3 \ntriangleleft G$, allora osserviamo che, per quanto detto al punto $(4)$
+    del \hyperref[Sylow]{Teorema Di Sylow}, possiamo avere solo che $n_3 = 1,4$, ma non essnedo $P_3$ normale $n_3$ non può essere $1$, dunque $n_3 = 4$;
+    da ciò segue che in $G$ ci sono $8$ elementi di ordine $3$\footnote{$4 \cdot 3 - 4 = 8$.} e $4$ elementi di ordine diverso da $4$, che quindi formano 
+    l'unico $2$-Sylow, equivalentemente $n_2 = 1$, e quindi $P_2$ è normale. Osserviamo che suppendo invece $P_2 \ntriangleleft G$, si arriva simmetricamente a concludere
+    che $P_3 \triangleleft G$, pertanto uno dei due sottogruppi di Sylow è necessariamente normale e in entrambi i casi sono soddisfatte le ipotesi del \hyperref[t:1.78]{Teorema 1.78},
+    segue che $G$ è un prodotto semidiretto tra $P_2$ e $P_3$. Studiamo separatamente i due casi.
+\end{example}
+    
+\begin{example}[$G \cong P_2 \rtimes_{\varphi} P_3$]
+    Se $P_2 \triangleleft G$, allora $G \cong P_2 \rtimes_{\varphi} P_3$. $P_2$ ha ordine $4$, dunque è $\Z{4}$ o $\Z{2} \times \Z{2}$, mentre $P_3$ è necessariamente $\Z{3}$; nel primo caso abbiamo:
+                \[ \Z{4} \rtimes_{\varphi} \Z{3} \qquad \text{con} \qquad \varphi : \Z{3} \longrightarrow \Aut(\Z{4}) \cong \Z{2}
+                    \]
+    in questo caso l'unica possibilità è $[1]_3 \longmapsto id$, dunque il prodotto semidiretto è in realtà sempre un prodotto diretto, dunque il primo gruppo trovato è:
+                \[ \color{LimeGreen!90!black}{\Z{4} \times \Z{3} \cong \Z{12}}
+                    \]
+    nel secondo caso abbiamo:
+                \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} \qquad \text{con} \qquad \varphi : \Z{3} \longrightarrow \Aut(\Z{2} \times \Z2) \cong S_3
+                    \]
+    a questo punto, possiamo o mandare $[1]_3 \longmapsto id$ ottenendo il prodotto diretto:
+            \[ \color{LimeGreen!90!black}{\Z{2} \times \Z{2} \times \Z{3} \cong \Z{2} \times \Z{6}}
+                \]
+    oppure mandare $[1]_3$ in un altro elemento il cui ordine divida $3$ (in questo caso uno dei due $3$-cicli),
+    dunque abbiamo due scelte per $\varphi([1]_3)$; entrambe le scelte danno origine a due prodotti semidiretti isomorfi\footnote{Come nel caso dei gruppi di ordine $pq$.}.
+    Osserviamo che abbiamo:
+                \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} = G \varlonghookrightarrow S_4
+                    \]
+    infatti, $G$ agisce per coniugio sull'insieme $\{P_3,P_3^{\prime},P_3^{\prime\prime},P_3^{\prime\prime\prime}\}$ dei quattro $3$-Sylow di $G$, pertanto abbiamo l'azione transitiva
+    $\phi : G \longrightarrow S(X) \cong S_4$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
+    Si verifica facilmente che l'unica possibilità è che $G$ sia isomorfo al gruppo alternante di $4$ elementi, dunque abbiamo ottenuto il gruppo:
+        \begin{center}
+            $\color{LimeGreen!90!black}{\mathcal{A}_4}$
+        \end{center}
+\end{example}
+\nopagebreak
+\begin{example}[$G \cong P_3 \rtimes_{\varphi} P_2$]
+    Se $P_3 \triangleleft G$, allora $G \cong P_3 \rtimes_{\varphi} P_2$. Analogamente a quanto visto prima $P_2$ ha ordine $4$, dunque è $\Z{4}$ o $\Z{2} \times \Z{2}$, e $P_3$ è $\Z{3}$.
+    Il primo prodotto che abbiamo è:
+        \[ \Z{3} \rtimes_{\varphi} \Z{4} \qquad \text{con} \qquad \varphi : \Z{4} \longrightarrow \Aut(\Z{3}) \cong \Z{2}
+            \]
+    dunque $[1]_4 \longmapsto id,-id$, nel primo caso riotteniamo il prodotto diretto e $\Z{12}$, nel secondo caso invece otteniamo un prodotto semidiretto che ci dà il gruppo:
+        \[ \color{LimeGreen!90!black}{\Z{3} \rtimes_{\varphi} \Z{4}}
+            \]
+    L'ultimo prodotto possibile è:
+        \[ \Z{3} \rtimes_{\varphi} (\Z{2} \times \Z{2}) \qquad \text{con} \qquad \varphi : \Z{2} \times \Z{2} \longrightarrow \Aut(\Z{3}) \cong \Z{2}
+            \]
+    se mandassimo tutti gli elementi nell'identità otterremmo un prodotto semidiretto, alternativamente, riscrivendo $\Z{2} \times \Z{2}$ come $\left<x\right> \times \left<y\right>$ (i cui elementi saranno $\{e,x,y,xy\}$), 
+    abbiamo due elementi di ordine $2$ che vanno in $-id$ e l'elemento neutro e un altro elemento di ordine $2$ che vanno in $id$. Possiamo dunque costruire tre prodotti semidiretti che danno 
+    origine a gruppi isomorfi, supponiamo (WLOG) che:
+        \[ \varphi_x = id \qquad \varphi_y = -id \qquad \varphi_{xy} = -id
+            \]
+    dunque abbiamo:
+        \[ \left<x\right> \times \left<y\right> \cong \Z{2} \times \Z{2} \qquad \text e \qquad \left<z\right> \cong \Z{3}
+            \]
+    possiamo osservare che:
+        \[ \varphi_{x}(Z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
+            \]
+    similmente:
+        \[ \varphi_{y}(z) = yzy^{-1} = -id(z) = -z
+            \]
+    dunque il sottogruppo generato da $y$ e $z$ è:
+        \[ \left<y,z | y^2 = 1, z^3 = 1, yzy^{-1} = z^{-1}\right> \cong D_3
+            \]
+    quindi il gruppo che si ottiene con i tre prodotti semidiretti è $\Z{2} \times D_3$ (il prodotto diretto deriva
+    dal fatto che $x$ commuta sia con $y$ che con $z$), ovvero:
+        \begin{center}
+            $\color{LimeGreen!90!black}{D_6}$
+        \end{center}
+\end{example}
+
+Abbiamo qundi classificato tutti i gruppi di ordine 12:
+    \[ \color{LimeGreen!90!black}{\Z{12},\Z{2} \times \Z{6}, A_4, \Z{3} \rtimes_{\varphi} \Z{4}, D_6}
+        \]
 
 
 \end{document}
