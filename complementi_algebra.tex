@@ -761,7 +761,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         = (\varphi_1(\psi_1(g_1)), \varphi_2(\psi_2(g_2))) = 
         (\varphi_1\times\varphi_2)(\psi_1(g_1), \psi_2(g_2)) = \\
         = ((\varphi_1\times\varphi_2)(\psi_1\times\psi_2))(g_1, g_2) = 
-        (\iota(\varphi_1, \varphi_2)\iota(\psi_1\psi_2))(g_1, g_2)
+        (\iota(\varphi_1, \varphi_2)\iota(\psi_1,\psi_2))(g_1, g_2)
     \end{multline*}cioè $\iota((\varphi_1, \varphi_2)(\psi_1, \psi_2)) = 
     \iota(\varphi_1, \varphi_2)\iota(\psi_1, \psi_2)$, quindi $\iota$ è un 
     omomorfismo;
@@ -795,7 +795,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
         (\varphi_1(H), \varphi_2(\{e_K\})) = H\times\{e_K\}
     \]
     \[
-        (\varphi_1\times \varphi_2)(\{e_K\}\times K) = 
+        (\varphi_1\times \varphi_2)(\{e_H\}\times K) = 
         (\varphi_1(\{e_H\}), \varphi_2(K)) = \{e_H\}\times K
     \]cioè $H\times\{e_K\}$ e $\{e_H\}\times K$ sono caratteristici in
     $H\times K$. Viceversa, se i due sottogruppi sono caratteristici, dato
@@ -850,8 +850,10 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 \end{proposition}
 
 \begin{proof}
-    Poniamo $m = |H|$, $n = |K|$, $S = \{(g_1, g_2) \in H\times K\mid 
-    (g_1, g_2)^n = (e_H, e_K)\}$, osserviamo che $H\times \{e_K\} = S$, infatti 
+    Posti $n = |H|$, $m = |K|$, consideriamo l'insieme
+    \[
+        S = \{(g_1, g_2) \in H\times K\mid (g_1, g_2)^n = (e_H, e_K)\}\]
+    Osserviamo che $H\times \{e_K\} = S$, infatti 
     $H\times \{e_K\} \subseteq S$ in quanto tutti gli elementi di $H\times{e_K}$
     hanno ordine che divide $n$. D'altra parte dato $(g_1, g_2) \in S$, se
     $\ord(g_1, g_2) \mid n$ allora $\ord(g_1)\mid n$ e $\ord(g_2)\mid n$, ma 
@@ -1011,7 +1013,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 
 \begin{proposition}
     \label{prop1.0}
-    Dati un gruppo $G$ e un insieme $G$, se 
+    Dati un gruppo $G$ e un insieme $X$, se 
     \[
         \varphi:G\longrightarrow S(X) :g\longmapsto \varphi_g
     \]è un'azione transitiva valgono i seguenti fatti:
@@ -1030,7 +1032,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
         Allora
         \[
             \varphi_h(y) = \varphi_{gwg^{-1}}(y) = 
-            \varphi_g(\varphi_w(\varphi_h^{-1}(y))) = \varphi_g(\varphi_w(x)) =
+            \varphi_g(\varphi_w(\varphi_g^{-1}(y))) = \varphi_g(\varphi_w(x)) =
             \varphi_g(x) = y
         \]pertanto $g\St(x)g^{-1} \subseteq \St(y)$. Osservando che 
         $\varphi_{g^{-1}}(y) = x$ e ragionando in modo simmetrico otteniamo
@@ -1076,12 +1078,13 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     del Primo Teorema di Omomorfismo. Pertanto $|\mathrm{Im}\psi| \mid (p!, |G|) = p$,
     in quanto $p$ è il più piccolo primo che divide $|G|$, quindi $|\mathrm{Im}\psi| \in \{1, p\}$.
     D'altra parte osserviamo che $\psi$ è un'azione transitiva, infatti per 
-    ogni $g_1, g_2 \in G$ abbiamo $\psi_{g_2g_1^{-1}}(g_1H) = g_2g_1^{-1}g_1H = g_2H$,
+    ogni $g_1, g_2 \in G$ abbiamo $\psi_{g_2^{}g_1^{-1}}(g_1H) = g_2g_1^{-1}g_1H = g_2H$,
     pertanto non è possibile $\mathrm{Im}\psi = \{id\}$, da cui $|\mathrm{Im}\psi| = p$
     e $[G:\ker\psi] = p$. Consideriamo il nucleo di $\psi$
     \[
         \ker\psi = \{g\in G\mid gg'H = g'H~\forall g' \in G\}
-    \]indebolendo la condizione di appartenenza otteniamo l'inclusione
+    \]
+    indebolendo la condizione di appartenenza otteniamo l'inclusione
     \[
         \ker\psi \subseteq \{g \in G\mid gH = H\} = H
     \]Poiché $[G:\ker \psi] = [G : H] = p$ e $G$ è un gruppo finito abbiamo
@@ -1117,7 +1120,7 @@ i primi $p - 1$ elementi di ogni $p$-upla, che ne determinano l'ultimo in
 modo univoco (per unicità dell'inverso). Definiamo un'azione di $\Zp$ su $X$
 nel seguente modo:
 \[
-    \psi: \Zp \longrightarrow S(X) : g \longmapsto \psi_g
+    \psi: \Zp \longrightarrow S(X) : a \longmapsto \psi_a
 \]
 con
 \[
