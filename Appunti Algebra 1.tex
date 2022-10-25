@@ -15,8 +15,8 @@
 \newpage
 
 \section*{Ringraziamenti}
-Federico Allegri, Pietro Crovetto, Davide Ranieri, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-Leonardo Alfani.
+\textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
+Leonardo Alfani, Clementina Salamina, Giorgia Capecchi.
 
 \newpage
 \section{Gruppi}
@@ -526,7 +526,7 @@ Sia $X = \{H \leqslant G\}$ e $\varphi : G \longrightarrow S(X) : g \longmapsto 
     dove $\Orb(H)$ è l'insieme dei coniugati di $H$, mentre $\St(H) = N_G(H)$ prende il nome di \vocab{normalizzatore} di $H$.
 
 \begin{remark}
-    Si osserva che $N \trianglelefteqslant G$ se e solo se $\Orb(H) = \{H\} \iff N_G(H) = G$, ovvero se $H$ è sempre chiuso per coniugio in $G$.
+    Si osserva che $H \trianglelefteqslant G$ se e solo se $\Orb(H) = \{H\} \iff N_G(H) = G$, ovvero se $H$ è sempre chiuso per coniugio in $G$.
 \end{remark}
 
 Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
@@ -748,7 +748,8 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{example}
 
 \begin{definition}
-    Una permutazione si dice \vocab{ciclica} se ha un unico ciclo (orbita) non banale.
+    Una permutazione si dice \vocab{ciclica} se ha un unico ciclo (orbita) non banale. 
+    \footnote{D'ora in avanti si utilizzeranno i termini "permutazione ciclica" e "ciclo" come sinonimi, in quanto una permutazione ciclica è appunto un singolo ciclo non banale.}
 \end{definition}
 
 \begin{remark}
@@ -874,19 +875,19 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 
 \begin{proposition}
     L'applicazione:
-        \[ sgn : S_n \longrightarrow \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j}
+        \[ sgn : S_n \longrightarrow \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq n} \frac{\sigma(i) - \sigma(j)}{i - j}
             \]
     è un omomorfismo di gruppi. Inoltre, se $\sigma$ è una trasposizione, allora $sgn(\sigma) = -1$.
 \end{proposition}
 
 \begin{proof}
     Osserviamo inizialmente che $sgn$ è ben definita cioè:
-        \[ sgn(\sigma) = \prod_{1 \leq i < j \leq k} \frac{\sigma(i) - \sigma(j)}{i - j} \in \{\pm 1\}
+        \[ sgn(\sigma) = \prod_{1 \leq i < j \leq n} \frac{\sigma(i) - \sigma(j)}{i - j} \in \{\pm 1\}
             \]
-    al denominatore del prodotto vi sono tutte le possibili coppie $i - j$ e anche al numeratore poiché $\sigma$ è bigettiva, l'unica cosa che 
+    al denominatore del prodotto vi sono tutte le possibili coppie $i - j$ (in $\{1,\ldots,n\}$) e anche al numeratore poiché $\sigma$ è bigettiva, l'unica cosa che 
     può cambiare è l'ordine (ovvero potrebbe comparire $i - j$ al numeratore e $j - i$ al denominatore), quindi $sgn(\sigma) \in \{\pm 1\}$. Mostriamo che $sgn$ 
     è un omomorfismo:
-        \[ sgn(\sigma \circ \tau) = \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)} \frac{\tau(i) - \tau(j)}{ i - j}
+        \[ sgn(\sigma \circ \tau) = \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{i - j} =  \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{i - j}\frac{\tau(i) - \tau(j)}{\tau(i) - \tau(j)}
             \]
     da cui:
         \[ \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}\frac{\tau(i) - \tau(j)}{ i - j} =
@@ -895,7 +896,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
             \]
     Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizziamo il segno delle varie coppie, distinguiamo le seguenti possibilità:
     \begin{itemize}
-        \item $\{i,j\} \cap \{a,b\} = \emptyset $, in tal caso $\sigma(i) = i, \sigma(j) = j \implies \frac{\sigma(i) - \sigma(j)}{i - j} = 1$.
+        \item $\{i,j\} \cap \{a,b\} = \emptyset $, in tal caso $\sigma$ lascia fissi gli elementi, $\sigma(i) = i, \sigma(j) = j \implies \frac{\sigma(i) - \sigma(j)}{i - j} = 1$.
         \item $\{i,a\}$ (o $\{i,b\}$), in tal caso $\frac{\sigma(i) - \sigma(a)}{i - a} = \frac{i - b}{i - a}$, però vi è anche $\frac{\sigma(i) - \sigma(b)}{i - b} = \frac{i - a}{i - b}$ e quindi 
             il fattore dà $1$.
         \item Infine, nel caso in cui $\{i,j\} = \{a,b\}$ si ha:
@@ -923,7 +924,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{definition}
 
 \begin{remark}
-    Si osserva che $\mathcal{A}_n \trianglelefteqslant S_n$, $|\mathcal{A}_n| = \frac{n!}{2}$ e $\faktor{S_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
+    Si osserva che $\mathcal{A}_n \trianglelefteqslant S_n$ e $|\mathcal{A}_n| = \frac{n!}{2}$ poiché $\faktor{S_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
 \end{remark}
 
 \begin{remark}
@@ -1125,7 +1126,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \end{remark}
 
 \begin{theorem}
-    \label{t:1.79}
+    \label{t:1.78}
     Sia $G$ un gruppo e siano $H,K \leqslant G$, con $H \trianglelefteqslant G$, tali che:
         \begin{enumerate}[(1)]
             \item $HK = G$.
@@ -1180,7 +1181,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \begin{example}
     [$S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>$]
     Verifichiamo che $S_n$ è prodotto semidiretto di $H = \mathcal{A}_n$ e $ K = \left<\cycle{1,2}\right>$ \footnote{In generale va bene qualsiasi trasposizione (che esiste sempre in $S_n$ per $n \geq 2$).}
-    usando il \hyperref[t:1.72]{Teorema 1.72}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft S_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
+    usando il \hyperref[t:1.78]{Teorema 1.78}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft S_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
     per cardinalità che $HK = S_n$. Essendo $\mathcal{A}_n = \ker sgn$ e $\left<\cycle{1,2}\right>$ una trasposizione $H \cap K = \{e\}$ (in quanto il nucleo dell'omomorfismo segno contiene solo permutazioni pari), pertanto segue la tesi:
         \[ S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>
             \]
@@ -1192,9 +1193,9 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 
 \begin{example}
     [$D_n \cong \Zn \rtimes_{\varphi}\Z2$]
-    Ricordando che $D_n = \left<r,s | r^n = s^2 = id, srs^{-1} = r^{-1}\right>$, possiamo osservare ancora una volta che le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono soddisfatte. Poiché $\ord r = n$, allora $|\left<r\right>| = n$, 
+    Ricordando che $D_n = \left<r,s | r^n = s^2 = id, srs^{-1} = r^{-1}\right>$, possiamo osservare ancora una volta che le ipotesi del \hyperref[t:1.78]{Teorema 1.78} sono soddisfatte. Poiché $\ord r = n$, allora $|\left<r\right>| = n$, 
     e in particolare $[D_n : \left<r\right>] = 2 \implies \left<r\right> \triangleleft D_n$; inoltre, $\left<r\right> \cap \left<s\right> = \{id\}$ perché $\det(r_i) = 1$, mentre $\det(sr_i) = -1$, $\forall i \in \{1,\ldots,n\}$. Infine, essendo $\ord s = 2$, allora il prodotto di sottogruppi avrà cardinalità:
-        \[ \left<r\right>\left<s\right> = \frac{|\left<r\right>||\left<s\right>|}{|\left<r\right> \cap \left<s\right>|} = \frac{2n}{1} = 2n
+        \[ |\left<r\right>\left<s\right>| = \frac{|\left<r\right>||\left<s\right>|}{|\left<r\right> \cap \left<s\right>|} = \frac{2n}{1} = 2n
             \]
     dunque $\left<r\right>\left<s\right> = D_n$. Pertanto $D_n \cong \left<r\right> \rtimes_{\varphi} \left<s\right>$, dove $\left<r\right> \cong \Zn$ e $\left<s\right> \cong \Z2$, quindi:
         \[ D_n \cong \Zn \rtimes_{\varphi} \Z2
@@ -1224,7 +1225,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     se $H^{\prime} < G$ e $|H^{\prime}| = q$, se fosse $H \ne H^{\prime}$, allora $H \cap H^{\prime} = \{e\}$ e quindi:
     \[ |HH^{\prime}| = \frac{|H||H^{\prime}|}{|H \cap H^{\prime}|} = \frac{q \cdot q}{1} = q^2 > pq
         \]
-    quindi $H^{\prime}$ non può essere un sottogruppo di $G$. Si verifica che, detto $K = \left<y\right>$, le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono soddisfatte:
+    quindi $H^{\prime}$ non può essere un sottogruppo di $G$. Si verifica che, detto $K = \left<y\right>$, le ipotesi del \hyperref[t:1.78]{Teorema 1.78} sono soddisfatte:
         \[ HK = G \qquad H \cap K = \{e\} \qquad H \triangleleft G
             \]
 da ciò segue che ogni gruppo di ordine $pq$ è prodotto semidiretto: $G \cong H \rtimes_{\varphi} K$.
@@ -1247,7 +1248,7 @@ quindi $\ord \varphi_y \mid (p,q-1)$. Distinguiamo due casi:
             scelte per $\varphi_y$ che danno un prodotto semidiretto.
     \end{itemize}
 Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\overline l)$ e:
-    \[ \varphi_y(x) \longmapsto x^l \implies (\varphi_y(x))^k = x^{l^k}
+    \[ \varphi_y(x) = x^l \implies (\varphi_y(x))^k = x^{l^k}
         \]
 quindi $\ord \varphi_y = p \iff l^p \equiv 1 \pmod q \iff \ord l = p$.
 Le $p-1$ scelte per $\varphi_y$ danno tutte gruppi isomorfi, quindi se $p \mid q-1$ ci sono esattamente due gruppi di ordine $pq$ a meno di isomorfismo. Infatti, detti:
@@ -1266,7 +1267,7 @@ Per mostrare che è un isomorfismo basta osservare che:
     \[ \mathcal{F}(x^q) = (\mathcal{F}(x))^q = id \qquad \text{in quanto $x^q = id$}
         \]
 e anche:
-    \[ \mathcal{F}(y^p) = (\mathcal{F}(y))^p = id \qquad \text{in quanto $y^q = id$}
+    \[ \mathcal{F}(y^p) = (\mathcal{F}(y))^p = id \qquad \text{in quanto $y^p = id$}
         \]
 ed infine:
     \[ \mathcal{F}(yxy^{-1}) = \mathcal{F}(x^l)
@@ -1282,7 +1283,7 @@ definitiva e necessita di ulteriori revisioni.}
 
 \begin{theorem}
     [Teorema Di Struttura Dei Gruppi Abeliani Finiti]
-    \label{t:struttra}
+    \label{t:struttura}
     Sia $G$ un gruppo abeliano finito, allora $G$ è prodotto diretto di gruppi ciclici, cioè:
         \[ G \cong \Z{n_1} \times \ldots \times \Z{n_s}
             \]
@@ -1294,7 +1295,7 @@ definitiva e necessita di ulteriori revisioni.}
     Sia:
         \[ G(p) = \{g \in G | \ord(g) = p^k, k \in \NN\}
             \]
-    $G(p)$ prende il nome di \vocab{$p$-sottogruppo di Sylow} di $G$, o anche \vocab{$p$-componente} o componente di \vocab{$p$-torsione}.
+    $G(p)$ prende il nome di \vocab{$p$-componente} o componente di \vocab{$p$-torsione}.
     Si osserva che:
         \begin{itemize}
             \item $G(p)$ è un sottogruppo di $G$ perché $G$ è abeliano, dunque:
@@ -1326,7 +1327,7 @@ definitiva e necessita di ulteriori revisioni.}
 
 \pagebreak
 
-Segue la dimostrazione del \hyperref[t:struttra]{Teorema Di Struttura Dei Gruppi Abeliani Finiti}:
+Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Gruppi Abeliani Finiti}:
 
 \begin{proof}
     \underline{\textbf{Esistenza}}: Dato il gruppo $G$, abeliano e finito, per il \hyperref[t:t1]{Teorema 1.87} si ha:
@@ -1351,7 +1352,7 @@ Segue la dimostrazione del \hyperref[t:struttra]{Teorema Di Struttura Dei Gruppi
     otteniamo i $p$-sottogruppi:
         \[ G \cong \underbrace{(\Z{2^3} \times \Z{2^2} \times \Z{2})}_{G(2)} \times \underbrace{(\Z3 \times \Z3)}_{G(3)} \times \underbrace{(\Z{5^2} \times \Z5)}_{G(5)}
             \]
-    e per il \hyperref[t:struttra]{Teorema Di Struttura} possiamo riscrivere il prodotto in ordine decrescente (rimettendo assieme $p$-gruppi cicli di ordine massimo):
+    e per il \hyperref[t:struttura]{Teorema Di Struttura} possiamo riscrivere il prodotto in ordine decrescente (rimettendo assieme $p$-gruppi cicli di ordine massimo):
         \[ G \cong \Z{(2^3\cdot 3 \cdot 5^2)} \times \Z{(2^2 \cdot 3 \cdot 5)} \times \Z2
             \]
 \end{example}
@@ -1373,7 +1374,7 @@ Segue la dimostrazione del \hyperref[t:struttra]{Teorema Di Struttura Dei Gruppi
         \Z5 \times \Z5 \times \Z5
     \end{cases}
         \]
-    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quant per il \hyperref[t:struttra]{Teorema di Struttura} abbiamo
+    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quant per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo
     una fattorizzazione unica come prodotto di gruppi cicli finiti, e per tale fattorizzazione abbiamo $3$ scelte per il $3$-Sylow e $3$ scelte per il $5$-Sylow.
 \end{example}
 
@@ -1477,7 +1478,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_1}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
             anche nel gruppo di partenza $a_i = 0$ e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
             Per mostrare che $\left<x_1\right> + H = G$, osserviamo che $\left<x_1\right> + H = G \subseteq G$ e che la sua cardinalità è:
-                \[ |\left<x_1\right> + H| = \frac{|\left<x_1\right> + H = G||H|}{|\left<x_1\right> \cap H|} = \frac{p^{r_1}\cdot p^{n - r_1}}{1} = p^n
+                \[ |\left<x_1\right> + H| = \frac{|\left<x_1\right>||H|}{|\left<x_1\right> \cap H|} = \frac{p^{r_1}\cdot p^{n - r_1}}{1} = p^n
                     \]
             Le ipotesi sono soddisfatte e quindi $G \cong \left<x_1\right> \times H \cong \left<x_1\right> \times \ldots \times \left<x_t\right>$.
     \end{itemize}
@@ -1498,8 +1499,6 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
                 \]
 \end{proof}
 
-\newpage
-
 \begin{remark}
     Il \hyperref[l:1.91]{Lemma 1.91} non vale in generale per quozienti qualsisi, ad esempio:
         \[ \faktor{\Z{p^2}}{\left<p\right>} \cong \frac{\Z{p^2}}{\Zp}\cong \Zp
@@ -1515,7 +1514,178 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 \end{remark}
 
 
+\newpage
+\subsection{Teorema Di Sylow}
 
+\begin{remark}
+    Dato un gruppo $G$ finito cosa possiamo dire dell'esistenza di elementi e sottogruppi di un certo ordine? Riepiloghiamo di seguito i principali risulati visti:
+        \begin{itemize}
+            \item $H \leqslant G \implies |H| \mid |G|$ (Teorema Di Lagrange).
+            \item $\forall p$ primo tale che $p \mid |G|$, $\exists x \in G : \ord_G(x) = p$ (\hyperref[p:Cauchy]{Teorema Di Cauchy}).
+            \item Se $G$ è ciclco, $\forall d \mid |G|$, $\exists x \in G : \ord_G(x) = d$ (per definizione di gruppo ciclico).
+            \item $G$ è ciclco se e solo se $d = |G|$.
+            \item Se $G$ è abeliano $\forall d \mid |G|$, $\exists H \leqslant G$ tale che $|H| = d$ (\hyperref[davide]{Lemma Di Ranieri}).
+        \end{itemize}
+\end{remark}
+L'ultimo fatto può essere ricavato (alternativamente) dal \hyperref[t:struttura]{Teorema di Struttura}, infatti:
+    \[ G = G_{p_1} \times \ldots \times G_{p_r}
+        \]
+con $|G| = p_1^{e_1}\ldots p_r^{e_r}$, se $d = p_1^{a_1}\ldots p_r^{a_r}$, bisogna verificare che per ogni $i$ esiste $H_{p_i} \leqslant G_{p_i}$ tale che $|H_{p_i}| = p^{a_i}$.
+Poiché:
+    \[ G = \Z{p^{n_1}} \times \ldots \Z{p^{n_s}} \qquad \text{con $\sum n_i = e$}
+        \]
+possiamo costruire sottogruppi di ogni ordine \footnote{Ad esempio $|H_p| = p^{72}$, preso $G_p = \Z{p^{30}} \times \Z{p^{30}} \times \Z{p^{30}}$, può essere ottenuto come $H_p = \Z{p^{30}} \times \Z{p^{30}} \times p^{18} \Z{p^{30}}$.};
+inoltre, dato che $G$ è abeliano il prodotto di sottogruppi è un sottogruppo:
+    \[ H_{p_1}\ldots H_{p_r} < H
+        \]
+e inoltre:
+    \[ H_{p_1}\ldots H_{p_r} \cong H_{p_1} \times \ldots \times H_{p_r}
+        \]
+poiché $H_{p_i} \cap H_{p_j} = \{e\}$, dunque:
+    \[ |H_{p_1}\ldots H_{p_r}| = \prod |H_{p_i}| = \prod p_{i}^{a_i} = d
+        \]
+e quindi otteniamo il sottogruppo di ordine $d$ voluto.
+    
+\begin{remark}
+    Se $G$ non è abeliano e $d \mid |G|$ non è detto che $G$ abbia sottogruppi di ordine $d$.
+\end{remark}
+
+\begin{example}
+    [$\mathcal{A}_4$ non contiene sottogruppi di ordine $6$]
+    Sappiamo che $|\mathcal{A}_4| = 4!/2 = 12$, se $\exists H < \mathcal{A}_4$ di ordine $6$, allora $H \triangleleft \mathcal{A}_4$; per \hyperref[p:Cauchy]{Cauchy}
+    $\exists x \in H : \ord(x) = 2$, con $x = \cycle{a,b}\cycle{c,d}$, deve essere quindi che:
+        \[ \Cl_{\mathcal{A}_4}(x) \subset H
+            \]
+    poiché $H \triangleleft \mathcal{A}_4$ e per definizione è unione di classi di coniugio in $\mathcal{A}_4$. Sappiamo che:
+        \[ \Cl_{\mathcal{A}_4}(x) = \{ \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3}\}
+            \]
+    Visto che $|\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d})| = 3$, allora $\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d}) = \Cl_{S_4}(\cycle{a,b} \cycle{c,d})$,
+    dunque se $H \triangleleft \mathcal{A}_4 \implies H \supset \{e, \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3}\} = V$ \footnote{$V$ prende il nome di \vocab{gruppo di Klein} o \vocab{Klein 4-group}.},
+    allora $V < H$, ma $4 \nmid 6 \implies$ assurdo.
+\end{example}
+
+\begin{lemma}
+    \label{l:1.95}
+    Sia $G$ un $p$-gruppo e $H \lneq G$, allora $H \lneq N_G(H)$.
+\end{lemma}
+
+\begin{proof}
+    
+\end{proof}
+
+\begin{definition}
+    Dato $G$ un gruppo finito e $p$ un primo, tali che $|G| = p^nm$, con $p^n \pdiv |G|$ e $n \geq 1$ e $(m,p) = 1$, allora un sottogruppo di $G$ di ordine $p^n$ prende il nome di 
+    \vocab{$p$-sottogruppo di Sylow} (\vocab{$p$-Sylow}).\footnote{I $p$-sottogruppi di Sylow possono anche essere pensati come $p$-sottogruppi di ordine massimale.}
+\end{definition}
+
+\newpage
+
+\begin{theorem}
+    [Teorema Di Sylow]
+    \label{Sylow}
+    Sia $G$ un gruppo finito, con $|G| = p^nm$, con $p$ primo, $n \geq 1$ e $(m,p) = 1$ \footnote{Ovvero $p^n \pdiv |G|$, o anche $\nu_p(|G|) = n$ (dove con $\nu_p$ intendiamo la
+     \href{https://it.wikipedia.org/wiki/Valutazione_p-adica}{\textcolor{purple}{valutazione $p$-adica}}).}, allora:
+        \begin{enumerate}[(1)]
+            \item $\forall \alpha : 0 \leq \alpha \leq n$, $\exists H \leqslant G$ : $|H| = p^\alpha$. {\color{orange}(Esistenza)}
+            \item $\forall \alpha : 0 \leq \alpha \leq n-1$, ogni sottogruppo di ordine $p^\alpha$ è contenuto in un sottogruppo di ordine $p^{\alpha+1}$. In particolare,
+                ogni $p$-sottogruppo è contenuto in un $p$-sottogruppo di Sylow. {\color{orange}(Inclusione)}
+            \item Due qualunque $p$-sottogruppi di Sylow di $G$ sono coniugati (quindi tutti i $p$-sottogruppi di ordine massimale sono isomorfi). {\color{orange}(Coniugio)}
+            \item Sia $n_p$ il numero di $p$-sottogruppi di Sylow di $G$, allora: {\color{orange}(Numero)}
+                \[ n_p \mid |G| \qquad \text{e} \qquad n_p \equiv 1 \pmod p \qquad \text e \qquad n_p = [G : N_G(S)]
+                    \]
+        \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Dimostriamo tutte le affermazioni del teorema:
+        \begin{enumerate}[(1)]
+            \item Dimostriamo che $\forall \alpha : 0 \leq \alpha \leq n$ esiste almeno un sottogruppo di ordine $p^{\alpha}$; sia $\mathcal{M} = \{X \subset G | \#X = p^{\alpha}\}$, allora:
+                \[ |\mathcal{M}| = \binom{|G|}{|X|} = \binom{p^nm}{p^\alpha} = \frac{p^nm(p^nm -1)\ldots(p^nm - p^\alpha + 1)}{p^\alpha(p^\alpha - 1)\ldots (p^{\alpha} - p^{\alpha} + 1)} \,\footnote{Si osserva che abbiamo semplificato al numeratore e al denominatore il termine $(p^{n}m - p^{\alpha})!$.}
+                    \]
+                Possiamo riscrivere il prodotto dei termini nel modo seguente:
+                \[ \prod_{i=0}^{p^\alpha-1}\frac{p^nm - i}{p^\alpha - i} = p^{n-\alpha}m\prod_{i=1}^{p^\alpha-1}\frac{p^nm - i}{p^\alpha - i} 
+                        \]
+                dove nell'ultimo passaggio abbiamo raccolto il primo termine, $p^{n-\alpha}m$, e lo abbiamo portato fuori dalla produttoria.\\
+                Osserviamo a questo punto che $p^{n-\alpha}$ è la più grande potenza di $p$ che divide $|\mathcal{M}|$\footnote{O anche $p^{n - \alpha} \pdiv |\mathcal{M}|$, o ancora $\nu_p(|\mathcal{M}|) = n - \alpha$.}, infatti,
+                si osserva che $p \nmid \prod_{i=1}^{p^\alpha-1}\frac{p^nm - i}{p^\alpha - i}$, cioè $\forall \in \{1,\ldots,p^\alpha - 1\}$ si ha che $p \nmid \frac{p^nm - i}{p^\alpha - i}$, come si osserva infatti:
+                \[ \nu_p(p^nm-i) = \nu_p(p^\alpha - i) = \nu_p(i)
+                    \]
+                dunque, se $p \nmid i \implies p^nm - i$ e $p^{\alpha} - i$ non sono divisibili per $p$; se fosse $i = p^kj$, con $(j,p) = 1$, allora
+                 $p^{\alpha} - i = p^{\alpha} - p^kj = p^k\underbrace{(p^{\alpha - k} - j)}_{\text{non divisibile per $p$}}$, con $k < \alpha$, (analogamente per $p^nm - i$), per quanto abbiamo detto deve essere necessariamente che:
+                \[ p^{n - \alpha} \pdiv |\mathcal{M}|
+                    \] 
+                ovvero $p^{n - \alpha}$ è l'esatta potenza di $p$ che divide $|\mathcal{M}|$.
+                Consideriamo $M \in \mathcal{M}$, allora $gM \in \mathcal{M}$, $\forall g \in G$, dunque possiamo considerare l'azione:
+                \[ \phi : G \longrightarrow S(\mathcal{M}) : g \longmapsto \varphi_g
+                    \]
+                dove $\varphi_g : \mathcal{M} \longrightarrow \mathcal{M} : M \longmapsto gM$ è una bigezione. Data l'azione $\phi$ sappiamo che:
+                \[ \mathcal{M} = \bigcupdot_{i = 1}^{s}\Orb(M_i) \implies |\mathcal{M}| = \sum_{i = 1}^{s} |\Orb(M_i)| = \sum_{i = 1}^s \frac{|G|}{|\St(M_i)|}
+                    \]
+                unendo ciò a quanto detto si ha che $p^{n - \alpha} \pdiv \sum_{i = 1}^s \frac{|G|}{|\St(M_i)|}$, quindi non tutte le orbite possono essere divisibili per una potenza maggiore di $p^{n - \alpha}$, ovvero esiste almeno un $i$
+                tale per cui $p^{n - \alpha + 1} \nmid |\Orb(M_i)|$(ovvero non può essere diviso per una potenza più grande di quanto detto), da ciò segue: $ p^{n - \alpha + 1} \nmid |\Orb(M_i)| = \frac{|G|}{|\St(M_i)|} = \frac{p^nm}{|\St(M_i)|}$,
+                pertanto deve essere necessariamente che:
+                \[ p^{\alpha} \mid |\St(M_i)| = t
+                    \]
+                cioè, affinché il rapporto non sia divisibile per $p^{\alpha}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, sia $x \in M_i$, la funzione:
+                \[ \varphi_x : \St(M_i) \longrightarrow M_i : y \longmapsto yx 
+                    \]
+                è iniettiva\footnote{Si vede che $\varphi_x(y) = \varphi_x(z) \iff yx = zx \iff y = z$.}, dunque $t = |\St(M_i)| \leq |M_i| = p^{\alpha}$, segue quindi $t = p^{\alpha}$, pertanto $\St(M_i)$ è il sottogruppo di ordine $p^{\alpha}$ cercato.
+            \item Sia $S$ un $p$-sottogruppo di Sylow di $G$, con $|S| = p^n$, e sia $H \leqslant G$, con $|H| = p^{\alpha}$; consideriamo l'insieme $\faktor{G}{S} = X$ dato dalle classi laterali di $S$ in $G$, allora:
+                \[ |X| = [G : S] = \frac{p^nm}{p^n} = m
+                    \]
+                Consideriamo l'azione di $H$ su $X$ data da:
+                \[ \varphi: H \longrightarrow S(X) : h \longmapsto \varphi_h
+                    \]
+                con $\varphi_h : X \longrightarrow X : gS \longmapsto hgS$ bigezione; per la formula delle classi si ha:
+                \[ m = |X| = \sum_{i = 1}^{r}|\Orb(g_iS)| = \sum_{i = 1}^{r} \frac{|H|}{|\St(g_iS)|} = \sum_{i = 1}^{r} p^{a_i}
+                    \]
+                (essendo $p$-gruppi). Poiché  per ipotesi $p \nmid m$, allora esiste $i$ tale che $a_i = 0$ (dunque c'è un $1$ nella fattorizzazione
+                che impedisce la divisibilità di $m$ per $p$) $ \implies \Orb(g_iS) = \{g_iS\} \implies \St(g_iS) = H$ (ovvero per tale $i$ si ha una classe
+                laterale $g_iS$ la cui orbita è solo se stessa, e quindi il suo stabilizzatore è tutto $H$). Da ciò segue che $\forall h \in H$:
+                \[ hg_iS = g_iS \iff hg_i \in g_iS \iff h \in g_iSg_{i}^{-1}\iff H \subset g_iSg_i^{-1}
+                    \]
+                dove $|g_iSg_i^{-1}| = |S|$ dunque $g_iSg_i^{-1}$ è un $p$-Sylow ed $H$ di ordine $p^{\alpha}$ è contenuto in un $p$-Sylow. Questo dimostra il punto $(3)$,
+                ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
+                i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
+                Per completare la dimostrazione del punto $(2)$ utilizziamo il risulato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
+                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i sottogruppi di $N_{S}(H)$ che contengono $H$.},
+                $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
+                ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
+                \skipitems{1}
+            \item Sia $n_p$ il numero dei $p$-sottogruppi di Sylow, per quanto detto al punto $(3)$ i $p$-sottogruppi di Sylow sono tutti coniugati,
+            dunque per ciò che abbiamo visto sul numero di coniugi rispetto all'azione di coniugio si ha $n_p = |\mathcal{C}\ell(S)|=[G:N_G(S)]$, da cui:
+                        \[ n_p = \frac{|G|}{|N_G(S)|} \implies |G| = n_p|N_G(S)| \implies n_p \mid |G|
+                            \]
+                Sia $X$ l'insieme dei $p$-Sylow di $G$, consideriamo l'azione di coniugio:
+                    \[ \phi : S \longrightarrow S(X) : s \longmapsto \varphi_s
+                        \]
+                con $\varphi_s : X \longrightarrow X : H \longmapsto sHs^{-1}$ bigezione; $\phi$ ha un'unica orbita banale, ovvero quella del gruppo $S$, $\Orb(S) = \{S\}$, infatti, per ogni altra orbita si ha:
+                    \[ \Orb(H) = \{sHs^{-1} | s \in S\} = \{H\} \iff sHs^{-1} = H \qquad \forall s \in S
+                        \]
+                ovvero:
+                    \[ S \subset N_G(H) \qquad \qquad \forall s \in S
+                        \]
+                ma sappiamo anche che $H \lneq N_G(H)$, pertanto si deve avere che:
+                    \[ HS < N_G(H)
+                        \]
+                (poiché $S$ normalizza $H$ il prodotto di sottogruppi da un sottogruppo), ma questo è assurdo se $S \ne H$, perché avremmo:
+                    \[ |SH| = \frac{|S||H|}{|S \cap H|} = \frac{p^n \cdot p^n}{p^k} \footnote{$k<n$.} = p^{2n - k} \nmid |G|
+                        \]
+                Quindi esiste un'unica orbita banale e applicando la formula delle classi otteniamo:
+                    \[ n_p = |X| = \sum_{i = 1}^{r} \underbrace{|\Orb(H_i)| }_{p^{a_i} \ne 1} + \underbrace{|\Orb(S)|}_{= 1} = pf +1 \qquad f \in \ZZ
+                        \]
+                o equivalentemente $n_p \equiv 1 \pmod p$.
+                \end{enumerate}
+\end{proof}
+
+\pagebreak
+
+\begin{corollary}
+    Sia $G$ un gruppo abeliano finito, $\forall p$ primo tale che $p \mid |G|$, $G(p)$ è l'unico $p$-Sylow di $G$. Inoltre $G$ è il prodotto diretto dei suoi $p$-Sylow:
+        \[ G \cong G(p_1) \times \ldots \times G(p^r)
+            \]
+    con $|G| = \prod p_i^{e_i}$.
+\end{corollary}
 
 
 \end{document}
