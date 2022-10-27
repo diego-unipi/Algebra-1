@@ -183,6 +183,7 @@ e tutti gli elementi della forma $sr^k$, $sr^ks$, $sr^ksr^h$ e così via, voglia
 mostrare che in effetti $D_n$ è generato da $r$ e $s$.
 
 \begin{remark}
+    \label{obs1.0}
     Gli elementi della forma $r^k$ e $sr^h$ sono distinti per ogni $h, k \in \ZZ$. 
     Infatti sappiamo dall'algebra lineare che il determinante di una simmetria
     è $-1$ e che il determinante di una rotazione è $1$, per la moltiplicatività
@@ -197,7 +198,8 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
 
 \begin{proof}
     Senza perdita di generalità possiamo supporre che $r$ sia la rotazione 
-    di angolo $\displaystyle\frac{2\pi}{n}$ e che $s$ sia la simmetria che 
+    di angolo $\displaystyle\frac{2\pi}{n}$ e che $s$ sia la simmetria
+    (rispetto all'asse $y$) che 
     a ogni punto $x$ del piano associa il punto $-x$. Possiamo rappresentare
     rispettivamente $r$ e $s$ tramite le matrici
     \begingroup
@@ -268,14 +270,16 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     linearmente indipendenti, ne costituiscono una base: fissati i valori di 
     $g(1)$ e $g(2)$ abbiamo quindi determinato ogni
     elemento di $D_n$ in modo unico e, poiché possiamo farlo in al più $2n$ modi, 
-    $|D_n| \leqslant 2n$. Ricordiamo adesso che $D_n$ contiene gli elementi
+    $|D_n| \leq 2n$. Ricordiamo adesso che $D_n$ contiene gli elementi
     della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$, mostriamo che questi sono 
     infatti $2n$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
     di ordine $n$, pertanto sono $n$ elementi distinti, inoltre 
     \[
         sr^i = sr^j \iff r^i = r^j\iff i \equiv j \pmod n
     \] pertanto anche questi sono $n$
-    elementi distinti. Allora $|D_n| = 2n$.
+    elementi distinti. Poiché gli insiemi $\mathcal{R}$ e 
+    $\{sr^h\mid h \in \ZZ\}$ sono disgiunti (\hyperref[obs1.0]{Osservazione 3.6}) 
+    abbiamo $|D_n| = 2n$.
 \end{proof}
 
 \begin{remark}
@@ -299,22 +303,25 @@ Consideriamo un sottogruppo $H\leqslant D_n$, distinguiamo due possibilità:
 $H \subseteq \mathcal{R}$ oppure $H \nsubseteq \mathcal{R}$. Nel primo caso
 abbiamo che $|H|\mid n$, ed è l'unico sottogruppo di $\mathcal{R}$ con questa 
 proprietà in quanto $\mathcal{R}$ è ciclico, in particolare $H$ è ciclico 
-della forma $ \displaystyle\left<\frac n d\right>$, con $d \mid n$. \newline
+della forma $\langle r^{\frac n d}\rangle$, con $\mathcal{R} = 
+\langle r\rangle$ e $d \mid n$. \newline
 Studiamo quindi il caso $H \nsubseteq \mathcal{R}$: notiamo che 
 $\mathcal{R}\trianglelefteqslant D_n$ in quanto $[D_n : \mathcal{R}] = 2$,
 pertanto $\faktor{D_n}{\mathcal{R}}$ è un gruppo con l'operazione indotta da $D_n$
 e risulta essere isomorfo a $\Z2$. \newline
-Consideriamo la proiezione al quoziente \[
+Consideriamo la proiezione al quoziente 
+\[
     \pi_{\mathcal{R}}: D_n \longrightarrow \faktor{D_n}{\mathcal{R}} : g \mapsto g\mathcal{R}
-\]poiché $H \nsubseteq \mathcal{R}$ abbiamo che esiste $h \in H$ tale che 
+\]
+poiché $H \nsubseteq \mathcal{R}$ abbiamo che esiste $h \in H$ tale che 
 $h \notin \mathcal{R}$, pertanto $\pi_{\mathcal{R}}(h) \neq \mathcal{R}$ e
 in particolare $\pi_{\mathcal{R}}(H) \nsubseteq \{\mathcal{R}\}$. Dato che i 
 sottogruppi di $\faktor{D_n}{\mathcal{R}}$ sono solo $\{\mathcal{R}\}$ e
 $\faktor{D_n}{\mathcal{R}}$ abbiamo $\pi_{\mathcal{R}}(H) = 
 \faktor{D_n}{\mathcal{R}}$. Osserviamo inoltre che $\ker \pi_{\mathcal{R}\mid H} = 
 \ker \pi_{\mathcal{R}} \cap H = \mathcal{R}\cap H$, per il Primo Teorema di Omomorfismo
-allora $\faktor{H}{H\cap \mathcal{R}} \cong \Z2$, quindi 
-$|H\cap\mathcal{R}| = \displaystyle\frac 1 2 |H|$. Dato che $R\cap H \subseteq
+allora $\displaystyle\frac{H}{H\cap \mathcal{R}} \cong \Z2$, quindi 
+$|H\cap\mathcal{R}| = \displaystyle\frac 1 2 |H|$. Dato che $\mathcal{R}\cap H \subseteq
 \mathcal{R}$, esiste $k \in \ZZ$ tale che $H\cap\mathcal{R} = \langle r^k\rangle$
 in particolare $\langle r^k\rangle$ e $\langle sr^h\rangle$, $h \in \ZZ$, sono
 contenuti in $H$. 
@@ -324,7 +331,7 @@ contenuti in $H$.
     $r$ è un generatore di $\mathcal{R}$ tale che $H\cap\mathcal{R} = \langle r^k\rangle$ 
     e $s$ è una simmetria allora \[
     H = \langle r^k\rangle\cdot\langle sr^h\rangle = \{xy \mid x \in \langle r^k\rangle,
-    y \in \langle sr^h\rangle\}, h, k \in \ZZ
+    y \in \langle sr^h\rangle\}\qquad h, k \in \ZZ
     \]
 \end{proposition}
 
@@ -356,7 +363,7 @@ contenuti in $H$.
 \end{proof}
 
 \begin{remark}
-    Per $k \mid n$ e $0\leqslant h < k$, i sottogruppi $H_{k, h} = \langle r^k, sr^h\rangle$
+    Per $k \mid n$ e $0\leq h < k$, i sottogruppi $H_{k, h} = \langle r^k, sr^h\rangle$
     e $H = \langle r^k\rangle\cdot\langle sr^h\rangle$ coincidono. Infatti 
     $H_{k, h}\subseteq H$ in quanto $r^k, sr^h$ sono elementi di $H$, 
     d'altra parte $H \subseteq H_{k, h}$ in quanto $H_{h, k}$ contiene tutti i 
@@ -364,7 +371,7 @@ contenuti in $H$.
 \end{remark}
 
 \begin{remark}
-    Per $k \mid n$ e $0\leqslant h < k$, $\langle r^k, sr^h\rangle = 
+    Per $k \mid n$ e $0\leq h < k$, $\langle r^k, sr^h\rangle = 
     \langle r^k, sr^{h + k}\rangle$. Infatti $\langle r^k, sr^h\rangle \subseteq
     \langle r^k, sr^{h + k}\rangle$ in quanto $sr^h = (sr^{h + k})r^{-k}$ è
     un elemento del secondo gruppo, simmetricamente $\langle r^k, sr^{h + k}\rangle
@@ -376,7 +383,7 @@ contenuti in $H$.
     [Classificazione dei sottogruppi di $D_n$]
 I sottogruppi di $D_n$ sono della forma \begin{enumerate}[(1)]
     \item $\langle r^k\rangle$ con $k\mid n$;
-    \item $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leqslant h < k$, 
+    \item $\langle r^k, sr^h\rangle$ con $k \mid n$, $0\leq h < k$, 
 \end{enumerate}
 con $r \in \mathcal{R}$ e $s$ una simmetria. Inoltre tali sottogruppi sono
 tutti distinti.
@@ -395,7 +402,7 @@ tutti distinti.
         \item se $H = \langle r^k\rangle$ e $K = \langle r^m, sr^h\rangle$, $m \mid n$,
         allora $H \neq K$ in quanto $H$ è ciclico e $K$ no;
         \item se $H = \langle r^k, sr^h\rangle$ e $K = \langle r^m, sr^l\rangle$, 
-        con $m \mid n$ e $0\leqslant l < m$, considerando le intersezioni
+        con $m \mid n$ e $0\leq l < m$, considerando le intersezioni
         $H \cap \mathcal{R} = \langle r^k\rangle$ e $K \cap \mathcal{R} = \langle r^m\rangle$ 
         abbiamo \[
         H \cap \mathcal{R} = K\cap\mathcal{R} \iff \langle r^k\rangle = \langle r^m\rangle
@@ -405,7 +412,7 @@ tutti distinti.
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
         \iff h \equiv l - mt \pmod n
         \]da cui ricaviamo $h \equiv l \pmod m$ in quanto $m \mid n$. Ma allora 
-        $h =l$ dato che $0 \leqslant h < k$ e $0\leqslant l < m$.
+        $h =l$ dato che $0 \leq h < k$ e $0\leq l < m$.
     \end{itemize}
 \end{proof}
 
@@ -421,7 +428,10 @@ tutti distinti.
     \[
         \varphi_g : G\longrightarrow G : x\longmapsto gxg^{-1}
     \] poiché 
-    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in \Aut(B)$. 
+    $B\trianglelefteqslant G$ è ben definita la restrizione $\varphi_{g\mid B} \in \Aut(B)$\footnote{
+        Notiamo che $\varphi_{g\mid B}$ in generale non è un 
+        coniugio di $B$, poiché $g$ non appartiene necessariamente a $B$.
+    }. 
     Dal momento che $A$ è
     un sottogruppo caratteristico di $B$ abbiamo che $\varphi_{g\mid B}(A) =
     \varphi_g(A) = A$,
@@ -456,7 +466,7 @@ tutti distinti.
 \end{remark}
 
 \begin{corollary}
-    Per $k\mid n$ e $0\leqslant h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
+    Per $k\mid n$ e $0\leq h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
     è normale in $D_n$ se e solo se $r, s \in N_{D_n}(H_{k, h})$.
 \end{corollary}
 
@@ -656,15 +666,15 @@ $\varphi$ deve preservare l'ordine di $r$ e la sua immagine deve essere un
 generatore di $\mathcal{R}$, in quanto $\mathcal{R}$ è caratteristico in $D_n$
 è isomorfo a $\Zn$. Per quanto riguarda $\varphi(s)$, se $n$ è dispari allora le simmetrie
 sono gli unici elementi di ordine 2, pertanto $\varphi(s) = sr^h$ con 
-$0\leqslant h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
+$0\leq h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
 \begin{enumerate}[(1)]
-    \item $\varphi(s) = sr^h$, con $0\leqslant h < n$;
+    \item $\varphi(s) = sr^h$, con $0\leq h < n$;
     \item $\varphi(s) = r^{\frac n 2}$, se $n$ è pari.
 \end{enumerate}
 
 D'altra parte, se fosse $\varphi(s) = r^{\frac n 2}$ allora $\varphi$ non
 sarebbe né iniettiva né surgettiva, pertanto $\varphi(s) = sr^h$ con 
-$0\leqslant h \leqslant n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
+$0\leq h \leq n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
 caratterizzazione che abbiamo dato sopra è sufficiente verificare che
 $\varphi(s)\varphi(r)\varphi(s)^{-1} = \nolinebreak\varphi(r)^{-1}$:
 \[
@@ -1004,7 +1014,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     $H \subseteq N_G(H)$ e $|gHg^{-1}| = |H|$ per ogni $g \in G$, possiamo stimare 
     la cardinalità di $K$ nel seguente modo 
     \[
-        |K| \leqslant\frac{|G|}{|N_G(H)|}|H| \leqslant\frac{|G|}{|H|}|H| = |G|.
+        |K| \leq\frac{|G|}{|N_G(H)|}|H| \leq\frac{|G|}{|H|}|H| = |G|.
     \]D'altra parte, per il Principio di Inclusione-Esclusione abbiamo che $|K|$ 
     è somma delle cardinalità dei singoli termini dell'unione se e solo se 
     l'unione è disgiunta, ma questo è falso in quanto ogni classe di coniugio
@@ -1209,7 +1219,7 @@ quindi due casi:
     \[
         \lambda_g : G\longrightarrow G : x\longmapsto gx
     \]
-    Fissato un isomorfismo $\psi: S(G) \longmapsto S_{2d}$ poniamo
+    Fissato un isomorfismo $\psi: S(G) \longrightarrow S_{2d}$ poniamo
     $\varphi = \psi\circ\lambda :G\longrightarrow S_{2d}$, $\varphi$ è 
     un omomorfismo iniettivo (infatti nella dimostrazione del Teorema di Cayley
     abbiamo visto che $\lambda$ è un omomorfismo iniettivo). Consideriamo 
@@ -1227,7 +1237,7 @@ quindi due casi:
     pertanto $\varphi^{-1}(\mathcal{A}_{2d})\trianglelefteqslant G$. 
     Per il Primo Teorema di Omomorfismo abbiamo che esiste un omomorfismo
     iniettivo da $\faktor{G}{\ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)}$ in
-    $\Z2$, da cui $[G:\ker(\pi_{\mathcal{A}_{2d}})] \leqslant 2$. Tale 
+    $\Z2$, da cui $[G:\ker(\pi_{\mathcal{A}_{2d}})] \leq 2$. Tale 
     sottogruppo ha indice 1 se e solo se $G = \ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)$,
     cioè $\varphi(G) \subseteq \mathcal{A}_{2d}$, mostriamo che in effetti esiste 
     un elemento di $G$ la cui immagine tramite $\varphi$ è una permutazione 
