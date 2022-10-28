@@ -103,7 +103,7 @@ $\varphi \in \Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$
 per ogni $\lambda \in \FF_p$, pertanto
 \[
     \Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
-    \mid\varphi\text{ isomorfismo di spazi vettoriali}\}.
+    \mid\varphi\text{ isomorfismo di spazi vettoriali}\}
 \]
 
 Poiché $GL((\FF_p)^n) \cong GL_n(\FF_p) = \{M \in M_{n\times n}(\FF_p)\mid \det M \neq 0\}$
@@ -517,7 +517,7 @@ Abbiamo visto che possiamo scrivere ogni elemento di $D_n$ nella forma
  $s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera 
  $\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$
 in quanto $\ord(s)= 2$ e $\ord(r) = n$. Inoltre tutti gli elementi della
-forma $sr^h$ hanno ordine $2$.
+forma $sr^k$ hanno ordine $2$.
 
 Consideriamo la classe di coniugio di $r$, $\Cl(r) = \{grg^{-1}\mid g \in D_n\}$,
 fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
@@ -585,7 +585,10 @@ abbiamo $(\varphi_{s^{a_2}}(r^{b_1})) = (\varphi_s^{a_2}(r))^{b_1}$, quindi
     s^{a_1 + a_2}r^{(-1)^{a_2}b_1 + b_2}
 \]
 Per l'unicità della scrittura che stiamo usando (scegliendo 
-$a \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$), possiamo identificare 
+$a \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$)\footnote{
+    Ricordiamo che $\varphi_s^m = \underset{m\text{ volte}}{\underbrace{\varphi_s\circ\ldots\circ\varphi_s}}$
+    in quanto l'operazione del gruppo degli automorfismi è la composizione di 
+    funzioni.} possiamo identificare 
 ogni elemento $g = s^ar^b \in D_n$ con la coppia $(a, b)$, la legge di gruppo
 è quindi tale che \[
     (a_1, b_1)(a_2, b_2) = (a_1 + a_2, (-1)^{a_2}b_1 + b_2)
@@ -737,14 +740,14 @@ Consideriamo due gruppi finiti $H, K$, studiamo il gruppo degli automorfismi
 di $H\times K$. Chiaramente esiste un'inclusione di $\Aut(H)\times \Aut(K)$ in 
 $\Aut(H\times K)$ data dall'omomorfismo 
 \[
-    \iota: \Aut(H)\times \Aut(K)\longrightarrow \Aut(H\times K) :
+    \iota: \Aut(H)\times \Aut(K)\longhookrightarrow \Aut(H\times K) :
     (\varphi_1, \varphi_2)\longmapsto \varphi_1\times \varphi_2
 \]con 
 \[
     \varphi_1\times\varphi_2: H\times K \longrightarrow H\times K:
     (g_1, g_2)\longmapsto (\varphi_1(g_1), \varphi_2(g_2))
 \]
-Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
+Mostriamo che $\iota$ è ben definita e che è effettivamente un omomorfismo iniettivo:
 \begin{itemize}
     \item per ogni $(\varphi_1, \varphi_2)\in \Aut(H)\times \Aut(K)$, per ogni
      $(g_1, g_2), (h_1, h_2)\in H\times K$ abbiamo 
@@ -758,7 +761,7 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
      cioè $\varphi_1\times\varphi_2$ è un omomorfismo. Inoltre 
     \[
         \ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
-        (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)\} = \{(0, 0)\}
+        (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)\} = \{(e_H, e_K)\}
     \]
     quindi $\varphi_1\times \varphi_2 \in \Aut(H\times K)$
     in quanto $H\times K$ è finito, pertanto $\iota$ è ben definita;
@@ -777,14 +780,14 @@ Mostriamo che $\iota$ è ben definita e che è un omomorfismo iniettivo:
     omomorfismo;
     \item$\iota$ è iniettiva, infatti \begin{multline*}
         \ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K) \mid
-        \iota(\varphi_1, \varphi_2) = e_{\Aut(H\times K)}\} = \\
+        \iota(\varphi_1, \varphi_2) = id_{\Aut(H\times K)}\} = \\
         = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K)\mid 
         (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)~\forall 
         (g_1, g_2) \in H\times K\}
     \end{multline*} Poiché gli unici elementi $\varphi_1 \in \Aut(H)$,
     $\varphi_2 \in \Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
-    sono rispettivamente $e_{\Aut(H)}$, $e_{\Aut(K)}$ abbiamo \[
-        \ker\iota = \{(e_{\Aut(H)}, e_{\Aut(K)})\} = \{e_{\Aut(H \times K)}\}
+    sono rispettivamente $id_{\Aut(H)}$, $id_{\Aut(K)}$ abbiamo \[
+        \ker\iota = \{(id_{\Aut(H)}, id_{\Aut(K)})\} = \{id_{\Aut(H \times K)}\}
     \] 
 
 \end{itemize}
@@ -1069,6 +1072,13 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     \end{enumerate}
 \end{proof}
 
+\begin{remark}
+    Se $\varphi$ è l'azione di un gruppo $G$ su un insieme $X$, restringendo
+    $\varphi$ all'orbita di un elemento $x \in X$ otteniamo per definizione
+    un'azione transitiva su $\Orb(x)$. Pertanto gli stabilizzatori degli elementi 
+    di $\Orb(x)$ sono tra loro coniugati.
+\end{remark}
+
 \begin{proposition}
     Dato $G$ un gruppo finito e $H \lneq G$ un sottogruppo proprio, se $[G:H] = p$
     con $p$ il più piccolo primo che divide l'ordine di $G$ allora $H$ è normale
@@ -1094,10 +1104,12 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     \[
         \ker\psi = \{g\in G\mid gg'H = g'H~\forall g' \in G\}
     \]
-    indebolendo la condizione di appartenenza otteniamo l'inclusione
+    nel caso particolare $g' = e$ otteniamo l'inclusione
     \[
         \ker\psi \subseteq \{g \in G\mid gH = H\} = H
-    \]Poiché $[G:\ker \psi] = [G : H] = p$ e $G$ è un gruppo finito abbiamo
+    \]
+    in quanto stiamo indebolendo la condizione di appartenenza all'insieme.
+    Poiché $[G:\ker \psi] = [G : H] = p$ e $G$ è un gruppo finito abbiamo
     che effettivamente $\ker\psi = H$, cioè $H$ è normale in $G$.
 \end{proof}
 
@@ -1302,10 +1314,13 @@ se esistono, sottogruppi normali non banali di un gruppo finito.
         \item Consideriamo il nucleo di $\psi$
         \[
             \ker\psi = \{g \in G\mid gg'H = g'H~\forall g' \in G\}
-        \]indebolendo la condizione di appartenenza otteniamo l'inclusione
+        \]
+        nel caso particolare $g' = e$ otteniamo l'inclusione
         \[
             \ker\psi \subseteq \{g \in G \mid gH = H\} = H
-        \]pertanto $\ker\psi \leqslant H$;
+        \]
+        in quanto stiamo indebolendo la condizione di appartenenza all'insieme,
+        pertanto $\ker\psi \leqslant H$;
         \item poiché $\ker\psi \leqslant H$ abbiamo $[G:H]\mid [G:\ker\psi]$, cioè
         $n \mid [G:\ker\psi]$. Dal Primo Teorema di Omomorfismo abbiamo che
         $\faktor{G}{\ker\psi} \cong \mathrm{Im\psi}$, che è un sottogruppo
