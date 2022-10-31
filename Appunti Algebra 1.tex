@@ -252,7 +252,7 @@ in quanto l'unico elemento che commuta con tutti gli altri in $S_3$ è l'identit
 Per quanto detto si ha $\Inn(S_3) \trianglelefteqslant \Aut(S_3)$ e quindi $\Aut(S_3)$ contiene una copia isomorfa di $S_3$ come sottogruppo normale, pertanto,
 se verifichiamo che $|\Aut(S_3)| \leq 6$ abbiamo concluso. Sia $f \in \Aut(S_3)$, $f$ può al più scambiare i $3$ elementi di ordine $2$, d'altra parte, fissate le 
 immagini di $\tau_1,\tau_2,\tau_3$\footnote{Con $\tau_i$ si intendono le trasposizioni che lasciano fisso l'elemento $i$.}, i due 
-$3$-ciclci\footnote{Come si vedrà $S_3 = \left<\tau_1,\tau_2,\tau_3\right>$} sono completamente determinati,
+$3$-cicli\footnote{Come si vedrà $S_3 = \left<\tau_1,\tau_2,\tau_3\right>$} sono completamente determinati,
 ciò significa che si hanno al più $3!$ automorfismi, dunque:
     \[ \Aut(S_3) = \Inn(S_3) \cong S_3 \implies \Aut(S_3) \cong S_3 
         \]
@@ -808,7 +808,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{4}\frac{4!}{4} = 6
             \]
     infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cilci, possiamo scegliere e permutare due coppie di elementi, come 
-    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutanto (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
+    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutano (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
     dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
@@ -1320,7 +1320,7 @@ definitiva e necessita di ulteriori revisioni.}
 \end{theorem}
 
 \begin{theorem}
-    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclci]
+    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclici]
     \label{t:t2}
     Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_s$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
      degli esponenti assicura l'unicità della fattorizzazione.}, per i quali:
@@ -1377,7 +1377,7 @@ Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Grupp
         \Z5 \times \Z5 \times \Z5
     \end{cases}
         \]
-    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quant per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo
+    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quanto per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo
     una fattorizzazione unica come prodotto di gruppi cicli finiti, e per tale fattorizzazione abbiamo $3$ scelte per il $3$-Sylow e $3$ scelte per il $5$-Sylow.
 \end{example}
 
@@ -1464,7 +1464,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             ovvero che il sottogruppo di $G$ finitamente generato da $x_2,\ldots,x_t$ è isomorfo al prodotto diretto dei singoli sottogruppi ciclici generati dai medesimi elementi. Consideriamo di nuovo la proiezione al quoziente modulo $\left<x_1\right>$, ma ristretta ad $H$:
                 \[ \pi_{\mid H} : H \longrightarrow \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> : a_2x_2 + \ldots + a_tx_t \longmapsto (a_2\overline{x_2}, \ldots, a_t\overline{x_t})
                     \]
-            è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettivà si osserva che gli elementi del nucleo sono del tipo:
+            è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
             cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
@@ -1503,7 +1503,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 \end{proof}
 
 \begin{remark}
-    Il \hyperref[l:1.91]{Lemma 1.91} non vale in generale per quozienti qualsisi, ad esempio:
+    Il \hyperref[l:1.91]{Lemma 1.91} non vale in generale per quozienti qualsiasi, ad esempio:
         \[ \faktor{\Z{p^2}}{\left<p\right>} \cong \frac{\Z{p^2}}{\Zp}\cong \Zp
             \]
     e con la proiezione:
@@ -1650,7 +1650,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 dove $|g_iSg_i^{-1}| = |S|$ dunque $g_iSg_i^{-1}$ è un $p$-Sylow ed $H$ di ordine $p^{\alpha}$ è contenuto in un $p$-Sylow. Questo dimostra il punto $(3)$,
                 ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
                 i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
-                Per completare la dimostrazione del punto $(2)$ utilizziamo il risulato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
+                Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
                 sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i sottogruppi di $N_{S}(H)$ che contengono $H$.},
                 $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
                 ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
@@ -1702,9 +1702,9 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \[ |P_2P_3| = \frac{|P_2||P_3|}{|P_2 \cap P_3|} = \frac{4 \cdot 3}{1} = 12
             \]
     inoltre, almeno uno tra $P_2$ e $P_3$ è normale. Se $P_3 \triangleleft G$ allora abbiamo un sottogruppo normale; se $P_3 \ntriangleleft G$, allora osserviamo che, per quanto detto al punto $(4)$
-    del \hyperref[Sylow]{Teorema Di Sylow}, possiamo avere solo che $n_3 = 1,4$, ma non essnedo $P_3$ normale $n_3$ non può essere $1$, dunque $n_3 = 4$;
+    del \hyperref[Sylow]{Teorema Di Sylow}, possiamo avere solo che $n_3 = 1,4$, ma non essendo $P_3$ normale $n_3$ non può essere $1$, dunque $n_3 = 4$;
     da ciò segue che in $G$ ci sono $8$ elementi di ordine $3$\footnote{$4 \cdot 3 - 4 = 8$.} e $4$ elementi di ordine diverso da $4$, che quindi formano 
-    l'unico $2$-Sylow, equivalentemente $n_2 = 1$, e quindi $P_2$ è normale. Osserviamo che suppendo invece $P_2 \ntriangleleft G$, si arriva simmetricamente a concludere
+    l'unico $2$-Sylow, equivalentemente $n_2 = 1$, e quindi $P_2$ è normale. Osserviamo che supponendo invece $P_2 \ntriangleleft G$, si arriva simmetricamente a concludere
     che $P_3 \triangleleft G$, pertanto uno dei due sottogruppi di Sylow è necessariamente normale e in entrambi i casi sono soddisfatte le ipotesi del \hyperref[t:1.78]{Teorema 1.78},
     segue che $G$ è un prodotto semidiretto tra $P_2$ e $P_3$. Studiamo separatamente i due casi.
 \end{example}
@@ -1958,7 +1958,7 @@ Dunque i gruppi di ordine 8 sono:
         \[ x_1 = \cycle{1,3,2,4} \qquad x_2 = \cycle{1,4,2,3} \qquad x_3 = \cycle{1,3,2,4}\cycle{5,6} \qquad x_4 = \cycle{1,4,2,3}\cycle{5,6}
             \]
     abbiamo quindi 4 soluzioni in $S_6$, mentre in $Q_8$ ne avevamo 6, pertanto nemmeno $S_6$ contiene una copia isomorfa di $Q_8$.\\
-    $Q_8$ non si immerge nemmeno in $S_7$ perché i $2$-Sylow di $S_7$ sono ismorfi a quelli di $S_6$, e quindi siamo nello stesso caso di prima. \\
+    $Q_8$ non si immerge nemmeno in $S_7$ perché i $2$-Sylow di $S_7$ sono isomorfi a quelli di $S_6$, e quindi siamo nello stesso caso di prima. \\
     Dunque per esclusione deve essere necessariamente che:
         \[ Q_8 \varlonghookrightarrow S_8 \implies n = 8
             \]
@@ -1971,7 +1971,7 @@ Dunque i gruppi di ordine 8 sono:
     analogamente per $\varphi_j(Q_8)$:
         \[ \cycle{1,j,-1,-j}\cycle{i,-k,-i,k}
             \]
-    e numerando in qualsiasi ordine gli elementi di $Q_8$ possiamo scrivere le permutazioni corrispondeti in $S_8$:
+    e numerando in qualsiasi ordine gli elementi di $Q_8$ possiamo scrivere le permutazioni corrispondenti in $S_8$:
         \[ i \longmapsto \cycle{1,2,3,4}\cycle{5,6,7,8} \qquad j \longmapsto \cycle{1,5,2,6}\cycle{3,8,4,7}
             \]
 \end{soln}
