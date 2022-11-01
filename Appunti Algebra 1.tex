@@ -252,7 +252,7 @@ in quanto l'unico elemento che commuta con tutti gli altri in $S_3$ è l'identit
 Per quanto detto si ha $\Inn(S_3) \trianglelefteqslant \Aut(S_3)$ e quindi $\Aut(S_3)$ contiene una copia isomorfa di $S_3$ come sottogruppo normale, pertanto,
 se verifichiamo che $|\Aut(S_3)| \leq 6$ abbiamo concluso. Sia $f \in \Aut(S_3)$, $f$ può al più scambiare i $3$ elementi di ordine $2$, d'altra parte, fissate le 
 immagini di $\tau_1,\tau_2,\tau_3$\footnote{Con $\tau_i$ si intendono le trasposizioni che lasciano fisso l'elemento $i$.}, i due 
-$3$-ciclci\footnote{Come si vedrà $S_3 = \left<\tau_1,\tau_2,\tau_3\right>$} sono completamente determinati,
+$3$-cicli\footnote{Come si vedrà $S_3 = \left<\tau_1,\tau_2,\tau_3\right>$} sono completamente determinati,
 ciò significa che si hanno al più $3!$ automorfismi, dunque:
     \[ \Aut(S_3) = \Inn(S_3) \cong S_3 \implies \Aut(S_3) \cong S_3 
         \]
@@ -424,20 +424,20 @@ se $|X|<+\infty$ si ha:
 \end{definition}
 
 Abbiamo già osservato che è un'azione (ovvero che $\varphi$ è un omomorfismo). In questo caso:
-    \[ \Orb(x) = \{\varphi_g(x) | g \in G\} = \{ gxg^{-1} | g \in G\} = C_x
+    \[ \Orb(x) = \{\varphi_g(x) | g \in G\} = \{ gxg^{-1} | g \in G\} = \Cl_G(x)
         \]
-dove $C_x$ prende il nome di \vocab{classe di coniugio} di $x$. Mentre:
+dove $\Cl_G(x)$ prende il nome di \vocab{classe di coniugio} di $x$. Mentre:
     \[ \St(x) = \{g \in G | \varphi_g(x) = gxg^{-1} = x\} = Z_G(x)
         \]
 dove $Z_G(x)$ si dice \vocab{centralizzatore} di $x$. Per quanto detto in precedenza si ha:
-    \[ |G| = |C_x||Z_G(x)|
+    \[ |G| = |\Cl_G(x)||Z_G(x)|
         \]
-In particolare $|C_x| \mid |G|$ e :
-    \[ |G| = \sum_{x \in \mathcal{R}} |C_x| = \sum_{x \in \mathcal{R}} \frac{|G|}{|Z_G(x)|}
+In particolare $|\Cl_G(x)| \mid |G|$ e :
+    \[ |G| = \sum_{x \in \mathcal{R}} |\Cl_G(x)| = \sum_{x \in \mathcal{R}} \frac{|G|}{|Z_G(x)|}
         \]
 
 \begin{remark}
-    $C_x$ è un sottoinsieme, non un sottogruppo di $G$, poiché non c'è mai l'identità.
+    $\Cl_G(x)$ è un sottoinsieme, non un sottogruppo di $G$, poiché non c'è mai l'identità.
 \end{remark}
 
 \begin{remark}
@@ -451,13 +451,14 @@ In particolare $|C_x| \mid |G|$ e :
 
     \[ |G| = \sum_{x \in Z(G)} \frac{|G|}{|Z_G(x)|} + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}
         \]
-ma, per quanto detto, se $x \in Z(G)$, allora $\displaystyle\frac{|G|}{|Z_G(x)|} = |C_x| = \{x\}$, segue dunque la relazione:
+ma, per quanto detto, se $x \in Z(G)$, allora $\displaystyle\frac{|G|}{|Z_G(x)|} = |\Cl_G(x)| = \{x\}$, segue dunque la relazione:
     \[ \colorboxed{red}{|G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}}
         \]
 che prende il nome di \vocab{formula delle classi} (di coniugio).
 
 \newpage
 \subsection{Applicazioni ai $p$-gruppi}
+\label{pgruppi}
 \begin{definition}
     Si definisce \vocab{$p$-gruppo} un gruppo di ordine $p^n$, con $p$ primo e $n \geq 1$.
 \end{definition}
@@ -559,6 +560,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 \subsection{Teorema di Cayley}
 
 \begin{theorem}
+    [Teorema di Cayley]
     \label{p:Cayley}
     Ogni gruppo è isomorfo ad un sottogruppo di un gruppo di permutazioni. In particolare, se $|G| = n$, allora 
     $G$ è isomorfo a un sottogruppo di $S_n$.
@@ -806,7 +808,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{4}\frac{4!}{4} = 6
             \]
     infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cilci, possiamo scegliere e permutare due coppie di elementi, come 
-    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutanto (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
+    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutano (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
     dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
@@ -1318,7 +1320,7 @@ definitiva e necessita di ulteriori revisioni.}
 \end{theorem}
 
 \begin{theorem}
-    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclci]
+    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclici]
     \label{t:t2}
     Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_s$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
      degli esponenti assicura l'unicità della fattorizzazione.}, per i quali:
@@ -1375,7 +1377,7 @@ Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Grupp
         \Z5 \times \Z5 \times \Z5
     \end{cases}
         \]
-    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quant per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo
+    Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quanto per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo
     una fattorizzazione unica come prodotto di gruppi cicli finiti, e per tale fattorizzazione abbiamo $3$ scelte per il $3$-Sylow e $3$ scelte per il $5$-Sylow.
 \end{example}
 
@@ -1462,7 +1464,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             ovvero che il sottogruppo di $G$ finitamente generato da $x_2,\ldots,x_t$ è isomorfo al prodotto diretto dei singoli sottogruppi ciclici generati dai medesimi elementi. Consideriamo di nuovo la proiezione al quoziente modulo $\left<x_1\right>$, ma ristretta ad $H$:
                 \[ \pi_{\mid H} : H \longrightarrow \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> : a_2x_2 + \ldots + a_tx_t \longmapsto (a_2\overline{x_2}, \ldots, a_t\overline{x_t})
                     \]
-            è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettivà si osserva che gli elementi del nucleo sono del tipo:
+            è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
             cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
@@ -1501,7 +1503,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 \end{proof}
 
 \begin{remark}
-    Il \hyperref[l:1.91]{Lemma 1.91} non vale in generale per quozienti qualsisi, ad esempio:
+    Il \hyperref[l:1.91]{Lemma 1.91} non vale in generale per quozienti qualsiasi, ad esempio:
         \[ \faktor{\Z{p^2}}{\left<p\right>} \cong \frac{\Z{p^2}}{\Zp}\cong \Zp
             \]
     e con la proiezione:
@@ -1648,7 +1650,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 dove $|g_iSg_i^{-1}| = |S|$ dunque $g_iSg_i^{-1}$ è un $p$-Sylow ed $H$ di ordine $p^{\alpha}$ è contenuto in un $p$-Sylow. Questo dimostra il punto $(3)$,
                 ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
                 i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
-                Per completare la dimostrazione del punto $(2)$ utilizziamo il risulato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
+                Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
                 sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i sottogruppi di $N_{S}(H)$ che contengono $H$.},
                 $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
                 ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
@@ -1691,6 +1693,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
 \begin{proof}
     
 \end{proof}
+\nopagebreak 
 
 \begin{example}
     [Classificazione dei gruppi di ordine $12$]
@@ -1699,13 +1702,13 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \[ |P_2P_3| = \frac{|P_2||P_3|}{|P_2 \cap P_3|} = \frac{4 \cdot 3}{1} = 12
             \]
     inoltre, almeno uno tra $P_2$ e $P_3$ è normale. Se $P_3 \triangleleft G$ allora abbiamo un sottogruppo normale; se $P_3 \ntriangleleft G$, allora osserviamo che, per quanto detto al punto $(4)$
-    del \hyperref[Sylow]{Teorema Di Sylow}, possiamo avere solo che $n_3 = 1,4$, ma non essnedo $P_3$ normale $n_3$ non può essere $1$, dunque $n_3 = 4$;
+    del \hyperref[Sylow]{Teorema Di Sylow}, possiamo avere solo che $n_3 = 1,4$, ma non essendo $P_3$ normale $n_3$ non può essere $1$, dunque $n_3 = 4$;
     da ciò segue che in $G$ ci sono $8$ elementi di ordine $3$\footnote{$4 \cdot 3 - 4 = 8$.} e $4$ elementi di ordine diverso da $4$, che quindi formano 
-    l'unico $2$-Sylow, equivalentemente $n_2 = 1$, e quindi $P_2$ è normale. Osserviamo che suppendo invece $P_2 \ntriangleleft G$, si arriva simmetricamente a concludere
+    l'unico $2$-Sylow, equivalentemente $n_2 = 1$, e quindi $P_2$ è normale. Osserviamo che supponendo invece $P_2 \ntriangleleft G$, si arriva simmetricamente a concludere
     che $P_3 \triangleleft G$, pertanto uno dei due sottogruppi di Sylow è necessariamente normale e in entrambi i casi sono soddisfatte le ipotesi del \hyperref[t:1.78]{Teorema 1.78},
     segue che $G$ è un prodotto semidiretto tra $P_2$ e $P_3$. Studiamo separatamente i due casi.
 \end{example}
-    
+\nopagebreak 
 \begin{example}[$G \cong P_2 \rtimes_{\varphi} P_3$]
     Se $P_2 \triangleleft G$, allora $G \cong P_2 \rtimes_{\varphi} P_3$. $P_2$ ha ordine $4$, dunque è $\Z{4}$ o $\Z{2} \times \Z{2}$, mentre $P_3$ è necessariamente $\Z{3}$; nel primo caso abbiamo:
                 \[ \Z{4} \rtimes_{\varphi} \Z{3} \qquad \text{con} \qquad \varphi : \Z{3} \longrightarrow \Aut(\Z{4}) \cong \Z{2}
@@ -1731,7 +1734,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
             $\color{LimeGreen!90!black}{\mathcal{A}_4}$
         \end{center}
 \end{example}
-\nopagebreak
+\nopagebreak 
+
 \begin{example}[$G \cong P_3 \rtimes_{\varphi} P_2$]
     Se $P_3 \triangleleft G$, allora $G \cong P_3 \rtimes_{\varphi} P_2$. Analogamente a quanto visto prima $P_2$ ha ordine $4$, dunque è $\Z{4}$ o $\Z{2} \times \Z{2}$, e $P_3$ è $\Z{3}$.
     Il primo prodotto che abbiamo è:
@@ -1768,8 +1772,269 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
 \end{example}
 
 Abbiamo qundi classificato tutti i gruppi di ordine 12:
-    \[ \color{LimeGreen!90!black}{\Z{12},\Z{2} \times \Z{6}, A_4, \Z{3} \rtimes_{\varphi} \Z{4}, D_6}
+    \[ \color{LimeGreen!90!black}{\Z{12} \qquad \Z{2} \times \Z{6} \qquad \mathcal{A}_4 \qquad \Z{3} \rtimes_{\varphi} \Z{4} \qquad D_6}
         \]
+
+\newpage
+\subsection{Gruppo dei Quaternioni}
+
+\begin{definition}
+    Si definisce gruppo dei \vocab{quaternioni} il gruppo con la seguente presentazione:
+        \[ Q_8 = \left<i,j | i^4 = 1, i^2 = j^2, ij = j^3i\right>
+            \]
+\end{definition}
+
+\begin{remark}[Ordini di $i$ e $j$]
+    Osserviamo che $\ord(i) = 4$, per la definizione che ne abbiamo dato, da ciò si ricava che, essendo $j^2 = i^2$,
+    allora $j^4 = 1 \implies \ord(j) \mid 4$, ciò unito al fatto che:
+        \[ \ord(j^2) = \frac{\ord(j)}{(2,\ord(j))} = \ord(i^2) = 2
+            \]
+    implica che $\ord(j) = 4$. Dunque abbiamo due gruppi ciclci di ordine $4$, $\left<i\right>$ e $\left<j\right>$, con
+    $\left<i\right> \cap \left<j\right> = \{1,i^2 = j^2\}$.
+\end{remark}
+
+Dalla presentazione del gruppo, sappiamo che $Q_8 = \left<i\right>\left<j\right>$ dunque possiamo stabilire l'ordine:
+    \[ |Q_8| = |\left<i\right>\left<j\right>| = \frac{|\left<i\right>||\left<j\right>|}{|\left<i\right> \cap \left<j\right>|} = \frac{4 \cdot 4 }{2} = 8
+        \]
+quindi il gruppo dei quaternioni ha $8$ elementi, dati da:
+    \[ Q_8 = \{1, i, j, i^2 = j^2, i^3, j^3, ij, i^3j\}
+        \]
+
+\begin{remark}
+    $Q_8$ non è abeliano perché:
+        \[ ij = j^3i = j^{-1}i \ne ji
+            \]
+\end{remark}
+
+\begin{remark}
+    Osserviamo che $\left<i\right>,\left<j\right> \triangleleft Q_8$ perché hanno indice $2$, inoltre $\left<i^2\right>, \left<j^2\right> \triangleleft Q_8$ (per verifica diretta). 
+\end{remark}
+
+Ricordando che un sottogruppo di ordine $2$ è normale se e solo se è un sottogruppo di $Z(G)$ \footnote{Infatti, preso $H = \{e,h\} \trianglelefteqslant G$, allora $gHg^{-1} = H$, $\forall g \in G$, ovvero $ghg^{-1} \in H \iff ghg^{-1} = h \iff
+gh = hg$, $\forall g \in G$, dunque $h \in Z(G)$ (nel caso in cui $ghg^{-1} = e$, allora $h = e$, e ovviamente appartiene al centro), pertanto $H \leqslant Z(G)$.}, possiamo osservare che:
+
+\begin{remark}
+    $\left<i^2\right> = Z(Q_8)$, infatti, per quanto detto si deve avere che $\left<i^2\right> \leqslant  Z(Q_8)$, inoltre $Q_8$ è un $p$-gruppo non abeliano, ed
+    essendo $|Q_8| = p^3$ segue che:
+        \[ |Z(Q_8)| = \begin{cases}
+                        1 & \text{assurdo per quanto detto sui \hyperref[pgruppi]{p-gruppi}} \\
+                        p \\
+                        p^2 & \text{ma allora $Q_8/Z(Q_8)$ ciclico $\implies Q_8$ abeliano} \\
+                        p^3 & \text{$\implies Z(Q_8) = Q_8$, assurdo}
+                    \end{cases}
+        \]
+      ovvero $|Z(Q_8)|=2$ e quindi è proprio $\left<i^2\right>$.
+\end{remark}
+
+Posto convenzionalmente $ij = k$, gli elementi si possono riscrivere anche come:
+    \[ Q_8 = \left\{\pm 1, \pm i, \pm j, \pm k\right\}
+        \]
+con $i^2 = -1$, $i^3 = -i$, $j^3 = -j$, $i^3j = -k$.
+
+\begin{remark}
+    [Prodotto in $Q_8$]
+    I prodotti tra gli elementi di $Q_8$ seguono il $3$-ciclo:
+    \[  \begin{tikzpicture}[->,scale=.7] 
+        \foreach \a/\t in {90/i,-30/j,210/k}{
+          \node (\t) at (\a:1cm) {$\t$};
+          \draw (\a-20:1cm)  arc (\a-20:\a-100:1cm);
+        } 
+        \end{tikzpicture}
+    \]
+    che percorso in senso orario ci dà i prodotti:
+    \[ ij = k \qquad jk = i \qquad ki = j
+        \]
+    ed in senso antiorario:
+    \[ ji = -k \qquad ik = -j \qquad kj = -i
+        \]
+    Le operazioni fatte in questo modo sono equivalenti a quelle che si ottengono con le regole di commutazione della presentazione, ad esempio:
+        \[ k^2 = (ij)^2 = ijij = ijj^3i = i^2 
+            \]
+\end{remark}
+
+\begin{remark}
+    [Ordine degli elementi]
+    Dunque in $Q_8$ 1 ha ordine 1, $-1$ ha ordine 2, mentre $i$, $-i$, $j$, $-j$, $k$, $-k$ hanno ordine 4.   
+\end{remark}
+
+Abbiamo visto che $Q_8$ è un gruppo di ordine $8$ non è abeliano, e per quanto detto $Q_8 \cong D_4$,
+poiché ha $Q_8$ ha sei elementi di ordine 4, mentre $D_4$ ne ha soltanto uno. \\
+
+\begin{remark}
+    [Sottogruppi di $Q_8$]
+    Per quanto riguarda i sottogruppi di $Q_8$ osserviamo in primis che $\left<-1\right> = Z(Q_8)$ ed è caratteristico (perché è il centro oppure perché è l'unico sottogruppo di ordine $2$);
+    $\left<i\right>$, $\left<j\right>$, $\left<k\right>$ sono sottogruppi di ordine 4, dunque sono normali. Abbiamo quindi dimostrato che tutti i sottogruppi (includendo ovviamente quelli banali) di $Q_8$ sono normali.
+\end{remark}
+
+Concludiamo la discussione su $Q_8$ osservando che non può essere prodotto semidiretto di due suoi sottogruppi, infatti $\forall H_1,H_2 \leqslant Q_8$ si ha $H_1 \cap H_2 \ne \{1\}$, infatti, l'intersezione 
+contiene sempre il sottogruppo $\{1,-1\}$.
+
+\begin{exercise}
+    Dimostrare che $Q_8 \varlonghookrightarrow GL_2(\CC)$.
+\end{exercise}
+
+\begin{soln}
+\end{soln}
+
+\newpage
+A questo punto siamo pronti per classificare tutti i gruppi di ordine 8:
+
+\begin{example}
+    [Classificazione dei gruppi di ordine $8$]
+    Distinguiamo innanzitutto i gruppi in base all'abelianità:
+    \begin{itemize}
+        \item Se $G$ è abeliano, allora per il nel \hyperref[t:struttura]{Teorema di Struttura} abbiamo che $G \cong G(2)$ e per la $2$-componente abbiamo le seguenti possibilità:
+            \begin{center}
+                $\color{LimeGreen!90!black}{\Z{8} \qquad \Z{4} \times \Z{2} \qquad \Z{2} \times \Z{2} \times \Z{2}}$
+            \end{center}
+        \item Se $G$ non è abeliano, allora ha almeno un elemento di ordine 4 (se avesse tutti elementi di ordine 2 sarebbe isomorfo a $(\Z{2})^3$), sia $a \in G$ tale che 
+            $\ord(a) = 4$, allora $\left<a\right> \triangleleft G$ e:
+                \[ \faktor{G}{\left<a\right>} = \{\left<a\right>, b\left<a\right>\} \qquad b \in G\setminus{\left<a\right>}
+                    \]
+            dove deve essere $b^2\left<a\right> = \left<a\right>$, infatti se fosse $b^2\left<a\right> = b\left<a\right> \implies b\left<a\right> = \left<a\right> \implies b \in \left<a\right>$, che è assurdo, dunque:
+                \[ b^2\left<a\right> = \left<a\right> \implies b^2 \in \{e,a,a^2,a^3\}
+                    \]
+            ma non può essere che $b^2 = a,a^3$, altrimenti $b$ avrebbe ordine 8, dunque rimangono soltanto i casi $b^2 = 1$ e $b^2 = a^2$.
+            \begin{enumerate}[(1)]
+                \item Se $a^4 = 1$ e $b^2 = 1$, allora $G = \{1,a,a^2,a^3,b,ba,ba^2,ba^3\}$ da cui (si verificano facilmente le ipotesi del \hyperref[t:1.78]{Teorema 1.78}) segue:
+                      \[ G \cong \left<a\right> \rtimes_{\varphi} \left<b\right> \cong \color{LimeGreen!90!black}{D_4}
+                    \]
+                    dove $\varphi : \left<b\right> \longmapsto \Aut(\left<a\right>) \cong \Z{2} : b \longmapsto \varphi_b$ e $\varphi_b : \left<a\right> \longmapsto \left<a\right> : a \longmapsto a^{-1}$ 
+                    (ovvero $\varphi_b = -id$, se avessimo scelto l'identità avremmo ottenuto uno dei prodotti diretti già visti sopra).
+                \item Se $a^4 = 1$ e $b^2 = a^2$, osserviamo che $bab^{-1} \in \left<a\right>$ (essendo il generato da $a$ normale in $G$), inoltre non può essere che $bab^{-1} = 1$ (altrimenti $a = 1$) o $bab^{-1} = a^2$ (poiché il coniugio conserva l'ordine degli elementi) e non 
+                    piò nemmeno essere che $bab^{-1} = a$ (poiché abbiamo supposto che $G$ non sia commutativo). Pertanto abbiamo necessariamente $bab^{-1} = a^3 \iff ba = a^3b$, da cui segue:
+                        \[ G \cong \color{LimeGreen!90!black}{Q_8}
+                            \]
+                    dove l'isomorfismo manda $a \longmapsto i$ e $b \longmapsto j$.
+            \end{enumerate}
+    \end{itemize}
+\end{example}
+
+Dunque i gruppi di ordine 8 sono:
+    \[ \color{LimeGreen!90!black}{\Z{8} \qquad \Z{4} \times \Z{2} \qquad \Z{2} \times \Z{2} \times \Z{2} \qquad D_4 \qquad Q_8}
+        \]
+
+\newpage
+\begin{exercise}
+    Determinare il minimo $n$ tale che $Q_8 \varlonghookrightarrow S_n$.
+\end{exercise}
+
+\begin{soln}
+    Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $S_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
+        \[ S_4,S_5,S_6,S_7,S_8
+            \]
+    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $S_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondete permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
+    ed in particolare $D_4$ è un $2$-Sylow di $S_4$, ma ciò significa che $Q_8$ non è in $S_4$, poiché non è un coniugato di $D_4$. \\
+    Si ragiona in maniera analoga per $S_5$, infatti $|S_5| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset S_4 \subset S_5$, dunque i due $2$-Sylow di $S_4$ sono isomorfi a quelli di $S_5$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
+    Sia $|S_6| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $S_6$, osserviamo che se fosse $Q_8 \varlonghookrightarrow S_6$, dovremmo avere:
+        \[ i \longmapsto \sigma \qquad j \longmapsto \rho \qquad k \longmapsto \sigma\rho = \eta
+            \]
+    con $\ord(\sigma) = \ord(\rho) = 4$ e $\sigma^2 = \rho^2 = \eta^2$, dove $\ord(\sigma^2) = \ord(\rho^2) = \ord(\eta^2) = 2$. Osserviamo che le permutazioni di ordine $4$ in $S_6$ possono essere soltanto $4$-cicli o 4-cicli uniti a 2-cilci, mentre
+    le permutazioni di ordine 2 sono prodotto di trasposizioni (al più tre, essendo in $S_6$).
+
+    \begin{remark}
+        Osserviamo che una permutazione è un quadrato se e solo se i cicli di lunghezza pari compaiono a coppie. Infatti:
+            \begin{itemize}
+                \item Se $\eta$ è un $k$-ciclo, con $k$ dispari, $\eta$ è un quadrato di un $k$-ciclo, ovvero:
+                        \[ \eta = \eta^{k+1} = \left(\eta^{\frac{k+1}{2}}\right)^2
+                            \]
+                Se $\eta$ è un $k$-ciclo, con $k$ pari, allora si verifica che:
+                        \[ \cycle{a_1,\ldots,a_k}\cycle{b_1,\ldots,b_k} = \cycle{a_1,b_1,\ldots,a_k,b_k}^2
+                            \]
+                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_2}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
+            \end{itemize}
+        Ad esempio, in $S_6$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
+            \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,2,3}\cycle{4,5,6}\right)^2
+                \]
+        mentre in $S_4$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
+            \[ \cycle{1,2}\cycle{3,4} = (\cycle{1,4,2,3})^2 = (\cycle{1,3,2,4})^2
+                \]
+    \end{remark}
+    Dunque il fatto che $\sigma^2 = \rho^2 = \eta^2$ hanno ordine $2$ (quindi sono fatte da sole trasposizioni) e che sono quadrati (quindi i cicli di lunghezza pari compaiono a coppie),
+    ci dice che le trasposizioni sono prodotti di un numero pari di trasposizioni, pertanto l'unica possibilità è che:
+        \[ \sigma^2 = \rho^2 = \eta^2 = \cycle{a,b}\cycle{c,d}
+            \]
+    Risolvendo $x^2 = \cycle{1,2}\cycle{3,4}$, otteniamo:
+        \[ x_1 = \cycle{1,3,2,4} \qquad x_2 = \cycle{1,4,2,3} \qquad x_3 = \cycle{1,3,2,4}\cycle{5,6} \qquad x_4 = \cycle{1,4,2,3}\cycle{5,6}
+            \]
+    abbiamo quindi 4 soluzioni in $S_6$, mentre in $Q_8$ ne avevamo 6, pertanto nemmeno $S_6$ contiene una copia isomorfa di $Q_8$.\\
+    $Q_8$ non si immerge nemmeno in $S_7$ perché i $2$-Sylow di $S_7$ sono isomorfi a quelli di $S_6$, e quindi siamo nello stesso caso di prima. \\
+    Dunque per esclusione deve essere necessariamente che:
+        \[ Q_8 \varlonghookrightarrow S_8 \implies n = 8
+            \]
+    Per \hyperref[p:Cayley]{Cayley} l'immersione è di $Q_8$ in $S(Q_8)$, dunque la mappa che realizza ciò è data da:
+        \[ i \longmapsto \varphi_i \qquad \text{con} \qquad \varphi_i : Q_8 \longrightarrow Q_8 : x \longmapsto ix
+            \]
+    in particolare con la notazione dei cicli abbiamo che l'immagine di $\varphi_i$ di $Q_8$ è data da:
+        \[ \cycle{1,i,-1,i}\cycle{j,k,-j,-k}
+            \]
+    analogamente per $\varphi_j(Q_8)$:
+        \[ \cycle{1,j,-1,-j}\cycle{i,-k,-i,k}
+            \]
+    e numerando in qualsiasi ordine gli elementi di $Q_8$ possiamo scrivere le permutazioni corrispondenti in $S_8$:
+        \[ i \longmapsto \cycle{1,2,3,4}\cycle{5,6,7,8} \qquad j \longmapsto \cycle{1,5,2,6}\cycle{3,8,4,7}
+            \]
+\end{soln}
+
+\begin{example}
+    [Classificazione dei gruppi di ordine 30]
+    Osserviamo che $|G| = 2 \cdot 3 \cdot 5$ e distinguiamo due casi:
+    \begin{itemize}
+        \item Se $G$ è abeliano, allora per il \hyperref[t:struttura]{Teorema di Struttura} $G \cong G(2) \times G(3) \times G(5)$, dunque l'unica possibilità è che il gruppo sia ciclico:
+            \begin{center}
+                $G \cong \color{LimeGreen!90!black}{\Z{2} \times \Z{3} \times \Z{5} \cong \Z{30}}$
+            \end{center}
+        \item Se $G$ non è abeliano, osserviamo che (in generale) $30 = 2d$, con $d$ dispari, dunque $G$ ha un sottogruppo di ordine 15, che è normale in quanto ha indice 2 ed è ciclco, in quanto è un gruppo di ordine $pq$
+            con $p \nmid q-1$, pertanto $G$ contiene una copia isomorfa di $\Z{15}$. Per \hyperref[p:Cauchy]{Cauchy} esiste un elemento di ordine $2$ e quindi anche una copia isomorfa a $\Z{2}$ in $G$ (in particolare potevamo prendere
+            direttamente il $2$-Sylow), dunque i due gruppi verificano le ipotesi del \hyperref[t:1.78]{Teorema 1.78}, da cui: \footnote{La direzione del prodotto semidiretto è data dal fatto che $\Z{15}$ è l'unico normale tra i due sottogruppi.}
+                \[ G \cong \Z{15} \rtimes_{\varphi} \Z{2}
+                    \]
+            con:
+                \[ \varphi : \Z{2} \longrightarrow \Aut(\Z{15}) \cong \Z{15}^* \cong \Z{3}^* \times \Z{5}^* \cong \Z{2} \times \Z{4}
+                    \]
+            dove abbiamo che $[1]_2 \longmapsto \varphi_y$, e adottando la notazione moltiplicativa, $\varphi_y : \Z{15} \longmapsto \Z{15} : \ol{x} \longmapsto \ol{x}^l$, abbiamo 
+            $\ord(\varphi_y) \mid 2$, dunque ci sono due possibilità, o $\varphi_y = id$ (quindi $l = 1$), o $\varphi_y^2 = id \implies \varphi_y^2(x) = (x^l)^l = x^{l^2} = x$, da cui segue (essendo $x$ un generatore di $\Z{15}$):
+                \[ l^2 \equiv 1 \pmod{15} \implies x\equiv \pm 1, \pm 4 \pmod{15}
+                    \]
+            Dunque, per $l = 1$ otteniamo il prodotto diretto già trovato sopra, per gli altri tre possibili $l$ invece otteniamo 3 gruppi non isomorfi di ordine $30$, infatti, per $l = -1$, abbiamo:
+                \[ \varphi_y(x) = x^{-1} \iff yxy^{-1} = x^{-1} \implies \Z{15} \rtimes_{\varphi} \Z{2} \cong  \color{LimeGreen!90!black}{D_{15}}
+                    \]
+            Per $l = 4$ invece si ottiene $\color{LimeGreen!90!black}{D_5 \times \Z{3}}$ e per $l = -4$ si ottiene $\color{LimeGreen!90!black}{D_3 \times \Z{5}}$ \footnote{Andrebbe aggiunto il perché ma non è chiarissimo dalle note della Del Corso.}, i quali sono gruppi non isomorfi, ad esempio perché hanno centri diversi:
+                \[ Z(D_{15}) = \left<id\right> \qquad Z(D_5 \times \Z{3}) = Z(D_5) \times Z(\Z{3}) \cong \Z{3} \]
+                \[ Z(D_3 \times \Z{5}) \cong \Z{5}
+                    \]
+    \end{itemize}
+\end{example}
+I gruppi di ordine 30 sono quindi:
+    \begin{center}
+        $\color{LimeGreen!90!black}{\Z{30} \qquad D_{15} \qquad D_5 \times \Z{3} \qquad D_3 \times \Z{5}}$
+    \end{center}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \end{document}
