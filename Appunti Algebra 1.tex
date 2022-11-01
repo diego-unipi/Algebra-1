@@ -1028,6 +1028,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \end{proof}
 
 \begin{theorem}
+    [Decomposizione in prodotto diretto]
     \label{t:1.72}
     Sia $G$ un gruppo e siano $H,K \trianglelefteqslant G$ tali che:
         \begin{enumerate}[(1)]
@@ -1129,13 +1130,14 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \end{remark}
 
 \begin{theorem}
+    [Decomposizione in prodotto semidiretto]
     \label{t:1.78}
     Sia $G$ un gruppo e siano $H,K \leqslant G$, con $H \trianglelefteqslant G$, tali che:
         \begin{enumerate}[(1)]
             \item $HK = G$.
             \item $H \cap K = \{e\}$. 
         \end{enumerate}
-    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : h \longmapsto khk^{-1}$.
+    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : H \longmapsto H : h \longmapsto khk^{-1}$.
 \end{theorem}
 
 \begin{proof}
@@ -1247,7 +1249,7 @@ quindi $\ord \varphi_y \mid (p,q-1)$. Distinguiamo due casi:
     \begin{itemize}
         \item Se $p \nmid q-1$, si ha che $\ord \varphi_y \mid 1 \implies \varphi_y = id$, dunque l'unico automorfismo possibile di $\Z{q}$ è l'identità, pertanto si ha un prodotto diretto tra $\Z{p}$ e
             $\Z{q}$ e quindi esiste ed è unico il gruppo di ordine $pq$, $\Z{pq}$.  
-        \item Se $p \mid q-1$, allora o $\ord \varphi_y = 1$ e quindi ancora $\varphi_y = id$; oppure $\varphi_y = p$, e poiché ci sono $p-1$ elementi di ordine $p$ in $\Z{(q-1)}$, abbiamo $p-1$
+        \item Se $p \mid q-1$, allora o $\ord \varphi_y = 1$ e quindi ancora $\varphi_y = id$; oppure $\ord \varphi_y = p$, e poiché ci sono $p-1$ elementi di ordine $p$ in $\Z{(q-1)}$, abbiamo $p-1$
             scelte per $\varphi_y$ che danno un prodotto semidiretto.
     \end{itemize}
 Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\overline l)$ e:
@@ -1305,13 +1307,13 @@ definitiva e necessita di ulteriori revisioni.}
                 \[ \ord(xy) \mid [\ord(x),\ord(y)] \qquad \forall x,y \in G
                     \]
                 quindi se $x$ ed $y$ hanno per ordine una potenza di $p$, anche il prodotto ha per ordine una potenza di $p$, quindi $xy \in G(p)$, ed essendo 
-                $G$ finito allora $G(p)$ è un sottogruppo. \footnote{Si osserva che i $p$-sottogruppi di Sylow sono $p$-gruppi.}
+                $G$ finito allora $G(p)$ è un sottogruppo. \footnote{Si osserva che le $p$-componenti sono $p$-gruppi.}
             \item $G(p)$ è un sottogruppo caratteristico di $G$ (ciò segue dal fatto che gli automorfismi conservano l'ordine degli elementi, e quindi $G(p)$ viene mandato in $G(p)$).
         \end{itemize}
 \end{remark}
 
 \begin{theorem}
-    [I gruppi abeliani sono prodotti loro delle $p$-componenti]
+    [I gruppi abeliani sono prodotto loro delle $p$-componenti]
     \label{t:t1}
     Sia $G$ un gruppo abeliano, con $|G| = n = p_1^{e_1}\ldots p_s^{e_s}$, con i primi $p_i \ne p_j$, $\forall i \ne j$, allora:
         \[ G \cong G(p_1) \times \ldots \times G(p_s)
@@ -1320,7 +1322,7 @@ definitiva e necessita di ulteriori revisioni.}
 \end{theorem}
 
 \begin{theorem}
-    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclici]
+    [I $p$-gruppi si spezzano come prodotto di $p$-gruppi ciclici]
     \label{t:t2}
     Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_s$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
      degli esponenti assicura l'unicità della fattorizzazione.}, per i quali:
@@ -1336,10 +1338,10 @@ Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Grupp
     \underline{\textbf{Esistenza}}: Dato il gruppo $G$, abeliano e finito, per il \hyperref[t:t1]{Teorema 1.87} si ha:
         \[ G \cong G(p_1) \times \ldots \times G(p_s)
             \]
-    possiamo applicare il \hyperref[t:t2]{Teorema 1.88} ad ognuno dei fattori $G(p_i)$ ed ottere:
+    possiamo applicare il \hyperref[t:t2]{Teorema 1.88} ad ognuno dei fattori $G(p_i)$ ed ottenere:
         \begin{multline*}
             G \cong G(p_1) \times \ldots \times G(p_s) \cong \\
-            \cong (\Z{p_1^{r_{1_1}}} \times \ldots \Z{p_1^{r_{1_{t_1}}}}) \times \ldots \times (\Z{p_s^{r_{s_1}}} \times \ldots \Z{p_s^{r_{s_{t_r}}}})
+            \cong (\Z{p_1^{r_{1_1}}} \times \ldots \Z{p_1^{r_{1_{t_1}}}}) \times \ldots \times (\Z{p_s^{r_{s_1}}} \times \ldots \Z{p_s^{r_{s_{t_s}}}})
         \end{multline*}
     con $r_{i_1} \geq \ldots \geq r_{i_{t_i}}$. Per il Teorema Cinese del Resto possiamo rimettere assieme i termini formati da primi distinti in modo da mantenere la relazione di divisibilità (e quindi unicità)
     richiesta dal teorema:
@@ -1378,7 +1380,7 @@ Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Grupp
     \end{cases}
         \]
     Dunque i gruppi abeliani di ordine $1000$ (a meno di isomorfismo) sono $3\cdot 3 = 9$, in quanto per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo
-    una fattorizzazione unica come prodotto di gruppi cicli finiti, e per tale fattorizzazione abbiamo $3$ scelte per il $3$-Sylow e $3$ scelte per il $5$-Sylow.
+    una fattorizzazione unica come prodotto di gruppi cicli finiti, e per tale fattorizzazione abbiamo $3$ scelte per la $2$-componente e $3$ scelte per la $5$-componente.
 \end{example}
 
 Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
@@ -1388,13 +1390,13 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     la tesi vera $\forall m : 2 \leq m < n$, possiamo scrivere $n = m m^{\prime}$ con $(m,m^{\prime}) = 1$ e $m,m^{\prime} < n$, allora (in notazione additiva) vogliamo verificare che:
         \[ G \cong mG \times m^{\prime}G
             \]
-        È facile verificacare che $mG,m^{\prime}G < G$ (basta verificare la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si verifica inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
+        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
             \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \qquad \forall g \in G \implies G \subseteq mG + m^{\prime}G
                 \]
         il contrario è ovvio, dunque:
             \[ mG + m^{\prime}G = G
                 \]
-        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mx = nx = 0$ e $mx = mm^{\prime}x = nx = 0$, dunque:
+        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = nx = 0$ e $mx = mm^{\prime}x = nx = 0$, dunque:
             \[ \ord(x) \mid m \qquad \text e \qquad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
                 \]
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
