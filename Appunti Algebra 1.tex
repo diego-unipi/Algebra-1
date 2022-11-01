@@ -1028,6 +1028,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \end{proof}
 
 \begin{theorem}
+    [Decomposizione in prodotto diretto]
     \label{t:1.72}
     Sia $G$ un gruppo e siano $H,K \trianglelefteqslant G$ tali che:
         \begin{enumerate}[(1)]
@@ -1129,13 +1130,14 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \end{remark}
 
 \begin{theorem}
+    [Decomposizione in prodotto semidiretto]
     \label{t:1.78}
     Sia $G$ un gruppo e siano $H,K \leqslant G$, con $H \trianglelefteqslant G$, tali che:
         \begin{enumerate}[(1)]
             \item $HK = G$.
             \item $H \cap K = \{e\}$. 
         \end{enumerate}
-    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : h \longmapsto khk^{-1}$.
+    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : H \longmapsto H : h \longmapsto khk^{-1}$.
 \end{theorem}
 
 \begin{proof}
@@ -1311,7 +1313,7 @@ definitiva e necessita di ulteriori revisioni.}
 \end{remark}
 
 \begin{theorem}
-    [I gruppi abeliani sono prodotti loro delle $p$-componenti]
+    [I gruppi abeliani sono prodotto loro delle $p$-componenti]
     \label{t:t1}
     Sia $G$ un gruppo abeliano, con $|G| = n = p_1^{e_1}\ldots p_s^{e_s}$, con i primi $p_i \ne p_j$, $\forall i \ne j$, allora:
         \[ G \cong G(p_1) \times \ldots \times G(p_s)
@@ -1320,7 +1322,7 @@ definitiva e necessita di ulteriori revisioni.}
 \end{theorem}
 
 \begin{theorem}
-    [I $p$-gruppi si spezzano come prodotti di $p$-gruppi ciclici]
+    [I $p$-gruppi si spezzano come prodotto di $p$-gruppi ciclici]
     \label{t:t2}
     Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_s$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
      degli esponenti assicura l'unicità della fattorizzazione.}, per i quali:
