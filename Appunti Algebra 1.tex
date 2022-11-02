@@ -1396,7 +1396,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
         il contrario è ovvio, dunque:
             \[ mG + m^{\prime}G = G
                 \]
-        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = nx = 0$ e $mx = mm^{\prime}x = nx = 0$, dunque:
+        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = nx = 0$ e $mx = mm^{\prime}g^{\prime} = nx = 0$, dunque:
             \[ \ord(x) \mid m \qquad \text e \qquad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
                 \]
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
@@ -1436,8 +1436,8 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     Sappiamo che $\pi(y) = \pi(x) = \overline x$, allora $p^r = \ord(\pi(y)) = \ord(\overline x) \mid \ord(y)$ (per le proprietà di omomorfismo), scegliamo $y$ (cioè $a$) in modo che:
         \[ 0 = p^ry = p^rx + p^rax_1 \iff p^rx = -p^rax_1 
             \]
-    dove $\ord(\overline x) = p^r \implies p^rx \in \left<x_1\right> \implies p^xr = bx_1$, tuttavia, dato che $x_1$ ha ordine massimo $p^{r_1}$, deve essere che $r \leq r_1$, ma:
-        \[ 0 = p^{r_1}x = p^{r_1-4}p^rx = p^{r_1 - r}bx_1
+    dove $\ord(\overline x) = p^r \implies p^rx \in \left<x_1\right> \implies p^rx = bx_1$, tuttavia, dato che $x_1$ ha ordine massimo $p^{r_1}$, deve essere che $r \leq r_1$, ma:
+        \[ 0 = p^{r_1}x = p^{r_1 - r}p^rx = p^{r_1 - r}bx_1
             \]  
     ma $\ord(x_1) = p^{r_1} \implies p^r \mid b \implies b = p^rb_1$. Scegliendo $a = -b_1$ si ha:
         \[ p^ry = p^rx - p^rb_1x_1 = bx_1 - \underbrace{p^rb_1}_{= b}x_1 = 0
@@ -1450,9 +1450,9 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 
 \begin{proof}
     \underline{\textbf{Esistenza}}: Sia $G$ un $p$-gruppo, $|G| = p^n$, proviamo la tesi per induzione su $n$. Per $n = 1$ si ha che $|G| = p \implies G \cong \Zp$, e quindi la tesi è verificata.
-    Supponiamo la tesi vera per $1 \leq m <n$ e proviamola per $n$; sia $x_1 \in G$ un elemento di ordine massimo, $\ord(x) = p^{r_1}$:
+    Supponiamo la tesi vera per $1 \leq m <n$ e proviamola per $n$; sia $x_1 \in G$ un elemento di ordine massimo, $\ord(x_1) = p^{r_1}$:
     \begin{itemize}
-        \item Se $r_1 = n$, allora $G$ è ciclo $\implies G \cong \Z{p^n}$.z
+        \item Se $r_1 = n$, allora $G$ è ciclo $\implies G \cong \Z{p^n}$.
         \item Se $r_1 < n$, poiché $G$ è abeliano si ha $\left<x_1\right> \triangleleft G$, quindi possiamo considerare $\faktor{G}{\left<x_1\right>}$ che ha ordine $p^{n-r_1} < p^n$, dunque vale l'ipotesi induttiva ed il gruppo quoziente può essere fattorizzato come prodotto di gruppi ciclici:
             \[ \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \footnote{Dunque si ha $|\left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>| = p^{n - r_1}$.}
                 \]
@@ -1472,7 +1472,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
-            Dove l'ultimo isomorfismo dervia dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
+            Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
             Mostriamo che $G \cong \left<x_1\right> \times H (\cong \left<x_2\right> \times \ldots \times \left<x_t\right>)$ e per farlo verifichiamo che le ipotesi del \hyperref[t:1.72]{Teorema 1.72} siano soddisfatte. \\
             Per mostrare che l'intersezione è banale, consideriamo un elemento in quest'ultima, ovvero un elemento che può essere scritto come:
                 \[ a_1x_1 = a_2x_2 + \ldots + a_tx_t
@@ -1482,7 +1482,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
                     \]
             in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_1}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
             anche nel gruppo di partenza $a_i = 0$ e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
-            Per mostrare che $\left<x_1\right> + H = G$, osserviamo che $\left<x_1\right> + H = G \subseteq G$ e che la sua cardinalità è:
+            Per mostrare che $\left<x_1\right> + H = G$, osserviamo che $\left<x_1\right> + H \subseteq G$ e che la sua cardinalità è:
                 \[ |\left<x_1\right> + H| = \frac{|\left<x_1\right>||H|}{|\left<x_1\right> \cap H|} = \frac{p^{r_1}\cdot p^{n - r_1}}{1} = p^n
                     \]
             Le ipotesi sono soddisfatte e quindi $G \cong \left<x_1\right> \times H \cong \left<x_1\right> \times \ldots \times \left<x_t\right>$.
@@ -1579,8 +1579,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
 \end{proof}
 
 \begin{definition}
-    Dato $G$ un gruppo finito e $p$ un primo, tali che $|G| = p^nm$, con $p^n \pdiv |G|$ e $n \geq 1$ e $(m,p) = 1$, allora un sottogruppo di $G$ di ordine $p^n$ prende il nome di 
-    \vocab{$p$-sottogruppo di Sylow} (\vocab{$p$-Sylow}).\footnote{I $p$-sottogruppi di Sylow possono anche essere pensati come $p$-sottogruppi di ordine massimale.}
+    Dato $G$ un gruppo finito e $p$ un primo, tali che $|G| = p^nm$, con $p^n \pdiv |G|$\footnote{Il simbolo $\pdiv$ indica la divisibilità esatta, ovvero $p^n$ è la massima potenza di $p$ che divide $|G|$.} 
+    e $n \geq 1$ e $(m,p) = 1$, allora un sottogruppo di $G$ di ordine $p^n$ prende il nome di \vocab{$p$-sottogruppo di Sylow} (\vocab{$p$-Sylow}).\footnote{I $p$-sottogruppi di Sylow possono anche essere pensati come $p$-sottogruppi di ordine massimale.}
 \end{definition}
 
 \newpage
@@ -1596,7 +1596,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 ogni $p$-sottogruppo è contenuto in un $p$-sottogruppo di Sylow. {\color{orange}(Inclusione)}
             \item Due qualunque $p$-sottogruppi di Sylow di $G$ sono coniugati (quindi tutti i $p$-sottogruppi di ordine massimale sono isomorfi). {\color{orange}(Coniugio)}
             \item Sia $n_p$ il numero di $p$-sottogruppi di Sylow di $G$, allora: {\color{orange}(Numero)}
-                \[ n_p \mid |G| \qquad \text{e} \qquad n_p \equiv 1 \pmod p \qquad \text e \qquad n_p = [G : N_G(S)]
+                \[ n_p \mid |G| \qquad \text{e} \qquad n_p \equiv 1 \pmod p \qquad \text e \qquad n_p = [G : N_G(S)] \footnote{Con $S$ ci si riferisce a un qualsiasi $p$-Sylow, per un $p$ fissato.}
                     \]
         \end{enumerate}
 \end{theorem}
@@ -2011,6 +2011,8 @@ I gruppi di ordine 30 sono quindi:
     \begin{center}
         $\color{LimeGreen!90!black}{\Z{30} \qquad D_{15} \qquad D_5 \times \Z{3} \qquad D_3 \times \Z{5}}$
     \end{center}
+    
+
 
 
 
