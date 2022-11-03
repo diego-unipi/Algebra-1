@@ -807,7 +807,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
     e ragionando analogamente per i $3$-cicli e i $4$-cicli si ottiene:
         \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{4}\frac{4!}{4} = 6
             \]
-    infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cilci, possiamo scegliere e permutare due coppie di elementi, come 
+    infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cicli, possiamo scegliere e permutare due coppie di elementi, come 
     nei casi precedenti, tuttavia, essendo i cicli disgiunti commutano (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
     dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
@@ -825,7 +825,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
     Per quanto detto risulta semplice ad esempio calcolare:
         \[ \#\{\sigma \in S_{20} | \text{$\sigma$ si fattorizza in cicli del tipo $2+2+2+4+5+5$}\}
             \]
-    applicando quanto detto nell'osservazione pretendente si trovano:
+    applicando quanto detto nell'osservazione precedente si trovano:
         \[ \frac{\binom{20}{2}\binom{18}{2}\binom{16}{2}1!1!1!}{3!} \cdot \binom{14}{4}3! \cdot \frac{\binom{10}{5}\binom{5}{5}4!4!}{2!}
             \]
 \end{example}
@@ -1925,13 +1925,13 @@ Dunque i gruppi di ordine 8 sono:
     Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $S_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
         \[ S_4,S_5,S_6,S_7,S_8
             \]
-    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $S_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondete permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
+    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $S_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
     ed in particolare $D_4$ è un $2$-Sylow di $S_4$, ma ciò significa che $Q_8$ non è in $S_4$, poiché non è un coniugato di $D_4$. \\
     Si ragiona in maniera analoga per $S_5$, infatti $|S_5| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset S_4 \subset S_5$, dunque i due $2$-Sylow di $S_4$ sono isomorfi a quelli di $S_5$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
     Sia $|S_6| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $S_6$, osserviamo che se fosse $Q_8 \varlonghookrightarrow S_6$, dovremmo avere:
         \[ i \longmapsto \sigma \qquad j \longmapsto \rho \qquad k \longmapsto \sigma\rho = \eta
             \]
-    con $\ord(\sigma) = \ord(\rho) = 4$ e $\sigma^2 = \rho^2 = \eta^2$, dove $\ord(\sigma^2) = \ord(\rho^2) = \ord(\eta^2) = 2$. Osserviamo che le permutazioni di ordine $4$ in $S_6$ possono essere soltanto $4$-cicli o 4-cicli uniti a 2-cilci, mentre
+    con $\ord(\sigma) = \ord(\rho) = 4$ e $\sigma^2 = \rho^2 = \eta^2$, dove $\ord(\sigma^2) = \ord(\rho^2) = \ord(\eta^2) = 2$. Osserviamo che le permutazioni di ordine $4$ in $S_6$ possono essere soltanto $4$-cicli o 4-cicli uniti a 2-cicli, mentre
     le permutazioni di ordine 2 sono prodotto di trasposizioni (al più tre, essendo in $S_6$).
 
     \begin{remark}
