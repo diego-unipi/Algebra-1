@@ -281,7 +281,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
         sr^i = sr^j \iff r^i = r^j\iff i \equiv j \pmod n
     \] pertanto anche questi sono $n$
     elementi distinti. Poiché gli insiemi $\mathcal{R}$ e 
-    $\{sr^h\mid h \in \ZZ\}$ sono disgiunti (\hyperref[obs1.0]{Osservazione 3.6}) 
+    $\{sr^h\mid h \in \ZZ\}$ sono disgiunti (\hyperref[obs1.0]{Osservazione 1.11}) 
     abbiamo $|D_n| = 2n$.
 \end{proof}
 
@@ -453,7 +453,7 @@ tutti distinti.
     è l'unico sottogruppo di $\mathcal{R}$ di tale ordine ($\mathcal{R}$ è ciclico),
     pertanto $\langle r^k\rangle$
     è caratteristico in $\mathcal{R}$. Poiché $\mathcal{R}$ è un sottogruppo
-    normale di $D_n$, per il \hyperref[lemma1.0]{Lemma 2.15}
+    normale di $D_n$, per il \hyperref[lemma1.0]{Lemma 1.20}
     abbiamo $\langle r^k\rangle\trianglelefteqslant D_n$.
 \end{proof}
 
@@ -706,7 +706,7 @@ Alternativamente possiamo considerare $(\Z2)^2$ come spazio vettoriale su $\FF_2
 pertanto abbiamo 
 \[
     \Aut(D_2) \cong GL_2(\FF_2)
-\]Per quanto visto nella sezione \hyperref[aut sp vet]{(2)}, $GL_2(\FF_2)$ 
+\]Per quanto visto nella sezione \hyperref[aut sp vet]{(1.2)}, $GL_2(\FF_2)$ 
 contiene $(4 - 1)(4 - 2) = 6$ elementi, inoltre $GL_2$ non è un gruppo 
 commutativo (con l'operazione di prodotto tra matrici), pertanto $GL_2(\FF_2) \cong S_3$.
 In particolare, gli elementi di $GL_2(\FF_2)$ sono:
@@ -1067,7 +1067,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
         \[
             |\Orb(x_0)| = \frac{|G|}{|\St(x_0)|} = 1
         \]ma questo è assurdo in quanto $\Orb(x_0) = X$ per la transitività di 
-        $\varphi$ e $|X|\geqslant 2$. Allora per il \hyperref[lemma2.0]{Lemma 6.2}
+        $\varphi$ e $|X|\geqslant 2$. Allora per il \hyperref[lemma2.0]{Lemma 1.40}
         abbiamo 
         \[
             G \neq \bigcup_{h \in G}h\St(x_0)h^{-1}
@@ -1403,7 +1403,7 @@ i suoi sottogruppi abeliani massimali.
     \[
         \psi : G\longrightarrow S_n :\sigma \longmapsto \sigma
     \]
-    poiché $G$ è transitivo, per la \hyperref[prop1.0]{Proposizione 6.3}
+    poiché $G$ è transitivo, per la \hyperref[prop1.0]{Proposizione 1.41}
     gli stabilizzatori degli elementi di $\{1, \ldots, n\}$ sono tra loro coniugati.
     D'altra parte, poiché lo stabilizzatore è un sottogruppo di $G$, che
     è un gruppo abeliano, la restrizione del coniugio agli
@@ -1517,10 +1517,10 @@ i suoi sottogruppi abeliani massimali.
     D'altra parte
     \[
         3m = \sum_{i = 1}^k|\Omega_i|
-    \]pertanto per il \hyperref[lemma4.0]{Lemma 7.4} abbiamo $|G| \leq 3^m$, 
+    \]pertanto per il \hyperref[lemma4.0]{Lemma 1.55} abbiamo $|G| \leq 3^m$, 
     ma questa è effettivamente un'uguaglianza in quanto $S_n$ contiene
     almeno un sottogruppo abeliano di ordine $3^m$ e $G$ ha ordine massimo.
-    Sempre per il \hyperref[lemma4.0]{Lemma 7.4} allora $k = m$ e $|\Omega_i| = 3$
+    Sempre per il \hyperref[lemma4.0]{Lemma 1.55} allora $k = m$ e $|\Omega_i| = 3$
     per ogni $i \in \{1, \ldots, k\}$. Abbiamo quindi che $\varphi$ è un isomorfismo
     e che $G_1\times\ldots\times G_k$ è isomorfo a $(\Z3)^k$, pertanto
     $G$ è isomorfo a $(\Z3)^k$.
@@ -1531,7 +1531,7 @@ i suoi sottogruppi abeliani massimali.
     \[
         3m + 2 = \sum_{i = 1}^k a_i
     \]
-    ragionando come nella dimostrazione del \hyperref[lemma4.0]{Lemma 7.4}
+    ragionando come nella dimostrazione del \hyperref[lemma4.0]{Lemma 1.55}
     possiamo scrivere
     \[
         3m + 2 = 2 + \sum_{i = 1}^{k - 1}a_i
@@ -1572,7 +1572,7 @@ i suoi sottogruppi abeliani massimali.
     I sottogruppi di $S_n$ di questo tipo sono tutti coniugati tra loro, infatti
     se 
     \[
-        G = \langle\cycle{x_1, x_2, x_3}\rangle\cdot\ldots\cdot\langle\cycle{x_{n - 2}, x_{n - 1}, x_n}
+        G = \langle\cycle{x_1, x_2, x_3}\rangle\cdot\ldots\cdot\langle\cycle{x_{n - 2}, x_{n - 1}, x_n}\rangle
     \]
     \[
         G' = \langle\cycle{y_1, y_2, y_3}\rangle\cdot\ldots\cdot\langle\cycle{y_{n - 2}, y_{n - 1}, y_n}\rangle
@@ -1581,7 +1581,7 @@ i suoi sottogruppi abeliani massimali.
     supponiamo $n = 3m$, gli altri due casi si studiano in modo analogo)
     consideriamo $\sigma \in S_n$ tale che $\sigma(y_i) = x_i$ per ogni 
     $i \in \{1, \ldots, n\}$, è sufficiente mostrare che i generatori delle componenti del
-    prodotto sono tra loro coniugate. Infatti, per il \hyperref[lemma5.0]{Lemma 7.5}
+    prodotto sono tra loro coniugate. Infatti, per il \hyperref[lemma5.0]{Lemma 1.56}
     abbiamo 
     \[
         \sigma\cycle{x_i, x_{i + 1}, x_{i + 2}}\sigma^{-1} = 
@@ -1602,7 +1602,7 @@ e $Z_{\mathcal{A}_n}(\sigma) = Z_{S_n}(\sigma) \cap \mathcal{A}_n$, abbiamo
     |\Cl_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
     \frac 1 2 \frac{|S_n|}{|Z_{S_n}(\sigma) \cap \mathcal{A}_n|}
 \]
-Dato che $[S_n:\mathcal{A}_n] = 2$, per la \hyperref[prop2.0]{Proposizione 6.10}
+Dato che $[S_n:\mathcal{A}_n] = 2$, per la \hyperref[prop2.0]{Proposizione 1.49}
 abbiamo $[Z_{S_n}(\sigma):Z_{S_n}(\sigma) \cap \mathcal{A}_n] \in \{1, 2\}$,
 distinguiamo quindi due casi:
 \begin{itemize}
@@ -1820,12 +1820,12 @@ Diamo adesso una dimostrazione alternativa della semplicità di $\mathcal{A}_5$.
     Consideriamo un sottogruppo normale $N\trianglelefteqslant \mathcal{A}_5$.
     Distinguiamo tre casi:
     \begin{itemize}
-        \item se $2 \mid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma7.11}
+        \item se $2 \mid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma 1.62}
         $N$ contiene tutti gli elementi di 
         $\mathcal{A}_5$ di ordine $2$, cioè le permutazioni della forma $\cycle{a, b}\cycle{c, d}$
         con $a\neq b$ e $c \neq d$, da cui $N = \mathcal{A}_5$ in quanto contiene 
         un suo insieme di generatori;
-        \item se $3\nmid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma7.11}
+        \item se $3\nmid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma 1.62}
         $N$ contiene tutti gli elementi di 
         $\mathcal{A}_5$ di ordine 3, cioè i 3-cicli, da cui $N = \mathcal{A}_5$
         in quanto contiene un suo insieme di generatori;
@@ -1844,7 +1844,7 @@ In effetti vale un risultato più generale
 
 \begin{proof}
     Procediamo per induzione su $n$, per $n = 5$ la tesi è garantita dalla 
-    \hyperref[prop3.0]{Proposizione 7.10}, supponiamo quindi che $\mathcal{A}_n$
+    \hyperref[prop3.0]{Proposizione 1.61}, supponiamo quindi che $\mathcal{A}_n$
     sia un gruppo semplice e mostriamo che anche $\mathcal{A}_{n + 1}$ lo è.
     Consideriamo un sottogruppo normale $N \trianglelefteqslant \mathcal{A}_{n + 1}$
     e i sottogruppi 
@@ -1863,7 +1863,7 @@ In effetti vale un risultato più generale
     la permutazione pari $\rho =\nolinebreak \cycle{i, j}\cycle{h, k}$, con $\cycle{i, j}$
     disgiunta da $\cycle{h, k}$, è tale che $\rho(i) = j$. Per costruzione 
     vale $\St(i) = H_i$ per ogni $i \in \{1, \ldots, n + 1\}$, pertanto
-    per la \hyperref[prop1.0]{Proposizione 6.3} abbiamo che gli $H_i$ sono 
+    per la \hyperref[prop1.0]{Proposizione 1.41} abbiamo che gli $H_i$ sono 
     tutti coniugati.\newline
     Fissato $i \in \{1, \ldots, n + 1\}$, consideriamo $N \cap H_i$: questo
     è un sottogruppo normale di $H_i$, infatti per ogni $h \in H_i$ si ha 
@@ -1917,7 +1917,7 @@ In effetti vale un risultato più generale
         \]
         d'altra parte $a_1$ è un punto fisso per $\rho$, che è assurdo;
         \item se $k > 1$ e $l > 2$, poiché $\sigma_1^{-1}$ è un $l$-ciclo
-        disgiunto da $\sigma_2, \ldots, sigma_k$ la permutazione 
+        disgiunto da $\sigma_2, \ldots, \sigma_k$ la permutazione 
         $\rho = \sigma^{-1}\sigma_2\ldots\sigma_k$ è un elemento di $N$. 
         Consideriamo $\alpha = \rho\sigma \in N$, osserviamo che 
         \[
@@ -1928,7 +1928,7 @@ In effetti vale un risultato più generale
         \item se $k > 1$ e $l = 2$, scriviamo $\sigma$ come prodotto di $k$
         trasposizioni disgiunte
         \[
-            \sigma = \cycle{a_1, b_1}\cycle{a_k, b_k}
+            \sigma = \cycle{a_1, b_1}\ldots\cycle{a_k, b_k}
         \]
         Consideriamo la permutazione pari $\tau = \cycle{a_1, a_2, b_1}$,
         poiché $N$ è normale in $\mathcal{A}_{n + 1}$ contiene
@@ -2277,9 +2277,119 @@ casi.
 Rimangono da studiare i gruppi di ordine $60$, vogliamo dimostrare che 
 $\mathcal{A}_5$ è l'unico sottogruppo semplice di tale ordine (a meno di isomorfismo).
 
+\begin{lemma}
+    $\mathcal{A}_5$ contiene esattamente 5 2-Sylow.
+\end{lemma}
+
+\begin{proof}
+    Sia $X$ l'insieme dei 2-Sylow di $\mathcal{A}_5$, consideriamo l'azione
+    di coniugio di $\mathcal{A}_5$ su $X$
+    \[
+        \varphi: \mathcal{A}_5\longrightarrow S(X)
+    \]
+    poiché i 2-Sylow di $\mathcal{A}_5$ sono tutti coniugati e $\mathcal{A}_5$
+    è semplice tale azione è transitiva, in particolare $X$ è composto da 
+    un'unica orbita. Fissato $P$ un 2-Sylow abbiamo
+    \[
+        n_2 = |\Orb(P)| = \frac{|\mathcal{A}_5|}{|N_{\mathcal{A}_5}(P)|}
+    \]
+    Scegliamo $P = \{id, \cycle{1, 2}\cycle{3, 4}, \cycle{1, 3}\cycle{2, 4},
+    \cycle{1, 4}\cycle{2, 3}\}$ una copia di $V_4$ in $\mathcal{A}_5$,
+    il normalizzatore di $P$ in $\mathcal{A}_5$ contiene necessariamente 
+    il sottogruppo 
+    \[
+        \St(5) = \{\sigma \in \mathcal{A}_5\mid \sigma(5) = 5\} \cong \mathcal{A}_4\footnote{
+        Qua stiamo considerando l'azione naturale di $\mathcal{A}_5$ 
+        sull'insieme $\{1, 2, 3, 4, 5\}$.}
+    \]
+    in quanto $V_4$ è un sottogruppo normale di $\mathcal{A}_4$, quindi 
+    $|N_{\mathcal{A}_5}(P)| \in \{12, 60\}$. D'altra parte $|N_{\mathcal{A}_5}(P)| \neq 60$,
+    altrimenti $\mathcal{A}_5$ conterrebbe un unico 2-Sylow, che sarebbe quindi
+    un sottogruppo normale non banale, che è assurdo in quanto $\mathcal{A}_5$
+    è semplice. Allora $|N_{\mathcal{A}_5}(P)| = 12$, cioè $n_2 = 5$.
+\end{proof}
+
 \begin{proposition}
     Se $G$ è un gruppo semplice di ordine $60$ allora è isomorfo a $\mathcal{A}_5$.
 \end{proposition}
+
+\begin{proof}
+    Dalle condizioni
+    \[
+        \begin{cases}
+            n_2 \equiv 1 \pmod 2\\
+            n_2 \mid 60
+        \end{cases}
+        \quad
+        \begin{cases}
+            n_3 \equiv 1 \pmod 3\\
+            n_3 \mid 60
+        \end{cases}
+        \quad
+        \begin{cases}
+            n_5 \equiv 1 \pmod 5\\
+            n_5 \mid 60
+        \end{cases}
+    \]
+    otteniamo $n_2 \in \{1, 3, 5, 15\}$, $n_3 = \{1, 4, 10\}$, $n_5 = \{1, 6\}$.
+    Poiché $G$ è semplice, $n_2$, $n_3$ e $n_5$ sono tutti diversi da 1,
+    altrimenti $G$ conterrebbe un sottogruppo caratteristico, quindi normale,
+    non banale. Distinguiamo tre casi:
+    \begin{itemize}
+        \item supponiamo per assurdo $n_2 = 3$, posto $X$ l'insieme dei 2-Sylow di $G$
+        consideriamo l'azione di coniugio di $G$ su $X$
+        \[
+            \varphi: G \longrightarrow S(X) \cong S_3
+        \]
+        poiché i 2-Sylow sono tutti coniugati e $G$ è semplice tale azione è 
+        transitiva, pertanto $\ker\varphi \neq G$. Allora $\ker\varphi = \{e\}$ 
+        in quanto $\ker\varphi\triangleleft G$,
+        ma questo è assurdo dato che $|G| > |S_3|$;
+        \item supponiamo $n_2 = 5$, posto $X$ l'insieme dei 2-Sylow di $G$
+        consideriamo l'azione di coniugio di $G$ su $X$
+        \[
+            \varphi: G \longrightarrow S(X) \cong S_5
+        \]
+        argomentando come sopra si ha che tale azione è transitiva, pertanto
+        $\ker\varphi \neq G$. Allora $\ker\varphi = \{e\}$ in quanto 
+        $\ker\varphi \triangleleft G$, cioè $\varphi$ è un omomorfismo iniettivo
+        e $G$ è isomorfo a un sottogruppo $H\leqslant S_5$ di indice 2. Consideriamo
+        l'intersezione $H \cap \mathcal{A}_5$, per la \hyperref[prop2.0]{Proposizione 1.49}
+        allora $[\mathcal{A}_5:H\cap\mathcal{A}_5] \in \{1, 2\}$. D'altra parte
+        se fosse 2 allora $H\cap\mathcal{A}_5$ sarebbe un sottogruppo normale di $\mathcal{A}_5$
+        non banale, che è assurdo, pertanto l'indice di $H$ è 1, cioè $H = \mathcal{A}_5$.
+        Quindi $G$ è isomorfo a $\mathcal{A}_5$;
+        \item supponiamo per assurdo $n_2 = 15$, notiamo che due 2-Sylow distinti
+        di $G$ si intersecano banalmente 
+        o in un sottogruppo isomorfo a $\Z2$\footnote{
+            Questo perché la massima potenza di 2 che divide 60 è 4, pertanto
+            un 2-Sylow di $G$ è isomorfo a $\Z4$ oppure a $\Z2\times \Z2$.
+        }. Se tutti i 2-Sylow di $G$ si intersecassero banalmente allora la 
+        loro unione conterrebbe $1 + 3\cdot 15 = 46$ elementi, poiché l'unione dei
+        5-Sylow di $G$ contribuisce con $4\cdot 6 = 24$ elementi di ordine 5,
+        ma allora $G$ non conterrebbe elementi di ordine 3, che è assurdo.
+        Siano quindi $S_1$ e $S_2$ 2-Sylow distinti di $G$ tali che 
+        $H = S_1\cap S_2 \cong \Z2$, consideriamo il normalizzatore $N_G(H)$.
+        Osserviamo che $S_1$ e $S_2$ sono sottogruppi di $N_G(H)$ in quanto, essendo
+        abeliani, $H$ è un sottogruppo normale di entrambi, pertanto $|N_G(H)| > 4$.
+        D'altra parte poiché tale ordine deve dividere 60 abbiamo 
+        $|N_G(H)| \in \{12, 20\}$, infatti se fosse uguale a 60 $H$ sarebbe un 
+        sottogruppo normale non banale di $G$, che non è possibile in quanto $G$
+        è semplice. Inoltre $|N_G(H)| \neq 20$ in quanto si avrebbe $[G:N_G(H)] = 3$,
+        allora per il \hyperref[teorema3.0]{Teorema 1.50} $G$ conterrebbe
+        un sottogruppo normale proprio di ordine al più $3!$, che è assurdo.
+        Abbiamo quindi $|N_G(H)| = 12$, consideriamo l'azione di 
+        moltiplicazione a sinistra di $G$ sull'insieme quoziente $\faktor G H$
+        \[
+            \varphi : G\longrightarrow S\left(\faktor G H\right)\cong S_5
+        \]
+        argomentando come sopra si ha che tale azione è transitiva, pertanto
+        $\ker\varphi \neq G$. Allora $\ker\varphi = \{e\}$ in quanto 
+        $\ker\varphi\triangleleft G$, cioè $\varphi$ è un omomorfismo iniettivo
+        e si mostra come sopra che $G \cong \mathcal{A}_5$, ma questo è assurdo 
+        in quanto $\mathcal{A}_5$ contiene 5 2-Sylow.
+    \end{itemize}
+\end{proof}
 
 
 
