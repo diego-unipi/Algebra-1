@@ -997,7 +997,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     Siano $G$ un gruppo e $X$ un insieme, un'azione \[
         \varphi:G\longrightarrow S(X) :g \longmapsto \varphi_g
     \]si dice \vocab{transitiva} se per ogni $x, y \in X$ esiste $g \in G$
-    tale che $\varphi_g(x) = y$, equivalentemente se $\Orb(x) = G$ per ogni 
+    tale che $\varphi_g(x) = y$, equivalentemente se $\Orb(x) = X$ per ogni 
     $x \in X$. Diciamo anche che G \vocab{agisce transitivamente} su $X$ 
     tramite $\varphi$.
 \end{definition}
@@ -1958,6 +1958,139 @@ In effetti vale un risultato più generale
     $\langle X \rangle = \mathcal{A}_n$ in quanto diverso da $\{id\}$.
 \end{proof}
 
+
+\subsubsection{Sottogruppi normali di $S_n$}
+
+\begin{lemma}
+    \label{lemma7.0}
+    Per $n \geq 3$ il centro di $S_n$ è banale, cioè $Z(S_n) = \{id\}$.
+\end{lemma}
+
+\begin{proof}
+    Sia $\sigma \in Z(S_n) \setminus \{id\}$, allora esistono distinti 
+    $x, y \in \{1, \ldots, n\}$ tali che $\sigma(x) = y$. Fissiamo 
+    $z \in \{1, \ldots, n\}\setminus \{x, y\}$ e consideriamo la permutazione
+    $\tau = \cycle{y, z}$, abbiamo
+    \[
+        (\tau\sigma)(x) = z \quad (\sigma\tau)(x) = y
+    \]
+    che è assurdo in quanto $y \neq z$. Pertanto $Z(S_n) = \{id\}$.
+\end{proof}
+
+\begin{proposition}
+    Per $n\geq 5$, gli unici sottogruppi normali di $S_n$ sono $\{id\}$,
+    $\mathcal{A}_n$ e $S_n$.
+\end{proposition}
+
+\begin{proof}
+    Sia $N$ un sottogruppo normale di $S_n$, consideriamo $K= N \cap \mathcal{A}_n$.
+    $K$ è normale in $\mathcal{A}_n$, pertanto $K = \{id\}$ oppure $K = \mathcal{A}_n$,
+    distinguiamo 2 casi:
+    \begin{itemize}
+        \item se $K = \mathcal{A}_n$ allora $\mathcal{A}_n \leqslant N$: per il
+        Teorema di Corrispondenza i sottogruppi di $S_n$ contententi $\mathcal{A}_n$
+        sono in bigezione con i sottogruppi di $\faktor{S_n}{\mathcal{A}_n}\cong \Z2$,
+        pertanto $N = \mathcal{A}_n$ oppure $N = S_n$;
+        \item se $K = \{id\}$, poiché $[S_n:\mathcal{A}_n] = 2$ per la 
+        \hyperref[prop2.0]{Proposizione 1.49} vale $[N:K] \in \{1, 2\}$, 
+        da cui $|N| \leq 2$. Se $|N| = 1$ allora $N = \{id\}$, se $|N| = 2$
+        consideriamo l'azione di coniugio di $S_n$ su $N$
+        \[
+            \varphi: N_{S_n}(N)\longrightarrow Aut(N): g \longmapsto \varphi_g
+        \]
+        dove $\varphi_g$ è la mappa
+        \[
+            \varphi_g:H \longrightarrow H :h \longmapsto ghg^{-1}
+        \]
+        il nucleo di $\varphi$ coincide con $Z_{S_n}(N)$. Per il Primo Teorema
+        di Omomorfismo allora abbiamo un omomorfismo iniettivo
+        \[
+            \psi :\frac{N_{S_n}(N)}{Z_{S_n}(N)}\longhookrightarrow \Aut(N)
+        \]
+        Poiché $|N| = 2$ abbiamo $N \cong \Z2$, pertanto $\Aut(N) = \{id\}$. 
+        Dato che $N_{S_n}(N) = S_n$ per la normalità di $N$ questo implica che
+        sia $Z_{S_n}(N) = S_n$, cioè che $N \subseteq Z(S_n)$, ma questo è assurdo
+        in quanto $Z(S_n) = \{id\}$.
+    \end{itemize}
+\end{proof}
+
+
+\subsubsection{Sottogruppi isomorfi a $S_{n - 1}$}\footnote{
+    Non sono sicuro di essere stato chiarissimo in questa sezione, se ci 
+    sono dei passi che ritenete poco comprensibili fatemelo sapere :)
+}
+
+Abbiamo osservato più volte che $S_{n - 1}$ si immerge naturalmente in $S_n$,
+vediamo adesso un risultato che generalizza questo fatto ad alcuni sottogruppi di 
+$S_n$.
+
+\begin{proposition}
+    Dato un sottogruppo $H\leqslant S_n$ con $n \geq 5$, se $[S_n : H] = n$ allora $H$ è 
+    isomorfo a $S_{n - 1}$.
+\end{proposition}
+
+\begin{proof}
+    Consideriamo l'azione di moltiplicazione a sinistra di $S_n$ sull'insieme
+    quoziente $\faktor{S_n}{H}$:
+    \[
+        \varphi: S_n\longrightarrow S\left(\faktor{S_n}{H}\right) \cong S_n
+    \]
+    tale azione è transitiva in quanto per ogni $\sigma, \rho \in S_n$ vale
+    \[
+        \varphi(\sigma\rho^{-1})(\rho H) = \sigma \rho\rho^{-1}H = \sigma H
+    \]
+    in particolare $\ker \varphi \neq S_n$. Poiché $\ker\varphi \trianglelefteqslant S_n$
+    allora il nucleo di $\varphi$ è banale oppure è $\mathcal{A}_n$. D'altra 
+    parte se fosse $\ker \varphi = \mathcal{A}_n$ avremmo $|\mathrm{Im}\varphi| = 2$,
+    pertanto l'orbita di ogni elemento di $\faktor{S_n}{H}$ contiene al più 
+    due elementi, ma questo è assurdo in quanto per la transitività di $\varphi$
+    si ha $\Orb(\rho H) = \faktor{S_n}{H}$ per ogni $\rho \in S_n$, che contiene almeno $5$ elementi.
+    Pertanto $\ker\varphi = \{id\}$, cioè $\varphi$ è un omomorfismo iniettivo e
+    in particolare un isomorfismo.
+    Notiamo che $H$ è lo stabilizzatore della classe $H$, infatti
+    \[
+        \St(H) = \{\sigma \in S_n \mid \sigma H = H\} = \{\sigma \in H\} = H
+    \]
+    pertanto $\varphi(H)$ è lo stabilizzatore di un elemento di $\faktor{S_n}{H}$
+    per l'azione naturale di $S\left(\faktor{S_n}{H}\right)$ su $\faktor{S_n}{H}$.
+    Tramite la corrispondenza tra $\faktor{S_n}{H}$ e $\{1, \ldots, n\}$
+    possiamo identificare $\varphi(H)$ con le permutazioni di $S_n$ che fissano
+    un elemento di $\{1, \ldots, n\}$, che a loro volta costituiscono un 
+    gruppo isomorfo a $S_{n - 1}$, pertanto $H \cong S_{n - 1}$.
+\end{proof}
+
+Utilizzando il seguente teorema (di cui non diamo la dimostrazione) possiamo
+dire qualcosa di più forte nei casi $n \neq 2$ e $n \neq 6$.
+
+\begin{theorem}
+    Per $n \notin \{2, 6\}$ i gruppi $S_n$ e $\Aut(S_n)$ sono isomorfi, e 
+    l'isomorfismo è dato dall'azione di coniugio
+    \[
+        \varphi: S_n \longrightarrow \Aut(S_n): \sigma \longmapsto \varphi_{\sigma}
+    \]
+\end{theorem}
+
+\begin{remark}
+    In particolare gli automorfismo di $S_n$ sono tutti interni nei casi $n \notin \{2, 6\}$,
+    cioè sono coniugi per elementi di $S_n$
+\end{remark}
+
+Con le stesse notazioni di sopra chiamiamo $\varphi'$ l'isomorfismo tra
+$S\left(\faktor{S_n}{H}\right)$ e $S_n$, componendo $\varphi'$ con $\varphi$ 
+otteniamo un isomorfismo
+\[
+    \psi :S_n \longrightarrow S_n
+\]
+che, per $n \notin \{2, 6\}$, è il coniugio per un elemento di $S_n$. Abbiamo
+quindi che $\psi(H)$ è lo stabilizzatore di un elemento per l'azione naturale
+di $S_n$ su $\{1, \ldots, n\}$, ma allora anche $H$ è uno stabilizzatore per tale
+azione in quanto coniugato a $\psi(H)$\footnote{
+    Notiamo che l'azione naturale di $S_n$ su $\{1, \ldots, n\}$ è transitiva,
+    pertanto gli stabilizzatori sono tra loro coniugati.
+}.Pertanto i sottogruppi di $S_n$ isomorfi a $S_{n - 1}$ sono tra loro coniugati
+e ognuno è lo stabilizzatore di un elemento per l'azione naturale di $S_n$
+su $\{1, \ldots, n\}$.
+
 \newpage
 
 \subsection{Prodotti semidiretti}
@@ -2119,9 +2252,10 @@ Vediamo adesso un criterio che stabilisce una condizione sufficiente affinché
 i prodotti semidiretti di due gruppi siano isomorfi.
 
 \begin{proposition}
+    [Criterio di isomorfismo tra prodotti semidiretti]
     \label{prop4.0}
     Siano $H, N$ due gruppi e $\varphi: H \longrightarrow \Aut(N)$ un omomorfismo.
-    Dato $f \in \Aut(N)$ allora $N\rtimes_{\varphi} H \cong N\rtimes_{\varphi\circ f} H$.
+    Dato $f \in \Aut(H)$ allora $N\rtimes_{\varphi} H \cong N\rtimes_{\varphi\circ f} H$.
 \end{proposition}
 
 \begin{proof}
@@ -2390,7 +2524,6 @@ $\mathcal{A}_5$ è l'unico sottogruppo semplice di tale ordine (a meno di isomor
         in quanto $\mathcal{A}_5$ contiene 5 2-Sylow.
     \end{itemize}
 \end{proof}
-
 
 
 \end{document}
