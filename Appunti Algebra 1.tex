@@ -16,7 +16,7 @@
 
 \section*{Ringraziamenti}
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-Leonardo Alfani, Clementina Salamina, Giorgia Capecchi, Gianni Bellu.
+Leonardo Alfani, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Lorenzo Picinelli.
 
 \newpage
 \section{Gruppi}
@@ -671,19 +671,20 @@ da cui $\lambda$ fedele.
             \]
     per il Teorema di Corrispondenza dei sottogruppi, esiste una bigezione tra i sottogruppi di $\faktor{G}{Z(G)}$ e i sottogruppi di
     $G$ che contengono $Z(G)$, la quale preserva normalità e indice del sottogruppo, pertanto preso $\mathcal{H}_i \leqslant \faktor{G}{Z(G)}$ è sufficiente
-    applicare $\pi_{Z(G)}^{-1}$ alla catena scritta sopra, e si trova:
+    applicare $\pi_{Z(G)}^{-1}$ alla catena scritta sopra e troviamo:
         \[ Z(G) = \pi_{Z(G)}^{-1}(\mathcal{H}_{m}) < \ldots < \pi_{Z(G)}^{-1}(\mathcal{H}_{1}) < \pi_{Z(G)}^{-1}(\mathcal{G}) (= G)
             \]
     Segue per il teorema di corrispondenza che $\pi_{Z(G)}^{-1}(\mathcal{H}_i) = H_i \trianglelefteqslant G$, ovvero si preserva la normalità dei sottogruppi, inoltre,
     segue sempre dal teorema che:
         \[ p^i = [\mathcal{G} : \mathcal{H}_i] = [G : H] = p^i
             \]
-    dunque la catena esiste  e $|H_i| = p^{n-i}$ per $1\leq i \leq m$, essendo $Z(G)$ abeliano, i sottogruppi di ogni suo ordine (che esistono sempre per il \hyperref[davide]{Lemma Di Ranieri}) sono
-    normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \mid z$), pertanto esiste la catena:
+    dunque la catena esiste  e $|H_i| = p^{n-i}$ per $1\leq i \leq m$. Essendo $Z(G)$ abeliano, i sottogruppi di ogni suo ordine (che esistono sempre
+    per il \hyperref[davide]{Lemma Di Ranieri}\footnote{Il nome ovviamente non è ufficiale, ma deriva da un curioso aneddoto in cui è coinvolto il buon Davide
+    Ranieri, pertanto vi sconsiglio di citarlo con questo nome in contesti ufficiali, ma se voleste farlo comunque è a vostro rischio e pericolo :)}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \mid z$), pertanto esiste la catena:
         \[ \{e\} = H_n < \ldots < H_m = Z(G)
         \qquad \text{con $|H_j| = p^{n-j}$, $\forall m \leq j \leq n$} 
             \]
-    bisogna infine verificare che $H_j \trianglelefteqslant G$, dunque:
+    Bisogna infine verificare che $H_j \trianglelefteqslant G$, dunque:
         \[ gH_jg^{-1} = H_j \qquad \forall g \in G
             \]
     ma $H_j \subset Z(G)$ (sta nel centro, quindi è invariante per coniugio con tutti i $g \in G$, e in particolare quelli richiesti) dunque è sempre verificata l'ultima uguaglianza.
@@ -853,7 +854,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 
 \begin{proposition}
     \label{trasp}
-    Le trasposizioni generano $S_n$, $\forall n \geq 3$.
+    Le trasposizioni generano $S_n$, $\forall n \geq 2$.
 \end{proposition}
 
 \begin{proof}
@@ -1653,8 +1654,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
                 i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
                 Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
-                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i sottogruppi di $N_{S}(H)$ che contengono $H$.},
-                $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
+                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i
+                sottogruppi di $N_{S}(H)$ che contengono $H$.}, $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
                 ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
                 \skipitems{1}
             \item Sia $n_p$ il numero dei $p$-sottogruppi di Sylow, per quanto detto al punto $(3)$ i $p$-sottogruppi di Sylow sono tutti coniugati,
@@ -1668,7 +1669,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                     \[ \Orb(H) = \{sHs^{-1} | s \in S\} = \{H\} \iff sHs^{-1} = H \qquad \forall s \in S
                         \]
                 ovvero:
-                    \[ S \subset N_G(H) \qquad \qquad \forall s \in S
+                    \[ S \subset N_G(H)
                         \]
                 ma sappiamo anche che $H \lneq N_G(H)$, pertanto si deve avere che:
                     \[ HS < N_G(H)
@@ -2001,7 +2002,8 @@ Dunque i gruppi di ordine 8 sono:
             Dunque, per $l = 1$ otteniamo il prodotto diretto già trovato sopra, per gli altri tre possibili $l$ invece otteniamo 3 gruppi non isomorfi di ordine $30$, infatti, per $l = -1$, abbiamo:
                 \[ \varphi_y(x) = x^{-1} \iff yxy^{-1} = x^{-1} \implies \Z{15} \rtimes_{\varphi} \Z{2} \cong  \color{LimeGreen!90!black}{D_{15}}
                     \]
-            Per $l = 4$ invece si ottiene $\color{LimeGreen!90!black}{D_5 \times \Z{3}}$ e per $l = -4$ si ottiene $\color{LimeGreen!90!black}{D_3 \times \Z{5}}$ \footnote{Andrebbe aggiunto il perché ma non è chiarissimo dalle note della Del Corso.}, i quali sono gruppi non isomorfi, ad esempio perché hanno centri diversi:
+            Per $l = 4$ invece si ottiene $\color{LimeGreen!90!black}{D_5 \times \Z{3}}$ e per $l = -4$ si ottiene $\color{LimeGreen!90!black}{D_3 \times \Z{5}}$ \footnote{Andrebbe aggiunto il perché ma non è chiarissimo dalle note della Del Corso.},
+            i quali sono gruppi non isomorfi, ad esempio perché hanno centri diversi:
                 \[ Z(D_{15}) = \left<id\right> \qquad Z(D_5 \times \Z{3}) = Z(D_5) \times Z(\Z{3}) \cong \Z{3} \]
                 \[ Z(D_3 \times \Z{5}) \cong \Z{5}
                     \]
@@ -2012,33 +2014,431 @@ I gruppi di ordine 30 sono quindi:
         $\color{LimeGreen!90!black}{\Z{30} \qquad D_{15} \qquad D_5 \times \Z{3} \qquad D_3 \times \Z{5}}$
     \end{center}
     
+\newpage
+
+\section{Anelli}
+\subsection{Riepilogo sugli anelli}
+\begin{definition}
+    Un \vocab{anello} è un insieme non vuoto munito di due operazioni $(A,+,\cdot)$ tali che:
+    \begin{itemize}
+        \item $(A,+)$ è un gruppo abeliano.
+        \item $\cdot$ è associativa.
+        \item Valgono le leggi distributive a destra e sinistra:
+            \[ a(b+c) = ab + ac \qquad \text e \qquad (a+b)c = ac + bc \qquad \qquad \forall a,b,c \in A
+                \]
+    \end{itemize}
+\end{definition}
+
+\begin{example}[Anelli]
+    Esempi di anelli:
+    \begin{itemize}
+        \item $\ZZ$, $\QQ$, $\RR$, $\CC$, $\Zn$.
+        \item Dato un anello $A$, $A[x]$, l'insieme dei polinomi a coefficienti in $A$ è un anello.
+        \item $M_{m \times m}(K)$.
+        \item $\End(G) = \Hom(G,G)$, con $G$ gruppo abeliano e le operazioni di somma e composizione. 
+    \end{itemize}
+\end{example}
+
+Riepiloghiamo brevemente \footnote{In caso di dubbi sulle definizioni si può fare riferimento alle \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{dispense di Aritmetica}}
+dove sono state trattate più ampiamente.} le definizioni che riguardano gli anelli: \footnote{Per convenzione adotteremo lo $0$ per indicare l'elemento neutro rispetto all'operazione $+$ e l'$1$ per indicare l'elemento neutro rispetto all'operazione $\cdot$.}
+
+\begin{definition}
+    Un anello $A$ si dice \vocab{commutativo} se l'operazione $\cdot$ è commutativa.
+\end{definition}
+
+\begin{definition}
+    Un anello $A$ si dice \vocab{con identità} se esiste $1 \in A$ elemento neutro per il prodotto.
+\end{definition}
+
+\begin{definition}
+    Un anello $(A,+,\cdot)$ si dice \vocab{campo} se $(A\setminus\{0\},\cdot)$ è un gruppo abeliano.
+\end{definition}
+
+\begin{definition}
+    Un anello $(A,+,\cdot)$ si dice \vocab{corpo} se $(A\setminus\{0\},\cdot)$ è un gruppo.
+\end{definition}
+
+\begin{definition}
+    Dato un anello $A$, $x \in A$ si dice \vocab{divisore di zero} se $\exists y \in A$, $y \ne 0$ tale che $xy=yx=0$.
+\end{definition}
+
+\begin{definition}
+    Dato un anello $A$, $x \in A$ si dice \vocab{nilpotente} se $\exists n \in \NN$ tale che $x^n = 0$.
+\end{definition}
+
+\begin{definition}
+    Dato un anello $A$, $x \in A$ si dice \vocab{invertibile} se $\exists y \in A$ tale che $xy=yx=1$.
+\end{definition}
+
+\begin{definition}
+    Un anello $A$ si dice \vocab{dominio d'integrità} se:
+        \[ D(A) = \{x \in A |\, \text{$x$ è un divisore di $0$}\} = \{0\}
+            \]
+\end{definition}
+
+Definiamo inoltre l'insieme degli elementi invertibili di $A$:
+    \[ A^* = \{x \in A |\, \text{$x$ è invertibile}\}
+        \]
+e dei nilpotenti:
+    \[ \mathcal{N} = \{x \in A |\, \text{$x$ è nilpotente}\} 
+        \]
+
+\begin{exercise}
+    Calcolare i divisori di zero, gli invertibili ed i nilpotenti di:
+        \[ \ZZ, \Zn, \Zn \times \Zn
+            \]
+\end{exercise}
+
+\begin{soln}
+    
+\end{soln}
+
+\begin{proposition}
+    Dato A un anello commutativo con identità:
+    \begin{enumerate}[(1)]
+        \item $(A^*,\cdot)$ è un gruppo abeliano.
+        \item $A^* \cap D(A) = \emptyset$.
+        \item Se $A$ è un anello finito, allora $A = D(A) \cup A^*$. In particolare, un dominio
+            d'integrità finito è un campo.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Proviamo le affermazioni:
+    \begin{enumerate}[(1)]
+        \item Per provare che $(A^*, \cdot)$ è un gruppo abeliano, è sufficiente verificare le proprietà richieste dalla definizione:
+        \begin{enumerate}[(a)]
+            \item Chiusura: osserviamo che $\forall x,y \in A^*$, allora $\exists x^{-1}y^{-1} \in A$, pertanto $xy \in A^*$, poiché $y^{-1}x^{-1} \in A^*$. 
+            \item Associatività: poiché $A \subseteq A^*$, allora, essendo $A$ associativo rispetto al $\cdot$, allora anche gli elementi di un suo qualsiasi sottoinsieme saranno associativi tra loro. 
+            \item Elemento Neutro: $1 \in A$, infatti, l'inverso di $1$ è se stesso, quindi $1$ è invertibile.
+            \item Inverso: Segue per la stessa definizione di $A^*$ che ogni suo elemento debba avere inverso moltiplicativo nel gruppo, $\forall x \in A, \exists x^{-1} \in A$:
+                \[ x \cdot x^{-1} = x^{-1} \cdot x = 1
+                \qquad
+                \forall x \in A
+                \]
+            \item L'abelianità segue immediatamente dall'abelianità di $A$ (infatti $A^* \subset A$, dunque l'abelianità vale in particolare per gli elementi di $A^*$).
+        \end{enumerate}
+        \item Supponiamo per assurdo che $D(A) \cap A^* \neq \emptyset$, e consideriamo $x \in D(A) \cap A^*$, poiché $x \in D(A)$, allora $\exists z \in A, z \ne 0$, tale per cui:
+		    \[ xz = zx = 0
+		        \]
+            d'altra parte, poiché $x \in A^*$, allora $\exists x^{-1}$ tal per cui:
+            \[  xy = yx = 1
+                    \]
+            da cui segue:
+            \[ (zx)y = z(xy) \implies 0 \cdot y = z \implies z = 0
+                    \]
+            ma ciò è assurdo, pertanto l'ipotesi $D(A) \cap A^*$ è vuoto.
+        \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del primo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
+            se $x \in A \setminus D(A)$, allora possiamo definire l'omomorfismo di gruppi:
+                \[ \varphi_x : A \longrightarrow A : a \longmapsto xa
+                    \]
+            con:
+                \[ \ker \varphi_{x} = \{y \in A | \varphi_x(y) = xy = 0\} = \{0\}
+                    \]
+            infatti, non essendo $x$ un divisore di zero, l'unica possibilità, in base all'annullamento del prodotto è che $y = 0 \implies xy = 0$. Poiché $|A| < +\infty$ l'omomorfismo è anche surgettivo, dunque è una bigezione,
+            pertanto $1 \in \text{Im} \varphi_x \implies \exists a \in A$ tale che $\varphi_x(a) = xa = 1 \implies x \in A^*$.
+    \end{enumerate}
+\end{proof}
+
+\begin{definition}
+    Dato $B \subset A$ non vuoto, si dice che $B$ è un \vocab{sottoanello} di $A$ se è chiuso rispetto alle operazioni $+$ e $\cdot$ ristrette a $B$.
+\end{definition}
+
+\begin{definition}
+    Dato $I \subset A$, con $A$ anello commutativo, si dice che $A$ è un \vocab{ideale} di $A$ se:
+    \begin{itemize}
+        \item $(I,+) < (A,+)$.
+        \item Vale la \vocab{proprietà di assorbimento} a destra e sinistra:\footnote{Se $A$ non è un anello commutativo e $(I,+) < (A,+)$, possono
+        valere separatamente le proprietà di assorbimento, nel caso in cui valga $aI \subset I$, $\forall a \in A$, si parla di \vocab{ideale sinistro}, mentre nel caso 
+        $Ia \subset I$, $\forall a \in A$, si parla invece di \vocab{ideale destro}.}
+            \[ aI \subset I \qquad \text e \qquad Ia \subset I \qquad \forall a \in A
+                \]
+    \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Per verificare che un sottoinsieme di un anello commutativo con identità è un ideale ci basta verificare soltanto che $(I,+)$ è chiuso per l'operazione $+$ e che valga la proprietà di assorbimento, infatti, da ciò segue 
+    che $(-1)a \in I$, dove $(-1)$ esiste in $A$ poiché è unitario. \footnote{Da questo momento in poi, anche se non specificato assumiamo di star operando sempre in un anello commutativo con identità.}
+\end{remark}
+
+\begin{example}[Ideali]
+    Gli ideali vanno ricercati tra i sottogruppi di un anello, ad esempio:
+    \begin{itemize}
+        \item Considerando l'anello $\ZZ$, abbiamo gli ideali dati da $\{n\ZZ\}_{n \in \NN}$, infatti:
+            \[ xn\ZZ \subset n\ZZ \qquad \forall x \in \ZZ
+                \]
+        ed essendo $\ZZ$ abeliano, abbiamo un ideale.
+        \item I sottogruppi $\{0\}$ (ideale \vocab{banale}), $A$ (ideale \vocab{improprio}) sono ideali dell'anello $A$.
+    \end{itemize}
+\end{example}
+
+\begin{exercise}
+    Dato l'anello delle matrici $A = M_{n \times n}(K)$ dimostrare che non ha ideali bilateri diversi da $\{0\}$ e $A$.
+\end{exercise}
+
+\begin{soln}
+Sia $J\subseteq A$ un ideale non banale e $M\in J$ non nulla. Osserviamo che l'Algoritmo di Gauss applicato ad $M$ può essere espresso come moltiplicazione di $M$
+a sinistra e a destra per opportuni elementi di $A$. Dunque, se $k=\mathrm{rnk}\, M>0$, la matrice 
+\[ N=\left(\begin{array}{c|c}
+    I_k & 0\\
+    \hline
+    0 & 0
+\end{array}\right)
+    \]
+appartiene a $J$. Allora anche
+\[
+    N'=N\left(\begin{array}{c|c}
+        1 & 0 \\
+        \hline
+        0 & 0
+    \end{array}\right)
+=\left(\begin{array}{c|c}
+    1 & 0 \\
+    \hline
+    0 & 0
+\end{array}\right)\]
+è elemento di $J$. Coniugando $N'$ per matrici di permutazione di base troviamo nell'ideale matrici diagonali con diagonale nulla tranne per un 1
+nella $i$-esima riga per ogni $i$, e sommando tutte queste matrici otteniamo $I_n\in J$, ovvero $J=A$.\footnote{Dimostrazione proposta da Davide Ranieri.}
+\end{soln}
+
+\begin{definition}
+    Dato un sottoinsieme non vuoto di un anello $S \subset A$, si definisce \vocab{ideale generato} da $S$ in $A$:
+        \[ (S) \vcentcolon =  \left\{\sum_{i = 1}^{n}a_is_i \m a_i \in A, s_i \in S, n \in \NN\right\}
+            \]
+\end{definition}
+
+Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento:
+        \[ (x) = \{ax | a \in A\} = Ax
+            \]
+
+\begin{proposition}
+    L'ideale generato da un sottoinsieme $S$ di un anello $A$ è un ideale.
+\end{proposition}
+
+\begin{proof}
+    Per verificare che un ideale generato sia effettivamente un ideale, bisogna verificare che sia un sottogruppo del gruppo abeliano $(A,+)$ e che valga la proprietà di assorbimento (bilaterale in questo caso,
+    poiché stiamo operando nel caso di anelli commutativi). Presi $x,y \in S$, ovvero della forma:
+        \[ x = \sum_{i = 1}^n a_is_i \qquad \text e \qquad y = \sum_{j=1}^m\alpha_j \sigma_j \qquad a_i,\alpha_j \in A \qquad s_i,\sigma_j \in S 
+            \]
+    si osserva che:
+        \[ x + y = \sum_{i = 1}^n a_is_i + y = \sum_{j=1}^m\alpha_j \sigma_j \in (S)
+            \]
+    duqnue $I$ è chiuso per la somma. Infine, per ogni $a \in A$ si ha:
+        \[ ax = a\sum_{i = 1}^n a_is_i = \sum_{i = 1}^n \underbrace{aa_i}_{\in A}s_i \in (S)
+            \]
+    dunque $(S)$ è un ideale.
+\end{proof}
+
+\begin{example}[Ideali generati]
+    Alcuni esempi di ideali generati possono essere:
+    \begin{itemize}
+        \item $n\ZZ = (n)$, con $n \in \ZZ$.
+        \item Dato $K \subset F$ e $\alpha \in F$ algebrico su $K$, sia $\mu_{\alpha}(x) \in K[x]$ il polinomio minimo di $\alpha$, sappiamo che:
+            \[ (\mu_{\alpha}(x)) = \{p(x) \in K[x] | p(\alpha) = 0\}
+                \]
+    \end{itemize}
+\end{example}
 
 
+\newpage
+\subsection{Operazioni tra ideali}
+\begin{proposition}[Operazioni tra ideali]
+    Dato $A$ un anello commutativo e $I,J \subset A$ ideali, abbiamo che:
+    \begin{itemize}
+        \item $I \cap J$ è un ideale.
+        \item $I + J = (I,J) = \{i + j | i \in I, j \in J\}$ è un ideale.
+        \item $IJ = (\{xy|x \in I, y \in J\})$ è un ideale.
+        \item $\sqrt{I} = \{x \in A | \exists n \in \NN : x^n \in I\}$ è un ideale. In particolare $\sqrt{0} = \mathcal{N}$ è un ideale.
+        \item $(I : J) = \{x \in A | xJ \subseteq I\}$ è un ideale.
+    \end{itemize}
+\end{proposition}
 
+\begin{proof}
+    Verifichiamo tutte le affermazioni:
+    \begin{itemize}
+        \item $I \cap J$ è un sottogruppo di $A$ e, $\forall x \in I \cap J$ si ha:
+            \[ ax \in I \qquad \text e \qquad ax \in J \qquad \forall a \in A
+                \]
+            dunque $I \cap J$ assorbe e quindi è un ideale (bilatero in quanto abbiamo supposto l'anello commutativo).
+        \item Dato $I + J = \{i + j | i \in I, j \in J\}$, presi $x,y \in I + J$, ovvero:
+            \[ x = i_1 + j_1 \qquad \text e \qquad y = i_2 + j_2 \implies x + y = (\underbrace{i_1 + i_2}_{\in I}) + (\underbrace{j_1 + j_2}_{\in J}) \in I + J
+                \]
+            inoltre, $\forall a \in A$ si ha che:
+            \[ ax = \underbrace{ai_1}_{\in I} + \underbrace{aj_1}_{\in J} \in I + J \qquad \forall x \in I + J
+                \]
+            dunque $I+J$ è un ideale. Verifichiamo che $I+J = (I,J)$; osserviamo che ovviamente:
+            \[ i+j \in (I,J) \implies I + J \subseteq (I,J)
+                \]
+            per verificare l'altro contenimento bisogna verificare che $I,J \subset I + J$ e da queste inclusioni e dal fatto che $I + J$ è un ideale segue che
+            $I + J$ contiene il più piccolo ideale di $A$ che contiene sia $I$ che $J$. Osserviamo che:
+                \[ (S) = \bigcap_{\substack{S \subseteq X \subseteq A\\ X\,\text{ideale}}} X
+                    \]
+            dove l'intersezione è il più piccolo ideale di $A$ che contiene $S$. Dimostriamo ora l'uguaglianza, $(S)$ è contenuto nell'intersezione in quanto
+            è uno dei termini di quest'ultima; il contenimento opposto segue dal fatto che $\forall x \in S$ si ha $x = \sum a_is_i \in X$ (poiché $X$ è un ideale che contiene $S$),
+            pertanto, per vedere che $(S)$ è contenuto in $\mathcal{I}$, ideale di $A$, basta vedere che $S \subset \mathcal{I}$ (e ciò appunto giustifica il fatto che basti mostrare che $I,J$ sono 
+            contenuti in $I+J$). A questo punto si osserva che, essendo $0 \in J$ abbiamo:
+                \[ I \subset I + J
+                    \]
+            infatti basta prendere sempre $j = 0$ per ottenere tutti gli elementi di $I$; ugualmente si dimostra la stessa cosa per $J$, dunque $I,J \subset I + J \implies (I,J) \subset I + J \implies I + J = (I,J)$.
+        \item $IJ = (\{xy | x \in I, y \in J\})$ è un ideale per definizione.
+        \item Verifichiamo che $\sqrt{I} = \{x \in A | x^n \in I, n \in \NN\}$ è un ideale, presi $x,y \in \sqrt{I}$, ovvero $x^n,y^m \in I$, $n,m \in \NN$, vogliamo 
+            provare che $x + y \in \sqrt{I}$ (ovvero che esiste $d \in \NN$ tale che $(x+y)^d \in I$), osserviamo che:
+                \[ (x + y)^{n + m} = \sum_{i = 0}^{n + m} \binom{n+m}{i} x^i y^{m+n-i}
+                    \]
+            dove $\forall i \{0,\ldots,m+n\}$ si ha che $i \geq n \implies x^i \in I$, oppure che $n+m-i \geq m \implies y^{n+m-i} \in I$, dunque tutti i termini di $(x+y)^{n+m}$ stanno in $I$
+            e quindi $x + y \in \sqrt{I}$. Osserviamo che $\forall a \in A$ si che:
+                \[ (ax)^n = a^n\underbrace{x^n}_{\in I} \in I \implies ax \in \sqrt{I}
+                    \]
+        \item Dato $(I : J) = \{x \in A | xJ \subseteq I\}$ e presi $x,y \in (I : J)$ si ha che:
+            \[ (x+y)J = \underbrace{xJ}_{\subseteq I} + \underbrace{yJ}_{\subseteq I} \implies x+y \in (I:J)
+                \]
+        inoltre, $\forall a \in A$ abbiamo:
+            \[ axJ = a(xJ) \subseteq aI \subseteq I \implies ax \in (I:J) \qquad \forall x \in (I:J)
+                \]
+    \end{itemize}
+\end{proof}
 
+\begin{remark}[$I \cup J$]
+    $I \cup J$ in generale non è un ideale.
+\end{remark}
 
+\begin{remark}
+    Osserviamo che $IJ \subset I \cap J$, poiché $I \cap J$ è ideale basta vedere che contiene un insieme di generatore di $IJ$. Ma questo è ovvio perché, presi $x \in I$ e
+    $y \in J$ si ha:
+        \[ \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \qquad \text e \qquad \underbrace{x}_{\in A}\underbrace{A}_{\in J} \in  J \implies xy \in I \cap J
+            \]
+\end{remark}
 
+\begin{remark}
+    Se $I + J = A$, allora $IJ = I \cap J$, infatti, per ipotesi sappiamo che:
+        \[ i+j = 1
+            \]
+    occorre dunque vedere che $\forall x \in I \cap J$ (per l'osservazione precedente sapevamo già che $IJ \subset I \cap J$, quindi stiamo verificando il contenimento opposto),
+    allora possiamo scrivere:
+        \[ x \cdot 1 = x(i+j) = \underbrace{xi}_{\in IJ} + \underbrace{xj}_{\in IJ} \in IJ
+            \]
+\end{remark}
 
+\begin{example}
+    [Operazioni tra ideali in $\ZZ$]
+    Osserviamo che presi ad esempio gli elementi nell'intersezione degli ideali $m\ZZ$ e $n\ZZ$, questi sono i multipli comuni sia ad $m$ che ad $n$ in $\ZZ$, ovvero:
+        \[ m\ZZ \cap n\ZZ = [m,n]\ZZ
+            \]
+    Mentre, il prodotto tra i due ideali contiene gli interi multipli si di $m$ che di $n$:
+        \[ m\ZZ \cdot n\ZZ = mn\ZZ
+            \]
+    Osserviamo poi che la somma è data da tutti gli interi multipli del loro M.C.D.:
+        \[ m\ZZ + n\ZZ = (m,n)\ZZ
+            \]
+    infatti, per l'identità di Bézout, si ha:
+        \[ m\ZZ + n\ZZ = \{am + bn | a,b \in \ZZ\} = \{dx | x \in \ZZ\}
+            \]
+    Consideriamo ora $n = p_1^{e_1} \ldots p_r^{e_r}$, possiamo considerare:
+        \[ \sqrt{n\ZZ} = p_1 \ldots p_r\ZZ
+            \]
+    poiché:
+        \[ \sqrt{n\ZZ} = \{x \in \ZZ | x^k \in n\ZZ, k \in \ZZ\} = \{x \in \ZZ | n \mid x^k, k \in \ZZ\}
+            \]
+    ma $n \mid x^k \implies p_i \mid x^k$, $\forall i \in \{1,\ldots,r\}$, ovvero $p_1 \ldots p_r \mid x \implies x \in p_1\ldots p_r\ZZ$.
+    Viceversa $x = p_1 \ldots p_r m \in \sqrt{n\ZZ}$ perché, detto $e = \max e_i$:
+        \[ x^e = p_1^e \ldots p_r^e m^e = ny \in n\ZZ
+            \]
+    quindi ad esempio:
+        \[ \sqrt{100\ZZ} = 10\ZZ
+            \]
+    Infine, osserviamo che:
+        \[ (m\ZZ : n\ZZ) = \frac{m}{(m,n)}\ZZ
+            \]
+    quindi ad esempio:
+        \[ (75\ZZ : 18\ZZ) = \frac{75}{(75,18)} = 25\ZZ
+            \]
+    questo poiché:
+        \[ (75\ZZ : 18\ZZ) = \{x \in \ZZ | 18x \ZZ \subset 75\ZZ\} = 25\ZZ
+            \]
+    infatti $18x \ZZ \subset 75\ZZ \iff 75 \mid 18x \iff 25 \mid 6x \iff 25 \mid x$.
+\end{example}
 
+\newpage
+\begin{proposition}
+Valgono i seguenti fatti:
+\begin{enumerate}[(1)]
+    \item Dato $I \subset A$ ideale, $I$ è un \vocab{ideale proprio} $(I \subsetneq A)$ se e solo se $I \cap A^* = \emptyset$.
+    \item $A$ è un campo se e solo se gli unici ideali di $A$ sono $\{0\}$ e $A$.
+\end{enumerate}
+\end{proposition}
 
+\begin{proof}
+    Dimostriamo singolarmente i fatti:
+    \begin{enumerate}[(1)]
+        \item Se $I \cap A^* = \emptyset$, poiché vale sempre che $1 \in A^*$, allora c'è almeno un elemento di $A$ che non sta nell'ideale, quindi $I \subsetneq A$.
+            Viceversa, sia $I$ ideale proprio e supponiamo $x \in I \cap A^*$, allora $x$ è invertibile, dunque $\exists y \in A$ tale che $xy = 1$, ma:
+                \[ 1 = \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \implies a \cdot 1 \in I\footnote{In pratica se c'è l'identità in $I$ c'è esattamente ogni elemento dell'anello che contiene l'ideale.} \qquad \forall a \in A \implies A \subset I
+                    \]
+            che è assurdo in quanto avevamo supposto $I \subset A$, dunque $I \cap A^* = \emptyset$.
+        \item $A$ è un campo se e solo se $A^* = A \setminus \{0\}$, ma per il punto (1) l'unico elemento fuori da $A^*$ è 0, e $I = \{0\}$ è proprio l'unico ideale proprio che possiamo avere.
+    \end{enumerate}
+\end{proof}
 
+\newpage
+\subsection{Anelli quoziente e omomorfismi di anelli}
 
+\begin{definition}
+    Dati $A$ e $B$ anelli, $f : A \longrightarrow B$ è un \vocab{omomorfismo di anelli} se:
+    \begin{itemize}
+        \item $f(a_1 + a_2) = f(a_1) + f(a_2)$, $\forall a_1,a_2 \in A$.
+        \item $f(a_1a_2) = f(a_1)f(a_2)$, $\forall a_1,a_2 \in A$.
+    \end{itemize}
+\end{definition}
 
+\begin{remark}
+    Se $A$ e $B$ sono anelli commutativi con identità in genere si richiede anche:
+        \[ f(1_A) = 1_B
+            \]
+    poiché tale condizione non è già implicata da altro; ad esempio:
+        \[ f(a) = f(1_Aa) = f(1_A)f(a) \implies f(a) - f(1_A)f(a) = (1_B - f(1_A))f(a) = 0
+            \]
+    ma non abbiamo la legge di cancellazione in quanto non è detto che $A$ sia un dominio d'integrità.
+    Se $B$ è un dominio e $f(a) \ne 0$, allora, da quanto detto sopra segue $f(1_A) = 1_B$, ma se $f(A) \subset D(B)$ non è detto che 
+    $f(1_A) = 1_B$.
+\end{remark}
 
+\begin{definition}
+    Sia $A$ un anello e $I \subseteq A$ un suo ideale, il gruppo quoziente $\left(\faktor{A}{I}, +\right)$ ha anche una struttura di anello con l'operazione:
+        \[ (a + I) \cdot (b + I) \stackrel{\text{def}}{=} ab + I
+            \]
+\end{definition}
 
+\begin{remark}
+    Si verifica facilmente che l'operazione è ben definita, infatti, presi:
+        \[ a + I = a^{\prime} + I \qquad \text e \qquad b + I = b^{\prime} + I
+            \]
+    segue:
+        \[ (a^{\prime} + I) \cdot (b^{\prime} + I) = a^{\prime}b^{\prime} + I = (a + I)(b + I) + I = ab + I
+            \]
+\end{remark}
 
+\begin{remark}
+    Si verifica facilmente che $\left(\faktor{A}{I},+,\cdot\right)$ è un anello.
+\end{remark}
 
+\begin{remark}
+    Possiamo definire una proiezione all'anello quoziente:
+        \[ \pi_I : A \longrightarrow \faktor{A}{I} : a \longmapsto a + I
+            \]
+    con $\pi_I$ omomorfismo di anelli surgettivo e $\ker \pi_I = I$.
+\end{remark}
 
+\begin{proposition}
+    Gli ideali sono tutti e soli i nuclei degli omomorfismi di anello definiti su $A$.
+\end{proposition}
 
-
-
-
-
-
-
-
-
-
-
+\begin{proof}
+    Sia $\varphi : A \longrightarrow B$ un omomorfismo di anelli, allora $\ker \varphi$ è un ideale di $A$, infatti $\ker \varphi < A$ perché $\varphi$ 
+    è in particolare un omomorfismo di gruppi, inoltre, $\forall a \in A$ si ha che:
+        \[ ax \in \ker \varphi \qquad \forall x \in \ker \varphi
+            \]
+    in quanto $\varphi(ax) = \varphi(a)\varphi(x) = \varphi(a) \cdot 0 = 0$; dunque i nuclei degli omomorfismi di anelli sono ideali. Viceversa, tutti gli ideali 
+    sono nuclei degli omomorfismi di proiezione al quoziente $\pi_I$.
+\end{proof}
 
 \end{document}
