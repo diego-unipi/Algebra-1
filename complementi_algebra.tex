@@ -17,7 +17,7 @@
 \section*{Ringraziamenti}
 
 Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani, Daniele
-Lapadula.
+Lapadula, Francesco Sorce.
 
 \newpage
 
@@ -670,7 +670,7 @@ r, s\rangle$ è sufficiente studiare le immagini di $r, s$ per determinare $\var
 Osserviamo che necessariamente $\varphi(r) = r^k$ con $(n, k) = 1$, infatti 
 $\varphi$ deve preservare l'ordine di $r$ e la sua immagine deve essere un 
 generatore di $\mathcal{R}$, in quanto $\mathcal{R}$ è caratteristico in $D_n$
-è isomorfo a $\Zn$. Per quanto riguarda $\varphi(s)$, se $n$ è dispari allora le simmetrie
+e isomorfo a $\Zn$. Per quanto riguarda $\varphi(s)$, se $n$ è dispari allora le simmetrie
 sono gli unici elementi di ordine 2, pertanto $\varphi(s) = sr^h$ con 
 $0\leq h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
 \begin{enumerate}[(1)]
@@ -970,7 +970,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     \end{center}
     Viceversa, dato un omomorfismo $\overline{\varphi}:\faktor{G}{G'}\longrightarrow A$
     otteniamo un'unico omomorfismo $\varphi:G\longrightarrow A$ con la 
-    composizione $\pi_{G'}\circ\overline{\varphi}$.
+    composizione $\overline{\varphi}\circ\pi_{G'}$.
 \end{remark}
 
 \begin{example}
@@ -1309,7 +1309,7 @@ se esistono, sottogruppi normali non banali di un gruppo finito.
 \begin{proof}
     Consideriamo l'azione di $G$ su $\faktor{G}{H}$
     \[
-        \psi: G\longrightarrow S\left(\faktor{G}{H}\right)S:g\longmapsto \psi_g
+        \psi: G\longrightarrow S\left(\faktor{G}{H}\right):g\longmapsto \psi_g
     \]
     con
     \[
@@ -1363,8 +1363,7 @@ Esibiamo alcuni insiemi di generatori per $S_n$:
     \item $\{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
     $i$ abbiamo 
     \[
-        \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i} = 
-        \cycle{i, i + 1}
+        \cycle{i, i + 1} = \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i}
     \]
 \end{itemize}
 
@@ -1820,7 +1819,7 @@ Diamo adesso una dimostrazione alternativa della semplicità di $\mathcal{A}_5$.
     Consideriamo un sottogruppo normale $N\trianglelefteqslant \mathcal{A}_5$.
     Distinguiamo tre casi:
     \begin{itemize}
-        \item se $2 \mid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma 1.62}
+        \item se $2 \nmid [\mathcal{A}_5:N]$, per il \hyperref[lemma6.0]{Lemma 1.62}
         $N$ contiene tutti gli elementi di 
         $\mathcal{A}_5$ di ordine $2$, cioè le permutazioni della forma $\cycle{a, b}\cycle{c, d}$
         con $a\neq b$ e $c \neq d$, da cui $N = \mathcal{A}_5$ in quanto contiene 
@@ -1882,7 +1881,7 @@ In effetti vale un risultato più generale
     \newline
     Altrimenti $N\cap H_i = \{id\}$ per ogni $i \in \{1, \ldots, n + 1\}$,
     cioè l'unico elemento di $N$ avente almeno un punto fisso è l'identità,
-    vogliamo mostrare che in effetti $N = \{id\}$. Osserviamo che
+    vogliamo mostrare che in effetti $N = \{id\}$. Osserviamo che se
     $\sigma \in N$ ha una decomposizione in cicli disgiunti
     della forma
     \[
@@ -2025,6 +2024,7 @@ vediamo adesso un risultato che generalizza questo fatto ad alcuni sottogruppi d
 $S_n$.
 
 \begin{proposition}
+    \label{prop5.0}
     Dato un sottogruppo $H\leqslant S_n$ con $n \geq 5$, se $[S_n : H] = n$ allora $H$ è 
     isomorfo a $S_{n - 1}$.
 \end{proposition}
@@ -2090,6 +2090,63 @@ azione in quanto coniugato a $\psi(H)$\footnote{
 }.Pertanto i sottogruppi di $S_n$ isomorfi a $S_{n - 1}$ sono tra loro coniugati
 e ognuno è lo stabilizzatore di un elemento per l'azione naturale di $S_n$
 su $\{1, \ldots, n\}$.
+
+\subsubsection{Costruzione di un automorfismo esterno di $S_6$}
+
+Abbiamo visto che i casi $n = 2$ e $n = 6$ sono gli unici per cui non vale 
+che $S_n \cong \Aut(S_n)$. Per $n = 2$ il motivo è semplice, infatti essendo
+$S_2$ isomorfo a $\Z2$ il suo gruppo di automorfismi è banale, per $n = 6$
+invece abbiamo che gli automorfismi di $S_6$ non sono tutti elementi di $\Inn(S_n)$,
+vogliamo quindi esibire un automorfismo di $S_6$ che non sia interno.\newline
+
+Iniziamo osservando che $S_5$ contiene 6 5-Sylow, infatti tali sottogruppi 
+sono isomorfi a $\Z5$ e, essendo i 5-cicli gli unici elementi di ordine 5,
+$S_5$ ne contiene esattamente 
+\[
+    \frac{1}{\phi(5)} \binom{5}{4}3! = 6
+\]
+Posto $X = \{P_1, \ldots, P_6\}$ l'insieme dei 5-Sylow di $S_5$, consideriamo l'azione di coniugio 
+di $S_5$ su $X$
+\[
+    \varphi: S_5 \longrightarrow S(X) \cong S_6
+\]
+dove l'isomorfismo tra $S(X)$ e $S_6$ è dato dall'associare $P_i$ a $i$, 
+poniamo $\Phi$ la composizione di $\varphi$ con tale isomorfismo, notiamo
+che $\Phi$ è un'immersione di $S_5$ in $S_6$. L'azione 
+$\varphi$ è transitiva in quanto i 5-Sylow di $S_5$ sono tutti coniugati,
+pertanto $\ker\varphi = \{id\}$ oppure $\ker\varphi = \mathcal{A}_5$. D'altra parte
+se fosse $\ker\varphi = \mathcal{A}_5$ si avrebbe che $|\mathrm{Im}\varphi| = 2$,
+pertanto l'orbita di ogni elemento ha cardinalità 2, che è assurdo in quanto
+$\Orb(P_i) = X$ per ogni $P_i \in X$ per transitività di $\varphi$, quindi l'azione
+è inettiva.\newline
+La transitività di $\varphi$ implica che $\Phi$ sia un'azione transitiva
+di $S_5$ sull'insieme $\{1, \ldots, 6\}$, notiamo quindi che $\mathrm{Im}\Phi$
+non può essere lo stabilizzatore di un elemento di $\{1, \ldots, 6\}$
+per l'azione naturale di $S_6$ su tale insieme. Infatti se lo fosse esisterebbe
+$k \in \{1, \ldots, n\}$ tale che $\Phi(\sigma)(i) = i$ per ogni $\sigma \in S_5$,
+ma questo è assurdo in quanto per la \hyperref[prop1.0]{Proposizione 1.41} 
+$S_5$ contiene una permutazione che agisce su $\{1, \ldots, 6\}$ senza punti
+fissi.
+
+Abbiamo che $H = \mathrm{Im}\Phi$ è un sottogruppo di $S_6$ di indice $6$ e possiamo
+considerare l'azione transitiva e iniettiva di moltiplicazione a sinistra di $S_6$ su 
+$\faktor{S_6}{H}$
+\[
+    \alpha: S_6\longrightarrow S\left(\faktor{S_6}{H}\right) \cong S_6
+\]
+chiamiamo $\psi: S_6\longrightarrow S_6$ l'isomorfismo risultante dalla
+composizione di $\alpha$ con l'isomorfismo tra $S\left(\faktor{S_6}{H}\right)$
+e $S_6$. Sia $i \in \{1, \ldots, 6\}$ l'elemento associato alla classe $H$,
+abbiamo visto nella dimostrazione della \hyperref[prop5.0]{Proposizione 1.67}
+che $\psi(H) = \St(i)$ per l'azione naturale di $S_6$ sull'insieme $\{1, \ldots, 6\}$.
+Concludiamo osservando che se $\psi$ fosse un automorfismo interno di $S_6$,
+allora anche $\psi^{-1}$ sarebbe un automorfismo interno, cioè $\psi^{-1}$
+sarebbe il coniugio per un qualche $\sigma \in S_6$ fissato, da cui
+\[
+    H = \psi^{-1}(\St(i)) = \sigma\St(i)\sigma^{-1} = \St(\sigma(i))
+\]
+che è assurdo in quanto $H$ non può essere uno stabilizzatore per tale azione,
+pertanto $\psi \notin \Inn(S_6)$.
 
 \newpage
 
@@ -2161,6 +2218,108 @@ dove $f$ e $g$ sono gli automorfismi di $\Z2\times\Z2$ tali che
 \[
     g: (1, 0)\longmapsto (1, 0), (0, 1) \longmapsto (1, 1)
 \]
+
+\subsubsection{Automorfismi di $D_n$}
+
+Consideriamo il gruppo 
+\[
+    G = \{f: \Zn\longrightarrow\Zn\mid \exists a \in (\Zn)^*, b \in \Zn\text{ per cui }
+    f(x) = ax + b~\forall x \in \Zn\}
+\]
+delle sostituzioni lineari in $\Zn$, effettivamente $G$ è un gruppo con 
+l'operazione di composizione. Infatti fissati $a \in (\Zn)^*$, $b \in \Zn$ e
+$f \in G$ tali che $f(x) = ax + b$, abbiamo che $f^{-1}$ è tale che 
+$f^{-1}(x) = a^{-1}(x - b)$ (chiaramente $G$ contiene l'applicazione nulla 
+ed è chiuso per composizione). Notiamo che un elemento di $G$ è univocamente
+determinato dalla coppia $(b, a) \in \Zn \times (\Zn)^*$\footnote{
+    Consideriamo qua solo l'insieme prodotto cartesiano, non la struttura di 
+    gruppo data dal prodotto diretto.
+}, pertanto $G$
+contiene $n\phi(n)$ elementi. In realtà possiamo essere più precisi:
+
+\begin{proposition}
+    Il gruppo $G$ definito come sopra è isomorfo a un prodotto semidiretto 
+    \[
+        \Zn \rtimes (\Zn)^*
+    \]
+\end{proposition}
+
+\begin{proof}
+    Consideriamo i sottogruppi di $G$
+    \[
+        N = \{f \in G\mid f(x) = x + b,~b \in \Zn\}
+    \]
+    \[
+        H = \{f \in G\mid f(x) = ax,~a \in (\Zn)^*\}
+    \]
+    osserviamo che $N$ e $H$ sono naturalmente isomorfi a $\Zn$, $(\Zn)^*$ 
+    rispettivamente e che $N \cap H = \{id\}$, pertanto $NH = G$ in quanto 
+    \[
+        |NH| = \frac{|N|\cdot|H|}{|N\cap|H|} = |N|\cdot|H| = n\phi(n) = |G|
+    \]
+    Mostriamo quindi che $N$ è un sottogruppo normale di $G$: fissati $f \in N$
+    e $g \in H$ tali che $f(x) = x + t$ e $g(x) = ax + b$, con $b, t \in \Zn$ e 
+    $a \in (\Zn)^*$, abbiamo
+    \[
+        (g^{-1}\circ f \circ g)(x) = (g^{-1}\circ f)(ax + b) = g^{-1}(ax + b + t) = 
+        x + a^{-1}t
+    \]
+        pertanto $g^{-1}\circ f\circ g \in N$, cioè $N\trianglelefteqslant G$.
+    Possiamo quindi decomporre $G$ come prodotto semidiretto:
+    \[
+        G \cong N\rtimes H
+    \]
+    poiché $N \cong \Zn$ e $H \cong (\Zn)^*$ abbiamo che $G$ è isomorfo a un
+    prodotto semidiretto 
+    \[
+        \Zn \rtimes (\Zn)^*
+    \]
+\end{proof}
+
+Rappresentiamo gli elementi di $G$ tramite le coppie $(b, a) \in \Zn\times (\Zn)^*$,
+la composizione in $G$ produce la seguente operazione sulle coppie:
+\[
+    (b_1, a_1)(b_2, a_2) = (b_1 + a_1b_2, a_1 + a_2)
+\]
+pertanto l'omomorfismo che definisce il prodotto semidiretto $\Zn \rtimes_{\varphi}(\Zn)^*$
+a cui è isomorfo $G$ è 
+\[
+    \varphi: (\Zn)^* \longrightarrow \Aut(\Zn): a \longmapsto \varphi_a
+\]
+dove $\varphi_a$ è l'omomorfismo di moltiplicazione per $a$
+\[
+    \varphi_a :\Zn \longrightarrow \Zn: x \longmapsto ax
+\]
+
+\begin{proposition}
+    Il gruppo $G$ delle sostituzioni lineari in $\Zn$ è isomorfo a $\Aut(D_n)$
+    per $n \geq 3$.
+\end{proposition}
+
+\begin{proof}
+    Siano $r, s \in D_n$ tali che $\ord(r) = n$, $\ord(s) = 2$, $D_n = \langle r, s\rangle$,
+    consideriamo $\varphi \in Aut(D_n)$. Poiché $\langle r\rangle \cong \Zn$ è un 
+    sottogruppo caratteristico di $D_n$ abbiamo che esistono unici $a \in (\Zn)^*$,
+    $b \in \Zn$ tali che 
+    \[
+        \varphi(r) = r^a\qquad \varphi(s) = sr^b
+    \]
+    Consideriamo $\varphi_1$, $\varphi_2 \in \Aut(D_n)$ tali che
+    \[
+        \varphi_i(r) = r^{a_i} \qquad \varphi_i(s) = sr^{b_i}
+    \]
+    con $a_i \in (\Zn)^*$, $b_i \in \Zn$ per $i \in \{1, 2\}$, componendo
+    $\varphi_1$ con $\varphi_2$ otteniamo
+    \[
+        \varphi_1(\varphi_2(r)) = \varphi_1(r^{a_2}) = r^{a_1a_2}
+    \]
+    \[
+        \varphi_1(\varphi_2(s)) = \varphi_1(sr^{b_2}) = sr^{b_1 + a_1b_2}
+    \]
+    Pertanto $\Aut(D_n)$ è isomorfo a un quoziente di $G$ in quanto i suoi
+    elementi rispettano la stessa legge di gruppo, d'altra parte $|\Aut(D_n)| = |G|$,
+    pertanto i due gruppi sono proprio isomorfi.
+\end{proof}
 
 \subsubsection{Prodotti semidiretti isomorfi}
 
@@ -2246,7 +2405,52 @@ quanto
         0 & 0 & 1
     \end{pmatrix},\quad \lambda \neq 0, 1
 \]
-quindi il prodotto non è diretto.
+quindi il prodotto non è diretto.\newline
+
+
+È in realtà relativamente semplice costruire prodotti diretti e prodotti semidiretti
+isomorfi a partire da un gruppo non abeliano, diamo l'esempio di una possibile
+procedura nella seguente dimostrazione.
+
+\begin{proposition}
+    Dato un gruppo $G$ non abeliano, esiste un omomorfismo
+    \[
+        \varphi: G\longrightarrow \Aut(G)
+    \]
+    non banale tale che $G\times G \cong G\rtimes_{\varphi} G$.
+\end{proposition}
+
+\begin{proof}
+    Consideriamo i sottogruppi $N = G\times\{e\}$, $H = \{(g, g) \mid g \in G\}$,
+    notiamo che $N$ è un sottogruppo normale di $G\times G$. Inoltre 
+    $N\cap H = \{e, e\}$ e $NH = G\times G$, in quanto per 
+    ogni elemento $(g_1, g_2) \in G\times G$ abbiamo
+    \[
+        (g_1, g_2) = (g_1g_2^{-1}, e)(g_2, g_2)
+    \]
+    con $(g_1g_2^{-1}, e) \in N$ e $(g_2, g_2) \in H$, pertanto possiamo 
+    scrivere $G = N \rtimes_{\varphi} H$, dove $\varphi$ è un omomorfismo
+    \[
+        \varphi: H \longrightarrow \Aut(N)
+    \]
+    Tale $\varphi$ è banale se e solo se $\varphi(h) = id$ per ogni $h \in H$,
+    se e solo se $hnh^{-1} = n$ per ogni $h \in H$, per ogni $n \in N$.
+    Questo è equivalente a richiedere 
+    \[
+        (g, g)(n, e)(g^{-1}, g^{-1}) = (gng^{-1}, e)= (n, e)~\forall g \in G,\forall n \in N
+    \]
+    cioè $g \in Z(G)$ per ogni $g \in G$,
+    ma questo è assurdo in quanto $G$ non è abeliano, pertanto $\varphi$
+    non è l'omomorfismo banale. Poiché $N \cong H \cong G$ abbiamo quindi
+    \[
+        G \times G \cong G\rtimes_{\varphi'}G
+    \]
+    dove
+    \[
+        \varphi':G \longrightarrow \Aut(G)
+    \]
+    è l'omomorfismo non banale corrispondente a $\varphi$.
+\end{proof}
 
 Vediamo adesso un criterio che stabilisce una condizione sufficiente affinché 
 i prodotti semidiretti di due gruppi siano isomorfi.
@@ -2304,6 +2508,73 @@ i prodotti semidiretti di due gruppi siano isomorfi.
     semidiretti non banali $\Zp\rtimes_{\varphi_a}\Z{q}$ sono tutti isomorfi
     a tra loro per la \hyperref[prop4.0]{Proposizione 1.65}.
 \end{example}
+
+Vediamo adesso un criterio che fornisce una condizione sufficiente affinché
+due prodotti semidiretti di $p$-gruppi non siano isomorfi.
+
+\begin{proposition}
+    Siano $p$, $q$ due primi distinti, $G$ un $p$-gruppo e $H$ un $q$-gruppo,
+    consideriamo i prodotti semidiretti 
+    \[
+        X_1 = G\rtimes_{\varphi_1}H \qquad X_2 = G\rtimes_{\varphi_2}H
+    \]
+    con 
+    \[
+        \varphi_1, \varphi_2 :H \longrightarrow \Aut(G)
+    \]
+    Se $\ker\varphi_1$ e $\ker\varphi_2$ non sono isomorfi allora $X_1$ e 
+    $X_2$ non sono isomorfi.
+\end{proposition}
+
+\begin{proof}
+    Dimostriamo la contronominale, cioè che se $X_1$ e $X_2$ sono isomorfi
+    allora $\ker\varphi_1 \cong \ker\varphi_2$.\newline
+    Sia $f: X_1\longrightarrow X_2$ un isomorfismo, poniamo $\mathcal{G}_1 = 
+    G\rtimes_{\varphi_1}\{e_H\}$, $\mathcal{G}_2 = G\rtimes{\varphi_2}\{e_H\}$,
+    $\mathcal{H}_1 = \{e_G\}\rtimes_{\varphi_1}H$, $\mathcal{H}_2 = \{e_G\}\rtimes_{\varphi_2}H$.
+    Osserviamo che $f(\mathcal{G}_1) = \mathcal{G}_2$ in quanto $\mathcal{G}_1$
+    è l'unico $p$-Sylow di $X_1$ e $\mathcal{G}_2$ è l'unico $p$-Sylow di $X_2$
+    (infatti $\mathcal{G}_1 \trianglelefteqslant X_1$ e $\mathcal{G}_2 
+    \trianglelefteqslant X_2$), mentre $f(\mathcal{H}_1)$ è un $q$-Sylow di $X_2$
+    coniugato a $\mathcal{H}_2$. In particolare esiste $\psi \in \Inn(X_2)$
+    tale che
+    \[
+        (\psi\circ f)(\mathcal{G}_1) = \mathcal{G}_2 \qquad 
+        (\psi\circ f)(\mathcal{H}_1) = \mathcal{H}_2
+    \]
+    pertanto, a meno di coniugio, possiamo supporre $f(\mathcal{G}_1) = \mathcal{G}_2$ e 
+    $f(\mathcal{H}_1) = \mathcal{H}_2$. Caratterizziamo i nuclei di $\varphi_1$, 
+    $\varphi_2$ in termini di centralizzatori, in particolare scriviamo
+    \begin{multline*}
+        Z_{\mathcal{H}_1}(\mathcal{G}_1) = \{(e_G, h) \in \mathcal{H}_1\mid
+        (e_G, h)(g, e_H)(e_G, h)^{-1} = (g, e_H)~\forall g \in G\} = \\
+        = \{(e_G, h)\in \mathcal{H}_1 \mid (\varphi_1(h)(g), h)(e_G, h^{-1})
+        = (g, e_H)~\forall g \in G\} = \\
+        = \{(e_G, h) \in \mathcal{H}_1\mid (\varphi_1(h)(g), e_H) = (g, e_H)~
+        \forall g \in G\} = \\
+        = \{(e_G, h) \in \mathcal{H}_1\mid \varphi_1(h) = id\} =
+        \{e_G\}\rtimes_{\varphi_1}\ker\varphi_1\\
+    \end{multline*}
+    e ragionando in modo analogo
+    \[
+        Z_{\mathcal{H}_2}(\mathcal{G}_2) = \{e_G\}\rtimes_{\varphi_2}\ker\varphi_2
+    \]
+    Poniamo $\chi = \psi\circ f$, chiaramente $\chi: X_1\longrightarrow X_2$
+    è un isomorfismo e $\chi(\mathcal{G}_1) = \mathcal{G}_2$, $\chi(\mathcal{H}_1)
+    = \mathcal{H}_2$ per quanto detto sopra, pertanto
+    \begin{multline*}
+        \{e_G\}\rtimes_{\varphi_2}\ker\varphi_2 = Z_{\mathcal{H}_2}(\mathcal{G}_2) =
+        Z_{\chi(\mathcal{H}_1)}(\chi(\mathcal{G}_1)) = \\
+        = \{\chi(h_1) \mid h_1 \in \mathcal{H}_1, \chi(h_1)\chi(g_1) = 
+        \chi(g_1)\chi(h_1)~\forall g_1 \in \mathcal{G}_1\} = \\
+        = \{\chi(h_1)\mid h_1 \in \mathcal{H}_1, \chi(h_1g_1) = \chi(g_1h_1)
+        ~\forall g_1 \in \mathcal{G}_1\} = \\
+        = \{\chi(h_1) \mid h_1 \in Z_{\mathcal{H}_1}(\mathcal{G}_1)\} = 
+        \chi(\{e_H\}\rtimes_{\varphi_1}\ker\varphi_1)\\
+    \end{multline*}
+    In particolare quindi $\chi$ induce un isomorfismo tra $\ker\varphi_2$ e 
+    $\ker\varphi_1$.
+\end{proof}
 
 \newpage
 
@@ -2525,5 +2796,18 @@ $\mathcal{A}_5$ è l'unico sottogruppo semplice di tale ordine (a meno di isomor
     \end{itemize}
 \end{proof}
 
+\newpage
+
+\subsection{Studio di $SL_2(\FF_3)$}
+
+Consideriamo il gruppo $GL_2(\FF_3)$, ricordiamo che il determinante è 
+un omomorfismo di gruppi surgettivo
+\[
+    \det: GL_2(\FF_3) \longrightarrow \FF_3^*
+\]
+e che il suo nucleo è il gruppo $SL_2(\FF_3) = \{M \in GL_2(\FF_3)\mid \det M = 1\}$,
+che è quindi un sottogruppo normale di $GL_2(\FF_3)$. Inoltre, poiché
+$\FF_3^* \cong \Z2$ abbiamo che $SL_2(\FF_3)$ ha indice 2 in $GL_2(\FF_3)$, pertanto 
+$|SL_2(\FF_3)| = 24$ in quanto $|GL_2(\FF_3)| = (3^2 - 1)(3^2 - 3) = 48$
 
 \end{document}
