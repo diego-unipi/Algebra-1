@@ -2015,6 +2015,9 @@ I gruppi di ordine 30 sono quindi:
     
 \newpage
 
+% cSpell:enable
+% spell-checker: enable
+% spellchecker: enable
 \section{Anelli}
 \subsection{Riepilogo sugli anelli}
 \begin{definition}
@@ -2157,7 +2160,7 @@ e dei nilpotenti:
 
 \begin{remark}
     Per verificare che un sottoinsieme di un anello commutativo con identità è un ideale ci basta verificare soltanto che $(I,+)$ è chiuso per l'operazione $+$ e che valga la proprietà di assorbimento, infatti, da ciò segue 
-    che $(-1)a \in I$, dove $(-1)$ esiste in $A$ poiché è unitario. \footnote{Da questo momento in poi, anche se non specificato assumiamo di star operando sempre in un anello commutativo con identità.}
+    che $(-1)a \in I$, dove $(-1)$ esiste in $A$ è un gruppo rispetto al $+$.\footnote{Da questo momento in poi, anche se non specificato assumiamo di star operando sempre in un anello commutativo con identità.}
 \end{remark}
 
 \begin{example}[Ideali]
@@ -2167,7 +2170,7 @@ e dei nilpotenti:
             \[ xn\ZZ \subset n\ZZ \qquad \forall x \in \ZZ
                 \]
         ed essendo $\ZZ$ abeliano, abbiamo un ideale.
-        \item I sottogruppi $\{0\}$ (ideale \vocab{banale}), $A$ (ideale \vocab{improprio}) sono ideali dell'anello $A$.
+        \item I sottogruppi $\{0\}$ (ideale \vocab{banale}) e $A$ (ideale \vocab{improprio}) sono ideali dell'anello $A$.
     \end{itemize}
 \end{example}
 
@@ -2220,7 +2223,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
         \[ x = \sum_{i = 1}^n a_is_i \qquad \text e \qquad y = \sum_{j=1}^m\alpha_j \sigma_j \qquad a_i,\alpha_j \in A \qquad s_i,\sigma_j \in S 
             \]
     si osserva che:
-        \[ x + y = \sum_{i = 1}^n a_is_i + y = \sum_{j=1}^m\alpha_j \sigma_j \in (S)
+        \[ x + y = \sum_{i = 1}^n a_is_i + \sum_{j=1}^m\alpha_j \sigma_j \in (S)
             \]
     duqnue $I$ è chiuso per la somma. Infine, per ogni $a \in A$ si ha:
         \[ ax = a\sum_{i = 1}^n a_is_i = \sum_{i = 1}^n \underbrace{aa_i}_{\in A}s_i \in (S)
@@ -2266,7 +2269,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
             \[ ax = \underbrace{ai_1}_{\in I} + \underbrace{aj_1}_{\in J} \in I + J \qquad \forall x \in I + J
                 \]
             dunque $I+J$ è un ideale. Verifichiamo che $I+J = (I,J)$; osserviamo che ovviamente:
-            \[ i+j \in (I,J) \implies I + J \subseteq (I,J)
+            \[ \forall i+j \in I+J, i+j \in (I,J) \implies I + J \subseteq (I,J)
                 \]
             per verificare l'altro contenimento bisogna verificare che $I,J \subset I + J$ e da queste inclusioni e dal fatto che $I + J$ è un ideale segue che
             $I + J$ contiene il più piccolo ideale di $A$ che contiene sia $I$ che $J$. Osserviamo che:
@@ -2284,7 +2287,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
             provare che $x + y \in \sqrt{I}$ (ovvero che esiste $d \in \NN$ tale che $(x+y)^d \in I$), osserviamo che:
                 \[ (x + y)^{n + m} = \sum_{i = 0}^{n + m} \binom{n+m}{i} x^i y^{m+n-i}
                     \]
-            dove $\forall i \{0,\ldots,m+n\}$ si ha che $i \geq n \implies x^i \in I$, oppure che $n+m-i \geq m \implies y^{n+m-i} \in I$, dunque tutti i termini di $(x+y)^{n+m}$ stanno in $I$
+            dove $\forall i \in \{0,\ldots,m+n\}$ si ha che $i \geq n \implies x^i \in I$, oppure che $n+m-i \geq m \implies y^{n+m-i} \in I$, dunque tutti i termini di $(x+y)^{n+m}$ stanno in $I$
             e quindi $x + y \in \sqrt{I}$. Osserviamo che $\forall a \in A$ si che:
                 \[ (ax)^n = a^n\underbrace{x^n}_{\in I} \in I \implies ax \in \sqrt{I}
                     \]
@@ -2302,7 +2305,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
 \end{remark}
 
 \begin{remark}
-    Osserviamo che $IJ \subset I \cap J$, poiché $I \cap J$ è ideale basta vedere che contiene un insieme di generatore di $IJ$. Ma questo è ovvio perché, presi $x \in I$ e
+    Osserviamo che $IJ \subset I \cap J$, poiché $I \cap J$ è ideale basta vedere che contiene un insieme di generatori di $IJ$. Ma questo è ovvio perché, presi $x \in I$ e
     $y \in J$ si ha:
         \[ \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \qquad \text e \qquad \underbrace{x}_{\in A}\underbrace{A}_{\in J} \in  J \implies xy \in I \cap J
             \]
@@ -2439,5 +2442,28 @@ Valgono i seguenti fatti:
     in quanto $\varphi(ax) = \varphi(a)\varphi(x) = \varphi(a) \cdot 0 = 0$; dunque i nuclei degli omomorfismi di anelli sono ideali. Viceversa, tutti gli ideali 
     sono nuclei degli omomorfismi di proiezione al quoziente $\pi_I$.
 \end{proof}
+
+\begin{theorem}
+    [Teorema di Omomorfismo di Anelli]
+    Dati $A,B$ anelli e $f : A \longrightarrow B$ omomorfismo (di anelli), esiste un unico omomorfismo (di anelli) $\varphi$ che fa commutare il diagramma:
+    \begin{center}
+	\setbox0=\hbox{
+	\begin{tikzcd}
+		A \arrow[d, "\pi" left, twoheadrightarrow] \arrow[r, "f"] & B \\	
+		\faktor{A}{\ker f} \arrow[ur,dashed, "\varphi"] & 
+	\end{tikzcd}}
+	\savebox{\tmp}{\box0}
+	{%
+	\stackinset{c}{-0.17cm}{c}{0.26cm}{\Large$\circlearrowleft$}{%
+	\usebox{\tmp}}}
+	\end{center}
+    cioè tale che $f = \varphi \circ \pi$, con $\varphi$ iniettivo e $\text{Im}\varphi = \text{Im}f$.
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+
 
 \end{document}
