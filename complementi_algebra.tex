@@ -2013,6 +2013,15 @@ In effetti vale un risultato più generale
     \end{itemize}
 \end{proof}
 
+\begin{remark}
+    L'enunciato è vero anche per $n = 3$ con la stessa dimostrazione, infatti
+    $\mathcal{A}_3 \cong \Z3$ è un gruppo semplice, ed è vero anche per $n = 4$
+    anche se con una dimostrazione diversa. Infatti un sottogruppo $H$ di 
+    indice 2 di $S_n$ contiene necessariamente il commutatore, in quanto
+    $\faktor{S_n}{H}\cong \Z2$, d'altra parte il commutatore di $S_n$ è 
+    $\mathcal{A}_n$, pertanto $H = \mathcal{A}_4$.
+\end{remark}
+
 
 \subsubsection{Sottogruppi isomorfi a $S_{n - 1}$}\footnote{
     Non sono sicuro di essere stato chiarissimo in questa sezione, se ci 
@@ -2808,6 +2817,207 @@ un omomorfismo di gruppi surgettivo
 e che il suo nucleo è il gruppo $SL_2(\FF_3) = \{M \in GL_2(\FF_3)\mid \det M = 1\}$,
 che è quindi un sottogruppo normale di $GL_2(\FF_3)$. Inoltre, poiché
 $\FF_3^* \cong \Z2$ abbiamo che $SL_2(\FF_3)$ ha indice 2 in $GL_2(\FF_3)$, pertanto 
-$|SL_2(\FF_3)| = 24$ in quanto $|GL_2(\FF_3)| = (3^2 - 1)(3^2 - 3) = 48$
+$|SL_2(\FF_3)| = 24$ in quanto $|GL_2(\FF_3)| = (3^2 - 1)(3^2 - 3) = 48$.
+\\\\
+Consideriamo quindi il gruppo $S = SL_2(\FF_3)$, dalle condizioni 
+\[
+    \begin{cases}
+        n_3 \equiv 1 \pmod 3\\
+        n_3 \mid 24
+    \end{cases}
+\]
+otteniamo $n_3 \in \{1, 4\}$, notiamo però che $S$ non può contenere un unico 
+3-Sylow in quanto questi sono isomorfi a $\Z3$ e le matrici 
+\[
+    \begin{pmatrix}
+        1 & 1\\
+        0 & 1
+    \end{pmatrix}\qquad
+    \begin{pmatrix}
+        1 & 0\\
+        1 & 1
+    \end{pmatrix}
+\]
+hanno ordine 3 e i gruppi che generano sono distinti. In particolare $S$
+contiene almeno 2 3-Sylow, pertanto ne contiene esattamente 4.
+Calcoliamo il centro di $S$ imponendo la commutazione sulle matrici appena 
+esibite. Dall'equazione 
+\[
+    \begin{pmatrix}
+        1 & 1\\
+        0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 1\\
+        0 & 1
+    \end{pmatrix}
+\]
+otteniamo 
+\[
+    \begin{pmatrix}
+        a + c & b + d\\
+        c & d
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        a & a + b\\
+        c & c + d
+    \end{pmatrix}
+\]
+da cui $c = 0$ e $a = d$. In modo analogo dall'equazione
+\[
+    \begin{pmatrix}
+        1 & 0\\
+        1 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        a & b\\
+        0 & a
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        a & b\\
+        0 & a
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 0\\
+        1 & 1
+    \end{pmatrix}
+\]
+otteniamo 
+\[
+    \begin{pmatrix}
+        a & b\\
+        a & a + b
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        a + b & b\\
+        a & a
+    \end{pmatrix}
+\]
+da cui $b = 0$, pertanto un generico elemento del centro è della forma
+$
+    \begin{pmatrix}
+        a & 0\\
+        0 & a
+    \end{pmatrix}
+$
+d'altra parte il suo determinante deve essere uguale a 1, quindi $Z(S) = 
+\left\{\begin{pmatrix}
+    1 & 0\\
+    0 & 1
+\end{pmatrix}, \begin{pmatrix}
+    -1 & 0\\
+    0 & -1
+\end{pmatrix}\right\}$. Utilizziamo questo fatto per determinare la classe
+di isomorfismo di un 3-Sylow di $S$. \newline 
+Fissiamo $P$ un 3-Sylow, poiché $n_3 = [S: N_S(P)]$ abbiamo 
+\[
+    |N_S(P)| = \frac{|S|}{n_3} = 6
+\]
+inoltre $Z(S)$ e $P$ sono sottogruppi di $N_S(P)$. Notiamo che $N_S(P)$
+contiene un elemento di ordine 3 e un elemento di ordine 2 che commutano, 
+ad esempio il generatore di $P$ e il generatore di $Z(S)$,
+pertanto contiene un elemento di ordine 6, il loro prodotto, da cui 
+$N_S(P) = PZ(S) \cong \Z6$.
+\\\\
+Posto $X$ l'insieme dei 3-Sylow di $S$, consideriamo
+l'azione transitiva di coniugio di $S$ su $X$
+\[
+    \Phi: S \longrightarrow S(X) \cong S_4
+\]
+il nucleo di $\Phi$ è
+\begin{multline*}
+    \ker\Phi = \{g \in S \mid gPg^{-1} = P~\forall P \in X\} = \\
+    = \{g \in S\mid g \in N_S(P)~\forall P \in X\} = \\
+    = \bigcap_{P \in X}N_S(P) = \bigcap_{P \in X}PZ(S) = Z(S)
+\end{multline*}
+dove l'ultima uguaglianza è giustificata dal fatto che i 3-Sylow di $S$
+si intersecano banalmente. Per il Primo Teorema di Omomorfismo otteniamo
+che $\mathrm{Im}\Phi \cong \faktor{S}{Z(S)}$, che ha cardinalità 12. D'altra
+parte $\mathrm{A}_4$ è l'unico sottogruppo di $S_4$ con 12 elementi, pertanto
+$\faktor{S}{Z(S)} \cong \mathcal{A}_4$, sfruttiamo questo fatto per studiare 
+i 2-Sylow di $S$. Per il Teorema di Corrispondenza i sottogruppi di $S$
+contenenti $Z(S)$ sono in bigezione con i sottogruppi di $\mathcal{A}_4$,
+e tale bigezione preserva l'indice e la normalità dei sottogruppi. Poiché 
+$V_4$ è l'unico 2-Sylow di $S_4$ abbiamo che $S$ contiene un unico 2-Sylow 
+di indice $3$, cioè di cardinalità 8, chiamiamo $J$ tale sottogruppo. 
+$J$ contiene le matrici
+\[
+    i = \begin{pmatrix}
+        0 & -1\\
+        1 & 0
+    \end{pmatrix}\qquad
+    j = \begin{pmatrix}
+        1 & 1\\
+        1 & -1
+    \end{pmatrix}\footnote{
+        Il determinante di questa matrice è $-2$, che è uguale a 1 in $\FF_3$
+    }
+\]
+entrambe di ordine 4, inoltre
+\[
+    ij = 
+    \begin{pmatrix}
+        0 & -1\\
+        1 & 0
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & 1\\
+        1 & -1
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        -1 & 1\\
+        1 & 1
+    \end{pmatrix}
+\]
+\[
+    ji = \begin{pmatrix}
+        1 & 1\\
+        1 & -1
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 & -1\\
+        1 & 0
+    \end{pmatrix} = 
+    \begin{pmatrix}
+        1 & -1\\
+        -1 & -1
+    \end{pmatrix}
+\]
+pertanto $ij = -ji$. Quindi $J$ è un gruppo di ordine $8$ che contiene due
+elementi di ordine 4 che anticommutano, in particolare ha la seguente presentazione
+\[
+    J = \langle i, j\mid i^4 = j^4 = 1, i^2 = -1, ij = -ji\rangle
+\]
+quindi è isomorfo a $Q_8$. Osserviamo che il sottogruppo derivato $S'$ è 
+contenuto in $J$ in quanto il quoziente $\faktor{S}{J}$ è abeliano (in particolare
+è isomorfo a $\Z3$), mostriamo che effettivamente vale l'uguaglianza. 
+Sicuramente $S'$ non è il sottogruppo formato dalla sola identità in quanto 
+$S$ non è abeliano, inoltre $S'$ deve necessariamente contenere un elemento di 
+ordine 2 in quanto sottogruppo non banale di $J$, quindi $Z(S) \subseteq S'$\footnote{
+    Infatti l'unico elemento di ordine 2 di $S$ è $\begin{pmatrix}-1 & 0\\
+    0 & -1\end{pmatrix}$.
+}. Inoltre $Z(S) \neq S'$ in quanto il quoziente è isomorfo a $\mathcal{A}_4$,
+pertanto $S'$ ha ordine 4 oppure 8, cioè $[S: S'] \in \{3, 6\}$.
+Consideriamo l'omomorfismo surgettivo 
+\[
+    \varphi: S \longrightarrow \mathcal{A}_4
+\]
+dato dalla composizione della proiezione su $\faktor{S}{Z(S)}$ con l'isomorfismo
+tra il quoziente e $\mathcal{A}_4$, per il Teorema di Corrispondenza $\varphi(S')$
+è un sottogruppo normale di $\mathcal{A}_4$ con 
+$[\mathcal{A}_4: \varphi(S')] = [S: S']$. D'altra parte un sottogruppo di 
+indice 6 di $\mathcal{A}_4$ è della forma $\{id, \cycle{a, b}\cycle{c, d}$\}
+con $\cycle{a, b}$ e $\cycle{c, d}$ trasposizioni disgiunte, che non è normale
+in $\mathcal{A}_4$, pertanto $\varphi(S')$ ha indice 3 e quindi $S'$ ha ordine
+8, da cui $S' = J$.
+
 
 \end{document}
