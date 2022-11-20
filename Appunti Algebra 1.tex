@@ -380,7 +380,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
     che è ben definita e per quanto detto all'inizio è iniettiva:
         \[ \varphi_g(x) = \varphi_h(x) \iff g\St(x) = h\St(x)
             \]
-    (quindi due elementi di un'orbita sono uguali se e solo se lo sono le classi laterali dei rispettivi elementi che generano le applicazioni sono uguali modulo $\St(x)$, duqnue per ogni elemento
+    (quindi due elementi di un'orbita sono uguali se e solo se lo sono le classi laterali dei rispettivi elementi che generano le applicazioni sono uguali modulo $\St(x)$, dunque per ogni elemento
     dell'orbita c'è una classe laterale di $\St(x)$) e surgettiva:
         \[ \forall y \in \Orb(x), y = \varphi_g(x) \implies g\St(x) \longmapsto y
             \]
@@ -2225,7 +2225,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
     si osserva che:
         \[ x + y = \sum_{i = 1}^n a_is_i + \sum_{j=1}^m\alpha_j \sigma_j \in (S)
             \]
-    duqnue $I$ è chiuso per la somma. Infine, per ogni $a \in A$ si ha:
+    dunque $I$ è chiuso per la somma. Infine, per ogni $a \in A$ si ha:
         \[ ax = a\sum_{i = 1}^n a_is_i = \sum_{i = 1}^n \underbrace{aa_i}_{\in A}s_i \in (S)
             \]
     dunque $(S)$ è un ideale.
@@ -2272,16 +2272,17 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
             \[ \forall i+j \in I+J, i+j \in (I,J) \implies I + J \subseteq (I,J)
                 \]
             per verificare l'altro contenimento bisogna verificare che $I,J \subset I + J$ e da queste inclusioni e dal fatto che $I + J$ è un ideale segue che
-            $I + J$ contiene il più piccolo ideale di $A$ che contiene sia $I$ che $J$. Osserviamo che:
+            $I + J$ contiene il più piccolo ideale di $A$ che contiene sia $I$ che $J$ (e quindi contiene il loro generato). Osserviamo innanzitutto che in generale:
                 \[ (S) = \bigcap_{\substack{S \subseteq X \subseteq A\\ X\,\text{ideale}}} X
                     \]
-            dove l'intersezione è il più piccolo ideale di $A$ che contiene $S$. Dimostriamo ora l'uguaglianza, $(S)$ è contenuto nell'intersezione in quanto
-            è uno dei termini di quest'ultima; il contenimento opposto segue dal fatto che $\forall x \in S$ si ha $x = \sum a_is_i \in X$ (poiché $X$ è un ideale che contiene $S$),
-            pertanto, per vedere che $(S)$ è contenuto in $\mathcal{I}$, ideale di $A$, basta vedere che $S \subset \mathcal{I}$ (e ciò appunto giustifica il fatto che basti mostrare che $I,J$ sono 
-            contenuti in $I+J$). A questo punto si osserva che, essendo $0 \in J$ abbiamo:
+            dove l'intersezione è appunto il più piccolo ideale di $A$ che contiene $S$.
+            Dobbiamo dimostrare ora quanto detto; osserviamo che $(S)$ è contenuto nell'intersezione in quanto
+            è uno dei termini di quest'ultima; il contenimento opposto segue dal fatto che $\forall x \in S$ si ha $x = \sum a_is_i \in X$ (poiché $X$ è un ideale che contiene $S$, per come l'abbiamo definito),
+            d'altra parte, per vedere che un ideale generato $(S)$ è contenuto a sua volta in un ideale $\mathcal{I}$ di $A$, basta vedere che $S \subset \mathcal{I}$ (ed è ciò che abbiamo appena fatto con $S$).
+            A questo punto, tornando all'inclusione iniziale, ci basta verificare che, come abbiamo anticipato, $I+J$ contenga sia $I$ che $J$; essendo $0 \in J$ abbiamo:
                 \[ I \subset I + J
                     \]
-            infatti basta prendere sempre $j = 0$ per ottenere tutti gli elementi di $I$; ugualmente si dimostra la stessa cosa per $J$, dunque $I,J \subset I + J \implies (I,J) \subset I + J \implies I + J = (I,J)$.
+            infatti basta considerare sempre $j = 0$ per ottenere tutti gli elementi di $I$; in maniera simmetrica si dimostra la stessa cosa per $J$, dunque $I,J \subset I + J \implies (I,J) \subset I + J \implies I + J = (I,J)$.
         \item $IJ = (\{xy | x \in I, y \in J\})$ è un ideale per definizione.
         \item Verifichiamo che $\sqrt{I} = \{x \in A | x^n \in I, n \in \NN\}$ è un ideale, presi $x,y \in \sqrt{I}$, ovvero $x^n,y^m \in I$, $n,m \in \NN$, vogliamo 
             provare che $x + y \in \sqrt{I}$ (ovvero che esiste $d \in \NN$ tale che $(x+y)^d \in I$), osserviamo che:
@@ -2306,16 +2307,17 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
 
 \begin{remark}
     Osserviamo che $IJ \subset I \cap J$, poiché $I \cap J$ è ideale basta vedere che contiene un insieme di generatori di $IJ$. Ma questo è ovvio perché, presi $x \in I$ e
-    $y \in J$ si ha:
+    $y \in J$ si ha dalla proprietà di assorbimento che:
         \[ \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \qquad \text e \qquad \underbrace{x}_{\in A}\underbrace{A}_{\in J} \in  J \implies xy \in I \cap J
             \]
 \end{remark}
 
 \begin{remark}
+    \label{2.24}
     Se $I + J = A$, allora $IJ = I \cap J$, infatti, per ipotesi sappiamo che:
         \[ i+j = 1
             \]
-    occorre dunque vedere che $\forall x \in I \cap J$ (per l'osservazione precedente sapevamo già che $IJ \subset I \cap J$, quindi stiamo verificando il contenimento opposto),
+    occorre dunque vedere che $\forall x \in I \cap J$ si ha $x \in IJ$(per l'osservazione precedente sapevamo già che $IJ \subset I \cap J$, quindi stiamo verificando il contenimento opposto),
     allora possiamo scrivere:
         \[ x \cdot 1 = x(i+j) = \underbrace{xi}_{\in IJ} + \underbrace{xj}_{\in IJ} \in IJ
             \]
@@ -2362,6 +2364,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
 
 \newpage
 \begin{proposition}
+\label{2.26}
 Valgono i seguenti fatti:
 \begin{enumerate}[(1)]
     \item Dato $I \subset A$ ideale, $I$ è un \vocab{ideale proprio} $(I \subsetneq A)$ se e solo se $I \cap A^* = \emptyset$.
@@ -2377,7 +2380,7 @@ Valgono i seguenti fatti:
                 \[ 1 = \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \implies a \cdot 1 \in I\footnote{In pratica se c'è l'identità in $I$ c'è esattamente ogni elemento dell'anello che contiene l'ideale.} \qquad \forall a \in A \implies A \subset I
                     \]
             che è assurdo in quanto avevamo supposto $I \subset A$, dunque $I \cap A^* = \emptyset$.
-        \item $A$ è un campo se e solo se $A^* = A \setminus \{0\}$, ma per il punto (1) l'unico elemento fuori da $A^*$ è 0, e $I = \{0\}$ è proprio l'unico ideale proprio che possiamo avere.
+        \item $A$ è un campo se e solo se $A^* = A \setminus \{0\}$, ma per il punto (1) l'unico elemento fuori da $A^*$ è 0, dunque $I = \{0\}$ e $I = A$ sono gli unici ideali che possiamo avere.
     \end{enumerate}
 \end{proof}
 
@@ -2445,6 +2448,7 @@ Valgono i seguenti fatti:
 
 \begin{theorem}
     [Teorema di Omomorfismo di Anelli]
+    \label{omo}
     Dati $A,B$ anelli e $f : A \longrightarrow B$ omomorfismo (di anelli), esiste un unico omomorfismo (di anelli) $\varphi$ che fa commutare il diagramma:
     \begin{center}
 	\setbox0=\hbox{
@@ -2461,9 +2465,338 @@ Valgono i seguenti fatti:
 \end{theorem}
 
 \begin{proof}
+    Per il Teorema di Omomorfismo i gruppi, essendo $f$ in particolare un omomorfismo di gruppi, posto $I = \ker f$, sappiamo che
+    esiste ed è unico l'omomorfismo:
+        \[ \varphi : \faktor{A}{I} \longrightarrow B
+            \]
+    tale che $f = \varphi \circ \pi_I$, con $\varphi$ è iniettivo e $\text{Im} \varphi = \text{Im} f$. Non ci resta altro da fare che verificare che $\varphi$ è 
+    anche un omomorfismo di anelli:
+        \[ \varphi((a+I)(b+I)) = \varphi(ab+I) = f(ab) \qquad \forall a,b \in A
+            \]
+    viceversa:
+        \[ f(ab) = f(a)f(b) = \varphi(a+I)\varphi(b+I) \qquad \forall a,b \in I
+            \]
+    dove la seconda uguaglianza è vera per ipotesi.
+\end{proof}
+
+\begin{lemma}
+    [Gli ideali si comportano come i sottogruppi normali con gli omomorfismi]
+    \label{2.35}
+    Dato $f : A \longrightarrow B$ omomorfismo di anelli vale che:
+    \begin{enumerate}[(1)]
+        \item $\forall J \subset B$ ideale si ha $f^{-1}(J)$ è un ideale di $A$.
+        \item Se $f$ è surgettiva $\forall I \subset A$ ideale si ha $f(I)$ ideale di $B$
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    Dimostriamo le proposizioni:
+    \begin{enumerate}[(1)]
+        \item Sappiamo già che $f^{-1}(J)$ è un sottogruppo di $A$, verifichiamo che valga la proprietà di assorbimento, ovvero:
+            \[ af^{-1}(J) \subset f^{-1}(J) \qquad \forall a \in A
+                \]
+            sia $x \in f^{-1}(J) \implies f(x) \in J$, allora:
+            \[ \underbrace{f(a)}_{\in B}\underbrace{f(x)}_{\in J} = f(ax) \in J \qquad \forall x \in f^{-1}(J)
+                \]
+            da cui $ax \in f^{-1}(J)$.
+        \item Sappiamo che $f(I)$ è un sottogruppo di $B$, verifichiamo l'assorbimento, sia $b \in B$, poiché $f$ è surgettiva esiste $a \in A$ tale che $b = f(a)$, dunque:
+            \[ bf(x) = f(a)f(x) = f(\underbrace{ax}_{\in I}) \in f(I)
+                \]
+    \end{enumerate}
+\end{proof}
+
+\begin{theorem}
+    [Teorema di Corrispondenza tra Ideali]
+    \label{corrispondenza}
+    Sia $I \subset A$ un ideale e $\varphi_I$ la proiezione all'anello quoziente modulo $I$, $\pi_I$ induce una Corrispondenza biunivoca tra gli ideali di $\faktor{A}{I}$ e 
+    gli ideali di $A$ che contengono $I$, e tale corrispondenza preserva l'ordinamento.
+\end{theorem}
+
+\begin{proof}
+Per il Teorema di Corrispondenza tra sottogruppi abbiamo già la bigezione tra questi, dobbiamo tuttavia verificare che restringendo la corrispondenza agli ideali  questa associ ancora un 
+ideale di $A$ ad un ideale di $\faktor{A}{I}$ e viceversa, cioè l'immagine e la controimmagine di un ideale mediante $\pi_I$ è ancora un ideale (in particolare, per la Corrispondenza tra Sottogruppi sappiamo già
+che le controimmagini contengono l'ideale per il quale si quozienta). Siano:
+    \[ X = \{J \subseteq A \, \text{ideale}| I \subset J\} \qquad \text e \qquad Y=\left\{\mathcal{J} \subset \faktor{A}{I} \m \,\text{$\mathcal{J}$ ideale}\right\}
+        \]
+per il \hyperref[2.35]{Lemma 2.35}, essendo $\pi_I$ surgettivo, si ha che le immagini e la controimmagini via $\pi_I$:
+    \[ J \longmapsto \pi_I(J) \qquad \text e \qquad \mathcal{J} \longmapsto \pi_{I}^{-1}(\mathcal{J})
+        \]
+sono ideali, e ciò conclude la dimostrazione.
+\end{proof}
+
+\begin{example}
+    Se nel \hyperref[2.35]{Lemma 2.35} $f$ non fosse surgettiva, allora l'immagine di un ideale non sarebbe un ideale, ad esempio presa:
+        \[ f : \ZZ \varlonghookrightarrow \QQ : (2) \longmapsto 2\ZZ
+            \]
+    con $2\ZZ$ che non è un ideale di $\QQ$ perché $\QQ$ è un campo e quindi i suoi ideali sono soltanto $\{0\}$ e $\QQ$.
+\end{example}
+
+\begin{definition}
+    Dato un omomorfismo di anelli $f: A \longrightarrow B$ e un ideale $I \subset A$ definiamo \vocab{estensione} di $I$ a $B$ via $f$ l'ideale generato in $B$ da $f(I)$:
+        \[ (f(I)) = f(I)B = IB
+            \]
+\end{definition}
+
+\begin{definition}
+    Dato un omomorfismo di anelli $f: A \longrightarrow B$ e un ideale $J \subset B$ definiamo \vocab{contrazione} di $J$ ad $A$ via $f$ l'ideale $f^{-1}(J)$.
+\end{definition}
+
+\begin{remark}
+    Gli omomorfismi sono sostanzialmente inclusioni a meno di isomorfismo, conoscendo la corrispondenza tra ideali indotta da $\pi_I$ osserviamo che:
+        \[ A \varlonghookrightarrow B : I \longmapsto IB
+            \]
+    che manda ogni ideale nella propria estensione ad un \vocab{sovra anello} e:
+        \[ J \longmapsto J\cap A
+            \]
+    che manda ogni ideale di $B$ nella propria contrazione ad un \vocab{sottoanello} fanno si che l'applicazione:
+        \[ \varphi : A \varlonghookrightarrow B \longrightarrow \faktor{B}{J}
+            \]
+    sia tale che:
+        \[ \ker \varphi = \{a \in A | \varphi(a) = a + J = J\} = \{a \in A | a \in J\} = J \cap A = \pi_{I}^{-1}(J)
+            \]
+    da cui si ha anche che:
+        \[ \frac{A}{J \cap A} \varlonghookrightarrow \faktor{B}{J}
+            \]
+    per il Primo Teorema di Omomorfismo.
+\end{remark}
+
+\begin{remark}
+Dal \hyperref[omo]{Teorema di Omomorfismo di Anelli} si deducono anche il secondo ed il terzo teorema di omomorfismo, ovvero:
+    \[ \frac{A/I}{J/I} \cong \faktor{A}{J} \qquad \text e \qquad \frac{I+J}{J} \cong \frac{I}{I \cap J}
+        \]
+dove in entrambi i casi gli isomorfismi sono di anelli.    
+\end{remark}
+
+\newpage
+\subsection{Prodotto diretto di anelli}
+\begin{definition}
+    Dati gli anelli $A,B$ il prodotto cartesiano $A \times B$ può essere dotato di una struttura di anello con le operazioni:
+        \[ (a_1,b_1) + (a_2,b_2) = (a_1+a_2,b_1+b_2) \quad \text e \quad (a_1,b_1) \cdot (a_2,b_2) = (a_1 \cdot a_2,b_1 \cdot b_2) 
+            \]
+    $\forall a_1,a_2 \in A, \forall b_1,b_2 \in B$, l'insieme $A \times B$ con queste operazioni si dice \vocab{prodotto diretto} di anelli.
+\end{definition}
+
+\begin{theorem}
+    [Teorema Cinese Del Resto Per Anelli]
+    \label{t:cinese}
+    Dato $A$ anello commutativo con unità, $I,J$ suoi ideali, allora la mappa di doppia proiezione:
+    \[ f: A \longrightarrow \faktor{A}{I} \times \faktor{A}{J} : a \longmapsto (a+I,a+J)
+        \]
+    è un omomorfismo di anelli, con $\ker f = I \cap J$. Inoltre, $I+J = A$ se e solo se $f$ è surgettiva, ed in tal caso si ottiene:
+    \[ \faktor{A}{IJ} \cong \faktor{A}{I} \times \faktor{A}{J}
+        \]
+\end{theorem}
+
+\begin{proof}
+    Verifichiamo in primis che $f$ sia un omomorfismo di anelli:
+        \[ f(a+b) = ((a+b)+I,(a+b)+J) = (a+I,a+J) + (b+I,b+J) = f(a)+f(b) \quad \forall a,b \in A
+            \]
+    dove la terza uguaglianza è assicura dalla struttura di anello del quoziente; analogamente:
+        \[ f(ab) = (ab+I,ab+J) = (a+I,a+J)(b+I,b+J) = f(a)f(b) \quad \forall a,b \in A
+            \]
+    Osserviamo ora che:
+        \[ \ker f =\{a \in A | f(a) = (a+I,a+J) = (I,J)\} = \{a\in A | a \in I, a \in J\} = I \cap J
+            \]
+    Verifichiamo separatamente le due implicazioni della seconda parte del teorema:
+    \begin{itemize}
+        \item Supponiamo che $I+J = A$, ovvero che esistono $i$ e $j$ tali che $i+j = 1$\footnote{Poiché
+        l'identità è in $I+J$, allora per la proprietà di assorbimento ogni altro elemento di $A$ è in $I+J$.},
+        e verifichiamo che $f$ è surgettiva. Per verificare che $f$ è surgettiva dobbiamo far vedere che:
+            \[ \forall a,b \in A, \exists x \in A : f(x) = (a+I,b+J)
+                \]
+        per ipotesi sappiamo che $x \in A \implies x \in I+J$ quindi possiamo prendere $x = bi + aj \in A$, per $i \in I$ e $j \in J$, dunque:
+            \[ f(x) = (\underbrace{bi}_{\in I} + aj + I, bi + \underbrace{aj}_{\in J} + J) = (aj + I, bi +J)
+                \]
+        da cui, osservando che $j = 1-i$ e $i = 1 - j$ per ipotesi abbiamo:
+            \[ (aj+I,bi+J) = (a(1-i)+I,b(1-j)+J) = (a+I,b+J)
+                \]
+        e pertanto abbiamo ottenuto $f(x) = (a+I,b+J)$.
+        \item Supponiamo ora che $f$ sia surgettiva e proviamo che $I+J = A$. Se $f$ è surgettiva abbiamo che:
+            \[ \exists i \in A : f(i) = (I,1+J)
+                \]
+        dunque per tale $i$ si ha che:
+            \[ i \in I \qquad \text e \qquad i \equiv 1 \pmod J
+                \]
+        da cui si ricava che: $\underbrace{i}_{\in I} = 1 + \underbrace{j}_{\in J} \implies 1 \in I+J \implies I+J = A$.
+    \end{itemize}
+    Per il Primo Teorema di Omomorfismo abbiamo a questo punto che se $f$ è surgettiva (ed equivalentemente $I+J = A$), allora:
+            \[ \frac{A}{\ker f} \cong \faktor{A}{I} \times \faktor{A}{J} \implies \frac{A}{I \cap J} \cong \faktor{A}{I} \times \faktor{A}{J}
+                \]
+    D'altra parte, per l'\hyperref[2.24]{Osservazione 2.24}, essendo $I+J = A$, allora $I \cap J = IJ$, da cui la tesi:
+        \[\faktor{A}{IJ} \cong \faktor{A}{I} \times \faktor{A}{J}
+            \]
+\end{proof}
+
+\begin{remark}
+    Per il Teorema Cinese Del Resto tra gruppi sapevamo che:
+        \[ \Z{mn} \cong \Z{m} \times \Z{n} \iff (m,n) = 1
+            \]
+    per il \hyperref[t:cinese]{Teorema Cinese Del Resto} tra anelli ora sappiamo che:
+        \[ f: \ZZ \longrightarrow \Z{m} \times \Z{n}
+            \]
+    con $\ker f = m\ZZ \cap n\ZZ = [m,n]\ZZ$, da cui:
+        \[ \Z{[m,n]} \varlonghookrightarrow \Z{m} \times \Z{n}
+            \]
+    avevamo visto che $f$ è surgettiva se e solo se $(m,n) = 1$, ed in questo modo $[m,n] = mn$ (cioè è vero 
+    in questo caso che $IJ = I \cap J$), dunque:
+        \[ \Z{[m,n]} = \Z{mn} \cong \Z{m} \times \Z{n}
+            \]
+    pertanto la nuova versione del teorema Cinese è una generalizzazione della precedente.
+\end{remark}
+
+\newpage
+\subsection{Ideali primi e massimali}
+
+\begin{definition}
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato e sia $X \subset \mathcal{F}$ un suo sottoinsieme, diciamo che 
+    $M \in \mathcal{F}$ è un \vocab{maggiorante} per $X$ se:
+        \[ A \leqslant M \qquad \forall A \in X
+            \]
+\end{definition}
+
+\begin{definition}
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato e sia $X \subset \mathcal{F}$ un suo sottoinsieme, diciamo che 
+    $A \in \mathcal{F}$ è un elemento \vocab{massimale} per $\mathcal{F}$ se:
+        \[ \forall B \in \mathcal{F} : A \leqslant B \implies A = B
+            \]
+\end{definition}
+
+\begin{definition}
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato e sia $X \subset \mathcal{F}$ un suo sottoinsieme, diciamo che 
+    $A \in \mathcal{F}$ si dice \vocab{massimo} per $\mathcal{F}$ se:
+    \[ \forall B \in \mathcal{F} : B \leqslant A
+        \]
+\end{definition}
+
+\begin{definition}
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato, una \vocab{catena} di $\mathcal{F}$ è un sottoinsieme di $\mathcal{F}$ totalmente 
+    ordinato.
+\end{definition}
+
+\begin{definition}
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato, $(\mathcal{F}, \leqslant)$ si dice \vocab{induttivo} se ogni catena di $\mathcal{F}$
+    ammette un maggiorante in $\mathcal{F}$.
+\end{definition}
+
+\begin{lemma}
+    [Lemma di Zorn]
+    \label{zorn}
+    Sia $(\mathcal{F}, \leqslant)$ un insieme non vuoto, parzialmente ordinato e induttivo, allora $\mathcal{F}$ contiene elementi massimali.
+\end{lemma}
+
+\begin{remark}
+    Spesso il \hyperref[zorn]{Lemma di Zorn} viene usato su famiglie $\mathcal{F}$ di ideali ordinati secondo la relazione di inclusione.
+\end{remark}
+
+\begin{definition}
+    Dato un ideale proprio $I \subsetneq A$, $I$ si dice \vocab{primo} se:
+        \[ xy \in I \implies x \in I \vee y \in I \qquad \forall x,y \in A
+            \]
+    ovvero se ogni volta che contiene un prodotto, contiene uno dei due fattori.
+\end{definition}
+
+\begin{definition}
+    Un ideale $I$ si dice \vocab{massimale} se è un elemento massimale della famiglia $\mathcal{F}$ di tutti gli ideali propri di $A$, ovvero:
+        \[ I \, \text{è massimale} \iff \forall J \subsetneq A : I \subseteq J \implies I = J
+            \]
+\end{definition}
+
+\begin{example}
+    [Ideali primi di $\ZZ$]
+    Gli ideali primi di $\ZZ$ sono $(p)$ con $p$ primo, infatti:
+    \[ xy \in (p) \iff p \mid xy \iff p \mid x \vee p \mid y
+        \]
+    ovvero se $x \in (p)$ o $y \in p$. Se consideriamo invece $(m)$, con $m$ non primo, dunque riducibile $m = ab$, con $1<a<m$ e $1<b<m$, allora:
+    \[ ab \in (m) \qquad \text{ma} \quad a \not\in (m) \quad \text e \quad b \not\in (m)
+        \]
+    dunque $(m)$ non è primo.
+\end{example}
+
+\begin{proposition}[Proprietà degli Ideali Massimali]
+    Dato un anello $A$ allora:
+    \begin{enumerate}[(1)]
+        \item Ogni ideale proprio di $A$ è contenuto in un ideale massimale.
+        \item Ogni elemento non invertibile di $A$ è contenuto in un ideale massimale.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo le affermazioni:
+    \begin{enumerate}
+        \item Sia $I \subsetneq A$ un ideale e sia:
+            \[ \mathcal{F} = \{J \subsetneq A | I \subseteq J\}
+                \]
+            osserviamo che $I \in \mathcal{F} \implies \mathcal{F} \ne \emptyset$, inoltre $(\mathcal{F},\subseteq)$ è induttivo, infatti, detta $\mathscr{C}$ una catena, essa
+            sarà:
+            \[ \mathscr{C} = \{J_n\}
+                \]
+            allora $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$ con
+            $J$ maggiorante di $\mathscr{C}$. Infatti:
+            \begin{itemize}
+                \item $\forall J_n \in \mathscr{C}$, ovvio per costruzione, avendo preso $J$ come l'unione di tutti i $J_n$.
+                \item $J \in \mathcal{F}$, poiché $I \subset J_n \subset J$, $\forall J \in \mathcal{F}$ ed inoltre $J$ è un ideale proprio, infatti, se $1 \in J = \bigcup J_n \implies \exists n$ tale che
+                    $1 \in J_n \subsetneq A$ che è assurdo.
+            \end{itemize}
+            Dunque ogni catena di $\mathcal{F}$ ammette maggiorante, pertanto $\mathcal{F}$ è induttivo e vale il \hyperref[zorn]{Lemma di Zorn}, per il quale la famiglia $\mathcal{F}$ ammette almeno un elemento massimale $M$.
+            Resta da verificare che tale elemento massimale $M$ sia un ideale massimale (poiché la famiglia $\mathcal{F}$ non è la famiglia di tutti gli ideali di $A$) nella famiglia di tutti gli ideali propri di $A$, ma ciò segue subito osservando che,
+            preso $L \subsetneq A$ ideale proprio con $M \subseteq L$, allora:
+                \[ I \subseteq M \subseteq L \implies L \subset \mathcal{F}
+                    \]
+            e per la massimalità di $M$ in $\mathcal{F}$, segue che $M = L$.
+        \item Segue immediatamente dal punto (1), infatti, si $x \in A \setminus A^*$, allora per la \hyperref[2.26]{Proposizione 2.26} l'ideale generato da $x$ è proprio,
+        $(x) \subsetneq A$, e quindi vale il punto (1) appena dimostrato:
+            \[ (x) \subseteq M \implies x \in M
+                \]
+        con $M$ ideale massimale di $A$.
+    \end{enumerate}
+\end{proof}
+
+\begin{proposition}[Caratterizzazione degli ideali primi e massimali]
+    Dato un ideale proprio di $I \subsetneq A$, allora:
+    \begin{enumerate}[(1)]
+        \item $I$ è primo se e solo se $\faktor{A}{I}$ è un dominio.
+        \item $I$ è massimale se e solo se $\faktor{A}{I}$ è un campo.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo le affermazioni:
+    \begin{enumerate}[(1)]
+        \item Presi $x,y \in A$, per definizione abbiamo che $I$ è primo se e solo se $xy \in I \implies x \in I \vee y \in I$, d'altra parte, $\faktor{A}{I}$ è un dominio se e solo se:
+            \[ (x+I)(y+I) = I \implies x \in I \vee y \in I
+                \]
+            ovvero se e solo se $xy+I = I \implies x \in I \vee y \in I \footnote{Ovvero uno dei due elementi è nella classe laterale neutra dell'anello quoziente.} \iff xy \in I \implies x \in I \vee y \in I$, ma ciò è equivalente a dire che $I$ è primo.
+        \item Per il \hyperref[corrispondenza]{Teorema di Corrispondenza} $I$ è un ideale massimale se e solo se in $\faktor{A}{I}$ ci sono soltanto gli ideali $(\ol 0)$ e $\faktor{A}{I}$ (ovvero se gli ideali che lo contengono sono soltanto sé stesso e tutto l'anello) 
+        dunque per il (2) della \hyperref[2.26]{Proposizione 2.26} se e solo se $\faktor{A}{I}$ è un campo.
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Dato $A$ un anello si ha:
+    \begin{enumerate}[(1)]
+        \item $A$ è un dominio se e solo se $(0)$ è un ideale primo.
+        \item $A$ è un campo se e solo se $(0)$ è un ideale massimale.
+        \item $I$ massimale $\implies I$ primo.
+    \end{enumerate}
+\end{corollary}
+
+\begin{proof}
     
 \end{proof}
 
+\begin{example}
+    [$\ZZ$ è un dominio ma non un campo]
+\end{example}
 
+\begin{corollary}
+    La corrispondenza biunivoca tra ideali per mezzo della proiezione:
+    \[ \pi_I : A \longrightarrow \faktor{A}{I}
+        \]
+    conserva ideali primi e massimali.
+\end{corollary}
+
+\begin{proof}
+    
+\end{proof}
 
 \end{document}
