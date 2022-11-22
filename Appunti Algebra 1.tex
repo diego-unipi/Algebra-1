@@ -2723,27 +2723,30 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \begin{proof}
     Verifichiamo le affermazioni:
     \begin{enumerate}
-        \item Sia $I \subsetneq A$ un ideale e sia:
+        \item Sia $I \subsetneq A$ un ideale proprio e sia $\mathcal{F}$ la famiglia di tutti gli ideali propri che lo contengono:
             \[ \mathcal{F} = \{J \subsetneq A | I \subseteq J\}
                 \]
             osserviamo che $I \in \mathcal{F} \implies \mathcal{F} \ne \emptyset$, inoltre $(\mathcal{F},\subseteq)$ è induttivo, infatti, detta $\mathscr{C}$ una catena, essa
-            sarà:
-            \[ \mathscr{C} = \{J_n\}
+            sarà un sottoinsieme di $\mathcal{F}$ totalmente ordinato della forma:
+            \[ \mathscr{C} = \{J_n\} \subseteq \mathcal{F}
                 \]
-            allora $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$ con
-            $J$ maggiorante di $\mathscr{C}$. Infatti:
+            allora posta $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$, verifichiamo che
+            $J$ è maggiorante di $\mathscr{C}$. Si ha che:
             \begin{itemize}
-                \item $\forall J_n \in \mathscr{C}$, ovvio per costruzione, avendo preso $J$ come l'unione di tutti i $J_n$.
-                \item $J \in \mathcal{F}$, poiché $I \subset J_n \subset J$, $\forall J \in \mathcal{F}$ ed inoltre $J$ è un ideale proprio, infatti, se $1 \in J = \bigcup J_n \implies \exists n$ tale che
-                    $1 \in J_n \subsetneq A$ che è assurdo.
+                \item $\forall J_n \in \mathscr{C} : J_n \subseteq J$, segue ovviamente da come abbiamo definito $J$, avendolo costruito come l'unione di tutti i $J_n$.
+                \item $J \in \mathcal{F}$, poiché $I \subset J_n \subset J$, $\forall J_n \in \mathcal{F}$, e infine $J$ è un ideale proprio, infatti, se per assurdo fosse
+                $1 \in J = \bigcup J_n \implies \exists n$ tale che $1 \in J_n \subsetneq A$ che è assurdo (se un ideale contenesse l'identità del prodotto, allora conterrebbe
+                tutti gli elementi dell'anello).
             \end{itemize}
-            Dunque ogni catena di $\mathcal{F}$ ammette maggiorante, pertanto $\mathcal{F}$ è induttivo e vale il \hyperref[zorn]{Lemma di Zorn}, per il quale la famiglia $\mathcal{F}$ ammette almeno un elemento massimale $M$.
-            Resta da verificare che tale elemento massimale $M$ sia un ideale massimale (poiché la famiglia $\mathcal{F}$ non è la famiglia di tutti gli ideali di $A$) nella famiglia di tutti gli ideali propri di $A$, ma ciò segue subito osservando che,
-            preso $L \subsetneq A$ ideale proprio con $M \subseteq L$, allora:
+            Dunque ogni catena $\mathscr{C}$ di $\mathcal{F}$ ammette maggiorante\footnote{Abbiamo verificato addirittura che tale maggiorante sia un massimo della catena.}, pertanto $\mathcal{F}$ è induttivo
+            e vale il \hyperref[zorn]{Lemma di Zorn}, per il quale la famiglia $\mathcal{F}$ ammette almeno un elemento massimale $M$. \\
+            Resta da verificare che tale elemento massimale $M$ sia un ideale massimale dell'anello (poiché abbiamo dimostrato che è massimale per la famiglia $\mathcal{F}$ degli ideali che ne contengono uno proprio,
+            la quale ovviamente non è la famiglia di tutti gli ideali propri di $A$), ciò segue subito osservando che,
+            supponendo $L \subsetneq A$ ideale proprio con $M \subseteq L$, allora:
                 \[ I \subseteq M \subseteq L \implies L \subset \mathcal{F}
                     \]
-            e per la massimalità di $M$ in $\mathcal{F}$, segue che $M = L$.
-        \item Segue immediatamente dal punto (1), infatti, si $x \in A \setminus A^*$, allora per la \hyperref[2.26]{Proposizione 2.26} l'ideale generato da $x$ è proprio,
+            dunque $L$ è un elemento della famiglia $\mathcal{F}$, e per la massimalità di $M$ in $\mathcal{F}$, segue che $M = L$.
+        \item Segue immediatamente dal punto (1), infatti, sia $x \in A \setminus A^*$, allora per la \hyperref[2.26]{Proposizione 2.26} l'ideale generato da $x$ è proprio,
         $(x) \subsetneq A$, e quindi vale il punto (1) appena dimostrato:
             \[ (x) \subseteq M \implies x \in M
                 \]
