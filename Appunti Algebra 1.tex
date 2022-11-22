@@ -2305,22 +2305,22 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
     $I \cup J$ in generale non è un ideale.
 \end{remark}
 
-\begin{remark}
-    Osserviamo che $IJ \subset I \cap J$, poiché $I \cap J$ è ideale basta vedere che contiene un insieme di generatori di $IJ$. Ma questo è ovvio perché, presi $x \in I$ e
-    $y \in J$ si ha dalla proprietà di assorbimento che:
-        \[ \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \qquad \text e \qquad \underbrace{x}_{\in A}\underbrace{A}_{\in J} \in  J \implies xy \in I \cap J
+\begin{remark}[$IJ \subset I \cap J$]
+    Osserviamo che $IJ \subset I \cap J$, infatti presi $x \in I$ e $y \in J$ si ha dalla proprietà di assorbimento che:
+        \[ \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \qquad \text e \qquad \underbrace{x}_{\in A}\underbrace{y}_{\in J} \in  J \implies xy \in I \cap J
             \]
 \end{remark}
 
-\begin{remark}
+\begin{remark}[$IJ = I \cap J$]
     \label{2.24}
-    Se $I + J = A$, allora $IJ = I \cap J$, infatti, per ipotesi sappiamo che:
+    Se $I + J = A$, allora $IJ = I \cap J$. Dall'ipotesi possiamo dedurre che:
         \[ i+j = 1
             \]
-    occorre dunque vedere che $\forall x \in I \cap J$ si ha $x \in IJ$(per l'osservazione precedente sapevamo già che $IJ \subset I \cap J$, quindi stiamo verificando il contenimento opposto),
-    allora possiamo scrivere:
+    vogliamo verificare che $\forall x \in I \cap J$ si ha $x \in IJ$ (dall'osservazione precedente 
+    sappiamo già che $IJ \subset I \cap J$, quindi stiamo verificando il contenimento opposto), possiamo scrivere:
         \[ x \cdot 1 = x(i+j) = \underbrace{xi}_{\in IJ} + \underbrace{xj}_{\in IJ} \in IJ
             \]
+    dove l'appertenenza segue dal fatto che stiamo considerando la somma di due elementi in $IJ$ (che è un gruppo additivo).
 \end{remark}
 
 \begin{example}
@@ -2364,6 +2364,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
 
 \newpage
 \begin{proposition}
+[Proprietà ideali propri]
 \label{2.26}
 Valgono i seguenti fatti:
 \begin{enumerate}[(1)]
@@ -2637,11 +2638,10 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     con $\ker f = m\ZZ \cap n\ZZ = [m,n]\ZZ$, da cui:
         \[ \Z{[m,n]} \varlonghookrightarrow \Z{m} \times \Z{n}
             \]
-    avevamo visto che $f$ è surgettiva se e solo se $(m,n) = 1$, ed in questo modo $[m,n] = mn$ (cioè è vero 
-    in questo caso che $IJ = I \cap J$), dunque:
+    avevamo visto che $f$ è surgettiva se e solo se $(m,n) = 1$, ed in questo modo $[m,n] = mn$ (o equivalentemente $n\ZZ + m\ZZ = (n,m)\ZZ = \ZZ$), dunque:
         \[ \Z{[m,n]} = \Z{mn} \cong \Z{m} \times \Z{n}
             \]
-    pertanto la nuova versione del teorema Cinese è una generalizzazione della precedente.
+    pertanto la nuova versione del Teorema Cinese del Resto è una generalizzazione della precedente.
 \end{remark}
 
 \newpage
@@ -2655,14 +2655,14 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{definition}
 
 \begin{definition}
-    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato e sia $X \subset \mathcal{F}$ un suo sottoinsieme, diciamo che 
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato, diciamo che 
     $A \in \mathcal{F}$ è un elemento \vocab{massimale} per $\mathcal{F}$ se:
         \[ \forall B \in \mathcal{F} : A \leqslant B \implies A = B
             \]
 \end{definition}
 
 \begin{definition}
-    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato e sia $X \subset \mathcal{F}$ un suo sottoinsieme, diciamo che 
+    Sia $(\mathcal{F}, \leqslant)$ un insieme parzialmente ordinato, diciamo che 
     $A \in \mathcal{F}$ si dice \vocab{massimo} per $\mathcal{F}$ se:
     \[ \forall B \in \mathcal{F} : B \leqslant A
         \]
@@ -2685,7 +2685,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{lemma}
 
 \begin{remark}
-    Spesso il \hyperref[zorn]{Lemma di Zorn} viene usato su famiglie $\mathcal{F}$ di ideali ordinati secondo la relazione di inclusione.
+    Spesso il \hyperref[zorn]{Lemma di Zorn} viene usato su famiglie $\mathcal{F}$ di ideali ordinati secondo la relazione di inclusione $\subseteq$.
 \end{remark}
 
 \begin{definition}
