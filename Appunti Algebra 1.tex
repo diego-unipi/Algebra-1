@@ -59,9 +59,9 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
 \begin{proof}
     Proviamo le due affermazioni:
         \begin{enumerate}[(1)]
-            \item Per verificare che $\varphi_g$ è un automorfismo bisogna verificare che $\varphi_g$ è ben definita, ma ciò segue dalla chiusura di $g$ per l'operazione.
+            \item Per verificare che $\varphi_g$ è un automorfismo bisogna verificare che $\varphi_g$ è ben definita, ma ciò segue dalla chiusura di $G$ per l'operazione.
                 Verifichiamo che sia un omomorfismo:
-                    \[ \varphi_g(xy) = gxyg^{-1} = gxg^{-1}gyg^{-1} = \varphi_g(x)\varphi_g(y)
+                    \[ \varphi_g(xy) = g x y g^{-1} = gxg^{-1}gyg^{-1} = \varphi_g(x)\varphi_g(y)
                     \qquad \forall x,y \in G 
                         \]
                 ci resta da verificare che sia una bigezione. Partiamo dalla surgettività, vogliamo verificare che $\forall y \in G$, $\exists g \in G :$
@@ -694,7 +694,7 @@ da cui $\lambda$ fedele.
 Ricordiamo brevemente che:
 
 \begin{definition}
-    Dato un insieme $X$ si definsce \vocab{permutazione} un'applicazione bigettiva di $X$ in se stesso.
+    Dato un insieme $X$ si definisce \vocab{permutazione} un'applicazione bigettiva di $X$ in se stesso.
 \end{definition}
 
 Indichiamo con $S(X)$ il gruppo delle permutazioni di $X$ e con $S_n$ il gruppo delle permutazioni di un insieme di cardinalità $n$, che 
@@ -1496,7 +1496,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
         con $G_p$ gruppo caratteristico (poiché gli isomorfismi conservano gli ordini degli elementi) e quindi:
             \[ G_p \cong \left(\Zp\right)^t \cong \left(\Zp\right)^s \implies t = s
                 \]
-        Qunidi le lunghezze delle fattorizzazioni sono uguali, per concludere ci basta utilizzare l'ipotesi induttiva al gruppo $pG$ (con $|pG| = p^{n-t}$):
+        Quindi le lunghezze delle fattorizzazioni sono uguali, per concludere ci basta utilizzare l'ipotesi induttiva al gruppo $pG$ (con $|pG| = p^{n-t}$):
             \[ pG \cong \frac{p\ZZ}{p^{r_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{r_t}\ZZ} \cong \Z{p^{r_1-1}} \times \ldots \times \Z{p^{r_t-1}} \cong \Z{p^{k_1-1}} \times \ldots \times \Z{p^{k_t-1}}
                 \]
         quindi $G_p$ ha decomposizione unica, da cui:
@@ -1523,12 +1523,12 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 \subsection{Teorema Di Sylow}
 
 \begin{remark}
-    Dato un gruppo $G$ finito cosa possiamo dire dell'esistenza di elementi e sottogruppi di un certo ordine? Riepiloghiamo di seguito i principali risulati visti:
+    Dato un gruppo $G$ finito cosa possiamo dire dell'esistenza di elementi e sottogruppi di un certo ordine? Riepiloghiamo di seguito i principali risultati visti:
         \begin{itemize}
             \item $H \leqslant G \implies |H| \mid |G|$ (Teorema Di Lagrange).
             \item $\forall p$ primo tale che $p \mid |G|$, $\exists x \in G : \ord_G(x) = p$ (\hyperref[p:Cauchy]{Teorema Di Cauchy}).
-            \item Se $G$ è ciclco, $\forall d \mid |G|$, $\exists x \in G : \ord_G(x) = d$ (per definizione di gruppo ciclico).
-            \item $G$ è ciclco se e solo se $d = |G|$.
+            \item Se $G$ è ciclico, $\forall d \mid |G|$, $\exists x \in G : \ord_G(x) = d$ (per definizione di gruppo ciclico).
+            \item $G$ è ciclico se e solo se $d = |G|$.
             \item Se $G$ è abeliano $\forall d \mid |G|$, $\exists H \leqslant G$ tale che $|H| = d$ (\hyperref[davide]{Lemma Di Ranieri}).
         \end{itemize}
 \end{remark}
@@ -1773,7 +1773,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \end{center}
 \end{example}
 
-Abbiamo qundi classificato tutti i gruppi di ordine 12:
+Abbiamo quindi classificato tutti i gruppi di ordine 12:
     \[ \color{LimeGreen!90!black}{\Z{12} \qquad \Z{2} \times \Z{6} \qquad \mathcal{A}_4 \qquad \Z{3} \rtimes_{\varphi} \Z{4} \qquad D_6}
         \]
 
@@ -1791,7 +1791,7 @@ Abbiamo qundi classificato tutti i gruppi di ordine 12:
     allora $j^4 = 1 \implies \ord(j) \mid 4$, ciò unito al fatto che:
         \[ \ord(j^2) = \frac{\ord(j)}{(2,\ord(j))} = \ord(i^2) = 2
             \]
-    implica che $\ord(j) = 4$. Dunque abbiamo due gruppi ciclci di ordine $4$, $\left<i\right>$ e $\left<j\right>$, con
+    implica che $\ord(j) = 4$. Dunque abbiamo due gruppi ciclici di ordine $4$, $\left<i\right>$ e $\left<j\right>$, con
     $\left<i\right> \cap \left<j\right> = \{1,i^2 = j^2\}$.
 \end{remark}
 
@@ -1850,7 +1850,7 @@ con $i^2 = -1$, $i^3 = -i$, $j^3 = -j$, $i^3j = -k$.
     \[ ji = -k \qquad ik = -j \qquad kj = -i
         \]
     Le operazioni fatte in questo modo sono equivalenti a quelle che si ottengono con le regole di commutazione della presentazione, ad esempio:
-        \[ k^2 = (ij)^2 = ijij = ijj^3i = i^2 
+        \[ k^2 = (ij)^2 = i j i j = ijj^3i = i^2 
             \]
 \end{remark}
 
@@ -1986,7 +1986,7 @@ Dunque i gruppi di ordine 8 sono:
             \begin{center}
                 $G \cong \color{LimeGreen!90!black}{\Z{2} \times \Z{3} \times \Z{5} \cong \Z{30}}$
             \end{center}
-        \item Se $G$ non è abeliano, osserviamo che (in generale) $30 = 2d$, con $d$ dispari, dunque $G$ ha un sottogruppo di ordine 15, che è normale in quanto ha indice 2 ed è ciclco, in quanto è un gruppo di ordine $pq$
+        \item Se $G$ non è abeliano, osserviamo che (in generale) $30 = 2d$, con $d$ dispari, dunque $G$ ha un sottogruppo di ordine 15, che è normale in quanto ha indice 2 ed è ciclico, in quanto è un gruppo di ordine $pq$
             con $p \nmid q-1$, pertanto $G$ contiene una copia isomorfa di $\Z{15}$. Per \hyperref[p:Cauchy]{Cauchy} esiste un elemento di ordine $2$ e quindi anche una copia isomorfa a $\Z{2}$ in $G$ (in particolare potevamo prendere
             direttamente il $2$-Sylow), dunque i due gruppi verificano le ipotesi del \hyperref[t:1.78]{Teorema 1.78}, da cui: \footnote{La direzione del prodotto semidiretto è data dal fatto che $\Z{15}$ è l'unico normale tra i due sottogruppi.}
                 \[ G \cong \Z{15} \rtimes_{\varphi} \Z{2}
@@ -2320,7 +2320,7 @@ Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento
     sappiamo già che $IJ \subset I \cap J$, quindi stiamo verificando il contenimento opposto), possiamo scrivere:
         \[ x \cdot 1 = x(i+j) = \underbrace{xi}_{\in IJ} + \underbrace{xj}_{\in IJ} \in IJ
             \]
-    dove l'appertenenza segue dal fatto che stiamo considerando la somma di due elementi in $IJ$ (che è un gruppo additivo).
+    dove l'appartenenza segue dal fatto che stiamo considerando la somma di due elementi in $IJ$ (che è un gruppo additivo).
 \end{remark}
 
 \begin{example}
@@ -2755,6 +2755,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{proof}
 
 \begin{proposition}[Caratterizzazione degli ideali primi e massimali]
+    \label{2.56}
     Dato un ideale proprio di $I \subsetneq A$, allora:
     \begin{enumerate}[(1)]
         \item $I$ è primo se e solo se $\faktor{A}{I}$ è un dominio.
@@ -2765,16 +2766,18 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \begin{proof}
     Verifichiamo le affermazioni:
     \begin{enumerate}[(1)]
-        \item Presi $x,y \in A$, per definizione abbiamo che $I$ è primo se e solo se $xy \in I \implies x \in I \vee y \in I$, d'altra parte, $\faktor{A}{I}$ è un dominio se e solo se:
-            \[ (x+I)(y+I) = I \implies x \in I \vee y \in I
+        \item Presi $x,y \in A$, per definizione abbiamo che $I$ è primo se e solo se $xy \in I \implies x \in I$ o $y \in I$, d'altra parte, $\faktor{A}{I}$ è un dominio se e solo se:
+            \[ (x+I)(y+I) = xy + I = I \iff xy \in I \implies x \in I \quad\text o\quad y \in I
                 \]
-            ovvero se e solo se $xy+I = I \implies x \in I \vee y \in I \footnote{Ovvero uno dei due elementi è nella classe laterale neutra dell'anello quoziente.} \iff xy \in I \implies x \in I \vee y \in I$, ma ciò è equivalente a dire che $I$ è primo.
-        \item Per il \hyperref[corrispondenza]{Teorema di Corrispondenza} $I$ è un ideale massimale se e solo se in $\faktor{A}{I}$ ci sono soltanto gli ideali $(\ol 0)$ e $\faktor{A}{I}$ (ovvero se gli ideali che lo contengono sono soltanto sé stesso e tutto l'anello) 
-        dunque per il (2) della \hyperref[2.26]{Proposizione 2.26} se e solo se $\faktor{A}{I}$ è un campo.
+            ovvero se e solo se, quando un prodotto di elementi si annulla (quindi fa la classe laterale neutra in questo caso) uno dei due elementi è già nella classe laterale neutra 
+            dell'anello quoziente (quindi è già l'unico elemento neutro del prodotto, come richiesto dal fatto che l'anello sia un dominio), ma come si vede ciò è equivalente a dire che $I$ è primo.
+        \item Per il (2) della \hyperref[2.26]{Proposizione 2.26} $\faktor{A}{I}$ è un campo se e solo se gli unici ideali che contiene sono quelli impropri, $\ol{(0)}$ e $\faktor{A}{I}$, dunque per il 
+        \hyperref[corrispondenza]{Teorema di Corrispondenza} ciò è equivalente a dire che gli ideali di $A$ che contengono $I$ sono soltanto $A$ ed $I$ stesso \footnote{Infatti si ha che
+        $\pi_I^{-1}\left(\faktor{A}{I}\right) = A$ e $\pi_I^{-1}(\ol{(0)}) = I$.}, ovvero $I$ è un ideale massimale di $A$.
     \end{enumerate}
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[Caratterizzazione degli ideali primi e massimali 2]
     Dato $A$ un anello si ha:
     \begin{enumerate}[(1)]
         \item $A$ è un dominio se e solo se $(0)$ è un ideale primo.
@@ -2784,22 +2787,47 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{corollary}
 
 \begin{proof}
-    
+    Proviamo le affermazioni:
+    \begin{enumerate}[(1)]
+        \item Per l'(1) della \hyperref[2.56]{Proposizione 2.56} sappiamo che $(0)$ è primo se e solo se $\faktor{A}{(0)}$ è un dominio, ma:
+            \[ \faktor{A}{(0)} \cong A
+                \]
+            da cui segue che $A$ è un dominio.
+        \item Per il punto (2) della \hyperref[2.56]{Proposizione 2.56} sappiamo che $(0)$ è massimale se e solo se $\faktor{A}{(0)}$ è un campo, ma:
+            \[ \faktor{A}{(0)} \cong A
+                \]
+            da cui segue che $A$ è un campo.
+        \item Per quanto detto nel (2) della \hyperref[2.56]{Proposizione 2.56}, $I$ è massimale se e solo se $\faktor{A}{I}$ è un campo, in particolare ciò 
+            significa che $\faktor{A}{I}$ è un dominio d'integrità, ma per l'(1) della \hyperref[2.56]{Proposizione 2.56} ciò è equivalente a dire che $I$ sia primo.
+    \end{enumerate}
 \end{proof}
 
 \begin{example}
     [$\ZZ$ è un dominio ma non un campo]
+    Si osserva che l'ideale $(0)$ è un ideale primo (poiché $xy \in (0) \iff xy = 0 \implies x \in (0)$ o $y \in (0)$, poiché $\ZZ$ è un dominio), ma non massimale, infatti:
+        \[ (0) \subset (m) \qquad \forall m \in \ZZ
+            \]
 \end{example}
 
 \begin{corollary}
     La corrispondenza biunivoca tra ideali per mezzo della proiezione:
     \[ \pi_I : A \longrightarrow \faktor{A}{I}
         \]
-    conserva ideali primi e massimali.
+    conserva ideali primi e massimali.\footnote{Ovviamente gli ideali considerati devono contenere $I$, altrimenti non c'è nulla da preservare in arrivo.}
 \end{corollary}
 
 \begin{proof}
-    
+    Osserviamo preliminarmente che si ha $I \subseteq J \subseteq A$, dunque nella proiezione $\pi_I$ si ha che:
+        \[ J \longmapsto \pi_I(J) = \faktor{J}{I}
+            \]
+    Dobbiamo dimostrare che $J$ è primo (massimale) in $A$ se e solo se $\faktor{J}{I}$ è primo (massimale) in $\faktor{A}{I}$. Per quanto detto nella \hyperref[2.56]{Proposizione 2.56} $J$ primo (massimale) 
+    è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e, ugualmente deve essere che $\frac{A/I}{J/I}$ è un dominio (campo) ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
+    \[ \frac{A/I}{J/I} \cong \faktor{A}{J}
+        \]
+    che in entrambi i casi verifica la tesi.
 \end{proof}
+
+\newpage
+\subsection{Anello delle frazioni di un dominio}
 
 \end{document}
