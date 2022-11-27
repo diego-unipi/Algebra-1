@@ -16,7 +16,7 @@
 
 \section*{Ringraziamenti}
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-Leonardo Alfani, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Lorenzo Picinelli.
+Leonardo Alfani, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli.
 
 \newpage
 \section{Gruppi}
@@ -2212,7 +2212,8 @@ nella $i$-esima riga per ogni $i$, e sommando tutte queste matrici otteniamo $I_
 Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento:
         \[ (x) = \{ax | a \in A\} = Ax
             \]
-
+in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
+        
 \begin{proposition}
     L'ideale generato da un sottoinsieme $S$ di un anello $A$ è un ideale.
 \end{proposition}
@@ -2728,7 +2729,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
                 \]
             osserviamo che $I \in \mathcal{F} \implies \mathcal{F} \ne \emptyset$, inoltre $(\mathcal{F},\subseteq)$ è induttivo, infatti, detta $\mathscr{C}$ una catena, essa
             sarà un sottoinsieme di $\mathcal{F}$ totalmente ordinato della forma:
-            \[ \mathscr{C} = \{J_n\} \subseteq \mathcal{F}
+            \[ \mathscr{C} = \{J_n\}\footnote{I vari $J_i$ sono contenuti tutti uno dentro l'altro "in catena".} \subseteq \mathcal{F}
                 \]
             allora posta $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$, verifichiamo che
             $J$ è maggiorante di $\mathscr{C}$. Si ha che:
@@ -2829,5 +2830,394 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 
 \newpage
 \subsection{Anello delle frazioni di un dominio}
+
+\begin{definition}
+    Consideriamo un anello commutativo con identità $A$, che sia un dominio di integrità. Sia $S \subset A$ con le seguenti proprietà:
+    \begin{itemize}
+        \item $0 \not\in S$.
+        \item $1 \in S$.
+        \item $S$ è moltiplicativamente chiuso: $xy \in S$, $\forall x,y \in S$.
+    \end{itemize}
+    Il sottoinsieme $S$ con queste proprietà si dice \vocab{parte moltiplicativa} di $A$.
+\end{definition}
+
+\begin{definition}
+    Dato un anello commutativo con identità $A$, che sia un dominio di integrità, e $S$ la sua parte moltiplicativa, allora possiamo definire l'insieme delle \vocab{frazioni di un dominio}:
+    \[ S^{-1}A = \left.\left\{\frac{a}{s} \m a\in A, s \in S\right\} \middle/ \sim \right. = \frac{A \times S}{\sim}
+        \]
+    con la relazione $\sim$ data da $\displaystyle\frac{a}{s} \sim \frac{b}{t} \iff at = bs$.\footnote{Alternativamente possiamo scrivere la relazione come: $(a,s) \sim (b,t) \iff at = bs$, ed indicare con $\displaystyle\frac{a}{s}$ la classe di equivalenza dei due elementi.}
+\end{definition}
+
+\begin{remark}
+    La relazione $\sim$ usata nella definizione precedente è una relazione di equivalenza, infatti:
+    \begin{itemize}
+        \item $\sim$ è riflessiva in quanto $\displaystyle\frac{a}{s} \sim \frac{a}{s} \iff as = sa$, che è vero in quanto abbiamo supposto $A$ commutativo.
+        \item $\sim$ è simmetrica in quanto $\displaystyle\frac{a}{s} \sim \frac{b}{t} \iff at = bs \iff \frac{b}{t} \sim \frac{a}{s}$.
+        \item $\sim$ è transitiva in quanto, dati $\displaystyle\frac{a}{s} \sim \frac{b}{t}$ e $\displaystyle\frac{b}{t} \sim \frac{c}{u}$ abbiamo che:
+            \[ at = bs \qquad \text e \qquad bu = tc
+                \]
+        da cui, moltiplicando la prima per $u$ si ha:
+            \[ aut = bus = tcu \implies aut = cts \iff t(au-cs) = 0
+                \]
+        essendo per ipotesi $A$ un dominio\footnote{È importante notare che qui stiamo usando il fatto che $A$ è un dominio.} e $t \in S$ (dunque $t \ne 0$) segue:
+            \[ au = cs \iff \frac{a}{s} \sim \frac{c}{u}
+                \]
+    \end{itemize}
+\end{remark}
+
+\begin{proposition}[Anello delle frazioni di un dominio]
+    L'insieme delle frazioni di un dominio munito con le operazioni di:
+    \[ \frac{a}{s} + \frac{b}{t} = \frac{at+bs}{st} \qquad \text e \qquad \frac{a}{s} \cdot \frac{b}{t} = \frac{ab}{st}
+        \]
+    è un anello commutativo con identità.\footnote{Con l'identità data dall'elemento $1/1$.}
+\end{proposition}
+
+\begin{proof}
+    Bisogna verificare in primis che le operazioni sono ben definite (in quanto le abbiamo definite tra classi di equivalenza), consideriamo $\displaystyle\frac{a}{s}\sim\frac{a^{\prime}}{s^{\prime}}$ e
+    $\displaystyle\frac{b}{t}\sim\frac{b^{\prime}}{t^{\prime}}$, vogliamo verificare che le due somme:
+    \[ \frac{a}{s} + \frac{b}{t} = \frac{at+bs}{st} \qquad \text e \qquad \frac{a^{\prime}}{s^{\prime}} + \frac{b^{\prime}}{t^{\prime}} = \frac{a^{\prime}t^{\prime}+b^{\prime}s^{\prime}}{s^{\prime}t^{\prime}}
+        \]
+    diano lo stesso risultato; per ipotesi sappiamo che $as^{\prime}=a^{\prime}s$ e $bt^{\prime}=b^{\prime}t$, osserviamo che l'uguaglianza tra le due somme è vera se e solo se:
+    \[ (at+bs)s^{\prime}t^{\prime} = (a^{\prime}t^{\prime}+b^{\prime}s^{\prime})st
+        \]
+    sviluppando l'LHS otteniamo:
+    \[ att^{\prime}s^{\prime} + bss^{\prime}t^{\prime} = a^{\prime}stt^{\prime}+b^{\prime}tss^{\prime} = (a^{\prime}t^{\prime}+b^{\prime}s^{\prime})st
+        \]
+    che dimostra che l'operazione $+$ è ben definita.\footnote{Le restanti (lunghissime e noiosissime) 9 verifiche verranno aggiunte in seguito :).}
+\end{proof}
+
+\begin{example}
+    [Anello delle frazioni di $\ZZ$]
+    Preso $A = \ZZ$ e $S = \{10^k\}_{k\geq 0}$ (si verifica facilmente che $S$ rispetta le tre proprietà richieste dalla definizione) abbiamo che l'anello delle frazioni di $\ZZ$ è dato da:
+    \[ S^{-1}A = \left\{\frac{z}{10^k} \m z \in \ZZ, k \geq 0\right\}
+        \]
+    con ad esempio $\displaystyle \frac{5}{10} = \frac{1}{2} \in S^{-1}A$.
+\end{example}
+
+\begin{remark}
+    Nel caso dell'esempio precedente si osserva che $\displaystyle\frac{2}{1} \in S^{-1}$ ed è invertibile:
+        \[\frac{2}{1} \cdot \frac{5}{10} = \frac{1}{1}
+            \]
+\end{remark}
+
+\begin{proposition}[$S^{-1}A$ come estensione di $A$]
+    \label{2.66}
+    Dato un anello $A$ e il suo anello delle frazioni, l'applicazione:
+    \[ f : A \longrightarrow S^{-1}A : a \longmapsto \frac{a}{1}
+        \]
+    è un omomorfismo iniettivo di anelli.\footnote{Dunque $A\subset S^{-1}A$, cioè $S^{-1}A$ è un'estensione di $A$.}
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo che $f$ sia un omomorfismo di anelli:
+    \[ f(a+b) = \frac{a+b}{1} = \frac{a}{1} + \frac{b}{1} = f(a) + f(b) \qquad \forall a,b \in A
+        \]
+    e analogamente:
+    \[ f(ab) = \frac{ab}{1} = \frac{a}{1} \cdot \frac{b}{1} = f(a)f(b) \qquad \forall a,b \in A
+        \]
+    Per l'iniettività studiamo il nucleo:
+    \[ \ker f = \left\{a \in A \m f(a) = \frac{a}{1} = \frac{0}{1}\right\}\footnote{Ricordiamo che $0/1$ è l'elemento neutro di $S^{-1}A$.} = \{a \in A | a \cdot 1 = 0 \cdot 1 = 0\} = \{0\}
+        \]
+    dunque l'omomorfismo è iniettivo.
+\end{proof}
+
+\begin{remark}
+    [$S = A \setminus\{0\}$]
+    Se $A$ è un dominio, allora $S = A \setminus\{0\}$ è una parte moltiplicativa, infatti, $\forall x,y \in S$, ovvero $x \ne 0$ e $y \ne 0$, dunque 
+    $xy \in S$, $xy \ne 0$.
+\end{remark}
+
+\begin{definition}
+    Dato un dominio $A$, definiamo \vocab{campo dei quozienti} di $A$:
+    \[ S^{-1}A = Q(A)
+        \]
+    l'anello delle frazioni con parte moltiplicativa $S = A\setminus\{0\}$.
+\end{definition}
+
+\begin{proposition}
+    [$A \subset Q(A)$]
+    Dato $A$ dominio e la sua parte moltiplicativa $S = A\setminus\{0\}$, l'anello delle frazioni $S^{-1}A = Q(A)$ è il più 
+    piccolo campo che contiene $A$.
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo prima che $Q(A)$ è un campo e poi la tesi:
+    \begin{itemize}
+        \item Per verificare che $Q(A)$ sia un campo, ci basta verificare che esistono gli inversi moltiplicativi, e ciò segue immediatamente
+         dal fatto che $\forall a \in A$, $a \ne 0$, allora $\displaystyle\frac{1}{a} \in Q(A)$ ed è tale per cui:
+            \[ \frac{a}{1} \cdot \frac{1}{a} = \frac{1}{1}
+                \]
+        \item Per la \hyperref[2.66]{Proposizione 2.66} sappiamo già che $A \subset S^{-1}A$, ed ora abbiamo dimostrato che $S^{-1}A$ è un campo, ci resta da verificare 
+        che $S^{-1}A (= Q(A))$ sia effettivamente il più piccolo campo che contiene $A$. Sia $K$ è un campo tale che $A \subset K$, allora $\displaystyle \frac{1}{a} \in K$, $\forall a \in A \setminus\{0\}$, ovvero $K$ 
+        contiene tutti gli inversi degli elementi di $A$, allora, $\forall b \in A$, $\forall a \in A \setminus \{0\}$, cioè $K$ contiene tutti gli elementi di $S^{-1}A$:
+            \[ \frac{b}{a} \in K \implies Q(A) = S^{-1}A \subset K
+                \]
+        pertanto, essendo contenuto in ogni campo che contiene $A$, e contenendolo a sua volta, $Q(A)$ è il più piccolo campo che contiene $A$.
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+    Vediamo alcuni esempi di anelli delle frazioni di domini e campi quoziente:
+    \begin{itemize}
+        \item Consideriamo $A = \ZZ$, $S_1 = \{10^k\}_{k\geq 0}$ e $S_0 = A \setminus\{0\}$, allora si ha che:
+            \[ \ZZ \subset S_1^{-1}\ZZ \subset S_0^{-1}\ZZ = Q(\ZZ) = \QQ
+                \]
+        \item Considerando $A = K[x]$ si ha che:
+            \[ Q(A) = K(x) = \left\{\frac{f(x)}{g(x)} \m f(x),g(x) \in K[x], g(x) \ne 0\right\}
+                \]
+        \item Sia $A$ un dominio e $P \subset A$ un suo ideale primo, possiamo considerare $S = A \setminus P$ che è una parte moltiplicativa, in quanto 
+            $0 \not\in S$, $1 \in S$ e $\forall x,y \in S$ si ha:
+            \[ x,y \not\in P \implies xy \not\in P
+                \]
+            poiché $P$ è primo, dunque $xy \in A \setminus P = S$. In questo caso indichiamo $S^{-1}A = A_p$ e prende il nome di \vocab{localizzato} dell'anello $A$ all'ideale $P$.
+    \end{itemize}
+\end{example}
+
+\begin{remark}
+    Dato il localizzato di $A$ a $P$, $A_p$, si osserva che esso è un \vocab{anello locale}, ovvero un anello che ha un unico ideale massimale.
+\end{remark}
+
+\begin{example}[Localizzato di un ideale primo]
+    Se consideriamo $A = \ZZ$ e $P = 2\ZZ$, allora la parte moltiplicativa è data da $S = \ZZ\setminus 2\ZZ$ (i numeri dispari), da cui abbiamo che:
+    \[ \ZZ_{(2)} = \left\{\frac{a}{b} \m a \in \ZZ, (b,2) = 1\right\}
+        \]
+\end{example}
+
+\begin{exercise}
+    Dati $A = \ZZ$, $P = 2\ZZ$ e $S = \ZZ\setminus 2\ZZ$, verificare che l'ideale $(2)\ZZ_{(2)}$ è l'unico ideale massimale di $\ZZ_{(2)}$.
+\end{exercise}
+
+\begin{soln}
+    La tesi è equivalente a mostrare che $\ZZ_{(2)}^*=\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$. Infatti, sappiamo già che 
+    $(2)\ZZ_{(2)}$ è un ideale, mentre qualunque ideale non contenuto in esso contiene necessariamente un elemento invertibile ed è perciò non proprio.
+    Se $\displaystyle\frac{a}{b}\notin (2)\ZZ_{(2)}$ allora sia $a$ che $b$ sono dispari, dunque $\displaystyle\frac{b}{a}\in\ZZ_{(2)}$ ed è chiaramente l'inverso di $\displaystyle\frac{a}{b}$.
+    Viceversa se $\displaystyle\frac{a}{b}$ è invertibile esiste $\displaystyle\frac{c}{d}\in\ZZ_{(2)}$ tale che $\displaystyle\frac{ac}{bd}=1$, cioè $ac=bd$. Se uno tra $a$ e $c$ fosse pari lo sarebbe
+    anche $bd$, e poiché 2 è primo uno tra $b$ e $d$ sarebbe pari, contraddicendo la definizione di $\ZZ_{(2)}$. Dunque $\displaystyle\frac{a}{b}\in\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$.\footnote{Dimostrazione proposta da Davide Ranieri.}
+\end{soln}
+
+\begin{remark}
+    [Elementi invertibili di $S^{-1}A$]
+    Osserviamo che gli invertibili dell'anello $S^{-1}A$ sono:
+    \[ (S^{-1}A)^* = \left\{\frac{a}{s} \,\m\, \frac{s}{a} \in S^{-1}A\right\}
+        \]
+    ovvero esistono $b \in A$ e $t \in S$ tali che $\displaystyle \frac{s}{a} = \frac{b}{t} \iff st = ab \in S$ (cioè esiste una scrittura di questo tipo in $S^{-1}A$, ma poiché 
+    non è detto che $a$ appartenga ad $S$, sappiamo che, per quanto scritto, almeno un suo multiplo c'è), dunque:
+    \[ (S^{-1}A)^* = \left\{\frac{a}{s} \,\m\, \exists b \in A \;\, \text{t.c.} \;\, ab \in S\right\}
+        \]
+    Ad esempio, nel caso di $A = \ZZ$ e $S = \{10^k\}_{k\geq 0}$, abbiamo che:
+    \[ \frac{5}{10}=\frac{1}{2} \in (S^{-1}A)^* \qquad \text{ma} \qquad 2 \not \in S
+        \]
+    dunque $2 \in (S^{-1}A)^*$, poiché il suo inverso, $\displaystyle \frac{1}{2} = \frac{5}{10}$, ha una scrittura che rispetta la proprietà richiesta dall'insieme (e tale scrittura è appunto un multiplo di quella iniziale).
+\end{remark}
+
+\begin{remark}
+    [Ideali di $S^{-1}A$]
+    Sia $I \subset A$ un ideale di $A$, possiamo costruire l'insieme:
+    \[ S^{-1}I = \left\{\frac{x}{s} \in S^{-1}A \m x \in I, s \in S \right\} \cong \frac{I \times S}{\sim}
+        \]
+    per tale insieme valgono le proprietà espresse dalla proposizione successiva.
+\end{remark}
+
+\begin{proposition}
+    [Ideali di $S^{-1}A$]
+    Sia $I \subset A$ e sia $S^{-1}A$ l'insieme costruito come sopra, allora:
+    \begin{enumerate}[(1)]
+        \item $S^{-1}I$ è un ideale di $S^{-1}A$.
+        \item $\forall J \subset S^{-1}A$, $\exists I \subset A$ tale che $J = S^{-1}I$ (cioè ogni ideale di $S^{-1}A$ si ottiene da un ideale di $A$, considerandone il relativo anello delle frazioni).
+        \item $S^{-1}I$ è un ideale proprio di $S^{-1}A$ se e solo se $I \cap S = \emptyset$.
+        \item Sia $P$ un ideale primo di $A$, con $P \cap S = \emptyset$, allora $S^{-1}P$ (la localizzazione di $P$ ad $S$) è un ideale primo di $S^{-1}A$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Dimostriamo le singole affermazioni:
+    \begin{enumerate}[(1)]
+        \item Per verificare che $S^{-1}I$ sia un ideale verifichiamo prima la chiusura per somma:
+            \[ \frac{x}{s} + \frac{y}{t} = \frac{\overbrace{xt + ys}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall x,y \in I
+                \]
+            dove l'appartenenza del numeratore deriva dal fatto che $x$, $y$ siano elementi di un ideale. Per verificare la proprietà di assorbimento osserviamo che:
+            \[ \frac{a}{s} \cdot \frac{x}{t} = \frac{\overbrace{ax}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall \frac{a}{s} \in S^{-1}A 
+                 \]
+        \item Sia $J \subset S^{-1}A$ un ideale, per quanto detto nella \hyperref[2.66]{Proposizione 2.66}, sappiamo che $S^{-1}A$ è un'estensione di $A$, inoltre se consideriamo $f^{-1}(J)$, che per il \hyperref[2.35]{Lemma 2.35}, 
+            sappiamo essere un ideale, ed in particolare una contrazione di $J$ ad $A$, abbiamo che:
+            \[ f^{-1}(J) = J \cap A = I \subset A
+                \]
+            vogliamo mostrare che vale $J = S^{-1}I$. Osserviamo che $\forall x \in I$ si ha $\displaystyle f(x) = \frac{x}{1} \in J$, dunque:
+            \[ \underbrace{\frac{1}{s}}_{\in S^{-1}A} \cdot \frac{x}{1} = \frac{x}{s} \in J \implies S^{-1}I \subseteq J
+                \]
+            cioè per assorbimento di $J$ ci sono tutti gli elementi di $S^{-1}I$. Viceversa si ha che $\displaystyle\forall \frac{x}{s} \in J$ possiamo scrivere:
+            \[ \frac{x}{1} = \frac{x}{s}\cdot \frac{s}{1} \in J \implies x = f^{-1}\left(\frac{x}{1}\right) \in I
+                \]
+            ovvero il numeratore di ogni elemento in $S^{-1}J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $S^{-1}J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
+        \item Dimostriamo la negazione\footnote{Poiché trattandosi di un'equivalenza logica va bene lo stesso.}, ovvero $S^{-1}I$ non proprio equivale a $S^{-1}I = S^{-1}A$, ma essendo il primo un ideale questo è vero se e solo se:
+            \[ \frac{1}{1} \in S^{-1}I \iff \exists x \in I, \exists s \in S : \frac{1}{1} = \frac{x}{s}
+                \]
+            che, per la relazione definita sugli anelli di frazioni è equivalente a chiedere che $I \ni x = s \in S \iff I \cap S \ne \emptyset$.
+        \item Sia $P$ un ideale primo, se fosse $P \cap S = \emptyset$, allora per quanto visto al punto (3) non è proprio (e dunque nemmeno primo), viceversa, se $P \cap S = \emptyset$ vogliamo dimostrare che $S^{-1}P$ primo in $S^{-1}A$, consideriamo:
+                \[ \frac{a}{s} \cdot \frac{b}{t} \in S^{-1}P
+                    \]
+            ciò è equivalentemente al fatto che $\exists \sigma \in S$ e $\exists p \in P$ tali per cui:
+                \[ \frac{ab}{st} = \frac{p}{\sigma} \iff ab\sigma = \underbrace{p}_{\in P}st \in P \implies ab\sigma \in P
+                    \]
+            ma, essendo per ipotesi che $\sigma \in P$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ p $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
+            e quindi $S^{-1}P$ primo.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+\subsection{Divisibilità nei domini}
+\begin{definition}
+    Sia $A$  un dominio e siano $a,b \in A$, con $a \ne 0$, si dice che $a \mid b$ ($a$ \vocab{divide} $b$) se:
+    \[ \exists c \in A : b = ac
+        \]
+\end{definition}
+
+\begin{remark}
+    Osserviamo che $a \mid b \iff (a) \subseteq (a)$, infatti:
+    \[ a \mid b \iff \exists c \in A : b = ac \iff b \in (a) \iff (b) \subseteq (a)
+        \]
+\end{remark}
+
+\begin{definition}
+    Dato $A$ dominio e $a$, $a^{\prime}$, diciamo che $a$ ed $a^{\prime}$ sono \vocab{associati}, $a \sim a^{\prime}$,
+    se vale una delle seguenti tre condizioni equivalenti:
+    \begin{enumerate}[(i)]
+        \item $a \mid a^{\prime}$ e $a^{\prime} \mid a$.
+        \item $\exists u \in A^*$ tale che $a = ua^{\prime}$.
+        \item $(a) = (a^{\prime})$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    [Equivalenza delle condizioni]
+    Osserviamo che le tre condizioni date sono equivalenti, infatti, per quanto riguarda (i) e (iii) si ha:
+    \[ a \mid a^{\prime} \iff (a^{\prime}) \subseteq (a) \qquad \text e \qquad a^{\prime}\mid a \iff (a) \subseteq (a^{\prime})
+        \]
+    dunque se sono vere entrambe le condizioni (i) e (iii) sono equivalenti. Dobbiamo da verificare che (i)$\implies$(ii), dalle due divisibilità segue che:
+    \[ a^{\prime} = xa \qquad \text e \qquad a = y a^{\prime} \implies a = yxa \implies a(1-xy) = 0
+        \]
+    poiché $a \ne 0$, ed $A$ dominio per ipotesi si ha che $xy = 1 \implies y \in A^*$, ovvero la (ii). Viceversa, assumiamo (ii) e deduciamo 
+    (iii):\footnote{A questo punto sappiamo che già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
+    \[ a = ua^{\prime} \implies a \in (a^{\prime}) \implies (a^{\prime}) \subseteq (a)
+        \]
+    con $u \in A^*$, pertanto $\exists v \in A^*$ tale che $uv = vu = 1$, moltiplicando la prima relazione per $v$ si ottiene:
+    \[ a^{\prime} = va \implies a^{\prime} \in (a) \implies (a) \subseteq (a^{\prime})
+        \]
+    e si conclude $(a) \subseteq (a^{\prime})$.
+\end{remark}
+
+\begin{definition}
+    Dati $a,b \in A$ dominio, non entrambi nulli, diciamo che $d \in A$ è un \vocab{massimo comun divisore} per $a$ e $b$ se:
+    \begin{enumerate}[(1)]
+        \item $d \mid a$ e $d \mid b$.
+        \item $\forall x \in A$ tale che $x \mid a$ o $x\mid b$, allora $x \mid d$.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    Dati due elementi $a,b \in A$, $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, $d=(a,b)$ e $d^{\prime} = (a,b)$, se e solo se sono associati, $d \sim d^{\prime}$.
+\end{proposition}
+
+\begin{proof}
+Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale che:
+        \[ d \mid a \land d \mid b
+        \qquad
+        \text e
+        \qquad
+        x \mid a \land x \mid b \implies x \mid d
+            \]
+    e contemporaneamente:
+        \[ d^{\prime} \mid a \land d^{\prime} \mid b
+        \qquad
+        \text e
+        \qquad
+        x \mid a \land x \mid b \implies x \mid d^{\prime}
+            \]
+    dunque, considerando $d$, esso deve essere diviso da $d^{\prime}$ in quanto massimo comune divisore:
+        \[ d = ud^{\prime}
+            \]
+    e simmetricamente:
+        \[ d^{\prime} = vd
+            \]
+    da cui, sfruttando il fatto che $A$ è un dominio segue:
+        \[ d = ud^{\prime} = uvd \implies d(1-uv) = 0 \implies uv = 1 \implies u,v \in A^*
+            \]
+    e quindi $d \sim d^{\prime}$ per definizione.
+\end{proof}
+
+\begin{definition}
+    Dato un dominio $A$ e $x\in A$, con $x \not\in A^* \cup \{0\}$, $x$ si dice \vocab{primo} se $\forall a,b \in A$:
+    \[ x \mid ab \implies x \mid a \vee x \mid b
+        \]
+\end{definition}
+
+\begin{definition}
+    Dato un dominio $A$ e $x\in A$, con $x \not\in A^* \cup \{0\}$, $x$ si dice \vocab{irriducibile} se $\forall a,b \in A$:
+    \[ x = ab \implies a \in A^* \vee b \in A^*
+        \]
+\end{definition}
+
+\begin{proposition}
+    Dato $A$ dominio, se $x$ è primo, allora è irriducibile.
+\end{proposition}
+
+\begin{proof}
+    Supponiamo che:
+    \[ x = ab
+        \]
+    essendo $x$ primo, allora $x \mid a$ o $x \mid b$, assumiamo (WLOG) che $x \mid a$, allora:
+    \[ a = xc \implies x = bcx \implies x(1-bc) = 0
+        \]
+    poiché $A$ è un dominio, e poiché $x \ne 0$ per ipotesi segue che:
+    \[ bc = 1 \implies b,c \in A^*
+        \]
+    in particolare ciò significa che $x$ è irriducibile, in quanto scrivendolo come $x = ab$, abbiamo verificato che $b \in A^*$.
+\end{proof}
+
+\begin{proposition}
+    Dato un dominio $A$ si ha che:
+    \begin{enumerate}[(1)]
+        \item $x$ è primo se e solo se $(x)$ è un ideale primo non nullo.
+        \item $x$ è irriducibile se e solo se $(x)$ è un ideale massimale nell'insieme degli ideali principali.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo entrambe le proprietà:
+    \begin{enumerate}[(1)]
+        \item Sia $(x)$ un ideale primo, ovvero:
+            \[ ab \in (x) \iff a \in (x) \vee b \in (x)
+                \]
+        ciò è equivalente al richiedere che $x \mid a$ o $x \mid b$, ovvero che $x$ sia primo in $A$.
+        \item Dimostriamo separatamente le due implicazioni. Sia $x$ irriducibile e supponiamo che sia $(x) \subseteq (y) \subsetneq A$,
+            dunque $\exists z \in A$ tale che $x = yz$, sappiamo che $y \not \in A^*$ (altrimenti sarebbe l'ideale conterebbe l'identità
+            e avremmo $(y) = A$), poiché $x$ deve essere irriducibile segue necessariamente che $z \in A^*$ e quindi $x \sim y$, cioè:
+            \[ (x) = (y)
+                \]
+            pertanto $(x)$ è massimale tra gli ideali principali. Per il viceversa dimostriamo la contronominale; sia $x$ riducibile, allora:
+            \[ x = yz \qquad \text{con $y,z \not \in A^*$}
+                \]
+            e per quanto detto segue che:
+            \[ (x) \subsetneq (y) \subsetneq A
+                \]
+            dove la seconda inclusione non può essere un'uguaglianza in quanto $y \not \in A^* \implies 1 \not \in (y)$, mentre la prima segue dal 
+            fatto che $z \not \in A^*$ (e quindi $x$ e $y$ non sono associati), pertanto $(x)$ non è massimale tra gli ideali principali.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    Osserviamo che se $x$ è primo nel dominio d'integrità $A = K[x,y]$, allora:
+    \[ \faktor{A}{(x)} \cong K[y]
+        \]
+    che sappiamo essere un dominio, dunque per la \hyperref[2.56]{Proposizione 2.56} $(x)$ è primo. Poiché $x$ è primo è anche irriducibile, quindi $(x)$
+    è massimale tra gli ideali principali di $A$, ma non è un ideale massimale di $A$ in quanto $K[y]$ non è un campo, infatti:
+    \[ (x) \subsetneq (x,y) \subsetneq A
+        \]
+    ovvero $(x)$ non è massimale in quanto è contenuto nell'ideale proprio $(x,y)$.
+\end{example}
+
+\newpage
+\subsection{Domini euclidei}
+
 
 \end{document}
