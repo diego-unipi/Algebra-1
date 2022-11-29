@@ -3375,6 +3375,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 \end{definition}
 
 \begin{proposition}[Ideali primi di un PID]
+    \label{2.95}
     Dato un dominio ad ideali principali $A$, gli unici ideali primi di $A$ sono $(0)$ e gli ideali massimali.
 \end{proposition}
 
@@ -3450,5 +3451,134 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
         che è assurdo.
     \end{itemize}
 \end{remark}
+
+\begin{theorem}
+    [Caratterizzazione degli UFD]
+    \label{2.101}
+    Dato un dominio $A$, sono fatti equivalenti:
+    \begin{enumerate}[(1)]
+        \item $A$ è un UFD.
+        \item Valgono le due condizioni seguenti:
+        \begin{enumerate}[(i)]
+            \item Ogni elemento irriducibile è primo.
+            \item Ogni catena discendete di divisibilità è stazionaria, ovvero se $\{a_i\} \subset A$, con:
+            \[ a_{i+1} \mid a_i \qquad \forall i \geq 0
+                \]
+            allora $\exists n_0$ tale che $a_i \sim a_{n_0}$, $\forall i \geq n_0$.
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    La condizione (i) permette di dimostrare che la fattorizzazione in primi è unica, dunque è equivalente a questo fatto; mentre, la condizione (ii) 
+    permette di dimostrare l'esistenza della fattorizzazione, e quindi vi è equivalente, pertanto il teorema dice che essere un UFD è equivalente al 
+    fatto che in un dominio valga il teorema di fattorizzazione unica.
+\end{remark}
+
+\begin{remark}
+    Osserviamo che la condizione (ii) può essere riformulata equivalentemente come: ogni catena ascendente di ideali principali è stazionaria, ovvero,
+    considerata $\{(a_i)\}_{i \geq 0}$, catena  ascendente di ideali di $A$:
+    \[ (a_1) \subseteq (a_2) \subseteq \ldots
+        \]
+    allora $\exists n_0$ tale che $(a_i) = (a_{n_0})$, $\forall i \geq n_0$.\footnote{Tra l'altro ciò, estendendo la condizione di stazionarietà ad ogni catena di ideali (quindi non solo principali), definisce un \vocab{anello noetheriano}.}
+\end{remark}
+
+\begin{corollary}
+    [A PID$\implies$A UFD]
+    Se $A$ è un dominio a ideali principali, allora è anche un dominio a fattorizzazione unica.
+\end{corollary}
+
+\begin{proof}
+    Per dimostrare il corollario ci basta verificare che per ogni PID valgono le condizioni (i) e (ii) del \hyperref[2.101]{Teorema 2.101}, e ciò è equivalente al dire che ogni PID è un UFD.
+    Sia $A$ un PID, e sia $x \in A$ un elemento irriducibile, per quanto visto nella \hyperref[2.95]{Proposizione 2.95} l'ideale $(x)$ è massimale in $A$, ma dalla (3) del \hyperref[2.57]{Corollario 2.57}, sappiamo quindi che 
+    $(x)$ è primo, e poiché siamo in un dominio vale la (1) della \hyperref[2.86]{Proposizione 2.86} che ci assicura che $x$ è primo, dunque vale la (i).\\
+    Consideriamo ora una catena ascendente di ideali (principali):
+    \[ (a_1) \subseteq (a_2) \subseteq \ldots
+        \]
+    e sia:
+    \[ I = \bigcup_{i \geq 0} (a_i)
+        \]
+    tale unione di ideali in catena è un ideale\footnote{Come già osservato in precedenza ciò andrebbe dimostrato.} di $A$, ed è pertanto principale, dunque $I = (a)$.
+    Osserviamo che $a$ appartiene all'unione, per cui $a \in (a_{n_0})$, e quindi:
+    \[ I = (a) \subseteq (a_{n_0})
+        \]
+    ma d'altra parte avevamo detto che $I$ è l'unione di tutti gli ideali principali di $A$, quindi $(a_{n_0}) \subseteq (a) = I $, dunque $I = (a_{n_0})$; a questo punto sappiamo che:
+    \[ (a_i) \subset (a_{n_0}) \qquad \forall i \geq 0
+        \]
+    dove si ha $(a_i) = (a_{n_0})$ quando vi è anche il contenimento opposto, e ciò avviene, poiché stiamo considerando ideali in catena, $\forall i \geq n_0 \implies \{(a_i)\}$ è stazionaria e quindi è verificata la (ii).
+\end{proof}
+
+\begin{remark}
+    L'ultimo corollario ci permette di poter mettere in relazione i vari tipi di domini d'integrità:
+    \[ \underbrace{\text{ED}}_{\text{Domini euclidei}} \subset \underbrace{\text{PID}}_{\text{Domini a ideali principali}} \subset \underbrace{\text{UFD}}_{\text{Domini a fattorizzazione unica}}
+        \]
+\end{remark}
+
+\begin{example}[Anello senza la (ii)]
+    Consideriamo l'estensione $K[\{x^{\frac{1}{n}}\}_{n\geq 1}]$, essa non è un UFD, in quanto non vale la (ii) dell'\hyperref[2.101]{Teorema 2.101}:
+        \[ x^{\frac{1}{2^{n+1}}} \mid x^{\frac{1}{2^n}} \mid \ldots \mid x^{\frac{1}{4}} \mid x^{\frac{1}{2}} \mid x
+            \]
+        dove tale catena non è definitivamente stazionaria (il successivo può sempre dividere il precedente) dunque non esiste la fattorizzazione di $x$.
+\end{example}
+
+\begin{example}[Anello senza la (i)]
+    Consideriamo l'anello $\ZZ[\sqrt{-5}] = \{a + b\sqrt{-5} | a,b \in \ZZ\} \subset \QQ(\sqrt{-5}) \subset \CC$, tale anello non è un UFD poiché non vale la (i), infatti, ad esempio,
+    $2$ è irriducibile ma non primo in $\ZZ[\sqrt{-5}]$:
+    \[ 2 = (a + b\sqrt{-5})(c + d\sqrt{-5}) \implies N(2) = (a^2 + 5b^2)(c^2 + 5d^2)
+        \]
+    da cui possiamo dedurre che le uniche possibilità sono $a = \pm 2, c = \pm 1, b = 0, d = 0$ (oppure invertiti), pertanto 2 è irriducibile, ma non è primo perché:
+    \[ 2 \mid 6 = (1 + \sqrt{-5})(1 - \sqrt{-5}) \qquad \text{ma} \qquad 2 \nmid (1 + \sqrt{-5}),(1 - \sqrt{-5})
+        \]
+    poiché, $\displaystyle\alpha = \frac{1 \pm \sqrt{-5}}{2} = \frac{1}{2} \pm \frac{\sqrt{-5}}{2} \not\in \ZZ[\sqrt{-5}]$. In $\ZZ[\sqrt{-5}]$ abbiamo quindi due fattorizzazioni distinte per 6:
+    \[ 6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})\footnote{Per essere precisi dovremmo verificare che 2,3,$1 \pm \sqrt{-5}$ sono irriducibili in $\ZZ[\sqrt{-5}]$.}
+        \]
+\end{example}
+
+\begin{remark}
+    $\ZZ[\sqrt{-5}]$ non essendo un UFD, non è neppure un PID, infatti, ad esempio, l'ideale $(2,1 + \sqrt{-5})$ non è principale.
+\end{remark}
+
+\begin{theorem}[$A$ UFD$\implies A\lbrack x\rbrack$ UFD]
+    \label{2.109}
+    Se $A$ è un dominio a fattorizzazione unica, allora anche $A[x]$ è un anello a fattorizzazione unica.
+\end{theorem}
+
+
+\begin{corollary}[$A$ UFD$\implies A\lbrack x_1,\ldots,x_n\rbrack$ UFD]
+    Se $A$ un dominio a fattorizzazione unica, allora anche $A[x_1,\ldots,x_n]$ è un anello a fattorizzazione unica.
+\end{corollary}
+
+\begin{proof}
+    Dal \hyperref[2.109]{Teorema 2.109} segue il caso base $A[x]$, per induzione si suppone vera la tesi per $A[x_1,\ldots,x_{n-1}] = B$, e poi si considera $B[x_n]$, che è un UFD per il caso iniziale,
+    dunque la tesi è vera per induzione.
+\end{proof}
+
+\begin{remark}
+    [Schema della dimostrazione del Teorema 2.109]
+    La dimostrazione del \hyperref[2.109]{Teorema 2.109} si articola in tre tappe:
+    \begin{enumerate}[(1)]
+        \item $A[x]$ dominio.
+        \item Ogni irriducibile di $A[x]$ è primo (condizione (i)).
+        \item Ogni catena discendete di divisibilità è stazionaria (condizione (ii)).
+    \end{enumerate}
+    Da cui si conclude per il \hyperref[2.101]{Teorema di Caratterizzazione degli UFD}.
+\end{remark}
+
+\begin{proof}
+    Iniziamo quindi verificando i primi due punti come segue.
+    \begin{enumerate}[(1)]
+        \item Siano $f(x),g(x) \in A[x] \setminus\{0\}$, e $\deg f(x) = n \geq 0$, $\deg g(x) = m \geq 0$, essendo $a_n, b_m \ne 0$, segue che
+        $a_nb_m \ne 0$ poiché per ipotesi $A$ un dominio di integrità, pertanto $f(x) \cdot g(x) \ne 0$ se $f(x),g(x) \ne 0 \implies A[x]$ è un dominio d'integrità.
+        \begin{remark}
+            Osserviamo anche che da ciò discende che $(A[x])^* = A^*$, infatti, considerando $f(x) \in (A[x])^*$, $\exists g(x) \in A[x]$ tale che:
+            \[ f(x)g(x) = 1 \implies \deg f(x) + \deg g(x) = 0
+                \]
+            ovvero $\deg f(x) = \deg g(x) = 0$, per cui $f(x),g(x) \in A$, ed in particolare $f(x) = a$, $g(x) = b$, pertanto:
+            \[ ab = 1 \implies f(x) \in A^*
+                \]
+        \end{remark}
+    \end{enumerate}
+\end{proof}
+
 
 \end{document}
