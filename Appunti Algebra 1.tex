@@ -1,6 +1,8 @@
 \documentclass[11pt]{scrartcl}
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
+\usepackage{graphicx}
+
 
 \begin{document}
 \title{Appunti Algebra 1}
@@ -2779,6 +2781,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{proof}
 
 \begin{corollary}[Caratterizzazione degli ideali primi e massimali 2]
+    \label{2.57}
     Dato $A$ un anello si ha:
     \begin{enumerate}[(1)]
         \item $A$ è un dominio se e solo se $(0)$ è un ideale primo.
@@ -3073,7 +3076,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{definition}
 
 \begin{remark}
-    Osserviamo che $a \mid b \iff (a) \subseteq (a)$, infatti:
+    Osserviamo che $a \mid b \iff (a) \subseteq (b)$, infatti:
     \[ a \mid b \iff \exists c \in A : b = ac \iff b \in (a) \iff (b) \subseteq (a)
         \]
 \end{remark}
@@ -3157,7 +3160,8 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
         \]
 \end{definition}
 
-\begin{proposition}
+\begin{proposition}[primo$\implies$irriducibile]
+    \label{2.58}
     Dato $A$ dominio, se $x$ è primo, allora è irriducibile.
 \end{proposition}
 
@@ -3174,7 +3178,8 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
     in particolare ciò significa che $x$ è irriducibile, in quanto scrivendolo come $x = ab$, abbiamo verificato che $b \in A^*$.
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}[Caratterizzazione di primi ed irriducibili in domini]
+    \label{2.86}
     Dato un dominio $A$ si ha che:
     \begin{enumerate}[(1)]
         \item $x$ è primo se e solo se $(x)$ è un ideale primo non nullo.
@@ -3217,7 +3222,233 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
 \end{example}
 
 \newpage
-\subsection{Domini euclidei}
+\subsection{Domini euclidei (ED)}
+\begin{definition}
+    Un dominio di integrità $A$ si dice \vocab{dominio euclideo} (ED) se esiste una funzione:
+    \[ d : A \setminus\{0\} \longrightarrow \NN
+        \]
+    detta \vocab{grado}, con le seguenti proprietà:
+    \begin{enumerate}[(i)]
+        \item $d(x) \leq d(xy)$, $\forall x,y \in A \setminus\{0\}$.
+        \item $\forall x \in A$, $\forall y \in A \setminus\{0\}$, $\exists q,r \in A$ tali che:
+        \[ x = yq+r
+            \]
+        con $d(r) < d(y)$\footnote{Ciò non assicura l'unicità di $q$ ed $r$, ma non è richiesto dalla definizione.} oppure $r = 0$.
+    \end{enumerate}
+\end{definition}
 
+\begin{remark}
+    In un dominio euclideo ogni elemento si può "ben approssimare" con un multiplo di ogni altro elemento. La funzione
+    grado serve per dire cosa significa esattamente "approssimare bene".
+\end{remark}
+
+\begin{example}
+    [Domini Euclidei]
+    Vediamo alcuni esempi di domini euclidei:
+    \begin{enumerate}[(1)]
+        \item $(\ZZ, |\cdot|)$ è un dominio euclideo, infatti sappiamo che per le proprietà del valore assoluto vale che:
+        \[ |xy| = |x||y| \geq |x| \qquad \forall y \ne 0
+            \]
+        ed esiste la divisione euclidea con il resto:
+        \[ \forall x,y \in \ZZ, \exists q,r \in \ZZ: x = qy + r
+            \]
+        con $|r| < |y|$ oppure $r = 0$, la prima condizione posta non ci assicura l'unicità (infatti possiamo approssimare sia dal basso che dall'alto 
+        prendendo anche resti negativi), ma poiché sappiamo che in realtà vale:
+        \[ 0 \leq r < |y|
+            \]
+        allora tale scrittura è unica.
+        \item $(K[x],\deg)$ è un dominio euclideo, infatti:
+        \[ \deg (f(x)g(x)) = \deg f(x) + \deg g(x) \geq \deg f(x)
+            \]
+        e vale la divisione euclidea tra polinomi con resto:
+        \[ \forall f(x),g(x) \in K[x], \exists q(x),r(x)\in K[x] : f(x) = g(x)q(x) + r(x)
+            \]
+        con $\deg r(x) < \deg g(x)$ oppure $deg r(x) = 0$.
+        \item $(\ZZ[i],N)$, l'anello degli \vocab{interi di Gauss}, $\ZZ[i] = \{a + ib | a,b \in \ZZ\}$, con la norma data da:
+            \[ N : \ZZ[i] \longrightarrow \NN : (a +ib =)\alpha \longmapsto N(\alpha) = \alpha \overline{\alpha} = a^2+b^2
+                \]
+    \end{enumerate}
+\end{example}
+
+Osserviamo che $\ZZ[i] \subset \QQ(i) \subset \CC$, dunque $\ZZ[i]$ è un dominio. Osserviamo inoltre che valgono le proprietà richieste dalla definizione di dominio euclideo per la norma 
+definita in precedenza:
+\[ N(\alpha\beta) = |\alpha\beta|^2 = |\alpha|^2|\beta|^2 \geq |\alpha|^2 = N(\alpha)
+    \]
+che è vera in quanto $|\beta|^2 = x^2+y^2 \geq 1$. Per la proprietà (ii), vorremmo che $\forall \alpha,\beta \in \ZZ[i]$, con $\beta \ne 0$, si può "approssimare" $\alpha$ con un multiplo di $\beta$;
+abbiamo che $\displaystyle \frac{\alpha}{\beta} \in \CC$, ma in generale non in $\ZZ[i]$, se $\displaystyle\frac{\alpha}{\beta} \in \ZZ[i]$, vogliamo trovare semplicemente il valore del rapporto in
+$\ZZ[i]$ (ed abbiamo che $r = 0$), se $\displaystyle\frac{\alpha}{\beta} \not\in \ZZ[i]$, allora vogliamo scrivere:
+\[ \alpha = \beta q + r \qquad \text{con}\qquad N(r) < N(\beta)
+    \]
+Osserviamo il reticolo formato dai multipli di $\beta$ nel piano complesso:\footnote{Immagine provvisoria, non appena ho tempo la disegno in TikZ.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{Gauss.png}
+    \caption{Reticolo dei multipli interi di $\beta$ nel piano complesso.}
+\end{figure}
+
+Come si osserva $\alpha$ cade in un quadrato (compreso il bordo) e del quale $q\beta$ è il multiplo di $\beta$ più vicino ad $\alpha$, pertanto, scelto $q\beta$ abbiamo:
+\[ r = \alpha - q\beta
+    \]
+con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato} = N(\beta)$.
+
+\begin{proposition}[Algoritmo di Euclide]
+    Dato un dominio euclideo $A$, $\forall a,b \in A$ non entrambi nulli esiste l'MCD $(a,b)$, determinato mediante l'algoritmo di euclide.
+\end{proposition}
+
+\begin{proof}
+    Poiché in un dominio euclideo esiste una funzione grado (che è appunto il caso generale del valore assoluto) ed è possibile la divisione euclidea con resto per definizione,
+    allora vale l'Algoritmo di Euclide con la stessa dimostrazione già vista per $\ZZ$, e con in questo caso l'applicazione grado generica al posto del valore assoluto:
+    \begin{itemize}
+        \item \underline{\textbf{L'algoritmo termina}}: L'algoritmo termina perché la successione dei resti $r_n$ è una successione a termini
+         in $\NN$ strettamente decrescente, pertanto è definitivamente costante (in questo caso 0).\\
+         \item \underline{\textbf{Correttezza dell'algoritmo}}: Si dimostra l'algoritmo per induzione sul numero degli $N$ passi richiesti.
+         Sia $\mathcal{P}(n)$ :"Se l'algoritmo termina in N passi, allora funziona.", per $N = 1$, si ha che:
+             \[ a = qb + 0
+                 \]
+         con $b = r_0$ (ovvero $b \mid a)$, e quindi $(a,b) = r_0$. Supponiamo per ipotesi induttiva che l'Algoritmo di 
+         Euclide funzioni per ogni numero di passi $m \leq N - 1$ e proviamo che è vero per $N$. Sia:
+             \[ \begin{cases}
+                 a = qb + r_1 & 0 \leq r_1 < |b| \\
+                 r_0 = q_1r_1 + r_2 & 0 \leq r_2 < r_1 \\
+                 \vdots \\
+                 r_{n-2} = q_{n-1}r_{n-1} + r_n & 0 \leq r_n < r_{n-1} \\
+                 r_{n-1} = q_nr_n + 0
+             \end{cases}
+                 \]
+         possiamo applicare l'algoritmo di Euclide per $(r_0,r_1)$ (in tal modo si ha una sequenza di $N - 1$ passi) ed ottenere
+         $r_n = (b, r_1)$:
+             \[\begin{cases}
+                 r_0 = q_1r_1 + r_2 & 0 \leq r_2 < r_1 \\
+                 \vdots \\
+                 r_{n-2} = q_{n-1}r_{n-1} + r_n & 0 \leq r_n < r_{n-1} \\
+                 r_{n-1} = q_nr_n + 0
+             \end{cases}
+                 \]
+         da cui $r_n = (b,r_1) = (b, a - q_0b) = (a,b)$, dove l'ultima uguaglianza è giustificata dalla proprietà dell'M.C.D.
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}[Elementi invertibili]
+    Dato un dominio euclideo $A$, gli elementi di grado minimo sono gli elementi di $A^*$.
+\end{proposition}
+
+\begin{proof}
+    Consideriamo $d(A\setminus\{0\}) \subset \NN$, ovvero l'immagine del dominio euclideo mediante l'applicazione grado, tale immagine è non vuota\footnote{Praticamente è ovvio, altrimenti non avrebbe nemmeno senso
+    parlare di $A$ come dominio.} ed è un sottoinsieme di $\NN$, pertanto, per il Principio del Minimo ammette elemento minimo $d_0$, sia $x \in A\setminus\{0\}$ un elemento nella controimmagine di $d_0$, quindi
+    tale che $d(x) = d_0$, tale elemento è quindi di grado minimo, vediamo che è invertibile. Sappiamo che $\forall y \in A\setminus\{0\}$ possiamo fare la divisione euclidea per $x$:
+    \[ y = qx + r
+        \]
+    ed in questo caso non può essere che $d(r) < d(x) = d_0$, in quanto abbiamo supposto $d_0$ minimo, dunque l'unica possibilità è che $r = 0$ e $y = qx$, in particolare, per $y = 1$, $\exists q \in A$ tale che:
+    \[ 1 = qx \implies x \in A^*
+        \]
+    Viceversa, sia $x \in A^*$, allora $(x) = A$ (poiché in $(x)$ vi è 1), pertanto, $\forall a \in A$:
+    \[ a = qx \qquad q \in A
+        \]
+    inoltre, sappiamo per le proprietà del grado che $d(x) \leq d(qx)$, $\forall q \in A\setminus\{0\}$, ovvero:
+    \[ d(x) \leq d(a) \qquad \forall a \in A
+        \]
+    quindi $x$ è un elemento di grado minimo.
+\end{proof}
+
+\begin{proposition}[Ideali di un dominio euclideo]
+    Dato un dominio euclideo $A$, tutti gli ideali di $A$ sono principali\footnote{Quindi ogni dominio euclideo è un PID.} e generati da un elemento di grado minimo.
+\end{proposition}
+
+\begin{proof}
+    Sia $I \subset A$ un ideale, se $I = \{0\}$, allora è principale, altrimenti, preso $I \ne \{0\}$, vogliamo mostrare che $I$ è generato da un singolo elemento di grado minimo.
+    Sia $x \in I$ un elemento di grado minimo (esiste perché $d(I) \subset \NN$ e non vuoto), allora è ovvio che $(x) \subseteq I$, viceversa, si ha che $\forall a \in A$ si può fare la divisione euclidea per $x$:
+    \[ a = qx + r \qquad d(r) < d(x) \vee r = 0
+        \]
+    da cui segue che $r = a - qx \in I$ da cui $d(x) \leq d(r) \implies r = 0$, ovvero:
+    \[ a = qx \in (a) \implies I \subseteq (a)
+        \]
+\end{proof}
+
+
+\newpage
+\subsection{Domini a ideali principali (PID)}
+\begin{definition}
+    Un dominio $A$ si dice a \vocab{ideali principali} (PID) se ogni ideale di $A$ è principale:
+    \[ \forall I \subseteq A, I \, \text{ideale}, \exists x \in I : I = (x)
+        \]
+\end{definition}
+
+\begin{proposition}[Ideali primi di un PID]
+    Dato un dominio ad ideali principali $A$, gli unici ideali primi di $A$ sono $(0)$ e gli ideali massimali.
+\end{proposition}
+
+\begin{proof}
+    Dall'(1) del \hyperref[2.57]{Corollario 2.57} sappiamo che il fatto che $A$ sia un dominio è equivalente al fatto che $(0)$ sia un ideale
+    primo, inoltre, dal (3) del \hyperref[2.57]{Corollario 2.57} sappiamo anche che tutti gli ideali massimali di un anello sono primi.\\
+    Viceversa, vogliamo dimostrare che gli ideali primi diversi da $(0)$ di un dominio a ideali principali sono solo quelli massimali; sia $P$ un ideale primo diverso da $(0)$, essendo in un PID si ha che
+    $P = (x)$, verifichiamo che $P$ è massimale osservando che, essendo $A$ un dominio, per l'(1) della \hyperref[2.86]{Proposizione 2.86}, $P$ è primo se e solo se $x$ è primo, e dunque $x$ irriducibile (è vero in ogni dominio per la \hyperref[2.58]{Proposizione 2.58}).
+    Essendo $x$ irriducibile segue che $(x)$ è massimale tra gli ideali principali di $A$ (per il (2) della \hyperref[2.86]{Proposizione 2.86}), e poiché $A$ è un PID (dunque tutti gli ideali sono principali), allora $(x)$ è un ideale massimale per $A$. 
+\end{proof}
+
+\begin{remark}[M.C.D. nei PID]
+    Se $A$ è un PID e $x,y \in A$, non entrambi nulli, osserviamo che l'ideale generato da $x$ e $y$ deve essere tale che:
+    \[ (x,y) = (d)
+        \]
+    con $d$ un M.C.D.\footnote{M.C.D. a meno di prodotto per elementi di $A^*$.} di $x$ e $y$. Infatti:
+    \[ x \in (d) \qquad \text e \qquad y \in (d)
+        \]
+    dunque $d \mid x$ e $d \mid y$, inoltre, se $c \mid x$ e $c \mid y$, allora $x,y \in (x)$, da cui:
+    \[ (d) = (x,y) \subseteq (c) \implies d \in (c) \implies c \mid d
+        \]
+    dunque $d$ è un M.C.D. tra $x$ ed $y$.
+\end{remark}
+
+
+\newpage
+\subsection{Domini a fattorizzazione unica (UFD)}
+\begin{definition}
+    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, $x \not\in A^*\setminus\{0\}$ si scrive in modo
+    unico, a meno dell'ordine di fattori e di moltiplicazione per elementi invertibili, come prodotto di elementi irriducibili.
+\end{definition}
+
+\begin{example}
+    [Esempi di UFD]
+    Esempi noti di UFD sono il dominio degli interi $\ZZ$, e quello dei polinomi in un'ordinata a coefficienti in un campo $K[x]$.
+\end{example}
+
+\begin{proposition}[UFD$\implies\exists$M.C.D.]
+    Sia $A$ un dominio a fattorizzazione unica, allora presi $a,b \in A$, non entrambi nulli, esiste $\text{M.C.D.}(a,b)$.
+\end{proposition}
+
+\begin{proof}
+    Sia $d$ il prodotto dei fattori irriducibili comuni fra $a$ e $b$, presi con il minimo esponente con cui compaiono,
+    allora per verifica diretta si mostra che $d$ è l'M.C.D.\footnote{Si tratta praticamente solo di verifiche formali, pertanto conto di aggiungerla in seguito.}
+\end{proof}
+
+\begin{remark}
+    Osserviamo che nei tre tipi di domini analizzati esiste sempre l'M.C.D., ma con delle differenze:
+    \begin{itemize}
+        \item Se $A$ è un dominio euclideo (ED): con l'algoritmo di Euclide si può determinare l'M.C.D. di due elementi:
+        \[ d = (a,b) \qquad a,b \in A
+            \]
+        e i coefficienti $x_0,y_0 \in A$ per i quali vale l'identità di Bézout:
+        \[ d = ax_0 + by_0
+            \]
+        \item Se $A$ è un dominio a ideali principali (PID): sappiamo che presi due elementi si ha:
+        \[ (a,b) = (d) \qquad a,b,d \in A
+            \]
+        con $d$ che è l'M.C.D. tra $a$ e $b$, ma non disponiamo di un algoritmo "facile" per poterlo determinare, tuttavia esistono $x_0, y_0 \in A$ tali che:
+        \[ d = ax_0 + by_0
+            \]
+        e ciò deriva semplicemente dal fatto che $d \in (a,b)$, dunque si può scrivere come loro combinazione lineare (ugualmente però non disponiamo di algoritmi "facili" per poter determinare $x_0$ e $y_0$).
+        \item Se $A$ è un dominio a fattorizzazione unica (UFD): allora $\forall a,b \in A$ non entrambi nulli, esiste $d = \text{M.C.D.}(a,b)$, ma \textbf{non è detto che} $(d) = (a,b)$ e quindi neppure che $d = ax_0 + by_0$.
+        Infatti, sicuramente è vero che $(a,b) \subset (d)$, ma non è detto che valga il contenimento opposto, il quale vale solo se $d = ax_0 + by_0$. Ad esempio, preso l'UFD $\Z[x]$, l'ideale:
+        \[ I = (2,x)
+            \]
+        è tale che $\text{M.C.D.}(2,x) = 1$, ma $1 \not \in (2,x)$, perché se non fosse coì avremmo:
+        \[ 1 = 2a(x) + xb(x)
+            \]
+        che per $x = 0$ porta a:
+        \[ 1 = 2a(0) + 0 \implies 2 \mid 1
+            \]
+        che è assurdo.
+    \end{itemize}
+\end{remark}
 
 \end{document}
