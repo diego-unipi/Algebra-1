@@ -2512,7 +2512,7 @@ Valgono i seguenti fatti:
 \begin{theorem}
     [Teorema di Corrispondenza tra Ideali]
     \label{corrispondenza}
-    Sia $I \subset A$ un ideale e $\varphi_I$ la proiezione all'anello quoziente modulo $I$, $\pi_I$ induce una Corrispondenza biunivoca tra gli ideali di $\faktor{A}{I}$ e 
+    Sia $I \subset A$ un ideale e $\pi_I$ la proiezione all'anello quoziente modulo $I$, $\pi_I$ induce una corrispondenza biunivoca tra gli ideali di $\faktor{A}{I}$ e 
     gli ideali di $A$ che contengono $I$, e tale corrispondenza preserva l'ordinamento.
 \end{theorem}
 
@@ -2825,7 +2825,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
         \[ J \longmapsto \pi_I(J) = \faktor{J}{I}
             \]
     Dobbiamo dimostrare che $J$ è primo (massimale) in $A$ se e solo se $\faktor{J}{I}$ è primo (massimale) in $\faktor{A}{I}$. Per quanto detto nella \hyperref[2.56]{Proposizione 2.56} $J$ primo (massimale) 
-    è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e, ugualmente deve essere che $\frac{A/I}{J/I}$ è un dominio (campo) ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
+    è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e, ugualmente deve essere che $\displaystyle\frac{A/I}{J/I}$ è un dominio (campo) ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
     \[ \frac{A/I}{J/I} \cong \faktor{A}{J}
         \]
     che in entrambi i casi verifica la tesi.
@@ -2926,7 +2926,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 
 \begin{remark}
     [$S = A \setminus\{0\}$]
-    Se $A$ è un dominio, allora $S = A \setminus\{0\}$ è una parte moltiplicativa, infatti, $\forall x,y \in S$, ovvero $x \ne 0$ e $y \ne 0$, dunque 
+    Se $A$ è un dominio, allora $S = A \setminus\{0\}$\footnote{Sarebbe $A^*$ se $A$ fosse finito.} è una parte moltiplicativa, infatti, $\forall x,y \in S$, ovvero $x \ne 0$ e $y \ne 0$, dunque 
     $xy \in S$, $xy \ne 0$.
 \end{remark}
 
@@ -2947,7 +2947,8 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Verifichiamo prima che $Q(A)$ è un campo e poi la tesi:
     \begin{itemize}
         \item Per verificare che $Q(A)$ sia un campo, ci basta verificare che esistono gli inversi moltiplicativi, e ciò segue immediatamente
-         dal fatto che $\forall a \in A$, $a \ne 0$, allora $\displaystyle\frac{1}{a} \in Q(A)$ ed è tale per cui:
+         dal fatto che $\forall a \in A$, $a \ne 0$, allora $\displaystyle\frac{1}{a} \in Q(A)$ (in questo modo tutti gli elementi di $A$, eccetto lo 0,
+         possono essere scritti come $\displaystyle\frac{1}{a}$) ed è tale per cui:
             \[ \frac{a}{1} \cdot \frac{1}{a} = \frac{1}{1}
                 \]
         \item Per la \hyperref[2.66]{Proposizione 2.66} sappiamo già che $A \subset S^{-1}A$, ed ora abbiamo dimostrato che $S^{-1}A$ è un campo, ci resta da verificare 
@@ -2982,7 +2983,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 
 \begin{example}[Localizzato di un ideale primo]
     Se consideriamo $A = \ZZ$ e $P = 2\ZZ$, allora la parte moltiplicativa è data da $S = \ZZ\setminus 2\ZZ$ (i numeri dispari), da cui abbiamo che:
-    \[ \ZZ_{(2)} = \left\{\frac{a}{b} \m a \in \ZZ, (b,2) = 1\right\}
+    \[ S^{-1}\ZZ = \ZZ_{(2)} = \left\{\frac{a}{b} \m a \in \ZZ, b \equiv 1 \, \text{(mod 2)}\right\}
         \]
 \end{example}
 
@@ -3018,7 +3019,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Sia $I \subset A$ un ideale di $A$, possiamo costruire l'insieme:
     \[ S^{-1}I = \left\{\frac{x}{s} \in S^{-1}A \m x \in I, s \in S \right\} \cong \frac{I \times S}{\sim}
         \]
-    per tale insieme valgono le proprietà espresse dalla proposizione successiva.
+    per tale insieme valgono le proprietà espresse dalla proposizione seguente.
 \end{remark}
 
 \begin{proposition}
@@ -3028,7 +3029,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
         \item $S^{-1}I$ è un ideale di $S^{-1}A$.
         \item $\forall J \subset S^{-1}A$, $\exists I \subset A$ tale che $J = S^{-1}I$ (cioè ogni ideale di $S^{-1}A$ si ottiene da un ideale di $A$, considerandone il relativo anello delle frazioni).
         \item $S^{-1}I$ è un ideale proprio di $S^{-1}A$ se e solo se $I \cap S = \emptyset$.
-        \item Sia $P$ un ideale primo di $A$, con $P \cap S = \emptyset$, allora $S^{-1}P$ (la localizzazione di $P$ ad $S$) è un ideale primo di $S^{-1}A$.
+        \item Sia $P$ un ideale primo di $A$, con $P \cap S = \emptyset$, allora $S^{-1}P$ è un ideale primo di $S^{-1}A$.
     \end{enumerate}
 \end{proposition}
 
@@ -3580,5 +3581,8 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     \end{enumerate}
 \end{proof}
 
+
+\newpage
+\subsection{Terne pitagoriche}
 
 \end{document}
