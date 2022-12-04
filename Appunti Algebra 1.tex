@@ -1480,7 +1480,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
                 \[ a_1x_1 = a_2x_2 + \ldots + a_tx_t
                     \]
             applicando $\pi$ alle due scritture si ha:
-                \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\ol 0,\ldots, \ol 0)
+                \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\overline 0,\ldots, \overline 0)
                     \]
             in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_1}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
             anche nel gruppo di partenza $a_i = 0$ e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
@@ -1996,7 +1996,7 @@ Dunque i gruppi di ordine 8 sono:
             con:
                 \[ \varphi : \Z{2} \longrightarrow \Aut(\Z{15}) \cong \Z{15}^* \cong \Z{3}^* \times \Z{5}^* \cong \Z{2} \times \Z{4}
                     \]
-            dove abbiamo che $[1]_2 \longmapsto \varphi_y$, e adottando la notazione moltiplicativa, $\varphi_y : \Z{15} \longmapsto \Z{15} : \ol{x} \longmapsto \ol{x}^l$, abbiamo 
+            dove abbiamo che $[1]_2 \longmapsto \varphi_y$, e adottando la notazione moltiplicativa, $\varphi_y : \Z{15} \longmapsto \Z{15} : \overline{x} \longmapsto \overline{x}^l$, abbiamo 
             $\ord(\varphi_y) \mid 2$, dunque ci sono due possibilità, o $\varphi_y = id$ (quindi $l = 1$), o $\varphi_y^2 = id \implies \varphi_y^2(x) = (x^l)^l = x^{l^2} = x$, da cui segue (essendo $x$ un generatore di $\Z{15}$):
                 \[ l^2 \equiv 1 \pmod{15} \implies x\equiv \pm 1, \pm 4 \pmod{15}
                     \]
@@ -2774,9 +2774,9 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
                 \]
             ovvero se e solo se, quando un prodotto di elementi si annulla (quindi fa la classe laterale neutra in questo caso) uno dei due elementi è già nella classe laterale neutra 
             dell'anello quoziente (quindi è già l'unico elemento neutro del prodotto, come richiesto dal fatto che l'anello sia un dominio), ma come si vede ciò è equivalente a dire che $I$ è primo.
-        \item Per il (2) della \hyperref[2.26]{Proposizione 2.26} $\faktor{A}{I}$ è un campo se e solo se gli unici ideali che contiene sono quelli impropri, $\ol{(0)}$ e $\faktor{A}{I}$, dunque per il 
+        \item Per il (2) della \hyperref[2.26]{Proposizione 2.26} $\faktor{A}{I}$ è un campo se e solo se gli unici ideali che contiene sono quelli impropri, $\overline{(0)}$ e $\faktor{A}{I}$, dunque per il 
         \hyperref[corrispondenza]{Teorema di Corrispondenza} ciò è equivalente a dire che gli ideali di $A$ che contengono $I$ sono soltanto $A$ ed $I$ stesso \footnote{Infatti si ha che
-        $\pi_I^{-1}\left(\faktor{A}{I}\right) = A$ e $\pi_I^{-1}(\ol{(0)}) = I$.}, ovvero $I$ è un ideale massimale di $A$.
+        $\pi_I^{-1}\left(\faktor{A}{I}\right) = A$ e $\pi_I^{-1}(\overline{(0)}) = I$.}, ovvero $I$ è un ideale massimale di $A$.
     \end{enumerate}
 \end{proof}
 
@@ -3264,7 +3264,7 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
         e vale la divisione euclidea tra polinomi con resto:
         \[ \forall f(x),g(x) \in K[x], \exists q(x),r(x)\in K[x] : f(x) = g(x)q(x) + r(x)
             \]
-        con $\deg r(x) < \deg g(x)$ oppure $deg r(x) = 0$.
+        con $\deg r(x) < \deg g(x)$ oppure $\deg r(x) = 0$.
         \item $(\ZZ[i],N)$, l'anello degli \vocab{interi di Gauss}, $\ZZ[i] = \{a + ib | a,b \in \ZZ\}$, con la norma data da:
             \[ N : \ZZ[i] \longrightarrow \NN : (a +ib =)\alpha \longmapsto N(\alpha) = \alpha \overline{\alpha} = a^2+b^2
                 \]
@@ -3566,7 +3566,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 \end{remark}
 
 \begin{proof}
-    Iniziamo quindi verificando i primi due punti come segue.
+    Iniziamo quindi verificando il primo punto come segue.
     \begin{enumerate}[(1)]
         \item Siano $f(x),g(x) \in A[x] \setminus\{0\}$, e $\deg f(x) = n \geq 0$, $\deg g(x) = m \geq 0$, essendo $a_n, b_m \ne 0$, segue che
         $a_nb_m \ne 0$ poiché per ipotesi $A$ un dominio di integrità, pertanto $f(x) \cdot g(x) \ne 0$ se $f(x),g(x) \ne 0 \implies A[x]$ è un dominio d'integrità.
@@ -3581,5 +3581,384 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     \end{enumerate}
 \end{proof}
 
+Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili di $A[x]$, e fare ciò abbiamo bisogno del Lemma di Gauss.
+
+\begin{definition}
+    Dato $A$ un UFD e $f(x) \in A[x]$, con $f(x) = \sum_{i=0}^n a_ix^i$, si dice \vocab{contenuto} di $f(x)$ l'M.C.D. dei suoi coefficienti:
+    \[ c(f(x)) = (a_0,\ldots,a_n)
+        \]
+\end{definition}
+
+\begin{remark}
+    Il contenuto di un polinomio a coefficienti in un UFD è definito a meno di associati.
+\end{remark}
+
+\begin{definition}
+    Dato $A$ un UFD e $f(x) \in A[x]$, $f(x)$ si dice \vocab{primitivo} se $c(f(x)) \sim 1$.
+\end{definition}
+
+\begin{remark}
+    Ovviamente dato $f(x) \in A[x]$ si ha che:
+    \[ f(x) = c(f(x))f^{\prime}(x) \qquad c(f^{\prime}(x)) = 1
+        \]
+    dove $f^{\prime}(x) \in A[x]$ e:
+    \[ f^{\prime}(x) = \sum_{i=0}^n \frac{a_i}{d}x^i \qquad \frac{a_i}{d} \in A, \left(\frac{a_0}{d},\ldots,\frac{a_n}{d}\right) = 1
+        \]
+\end{remark}
+
+\begin{lemma}
+    [Lemma di Gauss]
+    \label{gauss}
+    Dati $f(x),g(x) \in A[x]$, allora:
+    \[ c(f(x)g(x)) = c(f(x))c(g(x))
+        \]
+\end{lemma}
+
+\begin{proof}
+    Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $f(x)g(x)$ non fosse primitivo (ovvero associato ad 1)
+            allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$, consideriamo la proiezione modulo $(p)$:
+            \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
+                \]
+            con $\overline{f(x)} \ne 0$ in quanto $p \nmid c(f(x))$, analogamente $\pi_{(p)}(g(x)) = \overline{g(x)} \ne 0$, poiché $p \nmid c(g(x))$, ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
+            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio e quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, ovvero $\displaystyle \frac{A}{(p)} [x]$
+            è un dominio, da cui $c(f(x)g(x)) = 1$.
+        \item Consideriamo ora il caso generale, sia $f(x) = c(f(x))f^{\prime}(x)$, con $f^{\prime}(x)$ primitivo, e analogamente $g(x) = c(g(x))g^{\prime}(x)$, con $g^{\prime}(x)$ primitivo, abbiamo che:
+            \[ h(x) = f(x)g(x) = c(f(x))c(g(x))g^{\prime}(x)f^{\prime}(x)
+                \]
+            dove $h^{\prime}(x) = g^{\prime}(x)f^{\prime}(x)$ è primitivo perché prodotto di polinomi primitivi, dunque:
+            \[ h(x) = c(h(x))h^{\prime}(x)
+                \]
+            e uguagliando i contenuti si ha:
+            \begin{multline*}
+                c(h(x))\underbrace{c(h^{\prime}(x))}_{= 1} = c(f(x))c(g(x))\underbrace{c(g^{\prime}(x)f^{\prime}(x))}_{= 1} \implies \\
+                c(h(x)) = c(f(x)g(x)) = c(f(x))c(g(x))
+            \end{multline*}
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}
+    \label{2.118}
+    Siano $f(x),g(x) \in A[x]$, con $c(f(x)) = 1$ e $f(x) \mid g(x)$ in $K[x]$, con $K$ campo dei quozienti di $A$, allora $f(x) \mid g(x)$ in $A[x]$.
+\end{corollary}
+
+\begin{proof}
+    Per ipotesi sappiamo che $f(x) \mid g(x)$ in $K[x]$, ovvero $\exists h(x) \in K[x]$ tale che $g(x) = f(x)h(x)$, allora $\exists d \in A$ tale che:
+    \[ h_1(x) = dh(x) \in A[x]
+        \]
+    (stiamo "cancellando" il denominatore), dunque:
+    \[ dg(x) = f(x)h_1(x) \in A[x]
+        \]
+    da cui per il \hyperref[gauss]{Lemma di Gauss}:
+    \[ dc(g(x)) = c(f(x)h_1(x)) = c(f(x))c(h_1(x)) = c(h_1(x)) \implies d \mid c(h_1(x))
+        \]
+    dove abbiamo usato nell'ultimo passaggio il fatto che $c(f(x)) = 1$, dunque abbiamo $\displaystyle\frac{h_1(x)}{d} = h(x) \in A[x]$
+    e quindi la divisibilità iniziale era anche in $A[x]$. 
+\end{proof}
+
+\begin{corollary}
+    \label{2.119}
+    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$,
+    allora esiste $\delta \in K^*$ tale che $g_1(x) = \delta g(x) \in A[x]$, $h_1(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_1(x)h_1(x)$.
+\end{corollary}
+
+\begin{proof}
+    Analogamente a quanto fatto per il corollario precedente, sappiamo che $\exists d \in A$ tale che $g_1(x) = dg(x) \in A[x]$ (stiamo di nuovo "eliminando" i denominatori, ad esempio moltiplicando per l'm.c.m.),
+    dunque:
+    \[ f(x) = dg(x)d^{-1}h(x) = g_1(x)(d^{-1}h(x)) = c(g_1(x))g_1^{\prime}(x)(d^{-1}h(x))
+        \]
+    con $g_1^{\prime}(x) \in A[x]$ primitivo (dividendo per il contenuto, che è un invertibile di $A$, siamo rimasti in $A[x]$), pertanto abbiamo:
+    \[ f(x) = g_1^{\prime}(x)(\underbrace{c(g_1(x))d^{-1}h(x)}_{\in K[x]})
+        \]
+    ovvero $g_1^{\prime}(x) \mid f(x)$ in $K[x]$, ma allora per il \hyperref[2.118]{Corollario 2.118} segue che $g_1^{\prime}(x) \mid f(x)$ in $A[x]$, dunque:
+    \[ h_1(x) = \underbrace{\frac{c(g_1(x))}{d}}_{= \delta^{-1}}h(x)
+        \]
+    abbiamo quindi determinato $\delta$ e $\delta^{-1}$ richiesti dalla tesi.
+\end{proof}
+
+\begin{remark}
+    Il teorema non ci dice altro che se $f(x)$ è riducibile in $K[x]$, allora è riducibile anche in $A[x]$, con polinomi dello stesso grado (per la precisione associati a quelli iniziali).\footnote{In
+    \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo trattato il caso particolare del Lemma di Gauss applicato a $\QQ[x]$ e $\ZZ[x]$.}
+\end{remark}
+
+\begin{example}
+    Un esempio del discorso appena fatto è rappresentato dalla fattorizzazione di un polinomio in $\QQ[x]$ e $\ZZ[x]$:
+    \[ (x^2 - 1) = \left(\frac{100}{7}x+\frac{100}{7}\right)\left(\frac{7}{100}x - \frac{7}{100}\right) = (x + 1)(x - 1)
+        \]
+\end{example}
+
+\begin{theorem}
+    [Caratterizzazione degli irriducibili di $A\lbrack x\rbrack$]
+    Dato $A$ UFD, gli elementi irriducibili di $A[x]$ sono tutti e soli quelli che soddisfano una tra le seguenti:
+    \begin{enumerate}[(1)]
+        \item $f(x) \in A$ irriducibile in $A$.
+        \item $f(x) \in A[x]$, con $\deg f(x) \geq 1$, $c(f(x)) = 1$ e $f(x)$ irriducibile in $K[x]$ (anello dei polinomi a coefficienti nel campo dei quozienti di $A$).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Distinguiamo i due casi:
+    \begin{enumerate}
+        \item Se $f(x) \in A$, dunque è costante, allora, come già osservato in precedenza, si ha:
+        \[ f(x) = g(x)h(x) \implies \deg g(x) + \deg h(x) = \deg f(x) = 0
+            \]
+        dove l'implicazione è data dal fatto che siamo in un dominio, dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto $g(x),h(x) \in A$,
+        per cui $f(x)$ è irriducibile in $A[x]$ se e sole $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
+        \item Sia $f(x)$ con $\deg f(x) \geq 1$. Supponiamo che $f(x)$ sia irriducibile in $A[x]$, abbiamo che:
+        \[ f(x) = c(f(x))f^{\prime}(x)
+            \]
+        con $c(f(x))$ invertibile in $A[x]$, $c(f(x)) \in (A[x])^* = A^*$ (per quanto detto al punto (1)), d'altra parte, sia $f(x) = g(x)h(x)$ in $K[x]$, allora per il
+        \hyperref[2.119]{Corollario 2.119}, possiamo scriverlo come prodotto di polinomi dello stesso grado in $A[x]$:
+        \[ f(x) = g_1(x)h_1(x) \qquad \text{con} \qquad \deg g_1(x) = \deg g(x), \deg h_1(x) = \deg h(x)
+            \]
+        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ sono invertibili. Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui
+        $\deg g(x) = 0$ o $\deg h(x) = 0$, ovvero $g(x) \in (K[x])^*$ o $h(x) \in (K[x])^*$, dunque $f(x)$ è irriducibile in $K[x]$. \\
+        Verifichiamo il viceversa, sia $f(x)$ primitivo ed irriducibile in $K[x]$, e sia $f(x) = g(x)h(x)$ in $A[x]$ (e anche in $K[x]$), poiché $f(x)$ è irriducibile in $K[x]$ 
+        $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, supponiamo quindi ad esempio che sia $g(x) \in A$, da ciò segue che:
+        \[ 1 = c(f(x)) = c(g(x)h(x)) = c(g(x))c(h(x)) = g c(h(x))
+            \]
+        dove nell'ultima uguaglianza abbiamo usato il fatto che, essendo $g(x)$ costante, allora è uguale al suo contenuto, dunque $g \in A^* (= (A[x])^*)$, pertanto $f(x)$ è irriducibile in $A[x]$.
+    \end{enumerate}
+\end{proof}
+
+\begin{proposition}[Condizione (i) per $A\lbrack x\rbrack$]
+    Dato $A$ UFD, in $A[x]$ ogni irriducibile è primo.
+\end{proposition}
+
+\begin{proof}
+    Sia $f(x) \in A[x]$ irriducibile, per dimostrare che è primo bisogna verificare che $\forall g(x),h(x) \in A[x]$ si ha che:
+    \[ f(x) \mid g(x)h(x) \implies f(x) \mid g(x) \quad \text o \quad f(x) \mid h(x) \quad \text{in $A[x]$}
+        \]
+    Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $\deg f(x) = 0$, ovvero $f(x) = f \in A$, dunque se $f$ è irriducibile in $A$, essendo $A$ UFD, allora $f$ è primo in $A$;
+        infatti abbiamo che:
+        \[ f \mid gh \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) = g \quad \text o \quad f \mid c(h) = h
+            \]
+        dunque $f$ primo.
+        \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$, si osserva che $K[x]$ è euclideo, dunque $f(x)$ è primo
+        in $K[x]$ (poiché avevamo detto che ED $\subset$ UFD), dunque se:
+        \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
+            \]
+        allora $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $K[x]$. Avendo supposto che $f(x)$ è primitivo, allora per il \hyperref[2.118]{Corollario 2.118}:
+        \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
+            \]
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}[Condizione (ii) per $A\lbrack x\rbrack$]
+    Sia $\{f_n(x)\}$ una successione di elementi di $A[x]$ tale che:
+    \[ f_{i+1}(x) \mid f_i(x)
+        \]
+    allora è stazionaria, ovvero $\exists n_0$ tale che $f_i(x) \sim f_{n_0}(x)$, $\forall i \geq n_0$.
+\end{proposition}
+
+\begin{proof}
+    Si osserva che per il \hyperref[gauss]{Lemma di Gauss} si ha che:
+    \[ f(x) \mid g(x) \implies c(f(x)) \mid c(g(x)) \qquad \text e \qquad f^{\prime}(x) \mid g^{\prime}(x)
+        \]
+    infatti, se $g(x) = f(x) h(x) \implies c(g(x))g^{\prime}(x) = c(f(x))f^{\prime}(x)c(h(x))c^{\prime}(x)$,
+    ma per quanto detto $c(g(x)) = c(f(x)h(x)) = c(f(x))c(hc(x))$, da cui $f^{\prime}(x) \mid g^{\prime}(x)$.
+    Alla successione $\{f_i(x)\}$ possiamo quindi associare le successioni $\{c(f_i(x))\}$ e $\{f_i^{\prime}(x)\}$, per quanto abbiamo detto si ha:
+    \[ c(f_{i+1}(x)) \mid c(f_{i}(x)) \qquad \text e \qquad f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \qquad \forall i \geq 0
+        \]
+    dove la successione $\{c(f_i(x))\}$ è stazionaria, in quanto è una catena discendete di divisibilità dell'UFD $A$, dunque:
+    \[ \exists m_0 : c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \forall i \geq m_0
+        \]
+    Consideriamo ora $\{f_i^{\prime}(x)\}$ e associamo a questa la successione $\{\deg f_i^{\prime}(x)\}$, ma dalla condizione:
+    \[ f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \implies \deg f_{i+1}^{\prime}(x) \leq \deg f_i^{\prime}(x)
+        \]
+    dunque $\{\deg f_i^{\prime}(x)\}$ è una successione di numeri naturali decrescente, pertanto si stabilizza:
+    \[ \exists d_0 : \deg f_{i}^{\prime}(x) \leq \deg f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
+        \]
+    pertanto $\forall i \geq d_0$ abbiamo che $f_i^{\prime}(x)$ e $\deg f_{i+1}^{\prime}(x)$ hanno lo stesso grado e $f_{i}^{\prime}(x) \mid f_{d_0}^{\prime}(x)$,
+    cioè differiscono per una costante, ma essendo entrambi primitivi la costante deve essere un'unità, per cui:
+    \[ f_{i}^{\prime}(x) \sim f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
+        \]
+    dunque, detto $n_0 = \max\{m_0,d_0\}$, $\forall i \geq n_0$ vale contemporaneamente che:
+    \[ c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \text e \qquad f_{i}^{\prime}(x) \sim f_{d_0}^{\prime}(x)
+        \]
+    da cui la tesi:
+    \[ f_i(x) = c(f_i(x))f_{i}^{\prime}(x) \sim c(f_{n_0}(x))f_{n_0}^{\prime}(x) \qquad \forall i \geq n_0
+        \]
+\end{proof}
+
+Con la dimostrazione di quest'ultima proposizione abbiamo concluso la dimostrazione del \hyperref[2.109]{Teorema di Caratterizzazione degli UFD}.
+
+\begin{remark}
+    Osserviamo che in generale se $A$ è un PID, allora non è sempre vero che $A[x]$ sia un PID, ad esempio nel caso di $\ZZ$ sappiamo che $\ZZ[x]$ non è un PID, in quanto,
+    ad esempio, l'ideale $I = (2,x)$ non è principale. Analogamente, in generale se $A$ è un ED, allora non è sempre vero che $A[x]$ sia un ED, anche qui come controesempio possiamo 
+    considerare il caso di $\ZZ$ e $\ZZ[x]$.
+\end{remark}
+
+\begin{remark}
+    Se $K$ è un campo, allora abbiamo che $K[x]$ è euclideo, mentre $K[x,y]$ è un UFD (poiché vale sempre il \hyperref[2.109]{Teorema di Caratterizzazione degli UFD}, e $K[x]$ è un UFD), ma
+    $K[x,y]$ non è un PID, in quanto ad esempio $I = (x,y)$ non è principale.
+\end{remark}
+
+\begin{exercise}
+    Dimostrare che dato $K[x,y]$ campo, l'ideale $I = (x,y)$ non è principale.
+\end{exercise}
+
+\begin{soln}
+    
+\end{soln}
+
+\begin{proposition}
+[Criterio di irriducibilità Eisenstein]
+Dato $A$ UFD e $f(x) \in A[x]$ primitivo, con $f(x) = \sum_{i=0}^n a_ix^i$, e $p \in A$ un primo tale che:
+\begin{enumerate}[(1)]
+    \item $p \nmid a_n$.
+    \item $p \mid a_i$, $\forall i \in \{0,\ldots,n-1\}$.
+    \item $p^2 \nmid a_0$.
+\end{enumerate}
+Allora $f(x)$ è irriducibile in $A[x]$ (e in $K[x]$, con $K$ campo dei quozienti di $A$).
+\end{proposition}
+
+\begin{proof}
+    La dimostrazione è identica a quella già trattata in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, con 
+    la sola differenza che in questo caso utilizziamo un UFD generico al posto di $\ZZ$.\\
+    Supponiamo per assurdo che $f(x)$, con $\deg(f(x)) = n$ sia riducibile, allora:
+	\[ f(x) = g(x)h(x)
+	\]
+    con $\deg f(x) = m \geq 1$, $\deg(h(x)) = n-m \geq 1$. Possiamo applicare la proiezione al quoziente modulo $(p)$, e per le ipotesi si ha:
+	\[ \overline{f(x)} = \overline{a_n}x^n (\ne \overline 0)
+	\] 
+    e inoltre:
+	\[ \pi_{(p)}(f(x)) =  \pi_{(p)}(g(x)) \pi_{(p)}(h(x))
+	\]
+    con:
+	\[ \pi_{(p)}(g(x)) = \overline{b_m}x^m + \ldots + \overline{b_0}
+	\qquad
+	\text e
+	\qquad
+	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m} + \ldots + \overline{c_0}
+	\]
+    Si ha che $\displaystyle\pi_{(p)}(f(x)) \in \frac{A}{(p)}[x]$ (che è un campo), quindi UFD, da ciò segue che $\pi_{(p)}(g(x))$ e 
+    $\pi_{(p)}(h(x))$ sono fattori del polinomio $\overline{a_n}x^n$, da cui segue, per la definizione di prodotto tra polinomi che:
+	\[  \pi_{(p)}(g(x)) = \overline{b_m}x^m
+	\qquad
+	\text e
+	\qquad
+	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m}
+	\]
+    ma da ciò segue che $b_0 \equiv c_0 \equiv 0 \pmod p$, da cui $a_0 \equiv b_0c_0 \equiv 0 \pmod{p^2}$, ovvero $p^2 \mid a_0$, ma ciò è assurdo.
+\end{proof}
+
+\newpage
+\subsection{Terne pitagoriche}
+\begin{definition}
+    Si definiscono \vocab{terne pitagoriche} le terne di soluzioni intere dell'equazione:
+    \[ x^2 + y^2 = z^2 \qquad x,y,z \in \ZZ
+        \]
+    con  $(x,y,z) = 1$.
+\end{definition}
+
+Osserviamo che possiamo riformulare il problema negli interi di Gauss nel modo che segue:
+\[ x^2+y^2 = (x+iy)(x-iy) = z^2
+    \]
+dunque determinare le terne pitagoriche significa risolvere questo problema moltiplicativo in $\ZZ[i]$.
+
+\begin{remark}
+    Osserviamo che la coprimalità dei tre fattori la implica anche a coppie: $(x,y,z) = 1 \implies (x,y) = (x,z) = (y,z) = 1$.
+\end{remark}
+
+\begin{remark}
+    Abbiamo che $x \not\equiv y \pmod 2$, infatti, studiando l'equazione modulo 4:
+    \[ x^2 + y^2 \equiv z^2 \pmod 4
+        \]
+    dove essendo un quadrato modulo 4 abbiamo che $z^2 \in \{0,1\}$, dunque $x^2,y^2 \in \{0,1\}$, ma non possono essere contemporaneamente pari,
+    altrimenti avremmo che $(x,y) \ne 1$, e neppure contemporaneamente dispari, altrimenti la somma dei loro quadrati modulo 4 sarebbe 2,
+    pertanto $x$ ed $y$ sono uno pari e l'altro dispari.
+\end{remark}
+
+\begin{remark}
+    Consideriamo l'ideale $I = (x+iy,x-iy)$, verifichiamo che $I = (1)$, o equivalentemente che $x+iy$ e $x-iy$ sono coprimi 
+    (abbiamo visto che in un ED l'ideale generato da due elementi è quello generato dal loro M.C.D.). Osserviamo che:
+    \[ 2x = (x+iy) + (x-iy) \in I
+        \]
+    Analogamente, considerando la differenza si ha $2y \in y$ e, considerando il prodotto, $x^2+y^2 \in I$; poiché $x$ ed $y$ hanno
+    diversa parità, $x^2+y^2$ è dispari, mentre $2x$ è pari, dunque si ha che:
+    \[ 1 \in (2x,2y,x^2+y^2) \subset \ZZ \subset \ZZ[i]
+        \]
+    infatti, se non ci fosse 1, $\exists p$ tale che $p \mid 2x$, $p \mid 2y$, da cui $p = 2$ (in quanto $(x,y) = 1$), ma $2 = p \mid x^2+y^2$,
+    che però è dispari, dunque:
+    \[ I = (1)
+        \]
+    o equivalentemente $x+iy$ e $x-iy$ sono coprimi e quindi entrambi dei quadrati a meno di unità.
+\end{remark}
+
+\pagebreak
+\begin{remark}
+    [Invertibili di $\ZZ\lbrack i \rbrack$]
+    Osserviamo che gli elementi di $(\ZZ[i])^*$ sono gli $u \in \ZZ[i]$ tali per cui $\exists v \in \ZZ[i]$:
+    \[ uv = 1\footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati.} \implies v = \ol u \implies u\ol u = 1
+        \]
+    ovvero $u = \varepsilon + i\delta \in \ZZ[i]$ dove:
+    \[ u \ol u = \varepsilon^2 + \delta^2 = 1
+        \]
+    che ha per soluzioni:
+    \[ \begin{cases}
+        \varepsilon = \pm 1\\
+        \delta = 0
+    \end{cases}
+    \qquad \text e \qquad
+    \begin{cases}
+        \varepsilon = 0\\
+        \delta = \pm 1
+    \end{cases}
+        \]
+    dunque $(\ZZ[i])^* = \{\pm 1, \pm i\}$.
+\end{remark}
+
+Allora, per quanto detto sappiamo che:
+\[ x + iy = u\alpha^2 \qquad \alpha \in \ZZ[i], u \in \{\pm 1, \pm i\}
+\]
+e analogamente:
+\[ x - iy = \ol u \,\ol\alpha^2 \qquad \ol\alpha \in \ZZ[i], \ol u \in \{\pm 1, \pm i\}
+    \]
+Considerando $\alpha = a+ib$ si ottiene:
+\[ x + iy = u(a^2-b^2-2iab)
+    \]
+distinguiamo ora due casi:
+\begin{itemize}
+    \item Se $u = \pm 1$, allora si ottiene:
+    \[ \begin{cases}
+        x = \pm(a^2-b^2) \\
+        y = \mp 2ab \\
+        z = \pm (a^2+b^2)
+    \end{cases}
+        \]
+    \item Se $u = \pm i$, allora si ottiene:
+    \[ \begin{cases}
+        x = \mp 2ab \\
+        z = \pm(a^2-b^2-2) \\
+        y = \pm (a^2+b^2)
+    \end{cases}
+    \]
+\end{itemize}
+che forniscono la parametrizzazione delle terne pitagoriche e rispondono al problema iniziale di determinarle.
+
+\newpage
+\begin{remark}[Ultimo teorema di Fermat]
+    Il procedimento risolutivo appena utilizzato nel caso delle terne pitagoriche non può essere generalizzato al caso dell'equazione:
+    \[ x^n + y^n = z^n \qquad n\geq 3
+        \]
+    inizialmente, possiamo considerare solo il caso in cui $n = p$, infatti, se non ci fossero soluzioni nemmeno nel caso di un primo, non potremmo
+    trovarle nel caso generale. Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $p \nmid xyz$, abbiamo $x^p+y^p = z^p$ che può essere fattorizzata:
+            \[ (x+y)(x+\zeta_py) \ldots (x + \zeta_p^{p-1}y) = z^p \qquad \text{in $\ZZ[\zeta_p]$}
+                \]
+            si può dimostrare in questo caso che i fattori sono a due a due coprimi,
+            ma da ciò non possiamo concludere che sono tutte potenze $p$-esime (altrimenti a questo punto potremmo dimostrare che non esistono soluzioni),
+            perché in generale $\ZZ[\zeta_p]$ \textbf{non} è un UFD, ad esempio per $p = 23$ non è vero\footnote{Ed anzi è proprio il più piccolo primo per il quale non funziona.}.
+        \item Se $p$ divide esattamente uno tra $x$,$y$ e $z$, ma non discutiamo ora questo caso.
+    \end{itemize}
+\end{remark}
+
+\newpage
+\section{Campi}
 
 \end{document}
