@@ -1,6 +1,8 @@
 \documentclass[11pt]{scrartcl}
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
+\usepackage{graphicx}
+
 
 \begin{document}
 \title{Appunti Algebra 1}
@@ -16,7 +18,7 @@
 
 \section*{Ringraziamenti}
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, Francesco Sorce, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-Leonardo Alfani, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Lorenzo Picinelli.
+Leonardo Alfani, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli.
 
 \newpage
 \section{Gruppi}
@@ -1478,7 +1480,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
                 \[ a_1x_1 = a_2x_2 + \ldots + a_tx_t
                     \]
             applicando $\pi$ alle due scritture si ha:
-                \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\ol 0,\ldots, \ol 0)
+                \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\overline 0,\ldots, \overline 0)
                     \]
             in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_1}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
             anche nel gruppo di partenza $a_i = 0$ e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
@@ -1520,7 +1522,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 
 
 \newpage
-\subsection{Teorema Di Sylow}
+\subsection{Teorema di Sylow}
 
 \begin{remark}
     Dato un gruppo $G$ finito cosa possiamo dire dell'esistenza di elementi e sottogruppi di un certo ordine? Riepiloghiamo di seguito i principali risultati visti:
@@ -1994,7 +1996,7 @@ Dunque i gruppi di ordine 8 sono:
             con:
                 \[ \varphi : \Z{2} \longrightarrow \Aut(\Z{15}) \cong \Z{15}^* \cong \Z{3}^* \times \Z{5}^* \cong \Z{2} \times \Z{4}
                     \]
-            dove abbiamo che $[1]_2 \longmapsto \varphi_y$, e adottando la notazione moltiplicativa, $\varphi_y : \Z{15} \longmapsto \Z{15} : \ol{x} \longmapsto \ol{x}^l$, abbiamo 
+            dove abbiamo che $[1]_2 \longmapsto \varphi_y$, e adottando la notazione moltiplicativa, $\varphi_y : \Z{15} \longmapsto \Z{15} : \overline{x} \longmapsto \overline{x}^l$, abbiamo 
             $\ord(\varphi_y) \mid 2$, dunque ci sono due possibilità, o $\varphi_y = id$ (quindi $l = 1$), o $\varphi_y^2 = id \implies \varphi_y^2(x) = (x^l)^l = x^{l^2} = x$, da cui segue (essendo $x$ un generatore di $\Z{15}$):
                 \[ l^2 \equiv 1 \pmod{15} \implies x\equiv \pm 1, \pm 4 \pmod{15}
                     \]
@@ -2212,7 +2214,8 @@ nella $i$-esima riga per ogni $i$, e sommando tutte queste matrici otteniamo $I_
 Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento:
         \[ (x) = \{ax | a \in A\} = Ax
             \]
-
+in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
+        
 \begin{proposition}
     L'ideale generato da un sottoinsieme $S$ di un anello $A$ è un ideale.
 \end{proposition}
@@ -2509,7 +2512,7 @@ Valgono i seguenti fatti:
 \begin{theorem}
     [Teorema di Corrispondenza tra Ideali]
     \label{corrispondenza}
-    Sia $I \subset A$ un ideale e $\varphi_I$ la proiezione all'anello quoziente modulo $I$, $\pi_I$ induce una Corrispondenza biunivoca tra gli ideali di $\faktor{A}{I}$ e 
+    Sia $I \subset A$ un ideale e $\pi_I$ la proiezione all'anello quoziente modulo $I$, $\pi_I$ induce una corrispondenza biunivoca tra gli ideali di $\faktor{A}{I}$ e 
     gli ideali di $A$ che contengono $I$, e tale corrispondenza preserva l'ordinamento.
 \end{theorem}
 
@@ -2728,7 +2731,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
                 \]
             osserviamo che $I \in \mathcal{F} \implies \mathcal{F} \ne \emptyset$, inoltre $(\mathcal{F},\subseteq)$ è induttivo, infatti, detta $\mathscr{C}$ una catena, essa
             sarà un sottoinsieme di $\mathcal{F}$ totalmente ordinato della forma:
-            \[ \mathscr{C} = \{J_n\} \subseteq \mathcal{F}
+            \[ \mathscr{C} = \{J_n\}\footnote{I vari $J_i$ sono contenuti tutti uno dentro l'altro "in catena".} \subseteq \mathcal{F}
                 \]
             allora posta $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$, verifichiamo che
             $J$ è maggiorante di $\mathscr{C}$. Si ha che:
@@ -2771,13 +2774,14 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
                 \]
             ovvero se e solo se, quando un prodotto di elementi si annulla (quindi fa la classe laterale neutra in questo caso) uno dei due elementi è già nella classe laterale neutra 
             dell'anello quoziente (quindi è già l'unico elemento neutro del prodotto, come richiesto dal fatto che l'anello sia un dominio), ma come si vede ciò è equivalente a dire che $I$ è primo.
-        \item Per il (2) della \hyperref[2.26]{Proposizione 2.26} $\faktor{A}{I}$ è un campo se e solo se gli unici ideali che contiene sono quelli impropri, $\ol{(0)}$ e $\faktor{A}{I}$, dunque per il 
+        \item Per il (2) della \hyperref[2.26]{Proposizione 2.26} $\faktor{A}{I}$ è un campo se e solo se gli unici ideali che contiene sono quelli impropri, $\overline{(0)}$ e $\faktor{A}{I}$, dunque per il 
         \hyperref[corrispondenza]{Teorema di Corrispondenza} ciò è equivalente a dire che gli ideali di $A$ che contengono $I$ sono soltanto $A$ ed $I$ stesso \footnote{Infatti si ha che
-        $\pi_I^{-1}\left(\faktor{A}{I}\right) = A$ e $\pi_I^{-1}(\ol{(0)}) = I$.}, ovvero $I$ è un ideale massimale di $A$.
+        $\pi_I^{-1}\left(\faktor{A}{I}\right) = A$ e $\pi_I^{-1}(\overline{(0)}) = I$.}, ovvero $I$ è un ideale massimale di $A$.
     \end{enumerate}
 \end{proof}
 
 \begin{corollary}[Caratterizzazione degli ideali primi e massimali 2]
+    \label{2.57}
     Dato $A$ un anello si ha:
     \begin{enumerate}[(1)]
         \item $A$ è un dominio se e solo se $(0)$ è un ideale primo.
@@ -2821,7 +2825,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
         \[ J \longmapsto \pi_I(J) = \faktor{J}{I}
             \]
     Dobbiamo dimostrare che $J$ è primo (massimale) in $A$ se e solo se $\faktor{J}{I}$ è primo (massimale) in $\faktor{A}{I}$. Per quanto detto nella \hyperref[2.56]{Proposizione 2.56} $J$ primo (massimale) 
-    è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e, ugualmente deve essere che $\frac{A/I}{J/I}$ è un dominio (campo) ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
+    è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e, ugualmente deve essere che $\displaystyle\frac{A/I}{J/I}$ è un dominio (campo) ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
     \[ \frac{A/I}{J/I} \cong \faktor{A}{J}
         \]
     che in entrambi i casi verifica la tesi.
@@ -2829,5 +2833,1616 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 
 \newpage
 \subsection{Anello delle frazioni di un dominio}
+
+\begin{definition}
+    Consideriamo un anello commutativo con identità $A$, che sia un dominio di integrità. Sia $S \subset A$ con le seguenti proprietà:
+    \begin{itemize}
+        \item $0 \not\in S$.
+        \item $1 \in S$.
+        \item $S$ è moltiplicativamente chiuso: $xy \in S$, $\forall x,y \in S$.
+    \end{itemize}
+    Il sottoinsieme $S$ con queste proprietà si dice \vocab{parte moltiplicativa} di $A$.
+\end{definition}
+
+\begin{definition}
+    Dato un anello commutativo con identità $A$, che sia un dominio di integrità, e $S$ la sua parte moltiplicativa, allora possiamo definire l'insieme delle \vocab{frazioni di un dominio}:
+    \[ S^{-1}A = \left.\left\{\frac{a}{s} \m a\in A, s \in S\right\} \middle/ \sim \right. = \frac{A \times S}{\sim}
+        \]
+    con la relazione $\sim$ data da $\displaystyle\frac{a}{s} \sim \frac{b}{t} \iff at = bs$.\footnote{Alternativamente possiamo scrivere la relazione come: $(a,s) \sim (b,t) \iff at = bs$, ed indicare con $\displaystyle\frac{a}{s}$ la classe di equivalenza dei due elementi.}
+\end{definition}
+
+\begin{remark}
+    La relazione $\sim$ usata nella definizione precedente è una relazione di equivalenza, infatti:
+    \begin{itemize}
+        \item $\sim$ è riflessiva in quanto $\displaystyle\frac{a}{s} \sim \frac{a}{s} \iff as = sa$, che è vero in quanto abbiamo supposto $A$ commutativo.
+        \item $\sim$ è simmetrica in quanto $\displaystyle\frac{a}{s} \sim \frac{b}{t} \iff at = bs \iff \frac{b}{t} \sim \frac{a}{s}$.
+        \item $\sim$ è transitiva in quanto, dati $\displaystyle\frac{a}{s} \sim \frac{b}{t}$ e $\displaystyle\frac{b}{t} \sim \frac{c}{u}$ abbiamo che:
+            \[ at = bs \qquad \text e \qquad bu = tc
+                \]
+        da cui, moltiplicando la prima per $u$ si ha:
+            \[ aut = bus = tcu \implies aut = cts \iff t(au-cs) = 0
+                \]
+        essendo per ipotesi $A$ un dominio\footnote{È importante notare che qui stiamo usando il fatto che $A$ è un dominio.} e $t \in S$ (dunque $t \ne 0$) segue:
+            \[ au = cs \iff \frac{a}{s} \sim \frac{c}{u}
+                \]
+    \end{itemize}
+\end{remark}
+
+\begin{proposition}[Anello delle frazioni di un dominio]
+    L'insieme delle frazioni di un dominio munito con le operazioni di:
+    \[ \frac{a}{s} + \frac{b}{t} = \frac{at+bs}{st} \qquad \text e \qquad \frac{a}{s} \cdot \frac{b}{t} = \frac{ab}{st}
+        \]
+    è un anello commutativo con identità.\footnote{Con l'identità data dall'elemento $1/1$.}
+\end{proposition}
+
+\begin{proof}
+    Bisogna verificare in primis che le operazioni sono ben definite (in quanto le abbiamo definite tra classi di equivalenza), consideriamo $\displaystyle\frac{a}{s}\sim\frac{a^{\prime}}{s^{\prime}}$ e
+    $\displaystyle\frac{b}{t}\sim\frac{b^{\prime}}{t^{\prime}}$, vogliamo verificare che le due somme:
+    \[ \frac{a}{s} + \frac{b}{t} = \frac{at+bs}{st} \qquad \text e \qquad \frac{a^{\prime}}{s^{\prime}} + \frac{b^{\prime}}{t^{\prime}} = \frac{a^{\prime}t^{\prime}+b^{\prime}s^{\prime}}{s^{\prime}t^{\prime}}
+        \]
+    diano lo stesso risultato; per ipotesi sappiamo che $as^{\prime}=a^{\prime}s$ e $bt^{\prime}=b^{\prime}t$, osserviamo che l'uguaglianza tra le due somme è vera se e solo se:
+    \[ (at+bs)s^{\prime}t^{\prime} = (a^{\prime}t^{\prime}+b^{\prime}s^{\prime})st
+        \]
+    sviluppando l'LHS otteniamo:
+    \[ att^{\prime}s^{\prime} + bss^{\prime}t^{\prime} = a^{\prime}stt^{\prime}+b^{\prime}tss^{\prime} = (a^{\prime}t^{\prime}+b^{\prime}s^{\prime})st
+        \]
+    che dimostra che l'operazione $+$ è ben definita.\footnote{Le restanti (lunghissime e noiosissime) 9 verifiche verranno aggiunte in seguito :).}
+\end{proof}
+
+\begin{example}
+    [Anello delle frazioni di $\ZZ$]
+    Preso $A = \ZZ$ e $S = \{10^k\}_{k\geq 0}$ (si verifica facilmente che $S$ rispetta le tre proprietà richieste dalla definizione) abbiamo che l'anello delle frazioni di $\ZZ$ è dato da:
+    \[ S^{-1}A = \left\{\frac{z}{10^k} \m z \in \ZZ, k \geq 0\right\}
+        \]
+    con ad esempio $\displaystyle \frac{5}{10} = \frac{1}{2} \in S^{-1}A$.
+\end{example}
+
+\begin{remark}
+    Nel caso dell'esempio precedente si osserva che $\displaystyle\frac{2}{1} \in S^{-1}$ ed è invertibile:
+        \[\frac{2}{1} \cdot \frac{5}{10} = \frac{1}{1}
+            \]
+\end{remark}
+
+\begin{proposition}[$S^{-1}A$ come estensione di $A$]
+    \label{2.66}
+    Dato un anello $A$ e il suo anello delle frazioni, l'applicazione:
+    \[ f : A \longrightarrow S^{-1}A : a \longmapsto \frac{a}{1}
+        \]
+    è un omomorfismo iniettivo di anelli.\footnote{Dunque $A\subset S^{-1}A$, cioè $S^{-1}A$ è un'estensione di $A$.}
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo che $f$ sia un omomorfismo di anelli:
+    \[ f(a+b) = \frac{a+b}{1} = \frac{a}{1} + \frac{b}{1} = f(a) + f(b) \qquad \forall a,b \in A
+        \]
+    e analogamente:
+    \[ f(ab) = \frac{ab}{1} = \frac{a}{1} \cdot \frac{b}{1} = f(a)f(b) \qquad \forall a,b \in A
+        \]
+    Per l'iniettività studiamo il nucleo:
+    \[ \ker f = \left\{a \in A \m f(a) = \frac{a}{1} = \frac{0}{1}\right\}\footnote{Ricordiamo che $0/1$ è l'elemento neutro di $S^{-1}A$.} = \{a \in A | a \cdot 1 = 0 \cdot 1 = 0\} = \{0\}
+        \]
+    dunque l'omomorfismo è iniettivo.
+\end{proof}
+
+\begin{remark}
+    [$S = A \setminus\{0\}$]
+    Se $A$ è un dominio, allora $S = A \setminus\{0\}$\footnote{Sarebbe $A^*$ se $A$ fosse finito.} è una parte moltiplicativa, infatti, $\forall x,y \in S$, ovvero $x \ne 0$ e $y \ne 0$, dunque 
+    $xy \in S$, $xy \ne 0$.
+\end{remark}
+
+\begin{definition}
+    Dato un dominio $A$, definiamo \vocab{campo dei quozienti} di $A$:
+    \[ S^{-1}A = Q(A)
+        \]
+    l'anello delle frazioni con parte moltiplicativa $S = A\setminus\{0\}$.
+\end{definition}
+
+\begin{proposition}
+    [$A \subset Q(A)$]
+    \label{2.69}
+    Dato $A$ dominio e la sua parte moltiplicativa $S = A\setminus\{0\}$, l'anello delle frazioni $S^{-1}A = Q(A)$ è il più 
+    piccolo campo che contiene $A$.
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo prima che $Q(A)$ è un campo e poi la tesi:
+    \begin{itemize}
+        \item Per verificare che $Q(A)$ sia un campo, ci basta verificare che esistono gli inversi moltiplicativi, e ciò segue immediatamente
+         dal fatto che $\forall a \in A$, $a \ne 0$, allora $\displaystyle\frac{1}{a} \in Q(A)$ (in questo modo tutti gli elementi di $A$, eccetto lo 0,
+         possono essere scritti come $\displaystyle\frac{1}{a}$) ed è tale per cui:
+            \[ \frac{a}{1} \cdot \frac{1}{a} = \frac{1}{1}
+                \]
+        \item Per la \hyperref[2.66]{Proposizione 2.66} sappiamo già che $A \subset S^{-1}A$, ed ora abbiamo dimostrato che $S^{-1}A$ è un campo, ci resta da verificare 
+        che $S^{-1}A (= Q(A))$ sia effettivamente il più piccolo campo che contiene $A$. Sia $K$ è un campo tale che $A \subset K$, allora $\displaystyle \frac{1}{a} \in K$, $\forall a \in A \setminus\{0\}$, ovvero $K$ 
+        contiene tutti gli inversi degli elementi di $A$, allora, $\forall b \in A$, $\forall a \in A \setminus \{0\}$, cioè $K$ contiene tutti gli elementi di $S^{-1}A$:
+            \[ \frac{b}{a} \in K \implies Q(A) = S^{-1}A \subset K
+                \]
+        pertanto, essendo contenuto in ogni campo che contiene $A$, e contenendolo a sua volta, $Q(A)$ è il più piccolo campo che contiene $A$.
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+    Vediamo alcuni esempi di anelli delle frazioni di domini e campi quoziente:
+    \begin{itemize}
+        \item Consideriamo $A = \ZZ$, $S_1 = \{10^k\}_{k\geq 0}$ e $S_0 = A \setminus\{0\}$, allora si ha che:
+            \[ \ZZ \subset S_1^{-1}\ZZ \subset S_0^{-1}\ZZ = Q(\ZZ) = \QQ
+                \]
+        \item Considerando $A = K[x]$ si ha che:
+            \[ Q(A) = K(x) = \left\{\frac{f(x)}{g(x)} \m f(x),g(x) \in K[x], g(x) \ne 0\right\}
+                \]
+        \item Sia $A$ un dominio e $P \subset A$ un suo ideale primo, possiamo considerare $S = A \setminus P$ che è una parte moltiplicativa, in quanto 
+            $0 \not\in S$, $1 \in S$ e $\forall x,y \in S$ si ha:
+            \[ x,y \not\in P \implies xy \not\in P
+                \]
+            poiché $P$ è primo, dunque $xy \in A \setminus P = S$. In questo caso indichiamo $S^{-1}A = A_p$ e prende il nome di \vocab{localizzato} dell'anello $A$ all'ideale $P$.
+    \end{itemize}
+\end{example}
+
+\begin{remark}
+    Dato il localizzato di $A$ a $P$, $A_p$, si osserva che esso è un \vocab{anello locale}, ovvero un anello che ha un unico ideale massimale.
+\end{remark}
+
+\begin{example}[Localizzato di un ideale primo]
+    Se consideriamo $A = \ZZ$ e $P = 2\ZZ$, allora la parte moltiplicativa è data da $S = \ZZ\setminus 2\ZZ$ (i numeri dispari), da cui abbiamo che:
+    \[ S^{-1}\ZZ = \ZZ_{(2)} = \left\{\frac{a}{b} \m a \in \ZZ, b \equiv 1 \, \text{(mod 2)}\right\}
+        \]
+\end{example}
+
+\begin{exercise}
+    Dati $A = \ZZ$, $P = 2\ZZ$ e $S = \ZZ\setminus 2\ZZ$, verificare che l'ideale $(2)\ZZ_{(2)}$ è l'unico ideale massimale di $\ZZ_{(2)}$.
+\end{exercise}
+
+\begin{soln}
+    La tesi è equivalente a mostrare che $\ZZ_{(2)}^*=\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$. Infatti, sappiamo già che 
+    $(2)\ZZ_{(2)}$ è un ideale, mentre qualunque ideale non contenuto in esso contiene necessariamente un elemento invertibile ed è perciò non proprio.
+    Se $\displaystyle\frac{a}{b}\notin (2)\ZZ_{(2)}$ allora sia $a$ che $b$ sono dispari, dunque $\displaystyle\frac{b}{a}\in\ZZ_{(2)}$ ed è chiaramente l'inverso di $\displaystyle\frac{a}{b}$.
+    Viceversa se $\displaystyle\frac{a}{b}$ è invertibile esiste $\displaystyle\frac{c}{d}\in\ZZ_{(2)}$ tale che $\displaystyle\frac{ac}{bd}=1$, cioè $ac=bd$. Se uno tra $a$ e $c$ fosse pari lo sarebbe
+    anche $bd$, e poiché 2 è primo uno tra $b$ e $d$ sarebbe pari, contraddicendo la definizione di $\ZZ_{(2)}$. Dunque $\displaystyle\frac{a}{b}\in\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$.\footnote{Dimostrazione proposta da Davide Ranieri.}
+\end{soln}
+
+\begin{remark}
+    [Elementi invertibili di $S^{-1}A$]
+    Osserviamo che gli invertibili dell'anello $S^{-1}A$ sono:
+    \[ (S^{-1}A)^* = \left\{\frac{a}{s} \,\m\, \frac{s}{a} \in S^{-1}A\right\}
+        \]
+    ovvero esistono $b \in A$ e $t \in S$ tali che $\displaystyle \frac{s}{a} = \frac{b}{t} \iff st = ab \in S$ (cioè esiste una scrittura di questo tipo in $S^{-1}A$, ma poiché 
+    non è detto che $a$ appartenga ad $S$, sappiamo che, per quanto scritto, almeno un suo multiplo c'è), dunque:
+    \[ (S^{-1}A)^* = \left\{\frac{a}{s} \,\m\, \exists b \in A \;\, \text{t.c.} \;\, ab \in S\right\}
+        \]
+    Ad esempio, nel caso di $A = \ZZ$ e $S = \{10^k\}_{k\geq 0}$, abbiamo che:
+    \[ \frac{5}{10}=\frac{1}{2} \in (S^{-1}A)^* \qquad \text{ma} \qquad 2 \not \in S
+        \]
+    dunque $2 \in (S^{-1}A)^*$, poiché il suo inverso, $\displaystyle \frac{1}{2} = \frac{5}{10}$, ha una scrittura che rispetta la proprietà richiesta dall'insieme (e tale scrittura è appunto un multiplo di quella iniziale).
+\end{remark}
+
+\begin{remark}
+    [Ideali di $S^{-1}A$]
+    Sia $I \subset A$ un ideale di $A$, possiamo costruire l'insieme:
+    \[ S^{-1}I = \left\{\frac{x}{s} \in S^{-1}A \m x \in I, s \in S \right\} \cong \frac{I \times S}{\sim}
+        \]
+    per tale insieme valgono le proprietà espresse dalla proposizione seguente.
+\end{remark}
+
+\begin{proposition}
+    [Ideali di $S^{-1}A$]
+    Sia $I \subset A$ e sia $S^{-1}A$ l'insieme costruito come sopra, allora:
+    \begin{enumerate}[(1)]
+        \item $S^{-1}I$ è un ideale di $S^{-1}A$.
+        \item $\forall J \subset S^{-1}A$, $\exists I \subset A$ tale che $J = S^{-1}I$ (cioè ogni ideale di $S^{-1}A$ si ottiene da un ideale di $A$, considerandone il relativo anello delle frazioni).
+        \item $S^{-1}I$ è un ideale proprio di $S^{-1}A$ se e solo se $I \cap S = \emptyset$.
+        \item Sia $P$ un ideale primo di $A$, con $P \cap S = \emptyset$, allora $S^{-1}P$ è un ideale primo di $S^{-1}A$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Dimostriamo le singole affermazioni:
+    \begin{enumerate}[(1)]
+        \item Per verificare che $S^{-1}I$ sia un ideale verifichiamo prima la chiusura per somma:
+            \[ \frac{x}{s} + \frac{y}{t} = \frac{\overbrace{xt + ys}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall x,y \in I
+                \]
+            dove l'appartenenza del numeratore deriva dal fatto che $x$, $y$ siano elementi di un ideale. Per verificare la proprietà di assorbimento osserviamo che:
+            \[ \frac{a}{s} \cdot \frac{x}{t} = \frac{\overbrace{ax}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall \frac{a}{s} \in S^{-1}A 
+                 \]
+        \item Sia $J \subset S^{-1}A$ un ideale, per quanto detto nella \hyperref[2.66]{Proposizione 2.66}, sappiamo che $S^{-1}A$ è un'estensione di $A$, inoltre se consideriamo $f^{-1}(J)$, che per il \hyperref[2.35]{Lemma 2.35}, 
+            sappiamo essere un ideale, ed in particolare una contrazione di $J$ ad $A$, abbiamo che:
+            \[ f^{-1}(J) = J \cap A = I \subset A
+                \]
+            vogliamo mostrare che vale $J = S^{-1}I$. Osserviamo che $\forall x \in I$ si ha $\displaystyle f(x) = \frac{x}{1} \in J$, dunque:
+            \[ \underbrace{\frac{1}{s}}_{\in S^{-1}A} \cdot \frac{x}{1} = \frac{x}{s} \in J \implies S^{-1}I \subseteq J
+                \]
+            cioè per assorbimento di $J$ ci sono tutti gli elementi di $S^{-1}I$. Viceversa si ha che $\displaystyle\forall \frac{x}{s} \in J$ possiamo scrivere:
+            \[ \frac{x}{1} = \frac{x}{s}\cdot \frac{s}{1} \in J \implies x = f^{-1}\left(\frac{x}{1}\right) \in I
+                \]
+            ovvero il numeratore di ogni elemento in $S^{-1}J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $S^{-1}J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
+        \item Dimostriamo la negazione\footnote{Poiché trattandosi di un'equivalenza logica va bene lo stesso.}, ovvero $S^{-1}I$ non proprio equivale a $S^{-1}I = S^{-1}A$, ma essendo il primo un ideale questo è vero se e solo se:
+            \[ \frac{1}{1} \in S^{-1}I \iff \exists x \in I, \exists s \in S : \frac{1}{1} = \frac{x}{s}
+                \]
+            che, per la relazione definita sugli anelli di frazioni è equivalente a chiedere che $I \ni x = s \in S \iff I \cap S \ne \emptyset$.
+        \item Sia $P$ un ideale primo, se fosse $P \cap S \ne \emptyset$, allora per quanto visto al punto (3) non sarebbe proprio (e dunque nemmeno primo), viceversa, se $P \cap S = \emptyset$ vogliamo dimostrare che $S^{-1}P$ primo in $S^{-1}A$; consideriamo:
+                \[ \frac{a}{s} \cdot \frac{b}{t} \in S^{-1}P
+                    \]
+            ciò è equivalentemente al fatto che $\exists \sigma \in S$ e $\exists p \in P$ tali per cui:
+                \[ \frac{ab}{st} = \frac{p}{\sigma} \iff ab\sigma = \underbrace{p}_{\in P}st \in P \implies ab\sigma \in P
+                    \]
+            ma, essendo per ipotesi che $\sigma \in P$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ p $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
+            e quindi $S^{-1}P$ primo.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+\subsection{Divisibilità nei domini}
+\begin{definition}
+    Sia $A$  un dominio e siano $a,b \in A$, con $a \ne 0$, si dice che $a \mid b$ ($a$ \vocab{divide} $b$) se:
+    \[ \exists c \in A : b = ac
+        \]
+\end{definition}
+
+\begin{remark}
+    Osserviamo che $a \mid b \iff (a) \subseteq (b)$, infatti:
+    \[ a \mid b \iff \exists c \in A : b = ac \iff b \in (a) \iff (b) \subseteq (a)
+        \]
+\end{remark}
+
+\begin{definition}
+    Dato $A$ dominio e $a$, $a^{\prime}$, diciamo che $a$ ed $a^{\prime}$ sono \vocab{associati}, $a \sim a^{\prime}$,
+    se vale una delle seguenti tre condizioni equivalenti:
+    \begin{enumerate}[(i)]
+        \item $a \mid a^{\prime}$ e $a^{\prime} \mid a$.
+        \item $\exists u \in A^*$ tale che $a = ua^{\prime}$.
+        \item $(a) = (a^{\prime})$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    [Equivalenza delle condizioni]
+    Osserviamo che le tre condizioni date sono equivalenti, infatti, per quanto riguarda (i) e (iii) si ha:
+    \[ a \mid a^{\prime} \iff (a^{\prime}) \subseteq (a) \qquad \text e \qquad a^{\prime}\mid a \iff (a) \subseteq (a^{\prime})
+        \]
+    dunque se sono vere entrambe le condizioni (i) e (iii) sono equivalenti. Dobbiamo da verificare che (i)$\implies$(ii), dalle due divisibilità segue che:
+    \[ a^{\prime} = xa \qquad \text e \qquad a = y a^{\prime} \implies a = yxa \implies a(1-xy) = 0
+        \]
+    poiché $a \ne 0$, ed $A$ dominio per ipotesi si ha che $xy = 1 \implies y \in A^*$, ovvero la (ii). Viceversa, assumiamo (ii) e deduciamo 
+    (iii):\footnote{A questo punto sappiamo che già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
+    \[ a = ua^{\prime} \implies a \in (a^{\prime}) \implies (a^{\prime}) \subseteq (a)
+        \]
+    con $u \in A^*$, pertanto $\exists v \in A^*$ tale che $uv = vu = 1$, moltiplicando la prima relazione per $v$ si ottiene:
+    \[ a^{\prime} = va \implies a^{\prime} \in (a) \implies (a) \subseteq (a^{\prime})
+        \]
+    e si conclude $(a) \subseteq (a^{\prime})$.
+\end{remark}
+
+\begin{definition}
+    Dati $a,b \in A$ dominio, non entrambi nulli, diciamo che $d \in A$ è un \vocab{massimo comun divisore} per $a$ e $b$ se:
+    \begin{enumerate}[(1)]
+        \item $d \mid a$ e $d \mid b$.
+        \item $\forall x \in A$ tale che $x \mid a$ o $x\mid b$, allora $x \mid d$.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}[Gli M.C.D. di due elementi in un dominio sono associati]
+    Dati $d,d^{\prime} \in A$, essi sono due massimi comun divisori di una stessa coppia di elementi $a$ e $b$ di $A$, $d=(a,b)$ e $d^{\prime} = (a,b)$, se e solo se sono associati, $d \sim d^{\prime}$.
+\end{proposition}
+
+\begin{proof}
+Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale che:
+        \[ d \mid a \land d \mid b
+        \qquad
+        \text e
+        \qquad
+        x \mid a \land x \mid b \implies x \mid d
+            \]
+    e contemporaneamente:
+        \[ d^{\prime} \mid a \land d^{\prime} \mid b
+        \qquad
+        \text e
+        \qquad
+        x \mid a \land x \mid b \implies x \mid d^{\prime}
+            \]
+    dunque, considerando $d$, esso deve essere diviso da $d^{\prime}$ in quanto massimo comune divisore:
+        \[ d = ud^{\prime}
+            \]
+    e simmetricamente:
+        \[ d^{\prime} = vd
+            \]
+    da cui, sfruttando il fatto che $A$ è un dominio segue:
+        \[ d = ud^{\prime} = uvd \implies d(1-uv) = 0 \implies uv = 1 \implies u,v \in A^*
+            \]
+    e quindi $d \sim d^{\prime}$ per definizione.
+\end{proof}
+
+\begin{definition}
+    Dato un dominio $A$ e $x\in A$, con $x \not\in A^* \cup \{0\}$, $x$ si dice \vocab{primo} se $\forall a,b \in A$:
+    \[ x \mid ab \implies x \mid a \vee x \mid b
+        \]
+\end{definition}
+
+\begin{definition}
+    Dato un dominio $A$ e $x\in A$, con $x \not\in A^* \cup \{0\}$, $x$ si dice \vocab{irriducibile} se $\forall a,b \in A$:
+    \[ x = ab \implies a \in A^* \vee b \in A^*
+        \]
+\end{definition}
+
+\begin{proposition}[primo$\implies$irriducibile]
+    \label{2.58}
+    Dato $A$ dominio, se $x$ è primo, allora è irriducibile.
+\end{proposition}
+
+\begin{proof}
+    Supponiamo che:
+    \[ x = ab
+        \]
+    essendo $x$ primo, allora $x \mid a$ o $x \mid b$, assumiamo (WLOG) che $x \mid a$, allora:
+    \[ a = xc \implies x = bcx \implies x(1-bc) = 0
+        \]
+    poiché $A$ è un dominio, e poiché $x \ne 0$ per ipotesi segue che:
+    \[ bc = 1 \implies b,c \in A^*
+        \]
+    in particolare ciò significa che $x$ è irriducibile, in quanto scrivendolo come $x = ab$, abbiamo verificato che $b \in A^*$.
+\end{proof}
+
+\begin{proposition}[Caratterizzazione di primi ed irriducibili in domini]
+    \label{2.86}
+    Dato un dominio $A$ si ha che:
+    \begin{enumerate}[(1)]
+        \item $x$ è primo se e solo se $(x)$ è un ideale primo non nullo.
+        \item $x$ è irriducibile se e solo se $(x)$ è un ideale massimale nell'insieme degli ideali principali.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo entrambe le proprietà:
+    \begin{enumerate}[(1)]
+        \item Sia $(x)$ un ideale primo, ovvero:
+            \[ ab \in (x) \iff a \in (x) \vee b \in (x)
+                \]
+        ciò è equivalente al richiedere che $x \mid a$ o $x \mid b$, ovvero che $x$ sia primo in $A$.
+        \item Dimostriamo separatamente le due implicazioni. Sia $x$ irriducibile e supponiamo che sia $(x) \subseteq (y) \subsetneq A$,
+            dunque $\exists z \in A$ tale che $x = yz$, sappiamo che $y \not \in A^*$ (altrimenti sarebbe l'ideale conterebbe l'identità
+            e avremmo $(y) = A$), poiché $x$ deve essere irriducibile segue necessariamente che $z \in A^*$ e quindi $x \sim y$, cioè:
+            \[ (x) = (y)
+                \]
+            pertanto $(x)$ è massimale tra gli ideali principali. Per il viceversa dimostriamo la contronominale; sia $x$ riducibile, allora:
+            \[ x = yz \qquad \text{con $y,z \not \in A^*$}
+                \]
+            e per quanto detto segue che:
+            \[ (x) \subsetneq (y) \subsetneq A
+                \]
+            dove la seconda inclusione non può essere un'uguaglianza in quanto $y \not \in A^* \implies 1 \not \in (y)$, mentre la prima segue dal 
+            fatto che $z \not \in A^*$ (e quindi $x$ e $y$ non sono associati), pertanto $(x)$ non è massimale tra gli ideali principali.
+    \end{enumerate}
+\end{proof}
+
+\begin{example}
+    Osserviamo che se $x$ è primo nel dominio d'integrità $A = K[x,y]$, allora:
+    \[ \faktor{A}{(x)} \cong K[y]
+        \]
+    che sappiamo essere un dominio, dunque per la \hyperref[2.56]{Proposizione 2.56} $(x)$ è primo. Poiché $x$ è primo è anche irriducibile, quindi $(x)$
+    è massimale tra gli ideali principali di $A$, ma non è un ideale massimale di $A$ in quanto $K[y]$ non è un campo, infatti:
+    \[ (x) \subsetneq (x,y) \subsetneq A
+        \]
+    ovvero $(x)$ non è massimale in quanto è contenuto nell'ideale proprio $(x,y)$.
+\end{example}
+
+\newpage
+\subsection{Domini euclidei (ED)}
+\begin{definition}
+    Un dominio di integrità $A$ si dice \vocab{dominio euclideo} (ED) se esiste una funzione:
+    \[ d : A \setminus\{0\} \longrightarrow \NN
+        \]
+    detta \vocab{grado}, con le seguenti proprietà:
+    \begin{enumerate}[(i)]
+        \item $d(x) \leq d(xy)$, $\forall x,y \in A \setminus\{0\}$.
+        \item $\forall x \in A$, $\forall y \in A \setminus\{0\}$, $\exists q,r \in A$ tali che:
+        \[ x = yq+r
+            \]
+        con $d(r) < d(y)$\footnote{Ciò non assicura l'unicità di $q$ ed $r$, ma non è richiesto dalla definizione.} oppure $r = 0$.
+    \end{enumerate}
+\end{definition}
+
+\begin{remark}
+    In un dominio euclideo ogni elemento si può "ben approssimare" con un multiplo di ogni altro elemento. La funzione
+    grado serve per dire cosa significa esattamente "approssimare bene".
+\end{remark}
+
+\begin{example}
+    [Domini Euclidei]
+    Vediamo alcuni esempi di domini euclidei:
+    \begin{enumerate}[(1)]
+        \item $(\ZZ, |\cdot|)$ è un dominio euclideo, infatti sappiamo che per le proprietà del valore assoluto vale che:
+        \[ |xy| = |x||y| \geq |x| \qquad \forall y \ne 0
+            \]
+        ed esiste la divisione euclidea con il resto:
+        \[ \forall x,y \in \ZZ, \exists q,r \in \ZZ: x = qy + r
+            \]
+        con $|r| < |y|$ oppure $r = 0$, la prima condizione posta non ci assicura l'unicità (infatti possiamo approssimare sia dal basso che dall'alto 
+        prendendo anche resti negativi), ma poiché sappiamo che in realtà vale:
+        \[ 0 \leq r < |y|
+            \]
+        allora tale scrittura è unica.
+        \item $(K[x],\deg)$ è un dominio euclideo, infatti:
+        \[ \deg (f(x)g(x)) = \deg f(x) + \deg g(x) \geq \deg f(x)
+            \]
+        e vale la divisione euclidea tra polinomi con resto:
+        \[ \forall f(x),g(x) \in K[x], \exists q(x),r(x)\in K[x] : f(x) = g(x)q(x) + r(x)
+            \]
+        con $\deg r(x) < \deg g(x)$ oppure $\deg r(x) = 0$.
+        \item $(\ZZ[i],N)$, l'anello degli \vocab{interi di Gauss}, $\ZZ[i] = \{a + ib | a,b \in \ZZ\}$, con la norma data da:
+            \[ N : \ZZ[i] \longrightarrow \NN : (a +ib =)\alpha \longmapsto N(\alpha) = \alpha \overline{\alpha} = a^2+b^2
+                \]
+    \end{enumerate}
+\end{example}
+
+Osserviamo che $\ZZ[i] \subset \QQ(i) \subset \CC$, dunque $\ZZ[i]$ è un dominio. Osserviamo inoltre che valgono le proprietà richieste dalla definizione di dominio euclideo per la norma 
+definita in precedenza:
+\[ N(\alpha\beta) = |\alpha\beta|^2 = |\alpha|^2|\beta|^2 \geq |\alpha|^2 = N(\alpha)
+    \]
+che è vera in quanto $|\beta|^2 = x^2+y^2 \geq 1$. Per la proprietà (ii), vorremmo che $\forall \alpha,\beta \in \ZZ[i]$, con $\beta \ne 0$, si può "approssimare" $\alpha$ con un multiplo di $\beta$;
+abbiamo che $\displaystyle \frac{\alpha}{\beta} \in \CC$, ma in generale non in $\ZZ[i]$, se $\displaystyle\frac{\alpha}{\beta} \in \ZZ[i]$, vogliamo trovare semplicemente il valore del rapporto in
+$\ZZ[i]$ (ed abbiamo che $r = 0$), se $\displaystyle\frac{\alpha}{\beta} \not\in \ZZ[i]$, allora vogliamo scrivere:
+\[ \alpha = \beta q + r \qquad \text{con}\qquad N(r) < N(\beta)
+    \]
+Osserviamo il reticolo formato dai multipli di $\beta$ nel piano complesso:\footnote{Immagine provvisoria, non appena ho tempo la disegno in TikZ.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{Gauss.png}
+    \caption{Reticolo dei multipli interi di $\beta$ nel piano complesso.}
+\end{figure}
+
+Come si osserva $\alpha$ cade in un quadrato (compreso il bordo) e del quale $q\beta$ è il multiplo di $\beta$ più vicino ad $\alpha$, pertanto, scelto $q\beta$ abbiamo:
+\[ r = \alpha - q\beta
+    \]
+con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato} = N(\beta)$.
+
+\begin{proposition}[Algoritmo di Euclide]
+    Dato un dominio euclideo $A$, $\forall a,b \in A$ non entrambi nulli esiste l'MCD $(a,b)$, determinato mediante l'algoritmo di euclide.
+\end{proposition}
+
+\begin{proof}
+    Poiché in un dominio euclideo esiste una funzione grado (che è appunto il caso generale del valore assoluto) ed è possibile la divisione euclidea con resto per definizione,
+    allora vale l'Algoritmo di Euclide con la stessa dimostrazione già vista per $\ZZ$, e con in questo caso l'applicazione grado generica al posto del valore assoluto:
+    \begin{itemize}
+        \item \underline{\textbf{L'algoritmo termina}}: L'algoritmo termina perché la successione dei resti $r_n$ è una successione a termini
+         in $\NN$ strettamente decrescente, pertanto è definitivamente costante (in questo caso 0).\\
+         \item \underline{\textbf{Correttezza dell'algoritmo}}: Si dimostra l'algoritmo per induzione sul numero degli $N$ passi richiesti.
+         Sia $\mathcal{P}(n)$ :"Se l'algoritmo termina in N passi, allora funziona.", per $N = 1$, si ha che:
+             \[ a = qb + 0
+                 \]
+         con $b = r_0$ (ovvero $b \mid a)$, e quindi $(a,b) = r_0$. Supponiamo per ipotesi induttiva che l'Algoritmo di 
+         Euclide funzioni per ogni numero di passi $m \leq N - 1$ e proviamo che è vero per $N$. Sia:
+             \[ \begin{cases}
+                 a = qb + r_1 & 0 \leq r_1 < |b| \\
+                 r_0 = q_1r_1 + r_2 & 0 \leq r_2 < r_1 \\
+                 \vdots \\
+                 r_{n-2} = q_{n-1}r_{n-1} + r_n & 0 \leq r_n < r_{n-1} \\
+                 r_{n-1} = q_nr_n + 0
+             \end{cases}
+                 \]
+         possiamo applicare l'algoritmo di Euclide per $(r_0,r_1)$ (in tal modo si ha una sequenza di $N - 1$ passi) ed ottenere
+         $r_n = (b, r_1)$:
+             \[\begin{cases}
+                 r_0 = q_1r_1 + r_2 & 0 \leq r_2 < r_1 \\
+                 \vdots \\
+                 r_{n-2} = q_{n-1}r_{n-1} + r_n & 0 \leq r_n < r_{n-1} \\
+                 r_{n-1} = q_nr_n + 0
+             \end{cases}
+                 \]
+         da cui $r_n = (b,r_1) = (b, a - q_0b) = (a,b)$, dove l'ultima uguaglianza è giustificata dalla proprietà dell'M.C.D.
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}[Elementi invertibili]
+    Dato un dominio euclideo $A$, gli elementi di grado minimo sono gli elementi di $A^*$.
+\end{proposition}
+
+\begin{proof}
+    Consideriamo $d(A\setminus\{0\}) \subset \NN$, ovvero l'immagine del dominio euclideo mediante l'applicazione grado, tale immagine è non vuota\footnote{Praticamente è ovvio, altrimenti non avrebbe nemmeno senso
+    parlare di $A$ come dominio.} ed è un sottoinsieme di $\NN$, pertanto, per il Principio del Minimo ammette elemento minimo $d_0$, sia $x \in A\setminus\{0\}$ un elemento nella controimmagine di $d_0$, quindi
+    tale che $d(x) = d_0$, tale elemento è quindi di grado minimo, vediamo che è invertibile. Sappiamo che $\forall y \in A\setminus\{0\}$ possiamo fare la divisione euclidea per $x$:
+    \[ y = qx + r
+        \]
+    ed in questo caso non può essere che $d(r) < d(x) = d_0$, in quanto abbiamo supposto $d_0$ minimo, dunque l'unica possibilità è che $r = 0$ e $y = qx$, in particolare, per $y = 1$, $\exists q \in A$ tale che:
+    \[ 1 = qx \implies x \in A^*
+        \]
+    Viceversa, sia $x \in A^*$, allora $(x) = A$ (poiché in $(x)$ vi è 1), pertanto, $\forall a \in A$:
+    \[ a = qx \qquad q \in A
+        \]
+    inoltre, sappiamo per le proprietà del grado che $d(x) \leq d(qx)$, $\forall q \in A\setminus\{0\}$, ovvero:
+    \[ d(x) \leq d(a) \qquad \forall a \in A
+        \]
+    quindi $x$ è un elemento di grado minimo.
+\end{proof}
+
+\begin{proposition}[Ideali di un dominio euclideo]
+    \label{2.93}
+    Dato un dominio euclideo $A$, tutti gli ideali di $A$ sono principali\footnote{Quindi ogni dominio euclideo è un PID.} e generati da un elemento di grado minimo.
+\end{proposition}
+
+\begin{proof}
+    Sia $I \subset A$ un ideale, se $I = \{0\}$, allora è principale, altrimenti, preso $I \ne \{0\}$, vogliamo mostrare che $I$ è generato da un singolo elemento di grado minimo.
+    Sia $x \in I$ un elemento di grado minimo (esiste perché $d(I) \subset \NN$ e non vuoto), allora è ovvio che $(x) \subseteq I$, viceversa, si ha che $\forall a \in A$ si può fare la divisione euclidea per $x$:
+    \[ a = qx + r \qquad d(r) < d(x) \vee r = 0
+        \]
+    da cui segue che $r = a - qx \in I$ da cui $d(x) \leq d(r) \implies r = 0$, ovvero:
+    \[ a = qx \in (a) \implies I \subseteq (a)
+        \]
+\end{proof}
+
+
+\newpage
+\subsection{Domini a ideali principali (PID)}
+\begin{definition}
+    Un dominio $A$ si dice a \vocab{ideali principali} (PID) se ogni ideale di $A$ è principale:
+    \[ \forall I \subseteq A, I \, \text{ideale}, \exists x \in I : I = (x)
+        \]
+\end{definition}
+
+\begin{proposition}[Ideali primi di un PID]
+    \label{2.95}
+    Dato un dominio ad ideali principali $A$, gli unici ideali primi di $A$ sono $(0)$ e gli ideali massimali.
+\end{proposition}
+
+\begin{proof}
+    Dall'(1) del \hyperref[2.57]{Corollario 2.57} sappiamo che il fatto che $A$ sia un dominio è equivalente al fatto che $(0)$ sia un ideale
+    primo, inoltre, dal (3) del \hyperref[2.57]{Corollario 2.57} sappiamo anche che tutti gli ideali massimali di un anello sono primi.\\
+    Viceversa, vogliamo dimostrare che gli ideali primi diversi da $(0)$ di un dominio a ideali principali sono solo quelli massimali; sia $P$ un ideale primo diverso da $(0)$, essendo in un PID si ha che
+    $P = (x)$, verifichiamo che $P$ è massimale osservando che, essendo $A$ un dominio, per l'(1) della \hyperref[2.86]{Proposizione 2.86}, $P$ è primo se e solo se $x$ è primo, e dunque $x$ irriducibile (è vero in ogni dominio per la \hyperref[2.58]{Proposizione 2.58}).
+    Essendo $x$ irriducibile segue che $(x)$ è massimale tra gli ideali principali di $A$ (per il (2) della \hyperref[2.86]{Proposizione 2.86}), e poiché $A$ è un PID (dunque tutti gli ideali sono principali), allora $(x)$ è un ideale massimale per $A$. 
+\end{proof}
+
+\begin{remark}[M.C.D. nei PID]
+    Se $A$ è un PID e $x,y \in A$, non entrambi nulli, osserviamo che l'ideale generato da $x$ e $y$ deve essere tale che:
+    \[ (x,y) = (d)
+        \]
+    con $d$ un M.C.D.\footnote{M.C.D. a meno di prodotto per elementi di $A^*$.} di $x$ e $y$. Infatti:
+    \[ x \in (d) \qquad \text e \qquad y \in (d)
+        \]
+    dunque $d \mid x$ e $d \mid y$, inoltre, se $c \mid x$ e $c \mid y$, allora $x,y \in (x)$, da cui:
+    \[ (d) = (x,y) \subseteq (c) \implies d \in (c) \implies c \mid d
+        \]
+    dunque $d$ è un M.C.D. tra $x$ ed $y$.
+\end{remark}
+
+
+\newpage
+\subsection{Domini a fattorizzazione unica (UFD)}
+\begin{definition}
+    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, $x \not\in A^*\setminus\{0\}$ si scrive in modo
+    unico, a meno dell'ordine di fattori e di moltiplicazione per elementi invertibili, come prodotto di elementi irriducibili.
+\end{definition}
+
+\begin{example}
+    [Esempi di UFD]
+    Esempi noti di UFD sono il dominio degli interi $\ZZ$, e quello dei polinomi in un'ordinata a coefficienti in un campo $K[x]$.
+\end{example}
+
+\begin{proposition}[UFD$\implies\exists$M.C.D.]
+    Sia $A$ un dominio a fattorizzazione unica, allora presi $a,b \in A$, non entrambi nulli, esiste $\text{M.C.D.}(a,b)$.
+\end{proposition}
+
+\begin{proof}
+    Sia $d$ il prodotto dei fattori irriducibili comuni fra $a$ e $b$, presi con il minimo esponente con cui compaiono,
+    allora per verifica diretta si mostra che $d$ è l'M.C.D.\footnote{Si tratta praticamente solo di verifiche formali, pertanto conto di aggiungerla in seguito.}
+\end{proof}
+
+\begin{remark}
+    Osserviamo che nei tre tipi di domini analizzati esiste sempre l'M.C.D., ma con delle differenze:
+    \begin{itemize}
+        \item Se $A$ è un dominio euclideo (ED): con l'algoritmo di Euclide si può determinare l'M.C.D. di due elementi:
+        \[ d = (a,b) \qquad a,b \in A
+            \]
+        e i coefficienti $x_0,y_0 \in A$ per i quali vale l'identità di Bézout:
+        \[ d = ax_0 + by_0
+            \]
+        \item Se $A$ è un dominio a ideali principali (PID): sappiamo che presi due elementi si ha:
+        \[ (a,b) = (d) \qquad a,b,d \in A
+            \]
+        con $d$ che è l'M.C.D. tra $a$ e $b$, ma non disponiamo di un algoritmo "facile" per poterlo determinare, tuttavia esistono $x_0, y_0 \in A$ tali che:
+        \[ d = ax_0 + by_0
+            \]
+        e ciò deriva semplicemente dal fatto che $d \in (a,b)$, dunque si può scrivere come loro combinazione lineare (ugualmente però non disponiamo di algoritmi "facili" per poter determinare $x_0$ e $y_0$).
+        \item Se $A$ è un dominio a fattorizzazione unica (UFD): allora $\forall a,b \in A$ non entrambi nulli, esiste $d = \text{M.C.D.}(a,b)$, ma \textbf{non è detto che} $(d) = (a,b)$ e quindi neppure che $d = ax_0 + by_0$.
+        Infatti, sicuramente è vero che $(a,b) \subset (d)$, ma non è detto che valga il contenimento opposto, il quale vale solo se $d = ax_0 + by_0$. Ad esempio, preso l'UFD $\ZZ[x]$, l'ideale:
+        \[ I = (2,x)
+            \]
+        è tale che $\text{M.C.D.}(2,x) = 1$, ma $1 \not \in (2,x)$, perché se non fosse coì avremmo:
+        \[ 1 = 2a(x) + xb(x)
+            \]
+        che per $x = 0$ porta a:
+        \[ 1 = 2a(0) + 0 \implies 2 \mid 1
+            \]
+        che è assurdo.
+    \end{itemize}
+\end{remark}
+
+\begin{theorem}
+    [Caratterizzazione degli UFD]
+    \label{2.101}
+    Dato un dominio $A$, sono fatti equivalenti:
+    \begin{enumerate}[(1)]
+        \item $A$ è un UFD.
+        \item Valgono le due condizioni seguenti:
+        \begin{enumerate}[(i)]
+            \item Ogni elemento irriducibile è primo.
+            \item Ogni catena discendete di divisibilità è stazionaria, ovvero se $\{a_i\} \subset A$, con:
+            \[ a_{i+1} \mid a_i \qquad \forall i \geq 0
+                \]
+            allora $\exists n_0$ tale che $a_i \sim a_{n_0}$, $\forall i \geq n_0$.
+        \end{enumerate}
+    \end{enumerate}
+\end{theorem}
+
+\begin{remark}
+    La condizione (i) permette di dimostrare che la fattorizzazione in primi è unica, dunque è equivalente a questo fatto; mentre, la condizione (ii) 
+    permette di dimostrare l'esistenza della fattorizzazione, e quindi vi è equivalente, pertanto il teorema dice che essere un UFD è equivalente al 
+    fatto che in un dominio valga il teorema di fattorizzazione unica.
+\end{remark}
+
+\begin{remark}
+    Osserviamo che la condizione (ii) può essere riformulata equivalentemente come: ogni catena ascendente di ideali principali è stazionaria, ovvero,
+    considerata $\{(a_i)\}_{i \geq 0}$, catena  ascendente di ideali di $A$:
+    \[ (a_1) \subseteq (a_2) \subseteq \ldots
+        \]
+    allora $\exists n_0$ tale che $(a_i) = (a_{n_0})$, $\forall i \geq n_0$.\footnote{Tra l'altro ciò, estendendo la condizione di stazionarietà ad ogni catena di ideali (quindi non solo principali), definisce un \vocab{anello noetheriano}.}
+\end{remark}
+
+\begin{corollary}
+    [A PID$\implies$A UFD]
+    Se $A$ è un dominio a ideali principali, allora è anche un dominio a fattorizzazione unica.
+\end{corollary}
+
+\begin{proof}
+    Per dimostrare il corollario ci basta verificare che per ogni PID valgono le condizioni (i) e (ii) del \hyperref[2.101]{Teorema 2.101}, e ciò è equivalente al dire che ogni PID è un UFD.
+    Sia $A$ un PID, e sia $x \in A$ un elemento irriducibile, per quanto visto nella \hyperref[2.95]{Proposizione 2.95} l'ideale $(x)$ è massimale in $A$, ma dalla (3) del \hyperref[2.57]{Corollario 2.57}, sappiamo quindi che 
+    $(x)$ è primo, e poiché siamo in un dominio vale la (1) della \hyperref[2.86]{Proposizione 2.86} che ci assicura che $x$ è primo, dunque vale la (i).\\
+    Consideriamo ora una catena ascendente di ideali (principali):
+    \[ (a_1) \subseteq (a_2) \subseteq \ldots
+        \]
+    e sia:
+    \[ I = \bigcup_{i \geq 0} (a_i)
+        \]
+    tale unione di ideali in catena è un ideale\footnote{Come già osservato in precedenza ciò andrebbe dimostrato.} di $A$, ed è pertanto principale, dunque $I = (a)$.
+    Osserviamo che $a$ appartiene all'unione, per cui $a \in (a_{n_0})$, e quindi:
+    \[ I = (a) \subseteq (a_{n_0})
+        \]
+    ma d'altra parte avevamo detto che $I$ è l'unione di tutti gli ideali principali di $A$, quindi $(a_{n_0}) \subseteq (a) = I $, dunque $I = (a_{n_0})$; a questo punto sappiamo che:
+    \[ (a_i) \subset (a_{n_0}) \qquad \forall i \geq 0
+        \]
+    dove si ha $(a_i) = (a_{n_0})$ quando vi è anche il contenimento opposto, e ciò avviene, poiché stiamo considerando ideali in catena, $\forall i \geq n_0 \implies \{(a_i)\}$ è stazionaria e quindi è verificata la (ii).
+\end{proof}
+
+\begin{remark}
+    L'ultimo corollario ci permette di poter mettere in relazione i vari tipi di domini d'integrità:
+    \[ \underbrace{\text{ED}}_{\text{Domini euclidei}} \subset \underbrace{\text{PID}}_{\text{Domini a ideali principali}} \subset \underbrace{\text{UFD}}_{\text{Domini a fattorizzazione unica}}
+        \]
+\end{remark}
+
+\begin{example}[Anello senza la (ii)]
+    Consideriamo l'estensione $K[\{x^{\frac{1}{n}}\}_{n\geq 1}]$, essa non è un UFD, in quanto non vale la (ii) dell'\hyperref[2.101]{Teorema 2.101}:
+        \[ x^{\frac{1}{2^{n+1}}} \mid x^{\frac{1}{2^n}} \mid \ldots \mid x^{\frac{1}{4}} \mid x^{\frac{1}{2}} \mid x
+            \]
+        dove tale catena non è definitivamente stazionaria (il successivo può sempre dividere il precedente) dunque non esiste la fattorizzazione di $x$.
+\end{example}
+
+\begin{example}[Anello senza la (i)]
+    Consideriamo l'anello $\ZZ[\sqrt{-5}] = \{a + b\sqrt{-5} | a,b \in \ZZ\} \subset \QQ(\sqrt{-5}) \subset \CC$, tale anello non è un UFD poiché non vale la (i), infatti, ad esempio,
+    $2$ è irriducibile ma non primo in $\ZZ[\sqrt{-5}]$:
+    \[ 2 = (a + b\sqrt{-5})(c + d\sqrt{-5}) \implies N(2) = (a^2 + 5b^2)(c^2 + 5d^2)
+        \]
+    da cui possiamo dedurre che le uniche possibilità sono $a = \pm 2, c = \pm 1, b = 0, d = 0$ (oppure invertiti), pertanto 2 è irriducibile, ma non è primo perché:
+    \[ 2 \mid 6 = (1 + \sqrt{-5})(1 - \sqrt{-5}) \qquad \text{ma} \qquad 2 \nmid (1 + \sqrt{-5}),(1 - \sqrt{-5})
+        \]
+    poiché, $\displaystyle\alpha = \frac{1 \pm \sqrt{-5}}{2} = \frac{1}{2} \pm \frac{\sqrt{-5}}{2} \not\in \ZZ[\sqrt{-5}]$. In $\ZZ[\sqrt{-5}]$ abbiamo quindi due fattorizzazioni distinte per 6:
+    \[ 6 = 2 \cdot 3 = (1 + \sqrt{-5})(1 - \sqrt{-5})\footnote{Per essere precisi dovremmo verificare che 2,3,$1 \pm \sqrt{-5}$ sono irriducibili in $\ZZ[\sqrt{-5}]$.}
+        \]
+\end{example}
+
+\begin{remark}
+    $\ZZ[\sqrt{-5}]$ non essendo un UFD, non è neppure un PID, infatti, ad esempio, l'ideale $(2,1 + \sqrt{-5})$ non è principale.
+\end{remark}
+
+\begin{theorem}[$A$ UFD$\implies A\lbrack x\rbrack$ UFD]
+    \label{2.109}
+    Se $A$ è un dominio a fattorizzazione unica, allora anche $A[x]$ è un anello a fattorizzazione unica.
+\end{theorem}
+
+
+\begin{corollary}[$A$ UFD$\implies A\lbrack x_1,\ldots,x_n\rbrack$ UFD]
+    Se $A$ un dominio a fattorizzazione unica, allora anche $A[x_1,\ldots,x_n]$ è un anello a fattorizzazione unica.
+\end{corollary}
+
+\begin{proof}
+    Dal \hyperref[2.109]{Teorema 2.109} segue il caso base $A[x]$, per induzione si suppone vera la tesi per $A[x_1,\ldots,x_{n-1}] = B$, e poi si considera $B[x_n]$, che è un UFD per il caso iniziale,
+    dunque la tesi è vera per induzione.
+\end{proof}
+
+\begin{remark}
+    [Schema della dimostrazione del Teorema 2.109]
+    La dimostrazione del \hyperref[2.109]{Teorema 2.109} si articola in tre tappe:
+    \begin{enumerate}[(1)]
+        \item $A[x]$ dominio.
+        \item Ogni irriducibile di $A[x]$ è primo (condizione (i)).
+        \item Ogni catena discendete di divisibilità è stazionaria (condizione (ii)).
+    \end{enumerate}
+    Da cui si conclude per il \hyperref[2.101]{Teorema di Caratterizzazione degli UFD}.
+\end{remark}
+
+\begin{proof}
+    Iniziamo quindi verificando il primo punto come segue.
+    \begin{enumerate}[(1)]
+        \item Siano $f(x),g(x) \in A[x] \setminus\{0\}$, e $\deg f(x) = n \geq 0$, $\deg g(x) = m \geq 0$, essendo $a_n, b_m \ne 0$, segue che
+        $a_nb_m \ne 0$ poiché per ipotesi $A$ un dominio di integrità, pertanto $f(x) \cdot g(x) \ne 0$ se $f(x),g(x) \ne 0 \implies A[x]$ è un dominio d'integrità.
+        \begin{remark}
+            Osserviamo anche che da ciò discende che $(A[x])^* = A^*$, infatti, considerando $f(x) \in (A[x])^*$, $\exists g(x) \in A[x]$ tale che:
+            \[ f(x)g(x) = 1 \implies \deg f(x) + \deg g(x) = 0
+                \]
+            ovvero $\deg f(x) = \deg g(x) = 0$, per cui $f(x),g(x) \in A$, ed in particolare $f(x) = a$, $g(x) = b$, pertanto:
+            \[ ab = 1 \implies f(x) \in A^*
+                \]
+        \end{remark}
+    \end{enumerate}
+\end{proof}
+
+Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili di $A[x]$, e fare ciò abbiamo bisogno del Lemma di Gauss.
+
+\begin{definition}
+    Dato $A$ un UFD e $f(x) \in A[x]$, con $f(x) = \sum_{i=0}^n a_ix^i$, si dice \vocab{contenuto} di $f(x)$ l'M.C.D. dei suoi coefficienti:
+    \[ c(f(x)) = (a_0,\ldots,a_n)
+        \]
+\end{definition}
+
+\begin{remark}
+    Il contenuto di un polinomio a coefficienti in un UFD è definito a meno di associati.
+\end{remark}
+
+\begin{definition}
+    Dato $A$ un UFD e $f(x) \in A[x]$, $f(x)$ si dice \vocab{primitivo} se $c(f(x)) \sim 1$.
+\end{definition}
+
+\begin{remark}
+    Ovviamente dato $f(x) \in A[x]$ si ha che:
+    \[ f(x) = c(f(x))f^{\prime}(x) \qquad c(f^{\prime}(x)) = 1
+        \]
+    dove $f^{\prime}(x) \in A[x]$ e:
+    \[ f^{\prime}(x) = \sum_{i=0}^n \frac{a_i}{d}x^i \qquad \frac{a_i}{d} \in A, \left(\frac{a_0}{d},\ldots,\frac{a_n}{d}\right) = 1
+        \]
+\end{remark}
+
+\begin{lemma}
+    [Lemma di Gauss]
+    \label{gauss}
+    Dati $f(x),g(x) \in A[x]$, allora:
+    \[ c(f(x)g(x)) = c(f(x))c(g(x))
+        \]
+\end{lemma}
+
+\begin{proof}
+    Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $f(x)g(x)$ non fosse primitivo (ovvero associato ad 1)
+            allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$, consideriamo la proiezione modulo $(p)$:
+            \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
+                \]
+            con $\overline{f(x)} \ne 0$ in quanto $p \nmid c(f(x))$, analogamente $\pi_{(p)}(g(x)) = \overline{g(x)} \ne 0$, poiché $p \nmid c(g(x))$, ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
+            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio e quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, ovvero $\displaystyle \frac{A}{(p)} [x]$
+            è un dominio, da cui $c(f(x)g(x)) = 1$.
+        \item Consideriamo ora il caso generale, sia $f(x) = c(f(x))f^{\prime}(x)$, con $f^{\prime}(x)$ primitivo, e analogamente $g(x) = c(g(x))g^{\prime}(x)$, con $g^{\prime}(x)$ primitivo, abbiamo che:
+            \[ h(x) = f(x)g(x) = c(f(x))c(g(x))g^{\prime}(x)f^{\prime}(x)
+                \]
+            dove $h^{\prime}(x) = g^{\prime}(x)f^{\prime}(x)$ è primitivo perché prodotto di polinomi primitivi, dunque:
+            \[ h(x) = c(h(x))h^{\prime}(x)
+                \]
+            e uguagliando i contenuti si ha:
+            \begin{multline*}
+                c(h(x))\underbrace{c(h^{\prime}(x))}_{= 1} = c(f(x))c(g(x))\underbrace{c(g^{\prime}(x)f^{\prime}(x))}_{= 1} \implies \\
+                c(h(x)) = c(f(x)g(x)) = c(f(x))c(g(x))
+            \end{multline*}
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}
+    \label{2.118}
+    Siano $f(x),g(x) \in A[x]$, con $c(f(x)) = 1$ e $f(x) \mid g(x)$ in $K[x]$, con $K$ campo dei quozienti di $A$, allora $f(x) \mid g(x)$ in $A[x]$.
+\end{corollary}
+
+\begin{proof}
+    Per ipotesi sappiamo che $f(x) \mid g(x)$ in $K[x]$, ovvero $\exists h(x) \in K[x]$ tale che $g(x) = f(x)h(x)$, allora $\exists d \in A$ tale che:
+    \[ h_1(x) = dh(x) \in A[x]
+        \]
+    (stiamo "cancellando" il denominatore), dunque:
+    \[ dg(x) = f(x)h_1(x) \in A[x]
+        \]
+    da cui per il \hyperref[gauss]{Lemma di Gauss}:
+    \[ dc(g(x)) = c(f(x)h_1(x)) = c(f(x))c(h_1(x)) = c(h_1(x)) \implies d \mid c(h_1(x))
+        \]
+    dove abbiamo usato nell'ultimo passaggio il fatto che $c(f(x)) = 1$, dunque abbiamo $\displaystyle\frac{h_1(x)}{d} = h(x) \in A[x]$
+    e quindi la divisibilità iniziale era anche in $A[x]$. 
+\end{proof}
+
+\begin{corollary}
+    \label{2.119}
+    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$,
+    allora esiste $\delta \in K^*$ tale che $g_1(x) = \delta g(x) \in A[x]$, $h_1(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_1(x)h_1(x)$.
+\end{corollary}
+
+\begin{proof}
+    Analogamente a quanto fatto per il corollario precedente, sappiamo che $\exists d \in A$ tale che $g_1(x) = dg(x) \in A[x]$ (stiamo di nuovo "eliminando" i denominatori, ad esempio moltiplicando per l'm.c.m.),
+    dunque:
+    \[ f(x) = dg(x)d^{-1}h(x) = g_1(x)(d^{-1}h(x)) = c(g_1(x))g_1^{\prime}(x)(d^{-1}h(x))
+        \]
+    con $g_1^{\prime}(x) \in A[x]$ primitivo (dividendo per il contenuto, che è un invertibile di $A$, siamo rimasti in $A[x]$), pertanto abbiamo:
+    \[ f(x) = g_1^{\prime}(x)(\underbrace{c(g_1(x))d^{-1}h(x)}_{\in K[x]})
+        \]
+    ovvero $g_1^{\prime}(x) \mid f(x)$ in $K[x]$, ma allora per il \hyperref[2.118]{Corollario 2.118} segue che $g_1^{\prime}(x) \mid f(x)$ in $A[x]$, dunque:
+    \[ h_1(x) = \underbrace{\frac{c(g_1(x))}{d}}_{= \delta^{-1}}h(x)
+        \]
+    abbiamo quindi determinato $\delta$ e $\delta^{-1}$ richiesti dalla tesi.
+\end{proof}
+
+\begin{remark}
+    Il teorema non ci dice altro che se $f(x)$ è riducibile in $K[x]$, allora è riducibile anche in $A[x]$, con polinomi dello stesso grado (per la precisione associati a quelli iniziali).\footnote{In
+    \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo trattato il caso particolare del Lemma di Gauss applicato a $\QQ[x]$ e $\ZZ[x]$.}
+\end{remark}
+
+\begin{example}
+    Un esempio del discorso appena fatto è rappresentato dalla fattorizzazione di un polinomio in $\QQ[x]$ e $\ZZ[x]$:
+    \[ (x^2 - 1) = \left(\frac{100}{7}x+\frac{100}{7}\right)\left(\frac{7}{100}x - \frac{7}{100}\right) = (x + 1)(x - 1)
+        \]
+\end{example}
+
+\begin{theorem}
+    [Caratterizzazione degli irriducibili di $A\lbrack x\rbrack$]
+    Dato $A$ UFD, gli elementi irriducibili di $A[x]$ sono tutti e soli quelli che soddisfano una tra le seguenti:
+    \begin{enumerate}[(1)]
+        \item $f(x) \in A$ irriducibile in $A$.
+        \item $f(x) \in A[x]$, con $\deg f(x) \geq 1$, $c(f(x)) = 1$ e $f(x)$ irriducibile in $K[x]$ (anello dei polinomi a coefficienti nel campo dei quozienti di $A$).
+    \end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Distinguiamo i due casi:
+    \begin{enumerate}
+        \item Se $f(x) \in A$, dunque è costante, allora, come già osservato in precedenza, si ha:
+        \[ f(x) = g(x)h(x) \implies \deg g(x) + \deg h(x) = \deg f(x) = 0
+            \]
+        dove l'implicazione è data dal fatto che siamo in un dominio, dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto $g(x),h(x) \in A$,
+        per cui $f(x)$ è irriducibile in $A[x]$ se e sole $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
+        \item Sia $f(x)$ con $\deg f(x) \geq 1$. Supponiamo che $f(x)$ sia irriducibile in $A[x]$, abbiamo che:
+        \[ f(x) = c(f(x))f^{\prime}(x)
+            \]
+        con $c(f(x))$ invertibile in $A[x]$, $c(f(x)) \in (A[x])^* = A^*$ (per quanto detto al punto (1)), d'altra parte, sia $f(x) = g(x)h(x)$ in $K[x]$, allora per il
+        \hyperref[2.119]{Corollario 2.119}, possiamo scriverlo come prodotto di polinomi dello stesso grado in $A[x]$:
+        \[ f(x) = g_1(x)h_1(x) \qquad \text{con} \qquad \deg g_1(x) = \deg g(x), \deg h_1(x) = \deg h(x)
+            \]
+        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ sono invertibili. Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui
+        $\deg g(x) = 0$ o $\deg h(x) = 0$, ovvero $g(x) \in (K[x])^*$ o $h(x) \in (K[x])^*$, dunque $f(x)$ è irriducibile in $K[x]$. \\
+        Verifichiamo il viceversa, sia $f(x)$ primitivo ed irriducibile in $K[x]$, e sia $f(x) = g(x)h(x)$ in $A[x]$ (e anche in $K[x]$), poiché $f(x)$ è irriducibile in $K[x]$ 
+        $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, supponiamo quindi ad esempio che sia $g(x) \in A$, da ciò segue che:
+        \[ 1 = c(f(x)) = c(g(x)h(x)) = c(g(x))c(h(x)) = g c(h(x))
+            \]
+        dove nell'ultima uguaglianza abbiamo usato il fatto che, essendo $g(x)$ costante, allora è uguale al suo contenuto, dunque $g \in A^* (= (A[x])^*)$, pertanto $f(x)$ è irriducibile in $A[x]$.
+    \end{enumerate}
+\end{proof}
+
+\begin{proposition}[Condizione (i) per $A\lbrack x\rbrack$]
+    Dato $A$ UFD, in $A[x]$ ogni irriducibile è primo.
+\end{proposition}
+
+\begin{proof}
+    Sia $f(x) \in A[x]$ irriducibile, per dimostrare che è primo bisogna verificare che $\forall g(x),h(x) \in A[x]$ si ha che:
+    \[ f(x) \mid g(x)h(x) \implies f(x) \mid g(x) \quad \text o \quad f(x) \mid h(x) \quad \text{in $A[x]$}
+        \]
+    Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $\deg f(x) = 0$, ovvero $f(x) = f \in A$, dunque se $f$ è irriducibile in $A$, essendo $A$ UFD, allora $f$ è primo in $A$;
+        infatti abbiamo che:
+        \[ f \mid gh \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) = g \quad \text o \quad f \mid c(h) = h
+            \]
+        dunque $f$ primo.
+        \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$, si osserva che $K[x]$ è euclideo, dunque $f(x)$ è primo
+        in $K[x]$ (poiché avevamo detto che ED $\subset$ UFD), dunque se:
+        \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
+            \]
+        allora $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $K[x]$. Avendo supposto che $f(x)$ è primitivo, allora per il \hyperref[2.118]{Corollario 2.118}:
+        \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
+            \]
+    \end{itemize}
+\end{proof}
+
+\begin{proposition}[Condizione (ii) per $A\lbrack x\rbrack$]
+    Sia $\{f_n(x)\}$ una successione di elementi di $A[x]$ tale che:
+    \[ f_{i+1}(x) \mid f_i(x)
+        \]
+    allora è stazionaria, ovvero $\exists n_0$ tale che $f_i(x) \sim f_{n_0}(x)$, $\forall i \geq n_0$.
+\end{proposition}
+
+\begin{proof}
+    Si osserva che per il \hyperref[gauss]{Lemma di Gauss} si ha che:
+    \[ f(x) \mid g(x) \implies c(f(x)) \mid c(g(x)) \qquad \text e \qquad f^{\prime}(x) \mid g^{\prime}(x)
+        \]
+    infatti, se $g(x) = f(x) h(x) \implies c(g(x))g^{\prime}(x) = c(f(x))f^{\prime}(x)c(h(x))c^{\prime}(x)$,
+    ma per quanto detto $c(g(x)) = c(f(x)h(x)) = c(f(x))c(hc(x))$, da cui $f^{\prime}(x) \mid g^{\prime}(x)$.
+    Alla successione $\{f_i(x)\}$ possiamo quindi associare le successioni $\{c(f_i(x))\}$ e $\{f_i^{\prime}(x)\}$, per quanto abbiamo detto si ha:
+    \[ c(f_{i+1}(x)) \mid c(f_{i}(x)) \qquad \text e \qquad f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \qquad \forall i \geq 0
+        \]
+    dove la successione $\{c(f_i(x))\}$ è stazionaria, in quanto è una catena discendete di divisibilità dell'UFD $A$, dunque:
+    \[ \exists m_0 : c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \forall i \geq m_0
+        \]
+    Consideriamo ora $\{f_i^{\prime}(x)\}$ e associamo a questa la successione $\{\deg f_i^{\prime}(x)\}$, ma dalla condizione:
+    \[ f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \implies \deg f_{i+1}^{\prime}(x) \leq \deg f_i^{\prime}(x)
+        \]
+    dunque $\{\deg f_i^{\prime}(x)\}$ è una successione di numeri naturali decrescente, pertanto si stabilizza:
+    \[ \exists d_0 : \deg f_{i}^{\prime}(x) \leq \deg f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
+        \]
+    pertanto $\forall i \geq d_0$ abbiamo che $f_i^{\prime}(x)$ e $\deg f_{i+1}^{\prime}(x)$ hanno lo stesso grado e $f_{i}^{\prime}(x) \mid f_{d_0}^{\prime}(x)$,
+    cioè differiscono per una costante, ma essendo entrambi primitivi la costante deve essere un'unità, per cui:
+    \[ f_{i}^{\prime}(x) \sim f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
+        \]
+    dunque, detto $n_0 = \max\{m_0,d_0\}$, $\forall i \geq n_0$ vale contemporaneamente che:
+    \[ c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \text e \qquad f_{i}^{\prime}(x) \sim f_{d_0}^{\prime}(x)
+        \]
+    da cui la tesi:
+    \[ f_i(x) = c(f_i(x))f_{i}^{\prime}(x) \sim c(f_{n_0}(x))f_{n_0}^{\prime}(x) \qquad \forall i \geq n_0
+        \]
+\end{proof}
+
+Con la dimostrazione di quest'ultima proposizione abbiamo concluso la dimostrazione del \hyperref[2.109]{Teorema di Caratterizzazione degli UFD}.
+
+\begin{remark}
+    Osserviamo che in generale se $A$ è un PID, allora non è sempre vero che $A[x]$ sia un PID, ad esempio nel caso di $\ZZ$ sappiamo che $\ZZ[x]$ non è un PID, in quanto,
+    ad esempio, l'ideale $I = (2,x)$ non è principale. Analogamente, in generale se $A$ è un ED, allora non è sempre vero che $A[x]$ sia un ED, anche qui come controesempio possiamo 
+    considerare il caso di $\ZZ$ e $\ZZ[x]$.
+\end{remark}
+
+\begin{remark}
+    Se $K$ è un campo, allora abbiamo che $K[x]$ è euclideo, mentre $K[x,y]$ è un UFD (poiché vale sempre il \hyperref[2.109]{Teorema di Caratterizzazione degli UFD}, e $K[x]$ è un UFD), ma
+    $K[x,y]$ non è un PID, in quanto ad esempio $I = (x,y)$ non è principale.
+\end{remark}
+
+\begin{exercise}
+    Dimostrare che dato $K[x,y]$ campo, l'ideale $I = (x,y)$ non è principale.
+\end{exercise}
+
+\begin{soln}
+    
+\end{soln}
+
+\begin{proposition}
+[Criterio di irriducibilità Eisenstein]
+\label{eisenstein}
+Dato $A$ UFD e $f(x) \in A[x]$ primitivo, con $f(x) = \sum_{i=0}^n a_ix^i$, e $p \in A$ un primo tale che:
+\begin{enumerate}[(1)]
+    \item $p \nmid a_n$.
+    \item $p \mid a_i$, $\forall i \in \{0,\ldots,n-1\}$.
+    \item $p^2 \nmid a_0$.
+\end{enumerate}
+Allora $f(x)$ è irriducibile in $A[x]$ (e in $K[x]$, con $K$ campo dei quozienti di $A$).
+\end{proposition}
+
+\begin{proof}
+    La dimostrazione è identica a quella già trattata in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, con 
+    la sola differenza che in questo caso utilizziamo un UFD generico al posto di $\ZZ$.\\
+    Supponiamo per assurdo che $f(x)$, con $\deg(f(x)) = n$ sia riducibile, allora:
+	\[ f(x) = g(x)h(x)
+	\]
+    con $\deg f(x) = m \geq 1$, $\deg(h(x)) = n-m \geq 1$. Possiamo applicare la proiezione al quoziente modulo $(p)$, e per le ipotesi si ha:
+	\[ \overline{f(x)} = \overline{a_n}x^n (\ne \overline 0)
+	\] 
+    e inoltre:
+	\[ \pi_{(p)}(f(x)) =  \pi_{(p)}(g(x)) \pi_{(p)}(h(x))
+	\]
+    con:
+	\[ \pi_{(p)}(g(x)) = \overline{b_m}x^m + \ldots + \overline{b_0}
+	\qquad
+	\text e
+	\qquad
+	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m} + \ldots + \overline{c_0}
+	\]
+    Si ha che $\displaystyle\pi_{(p)}(f(x)) \in \frac{A}{(p)}[x]$ (che è un campo), quindi UFD, da ciò segue che $\pi_{(p)}(g(x))$ e 
+    $\pi_{(p)}(h(x))$ sono fattori del polinomio $\overline{a_n}x^n$, da cui segue, per la definizione di prodotto tra polinomi che:
+	\[  \pi_{(p)}(g(x)) = \overline{b_m}x^m
+	\qquad
+	\text e
+	\qquad
+	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m}
+	\]
+    ma da ciò segue che $b_0 \equiv c_0 \equiv 0 \pmod p$, da cui $a_0 \equiv b_0c_0 \equiv 0 \pmod{p^2}$, ovvero $p^2 \mid a_0$, ma ciò è assurdo.
+\end{proof}
+
+\newpage
+\subsection{Terne pitagoriche}
+\begin{definition}
+    Si definiscono \vocab{terne pitagoriche} le terne di soluzioni intere dell'equazione:
+    \[ x^2 + y^2 = z^2 \qquad x,y,z \in \ZZ
+        \]
+    con  $(x,y,z) = 1$.
+\end{definition}
+
+Osserviamo che possiamo riformulare il problema negli interi di Gauss nel modo che segue:
+\[ x^2+y^2 = (x+iy)(x-iy) = z^2
+    \]
+dunque determinare le terne pitagoriche significa risolvere questo problema moltiplicativo in $\ZZ[i]$.
+
+\begin{remark}
+    Osserviamo che la coprimalità dei tre fattori la implica anche a coppie: $(x,y,z) = 1 \implies (x,y) = (x,z) = (y,z) = 1$.
+\end{remark}
+
+\begin{remark}
+    Abbiamo che $x \not\equiv y \pmod 2$, infatti, studiando l'equazione modulo 4:
+    \[ x^2 + y^2 \equiv z^2 \pmod 4
+        \]
+    dove essendo un quadrato modulo 4 abbiamo che $z^2 \in \{0,1\}$, dunque $x^2,y^2 \in \{0,1\}$, ma non possono essere contemporaneamente pari,
+    altrimenti avremmo che $(x,y) \ne 1$, e neppure contemporaneamente dispari, altrimenti la somma dei loro quadrati modulo 4 sarebbe 2,
+    pertanto $x$ ed $y$ sono uno pari e l'altro dispari.
+\end{remark}
+
+\begin{remark}
+    Consideriamo l'ideale $I = (x+iy,x-iy)$, verifichiamo che $I = (1)$, o equivalentemente che $x+iy$ e $x-iy$ sono coprimi 
+    (abbiamo visto che in un ED l'ideale generato da due elementi è quello generato dal loro M.C.D.). Osserviamo che:
+    \[ 2x = (x+iy) + (x-iy) \in I
+        \]
+    Analogamente, considerando la differenza si ha $2y \in y$ e, considerando il prodotto, $x^2+y^2 \in I$; poiché $x$ ed $y$ hanno
+    diversa parità, $x^2+y^2$ è dispari, mentre $2x$ è pari, dunque si ha che:
+    \[ 1 \in (2x,2y,x^2+y^2) \subset \ZZ \subset \ZZ[i]
+        \]
+    infatti, se non ci fosse 1, $\exists p$ tale che $p \mid 2x$, $p \mid 2y$, da cui $p = 2$ (in quanto $(x,y) = 1$), ma $2 = p \mid x^2+y^2$,
+    che però è dispari, dunque:
+    \[ I = (1)
+        \]
+    o equivalentemente $x+iy$ e $x-iy$ sono coprimi e quindi entrambi dei quadrati a meno di unità.
+\end{remark}
+
+\pagebreak
+\begin{remark}
+    [Invertibili di $\ZZ\lbrack i \rbrack$]
+    Osserviamo che gli elementi di $(\ZZ[i])^*$ sono gli $u \in \ZZ[i]$ tali per cui $\exists v \in \ZZ[i]$:
+    \[ uv = 1\footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati.} \implies v = \overline u \implies u\overline u = 1
+        \]
+    ovvero $u = \varepsilon + i\delta \in \ZZ[i]$ dove:
+    \[ u \overline u = \varepsilon^2 + \delta^2 = 1
+        \]
+    che ha per soluzioni:
+    \[ \begin{cases}
+        \varepsilon = \pm 1\\
+        \delta = 0
+    \end{cases}
+    \qquad \text e \qquad
+    \begin{cases}
+        \varepsilon = 0\\
+        \delta = \pm 1
+    \end{cases}
+        \]
+    dunque $(\ZZ[i])^* = \{\pm 1, \pm i\}$.
+\end{remark}
+
+Allora, per quanto detto sappiamo che:
+\[ x + iy = u\alpha^2 \qquad \alpha \in \ZZ[i], u \in \{\pm 1, \pm i\}
+\]
+e analogamente:
+\[ x - iy = \overline u \,\overline\alpha^2 \qquad \overline\alpha \in \ZZ[i], \overline u \in \{\pm 1, \pm i\}
+    \]
+Considerando $\alpha = a+ib$ si ottiene:
+\[ x + iy = u(a^2-b^2-2iab)
+    \]
+distinguiamo ora due casi:
+\begin{itemize}
+    \item Se $u = \pm 1$, allora si ottiene:
+    \[ \begin{cases}
+        x = \pm(a^2-b^2) \\
+        y = \mp 2ab \\
+        z = \pm (a^2+b^2)
+    \end{cases}
+        \]
+    \item Se $u = \pm i$, allora si ottiene:
+    \[ \begin{cases}
+        x = \mp 2ab \\
+        z = \pm(a^2-b^2-2) \\
+        y = \pm (a^2+b^2)
+    \end{cases}
+    \]
+\end{itemize}
+che forniscono la parametrizzazione delle terne pitagoriche e rispondono al problema iniziale di determinarle.
+
+\newpage
+\begin{remark}[Ultimo teorema di Fermat]
+    Il procedimento risolutivo appena utilizzato nel caso delle terne pitagoriche non può essere generalizzato al caso dell'equazione:
+    \[ x^n + y^n = z^n \qquad n\geq 3
+        \]
+    inizialmente, possiamo considerare solo il caso in cui $n = p$, infatti, se non ci fossero soluzioni nemmeno nel caso di un primo, non potremmo
+    trovarle nel caso generale. Distinguiamo due casi:
+    \begin{itemize}
+        \item Se $p \nmid xyz$, abbiamo $x^p+y^p = z^p$ che può essere fattorizzata:
+            \[ (x+y)(x+\zeta_py) \ldots (x + \zeta_p^{p-1}y) = z^p \qquad \text{in $\ZZ[\zeta_p]$}
+                \]
+            si può dimostrare in questo caso che i fattori sono a due a due coprimi,
+            ma da ciò non possiamo concludere che sono tutte potenze $p$-esime (altrimenti a questo punto potremmo dimostrare che non esistono soluzioni),
+            perché in generale $\ZZ[\zeta_p]$ \textbf{non} è un UFD, ad esempio per $p = 23$ non è vero\footnote{Ed anzi è proprio il più piccolo primo per il quale non funziona.}.
+        \item Se $p$ divide esattamente uno tra $x$,$y$ e $z$, ma non discutiamo ora questo caso.
+    \end{itemize}
+\end{remark}
+
+\newpage
+\section{Campi}
+\subsection{Riepilogo sulle estensioni di campi}
+\begin{definition}
+    Dato un campo $K$ ed una sua estensione $L$, $\alpha \in L$ si dice \vocab{algebrico} su $K$ se:
+        \[ \exists f(x) \in K[x]\setminus\{0\} : f(\alpha) = 0
+        \] 
+\end{definition}
+
+\begin{definition}
+    Dato un campo $K$ ed una sua estensione $L$, $\alpha \in L$ si dice \vocab{trascendete} su $K$ se non è algebrico, ovvero:
+        \[ \not\exists f(x) \in K[x]\setminus\{0\} : f(\alpha) = 0
+        \] 
+\end{definition}
+
+\begin{definition}
+    Dato un campo $K$, una sua estensione $L$, e $\alpha \in L$, possiamo definire l'\vocab{omomorfismo di valutazione} di $\alpha$ su $K[x]$ come:
+    \[ \varphi_{\alpha} : K[x] \longrightarrow K[\alpha] (\subset L) : f(x) \longmapsto f(\alpha)
+        \]
+\end{definition}
+
+Per tale omomorfismo vale il diagramma:
+\begin{center}
+	\begin{tikzcd}
+		 K[x] \ar[d, "\pi_{\ker{\varphi_{\alpha}}}" left, twoheadrightarrow] \ar[r, "\varphi_\alpha", twoheadrightarrow] & K[\alpha](\subset L) \\
+		\displaystyle\frac{K[x]}{\ker{\varphi_\alpha}} \ar[ur,  "\overline{\varphi_{\alpha}}"' rotate = -29, "\widesim{}"' above, sloped, anchor=center] & 
+	\end{tikzcd}
+\end{center}
+
+Da cui abbiamo che:
+\[ K[\alpha] \cong \frac{K[x]}{\ker \varphi_{\alpha}}
+    \]
+dove $K[\alpha]$ è un dominio perché è un sottoanello di un campo, dunque $\ker \varphi_{\alpha} \subset K[x]$ è un ideale primo (per l'(1) della \hyperref[2.56]{Proposizione 2.56}).
+
+\begin{remark}
+    Ricordiamo che, data un'estensione $K \subset L$, si ha per $\alpha \in L$ che:
+	\begin{itemize}
+	\ii $\alpha$ è trascendete su $K$ $\iff \ker{\varphi_\alpha} = \{0\} \iff \varphi_\alpha$ è iniettivo $\iff K[x] \cong K[\alpha]$.
+	\ii $\alpha$ è algebrico su $K$ $\iff \ker{\varphi_\alpha} \ne \{0\} \iff \varphi_\alpha$ non è iniettivo.
+	\end{itemize}
+\end{remark}
+
+Se consideriamo $\alpha \in L$ algebrico su $K[x]$, dunque $\ker \varphi_{\alpha} \ne \{0\}$, poiché $K[x]$ è un PID, allora $\ker \varphi_{\alpha}$ è un ideale massimale di $K[x]$ (poiché 
+vale la \hyperref[2.95]{Proposizione 2.95}), dunque $\displaystyle \frac{K[x]}{\ker \varphi_{\alpha}}$ è un campo, e lo è quindi $K[\alpha]$, di conseguenza, coincide col
+suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.69}.} $K[\alpha] = K(\alpha)$.
+
+\begin{remark}
+    Poiché $K[x]$ è un PID, si ha che $\ker \varphi_{\alpha} = (\mu_{\alpha}(x))$, con $\mu_\alpha(x) \in \ker \varphi_\alpha$, ed essendo un ideale massimale $\mu_\alpha(x)$ è irriducibile in $K[x]$ (\hyperref[2.86]{Proposizione 2.86}).
+    Inoltre, scegliamo $\mu_\alpha(x)$ come l'unico generatore monico, infatti essendo $K[x]$ anche un ED, per la \hyperref[2.93]{Proposizione 2.93} sappiamo che i suoi ideali sono generati da elementi di grado minimo, e tali elementi differiscono per un elemento di $K \setminus\{0\}$.
+\end{remark}
+
+\begin{definition}
+    Data l'estensione $\faktor{L}{K}$ ($K \subseteq L$), si dice \vocab{grado} di $\faktor{L}{K}$:
+    \[ [L:K] = \dim_K L
+        \]
+    se $[L:K] < +\infty$, diciamo che $\faktor{L}{K}$ è un'estensione \vocab{finita} (o di \vocab{grado finito}).
+\end{definition}
+
+\begin{proposition}[Grado di un'estensione]
+    \label{3.7}
+    Data l'estensione $\faktor{L}{K}$ e $\alpha \in L$, allora:
+    \[ [K(\alpha) : K] = \begin{cases}
+        +\infty & \text{se $\alpha$ è trascendente su $K$}\\
+        \deg \mu_\alpha(x) & \text{se $\alpha$ è algebrico su $K$}
+    \end{cases}
+        \]
+\end{proposition}
+
+\begin{proof}
+    Osserviamo che per quanto già detto, $\alpha$ è trascendente su $K$ se e solo $\ker \varphi_\alpha = \{0\}$ (a questo punto abbiamo già concluso la dimostrazione della prima parte), quindi se e solo se l'omomorfismo di valutazione è iniettivo, ed essendo 
+    surgettivo per definizione, si ha che:
+    \[ K[x] \cong K[\alpha] \iff K(x) \cong K(\alpha)
+        \]
+    Analogamente, per quanto detto, $\alpha$ algebrico su $K$ è equivalente a dire:
+    \[ K(\alpha) \cong K[\alpha] \cong \frac{K[x]}{(\mu_\alpha(x))}
+        \]
+    con l'isomorfismo che manda la base $\{\overline 1, \overline x, \ldots, {\overline x}^{n-1}\}$ di $\displaystyle \frac{K[x]}{(\mu_\alpha(x))}$, in $\{1,\alpha,\ldots,\alpha^{n-1}\}$, ovvero la $K$-base di $K(\alpha)$, da cui segue 
+    che:
+    \[ \dim_K K(\alpha) = n = \deg \mu_\alpha(x)
+        \]
+\end{proof}
+
+\begin{proposition}
+    [Proprietà delle torri di estensioni]
+    \label{torri}
+    Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono finite, inoltre:
+    \[ [F:K] = [F:L][L:K]
+        \]
+\end{proposition}
+
+\begin{proof}
+    La dimostrazione è identica a quella già vista in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}. Siano $[F:K] = n$ e $[L:F] = m$, verifichiamo che $[L:K]=nm$;
+    per definizione sappiamo che $[F:K] = n$ ovvero $F$ è un $K$-spazio vettoriale con $\dim_KF = n$, e ugualmente, $[L:F] = m$ ovvero $L$ è un $F$-spazio vettoriale con $\dim_FL = m$, possiamo considerare allora una $K$-base di $F$, $\{v_1,\ldots,v_n\}$, ed una $F$-base di $L$, $\{w_1,\ldots,w_m\}$, per dimostrare la tesi, dobbiamo dimostrare che $\dim_KL = nm$, ovvero $L$ ammette una $K$-base di cardinalità $nm$. Consideriamo l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$, come si osserva facilmente, esso ha cardinalità $nm$, dimostriamo quindi che tale insieme è una $K$-base di $L$, per fare ciò verifichiamo separatamente che gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ generano tutti gli elementi di $L$ e che sono tra loro linearmente indipendenti:
+	\begin{itemize}
+	\ii Sia $\alpha \in L$, poiché $L$ è per ipotesi un $F$-spazio vettoriale, quindi $L = \left<w_1,\ldots,w_m\right>_F$, si ha che:
+		\[ \alpha = \sum_{j=1}^{m} \lambda_jw_j
+		\qquad\qquad \lambda_j \in F
+		\]
+		d'altra parte, poiché $F$ è un $K$-spazio vettoriale, quindi $F = \left<w_1,\ldots,w_m\right>_K$, si ha che:
+		\[ \lambda_j = \sum_{i=1}^{n} a_{j_i}v_i
+		\qquad\qquad a_{j_i} \in K
+		\]
+		e sostituendo si ottiene:
+		\[ \alpha = \sum_{j=1}^{m} \left( \sum_{i=1}^{n} a_{j_i}v_i\right)w_j = \sum_{j=1}^{m}\sum_{i=1}^{n} a_{j_i}v_iw_j
+		\qquad\qquad a_{j_i} \in K
+		\]
+    e quindi l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ genera $L$ su $K$\footnote{Ovviamente tutti i prodotti $v_iw_j$ sono contenuti in $L$ per le proprietà di campo e perché appartengono a sottocampi del campo considerato.}.
+	\ii Per dimostrare che l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ è costituito da elementi linearmente indipendenti, è sufficiente mostrare che la somma:
+		\[ \sum_{j=1}^{m}\sum_{i=1}^{n} a_{j_i}v_iw_j = 0
+		\]
+    se e solo se sono nulli tutti i coefficienti $a_{j_i}$. Scriviamo esplicitamente la somma esterna:
+	\[ \left(\sum_{i=1}^{n} a_{1_i}v_i\right)w_1 +  \left(\sum_{i=1}^{n} a_{2_i}v_i\right)w_2 + \ldots +  \left(\sum_{i=1}^{n} a_{m_i}v_i\right)w_m = 0
+	\]
+    i prodotti $a_{j_i}v_i$, essendo $v_i \in F$ e $a_i \in K$, sono contenuti in $F$, pertanto, la somma appena scritta è una combinazione lineare dei $w_j$ (della $F$-base di $L$), che sappiamo essere linearmente indipendenti su $F$ (perché appunto sono una base di $L$), quindi la somma fa $0$ se e solo se i coefficienti sono tutti nulli, ovvero:
+	\[ \sum_{i=1}^{n} a_{1_i}v_i =\ldots=\sum_{i=1}^{n} a_{m_i}v_i = 0
+	\]
+	\end{itemize}
+    essendo $\{v_1,\ldots,v_n\}$ una $K$-base di $F$, le singole somme $\sum_{i=1}^{n} a_{j_i}v_i$ sono nulle se e solo se $a_{j_i} = 0$, $\forall i \in\{1,\ldots,n\}$, quindi la somma iniziale è nulla se e solo se $a_{j_i} = 0$, $\forall i \in\{1,\ldots,n\}$, $\forall j \in \{1,\ldots,m\}$, quindi gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ sono linearmente indipendenti.
+\end{proof}
+
+\begin{proposition}
+    [Proprietà del composto]
+    Date due torri di estensioni di $K$, $K \subset L \subset FL$ e $K \subset F \subset FL$, con $[L:K] = m$ e $[F:K] = n$, allora $[FL:K] = d < +\infty$ e $[m,n] \mid d$.
+\end{proposition}
+
+\begin{proof}
+Per dimostrare la proposizione ci basta applicare due volte il \hyperref[torri]{Teorema delle torri di estensioni} all'estensione:
+\begin{center}
+    \begin{tikzpicture}
+    \node (Q1) at (0,0) {$K$};
+    \node (Q2) at (1.5,1.5) {$F$};
+    \node (Q3) at (0,3) {$FL$};
+    \node (Q4) at (-1.5,1.5) {$L$};
+    \draw (Q1)--(Q2) node [pos=0.7, below,inner sep=0.25cm] {$n$};
+    \draw (Q1)--(Q4) node [pos=0.7, below,inner sep=0.25cm] {$m$};
+    \draw (Q3)--(Q4) node [pos=0.7, above]{};
+    \draw (Q2)--(Q3) node [pos=0.3, above]{};
+    \draw (Q1)--(Q3) node [pos=0.7, below, right,inner sep=0.25cm, yshift=-0.4cm] {$d$};
+    \end{tikzpicture}
+\end{center}
+ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
+\end{proof}
+
+\begin{definition}
+    Un'estensione $\faktor{L}{K}$ si dice \vocab{algebrica} se $\forall \alpha \in L$, $\alpha$ è algebrico su $K$.
+\end{definition}
+
+\begin{proposition}[Estensione finita$\implies$algebrica]
+    \label{3.11}
+    Ogni estensione finita è algebrica.
+\end{proposition}
+
+\begin{proof}
+    Vogliamo verificare che $\forall \alpha \in L$, $\alpha$ è algebrico su $K$, abbiamo che:
+    \[ K \subseteq K(\alpha) \subseteq L
+        \]
+    è finita per ipotesi, pertanto la sottoestensione $\faktor{K(\alpha)}{K}$ è a sua volta finita (volendo per il \hyperref[torri]{Teorema delle torri}),
+    quindi per la \hyperref[3.7]{Proposizione 3.7} $\alpha$ è algebrico su $K$, ed essendo vero per ogni $\alpha$, allora $L$ è un'estensione algebrica di $K$.
+\end{proof}
+
+\begin{proposition}[Campo delle estensioni algebriche]
+    \label{3.12}
+    Data un'estensione $\faktor{L}{K}$, sia $A = \{\alpha \in L | \, \text{$\alpha$ è algebrico su $K$}\}$, allora $A$ è un campo (ed ovviamente
+    è un'estensione algebrica di $K$).
+\end{proposition}
+
+\begin{proof}
+    Verifichiamo che $A$ sia un campo; siano $\alpha,\beta \in A$, allora $[K(\alpha):K] <+\infty$ e $[K(\beta):K]<+\infty$, consideriamo la torre:
+    \[ K \subseteq K(\alpha) \subseteq K(\alpha)(\beta) = K(\alpha,\beta)
+        \]
+    la prima estensione è finita per ipotesi, mentre la seconda è finita in quanto estensione finita di una sottoestensione (essendo $\beta$ algebrico
+    su $K$, lo sarà anche su $K(\alpha)$, che è un insieme più grande). Essendo $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
+    è algebrica, quindi tutti gli elementi $\alpha\pm\beta$, $\alpha\beta$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$, pertanto $A$ è un campo.
+\end{proof}
+
+\begin{remark}
+    Il viceversa della \hyperref[3.11]{Proposizione 3.11} è falso.
+\end{remark}
+
+\begin{example}
+    [Estensione algebrica non finita]
+    Consideriamo l'estensione $\QQ \subset \CC$, e l'insieme $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, costruito come nella \hyperref[3.12]{Proposizione 3.12}
+    è un'estensione algebrica di $\QQ$. Verifichiamo che $[\overline\QQ:\QQ] = +\infty$, infatti, considerata la torre:
+    \[ \QQ \subset \QQ(\sqrt[n]{2}) \subset \overline \QQ \qquad \forall n \geq 2
+        \]
+    l'estensione $\QQ \subset \QQ(\sqrt[n]{2})$ ha grado $n$, in quanto il suo polinomio minimo è il 2-Eisenstein:
+    \[ \mu_{\sqrt[n]{2}}(x) = x^n - 2
+        \]
+    per il \hyperref[torri]{Teorema delle torri}:
+    \[ [\overline \QQ: \QQ] = [\overline \QQ: \QQ(\sqrt[n]{2})] [\QQ(\sqrt[n]{2}) : \QQ] \geq n \qquad \forall n \geq 2
+        \]
+    dunque l'estensione $\faktor{\overline\QQ}{\QQ}$ ha grado $+\infty$.
+\end{example}
+
+\begin{remark}
+    Ricordiamo che avevamo definito un'estensione \vocab{finitamente generata} una scrittura del tipo $L = K(\alpha_1,\ldots,\alpha_n)$ che può essere definita equivalentemente come:
+    \[ K(\alpha_1,\ldots,\alpha_n) = K(\alpha_1)\ldots(\alpha_n) = \{p(\alpha_1,\ldots,\alpha_n) | p(x_1,\ldots,x_n) \in K[x_1,\ldots,x_n] \}
+        \]
+    con $\alpha_1,\ldots,\alpha_n$ algebrici su $K$, o anche come il più piccolo campo che contiene $K$ e gli elementi $\alpha_1,\ldots,\alpha_n$:
+    \[ K(\alpha_1,\ldots,\alpha_n) = \bigcap_{\substack{K \subseteq M \subseteq L \\ \alpha_1,\ldots,\alpha_n \in M}}M
+        \]
+\end{remark}
+
+\begin{proposition}[Estensione alegberica e finitamente generata$\implies$finita]
+    \label{3.16}
+    Sia $\faktor{L}{K}$ un'estensione algebrica e finitamente generata, $L = K(\alpha_1,\ldots,\alpha_n)$, allora $\faktor{L}{K}$ è finita.
+\end{proposition}
+
+\begin{proof}
+    Possiamo dimostrare la tesi per induzione; per $n = 1$, la tesi è vera per la \hyperref[3.11]{Proposizione 3.11}. Supponiamo la tesi vera per $n-1$, abbiamo che:
+    \[ K(\alpha_1,\ldots,\alpha_n) = K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
+        \]
+    consideriamo la torre:
+    \[ K \subset K(\alpha_1,\ldots,\alpha_{n-1}) \subset K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
+        \]
+    dove la prima estensione è finita per ipotesi induttiva, mentre la seconda perché estensione semplice, dunque vale ancora la \hyperref[3.11]{Proposizione 3.11}, pertanto 
+    $L$ è finita.
+\end{proof}
+
+\pagebreak
+\begin{remark}
+    Della \hyperref[3.16]{Proposizione 3.16} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$ base di $L$, allora 
+    è vero che è finitamente generata:
+    \[ L = \left<v_1,\ldots,v_n\right>_K = K(v_1,\ldots,v_n)
+        \]
+\end{remark}
+
+\begin{proposition}
+    [Proprietà delle estensioni algebriche rispetto a torri e composto]
+    Valgono le seguenti proprietà per le estensioni algebriche:
+    \begin{enumerate}[(1)]
+        \item Data una torre di estensioni $K \subset L \subset F$, $\faktor{F}{K}$ è algebrica se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche.
+        \item Date due estensioni $\faktor{L}{K}$ e $\faktor{M}{K}$ esse sono algebriche se e solo se l'estensione composta $\faktor{LM}{K}$ è algebrica.
+    \end{enumerate}
+\end{proposition}
+
+\begin{remark}
+    Dati $L,M \subset \Omega$ sottocampi dello stesso campo $\Omega$, abbiamo che il composto è:
+    \[ LM = L(M) = M(L)
+        \]
+    ovvero il più piccolo sottocampo di $\Omega$ che contiene sia $L$ che $M$. Se $K$ ed $L$ sono finitamente generati:
+    \[ L = K(\alpha_1,\ldots,\alpha_n) \qquad \text e \qquad M = K(\beta_1,\ldots,\beta_m)
+        \]
+    allora il loro composto è dato da:
+    \[ LM = K(\alpha_1,\ldots,\alpha_n,\beta_1,\ldots,\beta_m)
+        \]
+\end{remark}
+
+\begin{proof}
+    Proviamo le due affermazioni:
+    \begin{enumerate}
+        \item La prima implicazione segue quasi immediatamente, infatti, se $\faktor{F}{K}$ è algebrica, allora $\forall \alpha \in F$, $\alpha$ è algebrico su $K$,
+            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$, inoltre, $F$ è algebrico su $L$ perché contiene $K$.\\
+            Viceversa sia $\alpha \in F$, per ipotesi sappiamo che $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche, quindi $\alpha$ è algebrico su $L$, dunque:
+            \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \qquad f(x) = \sum_{i=0}^n a_ix^i
+                \]
+            consideriamo $L_0=K(a_0,\ldots,a_n)$, si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
+            \[ K \subset L_0 \subset L_0(\alpha)
+                \]
+            dove la prima estensione è finitamente generata ed algebrica (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
+            estensione è a sua volta finita perché algebrica (quindi vale la \hyperref[3.11]{Proposizione 3.11}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
+            $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
+            dunque $\faktor{F}{K}$ è algebrica.
+         \item Sia $\faktor{LM}{K}$ algebrica e sia $\alpha \in M \subset LM$, allora è algebrico su $K$, in quanto tutti gli elementi di $LM$ già lo erano, dunque non stiamo facendo altro che prendere una sottoestensione di un'estensione algebrica, che quindi 
+         sarà a sua volta algebrica, ovvero $\faktor{M}{K}$ algebrica; in maniera identica $\faktor{L}{K}$ è anch'essa algebrica.\\
+         Supponiamo ora che $\faktor{L}{K}$ e $\faktor{M}{K}$ siano algebriche, consideriamo $\alpha \in LM = L(M)$, ovvero $\alpha = \sum_{i=1}^{n} \lambda_i m_i$, con $\lambda_i \in L$ e $m_i \in M$, dunque:
+         \[ \alpha \in F = K(\lambda_1,\ldots,\lambda_n,m_1,\ldots,m_n)
+            \]
+        e tale estensione è algebrica (perché tutti gli elementi che abbiamo aggiunto sono algebrici) e finitamente generata, quindi per la \hyperref[3.16]{Proposizione 3.16} è finita,
+        e dunque $\alpha$ è algebrico su $K$, $\forall \alpha \in LM$, da cui la tesi.
+    \end{enumerate}
+\end{proof}
+
+\newpage
+\subsection{Chiusura algebrica di un campo}
+\begin{definition}
+    Un campo $\Omega$ si dice \vocab{algebricamente chiuso} se ogni polinomio $f(x) \in \Omega[x]$ non costante ha almeno una radice in $\Omega$.
+\end{definition}
+
+\begin{example}
+    Per il Teorema Fondamentale dell'Algebra $\CC$ è algebricamente chiuso.
+\end{example}
+
+\begin{remark}
+    Se $\Omega$ è algebricamente chiuso gli unici polinomi irriducibili di $\Omega[x]$ sono quelli di grado 1.
+\end{remark}
+
+\begin{definition}
+    Data l'estensione $\faktor{\Omega}{K}$, $\Omega$ è una \vocab{chiusura algebrica} di $K$ se:
+    \begin{itemize}
+        \item $\Omega$ è algebricamente chiuso.
+        \item $\faktor{\Omega}{K}$ è un'estensione algebrica.
+    \end{itemize}
+\end{definition}
+
+\begin{example}
+    Osserviamo che:
+    \begin{enumerate}[(1)]
+        \item $\CC$ è la chiusura algebrica di $\RR$.
+        \item $\CC$ non è la chiusura algebrica di $\QQ$, poiché non tutti gli elementi di $\CC$ sono algebrici su $\QQ$.
+    \end{enumerate}
+\end{example}
+
+\begin{theorem}
+    [Esistenza e unicità della chiusura algebrica]
+    Sia $K$ un campo, allora esiste sempre una sua chiusura algebrica. Inoltre due qualsiasi chiusure algebriche di $K$ sono isomorfe.
+\end{theorem}
+
+\begin{example}
+    Consideriamo $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, tale insieme è un campo, per quanto asserito nella
+    \hyperref[3.12]{Proposizione 3.12}, ed è per una chiusura algebrica di $\QQ$, infatti $\faktor{\overline\QQ}{\QQ}$ è un'estensione algebrica per definizione.
+    Verifichiamo che $\overline\QQ$ è algebricamente chiuso; sia $f(x) \in \overline\QQ[x]$ non costante, allora $f(x)$ ammette almeno una radice $\alpha \in \CC$, poiché
+    $f(x) \in \overline\QQ[x] \subset \CC[x]$ e $\CC$ è algebricamente chiuso. Per mostrare che $\alpha \in \overline\QQ$, bisogna
+    dimostrare che $\alpha$ è algebrico su $\QQ$, consideriamo la torre:
+    \[ \QQ \subset \overline \QQ \subset \overline\QQ (\alpha)
+        \]
+    la prima estensione è algebrica per quanto già discusso, la seconda è algebrica perché semplice (\hyperref[3.7]{Proposizione 3.7}), dunque per \hyperref[torri]{torri} $\alpha$
+    è algebrico su $\QQ$, inoltre $\alpha \in \CC$, per cui $\alpha \in \overline\QQ$ che quindi è algebricamente chiuso, perché quanto detto vale per qualunque polinomio in $\overline\QQ[x]$.
+\end{example}
+
+\begin{remark}
+    L'argomento dell'esempio precedente può essere utilizzato per costruire $\overline K$ chiusura algebrica di $K$ ogni volta che si ha:
+    \[ K \subset \Omega
+        \]
+    con $\Omega$ algebricamente chiuso, definendo $\overline K = \{\alpha \in \Omega |  \, \text{$\alpha$ è algebrico su $K$}\}$, da cui $\overline K$ chiusura algebrica si $K$ (infatti $\overline K$ è un estensione algebrica 
+    di $K$ per definizione, ed iterando il ragionamento precedente si mostra come sia anche algebricamente chiuso).
+\end{remark}
+
+\begin{definition}
+    Sia $f(x) \in K[x]$, con $\deg f(x) \geq 1$, e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f(x)$, si definisce \vocab{campo di spezzamento} di $f(x)$ su $K$ il sottocampo di $\overline K$:
+    \[ K(\alpha_1,\ldots,\alpha_n)
+        \]
+\end{definition}
+
+\begin{remark}
+    La definizione di campo di spezzamento può essere estesa ad una famiglia di polinomi $\mathcal{F} = \{f_i(x) | i \in I\} \subset K[x]$, infatti, dato l'insieme delle radici di un polinomio $f_i(x)$ della famiglia,
+    $ \{\alpha_{ij}\}_{i \in I}^{j = 1,\ldots,n_i} $, il campo di spezzamento di $\mathcal{F}$ su $K$ è dato da:
+    \[ K(\{\alpha_{ij}\}_{j = 1,\ldots,n_i} | i \in I)
+        \]
+    Tale estensione della definizione risulta necessaria soltanto nel caso di famiglie infinite di polinomi, infatti nel caso finito è sufficiente considerare il campo di spezzamento dell'unico polinomio prodotto di tutti gli altri 
+    (prodotto che non è definito nel caso di una famiglia infinita).
+\end{remark}
+
+\begin{example}
+    [Campo di spezzamento di $x^3 - 2$]
+    Consideriamo $f(x) = x^3 - 2 \in \QQ[x]$, le radici di $f(x)$ in $\CC[x]$ sono $\sqrt[3]{2}$,$\sqrt[3]{2}\zeta_3$ e $\sqrt[3]{2}\zeta_3^2$, dunque il campo di spezzamento di $f(x)$ su $\QQ$ è dato da :
+    \[ \QQ(\sqrt[3]{2},\sqrt[3]{2}\zeta_3,\sqrt[3]{2}\zeta_3^2) = \QQ(\sqrt[3]{2},\zeta_3)
+        \]
+    dove l'ultima uguaglianza andrebbe verificata mediante doppio contenimento.
+\end{example}
+
+\begin{example}
+    [Campo di spezzamento di $x^n - 1$]
+    Consideriamo $\Phi_n(x) = x^n - 1 \in \QQ[x]$, le radici di $\Phi_n(x)$ in $\CC[x]$ sono gli elementi del gruppo $\left<\zeta_n\right> = \{\alpha \in \CC | \alpha^n = 1\}$, con $\zeta_n$ radice $n$-esima primitiva di 1,
+    pertanto $\QQ(\zeta_n)$ è il campo di spezzamento del polinomio ciclotomico $n$-esimo:
+    \[ x^n - 1 = \prod_{i = 0}^{n-1} (x - \zeta_n^i)
+        \]
+\end{example}
+
+Ci poniamo ora il seguente problema: dato un campo $K$, la sua chiusura algebrica $\overline K$ e $\alpha \in \overline K$ (algebrico su $K$), vogliamo sapere in quanti modi si può immerge $K(\alpha)$ in $\overline K$ con:
+\[ \varphi : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
+    \]
+
+\begin{remark}[Omomorfismi da campi]
+    \label{3.32}
+Osserviamo che in generale un omomorfismo definito su un campo può avere solo nucleo banale, infatti, esso è in particolare un omomorfismo tra anelli, dunque il nucleo è un ideale, ma per la (2) della \hyperref[2.26]{Proposizione 2.26} gli unici ideali di un campo 
+sono se stesso e $\{0\}$, dunque il nucleo o è tutto o è banale, pertanto gli unici omomorfismi possibili da un campo sono o iniettivi o nulli.    
+\end{remark}
+
+Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
+
+\begin{proposition}[Numero di estensioni  via identità di $K(\alpha)$ a $\overline K$]
+    \label{3.33}
+    Dato un campo $K$ ed $\alpha \in \overline K$, con $\overline K$ chiusura algebrica di $K$, detto $k$ il numero di radici distinte di $\mu_\alpha(x)$ in $\overline K$, allora:
+    \[ \exists \varphi_1,\ldots,\varphi_k : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = id_K
+        \]
+\end{proposition}
+
+\begin{proof}
+    Per quanto detto sull'omomorfismo di valutazione sappiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$, dunque, determinando un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il 
+    \hyperref[omo]{Primo Teorema di Omomorfismo}. Sia dunque:
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \forall \beta \in \overline K
+        \]
+    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$,
+    quindi per tutte le radici di $\mu_\alpha(x)$ in $\overline K$ si ha che:
+    \[\begin{tikzcd}
+		K[x] \arrow[d, "\pi_{(\mu_\alpha(x))}" left, twoheadrightarrow] \arrow[r, "\widetilde{\varphi}"] & \overline K \\	
+		\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))} \arrow[ur, "\varphi"', hookrightarrow] & 
+	\end{tikzcd}
+        \]
+    dove $\varphi$ è un omomorfismo per il \hyperref[omo]{Primo Teorema di Omomorfismo}, ed è iniettivo (per quanto già visto nell'\hyperref[3.32]{Osservazione 3.32}) perché omomorfismo \textbf{non nullo} tra campi (ad esempio perché $1 \longmapsto 1$).
+\end{proof}
+
+Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\ol K$, essendo $\ol K$ algebricamente chiuso, allora il numero delle radici del polinomio, ciascuna contata 
+con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$, a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple possiamo fare uso del criterio che segue.
+
+\begin{theorem}
+	[Criterio della Derivata]
+	\label{derivata}
+	Sia $f(x) \in K[x]$, $f(x)$, allora $f(x)$ ha radici multiple in $\ol K$ se e solo se $(f(x),f^{\prime}(x)) \ne 1$. Inoltre se $f(x)$ è irriducibile in $K[x]$, allora $f(x)$ ha radici multiple se e solo se $f^{\prime}(x) = 0$.
+\end{theorem}
+
+\begin{proof}
+    Il primo fatto è stato trattato in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, quindi non ne forniremo qui una dimostrazione. Per il secondo fatto si può osservare che $f(x) \in K[x] \implies f^{\prime}(x) \in K[x]$,
+    da cui $(f(x),f^{\prime}(x)) \in K[x]$ (perché si ottiene mediante l'Algoritmo di Euclide), e se $f(x)$ è irriducibile in $K[x]$ l'M.C.D. fa 1 oppure $f(x)$ se e solo se $f^{\prime}(x) = 0$ (per come è definito l'M.C.D.).
+\end{proof}
+
+Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il numero delle loro radici distinte coincide con il loro grado.
+
+\begin{definition}
+    Un campo $K$ tale per cui tutti i polinomi irriducibili in $K[x]$ hanno derivata non nulla prende il nome di \vocab{campo perfetto}.
+\end{definition}
+
+\begin{remark}
+    [Campi perfetti]
+    Osserviamo che:
+    \begin{itemize}
+        \item Se $\ch K = 0$, allora $K$ è un campo perfetto, infatti, detto $f(x) = \sum_{i=0}^n a_ix^i$, allora $f^{\prime}(x) = \sum_{i=0}^{n-1} ia_ix^i$, $\forall n \geq 1$, ovvero la derivata di un polinomio non 
+        costante non può essere mai nulla.
+        \item $\Fpn$ è perfetto $\forall p$ primo, $\forall n \geq 1$.
+        \item Al contrario possiamo vedere che per campi con caratteristica diversa da 0 esistono polinomi irriducibili con derivata nulla, sia $K = \Fp(t)$ e $f(x) = x^p - t \in K[x]$, abbiamo che $f^{\prime}(x) = px^{p-1} = 0$,
+        possiamo verificare che $f(x)$ è irriducibile in $K[x]$. Osserviamo che:
+        \[ f(x) \in \Fp[t][x] := A[x]
+            \]
+        dove $A$ UFD (essendo un ED), dunque per il \hyperref[gauss]{Lemma di Gauss} verificare che $f(x)$ è irriducibile in $K[x] = \Fp(t)[x]$ è equivalente a verificare che sia irriducibile in $A[x] = \Fp[t][x]$.
+        In $A[x]$, essendo UFD vale il \hyperref[eisenstein]{Criterio di Eisenstein}, dunque $f(x)$ è irriducibile rispetto all'ideale $P = (t)$, che è primo in quanto massimale, infatti $\displaystyle\frac{A}{(t)} \cong \Fp$.
+        Inoltre se $\alpha \in \ol K$ è una radice di $f(x)$, abbiamo che $f(\alpha) = \alpha^p - t = \implies t = \alpha^p$, da cui:
+        \[ f(x) = x^p - \alpha^p = (x - \alpha)^p
+            \]
+        dove nell'ultima uguaglianza abbiamo usato il lemma del Binomio Ingenuo, pertanto in realtà $f(x)$ ha un'unica radice in $\ol K$.
+    \end{itemize}
+\end{remark}
+
+Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, pertanto un polinomio irriducibile di $K[x]$ di grado $n$ avrà esattamente $n$ radici distinte in $\ol K$.
+
+\begin{proposition}[Numero di estensioni di $K(\alpha)$ a $\overline K$]
+    \label{3.37}
+    Dato $\alpha \in \ol K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \ol K$ esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
+    \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+        \]
+\end{proposition}
+
+\begin{remark}
+    Abbiamo già visto che ciò è vero se $\varphi = id_K$, nella \hyperref[3.33]{Proposizione 3.33},
+    la nuova proposizione ci permette di contare il numero di estensioni da $K(\alpha)$ (estensione semplice) a $\ol K$ con un qualsiasi omomorfismo, ad esempio per $K = \QQ(\sqrt[3]{2})$ abbiamo:
+    \[ \varphi : K \varlonghookrightarrow \ol K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
+        \]
+\end{remark}
+
+\begin{proof}
+    In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo:
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \ol K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+        \]
+    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \widetilde{\varphi}(\mu(\alpha))(\beta) = 0$ ovvero se $\beta$
+    è una radice di $\varphi(\mu_\alpha(x))$, pertanto le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\ol K$. Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora
+    $\varphi(\mu_\alpha(x))$ è irriducibile, inoltre, $\deg \mu_\alpha(x) = \varphi(\mu_\alpha(x))$ (poiché l'omomorfismo è iniettivo), pertanto, essendo il campo perfetto il numero di radici distinte di $\varphi(\mu_\alpha(x))$ è uguale al suo grado,
+    e quindi a quello di $\mu_\alpha(x)$.
+\end{proof}
+
+\begin{corollary}[Numero di estensioni a $\ol K$ di un'estensione qualsiasi]
+    Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \ol K$ immersione, esistono $n$ immersioni:
+    \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+        \]
+\end{corollary}
+
+\begin{proof}
+    La dimostrazione segue facilmente per induzione, infatti per $n = 1$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>1$ consideriamo
+    $\alpha \in E \setminus K$ per il quale si ha la torre:
+    \[ K \subset K(\alpha) \subset E
+        \]
+    con $[K(\alpha) : K] = m$ e $[E : K(\alpha)] = d$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$, essendo $n = md$, dunque, avendo supposto vera la tesi per $m < n$,
+    $\varphi$ si estende:
+    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \ol K
+        \]
+    Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \ol K$ si estende a sua volta per ipotesi induttiva:
+    \[ \varphi_{i1},\ldots,\varphi_{id} : E \varlonghookrightarrow \ol K
+        \]
+    dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \ol K$, ma $\varphi_{ij | K(\alpha)} = \varphi_i $, dunque $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi abbiamo trovato le $n$ estensioni.
+\end{proof}
+
+
+
+
 
 \end{document}
