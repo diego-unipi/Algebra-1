@@ -2017,9 +2017,7 @@ I gruppi di ordine 30 sono quindi:
     
 \newpage
 
-% cSpell:enable
-% spell-checker: enable
-% spellchecker: enable
+
 \section{Anelli}
 \subsection{Riepilogo sugli anelli}
 \begin{definition}
@@ -2162,8 +2160,10 @@ e dei nilpotenti:
 
 \begin{remark}
     Per verificare che un sottoinsieme di un anello commutativo con identità è un ideale ci basta verificare soltanto che $(I,+)$ è chiuso per l'operazione $+$ e che valga la proprietà di assorbimento, infatti, da ciò segue 
-    che $(-1)a \in I$, dove $(-1)$ esiste in $A$ è un gruppo rispetto al $+$.\footnote{Da questo momento in poi, anche se non specificato assumiamo di star operando sempre in un anello commutativo con identità.}
+    che $(-1)a \in I$, dove $(-1)$ esiste in $A$ è un gruppo rispetto al $+$.
 \end{remark}
+
+Da questo momento in poi, anche se non specificato, assumiamo di star operando sempre in anelli commutativi con identità.
 
 \begin{example}[Ideali]
     Gli ideali vanno ricercati tra i sottogruppi di un anello, ad esempio:
@@ -3971,7 +3971,7 @@ che forniscono la parametrizzazione delle terne pitagoriche e rispondono al prob
 \end{definition}
 
 \begin{definition}
-    Dato un campo $K$ ed una sua estensione $L$, $\alpha \in L$ si dice \vocab{trascendete} su $K$ se non è algebrico, ovvero:
+    Dato un campo $K$ ed una sua estensione $L$, $\alpha \in L$ si dice \vocab{trascendente} su $K$ se non è algebrico, ovvero:
         \[ \not\exists f(x) \in K[x]\setminus\{0\} : f(\alpha) = 0
         \] 
 \end{definition}
@@ -3998,7 +3998,7 @@ dove $K[\alpha]$ è un dominio perché è un sottoanello di un campo, dunque $\k
 \begin{remark}
     Ricordiamo che, data un'estensione $K \subset L$, si ha per $\alpha \in L$ che:
 	\begin{itemize}
-	\ii $\alpha$ è trascendete su $K$ $\iff \ker{\varphi_\alpha} = \{0\} \iff \varphi_\alpha$ è iniettivo $\iff K[x] \cong K[\alpha]$.
+	\ii $\alpha$ è trascendente su $K$ $\iff \ker{\varphi_\alpha} = \{0\} \iff \varphi_\alpha$ è iniettivo $\iff K[x] \cong K[\alpha]$.
 	\ii $\alpha$ è algebrico su $K$ $\iff \ker{\varphi_\alpha} \ne \{0\} \iff \varphi_\alpha$ non è iniettivo.
 	\end{itemize}
 \end{remark}
@@ -4164,7 +4164,7 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
         \]
 \end{remark}
 
-\begin{proposition}[Estensione alegberica e finitamente generata$\implies$finita]
+\begin{proposition}[Estensione algebrica e finitamente generata$\implies$finita]
     \label{3.16}
     Sia $\faktor{L}{K}$ un'estensione algebrica e finitamente generata, $L = K(\alpha_1,\ldots,\alpha_n)$, allora $\faktor{L}{K}$ è finita.
 \end{proposition}
