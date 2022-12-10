@@ -3209,7 +3209,564 @@ Gli ideali primi di $\ZZ[x]$ possono quindi avere la seguente forma:
     \item $(f(x))$ con $f(x)$ primitivo e irriducibile in $\ZZ[x]$.
 \end{itemize}
 
-Mostriamo che gli ideali primi di quest'ultimo tipo non sono massimali. 
- 
+Mostriamo che gli ideali primi di quest'ultimo tipo non sono massimali.\newline
+Siano $f(x) \in \ZZ[x]$ un polinomio primitivo, irriducibile, non costante,
+$a \in \ZZ$ tale che $f(a) \notin\{-1, 0, 1\}$, $p \in \ZZ$ un primo che 
+divide $f(a)$ e consideriamo le applicazioni
+\[
+    \varphi: \ZZ[x]\longrightarrow \faktor{\ZZ[x]}{(p)\ZZ[x]}: 
+    g(x)\longmapsto \overline{g(x)}
+\] 
+\[
+    \psi: \faktor{\ZZ[x]}{(p)\ZZ[x]}\longrightarrow \FF_p: 
+    \overline{g(x)}\longmapsto g(a)
+\]
+Osserviamo che $(\psi\circ\varphi)(f(x)) = a \equiv 0 \pmod{p}$ e che 
+$(\psi\circ\varphi)(p) = p \equiv 0 \pmod{p}$, pertanto $p, f(x) \in 
+\ker{\psi\circ\varphi}$ e quindi $(p, f(x)) \subseteq \ker(\psi\circ \varphi) \neq \ZZ[x]$.
+Abbiamo quindi $(f(x)) \subseteq (p, f(x))$, se $(f(x))$ fosse massimale allora
+conterrebbe $p$, che è assurdo in quanto $\deg f \geq 1$.
+
+Poiché gli ideali di questo tipo non sono massimali, gli ideali massimali di
+$\ZZ[x]$ sono tutti e soli quelli della forma
+\[
+    (p, f(x)) \text{ con }\overline{f(x)} \text{ irriducibile in }\FF_p[x]
+\]
+
+\newpage
+
+\subsection{Criterio di Eisenstein}
+
+Conosciamo il Criterio di Eisenstein per verificare che un polinomio a coefficienti
+interi è irriducibile in $\ZZ[x]$. Lo stesso risultato vale in generale in 
+ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
+
+\begin{proposition}
+    [Criterio di Eisenstein]
+    Siano $A$ un UFD, $p \in A$ un elemento primo e $f(x) = \displaystyle\sum_{i = 0}^n a_ix^i$
+    un polinomio a coefficienti in $A$ se sono verificate le ipotesi
+    \begin{itemize}
+        \item $p \nmid a_n$;
+        \item $p \mid a_i$ per $i \in \{0, \ldots, n - 1\}$;
+        \item $p^2 \nmid a_0$;
+    \end{itemize}
+    allora $f(x)$ è irriducibile in $A[x]$.
+\end{proposition}
+
+\begin{proof}
+    Supponiamo per assurdo che $f(x)$ sia riducibile, allora possiamo scrivere $f(x) = g(x)h(x)$
+    con $g(x), h(x) \in A[x]$, $\deg g = m \geq 1$, $\deg h = n - m \geq 1$. 
+    Consideriamo l'omomorfismo di proiezione
+    \[
+        \pi: A[x] \longrightarrow \faktor{A}{(p)}[x]: 
+        \sum_{j = 0}^k\alpha_ix^i \longmapsto \sum_{j = 0}^k \overline{\alpha_i}x^i
+    \]
+    abbiamo che 
+    \[
+        \pi(f(x)) = \overline{a_n}x^n \neq \overline{0} \qquad\pi(f(x)) = \pi(g(x))\pi(h(x))
+    \]
+    Scriviamo 
+    \[
+        g(x) = \sum_{i = 0}^m b_ix^i\qquad h(x) = \sum_{i = 0}^{n - m}c_ix^i
+    \]
+    poiché $A$ è $UFD$ lo è anche $A[x]$, pertanto le proiezioni di $g(x)$
+    e di $h(x)$ sono necessariamente della forma
+    \[
+        \pi(g(x)) = \overline{b_m}x^m\qquad \pi(h(x)) = \overline{c_{n - m}}x^{n - m}
+    \]
+    da cui $\overline{b_0} = \overline{c_0} = \overline{0}$, cioè $p \mid b_0$ e
+    $p \mid c_0$. D'altra parte $a_0 = b_0c_0$ e quindi $p^2 \mid a_0$, che 
+    è assurdo.
+\end{proof}
+
+\newpage
+
+\subsubsection{Domini a ideali principali}
+
+\begin{proposition}
+    Sia $A$ un PID, ogni ideale primo diverso da $(0)$ di $A$ è un ideale 
+    massimale
+\end{proposition}
+
+\begin{proof}
+    Sia $P = (p)$ un ideale primo non nullo, supponiamo per assurdo che esista
+    un ideale $M$ tale che 
+    \[
+        P \subsetneq M \subsetneq A
+    \]
+    Poiché $A$ è un dominio a ideali principali, esiste $x \in A$ tale che 
+    $M = (x)$, quindi $x \mid p$ dato che $P \subsetneq M$. Poiché $P$ è 
+    un ideale primo si ha che $p \in A$ è un elemento primo, quindi 
+    irriducibile\footnote{
+        Questo perché PID $\Longrightarrow$ UFD.
+    }. Sia $q \in A$ tale che $p = xq$, dato che $x \notin A^*$ abbiamo che 
+    $q \in A^*$, cioè $(x) = (p)$, che è assurdo.
+\end{proof}
+
+\begin{corollary}
+    Siano $A$ un PID e $B$ un dominio di integrità e $\varphi: A \longrightarrow B$
+    un omomorfismo di anelli surgettivo, allora $\varphi$ è un isomorfismo
+    oppure $B$ è un campo. 
+\end{corollary}
+
+\begin{proof}
+    Notiamo che $\ker \varphi$ è un ideale primo di $A$ in quanto $\faktor{A}{\ker\varphi}
+    \cong B$ è un dominion di integrità. Se $\ker\varphi = (0)$, allora 
+    $\varphi$ è un isomorfismo di anelli. Altrimenti $\ker\varphi$ è un ideale
+    massimale, pertanto $\faktor{A}{\ker\varphi}\cong B$ è un campo.
+\end{proof}
+
+\begin{corollary}
+    Se $C$ è un anello tale che $C[x]$ è un PID, allora $C$ è un campo.
+\end{corollary}
+
+\begin{proof}
+    Dall'inclusione $C \subseteq C[x]$ abbiamo che $C$ è un dominio di integrità.
+    L'ideale $(x)$ è quindi primo in $C[x]$ in quanto $\faktor{C[x]}{(x)} \cong X$
+    è un dominio, quindi è massimale dato che $C[x]$ è un PID. Pertanto 
+    $C$ è un campo.
+\end{proof}
+
+\newpage
+
+\subsubsection{Operazioni tra ideali}
+
+Ricordiamo che in un anello commutativo con identità $A$, sono ben definite
+le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
+(possibilmente uguale a uno dei due):
+\begin{itemize}
+    \item $I\cap J = \{k \in A \mid k \in I, k \in J\}$;
+    \item $I + J = (I, J) = \{i + j \mid i \in I, j \in J\}$;
+    \item $IJ = (\{ij\mid i \in I, j \in J\})$;
+    \item $\sqrt{I} = \{x \in A \mid \exists n \in \NN \text{ per cui } x^n \in I\}$;
+    \item $(I : J) = \{x \in A \mid xJ \subseteq I\}$.
+\end{itemize}
+
+\begin{proposition}
+    Dati $A$ un anello commutativo con identità, $I, J \subseteq A$ due ideali,
+    allora
+    \[
+        \sqrt{IJ} = \sqrt{I\cap J} = \sqrt{I}\cap \sqrt{J}
+    \]
+\end{proposition}
+
+\begin{proof}
+    Poiché vale l'inclusione $IJ \subseteq I\cap J$ abbiamo che $\sqrt{IJ}
+    \subseteq \sqrt{I\cap J}$. Viceversa, se $a \in \sqrt{I\cap J}$ allora
+    esiste $n \in \NN$ tale che $a^n \in I\cap J$, allora abbiamo 
+    \[
+        a^{2n} = \underset{\in I}{\underbrace{a^n}} \cdot \underset{\in J}{\underbrace{a^n}}
+        \in IJ
+    \]
+    da cui $\sqrt{I\cap J} \subseteq \sqrt{IJ}$ e quindi l'uguaglianza.\newline
+    Consideriamo adesso $b \in \sqrt{I}\cap \sqrt{J}$, allora esistono $m, n \in \NN$
+    tali che $b^m \in I$ e $b^n \in J$, da cui
+    \[
+        b^{m + n} = \underset{\in I}{\underbrace{b^m}}\cdot
+        \underset{\in J}{\underbrace{b^n}} \in I\cap J
+    \]
+    Pertanto $\sqrt{I}\cap \sqrt{J} \subseteq \sqrt{I\cap J}$. Viceversa, Se
+    $c \in \sqrt{I\cap J}$ allora esiste $n \in \NN$ tale che $c^n \in I\cap J$, 
+    in particolare $c^n \in I$ e $c^n \in J$, quindi $c \in \sqrt{I}\cap\sqrt{J}$,
+    da cui l'uguaglianza.
+\end{proof}
+
+\begin{proposition}
+    \label{prop2.9}
+    Dato $A$ un anello commutativo con identità, allora
+    \[
+        \sqrt{0} = \bigcap_{\substack{P\subseteq A\\ P \text{ ideale primo}}}P
+    \]
+\end{proposition}
+
+\begin{proof}
+    Sia $X$ l'intersezione di tutti gli ideali primi di $A$. 
+    Se $x \in \sqrt{0}$ allora esiste $n \in \NN$ tale che $x^n = 0$, procediamo
+    per induzione su $n$. Se $n = 1$ allora $x = 0$, quindi $x$ è contenuto 
+    in tutti gli ideali di $A$, in particolare in quelli primi. Se $n > 1$, 
+    supponiamo che se $x^{n - 1} \in X$ allora $x \in X$.
+    Per ogni ideale primo $P$, poiché $x^n = 0$ si ha che $x^n$ è contenuto nella
+    loro intersezione, da cui almeno uno tra $x$ e $x^{n - 1}$ è un elemento
+    di $X$. Se $x^{n - 1} \in X$ allora $x \in X$ per ipotesi induttiva, pertanto 
+    $\sqrt{0} \subseteq X$. Viceversa, mostriamo che se $x \notin \sqrt{0}$
+    allora esiste un ideale primo $P$ tale che $x \notin P$. Consideriamo 
+    l'insieme
+    \[
+        \mathcal{F} = \{I \subseteq A \mid I \text{ ideale }, x^n \notin I
+        ~\forall n \in \NN\}
+    \]
+    notiamo che $\mathcal{F}$ è non vuoto in quanto contiene l'ideale nullo.
+    Posta $\mathscr{C} = \{I_i\}$ una catena di ideali tali che $I_i \subseteq I_{i + 1}$,
+    poniamo
+    \[
+        \mathcal{I} = \bigcup I_i
+    \]
+    Per costruzione $\mathcal{I}$ è un maggiorante per $\mathscr{C}$ in quanto
+    ogni $I_i$ è contenuto in $\mathcal{I}$, inoltre $\mathcal{I}$
+    è un ideale di $A$ dato che $I_i \subseteq I_{i + 1}$. L'ideale $\mathcal{I}$
+    è un elemento di $\mathcal{F}$, infatti se le potenze di $x$ non sono elementi
+    degli ideali di $\mathcal{F}$, a maggior ragione non sono contenute in $\mathcal{I}$.
+    Pertanto ogni catena $\mathscr{C}$ di $\mathcal{F}$ ammette un maggiorante 
+    in $\mathscr{C}$, pertanto per il Lemma di Zorn esiste un ideale $M$ massimale
+    in $\mathcal{F}$. Mostriamo che $M$ è un ideale primo di $A$. Siano $a, b \in A$
+    tali che $ab \in M$, supponiamo per assurdo $a \notin M$ e $b \notin M$,
+    allora $M$ è contenuto strettamente negli ideali $(M, a), (M, b)$. Poiché
+    $M$ è massimale in $\mathcal{F}$, esistono $h, k \in \NN$ tali che $x^k \in (M, a)$
+    e $x^h \in (M, b)$, da cui
+    \[
+        x^{h + k} \in (M, a)(M, b) \subseteq (M, a)\cap (M, b) \subseteq M
+    \]
+    che è assurdo in quanto $M$ è un elemento di $\mathcal{F}$. Pertanto 
+    $M$ è un ideale primo di $A$ che non contiene nessuna potenza di $x$, 
+    da cui segue la tesi.
+\end{proof}
+
+\begin{corollary}
+    Dati $A$ un anello commutativo con identità e $I\subseteq A$ un ideale, 
+    allora
+    \[
+        \bigcap_{\substack{P\supseteq I\\ P \subseteq A\text{ ideale primo}}}P
+    \]
+\end{corollary}
+
+\begin{proof}
+    Consideriamo l'omomorfismo di proiezione
+    \[
+        \pi: A\longrightarrow \faktor A I
+    \]
+    osserviamo che $\sqrt{I} = \pi^{-1}(\sqrt{0})$, dove $\sqrt{0}$ è il radicale di 
+    $0$ in $\faktor A I$. Per la \hyperref[prop2.9]{Proposizione2.9}
+    abbiamo
+    \[
+        \sqrt{I} = \pi^{-1}(\sqrt{0}) = \pi^{-1}\left(\bigcap_{\substack{
+            P\subseteq \faktor A I\\ P \text{ ideale primo}}} P\right) = 
+            \bigcap_{\substack{P\supseteq I\\P \subseteq A\text{ ideale primo}}}P
+    \]
+\end{proof}
+
+Grazie a questo risultato, possiamo classificare gli elementi invertibili 
+degli anelli di polinomi.
+
+\begin{proposition}
+    Se $A$ è un anello commutativo con identità allora 
+    \[
+        A[x]^* = \left\{p(x) = \sum_{i = 0}^n a_ix^i\mid n \in \NN,
+        a_0 \in A^*, a_i \in \sqrt{0}~\forall i \in \{1, \ldots, n\}\right\}
+    \]
+\end{proposition}
+
+\begin{proof}
+    Sia $X$ l'insieme definito come sopra. Consideriamo 
+    $p(x) = \displaystyle\sum_{i = 0}^n a_i x^i$ un elemento di $X$, poiché
+    $a_0 \in A^*$ possiamo scrivere 
+    \[
+        a_0^{-1}p(x) = 1 + \sum_{i = 1}^n a_i'x^i \qquad 
+        a_i' = \frac{a_i}{a_0}~\forall i \in \{1, \ldots,n\}
+    \]
+    poniamo $t = \displaystyle -\sum_{i = 1}^n a_i'x^i$. Notiamo che $t$ è
+    nilpotente in quanto tutti i coefficienti $a_i'$ sono nilpotenti e l'insieme
+    dei nilpotenti è un ideale. Fissiamo $n \in \NN$ tale che $t^n = 0$, 
+    dalla fattorizzazione 
+    \[
+        1 - t^n = (1 - t)\left(\sum_{i = 0}^{n - 1}t^i\right)
+    \]
+    otteniamo 
+    \[
+        1 = a_0^{-1}p(x)\left(\sum_{i = 0}^{n - 1}t^i\right)
+    \]
+    in particolare $p(x) \in A[x]^*$ e quindi $X \subseteq A[x]^*$.\newline
+    Viceversa, siano $f(x) = \displaystyle\sum_{i = 0}^n\alpha_ix^i$ un 
+    elemento di $A[x]^*$ e $g(x) = f(x)^{-1}$, allora $f(x)g(x) = 1$.
+    Notiamo che $\alpha_0 \in A^*$, infatti valutando i due polinomi in 0
+    abbiamo
+    \[
+        f(0)g(0) = a_0g(0) = 1
+    \]
+    Sia $P \subseteq A$ un ideale primo, $P[x]$ è un ideale primo di $A[x]$,
+    riduciamo l'espressione $f(x)g(x)$ modulo $P[x]$ tramite l'omomorfismo 
+    di proiezione
+    \[
+        \pi: A[x]\longrightarrow \faktor A P [x] \cong \faktor{A[x]}{P[x]}
+    \]
+    Abbiamo $\pi(f(x))\pi(g(x)) = \pi(1)$, cioè $\pi(f(x))$ è invertibile in 
+    $\faktor A P [x]$, da cui $\pi(f(x)) \in (\faktor A P)^*$ in quanto $\faktor A P$
+    è un dominio di integrità. Allora abbiamo $a_i \in P$ per $i \in \{1, \ldots, n\}$,
+    in particolare tali coefficienti sono contenuti nell'intersezione di tutti
+    gli ideali primi di $A$ per l'arbitrarietà di $P$, sono quindi nilpotenti
+    per la \hyperref[prop2.9]{Proposizione 2.9}. Vale quindi l'inclusione 
+    $A[x]^* \subseteq X$, da cui l'uguaglianza.
+\end{proof}
+
+\newpage
+
+\subsection{Interi di Gauss}
+
+Consideriamo l'anello degli Interi di Gauss $\ZZ[i] = \{a + ib\mid a, b \in \ZZ\}$,
+abbiamo visto che $\ZZ[i]$ è un dominio euclideo e la sua funzione grado è
+\[
+    N: \ZZ[i]\longrightarrow \NN: a + ib \longmapsto a^2 + b^2
+\]
+che chiamiamo \vocab{norma}. Notiamo che questa norma è il quadrato dell'usuale 
+norma complessa, pertanto è una funzione moltiplicativa. 
+
+\subsubsection{Elementi primi}
+
+\begin{lemma}
+    Il gruppo degli elementi invertibili di $\ZZ[i]$ è $\{1, -1, i, -i\}$.
+\end{lemma}
+
+\begin{proof}
+    Chiaramente $\{1, -1, i, -i\} \subseteq \ZZ[i]^*$, mostriamo quindi l'altra
+    inclusione. Sia $a + ib \in \ZZ[i]^*$, allora esistono $c, d \in \ZZ$
+    tali che $(a + ib)(c + id) = 1$, passando alle norme otteniamo l'equazione
+    \[
+        (a^2 + b^2)(c^2 + d^2) = 1
+    \]
+    da cui ricaviamo $a^2 + b^2 = c^2 + d^2 = 1$, quindi $a + bi \in \{1, -1, i, -i\}$.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma2.13}
+    Dato $p \in \ZZ$ un primo, se $p \equiv 3 \pmod 4$ allora $p$ è irriducibile
+    in $\ZZ[i]$.
+\end{lemma}
+
+\begin{proof}
+    Supponiamo per assurdo che $p$ sia irriducibile in $\ZZ[i]$, scriviamo quindi
+    la fattorizzazione
+    \[
+        p = (a + ib)(c + id)
+    \]
+    con entrambi i fattori non invertibili, passando alle norme otteniamo 
+    l'equazione
+    \[
+        p^2 = (a^2 + b^2)(c^2 + d^2)
+    \]
+    Poiché gli elementi invertibili di $\ZZ[i]$ coincidono con gli elementi di 
+    norma 1, abbiamo $a^2 + b^2 = c^2 + d^2 = p$. Quindi 
+    \[
+        a^2 + b^2 = p \equiv 3 \pmod 4
+    \]
+    ma questo è assurdo in quanto gli unici quadrati in $\Z4$ sono 0 e 1.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma2.14}
+    Dato $a + ib \in \ZZ[i]$, se $N(a + ib)$ è primo in $\ZZ$ allora $a + ib$
+    è irriducibile in $\ZZ[i]$.
+\end{lemma}
+
+\begin{proof}
+    Fattorizziamo $a + ib$ come 
+    \[
+        a + ib = (c + id)(e + if)
+    \]
+    passando alle norme otteniamo l'equazione
+    \[
+        a^2 + b^2 = (c^2 + d^2)(e^2 + f^2)
+    \]
+    Dato che $a^2 + b^2$ è primo in $\ZZ$ (quindi irriducibile in $\ZZ$)
+    abbiamo che almeno uno dei due fattori ha norma 1, cioè è invertibile e 
+    quindi $a + ib$ è irriducibile in $\ZZ[i]$.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma2.15}
+    Valgono i seguenti fatti:
+    \begin{enumerate}[(1)]
+        \item $1 + i$ è irriducibile in $\ZZ[i]$;
+        \item $\ZZ[i]$ e $(2)\ZZ[i] = (1 + i)^2\ZZ[i] = (1 - i)^2\ZZ[i]$;
+        \item $\displaystyle\frac{\ZZ[i]}{(1 + i)}\cong \FF_2$;
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}Mostriamo i tre fatti separatamente:
+    \begin{enumerate}[(1)]
+        \item poiché $N(1 + i) = 2$, per il \hyperref[lemma2.14]{Lemma 2.14} abbiamo 
+        che $1 + i$ è irriducibile in $\ZZ[i]$;
+        \item Notiamo che $2 = -i(1 + i)^2 = i(1 - i)^2$, pertanto 
+        \[
+        (2)\ZZ[i] = (1 + i)^2\ZZ[i] = (1 - i)^2\ZZ[i]
+        \]
+        \item Consideriamo l'isomorfismo 
+        \[
+            \varphi: \ZZ[i]\longrightarrow \frac{\ZZ[x]}{(x^2 + 1)}:
+            a + bi \longmapsto \overline{a + bx}
+        \]
+        tramite $\varphi$ abbiamo
+        \[
+            \frac{\ZZ[i]}{(1 + i)} \cong \frac{\ZZ[x]}{(x^2 + 1, 1 + x)}
+        \]
+        Notiamo che 2 è un elemento dell'ideale $(x^2 + 1, 1 + x)$, in quanto 
+        possiamo scrivere
+        \[
+            2 = x^2 + 1 - x(x + 1) + x + 1
+        \]
+        Pertanto
+        \[
+            \frac{\ZZ[i]}{(i + 1)} \cong \frac{\ZZ[x]}{(2, 1 + x)} \cong 
+            \frac{\faktor{\ZZ[x]}{(2)}}{\faktor{(2, 1 + x)}{(2)}} \cong 
+            \frac{\FF_2[x]}{(1 + x)} \cong \FF_2
+        \]
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    \label{lemma2.16}
+    Sia $p \in \ZZ$ un primo, se $p \equiv 1 \pmod 4$ allora $p = (a + bi)(a - bi)$
+    con $a + bi, a - bi \in \ZZ[i]$ primi e non associati.
+\end{lemma}
+
+\begin{proof}
+    Poiché $p \equiv 1 \pmod 4$ esiste $x \in \ZZ$ tale che $x^2 \equiv -1 \pmod p$,
+    da cui $p \mid x^2 + 1$. Fattorizziamo $x^2 + 1$ in $\ZZ[i]$ come 
+    \[
+        x^2 + 1 = (x + i)(x - i)
+    \]
+    notiamo che $p\nmid x + i$ e $p \nmid x - i$, pertanto $p$ non è primo in $\ZZ[i]$.
+    In particolare possiamo scrivere 
+    \[
+        p = (a + bi)(c + di)
+    \]
+    con $a + bi, c + di \in \ZZ[i] \setminus \ZZ[i]^*$. Passando alle norme 
+    abbiamo
+    \[
+        p^2 = (a^2 + b^2)(c^2 + d^2)
+    \]
+    da cui $a^2 + b^2 = c^2 + d^2 = p$ in quanto nessuno dei due fattori è 
+    invertibile. Abbiamo quindi 
+    \[
+        p = a^2 + b^2 = (a + bi)(a - bi)
+    \]
+    notiamo che $a + bi$ e $a - bi$ sono primi in $\ZZ[i]$ in quanto la loro 
+    norma è un primo di $\ZZ$. Supponiamo per assurdo che esista $u \in \ZZ[i]^*$
+    tale che $a + bi = u(a - bi)$, distinguiamo i vari casi:
+    \begin{itemize}
+        \item se $u = 1$ allora $a + bi = a - bi$, da cui $b = 0$ e quindi $p = a^2$,
+        che è assurdo in quanto $p$ è irriducibile in $\ZZ$;
+        \item se $u = -1$ allora $a + bi = -a + bi$, da cui $a = 0$ e quindi
+        $p = b^2$, che è assurdo in quanto $p$ è irriducibile in $\ZZ$;
+        \item se $u = i$ allora $a + bi = ai + b$, da cui $a = b$ e quindi $p = 
+        2a^2$, che è assurdo in quanto $p$ è dispari;
+        \item se $u = -i$ allora $a + bi = -ai - b$, da cui $a = -b$ e quindi
+        $p = 2a^2$, che è assurdo in quanto $p$ è dispari.
+    \end{itemize}
+    Pertanto $a + bi$ e $a - bi$ sono primi di $\ZZ[i]$ non associati.
+\end{proof}
+
+\begin{proposition}
+    Gli elementi primi di $\ZZ[i]$ sono, a meno di associati, tutti e soli
+    gli elementi della forma
+    \begin{itemize}
+        \item $1 + i$;
+        \item i primi $p$ di $\ZZ$ tali che $p \equiv 3 \pmod 4$;
+        \item $a + bi, a - bi \in \ZZ[i]$ tali che $a^2 + b^2 = p$ è un primo
+        di $\ZZ$ con $p \equiv 1 \pmod 4$.
+    \end{itemize}
+\end{proposition}
+
+\begin{proof}
+    Per quanto visto nei lemmi precedenti sappiamo che gli elementi della forma
+    descritta sopra sono tutti primi di $\ZZ[i]$, vediamo che effettivamente
+    non ne esistono altri.\newline
+    Sia $a + bi \in \ZZ[i]$ un primo, fattorizziamo in primi di $\ZZ$ la norma 
+    di $a + bi$
+    \[
+        a^2 + b^2 = \prod_{j = 1}^k p_j^{e_j}
+    \]
+    Poiché $a + bi \mid a^2 + b^2$ in $\ZZ[i]$, poiché primo si ha che esiste 
+    $j_0 \in \{1, \ldots, k\}$ tale che $a + bi \mid p_{j_0}$, distinguiamo tre casi:
+    \begin{itemize}
+        \item se $p_{j_0}\equiv 3 \pmod 4$ allora $p_{j_0}$ è irriducibile in 
+        $\ZZ[i]$, pertanto $a + bi$ è associato a $p_{j_0}$;
+        \item se $p_{j_0} \equiv 1 \pmod 4$ allora si fattorizza in $\ZZ[i]$ come 
+        \[
+              p_{j_0} = (c + di)(c - di)
+        \]
+        con $c + di, c - di$ primi, quindi irriducibili, di $\ZZ[i]$ non 
+        associati, pertanto $a + bi$ è associato a uno dei due;
+        \item se $p_{j_0} = 2$ allora $a + bi \mid -i(1 + i)^2$. Poiché $a + bi$
+        non è invertibile si ha $a + bi \mid 1 + i$, cioè $a + bi$ è 
+        associato a $1 + i$.
+    \end{itemize}
+\end{proof}
+
+
+\subsubsection{Quozienti di $\ZZ[i]$}
+
+Abbiamo visto che $\displaystyle\frac{\ZZ[i]}{(1 + i)} \cong \FF_2$, vogliamo
+determinare le classi di isomorfismo degli altri quozienti di $\ZZ[i]$ per 
+ideali primi. Osserviamo che tali quozienti sono campi, infatti in un PID tutti 
+gli ideali primi non nulli sono ideali massimali, pertanto il quoziente per 
+un ideale primo produce un campo. In alternativa possiamo notare che tali
+quozienti sono dei domini finiti, quindi dei campi.
+
+\begin{proposition}
+    Sia $p \in \ZZ$ un primo dispari:
+    \begin{enumerate}[(1)]
+        \item se $p \equiv 3 \pmod 4$ allora $\faktor{\ZZ[i]}{(p)}
+        \cong \FF_{p^2}$;
+        \item se $p \equiv 1 \pmod 4$ e $p = (a + bi)(a - bi)$ è la sua 
+        fattorizzazione in primi di $\ZZ[i]$ allora $\displaystyle\frac{\ZZ[i]}{(a + bi)}
+        \cong \FF_p$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    \begin{enumerate}[(1)]
+        Mostriamo i due fatti separatamente:
+        \item possiamo identificare in modo univoco gli elementi di 
+        $\faktor{\ZZ[i]}{(p)}$ con i resti della divisione per $p$, cioè
+        con l'insieme 
+        \[
+            \{a + bi \mid 0 \leq a \leq p - 1, 0 \leq b \leq p - 1\}
+        \]
+        che contiene $p^2$ elementi. Poiché il quoziente è un campo di cardinalità
+        $p^2$ si ha
+        \[
+            \faktor{\ZZ[i]}{(p)}\cong \FF_{p^2}
+        \]
+        \item poiché $p$ è un elemento dell'ideale $(a + bi)$, per il 
+        Secondo Teorema di Omomorfismo abbiamo 
+        \[
+            \frac{\ZZ[i]}{(a + bi)} \cong \frac{\faktor{\ZZ[i]}{(p)}}{\faktor{(a + bi)}{(p)}}
+        \]
+        Consideriamo solo la struttura di gruppo additivo, il quoziente 
+        $\faktor{\ZZ[i]}{(p)}$ è isomorfo, come gruppo, all'insieme
+        dei resti 
+        \[
+            \{a + bi \mid 0\leq a\leq p - 1, 0\leq b\leq p -1\}
+        \]
+        che è isomorfo a $\Zp\times\Zp$. Osserviamo che il quoziente
+        $\faktor{(a + bi)}{(p)}$ ha cardinalità 1, $p$, oppure $p^2$. Questa 
+        non può essere 1 in quanto altrimenti si avrebbe l'identità
+        \[
+            (a + bi) = ((a + bi)(a - bi))
+        \]
+        che non è vera in quanto $a + bi$ e $a - bi$ non sono associati. D'altra 
+        parte se fosse $p^2$ allora avremmo
+        \[
+            \frac{\faktor{\ZZ[i]}{(p)}}{\faktor{(a + bi)}{(p)}} = \{\overline{0}\}
+        \]
+        che sarebbe assurdo in quanto $a + bi$ non è invertibile. Pertanto 
+        abbiamo l'isomorfismo di gruppi
+        \[
+            \frac{\ZZ[i]}{(a + bi)} \cong \frac{\Zp \times \Zp}{\Zp} \cong \Zp
+        \]
+        Pertanto il quoziente è un anello di cardinalità $p$, da cui necessariamente
+        \[
+            \frac{\ZZ[i]}{(a + bi)} \cong \FF_p
+        \]
+    \end{enumerate}
+\end{proof}
+
+\begin{lemma}
+    \label{lemma2.19}
+    Siano $A$ un PID e $I\subseteq A$ un ideale. Se il quoziente $\faktor A I$
+    è finito allora vale 
+    \[
+        \left|\faktor{A}{I^n}\right| = \left|\faktor A I\right|^n
+    \]
+\end{lemma}
 
 \end{document}
