@@ -3281,7 +3281,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
 
 \newpage
 
-\subsubsection{Domini a ideali principali}
+\subsection{Domini a ideali principali}
 
 \begin{proposition}
     Sia $A$ un PID, ogni ideale primo diverso da $(0)$ di $A$ è un ideale 
@@ -3329,7 +3329,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
 
 \newpage
 
-\subsubsection{Operazioni tra ideali}
+\subsection{Operazioni tra ideali}
 
 Ricordiamo che in un anello commutativo con identità $A$, sono ben definite
 le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
@@ -3375,20 +3375,20 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     \label{prop2.9}
     Dato $A$ un anello commutativo con identità, allora
     \[
-        \sqrt{0} = \bigcap_{\substack{P\subseteq A\\ P \text{ ideale primo}}}P
+        \sqrt{(0)} = \bigcap_{\substack{P\subseteq A\\ P \text{ ideale primo}}}P
     \]
 \end{proposition}
 
 \begin{proof}
     Sia $X$ l'intersezione di tutti gli ideali primi di $A$. 
-    Se $x \in \sqrt{0}$ allora esiste $n \in \NN$ tale che $x^n = 0$, procediamo
+    Se $x \in \sqrt{(0)}$ allora esiste $n \in \NN$ tale che $x^n = 0$, procediamo
     per induzione su $n$. Se $n = 1$ allora $x = 0$, quindi $x$ è contenuto 
     in tutti gli ideali di $A$, in particolare in quelli primi. Se $n > 1$, 
     supponiamo che se $x^{n - 1} \in X$ allora $x \in X$.
     Per ogni ideale primo $P$, poiché $x^n = 0$ si ha che $x^n$ è contenuto nella
     loro intersezione, da cui almeno uno tra $x$ e $x^{n - 1}$ è un elemento
     di $X$. Se $x^{n - 1} \in X$ allora $x \in X$ per ipotesi induttiva, pertanto 
-    $\sqrt{0} \subseteq X$. Viceversa, mostriamo che se $x \notin \sqrt{0}$
+    $\sqrt{(0)} \subseteq X$. Viceversa, mostriamo che se $x \notin \sqrt{(0)}$
     allora esiste un ideale primo $P$ tale che $x \notin P$. Consideriamo 
     l'insieme
     \[
@@ -3397,7 +3397,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     \]
     notiamo che $\mathcal{F}$ è non vuoto in quanto contiene l'ideale nullo.
     Posta $\mathscr{C} = \{I_i\}$ una catena di ideali tali che $I_i \subseteq I_{i + 1}$,
-    poniamo
+    sia
     \[
         \mathcal{I} = \bigcup I_i
     \]
@@ -3434,11 +3434,11 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     \[
         \pi: A\longrightarrow \faktor A I
     \]
-    osserviamo che $\sqrt{I} = \pi^{-1}(\sqrt{0})$, dove $\sqrt{0}$ è il radicale di 
+    osserviamo che $\sqrt{I} = \pi^{-1}(\sqrt{(0)})$, dove $\sqrt{(0)}$ è il radicale di 
     $0$ in $\faktor A I$. Per la \hyperref[prop2.9]{Proposizione2.9}
     abbiamo
     \[
-        \sqrt{I} = \pi^{-1}(\sqrt{0}) = \pi^{-1}\left(\bigcap_{\substack{
+        \sqrt{I} = \pi^{-1}(\sqrt{(0)}) = \pi^{-1}\left(\bigcap_{\substack{
             P\subseteq \faktor A I\\ P \text{ ideale primo}}} P\right) = 
             \bigcap_{\substack{P\supseteq I\\P \subseteq A\text{ ideale primo}}}P
     \]
@@ -3489,8 +3489,8 @@ degli anelli di polinomi.
         \pi: A[x]\longrightarrow \faktor A P [x] \cong \faktor{A[x]}{P[x]}
     \]
     Abbiamo $\pi(f(x))\pi(g(x)) = \pi(1)$, cioè $\pi(f(x))$ è invertibile in 
-    $\faktor A P [x]$, da cui $\pi(f(x)) \in (\faktor A P)^*$ in quanto $\faktor A P$
-    è un dominio di integrità. Allora abbiamo $a_i \in P$ per $i \in \{1, \ldots, n\}$,
+    $\faktor A P [x]$, da cui otteniamo $\pi(f(x)) \in (\faktor A P)^*$ in quanto $\faktor A P$
+    è un dominio di integrità. Allora abbiamo $a_i \in P$ per ogni $i \in \{1, \ldots, n\}$,
     in particolare tali coefficienti sono contenuti nell'intersezione di tutti
     gli ideali primi di $A$ per l'arbitrarietà di $P$, sono quindi nilpotenti
     per la \hyperref[prop2.9]{Proposizione 2.9}. Vale quindi l'inclusione 
@@ -4010,4 +4010,240 @@ pertanto è riducibile in $A[x]$. Da questo si ricava che le classi di $\omega$
 e $\overline{\omega}$ nel quoziente $\faktor{A}{(x)}$ sono le radici della 
 classe del polinomio $\mu(x)$, che è assurdo in quanto $\mu(x)$ è irriducibile
 in $\FF_2[x]$ e in $\FF_3[x]$. Pertanto $A$ non è un dominio euclideo.
+
+\newpage
+
+\section{Campi}
+
+\subsection{Estensioni normali}
+
+Ricordiamo che un'estensione di campi algebrica $\faktor L K$ si dice 
+\vocab{normale} se per ogni immersione $\varphi: L\longhookrightarrow \ol{K}$
+tale che $\varphi_{\mid K} = id_K$ vale $\varphi(L) = L$. Diciamo che 
+l'estensione è \vocab{separabile} se il polinomio minimo su $K$ di ogni elemento
+di $K$ ha radici distinte nel suo campo di spezzamento. Diciamo anche che un 
+polinomio è separabile su $K$ se le sue radici in $\ol{K}$ sono tutte distinte. 
+Chiamiamo \vocab{estensione di Galois finita} un'estensione di campi finita che sia 
+normale e separabile. I campi che considereremo saranno sempre \vocab{campi perfetti},
+cioè tutte le estensioni saranno separabili.
+
+\begin{example}
+    $\faktor{\QQ(\sqrt[3]{2})}{\QQ}$ non è un'estensione normale di $\QQ$.
+    Infatti, poiché il polinomio minimo di $\sqrt[3]{2}$ su $\QQ$ è $\mu(x) = x^3 - 2$,
+    esistono 3 immersioni $\varphi_i: \QQ(\sqrt[3]{2})\longhookrightarrow \ol\QQ$
+    tali che $\varphi_{i\mid K} = id_K$, $i \in \{0, 1, 2\}$. Poiché il campo
+    $\QQ$ è fissato da $\varphi_i$, è sufficiente studiare l'immagine delle
+    radici di $\mu(x)$ tramite le immersioni: le possibili immagini di $\sqrt[3]{2}$
+    sono $\sqrt[3]{2}, \sqrt[3]{2}\zeta_3, \sqrt[3]{2}\zeta_3^2$. Poiché i 
+    tre campi $\QQ(\sqrt[3]{2}), \QQ(\sqrt[3]{2}\zeta_3), \QQ(\sqrt[3]{2}\zeta_3^2)$
+    sono diversi, l'estensione non è normale.
+\end{example}
+
+\begin{example}
+    $\faktor{\QQ(\sqrt{2})}{\QQ}$ è un'estensione normale di $\QQ$. Infatti,
+    poiché il polinomio minimo di $\sqrt{2}$ su $\QQ$ è $x^2 - 2$, abbiamo 
+    due immersioni $\varphi_1, \varphi_2:\QQ(\sqrt{2})\longhookrightarrow \ol\QQ$
+    che fissano $\QQ$ tali che $\varphi_1(\sqrt{2}) = \sqrt{2}$, 
+    $\varphi_2(\sqrt{2}) = -\sqrt{2}$. Pertanto le immagini di $\QQ(\sqrt 2)$
+    tramite le immersioni sono
+    \[
+        \varphi_1(\QQ(\sqrt 2)) = \{\varphi_1(a + b\sqrt 2)\mid a, b \in \QQ\} = 
+        \{a + b\sqrt 2\mid a, b \in \QQ\}
+    \]
+    \[
+        \varphi_2(\QQ(\sqrt 2)) = \{\varphi_2(a + b\sqrt 2)\mid a, b \in \QQ\} = 
+        \{a - b\sqrt 2 \mid a, b \in \QQ\}
+    \]
+    che sono uguali, quindi l'estensione è normale.
+\end{example}
+
+Se un'estensione $\faktor L K$ è normale possiamo definire il \vocab{Gruppo di Galois}
+di $\faktor L K$ come il gruppo delle immersioni $\varphi:L\longhookrightarrow \ol{K}$
+che fissano $K$. Questo coincide con il gruppo degli automorfismi di $L$
+che fissano $K$, e il suo ordine è pari al grado dell'estensione.
+
+\begin{remark}
+    Un'estensione quadratica è sempre un'estensione normale. Infatti se $K$ 
+    è un campo (perfetto) e $\alpha \in \ol{K}$ è tale che $\sqrt{\alpha}\notin K$,
+    allora $K(\alpha)$ è il campo di spezzamento del polinomio $x^2 - \alpha$.
+    Quindi $\faktor{K(\alpha)}{K}$ è normale e $\Gal(K(\alpha)/K) \cong \Z2$.
+\end{remark}
+
+Diamo qualche esempio di calcolo del gruppo di Galois di un'estensione.
+
+\begin{example}
+    Sia $L = \QQ(\sqrt 2, \sqrt 3)$ verifichiamo che $\faktor{L}{\QQ}$ è un'estensione 
+    normale e calcoliamo $\Gal(L/\QQ)$. $\faktor{L}{\QQ}$ è un'estensione 
+    normale in quanto $L$ è il campo di spezzamento del polinomio $(x^2 - 2)(x^2 - 3)$
+    su $\QQ$, pertanto è ben definito il gruppo di Galois dell'estensione, 
+    che ha ordine 4 in quanto $[L: \QQ] = 4$. Siano $\{1, \sqrt 2, \sqrt 3, \sqrt 6\}$
+    una $\QQ$-base di $L$ come spazio vettoriale e $\varphi \in \Gal(L/\QQ)$,
+    poiché $\varphi$ è in particolare un'applicazione lineare è sufficiente
+    determinare la sua immagine sulla base. Abbiamo quindi
+    \[
+        \varphi(\sqrt 2) = \pm\sqrt 2
+    \]
+    \[
+        \varphi(\sqrt 3) = \pm \sqrt 3
+    \]
+    \[
+        \varphi(\sqrt 6) = \varphi(\sqrt 2)\varphi(\sqrt 3)
+    \]
+    in particolare abbiamo al più 4 omomorfismi. D'altra parte $\Gal(L/\QQ)$
+    contiene esattamente 4 elementi, quindi questi sono tutti e soli gli automorfismi
+    del campo $L$ che fissano $\QQ$. Si verifica che questi omomorfismi, ad 
+    eccezione dell'identità, hanno ordine 2, pertanto $\Gal(L/\QQ) \cong \Z2\times\Z2$.
+\end{example}
+
+\begin{example}
+    Sia $L = \QQ(\sqrt[3]2, \zeta_3)$ il campo di spezzamento del polinomio 
+    $x^3 - 2$ su $\QQ$, $\faktor{L}{\QQ}$ è un'estensione normale di $\QQ$
+    e $[L: \QQ] = 6$. Esplicitando le radici del polinomio $x^3 - 2$,
+    abbiamo $L = \QQ(\sqrt[3]2, \sqrt[3]2\zeta_3, \sqrt[3]2\zeta_3^2)$.
+    Sappiamo dalla teoria che $\Gal(L/\QQ)$ si immerge in $S_3$, poiché 
+    sono entrambi gruppi finiti della stessa cardinalità si ha quindi 
+    $\Gal(L/\QQ)\cong S_3$.
+\end{example}
+
+\begin{definition}
+    Dato $p$ un numero primo, l'applicazione
+    \[
+        \Phi: \FF_{p^n} \longrightarrow \FF_{p^n}: x \longmapsto x^p
+    \]
+    si dice \vocab{automorfismo di Frobenius}
+\end{definition}
+
+L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n}$
+è un campo finito è sufficiente mostrare che è un omomorfismo iniettivo:
+\begin{itemize}
+    \item per ogni $x, y \in \FF_{p^n}$
+    \[
+        \Phi(xy) = (xy)^p = x^py^p = \Phi(x)\Phi(y)
+    \]
+    \[
+        \Phi(x + y) = (x + y)^p =\footnote{Per il Lemma del Binomio Ingenuo.} 
+        x^p + y^p = \Phi(x) + \Phi(y)
+    \]
+    pertanto $\Phi$ è un omomorfismo:
+    \item sia $x \in \ker\Phi$, allora
+    \[
+        \Phi(x) = x^p = 0 \iff x = 0
+    \]
+    in quanto il polinomio $t^p$ ha 0 come unica radice in $\FF_{p^n}$, 
+    pertanto $\Phi$ è iniettivo.
+\end{itemize}
+
+\begin{theorem}
+    Per ogni primo $p$, l'estensione $\faktor{\FF_{p^n}}{\FF_p}$ è normale e 
+    $\Gal(\FF_{p^n}/\FF_p) \cong \Zn$.
+\end{theorem}
+
+\begin{proof}
+    L'estensione $\faktor{\FF_{p^n}}{\FF_p}$ è normale in quanto $\FF_{p^n}$
+    è, per costruzione, il campo di spezzamento del polinomio $t^{p^n} - r$
+    su $\FF_p$, e il grado di tale estensione è $n$. Osserviamo che l'automorfismo
+    di Frobenius $\Phi$ è un elemento di $\Gal(\FF_{p^n}/\FF_p)$, infatti 
+    per ogni $x \in \FF_p$ vale $\Phi(x) = x^p = x$ per il Piccolo Teorema di Fermat.
+    L'ordine di $\Phi$ è $n$, infatti 
+    \[
+        \Phi^k = id_{\FF_{p^n}} \iff x^{p^k} = x~\forall x \in \FF_{p^n}
+    \]
+    e l'equazione è verificata se e solo se il polinomio $t^{p^k} - t$ ha almeno
+    $p^n$ radici, cioè se $k \geq n$. D'altra parte l'ordine di $\Phi$ deve 
+    dividere $n$, pertanto $\ord\Phi = n$. Quindi $\Phi$ è un generatore 
+    di $\Gal(\FF_{p^n}/\FF_p)$, chè è isomorfo a $\Zn$.
+\end{proof}
+
+\subsection{Estensioni ciclotomiche}
+
+\begin{lemma}
+    \label{lemma3.8}
+    Dato $K$ un campo, il polinomio $x^n - 1$ è separabile su $K$ se e solo 
+    se $\ch{K} \nmid n$.
+\end{lemma}
+
+\begin{proof}
+    Per il Criterio della Derivata il polinomio $x^n - 1$ ha radici multiple
+    in $\ol{K}$ se e solo se $(x^n - 1, nx^{n - 1}) \neq 1$. Se $\ch K = 0$
+    allora $\QQ\subseteq K$ e le radici di 
+    $x^n - 1$ sono le $n$ radici complesse dell'unità, che sono tutte distinte.
+    Se $\ch K = p$, $p$ primo, allora $(x^n - 1, nx^{n - 1}) \neq 1$ se e solo
+    se $p \mid n$, in quanto in quel caso si ha $nx^{n - 1} = 0$.
+\end{proof}
+
+\begin{theorem}
+    Sia $\zeta_n\in \CC$ una radice primitiva $n$-esima dell'unità, allora
+    l'estensione $\faktor{\QQ(\zeta_n)}{\QQ}$ è normale e 
+    $\Gal(\QQ(\zeta_n)/\QQ)\cong \Zn^*$.
+\end{theorem}
+
+\begin{proof}
+    Poiché $\zeta_n$ è una radice primitiva dell'unità, l'insieme delle sue 
+    potenze coincide con l'insieme delle radici del polinomio $x^n - 1$\footnote{
+        Ricordiamo che l'insieme delle radici complesse di $x^n -1$ è un gruppo 
+        isomorfo a $\Zn$, i cui generatori sono le radici primitive.
+    },
+    pertanto $\faktor{\QQ(\zeta_n)}{\QQ}$ è normale in quanto $\QQ(\zeta_n)$
+    è il campo di spezzamento di $x^n - 1$ su $\QQ$. Per comodità suddividiamo 
+    la dimostrazione in passi:
+    \begin{itemize}
+        \item mostriamo che $[\QQ(\zeta_n):\QQ] \leq \phi(n)$. Un'immersione
+        $\psi \in \Gal(\QQ(\zeta_n)/\QQ)$ è univocamente determinata dall'immagine
+        di $\zeta_n$, inoltre $\psi(\zeta_n)$ è un elemento dell'insieme 
+        $\{\zeta_n^k\mid k = 0, \ldots, n - 1\}$ in quanto è radice di $x^n - 1$.
+        Supponiamo per assurdo che $\psi(\zeta_n) = \zeta_n^k$ con $d = (k, n)\neq 1$, 
+        allora
+        \[
+            \psi(\zeta_n^{\frac n d})\psi(\zeta_n)^{\frac n d} = \zeta^{k\frac n d} = 
+            \zeta^{\frac k d n} = 1
+        \]
+        da cui $\zeta_n^{\frac n d} = 1$, che è assurdo in quanto $\ord \zeta_n = n$.
+        Pertanto $\psi(\zeta_n) \in \{\zeta_n^k\mid k < n,~(n, k) = 1\}$, quindi
+        $[\QQ(\zeta_n):\QQ] \leq \phi(n)$;
+        \item siano $p$ un primo che non divide $n$, $f(x)$ e $g(x)$ i polinomi 
+        minimi su $\QQ$ rispettivamente di $\zeta_n$ e $\zeta_n^p$, osserviamo
+        che $f(x) \mid g(x^p)$ in quanto $g(\zeta_n^p) = 0$;
+        \item supponiamo per assurdo $f(x) \neq g(x)$, allora $f(x)$ e $g(x)$
+        sono coprimi in $\QQ[x]$ ed entrambi dividono $x^n - 1$, pertanto $f(x)g(x) \mid x^n -1$.
+        Per il Lemma di Gauss esistono $q(x), r(x) \in \ZZ[x]$ tali che 
+        \[
+            f(x)g(x)q(x) = x^n - 1\qquad f(x)r(x) = g(x^p)
+        \]
+        Riducendo modulo $p$ abbiamo 
+        \[
+            g(x)^p = g(x^p) = f(x)r(x)
+        \]
+        in $\FF_p[x]$. Pertanto se $\alpha \in \ol{\FF_p}$ è una radice di $f(x)$
+        allora è anche una radice di $g(x)$. Pertanto $\alpha$ è una radice
+        almeno doppia di $x^n - 1 \in \FF_p[x]$, che è assurdo in quanto $x^n -1$
+        è separabile su $\FF_p$ per il \hyperref[lemma3.8]{Lemma 3.8}. Pertanto 
+        $f(x) = g(x)$;
+        \item abbiamo quindi che $\zeta_n$ e $\zeta_n^p$ hanno lo stesso polinomio 
+        minimo su $\QQ$. Ripetendo lo stesso ragionamento con qualsiasi altro 
+        primo $q$ che non divide $n$ otteniamo che $\zeta_n$ e $\zeta_n^q$ 
+        hanno lo stesso polinomio minimo su $\QQ$, quindi questo è valido 
+        in generale per $\zeta_n$ e $\zeta_n^k$ con $(n, k) = 1$. In particolare
+        $\zeta_n^k$ è radice di $f(x)$ per ogni $k < n$ con $(n, k) = 1$, pertanto 
+        $\deg f \geq \phi(n)$;
+        \item poiché $\deg f = [\QQ(\zeta_n):\QQ] \leq \phi(n)$ abbiamo che 
+        effettivamente $\deg f = \phi(n)$, quindi $\#\Gal(\QQ(\zeta_n)/\QQ) = \phi(n)$.
+        Gli elementi di $\Gal(\QQ(\zeta_n)/\QQ)$ sono tutti e soli della forma
+        \[
+            \psi_k: \QQ(\zeta_n)\longrightarrow \ol{\QQ}: \zeta_n \longmapsto \zeta_n^k
+        \]
+        con $k < n$ e $(n, k) = 1$, inoltre $\psi_k\circ\psi_h = \psi_{kh} = \psi_{hk}$
+        in quanto 
+        \[
+            \psi_k(\psi_h(\zeta_n)) = \psi_k(\zeta_n^h) = \psi_k(\zeta_n)^h =
+            \zeta_n^{hk} = \zeta_n^{kh} = \psi_h(\zeta_n^k) = \psi_h(\psi_k(\zeta_n))
+        \]
+        abbiamo quindi un isomorfismo 
+        \[
+            \Psi: \Zn^* \longmapsto \Gal(\QQ(\zeta_n)/\QQ):k \longmapsto \psi_k
+        \]
+    \end{itemize}
+\end{proof}
+
+
+
 \end{document}
