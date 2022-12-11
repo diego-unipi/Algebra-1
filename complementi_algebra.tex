@@ -3392,7 +3392,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     allora esiste un ideale primo $P$ tale che $x \notin P$. Consideriamo 
     l'insieme
     \[
-        \mathcal{F} = \{I \subseteq A \mid I \text{ ideale }, x^n \notin I
+        \mathcal{F} = \{I \subseteq A \mid I \text{ ideale}, x^n \notin I
         ~\forall n \in \NN\}
     \]
     notiamo che $\mathcal{F}$ è non vuoto in quanto contiene l'ideale nullo.
@@ -3495,6 +3495,42 @@ degli anelli di polinomi.
     gli ideali primi di $A$ per l'arbitrarietà di $P$, sono quindi nilpotenti
     per la \hyperref[prop2.9]{Proposizione 2.9}. Vale quindi l'inclusione 
     $A[x]^* \subseteq X$, da cui l'uguaglianza.
+\end{proof}
+
+\begin{proposition}
+    Siano $A$ un anello commutativo con identità e $I, J, K \subseteq A$ ideali.
+    Valgono i seguenti fatti:
+    \begin{enumerate}[(1)]
+        \item se $I + J + K = A$ allora $I^n + J^n + K^n = A$ per ogni $n \geq 1$;
+        \item se $I + J = J + K = I + K = A$ allora $IJ + JK + IK = A$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Mostriamo i due fatti separatamente:
+    \begin{enumerate}[(1)]
+        \item poiché $I + J + K = A$ esistono $i \in I, j \in J, k \in K$ tali che $i + j + k = 1$.
+        Consideriamo la potenza 
+        \[
+            (i + j + k)^N = \sum_{x + y + z = N}\binom{N}{x, y, z}i^xj^yk^z\footnote{
+                Ricordiamo che $\displaystyle\binom{N}{x, y, z} = \frac{N!}{x!\ y!\ z!}$.
+            }
+        \]
+        Se $N \geq 3n$ osserviamo che $\max{x, y, z} \geq n$ per ogni $x, y, z \in \NN$
+        tali che $x + y + z = N$, pertanto scegliendo $N$ in questo modo abbiamo
+        che $(x + y + z)^N = 1$ è un elemento di $I^n + J^n + K^n$, quindi l'ideale
+        coincide con $A$;
+        \item dalle ipotesi esistono $i_1, i_2 \in I, j_1, j_2 \in J, k_1, k_2 \in K$
+        tali che 
+        \[
+            i_1 + j_1 = 1\qquad j_2 + k_1 = 1\qquad i_2 + k_2 = 1
+        \]
+        Per la proprietà di assorbimento degli ideali $IJ, JK, IK$, svolgendo 
+        i calcoli si ha
+        \[
+            1 = (i_1 + j_1)(j_2 + k_1)(i_2 + k_2) \in IJ + JK + IK
+        \]
+    \end{enumerate}
 \end{proof}
 
 \newpage
@@ -3880,5 +3916,98 @@ La cardinalità di questo quoziente è $N(z)$, infatti applicando il
     = N(z)\\
 \end{multline*}
 
+\newpage
 
+\subsection{Esempio di dominio non euclideo}
+
+Consideriamo l'anello $\displaystyle A = \ZZ\left[\frac{1 + \sqrt{-19}}{2}\right]$,
+vogliamo mostrare che non è un dominio euclideo. 
+
+\begin{proposition}
+    \[
+        \ZZ\left[\frac{1 + \sqrt{-19}}{2}\right] = 
+        \left\{a + b\frac{1 + \sqrt{-19}}{2}\Bigm| a, b \in \ZZ\right\}
+    \]
+\end{proposition}
+
+\begin{proof}
+    Sia $\alpha = \displaystyle\frac{1 + \sqrt{-19}}{2}$, il polinomio minimo di $\alpha$
+    su $\QQ$ è $\mu(x) = x^2 - x + 5$. Consideriamo l'omomorfismo di valutazione
+    \[
+        \varphi: \ZZ[x]\longrightarrow \CC: p(x) \longmapsto p(\alpha) 
+        \qquad \mathrm{Im\varphi} = \ZZ[\alpha]
+    \]
+    poiché $\varphi$ è la restrizione dell'usuale omomorfismo di valutazione
+    su $\QQ[x]$, che è un PID, abbiamo
+    \begin{multline*}
+        \ker \varphi = \ZZ[x] \cap \{f(x) \in \QQ[x]\mid f(\alpha) = 0\}
+        = \ZZ[x] \cap (x^2 - x + 5)\QQ[x] = (x^2 - x + 5)\ZZ[x]
+    \end{multline*}
+    dove l'ultima uguaglianza è giustificata dal fatto che $\mu(x)$ è un 
+    polinomio a coefficienti interi primitivo e per il Lemma di Gauss.
+    Pertanto per il Primo Teorema di Omomorfismo abbiamo 
+    \[
+        \frac{\ZZ[x]}{(x^2 - x + 5)} \cong \mathrm{Im\varphi} = 
+        \{a + b\alpha \mid a, b \in \ZZ\} = \ZZ[\alpha]
+    \]
+\end{proof}
+
+\begin{remark}
+    Il risultato appena visto non è un fatto ovvio. Consideriamo $\beta = 
+    \displaystyle 1 + \frac{\sqrt{3}}{2}$,
+    il suo polinomio minimo su $\QQ$ è $\displaystyle\mu(x) = x^2 - x - \frac 1 2$.
+    Ragionando in modo analogo a quanto fatto sopra, il nucleo della valutazione
+    in $\beta$ è 
+    \[
+        \ZZ[x] \cap \left(x^2 - x - \frac 1 2\right)\QQ[x] =(2x^2 - 2x - 1)\ZZ[x]
+    \]
+    E $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)} \cong \ZZ[\beta]$.
+    D'altra parte 
+    \[
+        \ZZ[\beta] \neq \{a + b\beta\mid a, b \in \ZZ\}
+    \]
+    in quanto il quoziente $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)}$
+    contiene delle classi di resto della forma $\overline{x^k}$ per ogni $k \in \NN$,
+    in quanto $x^k$ e $x^2 - x - 1$ sono coprimi in $\ZZ[x]$. Notiamo che
+    il risultato di sopra non è valido in questo caso in quanto il polinomio
+    minimo di $\beta$ non ha coefficienti interi.
+\end{remark}
+
+Mostriamo che $A$ non è un domino euclideo. Sia $\omega = 
+\displaystyle\frac{1 + \sqrt{-19}}{2}$, consideriamo l'applicazione
+\[
+    N: A \longrightarrow \NN: a + b\omega \longmapsto (a + b\omega)(a + b\overline{\omega}) =
+    a^2 + 5b^2 + ab
+\]
+$N$ è la restrizione all'anello $A$ dell'usuale norma su $\CC$,
+pertanto è moltiplicativa. Osserviamo inoltre che se $u \in A^*$ si ha 
+$N(u)= 1$, infatti se $v \in A$ è tale che $uv = 1$ allora $N(uv) = N(u)N(v) = 1$
+da cui $N(u) = N(v) = 1$ necessariamente. D'altra parte l'equazione 
+\[
+    a^2 + ab + 5b^2 = \left(a + \frac 1 2 b\right)^2 + \frac{19}{4} b^2 = 1
+\]
+ha soluzione se e solo se $a = \pm 1$ e $b = 0$, pertanto $A^* = \{-1, 1\}$.
+
+Supponiamo per assurdo che $A$ sia un dominio euclideo, cioè che esista
+un'applicazione 
+\[
+    \mathcal{N}: A\setminus \{0\} \longrightarrow \NN
+\]
+che rispetta gli assiomi di norma euclidea, ricordiamo che gli elementi 
+invertibili di $A^*$ sono gli elementi di norma $\mathcal{N}$ minima. 
+Consideriamo l'insieme $X = \{\mathcal{N}(x)\mid x \in A\setminus A^*\}$,
+poiché $X$ è un sottoinsieme non vuoto di $\NN$ esiste un elemento minimo 
+$m \in X$, sia $x \in A\setminus A^*$ tale che $\mathcal{N}(x) = m$.
+Per definizione di dominio euclideo, per ogni $a \in A$ esistono $q, r \in A$
+tali che $a = qx + r$, con $r = 0$ oppure $\mathcal{N}(r) < \mathcal{N}(x)$.
+Se $r \neq 0$ allora $r \in A^*$ per minimalità di $\mathcal{N}(x)$, pertanto 
+l'insieme dei possibili resti della divisione per $x$ è $\{0, 1, -1\}$.
+Abbiamo quindi che l'insieme $\{0, 1, -1\}$ è un insieme di rappresentanti, 
+possibilmente con ripetizioni, per gli elementi del quoziente $\faktor{A}{(x)}$,
+che è quindi isomorfo a $\FF_2$ oppure $\FF_3$.\newline
+Il polinomio $\mu(x) = x^2 - x + 5$ ha come soluzioni in $A$ $\omega$ e $\overline{\omega}$,
+pertanto è riducibile in $A[x]$. Da questo si ricava che le classi di $\omega$
+e $\overline{\omega}$ nel quoziente $\faktor{A}{(x)}$ sono le radici della 
+classe del polinomio $\mu(x)$, che è assurdo in quanto $\mu(x)$ è irriducibile
+in $\FF_2[x]$ e in $\FF_3[x]$. Pertanto $A$ non è un dominio euclideo.
 \end{document}
