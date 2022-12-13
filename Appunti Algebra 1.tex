@@ -4019,9 +4019,9 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
     se $[L:K] < +\infty$, diciamo che $\faktor{L}{K}$ è un'estensione \vocab{finita} (o di \vocab{grado finito}).
 \end{definition}
 
-\begin{proposition}[Grado di un'estensione]
+\begin{proposition}[Grado di un'estensione semplice]
     \label{3.7}
-    Data l'estensione $\faktor{L}{K}$ e $\alpha \in L$, allora:
+    Data l'estensione $\faktor{L}{K}$ e $\alpha \in L$, allora il grado dell'estensione semplice $K \subseteq K(\alpha)$ è dato da:
     \[ [K(\alpha) : K] = \begin{cases}
         +\infty & \text{se $\alpha$ è trascendente su $K$}\\
         \deg \mu_\alpha(x) & \text{se $\alpha$ è algebrico su $K$}
@@ -4046,7 +4046,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 \begin{proposition}
     [Proprietà delle torri di estensioni]
     \label{torri}
-    Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono finite, inoltre:
+    Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono finite e inoltre:
     \[ [F:K] = [F:L][L:K]
         \]
 \end{proposition}
@@ -4082,7 +4082,8 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 \end{proof}
 
 \begin{proposition}
-    [Proprietà del composto]
+    [Proprietà del composto di estensioni]
+    \label{3.9}
     Date due torri di estensioni di $K$, $K \subset L \subset FL$ e $K \subset F \subset FL$, con $[L:K] = m$ e $[F:K] = n$, allora $[FL:K] = d < +\infty$ e $[m,n] \mid d$.
 \end{proposition}
 
@@ -4110,15 +4111,15 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{proposition}[Estensione finita$\implies$algebrica]
     \label{3.11}
-    Ogni estensione finita è algebrica.
+    Ogni estensione di grado finito è algebrica.
 \end{proposition}
 
 \begin{proof}
-    Vogliamo verificare che $\forall \alpha \in L$, $\alpha$ è algebrico su $K$, abbiamo che:
+    Vogliamo verificare che $\forall \alpha \in L$, $\alpha$ è algebrico su $K$, abbiamo che la torre:
     \[ K \subseteq K(\alpha) \subseteq L
         \]
-    è finita per ipotesi, pertanto la sottoestensione $\faktor{K(\alpha)}{K}$ è a sua volta finita (volendo per il \hyperref[torri]{Teorema delle torri}),
-    quindi per la \hyperref[3.7]{Proposizione 3.7} $\alpha$ è algebrico su $K$, ed essendo vero per ogni $\alpha$, allora $L$ è un'estensione algebrica di $K$.
+    è finita per ipotesi ($[L : K] < +\infty$), pertanto la sottoestensione $K \subseteq K(\alpha)$ è a sua volta finita (volendo per il \hyperref[torri]{Teorema delle torri}),
+    quindi per la \hyperref[3.7]{Proposizione 3.7} $\alpha$ è algebrico su $K$ (poiché siamo nel caso di un'estensione semplice), ed essendo vero per ogni $\alpha$, allora $L$ è un'estensione algebrica di $K$.
 \end{proof}
 
 \begin{proposition}[Campo delle estensioni algebriche]
@@ -4131,19 +4132,19 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
     Verifichiamo che $A$ sia un campo; siano $\alpha,\beta \in A$, allora $[K(\alpha):K] <+\infty$ e $[K(\beta):K]<+\infty$, consideriamo la torre:
     \[ K \subseteq K(\alpha) \subseteq K(\alpha)(\beta) = K(\alpha,\beta)
         \]
-    la prima estensione è finita per ipotesi, mentre la seconda è finita in quanto estensione finita di una sottoestensione (essendo $\beta$ algebrico
-    su $K$, lo sarà anche su $K(\alpha)$, che è un insieme più grande). Essendo $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
+    la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.9]{Proposizione 3.9} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
+    Essendo dunque $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
     è algebrica, quindi tutti gli elementi $\alpha\pm\beta$, $\alpha\beta$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$, pertanto $A$ è un campo.
 \end{proof}
 
 \begin{remark}
-    Il viceversa della \hyperref[3.11]{Proposizione 3.11} è falso.
+    Il viceversa della \hyperref[3.11]{Proposizione 3.11} in generale è falso; non lo è ad esempio nel caso in cui l'estensione sia semplice, come visto nella \hyperref[3.7]{Proposizione 3.7}.
 \end{remark}
 
 \begin{example}
     [Estensione algebrica non finita]
-    Consideriamo l'estensione $\QQ \subset \CC$, e l'insieme $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, costruito come nella \hyperref[3.12]{Proposizione 3.12}
-    è un'estensione algebrica di $\QQ$. Verifichiamo che $[\overline\QQ:\QQ] = +\infty$, infatti, considerata la torre:
+    Consideriamo l'estensione $\QQ \subset \CC$, e l'insieme $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, costruito come nella \hyperref[3.12]{Proposizione 3.12},
+    che è un'estensione algebrica di $\QQ$. Verifichiamo che $[\overline\QQ:\QQ] = +\infty$; consideriamo la torre:
     \[ \QQ \subset \QQ(\sqrt[n]{2}) \subset \overline \QQ \qquad \forall n \geq 2
         \]
     l'estensione $\QQ \subset \QQ(\sqrt[n]{2})$ ha grado $n$, in quanto il suo polinomio minimo è il 2-Eisenstein:
@@ -4152,7 +4153,7 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
     per il \hyperref[torri]{Teorema delle torri}:
     \[ [\overline \QQ: \QQ] = [\overline \QQ: \QQ(\sqrt[n]{2})] [\QQ(\sqrt[n]{2}) : \QQ] \geq n \qquad \forall n \geq 2
         \]
-    dunque l'estensione $\faktor{\overline\QQ}{\QQ}$ ha grado $+\infty$.
+    dunque l'estensione $\QQ \subset \overline\QQ$ ha grado $+\infty$, in quanto ha grado maggiore di $n$ definitivamente.
 \end{example}
 
 \begin{remark}
@@ -4170,14 +4171,14 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
 \end{proposition}
 
 \begin{proof}
-    Possiamo dimostrare la tesi per induzione; per $n = 1$, la tesi è vera per la \hyperref[3.11]{Proposizione 3.11}. Supponiamo la tesi vera per $n-1$, abbiamo che:
+    Possiamo dimostrare la tesi per induzione; per $n = 1$, la tesi è vera per la \hyperref[3.7]{Proposizione 3.7}, in quanto abbiamo un'estensione semplice ed algebrica. Supponiamo la tesi vera per $n-1$, abbiamo che:
     \[ K(\alpha_1,\ldots,\alpha_n) = K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
         \]
     consideriamo la torre:
     \[ K \subset K(\alpha_1,\ldots,\alpha_{n-1}) \subset K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
         \]
-    dove la prima estensione è finita per ipotesi induttiva, mentre la seconda perché estensione semplice, dunque vale ancora la \hyperref[3.11]{Proposizione 3.11}, pertanto 
-    $L$ è finita.
+    dove la prima estensione è finita per ipotesi induttiva, mentre la seconda perché estensione semplice ed algebrica su un campo più piccolo, o alternativamente perché estensione composta di estensioni finite per quanto già detto, 
+    quindi vale \hyperref[3.9]{Proposizione 3.9}; pertanto per $\faktor{L}{K}$ è finita per ogni $n \in \NN$.
 \end{proof}
 
 \pagebreak
@@ -4186,6 +4187,7 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
     è vero che è finitamente generata:
     \[ L = \left<v_1,\ldots,v_n\right>_K = K(v_1,\ldots,v_n)
         \]
+    dunque si può affermare che \textbf{un'estensione è finita se e solo se è finitamente generata da elementi algebrici}.
 \end{remark}
 
 \begin{proposition}
@@ -4197,7 +4199,7 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
     \end{enumerate}
 \end{proposition}
 
-\begin{remark}
+\begin{remark}[Sulla definizione di estensione composta]
     Dati $L,M \subset \Omega$ sottocampi dello stesso campo $\Omega$, abbiamo che il composto è:
     \[ LM = L(M) = M(L)
         \]
@@ -4354,13 +4356,13 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
     dove $\varphi$ è un omomorfismo per il \hyperref[omo]{Primo Teorema di Omomorfismo}, ed è iniettivo (per quanto già visto nell'\hyperref[3.32]{Osservazione 3.32}) perché omomorfismo \textbf{non nullo} tra campi (ad esempio perché $1 \longmapsto 1$).
 \end{proof}
 
-Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\ol K$, essendo $\ol K$ algebricamente chiuso, allora il numero delle radici del polinomio, ciascuna contata 
+Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$, essendo $\overline K$ algebricamente chiuso, allora il numero delle radici del polinomio, ciascuna contata 
 con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$, a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple possiamo fare uso del criterio che segue.
 
 \begin{theorem}
 	[Criterio della Derivata]
 	\label{derivata}
-	Sia $f(x) \in K[x]$, $f(x)$, allora $f(x)$ ha radici multiple in $\ol K$ se e solo se $(f(x),f^{\prime}(x)) \ne 1$. Inoltre se $f(x)$ è irriducibile in $K[x]$, allora $f(x)$ ha radici multiple se e solo se $f^{\prime}(x) = 0$.
+	Sia $f(x) \in K[x]$, $f(x)$, allora $f(x)$ ha radici multiple in $\overline K$ se e solo se $(f(x),f^{\prime}(x)) \ne 1$. Inoltre se $f(x)$ è irriducibile in $K[x]$, allora $f(x)$ ha radici multiple se e solo se $f^{\prime}(x) = 0$.
 \end{theorem}
 
 \begin{proof}
@@ -4387,43 +4389,43 @@ Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il 
             \]
         dove $A$ UFD (essendo un ED), dunque per il \hyperref[gauss]{Lemma di Gauss} verificare che $f(x)$ è irriducibile in $K[x] = \Fp(t)[x]$ è equivalente a verificare che sia irriducibile in $A[x] = \Fp[t][x]$.
         In $A[x]$, essendo UFD vale il \hyperref[eisenstein]{Criterio di Eisenstein}, dunque $f(x)$ è irriducibile rispetto all'ideale $P = (t)$, che è primo in quanto massimale, infatti $\displaystyle\frac{A}{(t)} \cong \Fp$.
-        Inoltre se $\alpha \in \ol K$ è una radice di $f(x)$, abbiamo che $f(\alpha) = \alpha^p - t = \implies t = \alpha^p$, da cui:
+        Inoltre se $\alpha \in \overline K$ è una radice di $f(x)$, abbiamo che $f(\alpha) = \alpha^p - t = \implies t = \alpha^p$, da cui:
         \[ f(x) = x^p - \alpha^p = (x - \alpha)^p
             \]
-        dove nell'ultima uguaglianza abbiamo usato il lemma del Binomio Ingenuo, pertanto in realtà $f(x)$ ha un'unica radice in $\ol K$.
+        dove nell'ultima uguaglianza abbiamo usato il lemma del Binomio Ingenuo, pertanto in realtà $f(x)$ ha un'unica radice in $\overline K$.
     \end{itemize}
 \end{remark}
 
-Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, pertanto un polinomio irriducibile di $K[x]$ di grado $n$ avrà esattamente $n$ radici distinte in $\ol K$.
+Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, pertanto un polinomio irriducibile di $K[x]$ di grado $n$ avrà esattamente $n$ radici distinte in $\overline K$.
 
 \begin{proposition}[Numero di estensioni di $K(\alpha)$ a $\overline K$]
     \label{3.37}
-    Dato $\alpha \in \ol K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \ol K$ esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
-    \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    Dato $\alpha \in \overline K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \overline K$ esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
+    \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
 \end{proposition}
 
 \begin{remark}
     Abbiamo già visto che ciò è vero se $\varphi = id_K$, nella \hyperref[3.33]{Proposizione 3.33},
-    la nuova proposizione ci permette di contare il numero di estensioni da $K(\alpha)$ (estensione semplice) a $\ol K$ con un qualsiasi omomorfismo, ad esempio per $K = \QQ(\sqrt[3]{2})$ abbiamo:
-    \[ \varphi : K \varlonghookrightarrow \ol K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
+    la nuova proposizione ci permette di contare il numero di estensioni da $K(\alpha)$ (estensione semplice) a $\overline K$ con un qualsiasi omomorfismo, ad esempio per $K = \QQ(\sqrt[3]{2})$ abbiamo:
+    \[ \varphi : K \varlonghookrightarrow \overline K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
         \]
 \end{remark}
 
 \begin{proof}
     In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo:
-    \[ \widetilde{\varphi} : K[x] \longrightarrow \ol K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
     per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \widetilde{\varphi}(\mu(\alpha))(\beta) = 0$ ovvero se $\beta$
-    è una radice di $\varphi(\mu_\alpha(x))$, pertanto le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\ol K$. Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora
+    è una radice di $\varphi(\mu_\alpha(x))$, pertanto le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\overline K$. Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora
     $\varphi(\mu_\alpha(x))$ è irriducibile, inoltre, $\deg \mu_\alpha(x) = \varphi(\mu_\alpha(x))$ (poiché l'omomorfismo è iniettivo), pertanto, essendo il campo perfetto il numero di radici distinte di $\varphi(\mu_\alpha(x))$ è uguale al suo grado,
     e quindi a quello di $\mu_\alpha(x)$.
 \end{proof}
 
-\begin{corollary}[Numero di estensioni a $\ol K$ di un'estensione qualsiasi]
+\begin{corollary}[Numero di estensioni a $\overline K$ di un'estensione qualsiasi]
     \label{3.39}
-    Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \ol K$ immersione, esistono $n$ immersioni:
-    \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono $n$ immersioni:
+    \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
 \end{corollary}
 
@@ -4434,19 +4436,19 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
         \]
     con $[K(\alpha) : K] = m$ e $[E : K(\alpha)] = d$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$, essendo $n = md$, dunque, avendo supposto vera la tesi per $m < n$,
     $\varphi$ si estende:
-    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \ol K
+    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \overline K
         \]
-    Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \ol K$ si estende a sua volta per ipotesi induttiva:
-    \[ \varphi_{i1},\ldots,\varphi_{id} : E \varlonghookrightarrow \ol K
+    Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \overline K$ si estende a sua volta per ipotesi induttiva:
+    \[ \varphi_{i1},\ldots,\varphi_{id} : E \varlonghookrightarrow \overline K
         \]
-    dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \ol K$, ma $\varphi_{ij | K(\alpha)} = \varphi_i $, dunque $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi abbiamo trovato le $n$ estensioni.
+    dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ma $\varphi_{ij | K(\alpha)} = \varphi_i $, dunque $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi abbiamo trovato le $n$ estensioni.
 \end{proof}
 
 \newpage
 \subsection{Estensioni normali}
 
 \begin{definition}
-    Dato $\alpha \in \ol K$, diciamo che i \vocab{coniugati} di $\alpha$ su $K$ sono le radici del polinomio minimo di $\alpha$ su $K$. 
+    Dato $\alpha \in \overline K$, diciamo che i \vocab{coniugati} di $\alpha$ su $K$ sono le radici del polinomio minimo di $\alpha$ su $K$. 
 \end{definition}
 
 \begin{definition}
@@ -4459,8 +4461,8 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 Nella trattazione di teoria di campi di queste dispense considereremo soltanto estensioni separabili.
 
 \begin{example}
-    Sia $f(x) = x^3 - 2$, tale polinomio coincide con $\mu_{\sqrt[3]{2}/\QQ}(x)$, ovvero il polinomio minimo di $\alpha = \sqrt[3]{2}$ su $\QQ$, vogliamo studiare le immersioni di $\QQ(\alpha)$ in $\ol \QQ$:
-    \[ \varphi : \QQ(\alpha) \varlonghookrightarrow \ol \QQ \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
+    Sia $f(x) = x^3 - 2$, tale polinomio coincide con $\mu_{\sqrt[3]{2}/\QQ}(x)$, ovvero il polinomio minimo di $\alpha = \sqrt[3]{2}$ su $\QQ$, vogliamo studiare le immersioni di $\QQ(\alpha)$ in $\overline \QQ$:
+    \[ \varphi : \QQ(\alpha) \varlonghookrightarrow \overline \QQ \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
         \]
     dati i coniugati di $\alpha$ (dunque le radici di $\mu_{\alpha/\QQ}$): $\alpha$, $\alpha\zeta_3$, $\alpha\zeta_3^2$, il nostro omomorfismo deve mandare ogni radice in un'altra, dunque abbiamo più possibilità:
     \[ \varphi(\alpha) = \begin{cases}
@@ -4487,7 +4489,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     \[ [\QQ(\zeta_p) : \QQ] = \phi(p) = p - 1 
         \]
     Le immersion di $\faktor{\QQ(\zeta_p)}{\QQ}$ sono del tipo:
-    \[ \varphi_i : \QQ(\zeta_p) \longrightarrow \ol \QQ : \zeta_p \longmapsto \zeta_p^i \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
+    \[ \varphi_i : \QQ(\zeta_p) \longrightarrow \overline \QQ : \zeta_p \longmapsto \zeta_p^i \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
         \]
     ed abbiamo quindi $p - 1$ possibili immersioni, ancora una volta in accordo con la \hyperref[3.33]{Proposizione 3.33}, per cui abbiamo:
     \[ \varphi_i(\QQ(\zeta_p)) = \QQ(\varphi_i(\zeta_p)) = \QQ(\zeta_p^i) = \QQ(\zeta_p) \qquad \forall i \in \{1,\ldots,p-1\}
@@ -4498,7 +4500,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 
 \begin{definition}
     Un'estensione algebrica $\faktor{F}{K}$ si dice \vocab{normale} se:
-    \[ \forall \varphi : F \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{|F} = id_F
+    \[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|F} = id_F
         \]
     si ha che $\varphi(F) = F$, ovvero l'estensione viene fissata da ogni immersione del campo di partenza nella sua chiusura algebrica.
 \end{definition}
@@ -4509,7 +4511,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     \begin{itemize}
         \item $\QQ(\zeta_p)$ è un'estensione normale su $\QQ$.
         \item Detto $F = \QQ(\sqrt[3]{2},\zeta_3)$, allora l'estensione $\faktor{F}{\QQ}$ è normale, infatti data:
-        \[ \varphi : F \varlonghookrightarrow \ol \QQ \qquad \text{con} \qquad \varphi_{|F} = id_F
+        \[ \varphi : F \varlonghookrightarrow \overline \QQ \qquad \text{con} \qquad \varphi_{|F} = id_F
             \]
         con:
         \[ \varphi(\QQ(\sqrt[3]{2},\zeta_3)) = \QQ(\varphi(\sqrt[3]{2}),\varphi(\zeta_3)) =\footnote{Le immagini di entrambi gli elementi devono essere loro coniugati per quanto detto in precedenza.} \,\QQ(\sqrt[3]{2}\zeta_3^i,\zeta_3^j) = \QQ(\sqrt[3]{2},\zeta_3)
@@ -4532,13 +4534,13 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 \begin{proof}
     Verifichiamo le varie equivalenze:
     \begin{itemize}
-        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \ol K$ le radici di $F$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
+        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $F$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
         $\forall i \in \{1,\ldots,n\}$ consideriamo le immersioni:
-        \[ \varphi_i : K(\alpha_1) \varlonghookrightarrow K(\alpha_i) \subseteq \ol K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
+        \[ \varphi_i : K(\alpha_1) \varlonghookrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
             \]
         esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33}, inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K(\alpha_i)$ si estende ad $F$
         in tanti modi quanti il grado $[F : K(\alpha_1)]$, pertanto, fissata un'estensione di $\varphi_i$:
-        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \ol K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_1)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
+        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_1)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
         dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\widetilde{\varphi}_i$, otteniamo tutte le altre radici dentro $F$:
@@ -4555,7 +4557,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
         dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$, $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
         quindi $F = F_0$, per cui $F$ è proprio il campo di spezzamento dei polinomi della famiglia $\mathcal{F}$.
         \item \underline{\textbf{$(3)\implies (1)$}}: Consideriamo:
-        \[ \varphi : F \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{|K} = id_K
+        \[ \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
             \]
         vogliamo dimostrare che $\varphi(F) = F$, avendo per ipotesi che $F$ è il campo di spezzamento di:
         \[ \mathcal{F} = \{f_1(x),\ldots,f_k(x)\}
@@ -4591,12 +4593,12 @@ infatti si verifica facilmente che $\alpha_1,\alpha_2 \in K(\sqrt{\Delta}) = F$,
 
 \begin{proposition}
 [Proprietà delle estensione normali rispetto a composto ed intersezione]
-Date due estensioni $\faktor{F}{K}$ e $\faktor{L}{K}$ in una fissata chiusura algebrica $\ol K$ normali, allora $\faktor{FL}{K}$ e $\faktor{F \cap L}{K}$ sono normali.
+Date due estensioni $\faktor{F}{K}$ e $\faktor{L}{K}$ in una fissata chiusura algebrica $\overline K$ normali, allora $\faktor{FL}{K}$ e $\faktor{F \cap L}{K}$ sono normali.
 \end{proposition}
 
 \begin{proof}
     La proprietà del composto segue immediatamente dal fatto che l'immersione nella chiusura algebrica:
-    \[ \varphi : FL \longrightarrow \ol K \qquad \text{con} \qquad \varphi_{|FL} = id_K
+    \[ \varphi : FL \longrightarrow \overline K \qquad \text{con} \qquad \varphi_{|FL} = id_K
         \]
     è un omomorfismo, per cui:
     \[ \varphi(FL) =\footnote{Ciò deriva dal fatto che gli elementi di $FL$ sono combinazioni polinomiali degli elementi di $F$ e di $L$.} \varphi(F)\varphi(L) = FL
@@ -4610,12 +4612,12 @@ Date due estensioni $\faktor{F}{K}$ e $\faktor{L}{K}$ in una fissata chiusura al
 \begin{proposition}
 [Proprietà delle estensione normali rispetto alle torri]
 \label{3.50}
-Data una torre di estensioni $K \subset F \subset L$ in una fissata chiusura algebrica $\ol K$, se $\faktor{L}{K}$ è normale, allora $\faktor{L}{F}$ è normale.\footnote{In generale $\faktor{F}{K}$ non è normale.}
+Data una torre di estensioni $K \subset F \subset L$ in una fissata chiusura algebrica $\overline K$, se $\faktor{L}{K}$ è normale, allora $\faktor{L}{F}$ è normale.\footnote{In generale $\faktor{F}{K}$ non è normale.}
 \end{proposition}
 
 \begin{proof}
 Per ipotesi sappiamo che:
-\[ \forall \varphi : F \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{|F} = id_F
+\[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|F} = id_F
     \]
 essendo $K \subset F$, allora $id_F$ include già $id_K$, quindi $\varphi_{|F} = id_F \implies \varphi_{|K} = id_K$, pertanto $\faktor{L}{F}$ è normale.
 \end{proof}
@@ -4646,7 +4648,7 @@ essendo $K \subset F$, allora $id_F$ include già $id_K$, quindi $\varphi_{|F} =
 
 In queste dispense tratteremo soltanto il caso di estensioni di Galois finite.
 Poiché $\faktor{E}{K}$ è normale possiamo considerare l'insieme:
-\[ \{\varphi : E \varlonghookrightarrow \ol K| \varphi_{|K} = id_K\}
+\[ \{\varphi : E \varlonghookrightarrow \overline K| \varphi_{|K} = id_K\}
     \]
 considerando ora lo stesso insieme, restringendo l'insieme di arrivo delle $\varphi$ otteniamo:
 \[ \Aut_K E = \{\varphi : E \underset{\sim}{\longrightarrow} E| \varphi_{|K} = id_K\}
@@ -4678,7 +4680,7 @@ con:
 \end{proposition}
 
 \begin{proof}
-    Dette $\alpha_1,\ldots,\alpha_n$ le radici di $f(x)$ in $\ol K$, allora $F = K(\alpha_1,\ldots,\alpha_n)$, da cui si ha la torre:
+    Dette $\alpha_1,\ldots,\alpha_n$ le radici di $f(x)$ in $\overline K$, allora $F = K(\alpha_1,\ldots,\alpha_n)$, da cui si ha la torre:
     \[ K \subseteq K(\alpha_1) \subseteq F \implies n = [K(\alpha_1) : K] \mid [F : K] = \Big|\Gal\left(\faktor{F}{K}\right)\Big|
         \]
     dove la divisibilità segue ovviamente dal \hyperref[torri]{Teorema delle torri}. Consideriamo ora:
@@ -4703,7 +4705,7 @@ Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agis
 \[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) | \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
 infatti, essendo $[K(\alpha_1) : K] = n$, allora ho esattamente $n$ immersioni che permutano i coniugati (ognuna delle quali si può estendere ad $F$):
-\[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \ol K : \alpha_1 \longmapsto \alpha_1
+\[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_1
     \]
 e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 \end{remark}
@@ -4767,7 +4769,7 @@ le radici sono queste poiché, data la torre:
 le immersioni $\psi$ mandano $\alpha$ in una qualsiasi radice coniugata di $\mu_{\alpha}(x)$, per cui l'insieme:
 \[ \{\psi(\alpha)\}
     \]
-che, al variare delle immersioni $\psi$ di $\QQ(\alpha)$ in $\ol \QQ$, è l'insieme delle radici di $\mu_\alpha(x)$, dunque possiamo scrivere:
+che, al variare delle immersioni $\psi$ di $\QQ(\alpha)$ in $\overline \QQ$, è l'insieme delle radici di $\mu_\alpha(x)$, dunque possiamo scrivere:
 \[ \mu_\alpha(x) = \prod_{\psi}(x - \psi(\alpha))
     \]
 D'altra parte ogni immersione $\psi$ si estende ad uno $\varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right)$ e $\forall \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right)$, sappiamo che 
@@ -4795,9 +4797,9 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
 
 \begin{proof}
     Osserviamo che:
-    \[ \forall \varphi : \Fpn \varlonghookrightarrow \ol \Fp
+    \[ \forall \varphi : \Fpn \varlonghookrightarrow \overline \Fp
         \]
-    $\varphi(\Fpn)$ è un sottocampo di $\ol\Fp$ con $p^n$ elementi, e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
+    $\varphi(\Fpn)$ è un sottocampo di $\overline\Fp$ con $p^n$ elementi, e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
     pertanto l'estensione è normale.
 \end{proof}
 
@@ -4821,7 +4823,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
         \]
 \end{definition}
 
-\begin{theorem}
+\begin{theorem}[Gruppo di Galois di estensioni di campi finiti]
     Il gruppo di Galois $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, con $q = p^r$, è generato dall'automorfismo di Frobenius $\phi$ di $\F{q^d}$:
     \[ \Gal\left(\faktor{\F{q^d}}{\F{q}}\right) = \left<\phi\right>
         \]
@@ -4849,5 +4851,11 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
     \[ \Gal\left(\faktor{\F{q^d}}{\F{q}}\right) = \left<\phi\right>
         \]
 \end{proof}
+
+
+\newpage
+\subsection{Teorema dell'elemento primitivo}
+\newpage
+\subsection{Teorema di corrispondenza di Galois}
 
 \end{document}
