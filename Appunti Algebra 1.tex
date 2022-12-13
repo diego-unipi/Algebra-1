@@ -4213,13 +4213,13 @@ ottenendo in questo modo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{proof}
     Proviamo le due affermazioni:
-    \begin{enumerate}
+    \begin{enumerate}[(1)]
         \item La prima implicazione segue quasi immediatamente, infatti, se $\faktor{F}{K}$ è algebrica, allora $\forall \alpha \in F$, $\alpha$ è algebrico su $K$,
-            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$, inoltre, $F$ è algebrico su $L$ perché contiene $K$.\\
+            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$, inoltre, $F$ è algebrico su $L$ perché contiene $K$, dunque tutti gli elementi di $F$ sono già algebrici su $K$ e quindi lo saranno anche in un campo più grande.\\
             Viceversa sia $\alpha \in F$, per ipotesi sappiamo che $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche, quindi $\alpha$ è algebrico su $L$, dunque:
             \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \qquad f(x) = \sum_{i=0}^n a_ix^i
                 \]
-            consideriamo $L_0=K(a_0,\ldots,a_n)$, si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
+            consideriamo $L_0=K(a_0,\ldots,a_n)$ (estensione finitamente generata ed algebrica di $K$), si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
             \[ K \subset L_0 \subset L_0(\alpha)
                 \]
             dove la prima estensione è finitamente generata ed algebrica (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
@@ -4400,26 +4400,32 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 
 \begin{proposition}[Numero di estensioni di $K(\alpha)$ a $\overline K$]
     \label{3.37}
-    Dato $\alpha \in \overline K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \overline K$ esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
+    Dato $\alpha \in \overline K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
     \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
 \end{proposition}
 
 \begin{remark}
     Abbiamo già visto che ciò è vero se $\varphi = id_K$, nella \hyperref[3.33]{Proposizione 3.33},
-    la nuova proposizione ci permette di contare il numero di estensioni da $K(\alpha)$ (estensione semplice) a $\overline K$ con un qualsiasi omomorfismo, ad esempio per $K = \QQ(\sqrt[3]{2})$ abbiamo:
-    \[ \varphi : K \varlonghookrightarrow \overline K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
+    la nuova proposizione ci permette di contare il numero di estensioni di un omomorfismo da $K$ in $\ol K$ ad uno da $K(\alpha)$ in $\ol K$.
+    Ad esempio, dato $K = \QQ(\sqrt[3]{2})$ e l'omomorfismo:
+    \[ \varphi : K \varlonghookrightarrow \ol K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
         \]
+    ci chiediamo quanti sono gli omomorfismi:
+    \[ \varphi_i : K(\zeta_3) \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+        \]
+    cioè che quando ristretti a $K$ si comportano come $\varphi$.
 \end{remark}
 
 \begin{proof}
     In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo:
     \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
-    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \widetilde{\varphi}(\mu(\alpha))(\beta) = 0$ ovvero se $\beta$
-    è una radice di $\varphi(\mu_\alpha(x))$, pertanto le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\overline K$. Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora
-    $\varphi(\mu_\alpha(x))$ è irriducibile, inoltre, $\deg \mu_\alpha(x) = \varphi(\mu_\alpha(x))$ (poiché l'omomorfismo è iniettivo), pertanto, essendo il campo perfetto il numero di radici distinte di $\varphi(\mu_\alpha(x))$ è uguale al suo grado,
-    e quindi a quello di $\mu_\alpha(x)$.
+    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \varphi(\mu_\alpha(x))(\beta) = 0$, 
+    dunque applichiamo $\varphi$ ai coefficienti di $\mu_\alpha(x)$ (prima venivano lasciati fissi perché usavamo l'identità) e poi valutiamo il nuovo polinomio in $\beta$, pertanto $\beta$
+    deve essere una radice di $\varphi(\mu_\alpha(x))$, dunque le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\overline K$. \\
+    Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora $\varphi(\mu_\alpha(x))$ è irriducibile, inoltre, $\deg \mu_\alpha(x) = \varphi(\mu_\alpha(x))$ (poiché l'omomorfismo è
+    iniettivo), pertanto, essendo il campo perfetto il numero di radici distinte di $\varphi(\mu_\alpha(x))$ è uguale al suo grado, e quindi a quello di $\mu_\alpha(x)$.
 \end{proof}
 
 \begin{corollary}[Numero di estensioni a $\overline K$ di un'estensione qualsiasi]
@@ -4431,17 +4437,17 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 
 \begin{proof}
     La dimostrazione segue facilmente per induzione, infatti per $n = 1$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>1$ consideriamo
-    $\alpha \in E \setminus K$ per il quale si ha la torre:
+    $\alpha \in E \setminus K$ per il quale si ha la torre di estensioni:
     \[ K \subset K(\alpha) \subset E
         \]
-    con $[K(\alpha) : K] = m$ e $[E : K(\alpha)] = d$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$, essendo $n = md$, dunque, avendo supposto vera la tesi per $m < n$,
-    $\varphi$ si estende:
-    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \overline K
+    con $[K(\alpha) : K] = m$ e $[E : K(\alpha)] = d$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$,
+    essendo $n = md$ (in pratica stiamo supponendo di aver già messo nell'estensione almeno un nuovo elemento), dunque per la \hyperref[3.37]{Proposzione 3.37} $\varphi$ si estende in $m$ modi a $K(\alpha)$:
+    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
     Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \overline K$ si estende a sua volta per ipotesi induttiva:
-    \[ \varphi_{i1},\ldots,\varphi_{id} : E \varlonghookrightarrow \overline K
+    \[ \varphi_{i1},\ldots,\varphi_{1d} : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{ij|K(\alpha)} = \varphi_i
         \]
-    dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ma $\varphi_{ij | K(\alpha)} = \varphi_i $, dunque $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi abbiamo trovato le $n$ estensioni.
+    dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ovvero $md = n$ estensioni, con $\varphi_{ij | K(\alpha)} = \varphi_i $, per cui $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi tutte le $n$ estensioni funzionano.
 \end{proof}
 
 \newpage
@@ -4853,6 +4859,9 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
 \end{proof}
 
 
-
+%\newpage
+%\subsection{Teorema dell'elemento primitivo}
+%\newpage
+%\subsection{Teorema di corrispondenza di Galois}
 
 \end{document}
