@@ -4708,7 +4708,7 @@ con:
 
 \begin{remark}
 Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agisce fedelmente su $\{\alpha_1,\ldots,\alpha_n\}$. Inoltre tale azione è transitiva perché ha un'unica orbita:
-\[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) | \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
+\[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) \m \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
 infatti, essendo $[K(\alpha_1) : K] = n$, allora ho esattamente $n$ immersioni che permutano i coniugati (ognuna delle quali si può estendere ad $F$):
 \[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_1
@@ -4805,7 +4805,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
     Osserviamo che:
     \[ \forall \varphi : \Fpn \varlonghookrightarrow \overline \Fp
         \]
-    $\varphi(\Fpn)$ è un sottocampo di $\overline\Fp$ con $p^n$ elementi, e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
+    $\varphi(\Fpn)$ è un sottocampo di $\overline\Fp$ con $p^n$ elementi (essendo $\varphi$ iniettiva), e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
     pertanto l'estensione è normale.
 \end{proof}
 
@@ -4820,7 +4820,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
         \draw(Q4) to [bend right=45] (Q1) node[left, yshift=1.20cm, xshift=-0.5cm] {NOR.};
     \end{tikzpicture}
         \]
-    dunque, per la \hyperref[3.50]{Proposizione 3.50} tutte le estensioni di campi finiti sono normali.
+    dove per quanto detto $\faktor{\Fpn}{\Fp}$ è normale, dunque per la \hyperref[3.50]{Proposizione 3.50} tutte le estensioni di campi finiti sono normali.
 \end{remark}
 
 \begin{definition}
