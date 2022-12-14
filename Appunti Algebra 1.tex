@@ -4833,7 +4833,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
     Il gruppo di Galois $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, con $q = p^r$, è generato dall'automorfismo di Frobenius $\phi$ di $\F{q^d}$:
     \[ \Gal\left(\faktor{\F{q^d}}{\F{q}}\right) = \left<\phi\right>
         \]
-    con:
+    con $\phi$ automorfismo di Frobenius del campo $\F{q^d}$:
     \[ \phi : \F{q^d} \underset{\sim}{\longrightarrow} \F{q^d} : x \longmapsto x^q
         \]
 \end{theorem}
@@ -4845,23 +4845,298 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
     dove l'ultima uguaglianza segue dal fatto che $q = p^r$, dunque siamo in caratteristica $p$ e vale il Lemma del Binomio Ingenuo. Analogamente:
     \[ \phi(\alpha\beta) = (\alpha\beta)^q = \alpha^q \beta^q = \phi(\alpha)\phi(\beta) \qquad \forall \alpha,\beta \in \F{q^d} 
         \]
-    si verifica facilmente inoltre che è iniettivo e surgettivo. $\forall \alpha \in \F{q}$ si ha che $\phi(\alpha) = \alpha^q = \alpha$ (perché siamo in $\F{q}$ appunto), dunque
-    $\phi \in \Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, per definizione del gruppo di Galois. Osserviamo che per ipotesi $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$ è un gruppo di ordine $d$ e quindi 
+    si verifica facilmente inoltre che è iniettivo e surgettivo. $\forall \alpha \in \F{q}$ si ha che $\phi(\alpha) = \alpha^q = \alpha$ (perché stiamo considerando elementi di $\F{q}$), dunque $\phi$ è un automorfismo di $\F{q^d}$ che lascia fisso $\F{q}$, pertanto
+    $\phi \in \Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, per definizione. Osserviamo che per ipotesi $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$ è un gruppo di ordine $d$ e quindi 
     ovviamente $\ord \phi = k \mid d$; d'altra parte se $\phi^k = id$, $\forall \alpha \in \F{q^d}$ si ha che:
     \[ \phi^k(\alpha) = \alpha^{q^k} = \alpha
         \]
     cioè il polinomio $f(x) = x^{q^k} - x$ ha come radici tutti i $q^d$ elementi di $\F{q^d}$ e poiché $\F{q^d}$ è un campo finito abbiamo:
-    \[ \deg f(x) = q^k \geq q^d \implies k \geq d
+    \[ \deg f(x) = q^k \geq q^d = |\F{q^d}|\implies k \geq d
         \]
     da cui $k = d$ e quindi la tesi:
     \[ \Gal\left(\faktor{\F{q^d}}{\F{q}}\right) = \left<\phi\right>
         \]
 \end{proof}
 
+\begin{example}
+    Consideriamo $E = \faktor{\QQ(\sqrt{2},\sqrt{3})}{\QQ}$, abbiamo che le estensioni alla chiusura algebrica via identità:
+    \[ \varphi : E \varlonghookrightarrow \ol\QQ
+        \]
+    sono determinate dalle immagini di $\sqrt{2}$ e $\sqrt{3}$, dunque abbiamo:
+    \[ \varphi = \begin{cases}
+        \sqrt{2} \longmapsto \pm \sqrt{2} \\
+        \sqrt{3} \longmapsto \pm \sqrt{3}
+    \end{cases}
+        \]
+    da cui il diagramma:
+    \[      \begin{tikzpicture}
+		    \node (Q1) at (0,0) {$\QQ$};
+		    \node (Q2) at (1.5,1.5) {$\QQ(\sqrt{2})$};
+		    \node (Q3) at (0,3) {$E$};
+		    \node (Q4) at (-1.5,1.5) {$\QQ(\sqrt{3})$};
+		    \draw (Q1)--(Q2) node [pos=0.7, below,inner sep=0.25cm] {2};
+		    \draw (Q1)--(Q4) node [pos=0.7, below,inner sep=0.25cm] {2};
+		    \draw (Q3)--(Q4) node [pos=0.7, above] {};
+		    \draw (Q2)--(Q3) node [pos=0.3, above] {};
+		    \draw (Q1)--(Q3) node [pos=0.7, below, right,inner sep=0.25cm, yshift=-0.4cm] {$4$};
+		    \end{tikzpicture}
+        \]
+    dove il composto e le due estensioni semplici sono normali (perché di grado 2); le quattro immersioni possibili sono:
+    \[ id = \varphi_1 = \begin{cases}
+        \sqrt{2} \longmapsto  \sqrt{2} \\
+        \sqrt{3} \longmapsto  \sqrt{3}
+    \end{cases}
+    \quad
+    \varphi_2 = \begin{cases}
+        \sqrt{2} \longmapsto -\sqrt{2} \\
+        \sqrt{3} \longmapsto  \sqrt{3}
+    \end{cases}
+    \quad
+    \varphi_3 = \begin{cases}
+        \sqrt{2} \longmapsto  \sqrt{2} \\
+        \sqrt{3} \longmapsto  -\sqrt{3}
+    \end{cases}
+    \]\[
+    \varphi_4 = \begin{cases}
+        \sqrt{2} \longmapsto -\sqrt{2} \\
+        \sqrt{3} \longmapsto -\sqrt{3}
+    \end{cases}
+        \]
+    con $\varphi_i(E) = E$, $\forall i = 1,\ldots,4$. Il gruppo di Galois è dato da $\Z2\times\Z2$, poiché ha ordine 4, e tutti gli elementi, esclusa l'identità, hanno ordine 2.
+    Si verifica facilmente via contenimenti che $\QQ(\sqrt{2},\sqrt{3}) = \QQ(\sqrt{2} + \sqrt{3})$, tuttavia possiamo anche osservare a questo punto che, data la torre:
+    \[ \QQ \subseteq \QQ(\sqrt{2} + \sqrt{3}) \subseteq E
+        \]
+    di grado 4, abbiamo che:
+    \[ \varphi_1(\sqrt{2}+\sqrt{3}) = \sqrt{2} + \sqrt{3} \qquad \varphi_2(\sqrt{2}+\sqrt{3}) = -\sqrt{2} + \sqrt{3}
+        \]\[ \varphi_1(\sqrt{2}+\sqrt{3}) = \sqrt{2} - \sqrt{3} \qquad \varphi_1(\sqrt{2}+\sqrt{3}) = - \sqrt{2} - \sqrt{3}
+            \]
+    $\gamma = \sqrt{2}+\sqrt{3}$ ha quattro immagini distinte\footnote{Per essere precisi ciò significa che, data
+    la base $\{1,\sqrt2,\sqrt3,\sqrt6\}$ di $E$, per mezzo di questa si verifica che tutte e quattro quelle immagini hanno scrittura unica e distinta.}
+    attraverso le immersioni del gruppo di Galois, e mediante questo $\gamma$ viene mandato in suoi coniugati su $\QQ$;
+    dunque il polinomio minimo di $\gamma$ su $\QQ$ ha almeno grado 4, ma per la torre precedente ciò significa che $\QQ(\gamma) = E$.
+\end{example}
 
-%\newpage
-%\subsection{Teorema dell'elemento primitivo}
-%\newpage
-%\subsection{Teorema di corrispondenza di Galois}
+\begin{remark}
+    In questo caso abbiamo assunto direttamente che $\deg \mu_\gamma (x) = 4$, perché $\deg \mu_\gamma = \#\{\psi : \QQ(\gamma) \varlonghookrightarrow \ol\QQ\}$ e ogni $\psi$ si 
+    estende ad $E$, via:
+    \[ \varphi_i : E \varlonghookrightarrow \ol \QQ
+        \]
+    pertanto $\{\varphi_i(\gamma)\}$ è l'insieme dei coniugati di $\gamma$ su $\QQ$.
+\end{remark}
+
+\newpage
+\subsection{Teorema dell'elemento primitivo}
+\begin{theorem}
+    [Teorema dell'elemento primitivo]
+    \label{prim}
+    Sia $K$ un campo e sia $\faktor{E}{K}$ un'estensione finita (e separabile), allora $\faktor{E}{K}$ è semplice, cioè:
+    \[ \exists\gamma \in E : E = K(\gamma)
+        \] 
+\end{theorem}
+
+\begin{proof}
+    Distinguiamo due casi:
+    \begin{itemize}
+        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.16]{Proposizione 3.16}, ciò è equivalente al dire che $E$ è finitamente generata da 
+        elementi algebrici, $E = K(\alpha_1,\ldots,\alpha_n)$, dimostriamo per induzione che $\faktor{E}{K}$ è semplice. Per $n = 2$ (trattiamo solo di questo caso in quanto una volta dimostrata la tesi per $n = 2$, basterà
+        come al solito aggiungere un altro alla volta e procedere per induzione usando il caso $n = 2$ come fatto che rende vero il passo induttivo\footnote{Andrebbe dimostrato anche il caso $n = 1$, ma è banale.}) abbiamo $E = K(\alpha,\beta)$, sia $[E : K] = n$, allora per il \hyperref[3.39]{Corollario 3.35}:
+        \[ \exists \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = id_K
+            \]
+        sia $x$ un'indeterminata, consideriamo i polinomi $\alpha+\beta x$, possiamo definire il polinomio:
+        \[ F(x) = \prod_{i<j} (\varphi_i(\alpha)+x\varphi_i(\beta)-\varphi_j(\alpha)-x\varphi_j(\beta)) \in \ol K[x] \footnote{È come se applicassimo $\varphi_i$ al polinomio $\alpha + \beta x$ e poi vi sottraessimo $\varphi_j$ applicata allo stesso.}
+            \]
+        con $\displaystyle\deg F(x) \leq \binom{n}{2}$ e $F(x) \ne 0$ in quanto se un fattore fosse 0, quindi $\varphi_i(\alpha)+x\varphi_i(\beta) = \varphi_j(\alpha)+x\varphi_j(\beta)$, da cui $x(\varphi_i(\beta) - \varphi_j(\beta)) +\varphi_i(\alpha) - \varphi_i(\alpha) = 0$, per il principio di identità dei polinomi avremmo:
+        \[ \begin{cases}
+            \varphi_i(\beta) - \varphi_j(\beta) = 0\\
+            \varphi_i(\alpha) - \varphi_i(\alpha) = 0
+        \end{cases}
+        \qquad
+        \iff
+        \qquad
+        \begin{cases}
+            \varphi_i(\beta) = \varphi_j(\beta)\\
+            \varphi_i(\alpha) = \varphi_i(\alpha)
+        \end{cases}
+            \]
+        da cui $\varphi_i \equiv \varphi_j$ perché $E = K(\alpha,\beta)$ (infatti due immersioni in cui i generatori coincidono sono la stessa immersione), ma ciò è assurdo, in quanto avevamo assunto $i < j$. Dunque il polinomio è non nullo ed ha grado limitato, 
+        sappiamo quindi che $F(x)$ ha al più $\deg F(x)$ radici in $\ol K$ e poiché $K$ è un campo infinito, allora $\exists t \in K$ tale che $F(t) \ne 0$, dunque:
+        \[ F(t) = \prod_{i<j} (\underbrace{\varphi_i(\alpha)+t\varphi_i(\beta)}_{ = \varphi_i(\alpha+x\beta)}\underbrace{-\varphi_j(\alpha)-t\varphi_j(\beta)}_{ = -\varphi_j(\alpha+x\beta)}) \ne 0
+            \]
+        da ciò abbiamo che:
+        \[ \varphi_i(\alpha+t\beta) \ne \varphi_j(\alpha+t\beta) \qquad \forall i \ne j
+            \]
+        quindi $\gamma = \alpha+t\beta$ ha $n$ coniugati, pertanto $[K(\gamma) : K] = n \implies E = K(\gamma)$ (ovvero le due estensioni dello stesso campo hanno lo stesso grado e quindi coincidono).
+        \item \underline{\textbf{$K$ campo finito}}: Se $\faktor{E}{K}$ è finita, allora $E$ è finito, da cui, per la nota proprietà sui sottogruppi moltiplicativi di un campo finito, sia che $E^*$ è un 
+        sottogruppo moltiplicativo finito di $E$ ed è ciclico, $E^* = \left<\gamma\right>$, ma per un altro teorema noto da \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, si ha che $E = K(\gamma)$.
+        \end{itemize}
+\end{proof}
+
+\newpage
+\subsection{Teorema di corrispondenza di Galois}
+Data l'estensione di Galois (finita) $\faktor{L}{K}$ e $H < \Gal\left(\faktor{L}{K}\right)$ sottogruppo, definiamo la scrittura $L^H$ come:
+\[ L^H = \Fix(H) := \{ \alpha \in L | \varphi(\alpha) = \alpha, \forall \alpha \in H \} \subseteq L
+    \]
+ovvero il sottocampo\footnote{Andrebbe verificato che è un campo.} di $L$ di tutti gli elementi fissati da tutti i $K$-automorfismi del sottogruppo $H$. Si osserva che per tale sottocampo si ha che:
+\[ K \subseteq L^H \subseteq L
+    \]
+la seconda inclusione segue immediatamente dalla definizione, la prima deriva dal fatto che essendo i $K$-automorfismi in particolare delle immersioni di $L$ in $\ol K$ via identità (per come è definito il gruppo di Galois), allora almeno tutti gli elementi del campo $K$ devono essere fissati 
+per definizione.
+
+\begin{lemma}[Il campo fissato è quello base$\iff$fissiamo rispetto a tutto il gruppo di Galois]
+    \label{3.67}
+    Sia $\faktor{L}{M}$ un'estensione di Galois e $H < \Gal\left(\faktor{L}{M}\right)$, allora:
+    \[ M = L^H \iff H = \Gal\left(\faktor{L}{M}\right)
+        \]
+\end{lemma}
+
+\begin{proof}
+    Dimostriamo separatamente le due implicazioni:
+    \begin{itemize}
+        \item Supponiamo che $G = \Gal\left(\faktor{L}{M}\right)$ e dimostriamo che $L^G = M$. Se $M \subsetneq L^G$, allora $[L^G : M]>1$, quindi:
+        \[ \exists\varphi : L^G \longrightarrow \ol M \qquad \text{con} \qquad \varphi_{|M} = id_M
+            \]
+        con $\varphi \ne id$ in quanto il grado è maggiore di 1, per cui non c'è solo l'identità tra le immersioni; a questo punto sappiamo dalla \hyperref[3.39]{Proposizione 3.39} che l'immersione si può estendere ad 
+        un campo più grande, dunque sia:
+        \[ \widetilde{\varphi} : L \longrightarrow \ol M \qquad \text{con} \qquad \widetilde{\varphi}_{|L^G} = \varphi
+            \]
+        dove $\widetilde{\varphi}_{|M} = \varphi_{|M} = id$. D'altra parte abbiamo per ipotesi che $\faktor{L}{M}$ è normale, dunque $\widetilde{\varphi}(L) = L$, quindi:
+        $\widetilde{\varphi} \in \Gal\left(\faktor{L}{M}\right)$ (perché è un automorfismo che fissa puntualmente $L$ e si restringe all'identità su $M$), da ciò abbiamo che $\widetilde{\varphi}$ fissa puntualmente
+        $L^G$, che è assurdo perché avevamo supposto il grado dell'estensione maggiore di 1 (quindi con un elemento non fissato da $\widetilde{\varphi}$).
+        \item Essendo $\faktor{L}{M}$ un'estensione finita, per il \hyperref[prim]{Teorema dell'elemento primitivo} $L = M(\alpha)$, sia $H \leqslant G$ e consideriamo:
+        \[ f(x) = \prod_{\sigma \in H}(x - \sigma(\alpha)) \qquad \text{con} \qquad \deg f(x) = |H|
+            \]
+        si ha $f(x) \in L^H[x]$, poiché, se consideriamo $\rho \in H$, allora si ha:
+        \[ \rho f(x) = \prod_{\sigma \in H}(x - \rho(\sigma(\alpha))) = \prod_{\sigma \in H}(x - \sigma(\alpha)) = f(x)
+            \]
+        dove l'ultima uguagliando deriva dal fatto che anche $\rho$ è un elemento di $H$, e dunque l'unica cosa che fa è permutare gli elementi dell'insieme stesso. Se $H = G$
+        abbiamo $|G| = [L : M] = [M(\alpha) : M] = \deg \mu_{\alpha/M}(x) \geq \deg f(x) = |H|$, in quanto $f(x) \in L^M[x] = M[x]$ per ipotesi e $f(\alpha) = 0$, da cui $\mu_\alpha(x) \mid f(x)$ e quindi la tesi $H = G$.
+    \end{itemize}
+\end{proof}
+
+\begin{lemma}
+    \label{3.68}
+    Data l'estensione $\faktor{L}{K}$ di Galois e $H < \Gal\left(\faktor{L}{K}\right)$, sia $\sigma \in \Gal\left(\faktor{L}{K}\right)$, allora:
+    \[ L^{\sigma H \sigma^{-1}} = \sigma(L^H)
+        \]
+\end{lemma}
+
+\begin{proof}
+    Ricordando che $L^H = \{\alpha \in L | \varphi(\alpha) = \alpha, \forall \varphi \in H\}$, abbiamo che:
+\[ \sigma(L^H) = \{\sigma(\alpha) | \alpha \in L^H\} = \{\underbrace{\sigma(\alpha)}_{= \beta} | \varphi(\alpha) = \alpha, \forall \varphi \in H\}
+        \]
+da cui:
+\begin{multline*}
+    \sigma(L^H) = \{\beta \in L | (\varphi \circ \sigma^{-1})(\beta) = \sigma^{-1}(\beta), \forall \varphi \in H\} = \\ 
+    = \{\beta \in L | (\sigma \circ \varphi \circ \sigma^{-1})(\beta) = \beta, \forall \varphi \in H\} = L^{\sigma H \sigma^{-1}}
+\end{multline*}
+\end{proof}
+
+\begin{remark}
+    Poiché $L^H$ non è detto che $\sigma(L^H)$ faccia $L^H$, sarà tuttavia sempre una sottoestensione di $\faktor{L}{K}$, poiché $L$ è ancora fissato,
+    quindi in generale abbiamo:
+    \[\begin{tikzpicture}
+        \node (Q1) at (0,0) {$K$};
+        \node (Q2) at (1.5,1.5) {$\sigma(L^H)$};
+        \node (Q3) at (0,3) {$L$};
+        \node (Q4) at (-1.5,1.5) {$L^H$};
+        \draw (Q1)--(Q2) node [pos=0.7, below,inner sep=0.25cm] {};
+        \draw (Q1)--(Q4) node [pos=0.7, below,inner sep=0.25cm] {};
+        \draw (Q3)--(Q4) node [pos=0.7, above] {};
+        \draw (Q2)--(Q3) node [pos=0.3, above] {};
+        \draw (Q1)--(Q3) node [pos=0.7, below, right,inner sep=0.25cm, yshift=-0.4cm] {};
+        \end{tikzpicture}
+        \] 
+\end{remark}
+
+\begin{theorem}
+    [Teorema di Corrispondenza di Galois]
+    \label{corrG}
+    Data l'estensione di Galois (finita) $\faktor{L}{K}$ c'è una corrispondenza biunivoca tra l'insieme delle sottoestensioni di $\faktor{L}{K}$ e l'insieme dei sottogruppi di $\Gal\left(\faktor{L}{K}\right)$. Inoltre $H \triangleleft G$ se e solo se 
+    $\faktor{L^H}{K}$ è normale, ed in tal caso abbiamo:
+    \[ \Gal\left(\faktor{L^H}{K}\right) \cong \frac{\Gal\left(\faktor{L}{K}\right)}{\Gal\left(\faktor{L}{L^H}\right)} \cong \faktor{G}{H}
+        \]
+\end{theorem}
+
+\begin{proof}
+    Detto $\mathcal{E}_{L/K} = \{F | K \subseteq F \subseteq L\}$ l'insieme delle sottoestensioni di $\faktor{L}{K}$ e $\mathcal{G}_{L/K} = \left\{H < \Gal\left(\faktor{L}{K}\right)\right\}$ l'insieme dei sottogruppi del gruppo di Galois dell'estensione, allora essi sono in bigezione:
+    \[ \mathcal{E}_{L/K} \longleftrightarrow \mathcal{G}_{L/K}
+        \]
+    mediante le applicazioni:
+    \[ \alpha : \mathcal{E}_{L/K} \longrightarrow \mathcal{G}_{L/K} : F \longmapsto \Gal\left(\faktor{L}{F}\right) \footnote{Per la precisione, avendo assunto che estensione normale e di Galois siano la stessa cosa e che $\faktor{L}{K}$ sia di Galois, allora $\faktor{L}{F}$ è di Galois, mentre non è detto che $\faktor{F}{K}$ lo sia, per la \hyperref[3.50]{Proposizione 3.50}, ed essendo di Galois ciò ci permette di usare la corrispondenza scritta sopra.}
+        \]
+    e:
+    \[ \beta : \mathcal{G}_{L/K} \longrightarrow \mathcal{E}_{L/K} : H \longmapsto L^H
+        \]
+    Si osserva che essendo $L^H$ un campo e $K \subseteq L^H \subseteq L$ per definizione, allora $\beta$ è ben definita; osserviamo anche che si ha:
+    \[ \Gal\left(\faktor{L}{F}\right) < \Gal\left(\faktor{L}{K}\right)
+        \]
+    perché un automorfismo di $F$ che fissa puntualmente $F$, ovviamente fissa puntualmente anche il suo sottoinsieme $K$, dunque l'immagine via $\alpha di F$ sta in $\mathcal{G}$,
+    pertanto $\alpha$ è ben definita. Verifichiamo ora che $\alpha$  e $\beta$ descrivono una bigezione tra $\mathcal{E}_{L/K}$ e $\mathcal{G}_{L/K}$, mostriamo che sono una l'inversa dell'altra:
+    \[ \beta \circ \alpha (F) = \beta\left(\Gal\left(\faktor{L}{F}\right)\right) = L^{\Gal\left(\faktor{L}{F}\right)} = F \qquad \forall F \in \mathcal{E}_{F/K}
+        \]
+    dove l'ultima uguaglianza è garantita dal \hyperref[3.67]{Lemma 3.67}, in quanto stiamo considerando il campo fissato da tutto il gruppo di Galois $\Gal\left(\faktor{L}{F}\right)$. Viceversa:
+    \[ \alpha \circ \beta (H) = \alpha(L^H) = \Gal\left(\faktor{L}{L^H}\right) = H  \qquad \forall H \in \mathcal{G}_{F/K}
+        \]
+    infatti, $H < \Gal\left(\faktor{L}{L^H}\right)$ in quanto tutti gli elementi di $L^H$ sono fissati dagli elementi di $H$ per definizione e quindi $H \subseteq \Gal\left(\faktor{L}{L^H}\right)$; d'altra parte 
+    $\Gal\left(\faktor{L}{L^H}\right) \subseteq H$, perché, detto $L^H = M$, abbiamo $H \subseteq \Gal\left(\faktor{L}{M}\right)$ e $L^H = M$, dunque per il \hyperref[3.67]{Lemma 3.67} segue che $H = \Gal\left(\faktor{L}{L^H}\right)$.\\
+    Verifichiamo ora la seconda parte del teorema; sappiamo che $H \triangleleft \Gal\left(\faktor{L}{K}\right) \iff gHg^{-1} = H$, $\forall \sigma \in \Gal\left(\faktor{L}{K}\right)$ e per il 
+    \hyperref[3.68]{Lemma 3.68} abbiamo che:
+    \[ \sigma(L^H) = L^{\sigma H \sigma^{-1}} = L^H \qquad \forall \sigma \in \Gal\left(\faktor{L}{K}\right)
+        \]
+    e ciò è equivalente al dire che $\faktor{L^H}{K}$ è normale, perché, $\forall \psi : L^H \varlonghookrightarrow \ol K$, con $\psi_{|K} = id_K$, si ha che $\psi(L^H) = L^H$, poiché ogni $\psi$ si estende a $L$ e quindi:
+    \[ \forall \varphi \in \Gal\left(\faktor{L}{K}\right), \exists \sigma \in \Gal\left(\faktor{L}{K}\right) : \sigma_{|L^H} = \psi
+        \]
+    Infine, resta da verificare che $\Gal\left(\faktor{L^H}{K}\right) \cong \faktor{G}{H}$, consideriamo l'omomorfismo di restrizione:
+    \[ \Gamma : \Gal\left(\faktor{L}{K}\right) \twoheadlongrightarrow \Gal\left(\faktor{L^H}{K}\right) : \varphi \longmapsto \varphi_{|L^H}
+        \]
+    esso è ovviamente surgettivo perché ogni $\psi \in \Gal\left(\faktor{L^H}{K}\right)$ si estende ad $L$, ed inoltre:
+    \begin{multline*}
+        \ker \Gamma = \left\{\varphi \in \Gal\left(\faktor{L}{K}\right) \m \varphi_{|L^H} = id \right\} = \left\{\varphi \in \Gal\left(\faktor{L}{K}\right) \m \varphi(\alpha) = \alpha, \forall \alpha \in L^H\right\} = \\ 
+        = \Gal\left(\faktor{L}{L^H}\right) \cong H
+    \end{multline*}
+\end{proof}
+
+\begin{remark}
+    Il teorema ci dice che, data ad esempio la torre:
+    \[\begin{tikzpicture}
+        \node (Q1) at (0,-1.5) {$K$};
+        \node (Q3) at (0,0) {$L^H$};
+        \node (Q4) at (0,1.5) {$L$};
+        \draw (Q4)--(Q3) node [right, yshift=-0.75cm, red] {$\faktor{G}{H}$};
+        \draw (Q1)--(Q3) node [right, yshift=0.75cm, red] {$H$};
+        \draw(Q4) to [bend right=45] (Q1) node[left, yshift=1.20cm, xshift=-0.5cm, red] {$G$};
+    \end{tikzpicture}
+        \]
+    dove $G$ è il gruppo di Galois di $\faktor{L}{K}$. Essendo anche $\faktor{L^H}{L}$ di Galois 
+    per ipotesi, e detto $H$ il suo gruppo di Galois, allora, per il teorema precedente, se $H \triangleleft G$,
+    si ha che anche $\faktor{L^H}{K}$ è di Galois ed il suo gruppo di Galois è $\faktor{G}{H}$.
+\end{remark}
+
+\begin{proposition}[Proprietà della corrispondenza di Galois]
+Dati $H,K < \Gal\left(\faktor{L}{K}\right)$, allora valgono le seguenti:
+\begin{enumerate}[(1)]
+    \item $H \leqslant  S \iff L^H \supset L^S$.
+    \item $L^{H \cap S} = L^H L^S$.\footnote{Intendiamo il composto dei due campi.} 
+    \item $L^{\left<S,H\right>} = L^H \cap L^S$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Dimostriamo le affermazione:
+\begin{enumerate}[(1)]
+    \item "Ovvio".
+    \item Osserviamo che $H \cap S \subset H,S$, dunque $L^{H\cap S} \supset L^H,L^S$, per il punto (1); pertanto un campo che contiene entrambi i sottocampi 
+    conterrà anche il composto, $L^{H \cap S} \supset L^H L^S$. D'altra parte $L^H L^S \subset L \implies \exists N \leqslant \Gal\left(\faktor{L}{K}\right) $
+    tale che $L^H L^S = L^N$, per il \hyperref[corrG]{Teorema di corrispondenza di Galois}, inoltre:
+    \[ \Gal\left(\faktor{L}{L^N}\right) = N \subset \left(\underbrace{\Gal\left(\faktor{L}{L^H}\right)}_{= H \cap S} \cap \Gal\left(\faktor{L}{L^S}\right)\right)
+        \]
+    da cui $N \subset H \cap S \iff L^N \supset L^{H \cap S}$.
+    \item Abbiamo che $H \subseteq \left<H,S\right>$ e $S \subseteq \left<H,S\right>$, da cui $L^S,L^H \supseteq L^{\left<H,S\right>}$, da cui $L^{\left<H,S\right>} \subseteq L^H \cap L^S$.\\
+    Viceversa sia $\alpha \in L^H \cap L^S$, allora $\varphi(\alpha) = \alpha$, $\forall \varphi \in H,S$, quindi $\alpha$ è fissato dai generatori del gruppo $\left<H,S\right>$, pertanto $\alpha$ è fissato
+    da tutti gli elementi di $\left<H,S\right>$, da cui la tesi:
+    \[ L^H \cap L^S \subseteq L^{\left<H,S\right>}
+        \]
+\end{enumerate}
+\end{proof}
 
 \end{document}
