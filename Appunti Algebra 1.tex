@@ -448,7 +448,7 @@ In particolare $|\Cl_G(x)| \mid |G|$ e :
 \end{remark}
 
 \begin{remark}
-    Per un'azione di coniugio ha che $x \in Z(G)$ se e solo se $\Orb(x) = \{x\}$ (ovvero $\varphi_g(x) = x$, $\forall g \in G$).
+    Per un'azione di coniugio si ha che $x \in Z(G)$ se e solo se $\Orb(x) = \{x\}$ (ovvero $\varphi_g(x) = x$, $\forall g \in G$).
 \end{remark}
 
     \[ |G| = \sum_{x \in Z(G)} \frac{|G|}{|Z_G(x)|} + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}
@@ -507,10 +507,10 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
             \item Se $\forall H \lneq G$ si ha $p \nmid |H|$, allora si può applicare a $G$ la formula delle classi:
                 \[ pn = |G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus{Z(G)}} \frac{|G|}{|Z_G(x)|}
                     \]
-                ricordando il centralizzatore di $x$ è uno stabilizzatore (e quindi un sottogruppo di $G$), si ha $p \nmid |Z_G(x)|$, e quindi:
+                ricordando che il centralizzatore di $x$ è uno stabilizzatore (e quindi un sottogruppo di $G$), si ha $p \nmid |Z_G(x)|$, e quindi:
                     \[ p \Bigm| \sum_{x \in \mathcal{R}\setminus{Z(G)}} \frac{|G|}{|Z_G(x)|}
                         \]
-                da cui segue che $p \mid |Z(G)| = |G| - \sum pl_x$, per quanto premesso ($\forall H \lneq G$ si ha $p \nmid |H|$), ed essendo $Z(G) \leqslant G$, l'unica 
+                da cui segue che $p \mid |Z(G)| = \underbrace{|G|}_{= pn} - \sum pl_x$\footnote{Con $pl_x$ indichiamo le varie cardinalità del rapporto tra $|G|$ e $|Z_G(x)|$ al variare di $x$.}, per quanto premesso ($\forall H \lneq G$ si ha $p \nmid |H|$), ed essendo $Z(G) \leqslant G$, l'unica 
                 possibilità è che $Z(G) = G$ e vale il teorema poiché è già stato dimostrato per il caso in cui $G$ è abeliano.
         \end{itemize}
 \end{proof}
@@ -4346,7 +4346,7 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
 \begin{proof}
     Per quanto detto sull'omomorfismo di valutazione sappiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$, dunque, determinando un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il 
     \hyperref[omo]{Primo Teorema di Omomorfismo}. Sia dunque:
-    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \forall \beta \in \overline K
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta , p(x) \longmapsto p(\beta) \qquad \forall \beta \in \overline K
         \]
     per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$,
     quindi per tutte le radici di $\mu_\alpha(x)$ in $\overline K$ si ha che:
@@ -4654,7 +4654,7 @@ della stessa famiglia vista come polinomi in $F$.
     \draw (Q1)--(Q3) node [right, yshift=0.5cm] {\small$2$};
     \end{tikzpicture}
         \]
-    entrambe le estensioni sono normali, poiché di grado 2, ma la torre non è normale perché $\faktor{\QQ(\sqrt[4]{2})}{\QQ}$ contiene solo una radice di $x^4-2$.
+    entrambe le estensioni sono normali, poiché di grado 2, ma la torre non è normale perché $\faktor{\QQ(\sqrt[4]{2})}{\QQ}$ contiene solo due radici di $x^4-2$.
 \end{remark}
 
 \newpage
