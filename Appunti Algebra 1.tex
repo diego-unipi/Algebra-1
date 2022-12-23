@@ -1315,7 +1315,7 @@ definitiva e necessita di ulteriori revisioni.}
 \end{remark}
 
 \begin{theorem}
-    [I gruppi abeliani sono prodotto loro delle $p$-componenti]
+    [I gruppi abeliani sono prodotto delle loro $p$-componenti]
     \label{t:t1}
     Sia $G$ un gruppo abeliano, con $|G| = n = p_1^{e_1}\ldots p_s^{e_s}$, con i primi $p_i \ne p_j$, $\forall i \ne j$, allora:
         \[ G \cong G(p_1) \times \ldots \times G(p_s)
@@ -1359,7 +1359,7 @@ Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Grupp
     otteniamo i $p$-sottogruppi:
         \[ G \cong \underbrace{(\Z{2^3} \times \Z{2^2} \times \Z{2})}_{G(2)} \times \underbrace{(\Z3 \times \Z3)}_{G(3)} \times \underbrace{(\Z{5^2} \times \Z5)}_{G(5)}
             \]
-    e per il \hyperref[t:struttura]{Teorema Di Struttura} possiamo riscrivere il prodotto in ordine decrescente (rimettendo assieme $p$-gruppi cicli di ordine massimo):
+    e per il \hyperref[t:struttura]{Teorema Di Struttura} possiamo riscrivere il prodotto in ordine decrescente (rimettendo assieme $p$-gruppi ciclici di ordine massimo):
         \[ G \cong \Z{(2^3\cdot 3 \cdot 5^2)} \times \Z{(2^2 \cdot 3 \cdot 5)} \times \Z2
             \]
 \end{example}
@@ -1689,7 +1689,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
 
 \begin{corollary}
     Sia $G$ un gruppo abeliano finito, $\forall p$ primo tale che $p \mid |G|$, $G(p)$ è l'unico $p$-Sylow di $G$. Inoltre $G$ è il prodotto diretto dei suoi $p$-Sylow:
-        \[ G \cong G(p_1) \times \ldots \times G(p^r)
+        \[ G \cong G(p_1) \times \ldots \times G(p_r)
             \]
     con $|G| = \prod p_i^{e_i}$.
 \end{corollary}
@@ -1707,7 +1707,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
             \]
     inoltre, almeno uno tra $P_2$ e $P_3$ è normale. Se $P_3 \triangleleft G$ allora abbiamo un sottogruppo normale; se $P_3 \ntriangleleft G$, allora osserviamo che, per quanto detto al punto $(4)$
     del \hyperref[Sylow]{Teorema Di Sylow}, possiamo avere solo che $n_3 = 1,4$, ma non essendo $P_3$ normale $n_3$ non può essere $1$, dunque $n_3 = 4$;
-    da ciò segue che in $G$ ci sono $8$ elementi di ordine $3$\footnote{$4 \cdot 3 - 4 = 8$.} e $4$ elementi di ordine diverso da $4$, che quindi formano 
+    da ciò segue che in $G$ ci sono $8$ elementi di ordine $3$\footnote{$4 \cdot 3 - 4 = 8$.} e $4$ elementi di ordine diverso da $3$, che quindi formano 
     l'unico $2$-Sylow, equivalentemente $n_2 = 1$, e quindi $P_2$ è normale. Osserviamo che supponendo invece $P_2 \ntriangleleft G$, si arriva simmetricamente a concludere
     che $P_3 \triangleleft G$, pertanto uno dei due sottogruppi di Sylow è necessariamente normale e in entrambi i casi sono soddisfatte le ipotesi del \hyperref[t:1.78]{Teorema 1.78},
     segue che $G$ è un prodotto semidiretto tra $P_2$ e $P_3$. Studiamo separatamente i due casi.
