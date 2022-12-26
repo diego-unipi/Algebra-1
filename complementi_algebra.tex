@@ -13,7 +13,7 @@
 \newpage
 
 \tableofcontents
-\eject
+%\eject
 \newpage
 
 \section*{Ringraziamenti}
@@ -4251,27 +4251,110 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 \subsection{Gruppo di Galois del traslato e del composto}
 
 \begin{proposition}
+    \label{prop3.10}
     Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione
     finita, allora
     \begin{enumerate}[(1)]
         \item $\faktor{KL}{L}$ è un'estensione di Galois;
-        \item $\Gal(KL/L) \cong \Gal(K/L\cap K)$.
+        \item $\Gal(KL/L) \cong \Gal(K/K\cap L)$.
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    Mostriamo i due enunciati separatamente:
+    Consideriamo il seguente diagramma di campi, mostriamo i due enunciati separatamente
+    \begin{center}
+        \begin{tikzpicture}
+            \node (Q1) at (0,0) {$F$};
+            \node (Q2) at (-1.5, 1.5) {$K$};
+            \node (Q3) at (1.5, 1.5) {$L$};
+            \node (Q4) at (0,1) {$K\cap L$};
+            \node (Q5) at (0,3) {$KL$};
+
+            \draw (Q1)--(Q2);
+            \draw (Q1)--(Q3);
+            \draw (Q1)--(Q4);
+            \draw (Q2)--(Q5);
+            \draw (Q3)--(Q5);
+            \draw (Q4)--(Q5);
+            \draw (Q4)--(Q2);
+            \draw (Q4)--(Q3);
+        \end{tikzpicture}
+    \end{center}
     \begin{enumerate}[(1)]
         \item poiché $\faktor K F$ è un'estensione di Galois finita possiamo scrivere
         $K$ come $F(\alpha_1, \ldots, \alpha_n)$, dove $\alpha_1, \ldots, \alpha_n \in \ol{K}$
         sono le radici di un certo polinomio $p(x) \in F[x]$. Allora abbiamo che
         $KL = L(\alpha_1, \ldots, \alpha_n)$ è il campo di spezzamento di 
         $p(x)$ su $L$, pertanto $\faktor{KL}{L}$ è un'estensione di Galois;
-        \item consideriamo la mappa di restrizione
+        \item l'estensione $\faktor{K}{K\cap L}$ è di Galois, in quanto lo è $\faktor K F$. Consideriamo la mappa di restrizione
         \[
-            \Phi: \Gal(KL/K) \longrightarrow \Gal(K/L\cap K)
+            \Phi: \Gal(KL/L) \longrightarrow \Gal(K/K\cap L): \varphi\longmapsto \varphi_{\mid K}
         \]
-        
+        questa è ben definita in quanto ogni immersione $KL \longhookrightarrow \ol{F}$
+        che fissa $L$ fissa anche $K\cap L$. Chiaramente $\Phi$ è un omomorfismo di gruppi, mostriamo che in realtà è un isomorfismo.
+        $\Phi(\varphi) = id$ se e solo se $\varphi_{\mid K} = id$, ma questo è possibile se e solo se $\varphi = id$ in quanto se 
+        $\varphi$ è la mappa identità su $K$ e su $L$ allora lo è anche sul composto $KL$, pertanto $\Phi$ è iniettivo. Mostriamo adesso
+        che è anche surgettivo. Sia $H = \mathrm{Im}\Phi$, il sottocampo di $K$ fissato da $H$ è
+        \[
+            K^H = \{x \in K \mid \psi(x) = x~\forall \psi \in H\}
+        \]
+        Poiché $H$ contiene le restrizioni a $K$ degli elementi di $\Gal(KL/L)$, si ha
+        \begin{multline*}
+            K^H = \{x \in K \mid \psi(x) = x~\forall \psi \in \Gal(KL/L)\} = \\ = K\cap\{x \in KL \mid \psi(x) = x~\forall \psi \in \Gal(KL/L)\} =\\=
+            K \cap (KL)^{\Gal(KL/L)} = K\cap L
+        \end{multline*}
+        pertanto $H = \Gal(K/K\cap L)$ per il Teorema di Corrispondenza di Galois. Quindi $\Phi$ è surgettivo, di conseguenza è un isomorfismo
+        tra $\Gal(KL/L)$ e $\Gal(K/K\cap L)$.
+    \end{enumerate}
+\end{proof}
+
+\begin{corollary}
+    Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione finita, se $K\cap L = F$ allora $[KL:F] = [K:F][L:F]$.
+\end{corollary}
+
+\begin{proof}
+    Consideriamo il seguente diagramma di campi
+    \begin{center}
+        \begin{tikzpicture}
+            \node (Q1) at (0,0) {$F$};
+            \node (Q2) at (-1.5,1.5) {$K$};
+            \node (Q3) at (1.5,1.5) {$L$};
+            \node (Q4) at (0,3) {$KL$};
+            \draw (Q1)--(Q2);
+            \draw (Q1)--(Q3);
+            \draw (Q1)--(Q4);
+            \draw (Q2)--(Q4);
+            \draw (Q3)--(Q4);
+        \end{tikzpicture}
+    \end{center}
+    per il Teorema delle Torri abbiamo $[KL:F] = [KL:L][L:F]$. Poiché $\Gal(KL/L) \cong \Gal(K/K\cap L) = \Gal(K/F)$ per la 
+    \hyperref[prop3.10]{Proposizione 3.10}, in particolare $[KL:L] = [K:F]$, quindi $[KL:F] = [K:F][L:F]$.
+\end{proof}
+
+\begin{proposition}
+    Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois e:
+    \begin{enumerate}[(1)]
+        \item esiste un omomorfismo iniettivo $\Phi: \Gal(K_1K_2/F) \longhookrightarrow \Gal(K_1/F)\times\Gal(K_2/F)$;
+        \item $\Gal(K_1K_2/F)\cong \Gal(K_1/F)\times\Gal(K_2/F)$ se e solo se $K_1\cap K_2 = F$. 
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Poiché $\faktor{K_1}{F}$ e $\faktor{K_2}{F}$ sono estensioni normali, esistono $p_1(x), p_2(x) \in F[x]$ tali che $K_1$ e $K_2$ 
+    sono rispettivamente i campi di spezzamento di $p_1(x)$ e $p_2(x)$ su $F$. Allora il composto $K_1K_2$ è il campo di spezzamento  
+    del polinomio $p_1(x)p_2(x)$ su $F$, quindi $\faktor{K_1K_2}{F}$ è un'estensione di Galois.
+    \begin{enumerate}[(1)]
+        \item Consideriamo la mappa
+        \[
+            \Phi: \Gal(K_1K_2/F)\longrightarrow \Gal(K_1/F)\times \Gal(K_2/F): \varphi\longmapsto (\varphi_{\mid K_1}, \varphi_{\mid K_2})
+        \]
+        chiaramente $\Phi$ è un omomorfismo di gruppi, mostriamo quindi che il suo nucleo è banale. $\Phi(\varphi) = (id_{K_1}, id_{K_2})$
+        se e solo se $\varphi_{\mid K_1} = id_{K_1}$ e $\varphi_{\mid K_2} = id_{K_2}$, ma allora $\varphi$ è l'identità anche sul composto
+        $K_1K_2$, pertanto $\Phi$ è iniettivo;
+        \item poiché i gruppi in questione sono finiti, è sufficiente mostrare che hanno la stessa cardinalità per concludere che sono isomorfi.
+        Per il Teorema delle Torri abbiamo $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$, d'altra parte $[K_1K_2:K_1] = [K_2:K_1\cap K_2]$ per
+        la \hyperref[prop3.10]{Proposizione 3.10}. Pertanto $|\Gal(K_1K_2/F)| = |\Gal(K_1/F)|\cdot |\Gal(K_2/F)|$ 
+        se e solo se $[K_2:K_1\cap K_2][K_1:F] = [K_1:F][K_2:F]$, cioè se e solo se $[K_2:K_1\cap K_2] = [K_2:F]$, ovvero $K_1\cap K_2 = F$.
     \end{enumerate}
 \end{proof}
 
