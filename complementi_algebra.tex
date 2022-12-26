@@ -1,6 +1,8 @@
 \documentclass[11pt]{scrartcl}
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
+\usepackage{graphicx}
+
 
 \begin{document}
 \title{Complementi di Algebra 1}
@@ -1177,7 +1179,7 @@ quindi due casi:
 
 \begin{soln}
     Sia $G$ un gruppo di ordine 15, poiché 5 è un primo che divide $|G|$
-    esiste $h \in G$ tale che $\ord(h) = 15$ per il \hyperref[teorema1.44]{Teorema di Cauchy}.
+    esiste $h \in G$ tale che $\ord(h) = 5$ per il \hyperref[teorema1.44]{Teorema di Cauchy}.
     Inoltre, posto $H = \langle h\rangle$, abbiamo che $[G:H] = 3$ e quindi,
     dato che 3 è il più piccolo primo che divide $|G|$, $H$ è un sottogruppo 
     normale di $G$. Mostriamo che $H \subseteq Z(G)$, questo è equivalente a 
@@ -1191,7 +1193,7 @@ quindi due casi:
     \]
     Poiché $H \cong \Z5$, abbiamo $\Aut(H)\cong (\Z5)^* \cong \Z4$, d'altra 
     parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |H|) = 1$, pertanto
-    $|\mathrm{Im}\varphi = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
+    $|\mathrm{Im}\varphi| = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
     Diamo adesso due modi per concludere l'esercizio:
     \begin{enumerate}[(1)]
         \item osserviamo che se $G$ è un gruppo abeliano, cioè se $Z(G) = G$,
@@ -3425,7 +3427,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     Dati $A$ un anello commutativo con identità e $I\subseteq A$ un ideale, 
     allora
     \[
-        \bigcap_{\substack{P\supseteq I\\ P \subseteq A\text{ ideale primo}}}P
+        \sqrt{I} = \bigcap_{\substack{P\supseteq I\\ P \subseteq A\text{ ideale primo}}}P
     \]
 \end{corollary}
 
@@ -3435,7 +3437,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
         \pi: A\longrightarrow \faktor A I
     \]
     osserviamo che $\sqrt{I} = \pi^{-1}(\sqrt{(0)})$, dove $\sqrt{(0)}$ è il radicale di 
-    $0$ in $\faktor A I$. Per la \hyperref[prop2.9]{Proposizione2.9}
+    $0$ in $\faktor A I$. Per la \hyperref[prop2.9]{Proposizione 2.9}
     abbiamo
     \[
         \sqrt{I} = \pi^{-1}(\sqrt{(0)}) = \pi^{-1}\left(\bigcap_{\substack{
@@ -3611,7 +3613,7 @@ norma complessa, pertanto è una funzione moltiplicativa.
     Valgono i seguenti fatti:
     \begin{enumerate}[(1)]
         \item $1 + i$ è irriducibile in $\ZZ[i]$;
-        \item $\ZZ[i]$ e $(2)\ZZ[i] = (1 + i)^2\ZZ[i] = (1 - i)^2\ZZ[i]$;
+        \item $(2)\ZZ[i] = (1 + i)^2\ZZ[i] = (1 - i)^2\ZZ[i]$;
         \item $\displaystyle\frac{\ZZ[i]}{(1 + i)}\cong \FF_2$;
     \end{enumerate}
 \end{lemma}
@@ -4140,7 +4142,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 
 \begin{proof}
     L'estensione $\faktor{\FF_{p^n}}{\FF_p}$ è normale in quanto $\FF_{p^n}$
-    è, per costruzione, il campo di spezzamento del polinomio $t^{p^n} - r$
+    è, per costruzione, il campo di spezzamento del polinomio $t^{p^n} - t$
     su $\FF_p$, e il grado di tale estensione è $n$. Osserviamo che l'automorfismo
     di Frobenius $\Phi$ è un elemento di $\Gal(\FF_{p^n}/\FF_p)$, infatti 
     per ogni $x \in \FF_p$ vale $\Phi(x) = x^p = x$ per il Piccolo Teorema di Fermat.
@@ -4151,7 +4153,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
     e l'equazione è verificata se e solo se il polinomio $t^{p^k} - t$ ha almeno
     $p^n$ radici, cioè se $k \geq n$. D'altra parte l'ordine di $\Phi$ deve 
     dividere $n$, pertanto $\ord\Phi = n$. Quindi $\Phi$ è un generatore 
-    di $\Gal(\FF_{p^n}/\FF_p)$, chè è isomorfo a $\Zn$.
+    di $\Gal(\FF_{p^n}/\FF_p)$, che è isomorfo a $\Zn$.
 \end{proof}
 
 \subsection{Estensioni ciclotomiche}
@@ -4244,6 +4246,33 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
     \end{itemize}
 \end{proof}
 
+\newpage
 
+\subsection{Gruppo di Galois del traslato e del composto}
+
+\begin{proposition}
+    Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione
+    finita, allora
+    \begin{enumerate}[(1)]
+        \item $\faktor{KL}{L}$ è un'estensione di Galois;
+        \item $\Gal(KL/L) \cong \Gal(K/L\cap K)$.
+    \end{enumerate}
+\end{proposition}
+
+\begin{proof}
+    Mostriamo i due enunciati separatamente:
+    \begin{enumerate}[(1)]
+        \item poiché $\faktor K F$ è un'estensione di Galois finita possiamo scrivere
+        $K$ come $F(\alpha_1, \ldots, \alpha_n)$, dove $\alpha_1, \ldots, \alpha_n \in \ol{K}$
+        sono le radici di un certo polinomio $p(x) \in F[x]$. Allora abbiamo che
+        $KL = L(\alpha_1, \ldots, \alpha_n)$ è il campo di spezzamento di 
+        $p(x)$ su $L$, pertanto $\faktor{KL}{L}$ è un'estensione di Galois;
+        \item consideriamo la mappa di restrizione
+        \[
+            \Phi: \Gal(KL/K) \longrightarrow \Gal(K/L\cap K)
+        \]
+        
+    \end{enumerate}
+\end{proof}
 
 \end{document}
