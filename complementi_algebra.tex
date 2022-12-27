@@ -3097,7 +3097,11 @@ $S$ è una parte moltiplicativa di $\ZZ$, infatti
 Per quanto già visto, sappiamo che $S^{-1}\ZZ$ è un anello contenente
 un unico ideale massimale, detto anche \vocab{anello locale}. Più precisamente,
 tale ideale è $S^{-1}\ZZ \setminus (S^{-1}\ZZ)^*$ e il gruppo degli elementi
-invertibili è $(S^{-1}\ZZ)^* = S^{-1}P$. Inoltre, gli ideali di $S^{-1}\ZZ$
+invertibili è
+\[
+    (S^{-1}\ZZ)^* = \left\{\frac a s \Bigm| a, s \in S\right\}
+\] 
+Inoltre, gli ideali di $S^{-1}\ZZ$
 sono tutti della forma $S^{-1}(m)$ con $(m)\subseteq \ZZ$ un ideale, e vale 
 \[
     S^{-1}(m) = \left\{\frac{mk}{s} \Bigm|k \in \ZZ, s \in S\right\} = 
@@ -4174,6 +4178,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 \end{proof}
 
 \begin{theorem}
+    \label{teorema3.9}
     Sia $\zeta_n\in \CC$ una radice primitiva $n$-esima dell'unità, allora
     l'estensione $\faktor{\QQ(\zeta_n)}{\QQ}$ è normale e 
     $\Gal(\QQ(\zeta_n)/\QQ)\cong \Zn^*$.
@@ -4332,9 +4337,9 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 \end{proof}
 
 \begin{proposition}
-    Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois e:
+    Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois. Inoltre:
     \begin{enumerate}[(1)]
-        \item esiste un omomorfismo iniettivo $\Phi: \Gal(K_1K_2/F) \longhookrightarrow \Gal(K_1/F)\times\Gal(K_2/F)$;
+        \item esiste un'immersione $\Phi: \Gal(K_1K_2/F) \longhookrightarrow \Gal(K_1/F)\times\Gal(K_2/F)$;
         \item $\Gal(K_1K_2/F)\cong \Gal(K_1/F)\times\Gal(K_2/F)$ se e solo se $K_1\cap K_2 = F$. 
     \end{enumerate}
 \end{proposition}
@@ -4357,5 +4362,40 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
         se e solo se $[K_2:K_1\cap K_2][K_1:F] = [K_1:F][K_2:F]$, cioè se e solo se $[K_2:K_1\cap K_2] = [K_2:F]$, ovvero $K_1\cap K_2 = F$.
     \end{enumerate}
 \end{proof}
+
+\newpage
+
+\subsection{Gruppo di Galois di un polinomio di grado 3}
+
+Consideriamo un polinomio $f(x)$ di grado 3 che non sia completamente fattorizzabile in $\QQ[x]$, cioè che ha campo di spezzamento $K$ 
+su $\QQ$ diverso da $\QQ$. Dalla teoria sappiamo che 3 divide l'ordine di $\Gal(K/\QQ)$ e che questo è isomorfo a un sottogruppo di 
+$S_3$, pertanto $\Gal(K/\QQ) \cong S_3$ oppure $\Gal(K/\QQ) \cong \ZZ3$. Vediamo che entrambi i casi sono possibili con due esempi.
+\newline
+Consideriamo il polinomio $f(x) = x^3 - 2$, le sue radici in $\ol{\QQ}$ sono $\alpha_0 = \sqrt[3]{2}$, $\alpha_1 = \sqrt[3]2 \zeta_3$,
+$\alpha_2 = \sqrt[3]2\zeta_3^2$, dove $\zeta_3$ è una radice primitiva terza di 1. In particolare, il campo di spezzamento di $f(x)$ su $\QQ$
+è $K = \QQ(\alpha_0, \alpha_1, \alpha_2) = \QQ(\sqrt[3]2, \zeta_3)$. Infatti $\sqrt[3]2 = \alpha_0$ e $\zeta_3 = \frac{\alpha_1}{\alpha_0}$,
+quindi $\QQ(\sqrt[3]2, \zeta_3) \subseteq \QQ(\alpha_0, \alpha_1, \alpha_2)$, d'altra parte $\alpha_i = \sqrt[3](2)\zeta_3^i$ per 
+$i = 0, 1, 2$, pertanto si ha anche l'altra inclusione, da cui l'uguaglianza. Consideriamo il diagramma di campi 
+\begin{center}
+    \begin{tikzpicture}
+        \node (Q1) at (0,0) {$\QQ$};
+        \node (Q2) at (-1.5,1.5) {$\QQ(\sqrt[3]2)$};
+        \node (Q3) at (1.5, 1.5) {$\QQ(\zeta_3)$};
+        \node (Q4) at (0,3) {$K = \QQ(\sqrt[3]2, \zeta_3)$};
+
+        \draw (Q1)--(Q2);
+        \draw (Q1)--(Q3);
+        \draw (Q1)--(Q4);
+        \draw (Q2)--(Q4);
+        \draw (Q3)--(Q4);
+    \end{tikzpicture}
+\end{center}
+l'estensione $\faktor{\QQ(\sqrt[3]2)}{\QQ}$ ha grado 3 in quanto il polinomio minimo di $\sqrt[3]2$ su $\QQ$ è $x^3 - 2$, mentre 
+l'estensione $\faktor{\QQ(\zeta_3)}{\QQ}$ ha grado 2 in quanto il polinomio minimo di $\zeta_3$ su $\QQ$ è $x^2 + x + 1$. Dato 
+che i gradi sono coprimi, l'estensione $\faktor{K}{\QQ}$ ha grado 6, di conseguenza $\Gal(K/\QQ) \cong S_3$.
+\newline
+Adesso vogliamo determinare un polinomio il cui gruppo di Galois sia isomorfo a $\ZZ3$. Consideriamo l'estensione $\faktor{\QQ(\zeta_7)}{\QQ}$,
+dove $\zeta_7$ è una radice primitiva settima di 1, per il \hyperref[teorema3.9]{Teorema 3.9} $\Gal(\QQ(\zeta_7)/\QQ) \cong \Z7^* \cong \Z6$.
+
 
 \end{document}
