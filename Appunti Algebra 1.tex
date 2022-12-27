@@ -66,10 +66,10 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
                     \[ \varphi_g(xy) = g x y g^{-1} = gxg^{-1}gyg^{-1} = \varphi_g(x)\varphi_g(y)
                     \qquad \forall x,y \in G 
                         \]
-                ci resta da verificare che sia una bigezione. Partiamo dalla surgettività, vogliamo verificare che $\forall y \in G$, $\exists g \in G :$
+                ci resta da verificare che sia una bigezione. Partiamo dalla surgettività, vogliamo verificare che $\forall y \in G$, $\exists x \in G :$
                     \[ \varphi_g(x) = y
                         \]
-                in tal caso basta prendere $x = gyg^{-1} \in G$. Per l'iniettività si osserva:
+                in tal caso basta prendere $x = g^{-1}yg \in G$. Per l'iniettività si osserva:
                     \[ \ker \varphi_g = \{x \in G | \varphi_g(x) = e\} = \{x \in G | gxg^{-1} = e \iff x = e\} = \{e\}
                         \]
                 pertanto $\varphi_g$ è iniettivo.
