@@ -125,7 +125,7 @@ Dato $p$ un primo, allora \[
     Osserviamo che un elemento di $\Aut((\Zp)^n)$ deve necessariamente mandare 
     una base di $(\Zp)^n$ in un'altra base, e si dermina univocamente in questo 
     modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
-    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
+    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(v_1)$ può assumere
     qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
     l'immagine del primo vettore. Per quanto riguarda $v_2$, $\varphi(v_2)$
     può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$,
@@ -154,7 +154,7 @@ Dato $p$ un primo, allora \[
 
 \begin{remark}
     $D_n$ è un gruppo, in quanto l'applicazione identità che 
-    fissa tutti i vertici è un'isometria dal poligono in se stesso, la 
+    fissa tutti i vertici è un'isometria dal poligono in sé stesso, la 
     composizione di isometrie è un'isometria e un'isometria ammette sempre 
     un'inversa, che è anch'essa un'isometria.
 \end{remark}
@@ -354,9 +354,9 @@ contenuti in $H$.
     \]
     cioè $\langle sr^h\rangle \subseteq N_{D_n}(\langle r^k\rangle)$ e quindi
     $\langle r^k\rangle\cdot\langle sr^h\rangle$ è un sottogruppo di $D_n$\footnote
-    {Dati $K, N$ sottogruppi
-    di un gruppo $G$, se vale almeno una delle inclusioni $K \subseteq N_G(N)$,
-    $N \subseteq N_G(K)$ allora $HK = KH$, quindi $HK$ è un sottogruppo di $G$.}.
+    {Dati $H, K$ sottogruppi
+    di un gruppo $G$, se vale almeno una delle inclusioni $H \subseteq N_G(K)$,
+    $K \subseteq N_G(H)$ allora $HK = KH$, quindi $HK$ è un sottogruppo di $G$.}.
     Poiché $\langle r^k\rangle$ e $\langle sr^h\rangle$ sono contenuti in $H$
     abbiamo che $\langle r^k\rangle\cdot\langle sr^h\rangle \subseteq H$, inoltre
     \[|\langle r^k\rangle\cdot\langle sr^h\rangle| = \displaystyle\frac 1 2 |H|\cdot 2 = |H|\]
@@ -371,7 +371,7 @@ contenuti in $H$.
     Per $k \mid n$ e $0\leq h < k$, i sottogruppi $H_{k, h} = \langle r^k, sr^h\rangle$
     e $H = \langle r^k\rangle\cdot\langle sr^h\rangle$ coincidono. Infatti 
     $H_{k, h}\subseteq H$ in quanto $r^k, sr^h$ sono elementi di $H$, 
-    d'altra parte $H \subseteq H_{k, h}$ in quanto $H_{h, k}$ contiene tutti i 
+    d'altra parte $H \subseteq H_{k, h}$ in quanto $H_{k, h}$ contiene tutti i 
     prodotti finiti delle potenze di $r^k$ e $sr^h$, in particolare gli elementi di $H$.
 \end{remark}
 
@@ -464,7 +464,7 @@ tutti distinti.
     Infatti per ogni $\varphi \in \Aut(D_n)$ allora
     $\ord(r) = \ord(\varphi(r))$, da cui $|\langle\varphi(r)\rangle| = n$.
     Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
-    quindi $|\langle \varphi(r)\rangle| = n = 2$, che è assurdo in quanto $|D_n| \geqslant 6$.
+    quindi $|\langle \varphi(r)\rangle| = n = 2$, che è assurdo in quanto $n \geqslant 3$.
     Questo non è vero per $D_2$, che contiene una rotazione e due
     simmetrie: poiché $\Aut(D_2) \cong S_3$ esiste un $\psi \in \Aut(D_2)$ che manda 
     la rotazione in una riflessione.
@@ -492,8 +492,7 @@ $\langle r^k, sr^h\rangle$, consideriamo i coniugi \[
 \]e sia $x_1^{\pm 1}\ldots x_m^{\pm 1} \in H_{k, h} = \langle r^k, sr^h\rangle$, allora
 \[
     \varphi_s(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_s(x_1)^{\pm 1}\ldots \varphi_s(x_m)^{\pm 1}
-    \in \langle srs, r^hs^{-1}\rangle = \langle sr^ks, r^hs^{-1}\rangle = \langle
-    r^k, sr^{-h}\rangle
+    \in = \langle sr^ks^{-1}, r^hs^{-1}\rangle = \langle r^k, sr^{-h}\rangle
 \]
 \[
     \varphi_r(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_r(x_1)^{\pm 1}\ldots \varphi_r(x_m)^{\pm 1}
