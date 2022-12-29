@@ -786,10 +786,10 @@ Mostriamo che $\iota$ è ben definita e che è effettivamente un omomorfismo ini
         \ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K) \mid
         \iota(\varphi_1, \varphi_2) = id_{\Aut(H\times K)}\} = \\
         = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K)\mid 
-        (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)~\forall 
+        (\varphi_1\times\varphi_2)(g_1, g_2) = (\varphi_1(g_1), \varphi_2(g_2)) = (g_1, g_2)~\forall 
         (g_1, g_2) \in H\times K\}
     \end{multline*} Poiché gli unici elementi $\varphi_1 \in \Aut(H)$,
-    $\varphi_2 \in \Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
+    $\varphi_2 \in \Aut(K)$ tali che $\varphi_1(g_1) = g_1 ~\forall g_1 \in H$ e $\varphi_2(g_2) = g_2 ~\forall g_2 \in K$
     sono rispettivamente $id_{\Aut(H)}$, $id_{\Aut(K)}$ abbiamo \[
         \ker\iota = \{(id_{\Aut(H)}, id_{\Aut(K)})\} = \{id_{\Aut(H \times K)}\}
     \] 
@@ -872,9 +872,9 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
         S = \{(g_1, g_2) \in H\times K\mid (g_1, g_2)^n = (e_H, e_K)\}\]
     Osserviamo che $H\times \{e_K\} = S$, infatti 
     $H\times \{e_K\} \subseteq S$ in quanto tutti gli elementi di $H\times{e_K}$
-    hanno ordine che divide $n$. D'altra parte dato $(g_1, g_2) \in S$, se
+    hanno ordine che divide $n$. D'altra parte dato $(g_1, g_2) \in S$, si ha
     $\ord(g_1, g_2) \mid n$ allora $\ord(g_1)\mid n$ e $\ord(g_2)\mid n$, ma 
-    $\ord(g_2) \mid m$ per il Teorema di Lagrange, quindi $\ord(g_2) = 1$ e
+    $\ord(g_2) \mid m$ per il Teorema di Lagrange, quindi $\ord(g_2) = 1$ (cioè $g_2 = e_K$) e
     $S \subseteq H\times\{e_K\}$, da cui l'uguaglianza. Con un ragionamento
     analogo possiamo caratterizzare $\{e_H\} \times K$ come 
     \[
@@ -912,7 +912,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 \begin{proposition}
     Dato un gruppo $G$, valgono i seguenti fatti:
     \begin{enumerate}[(1)]
-        \item $G'$ è un sottogruppo caratteristico di $G$;
+        \item $G'$ è un sottogruppo caratteristico di $G$ (in particolare $G' \trianglelefteqslant G$);
         \item $\faktor{G}{G'}$ è un gruppo abeliano;
         \item dato $A$ un gruppo abeliano e $\varphi \in \Hom(G, A)$,
         allora $G' \subseteq \ker\varphi$.
@@ -928,12 +928,12 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
         Fissati $x, y \in\nolinebreak G$ abbiamo 
         \[
             \varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = \varphi(x)\varphi(y)
-            \varphi(x)^{-1}\varphi(y)^{-1} \in G'
+            \varphi(x)^{-1}\varphi(y)^{-1} = [\varphi(x), \varphi(y)] \in G'
         \]pertanto $\varphi(G') \subseteq G'$, da cui l'uguaglianza in quanto 
         $\varphi$ è bigettiva;
         \item dati $x, y \in G$, $xG'\cdot yG' = yG'\cdot xG'$ se e solo se 
-        $xyG' = yxG'$, che è equivalente a richiedere $xyx^{-1}y^{-1} \in G'$. 
-        Dato che effettivamente $xyx^{-1}y^{-1} = [x, y]$ è un elemento di $G'$
+        $xyG' = yxG'$, che è equivalente a richiedere $x^{-1}y^{-1}xy \in G'$. 
+        Dato che effettivamente $x^{-1}y^{-1}xy = [x^{-1}, y^{-1}]$ è un elemento di $G'$
         abbiamo che $\faktor{G}{G'}$ è abeliano;
         \item dati $x, y \in G$, abbiamo 
         \[
@@ -1058,12 +1058,8 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
         nello stabilizzatore di nessun elemento di $X$, cioè cerchiamo $g \in G$
         tale che
         \[
-            g \in \bigcap_{x \in X}\St(x)^{\mathcal{C}}
-        \]
-        che è equivalente a
-        \[
             g \notin \bigcup_{x \in X} \St(x) = \bigcup_{h \in G}h\St(x_0)h^{-1}
-        \]per il fatto precedente, fissato $x_0 \in G$. Osserviamo che 
+        \]per il fatto precedente, dove $x_0$ è un elemento fissato di $G$. Osserviamo che 
         $\St(x_0) \neq G$, infatti se fosse $\St(x_0) = G$ avremmo 
         \[
             |\Orb(x_0)| = \frac{|G|}{|\St(x_0)|} = 1
@@ -1150,7 +1146,7 @@ nel seguente modo:
 \]
 con
 \[
-    \psi_g:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
+    \psi_a:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
 \]
 
 Fissato $x \in X$, poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$
@@ -1191,7 +1187,7 @@ quindi due casi:
         id_H:H\longrightarrow H: h \longmapsto h
     \]
     Poiché $H \cong \Z5$, abbiamo $\Aut(H)\cong (\Z5)^* \cong \Z4$, d'altra 
-    parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |H|) = 1$, pertanto
+    parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |Aut(H)|) = 1$, pertanto
     $|\mathrm{Im}\varphi| = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
     Diamo adesso due modi per concludere l'esercizio:
     \begin{enumerate}[(1)]
@@ -1201,8 +1197,7 @@ quindi due casi:
         abbiamo che $\ord(hk) = \ord(h)\ord(k) = 15$ in quanto i due elementi hanno
         ordine coprimo. D'altra parte, se $G$ non fosse abeliano allora avremmo 
         necessariamente $Z(G) = H$, quindi $\faktor{G}{Z(G)}$ sarebbe ciclico 
-        in quanto di ordine 3, pertanto $G$ sarebbe un gruppo abeliano, da cui 
-        la tesi per quanto appena detto;
+        in quanto di ordine 3, pertanto $G$ sarebbe un gruppo abeliano, che è assurdo;
         \item sia $k \in G$ un elemento di ordine 3, consideriamo il centralizzatore
         di $k$
         \[
@@ -1244,7 +1239,7 @@ quindi due casi:
     indice in $G$ è al più 2:
     posta $\pi_{\mathcal{A}_{2d}}$ la proiezione al quoziente
     \[
-        \pi_{\mathcal{A}_{2d}}:G\longrightarrow \faktor{S_{2d}}{\mathcal{A}_{2d}}\cong \Z2
+        \pi_{\mathcal{A}_{2d}}\circ\varphi:G\longrightarrow \faktor{S_{2d}}{\mathcal{A}_{2d}}\cong \Z2
     \]
     possiamo caratterizzare $\varphi^{-1}(\mathcal{A}_{2d})$ come
     \[
@@ -1255,9 +1250,9 @@ quindi due casi:
     Per il Primo Teorema di Omomorfismo abbiamo che esiste un omomorfismo
     iniettivo da $\faktor{G}{\ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)}$ in
     $\Z2$, da cui $[G:\ker(\pi_{\mathcal{A}_{2d}})] \leq 2$. Tale 
-    sottogruppo ha indice 1 se e solo se $G = \ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)$,
-    cioè $\varphi(G) \subseteq \mathcal{A}_{2d}$, mostriamo che in effetti esiste 
-    un elemento di $G$ la cui immagine tramite $\varphi$ è una permutazione 
+    sottogruppo ha indice 1 se e solo se $G = \ker(\pi_{\mathcal{A}_{2d}}\circ\varphi) = \varphi^{-1}(\mathcal{A}_{2d})$,
+    cioè $\varphi(G) \subseteq \mathcal{A}_{2d}$ (\varphi, e quindi \pi_{\mathcal{A}_{2d}}\circ\varphi, in generale non sono surgettive). 
+    Mostriamo che in effetti esiste un elemento di $G$ la cui immagine tramite $\varphi$ è una permutazione 
     dispari. Consideriamo $g \in G$ un elemento di ordine 2, poiché $\varphi$
     è un omomorfismo iniettivo abbiamo che $\ord(\varphi(g)) = \ord(g) = 2$,
     pertanto la permutazione $\varphi(g)$ ha una decomposizione in $d$ 2-cicli,
