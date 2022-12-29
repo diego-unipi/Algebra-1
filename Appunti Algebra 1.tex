@@ -18,7 +18,7 @@
 
 \section*{Ringraziamenti}
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli.
+\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti.
 
 \newpage
 \section{Gruppi}
@@ -138,7 +138,7 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
 
 \begin{remark}
     Si ricorda che se $\faktor{G}{Z(G)}$ è ciclico, allora $G$ è abeliano (e quindi $\faktor{G}{Z(G)}$ è banale), infatti, sia:
-        \[ \faktor{G}{Z(g)} = \left<gZ(G)\right>
+        \[ \faktor{G}{Z(G)} = \left<gZ(G)\right>
             \]
     Presi $g_1,g_2 \in G$, si ha che $g_1Z(G) = g^{k_1}Z(G)$ e $g_2Z(G) = g^{k_2}Z(G)$, da cui:
         \[ g^{-k_1}g_1Z(G) = Z(G) \iff  g^{-k_1}g_1 \in Z(G)
@@ -198,11 +198,11 @@ da cui si ottiene:
 
 \begin{remark}
     Si osserva che se $H$ è l'unico sottogruppo di $G$ di un certo ordine, allora $H$ è caratteristico in $G$ (segue immediatamente dal fatto che gli automorfismi
-    preservano gli ordini degli elementi).
+    preservano gli ordini degli elementi). In modo analogo, se $H$ è caratterizzato da una proprietà invariante per automorfismo, allora è caratteristico.
 \end{remark}
 
 \begin{exercise}
-    Il centro di un gruppo, $Z(G)$ è un sottogruppo caratteristico.
+    Il centro di un gruppo $Z(G)$ è un sottogruppo caratteristico.
 \end{exercise}
         
 \begin{soln}
@@ -352,7 +352,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 
 \begin{proof}
     Si osserva che $e \in \St(x)$, in quanto $\varphi_e(x) = id(x) = x$, inoltre, presi $g,h \in \St(x)$, ovvero $\varphi_g (x) = \varphi_h(x) = x$, allora:
-        \[ \varphi(gh) = \varphi_{gh}(x) = \varphi_g \circ \varphi_h (x) = \varphi_g(\varphi_h(x)) = \varphi_g(x) = x \implies gh \in \St(x)
+        \[ \varphi(gh)(x) = \varphi_{gh}(x) = \varphi_g \circ \varphi_h (x) = \varphi_g(\varphi_h(x)) = \varphi_g(x) = x \implies gh \in \St(x)
             \]
     dove si ha che $ \varphi_{gh}(x) = \varphi_g \circ \varphi_h (x)$ in quanto $\varphi$ è un omomorfismo.
     Infine, preso $g \in \St(x)$, si ha $g^{-1} \in \St(x)$, infatti $\varphi_g$ è bigettiva e quindi ammette inversa:
@@ -364,7 +364,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 \end{proof}
 
 \pagebreak
-\begin{remark}
+\begin{remark}[$\Orb(x) \longleftrightarrow \lbrack G : \St(x) \rbrack$]
     Sia $x \in X$ e $g,h \in G$, allora:
         \[ \varphi_g(x) = \varphi_h(x) \iff \varphi_{h^{-1}}(\varphi_g(x)) = x
             \]
@@ -373,9 +373,9 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
             \]
     ovvero $g \St(x) = h \St(x)$, in quanto $\St(x) \leqslant G$ e la condizione ottenuta è esattamente quella dell'equivalenza modulo $\St(x)$,
     quindi:
-    \[ \Orb(x) \longleftrightarrow \text{classi laterali di $\St(x)$ in $G$}
+    \[ \Orb(x) \longleftrightarrow \text{classi laterali di $\St(x)$ in $G$} = [G : \St(x)]
         \]
-    cioè due elementi danno la stessa immagine se e solo se stanno nella stessa classe laterale modulo $\St(x)$, e la corrispondenza biunivoca tra orbita e classi
+    cioè due elementi danno la stessa immagine (di un fissato elemento $x \in X$) se e solo se stanno nella stessa classe laterale modulo $\St(x)$, e la corrispondenza biunivoca tra orbita e classi
     laterali è data da:
     \[ g\St(x) \longmapsto \varphi_g(x) \qquad \text e \qquad h\St(x) \longmapsto \varphi_h(x)
                 \]
@@ -383,7 +383,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
         \[ \varphi_g(x) = \varphi_h(x) \iff g\St(x) = h\St(x)
             \]
     (quindi due elementi di un'orbita sono uguali se e solo se lo sono le classi laterali dei rispettivi elementi che generano le applicazioni sono uguali modulo $\St(x)$, dunque per ogni elemento
-    dell'orbita c'è una classe laterale di $\St(x)$) e surgettiva:
+    dell'orbita c'è una e una sola classe laterale modulo $\St(x)$) e surgettiva:
         \[ \forall y \in \Orb(x), y = \varphi_g(x) \implies g\St(x) \longmapsto y
             \]
     e quindi concludiamo che il numero di classi laterali di $\St(x)$ in $G$ è lo stesso della cardinalità di $\Orb(x)$.
@@ -395,6 +395,7 @@ Per quanto detto si ha:
 ma $[G : \St(x)]$ è il numero di classi laterali di $\St(x)$ in $G$, che è proprio uguale a $|\Orb(x)|$ pertanto vale la seguente:
 
 \begin{proposition}
+    [Lemma orbita-stabilizzatore]
     \label{p:1.25}
     Sia $G$ un gruppo finito e $X$ un insieme, allora:
         \[ |G| = |\Orb(x)||\St(x)|
@@ -428,8 +429,8 @@ se $|X|<+\infty$ si ha:
 Abbiamo già osservato che è un'azione (ovvero che $\varphi$ è un omomorfismo). In questo caso:
     \[ \Orb(x) = \{\varphi_g(x) | g \in G\} = \{ gxg^{-1} | g \in G\} = \Cl_G(x)
         \]
-dove $\Cl_G(x)$ prende il nome di \vocab{classe di coniugio} di $x$. Mentre:
-    \[ \St(x) = \{g \in G | \varphi_g(x) = gxg^{-1} = x\} = Z_G(x)
+dove $\Cl_G(x)$ prende il nome di \vocab{classe di coniugio} di $x$\footnote{Si può indicare anche con $C_x$.}. Mentre:
+    \[ \St(x) = \{g \in G | \varphi_g(x) = gxg^{-1} = x\} = \{g \in G | gx = xg\} = Z_G(x)
         \]
 dove $Z_G(x)$ si dice \vocab{centralizzatore} di $x$. Per quanto detto in precedenza si ha:
     \[ |G| = |\Cl_G(x)||Z_G(x)|
@@ -443,12 +444,12 @@ In particolare $|\Cl_G(x)| \mid |G|$ e :
 \end{remark}
 
 \begin{remark}
-    Osserviamo che $Z_G(x) = G \iff x \in Z(G)$, infatti la per un elemento del centro si ha che 
+    Osserviamo che $Z_G(x) = G \iff x \in Z(G)$, infatti per un elemento del centro si ha che 
     $\forall g \in G$ l'elemento commuta, e dunque il suo centralizzatore è tutto il gruppo.
 \end{remark}
 
 \begin{remark}
-    Per un'azione di coniugio si ha che $x \in Z(G)$ se e solo se $\Orb(x) = \{x\}$ (ovvero $\varphi_g(x) = x$, $\forall g \in G$).
+    Per un'azione di coniugio si ha che $x \in Z(G)$ se e solo se $\Orb(x) = \{x\}$ e $\St(x) = G$ (ovvero $\varphi_g(x) = x$, $\forall g \in G$).
 \end{remark}
 
     \[ |G| = \sum_{x \in Z(G)} \frac{|G|}{|Z_G(x)|} + \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|}
@@ -474,8 +475,8 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
             \[ p^n = |Z(G)| +  \sum_{x \in \mathcal{R}\setminus Z(G)} \frac{|G|}{|Z_G(x)|} \implies
              |Z(G)| +  \sum_{x \in \mathcal{R}\setminus Z(G)}\frac{|G|}{|Z_G(x)|} \equiv 0 \pmod p
                 \]
-            con $\displaystyle \frac{|G|}{|Z_G(x)|} > 1$, poiché se un elemento sta nel centro tutti gli addendi sono $1$ per quanto detto,
-            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^{k_x}$, $k>0$, poiché $G$ è un $p$-gruppo, dunque:
+            con $\displaystyle \frac{|G|}{|Z_G(x)|} > 1$, poiché $Z_G(x) = G$ se e solo se $x \in Z(G)$,
+            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^{k_x}$, $k>0$, poiché $G$ è un $p$-gruppo (e quindi anche $Z_G(x)$), dunque:
                 \[ |Z(G)| \equiv 0 \pmod p \implies |Z(G)| \geq 2
                     \]
             e quindi il centro di un $p$-gruppo non è mai banale.
@@ -502,9 +503,9 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
     Sia $|G| = pn$, procediamo per induzione su $n$, nel caso $n = 1$ il teorema è ovvio. Supponiamo vera la tesi per i gruppi di ordine $pm$, con 
     $1 \leq m < n$ e proviamola per $n$. Distinguiamo due casi:
         \begin{itemize}
-            \item Se esiste $H \lneq G$ con $p \mid H$, ovvero $|H| = pm \implies$ vale il teorema di Cauchy per ipotesi induttiva (essendo $m<n$), quindi 
+            \item Se esiste $H \lneq G$ con $p \mid |H|$, ovvero $|H| = pm \implies$ vale il teorema di Cauchy per ipotesi induttiva (essendo $m<n$), quindi 
             $\exists x \in H : \ord_H(x) = p$, ma essendo $H \subset G \implies x \in G$ e quindi la tesi è vera.
-            \item Se $\forall H \lneq G$ si ha $p \nmid |H|$, allora si può applicare a $G$ la formula delle classi:
+            \item Se $\forall H \lneq G$ si ha $p \nmid |H|$, allora si può applicare a $G$ la formula delle classi rispetto all'azione di coniugio:
                 \[ pn = |G| = |Z(G)| + \sum_{x \in \mathcal{R}\setminus{Z(G)}} \frac{|G|}{|Z_G(x)|}
                     \]
                 ricordando che il centralizzatore di $x$ è uno stabilizzatore (e quindi un sottogruppo di $G$), si ha $p \nmid |Z_G(x)|$, e quindi:
@@ -517,12 +518,12 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
 
 \newpage
 \subsection{Azione di coniugio su un sottogruppo}
-Sia $X = \{H \leqslant G\}$ e $\varphi : G \longrightarrow S(X) : g \longmapsto \varphi_g(X)$, con $\varphi_g : X \longrightarrow X : H \longmapsto gHg^{-1}$. 
-    Si verifica facilmente che $\varphi$ è un omomorfismo; mostriamo invece che $\varphi_g$ è una permutazione, per l'iniettività si osserva che:
+Sia $X = \{H \leqslant G\}$ e $\varphi : G \longrightarrow S(X) : g \longmapsto \varphi_g(X)$, con $\varphi_g : X \longrightarrow X : H \longmapsto gHg^{-1} = \{ghg^{-1} | h \in H\}$. 
+    Si verifica facilmente che $\varphi$ è un omomorfismo; mostriamo invece che $\varphi_g$ è una permutazione (cioè bigettiva), per l'iniettività si osserva che:
         \[ \varphi_g(H) = \varphi_g(K) \iff gHg^{-1} = gKg^{-1} \iff H = K
             \]
     mentre per la surgettività si ha che $\forall H \in X, \exists L \in X$:
-        \[ \varphi_g(L) = H \iff gLg^{-1} = H \implies L = g^{-1}Hg
+        \[ \varphi_g(L) = H \iff gLg^{-1} = H \iff L = g^{-1}Hg
             \]
     inoltre si ha anche:
         \[ \Orb(H) = \{\varphi_g(H) | g \in G\} = \{gHg^{-1}| g \in G\} \quad \St(H) = \{g \in G | \varphi_g(H) = H\} = N_G(H)
@@ -570,7 +571,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 
 \begin{proof}
     Definiamo la mappa:
-        \[ \lambda : G \longrightarrow S(G) : g \longmapsto \varphi_g
+        \[ \lambda : G \varlonghookrightarrow S(G) : g \longmapsto \varphi_g
             \]
     con $\varphi_g : G \longrightarrow G : x \longmapsto gx$, l'applicazione $\lambda$ prende il nome di \vocab{rappresentazione regolare a sinistra} di $G$, si 
     vuole dimostrare che $\lambda$ è un omomorfismo iniettivo.
@@ -589,7 +590,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 \end{proof}
 
 \begin{remark}
-    In generale, dato $G = \left\{g_1 = e,g_2, \ldots, g_n\right\}$ e $\lambda : G \longrightarrow S(G) \cong S_n$, si ha che:
+    In generale, dato $G = \left\{g_1 = e,g_2, \ldots, g_n\right\}$ e $\lambda : G \varlonghookrightarrow S(G) \cong S_n$, si ha che:
         \[ g_1 = e \longmapsto \lambda_{g_1} \qquad \text{con} \qquad \lambda_{g_1}: G \longrightarrow G : g_i \longmapsto g_i
             \]
         \[ g_2 \longmapsto \lambda_{g_2} \qquad \text{con} \qquad \lambda_{g_2} : G \longrightarrow G : x \longmapsto g_2x \longmapsto g_2^2x \longmapsto \ldots \longmapsto g_2^{k-1}x
@@ -625,6 +626,9 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 Ad esempio l'azione di rappresentazione regolare a sinistra è fedele:
     \[ \ker \lambda = \{g \in G | \lambda(g) = id\} = \{g \in G | \lambda_g(e) = e\} = \{g \in G | ge = e\} = \{e\}
         \]
+infatti $\lambda(e) = \lambda_e = id$ e inoltre
+    \[ \lambda(g) = \lambda_g = id \implies \lambda_g(e) = e \implies ge = e \implies g = e
+        \]
 da cui $\lambda$ fedele.
 
 \begin{remark}
@@ -643,9 +647,9 @@ da cui $\lambda$ fedele.
     Si consideri innanzitutto il caso $d=p^k$, $p$ primo, e mostriamolo per induzione:
     per $k=1$ la tesi è equivalente al \hyperref[p:Cauchy]{Teorema di Cauchy} (anche solo per i gruppi abeliani).
     Supponiamo la tesi per $k-1$. Poiché in particolare $p\mid |G|$ scegliamo un sottogruppo $H$ di $G$ di ordine $p$;
-    tale sottogruppo è normale poiché $G$ è abeliano. $p^{k-1}\mid |G/H|\implies$ per ipotesi induttiva $\exists K\leqslant G,\ |K|=p^{k-1}$. \\
-    Prendendo la controimmagine di $K$ tramite la proiezione al quoziente troviamo il sottogruppo di G cercato. A questo punto possiamo scrivere in generale
-    $d=p_1^{k_1}\ldots p_s^{k_s}$; per ogni $i$ troviamo sottogruppi $H_i$ di ordini $p_i^{k_i}$ (tutti normali). Si ha quindi che $H_1H_2\leqslant G$ per normalità,
+    tale sottogruppo è normale poiché $G$ è abeliano. $p^{k-1}\mid |G/H|\implies$ per ipotesi induttiva $\exists K \leqslant G : |K|=p^{k-1}$. \\
+    Prendendo la controimmagine di $K$ tramite la proiezione al quoziente troviamo il sottogruppo di G cercato. \\
+    A questo punto possiamo scrivere in generale $d=p_1^{k_1}\ldots p_s^{k_s}$; per ogni $i$ troviamo sottogruppi $H_i$ di ordini $p_i^{k_i}$ (tutti normali). Si ha quindi che $H_1H_2\leqslant G$ per normalità,
     inoltre $|H_1\cap H_2|=1$ poiché l'ordine di un elemento in tale intersezione deve dividere $(p_1^{k_1}, p_2^{k_2})=1$. Pertanto $|H_1H_2|=p_1^{k_1}p_2^{k_2}$.
     Ragionando per induzione otteniamo che il sottogruppo $H_1\ldots H_k$ ha ordine $d$ come voluto.
 \end{proof}
@@ -678,7 +682,7 @@ da cui $\lambda$ fedele.
             \]
     Segue per il teorema di corrispondenza che $\pi_{Z(G)}^{-1}(\mathcal{H}_i) = H_i \trianglelefteqslant G$, ovvero si preserva la normalità dei sottogruppi, inoltre,
     segue sempre dal teorema che:
-        \[ p^i = [\mathcal{G} : \mathcal{H}_i] = [G : H] = p^i
+        \[ p^i = [\mathcal{G} : \mathcal{H}_i] = [G : H]
             \]
     dunque la catena esiste  e $|H_i| = p^{n-i}$ per $1\leq i \leq m$. Essendo $Z(G)$ abeliano, i sottogruppi di ogni suo ordine (che esistono sempre
     per il \hyperref[davide]{Lemma Di Ranieri}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \mid z$), pertanto esiste la catena:
@@ -688,7 +692,7 @@ da cui $\lambda$ fedele.
     Bisogna infine verificare che $H_j \trianglelefteqslant G$, dunque:
         \[ gH_jg^{-1} = H_j \qquad \forall g \in G
             \]
-    ma $H_j \subset Z(G)$ (sta nel centro, quindi è invariante per coniugio con tutti i $g \in G$, e in particolare quelli richiesti) dunque è sempre verificata l'ultima uguaglianza.
+    ma $H_j \subset Z(G)$ (quindi è invariante per coniugio rispetto a ogni $g \in G$) dunque è sempre verificata l'ultima uguaglianza.
 \end{soln}
 
 \newpage
@@ -721,7 +725,7 @@ con $\sigma \in S_n$ e $\sigma : i \longmapsto \sigma(i)$. Osserviamo quindi che
 con $|\Orb(x)| = m_x$, con $m_x = \min\{k > 0 | \sigma^k(x) = x\}$, perché se $\sigma^k(x) = x$, allora $\sigma^{k+1}(x) = \sigma(x)$, pertanto, sia $k \in \NN$
 tale che $\sigma^k(x) \in \{x,\ldots,\sigma^{k-1}(x)\}$, allora $\exists h:$
     \[ \sigma^k(x) = \sigma^h(x)
-    \qquad \text{con $0 \leq h < k$}
+    \qquad \text{con $0 \leq h \leq k-1$}
         \]
 Dunque vale che $\sigma^{k-h}(x) = x \in \{x,\ldots,\sigma^{k-1}(x)\}$ e per la minimalità di $k$ si ha che $h = 0$.
 L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $\sigma$ agisce ciclicamente (ovvero $\sigma(\Orb(x)) = \Orb(x)$).
@@ -764,7 +768,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
             \item L'ordine di una permutazione ciclica è la lunghezza del suo ciclo:
                     \[ \sigma = (x_1,\ldots,x_k) \implies \ord \sigma = k
                         \]
-                quindi $\sigma^k = id$ e se $d < k$, allora $\sigma^d(x_1) = x_{d+1} \ne x$.
+                quindi $\sigma^k = id$ e se $d < k$, allora $\sigma^d(x_1) = x_{d+1} \ne x_1$.
         \end{itemize}
 \end{remark}
 
@@ -810,11 +814,11 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \binom{4}{3}\frac{3!}{3} = 8 \qquad \text e \qquad \binom{4}{4}\frac{4!}{4} = 6
             \]
     infine, per quanto riguarda le permutazioni ottenute dalla composizione di due $2$-cicli, possiamo scegliere e permutare due coppie di elementi, come 
-    nei casi precedenti, tuttavia, essendo i cicli disgiunti commutano (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
-    dividere per il numero di scambi per i cicli della stessa lunghezza, ovvero $2!$ dunque:
+    nei casi precedenti, tuttavia, essendo i cicli disgiunti, questi commutano (banalmente perché lasciano fissi gli altri elementi del dominio), quindi bisogna anche 
+    dividere per il numero di permutazioni dei cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
-    e dal conteggio delle permutazioni di $S_4$ divise per cicli di diversa lunghezza si ottiene: $6+8+6+3+1 = 24 = |S_4|$.
+    e dal conteggio delle permutazioni di $S_4$ divise per cicli di diversa lunghezza si ottiene: $1+6+8+6+3 = 24 = |S_4|$.
 \end{example}
 
 \begin{remark}
@@ -833,7 +837,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{example}
 
 \begin{proposition}
-    [Ordine Di Una Permutazione]
+    [Ordine di una permutazione]
     Data $\sigma \in S_n$ con $\sigma = \sigma_1\ldots\sigma_k$, con $\sigma_i$ cicli disgiunti, allora:
         \[ \ord \sigma = [\ord \sigma_1,\ldots, \ord\sigma_k]
             \]
@@ -844,7 +848,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \ord\sigma = [l_1,\ldots,l_k] = d
             \]
     osserviamo che $\sigma^d = (\sigma_1\ldots\sigma_k)^d = \sigma_1^d\ldots\sigma_k^d$, in quanto i cicli $\sigma_i$ sono disgiunti (pertanto commutano),
-    essendo $d = [l_1,\ldots,l_k] \implies d \mid l_i$, $\forall \in \{1,\ldots,k\}$, pertanto:
+    ed essendo $d = [l_1,\ldots,l_k]$ si ha che $d \mid l_i$, $\forall \in \{1,\ldots,k\}$, pertanto:
         \[ \sigma^d = \sigma_1^d\ldots\sigma_k^d = id \implies \ord \sigma = m \mid d
             \]
     d'altra parte, si ha che:
@@ -865,8 +869,9 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \cycle{1,\ldots,k} = \cycle{1,k}\cycle{1,k-1}\ldots\cycle{1,2}
             \]
     dove l'uguaglianza è tra funzioni, quindi ci basta mostrare che danno la stessa immagine. Se $i>k$, allora entrambe le funzioni mandano $i \longmapsto i$, se 
-    $i \leq k$, allora la funzione a sinistra manda $i \longmapsto i+1$ e $k \longmapsto 1$, quella a destra lascia fisso $i$ fino al ciclo $\cycle{1,i}$ che manda $i \longmapsto 1 \longmapsto i+1$
-    che rimane fisso in $i+1$, mentre $k \longmapsto \ldots \longmapsto 1$.
+    $i \leq k$, allora la funzione a sinistra manda $i \longmapsto i+1$ e $k \longmapsto 1$, quella a destra lascia fisso $i$ fino al ciclo $\cycle{1,i}$ che manda $i \longmapsto 1$,
+    il ciclo $\cycle{1,i+1}$ manda $1 \longmapsto i+1$ e infine i cicli successivi lasciano fisso $i+1$ (quindi complessivamente abbiamo $i \longmapsto i+1$), 
+    mentre $k$ viene lasciato fisso da tutti i cicli tranne $\cycle{1,k}$, quindi $k \longmapsto 1$.
 \end{proof}
 
 \begin{remark}
@@ -899,11 +904,11 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
         \underbrace{\prod_{i < j} \frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}}_{sgn(\sigma)} \underbrace{\prod_{i < j}\frac{\tau(i) - \tau(j)}{ i - j}}_{sgn(\tau)}
         \qquad \forall \sigma,\tau \in S_n
             \]
-    Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizziamo il segno delle varie coppie, distinguiamo le seguenti possibilità:
+    Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizzando il segno delle varie coppie, distinguiamo le seguenti possibilità:
     \begin{itemize}
         \item $\{i,j\} \cap \{a,b\} = \emptyset $, in tal caso $\sigma$ lascia fissi gli elementi, $\sigma(i) = i, \sigma(j) = j \implies \frac{\sigma(i) - \sigma(j)}{i - j} = 1$.
-        \item $\{i,a\}$ (o $\{i,b\}$), in tal caso $\frac{\sigma(i) - \sigma(a)}{i - a} = \frac{i - b}{i - a}$, però vi è anche $\frac{\sigma(i) - \sigma(b)}{i - b} = \frac{i - a}{i - b}$ e quindi 
-            il fattore dà $1$.
+        \item $\{i,a\}$ con $i \ne b$ (il caso $\{i,b\}$ con $i \ne a$ è analogo), in tal caso $\frac{\sigma(i) - \sigma(a)}{i - a} = \frac{i - b}{i - a}$, però vi è anche il fattore $\frac{\sigma(i) - \sigma(b)}{i - b} = \frac{i - a}{i - b}$ e 
+            il loro prodotto dà $1$.
         \item Infine, nel caso in cui $\{i,j\} = \{a,b\}$ si ha:
             \[ \frac{\sigma(a) - \sigma(b)}{a - b} = \frac{b - a}{a - b} = -1
                 \]
@@ -954,8 +959,8 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
                 l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
                     \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
                         \]
-                Se, invece, $x \ne b_i$, a sinistra si ha $\tau\sigma\underbrace{\tau^{-1}(x)}_{\ne a_1,\ldots,a_k}$ (ciò poiché non si parte da alcun $b_i$), quindi $\sigma(\tau^{-1}(x)) = \tau^{-1}(x)$, e quindi
-                $\tau \circ \tau^{-1} (x) = x$; a destra invece, non essendo $x$ alcun $b_i$ viene lasciato fisso, ciò conclude che le due funzioni sono uguali e che quella a sinistra è quindi un $k$-ciclo.
+                Se, invece, $x \ne b_i$, a sinistra si ha $\tau^{-1}(x) \ne a_1,\ldots,a_k$ (perché non si parte da alcun $b_i$), quindi $\sigma(\tau^{-1}(x)) = \tau^{-1}(x)$, e quindi
+                $\tau\sigma\tau^{-1}(x) = \tau \tau^{-1} (x) = x$; a destra invece, essendo $x \ne b_i \forall i$ viene lasciato fisso, ciò conclude che le due funzioni sono uguali e quindi $\tau\sigma\tau^{-1}$ è un $k$-ciclo.
             \item Mostriamo ora che due permutazioni con la stessa fattorizzazione in cicli disgiunti sono coniugate. Siano:
                 \[ \sigma = \cycle{a_1, \ldots, a_l}\cycle{b_1, \ldots, b_s} \ldots \cycle{z_1, \ldots, z_t}
                     \]\[ \rho = \cycle{a_1^{\prime}, \ldots, a_l^{\prime}}\cycle{b_1^{\prime}, \ldots, b_s^{\prime}} \ldots \cycle{z_1^{\prime}, \ldots, z_t^{\prime}}
@@ -971,7 +976,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{proof}
 
 \begin{example}
-    In $S_5$ le classi di coniugio di $\sigma = \cycle{1,2}\cycle{3,4}$ sono $C_\sigma = \{\cycle{a,b}\cycle{c,d} \in S_5\}$, con:
+    In $S_5$ la classe di coniugio di $\sigma = \cycle{1,2}\cycle{3,4}$ è $C_\sigma = \{\cycle{a,b}\cycle{c,d} \in S_5\}$, con:
         \[ \#C_\sigma = \frac{\binom{5}{2}\binom{3}{2}1!1!}{2!} = 15
             \]
     e da ciò si ricava anche che:
@@ -984,7 +989,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
         \[ \tau\circ\sigma\circ\tau^{-1} = \rho
             \]
     si può scegliere $\tau = \cycle{1,3}\cycle{2,5}$, da cui:
-        \[ \cycle{1,3}\cycle{2,5}\cycle{3,5}\cycle{14}\cycle{1,3}\cycle{2,5} = \cycle{1,2}\cycle{3,4} = \rho
+        \[ \cycle{1,3}\cycle{2,5} \circ \cycle{3,5}\cycle{14} \circ \cycle{1,3}\cycle{2,5} = \cycle{1,2}\cycle{3,4} = \rho
             \]
 \end{example}
 
@@ -1068,7 +1073,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     Consideriamo $(e \ne) x \in G$ e $H = \left<x\right> \trianglelefteqslant G$ (in quanto $G$ abeliano); prendiamo $y \in G \setminus\left<x\right>$
     e analogamente $K = \left<y\right> \trianglelefteqslant G$, da ciò segue che $H \cap K = \{e\}$, infatti $H$ e $K$ sono sottogruppi ciclici di $G$ di 
     ordine $p$ e quindi hanno in comune solo l'elemento neutro.
-    Osservando infine che $HK = G$, per cardinalità:
+    Osservando infine che per cardinalità $HK = G$, per cardinalità:
         \[ |HK| = \frac{|H||K|}{|H \cap K|} = \frac{p\cdot p}{1} = p^2
             \]
     le ipotesi del \hyperref[t:1.72]{Teorema 1.72} sono verificate, dunque:
@@ -1174,14 +1179,14 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
         \]\[ (e_H,k)(e_H,k^{\prime}) = (e_H \cdot \varphi_k(e_H), kk^{\prime}) = (e_H,kk^{\prime})
             \]
     e si verifica facilmente anche per inverso. Si osserva che $\overline H \trianglelefteqslant G$\footnote{$\overline K$ in generale non è normale, lo è solo se il prodotto è diretto, infatti in quel caso vale il \hyperref[t:1.72]{Teorema 1.72}.},
-    in quanto $H = \ker \pi$, con:
+    in quanto $\ol H = \ker \pi$, con:
         \[ \pi : H \rtimes_{\varphi} K \longrightarrow K: (h,k) \longmapsto k
             \]
     con $\pi$ omomorfismo come si vede:
         \[ \pi((h,k)(h^{\prime},k^{\prime})) = \pi(h \cdot \varphi_k(h^{\prime}),kk^{\prime}) = kk^{\prime} = \pi((h,k))\pi((h^{\prime},k^{\prime}))
             \]
-    Per come li abbiamo presi si nota subito che $\overline H \overline K = G$ e $\overline H \cap \overline K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.79]{Teorema 1.79}, pertanto:
-        \[ \overline H \times \overline K \cong G = H \rtimes_{\varphi} K
+    Per come li abbiamo presi si nota subito che $\overline H \, \overline K = G$ e $\overline H \cap \overline K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.78]{Teorema 1.78}, pertanto:
+        \[ G \cong H \rtimes_{\varphi} K \cong \ol H \rtimes_{\varphi} \ol K
             \]
 \end{remark}
 
@@ -1398,7 +1403,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
         il contrario è ovvio, dunque:
             \[ mG + m^{\prime}G = G
                 \]
-        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = nx = 0$ e $mx = mm^{\prime}g^{\prime} = nx = 0$, dunque:
+        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = ng = 0$ e $mx = mm^{\prime}g^{\prime} = ng^{\prime} = 0$, dunque:
             \[ \ord(x) \mid m \qquad \text e \qquad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
                 \]
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
