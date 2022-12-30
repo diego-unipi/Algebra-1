@@ -1090,7 +1090,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     si dice \vocab{prodotto semidiretto} di $H$ e $K$ via $\varphi$:
         \[ H \rtimes_{\varphi} K
             \]
-    (o anche $K {_\varphi}\ltimes H$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
+    (o anche $K \ltimes_{\varphi} H$) l'insieme ottenuto come prodotto cartesiano $H \times K$ con l'operazione definita da:
         \[ (h,k) (h^{\prime},k^{\prime}) = (h \cdot_H \varphi_k(h^{\prime}), k \cdot_K k^{\prime})
             \]
 \end{definition}
@@ -1127,7 +1127,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \pagebreak
 
 \begin{remark}
-    Si osserva che $H \rtimes_{\varphi} K$ è il prodotto diretto se e solo se $\varphi_k = e$, $\forall k \in K$.
+    Si osserva che $H \rtimes_{\varphi} K$ è il prodotto diretto se e solo se $\varphi_k = id_H$, $\forall k \in K$ (cioè \varphi banale).
     Infatti:
         \[ (h,k)(h^{\prime},k^{\prime}) = (h\cdot \varphi_k(h^{\prime}), kk^{\prime}) = (hh^{\prime}, kk^{\prime}) \iff \varphi_k(h^{\prime}) = h^{\prime}
         \qquad \forall k \in K
@@ -1184,16 +1184,17 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     con $\pi$ omomorfismo come si vede:
         \[ \pi((h,k)(h^{\prime},k^{\prime})) = \pi(h \cdot \varphi_k(h^{\prime}),kk^{\prime}) = kk^{\prime} = \pi((h,k))\pi((h^{\prime},k^{\prime}))
             \]
-    Per come li abbiamo presi si nota subito che $\overline H \overline K = G$ e $\overline H \cap \overline K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.79]{Teorema 1.79}, pertanto:
-        \[ \overline H \times \overline K \cong G = H \rtimes_{\varphi} K
+    Per come li abbiamo presi si nota subito che $\overline H \overline K = G$ e $\overline H \cap \overline K = \{e\}$, quindi valgono le ipotesi del \hyperref[t:1.78]{Teorema 1.78}, pertanto:
+        \[ \overline H \rtimes \overline K \cong G = H \rtimes_{\varphi} K
             \]
+	    [Forse da riscrivere meglio]
 \end{remark}
 
 \begin{example}
     [$S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>$]
     Verifichiamo che $S_n$ è prodotto semidiretto di $H = \mathcal{A}_n$ e $ K = \left<\cycle{1,2}\right>$ \footnote{In generale va bene qualsiasi trasposizione (che esiste sempre in $S_n$ per $n \geq 2$).}
-    usando il \hyperref[t:1.78]{Teorema 1.78}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft S_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
-    per cardinalità che $HK = S_n$. Essendo $\mathcal{A}_n = \ker sgn$ e $\left<\cycle{1,2}\right>$ una trasposizione $H \cap K = \{e\}$ (in quanto il nucleo dell'omomorfismo segno contiene solo permutazioni pari), pertanto segue la tesi:
+    usando il \hyperref[t:1.78]{Teorema 1.78}, per quanto detto nell'Osservazione 1.63 sappiamo che $\mathcal{A}_n \triangleleft S_n$ e $|\mathcal{A}_n| = \frac{n!}{2}$, segue
+    per cardinalità che $HK = S_n$. Essendo $\cycle{1,2}$ una permutazione dispari, $H \cap K = \{e\}$, pertanto segue la tesi:
         \[ S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>
             \]
     Osserviamo inoltre che:
@@ -1259,7 +1260,7 @@ quindi $\ord \varphi_y \mid (p,q-1)$. Distinguiamo due casi:
             scelte per $\varphi_y$ che danno un prodotto semidiretto.
     \end{itemize}
 Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\overline l)$ e:
-    \[ \varphi_y(x) = x^l \implies (\varphi_y(x))^k = x^{l^k}
+    \[ \varphi_y(x) = x^l \implies (\varphi_y)^k(x) = x^{l^k}
         \]
 quindi $\ord \varphi_y = p \iff l^p \equiv 1 \pmod q \iff \ord l = p$.
 Le $p-1$ scelte per $\varphi_y$ danno tutte gruppi isomorfi, quindi se $p \mid q-1$ ci sono esattamente due gruppi di ordine $pq$ a meno di isomorfismo. Infatti, detti:
@@ -1372,7 +1373,7 @@ Segue la dimostrazione del \hyperref[t:struttura]{Teorema Di Struttura Dei Grupp
     Classificare i gruppi abeliani di ordine $1000$. Per fare ciò osserviamo che $1000 = 2^3 \cdot 5^3$, allora:
     \[  G = G(2) \times G(5)
         \]
-    con $|G(2)| = 2^3$, e $|G(5)| = 5^3$ pertanto le $p$-componenti possono essere scritti come prodotto di gruppi ciclici nei seguenti modi:
+    con $|G(2)| = 2^3$, e $|G(5)| = 5^3$ pertanto le $p$-componenti possono essere scritte come prodotto di gruppi ciclici nei seguenti modi:
     \[ G(2) \cong \begin{cases}
                     \Z{2^3} \\
                     \Z{2^2} \times \Z2 \\
@@ -1393,22 +1394,24 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
 
 \begin{proof}
     \underline{\textbf{Esistenza}}: Sia $|G| = n$, con $n = p_1^{e_1} \ldots p_s^{e_s}$, procediamo per induzione su $s$. Nel caso in cui $s = 1$, si ha $|G| = p_1^{e_1} \implies G = G(p_1)$. Supponiamo 
-    la tesi vera $\forall m : 2 \leq m < n$, possiamo scrivere $n = m m^{\prime}$ con $(m,m^{\prime}) = 1$ e $m,m^{\prime} < n$, allora (in notazione additiva) vogliamo verificare che:
+    la tesi vera $\forall m : 2 \leq m < n$, possiamo scrivere $n = m m^{\prime}$ con $(m,m^{\prime}) = 1$ e $m,m^{\prime} < n$, allora vogliamo verificare che:
         \[ G \cong mG \times m^{\prime}G
             \]
-        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
-            \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \qquad \forall g \in G \implies G \subseteq mG + m^{\prime}G
+        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG, m^{\prime}G \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
+            \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \quad \forall g \in G \implies G \subseteq mG + m^{\prime}G
                 \]
         il contrario è ovvio, dunque:
             \[ mG + m^{\prime}G = G
                 \]
-        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = nx = 0$ e $mx = mm^{\prime}g^{\prime} = nx = 0$, dunque:
-            \[ \ord(x) \mid m \qquad \text e \qquad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
+	dove $mG + m^{\prime}G$ è $mGm^{\prime}G$ scritto in notazione additiva.
+        Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = ng = 0$ e $mx = mm^{\prime}g^{\prime} = ng^{\prime} = 0$, dunque:
+            \[ \ord(x) \mid m \quad \text e \quad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
                 \]
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
-            \[ mG = G_{m^{\prime}} = \{g \in G | m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = \{g \in G | mg = 0\}
+            \[ mG = G_{m^{\prime}} = \{g \in G \mid m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = G_m = \{g \in G \mid mg = 0\}
                 \]
-        Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi; $m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}x \in G_m$, perché $mm^{\prime}x = nx = 0$, viceversa, preso 
+        Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi; 
+	$m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}g \in G_m \forall g \in G$, perché $mm^{\prime}g = ng = 0$, viceversa, preso 
         $x \in G_m$, ovvero $mx = 0$, per quanto visto sopra abbiamo che:
             \[ \underbrace{mx}_{= 0}h + m^{\prime}kx = x \implies x = m^{\prime}(kx) \implies x \in m^{\prime}G
                 \]
@@ -1416,12 +1419,12 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
             \[ G \cong G_m \times G_{m^\prime}
                 \]
         Poiché $|G_m|,|G_{m^\prime}| < |G|$, perché $G_m$ contiene tutti e soli gli elementi di $G$ di ordine che divide $m$, inoltre $G_m \ne \{0\}$ (per \hyperref[p:Cauchy]{Cauchy}, dato che $1 < m < n$),
-        quindi $G_{m^{\prime}} \lneq G$ e viceversa. Possiamo quindi applicare l'ipotesi induttiva e scrivere:
+        quindi $G_m, G_{m^\prime} \lneq G$. Possiamo quindi applicare l'ipotesi induttiva e scrivere:
             \[ G_m = \prod_{i \in I}G(p_i) \qquad \text e \qquad G_{m^{\prime}} = \prod_{j \in J}G(p_j)
                 \]
         con $I \cup J = \{1,\ldots,s\}$ e $I \cap J = \emptyset$ (poiché $(m,m^{\prime}) = 1$). \\
         \underline{\textbf{Unicità}}: La scrittura come prodotto di $p$-componenti è unica, perché se $G$ fosse anche isomorfo ad altri $p$-gruppi:
-            \[ G \cong H_1 \times \ldots \times H_n \qquad \text{con $H_i$ $p_i$-gruppo e $H_i<G$}
+            \[ G \cong H_1 \times \ldots \times H_s \qquad \text{con $H_i$ $p_i$-gruppo e $H_i<G$}
                 \]
         allora $H_i \subseteq G(p_i)$ (in quanto $G(p_i)$ contiene tutti gli elementi di ordine potenze di $p_i$), ma:
             \[ |G| = |H_1| \ldots |H_s| = |G(p_1)| \ldots |G(p_s)| \implies |H_i| = |G(p_i)| \qquad \forall i \in \{1,\ldots,s\}
@@ -1431,8 +1434,8 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
 
 \begin{lemma}
     \label{l:1.91}
-    Sia $G$ un $p$-gruppo abeliano, e sia $x_1$ un elemento di ordine massimo in $G$, preso $\overline x \in G/\left<x_1\right>$
-     esiste $y \in \pi^{-1}(\overline x) : \ord_G(y) = \ord_{G/\left<x_1\right>}(\overline x)$.
+    Sia $G$ un $p$-gruppo abeliano, e sia $x_1$ un elemento di ordine massimo in $G$, preso $\overline x \in \faktor{G}{\left<x_1\right>}$
+     esiste $y \in \pi^{-1}(\overline x) : \ord_G(y) = \ord_{\faktor{G}{\left<x_1\right>}}(\overline x)$.
 \end{lemma}
 
 \begin{proof}
@@ -1448,6 +1451,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     ma $\ord(x_1) = p^{r_1} \implies p^r \mid b \implies b = p^rb_1$. Scegliendo $a = -b_1$ si ha:
         \[ p^ry = p^rx - p^rb_1x_1 = bx_1 - \underbrace{p^rb_1}_{= b}x_1 = 0
             \]
+	 [Scritto malissimo]
 \end{proof}
 
 \pagebreak
@@ -1458,7 +1462,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
     \underline{\textbf{Esistenza}}: Sia $G$ un $p$-gruppo, $|G| = p^n$, proviamo la tesi per induzione su $n$. Per $n = 1$ si ha che $|G| = p \implies G \cong \Zp$, e quindi la tesi è verificata.
     Supponiamo la tesi vera per $1 \leq m <n$ e proviamola per $n$; sia $x_1 \in G$ un elemento di ordine massimo, $\ord(x_1) = p^{r_1}$:
     \begin{itemize}
-        \item Se $r_1 = n$, allora $G$ è ciclo $\implies G \cong \Z{p^n}$.
+        \item Se $r_1 = n$, allora $G$ è ciclico $\implies G \cong \Z{p^n}$.
         \item Se $r_1 < n$, poiché $G$ è abeliano si ha $\left<x_1\right> \triangleleft G$, quindi possiamo considerare $\faktor{G}{\left<x_1\right>}$ che ha ordine $p^{n-r_1} < p^n$, dunque vale l'ipotesi induttiva ed il gruppo quoziente può essere fattorizzato come prodotto di gruppi ciclici:
             \[ \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \footnote{Dunque si ha $|\left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>| = p^{n - r_1}$.}
                 \]
@@ -1475,7 +1479,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
-            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$ [Da spiegare perché questo implica l'iniettività]. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
             Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
@@ -1497,7 +1501,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
         \[ G \cong \Z{p^{r_1}} \times \ldots \times \Z{p^{r_t}} \cong \Z{p^{k_1}} \times \ldots \times \Z{p^{k_s}}
             \]
         dove supponiamo $r_1 \geq \ldots \geq r_t$ e $k_1 \geq \ldots \geq k_s$. Deve essere necessariamente che $t = s$, perché, considerando:
-            \[ G_p = \{g \in G | pg = 0\}
+            \[ G_p = \{g \in G \mid pg = 0\}
                 \]
         con $G_p$ gruppo caratteristico (poiché gli isomorfismi conservano gli ordini degli elementi) e quindi:
             \[ G_p \cong \left(\Zp\right)^t \cong \left(\Zp\right)^s \implies t = s
