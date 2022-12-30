@@ -1591,7 +1591,7 @@ i suoi sottogruppi abeliani massimali.
 Studiamo le classi di coniugio in $\mathcal{A}_n$. In particolare,
 fissato $\sigma \in \mathcal{A}_n$, vogliamo determinare una relazione tra
 $\Cl_{\mathcal{A}_n}(\sigma)$ e $\Cl_{S_n}(\sigma)$.
-Poiché valgono $|\mathcal{A}_n| = |\Cl_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n(\sigma)}|$
+Poiché valgono $|\mathcal{A}_n| = |\Cl_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n}(\sigma)|$
 e $Z_{\mathcal{A}_n}(\sigma) = Z_{S_n}(\sigma) \cap \mathcal{A}_n$, abbiamo
 \[
     |\Cl_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
@@ -1627,14 +1627,16 @@ Infatti $\Cl_{\mathcal{A}_n}(\sigma) \cup \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1
 coniugati di $\sigma$), d'altra parte per ogni $\rho \in S_n$ abbiamo
 $\rho\sigma\rho^{-1} \in \Cl_{\mathcal{A}_n}(\sigma)$ se $\rho$ è pari,
 $\rho\sigma\rho^{-1} = (\rho\tau^{-1})(\tau\sigma\tau^{-1})(\rho\tau^{-1})^{-1}
-\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau)$ se $\rho$ è dispari, da cui l'uguaglianza.
+\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ se $\rho$ è dispari, da cui l'uguaglianza.
 Abbiamo altri due casi:
 \begin{itemize}
     \item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{S_n}(\tau\sigma\tau^{-1})|$;
     \item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
     |\Cl_{S_n}(\tau\sigma\tau^{-1})|$.
 \end{itemize}
-Tuttavia se fosse $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau)| = |\Cl_{S_n}(\tau\sigma\tau)|$
+Tuttavia se fosse $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{S_n}(\tau\sigma\tau^{-1})|$,
+dato che $\Cl_{S_n}(\tau\sigma\tau^{-1}) = \Cl_{S_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cup
+\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
 avremmo $\Cl_{\mathcal{A}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
 che è assurdo in quanto $\tau\sigma\tau^{-1} \notin \Cl_{\mathcal{A}_n}(\sigma)$,
 pertanto \[
@@ -1789,7 +1791,7 @@ Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
     In generale, un sottogruppo è normale se e solo se è unione disgiunta
     delle classi di coniugio dei suoi elementi, quindi la cardinalità
     di $N \trianglelefteqslant \mathcal{A}_5$ deve essere somma di alcuni 
-    termini nella seconda colonna, compreso 1. D'altra parte $|N| \mid \mathcal{A}_5 = 60$,
+    termini nella seconda colonna, compreso 1. D'altra parte $|N| \mid |\mathcal{A}_5| = 60$,
     da cui $|N| = 1$ oppure $|N| = 60$. Pertanto $\mathcal{A}_5$ è semplice.
 \end{proof}
 
@@ -1897,7 +1899,7 @@ In effetti vale un risultato più generale
     dove $\sigma_i$ sono $l$-cicli disgiunti con $l = \displaystyle\frac{n + 1}{k}$.
     Supponiamo per assurdo $N\cap H_i \neq \{id\}$, distinguiamo tre casi:
     \begin{itemize}
-        \item se $k = 1$ abbiamo $l = n + 1$, cioè $\sigma$ è un $n + 1$-ciclo.
+        \item se $k = 1$ abbiamo $l = n + 1$, cioè $\sigma$ è un $(n + 1)$-ciclo.
         Scriviamo $\sigma = \cycle{a_1, \ldots, a_l}$ e consideriamo la permutazione
         pari $\tau = \cycle{a_1, a_2}\cycle{a_3, a_4}$, poiché $N$ è normale in 
         $\mathcal{A}_{n + 1}$ contiene
@@ -1913,7 +1915,7 @@ In effetti vale un risultato più generale
         d'altra parte $a_1$ è un punto fisso per $\rho$, che è assurdo;
         \item se $k > 1$ e $l > 2$, poiché $\sigma_1^{-1}$ è un $l$-ciclo
         disgiunto da $\sigma_2, \ldots, \sigma_k$ la permutazione 
-        $\rho = \sigma^{-1}\sigma_2\ldots\sigma_k$ è un elemento di $N$. 
+        $\rho = \sigma_1^{-1}\sigma_2\ldots\sigma_k$ è un elemento di $N$. 
         Consideriamo $\alpha = \rho\sigma \in N$, osserviamo che 
         \[
             \alpha = \sigma_2^2\ldots\sigma_k^2 \neq id
@@ -1967,7 +1969,7 @@ In effetti vale un risultato più generale
     $z \in \{1, \ldots, n\}\setminus \{x, y\}$ e consideriamo la permutazione
     $\tau = \cycle{y, z}$, abbiamo
     \[
-        (\tau\sigma)(x) = z \quad (\sigma\tau)(x) = y
+        z = (\tau\sigma)(x) = (\sigma\tau)(x) = y
     \]
     che è assurdo in quanto $y \neq z$. Pertanto $Z(S_n) = \{id\}$.
 \end{proof}
@@ -1979,7 +1981,7 @@ In effetti vale un risultato più generale
 
 \begin{proof}
     Sia $N$ un sottogruppo normale di $S_n$, consideriamo $K= N \cap \mathcal{A}_n$.
-    $K$ è normale in $\mathcal{A}_n$, pertanto $K = \{id\}$ oppure $K = \mathcal{A}_n$,
+    $K$ è normale in $\mathcal{A}_n$, per semplicità $K = \{id\}$ oppure $K = \mathcal{A}_n$,
     distinguiamo 2 casi:
     \begin{itemize}
         \item se $K = \mathcal{A}_n$ allora $\mathcal{A}_n \leqslant N$: per il
@@ -1989,13 +1991,13 @@ In effetti vale un risultato più generale
         \item se $K = \{id\}$, poiché $[S_n:\mathcal{A}_n] = 2$ per la 
         \hyperref[prop1.49]{Proposizione 1.49} vale $[N:K] \in \{1, 2\}$, 
         da cui $|N| \leq 2$. Se $|N| = 1$ allora $N = \{id\}$, se $|N| = 2$
-        consideriamo l'azione di coniugio di $S_n$ su $N$
+        consideriamo l'azione di coniugio di $S_n = \varphi: N_{S_n}(N)$ su $N$
         \[
             \varphi: N_{S_n}(N)\longrightarrow Aut(N): g \longmapsto \varphi_g
         \]
         dove $\varphi_g$ è la mappa
         \[
-            \varphi_g:H \longrightarrow H :h \longmapsto ghg^{-1}
+            \varphi_g : N \longrightarrow N :h \longmapsto ghg^{-1}
         \]
         il nucleo di $\varphi$ coincide con $Z_{S_n}(N)$. Per il Primo Teorema
         di Omomorfismo allora abbiamo un omomorfismo iniettivo
@@ -2003,19 +2005,21 @@ In effetti vale un risultato più generale
             \psi :\frac{N_{S_n}(N)}{Z_{S_n}(N)}\longhookrightarrow \Aut(N)
         \]
         Poiché $|N| = 2$ abbiamo $N \cong \Z2$, pertanto $\Aut(N) = \{id\}$. 
-        Dato che $N_{S_n}(N) = S_n$ per la normalità di $N$ questo implica che
-        sia $Z_{S_n}(N) = S_n$, cioè che $N \subseteq Z(S_n)$, ma questo è assurdo
+        Dato che $N_{S_n}(N) = S_n$ per la normalità di $N$, questo implica che
+        $Z_{S_n}(N) = S_n$, cioè che $N \subseteq Z(S_n)$, ma questo è assurdo
         in quanto $Z(S_n) = \{id\}$ per il \hyperref[lemma1.65]{Lemma 1.65}.
     \end{itemize}
 \end{proof}
 
 \begin{remark}
     L'enunciato è vero anche per $n = 3$ con la stessa dimostrazione, infatti
-    $\mathcal{A}_3 \cong \Z3$ è un gruppo semplice, ed è vero anche per $n = 4$
-    anche se con una dimostrazione diversa. Infatti un sottogruppo $H$ di 
-    indice 2 di $S_n$ contiene necessariamente il commutatore, in quanto
-    $\faktor{S_n}{H}\cong \Z2$, d'altra parte il commutatore di $S_n$ è 
-    $\mathcal{A}_n$, pertanto $H = \mathcal{A}_4$.
+    $\mathcal{A}_3 \cong \Z3$ è un gruppo semplice.
+    Per $n = 4$, $\mathcal{A}_4$ non è semplice: contiene il gruppo di Klein
+    \[
+        V = \{ id, \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3} \} 
+    \]
+    che è normale in $\mathcal{A}_4$ e anche in $S_4$.
+    I sottogruppi normali di $S_4$ sono quindi $\{id\}$, V, $\mathcal{A}_4$ e $S_4$.
 \end{remark}
 
 
@@ -2054,7 +2058,7 @@ $S_n$.
     in particolare un isomorfismo.
     Notiamo che $H$ è lo stabilizzatore della classe $H$, infatti
     \[
-        \St(H) = \{\sigma \in S_n \mid \sigma H = H\} = \{\sigma \in H\} = H
+        \St(H) = \{\sigma \in S_n \mid \sigma H = H\} = \{\sigma \in S_n \mid \sigma \in H\} = H
     \]
     pertanto $\varphi(H)$ è lo stabilizzatore di un elemento di $\faktor{S_n}{H}$
     per l'azione naturale di $S\left(\faktor{S_n}{H}\right)$ su $\faktor{S_n}{H}$.
@@ -2062,6 +2066,7 @@ $S_n$.
     possiamo identificare $\varphi(H)$ con le permutazioni di $S_n$ che fissano
     un elemento di $\{1, \ldots, n\}$, che a loro volta costituiscono un 
     gruppo isomorfo a $S_{n - 1}$, pertanto $H \cong S_{n - 1}$.
+    [Va spiegato meglio]
 \end{proof}
 
 Utilizzando il seguente teorema (di cui non diamo la dimostrazione) possiamo
