@@ -90,7 +90,7 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
                         \]
                 si osserva che $f \circ \varphi_g \circ f^{-1} = \varphi_{f(g)} \in \Inn(G)$, infatti:
                     \[ f \circ \varphi_g \circ f^{-1} (x) = f(\varphi_g(f^{-1} (x))) = f(g(f^{-1}(x))g^{-1}) =
-                        \]\[ = f(g) f(f^{-1}(x)) f(g^{-1}) = f(g) x (f(g))^{-1} = \varphi_{f(g)}
+                        \]\[ = f(g) f(f^{-1}(x)) f(g^{-1}) = f(g) x (f(g))^{-1} = \varphi_{f(g)}(x)
                             \]
         \end{enumerate}
 \end{proof}
@@ -544,17 +544,17 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 \begin{remark}
     [Sulla definizione di sottogruppo normale]
     I sottogruppi normali possono essere ridefiniti nella maniera seguente, $H \trianglelefteqslant G$ se e solo se:
-        \[ H = \bigcupdot_{h \in H} C_h
+        \[ H = \bigcup_{h \in H} \Cl_h
             \]
     cioè un sottogruppo è normale se e solo se è l'unione delle classi di coniugio dei suoi elementi. Infatti:
         \[ H \trianglelefteqslant G \iff ghg^{-1} \in H \qquad \forall h \in H, \forall g \in G
             \]
     che equivale a:
-        \[ C_h = \{ghg^{-1} | h \in H\} \subseteq H  \quad \forall h \in H \implies \bigcupdot_{h \in H} C_h \subseteq H
+        \[ \Cl_h = \{ghg^{-1} | h \in H\} \subseteq H  \quad \forall h \in H \implies \bigcup_{h \in H} \Cl_h \subseteq H
             \]
     d'altra parte se $H$ è normale è chiuso per coniugio, ovvero il coniugio di ogni suo elemento è ancora in $H$
     ($ghg^{-1} = h^{\prime}$, $\forall h \in H$) e in particolare ciò significa che:
-        \[ H \subseteq \bigcupdot_{h \in H} C_h
+        \[ H \subseteq \bigcup_{h \in H} \Cl_h
             \] 
     
 \end{remark}
@@ -647,14 +647,14 @@ da cui $\lambda$ fedele.
     Si consideri innanzitutto il caso $d=p^k$, $p$ primo, e mostriamolo per induzione:
     per $k=1$ la tesi è equivalente al \hyperref[p:Cauchy]{Teorema di Cauchy} (anche solo per i gruppi abeliani).
     Supponiamo la tesi per $k-1$. Poiché in particolare $p\mid |G|$ scegliamo un sottogruppo $H$ di $G$ di ordine $p$;
-    tale sottogruppo è normale poiché $G$ è abeliano. $p^{k-1}\mid |G/H|\implies$ per ipotesi induttiva $\exists K \leqslant G : |K|=p^{k-1}$. \\
+    tale sottogruppo è normale poiché $G$ è abeliano. $p^{k-1}\mid |G/H|\implies$ per ipotesi induttiva $\exists K \leqslant G/K : |K|=p^{k-1}$. \\
     Prendendo la controimmagine di $K$ tramite la proiezione al quoziente troviamo il sottogruppo di G cercato. \\
-    A questo punto possiamo scrivere in generale $d=p_1^{k_1}\ldots p_s^{k_s}$; per ogni $i$ troviamo sottogruppi $H_i$ di ordini $p_i^{k_i}$ (tutti normali). Si ha quindi che $H_1H_2\leqslant G$ per normalità,
+    A questo punto possiamo scrivere in generale $d=p_1^{k_1}\ldots p_s^{k_s}$; per ogni $i$ troviamo sottogruppi $H_i$ di ordini $p_i^{k_i}$ (tutti normali), poiché considerando il generato dagli elementi di ordine potenza di $p_i$:
+    questo è un $p_i$-gruppo ed è normale per abelianità, se non avesse ordine $p_i^{k_i}$ allora quozientando $G$ per questo avremmo per \hyperref[Cauchy]{Cauchy} un elemento di ordine $p_i$ e considerando la controimmagine della proiezione avremmo
+    perso un elemento di ordine potenza di $p_i$ (dato che avevamo quozientato per un $p_i$-gruppo). Si ha quindi che $H_1H_2\leqslant G$ per normalità,
     inoltre $|H_1\cap H_2|=1$ poiché l'ordine di un elemento in tale intersezione deve dividere $(p_1^{k_1}, p_2^{k_2})=1$. Pertanto $|H_1H_2|=p_1^{k_1}p_2^{k_2}$.
     Ragionando per induzione otteniamo che il sottogruppo $H_1\ldots H_k$ ha ordine $d$ come voluto.
 \end{proof}
-
-\newpage
 
 \begin{exercise}
     Sia $G$ un gruppo, se $|G| = p^n$, allora esiste:
@@ -852,7 +852,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \sigma^d = \sigma_1^d\ldots\sigma_k^d = id \implies \ord \sigma = m \mid d
             \]
     d'altra parte, si ha che:
-        \[ \sigma^m = \sigma_1^m\ldots\sigma_k^m = id \iff \sigma_i = id, \forall i \in\{1,\ldots,k\}
+        \[ \sigma^m = \sigma_1^m\ldots\sigma_k^m = id \iff \sigma_i^m = id, \forall i \in\{1,\ldots,k\}
             \]
     dunque $\ord \sigma_i = l_i \mid m$, $\forall i \in\{1,\ldots,k\}$, ovvero $[l_1,\ldots,l_k] \mid m$ da cui si conclude che $m = [l_1,\ldots,l_k]$.
 \end{proof}
@@ -1071,8 +1071,8 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     isomorfo a $\ZZ/p^2\ZZ$ o $\Zp \times \Zp$. Se $G$ è ciclico, allora $G \cong \ZZ/p^2\ZZ$. Mostriamo che se non lo è, allora $G \cong \Zp \times \Zp$ e in 
     questo caso tutti gli elementi di $G$ hanno ordine $p$. \\
     Consideriamo $(e \ne) x \in G$ e $H = \left<x\right> \trianglelefteqslant G$ (in quanto $G$ abeliano); prendiamo $y \in G \setminus\left<x\right>$
-    e analogamente $K = \left<y\right> \trianglelefteqslant G$, da ciò segue che $H \cap K = \{e\}$, infatti $H$ e $K$ sono sottogruppi ciclici di $G$ di 
-    ordine $p$ e quindi hanno in comune solo l'elemento neutro.
+    e analogamente $K = \left<y\right> \trianglelefteqslant G$, da ciò segue che $H \cap K = \{e\}$, infatti $H$ e $K$ sono sottogruppi ciclici di $G$
+    aventi ordini due primi distinti e quindi hanno in comune solo l'elemento neutro.
     Osservando infine che per cardinalità $HK = G$, per cardinalità:
         \[ |HK| = \frac{|H||K|}{|H \cap K|} = \frac{p\cdot p}{1} = p^2
             \]
@@ -1144,7 +1144,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
             \item $HK = G$.
             \item $H \cap K = \{e\}$. 
         \end{enumerate}
-    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : H \longmapsto H : h \longmapsto khk^{-1}$.
+    Allora $G \cong H \rtimes_{\varphi} K$, dove $\varphi : K \longrightarrow \Aut(H) : k \longmapsto \varphi_k$, con $\varphi_k : H \underset{\sim}{\longrightarrow} H : h \longmapsto khk^{-1}$.
 \end{theorem}
 
 \begin{proof}
@@ -1425,7 +1425,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
             \[ G \cong H_1 \times \ldots \times H_n \qquad \text{con $H_i$ $p_i$-gruppo e $H_i<G$}
                 \]
         allora $H_i \subseteq G(p_i)$ (in quanto $G(p_i)$ contiene tutti gli elementi di ordine potenze di $p_i$), ma:
-            \[ |G| = |H_1| \ldots |H_s| = |G(p_1)| \ldots |G(p_s)| \implies |H_i| = |G(p_i)| \qquad \forall i \in \{1,\ldots,s\}
+            \[ |G| = |H_1| \ldots |H_s| = |G(p_1)| \ldots |G(p_s)| \implies\footnote{Ciò deriva dal fatto che per coprimalità tra gli altri fattori $|G(p_i)|$ divide $|H_i|$.} |H_i| = |G(p_i)| \qquad \forall i \in \{1,\ldots,s\}
                 \]
         quindi segue che $H_i = G(p_i)$, $\forall i \in \{1,\ldots,s\}$. 
 \end{proof}
@@ -1459,7 +1459,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
     \underline{\textbf{Esistenza}}: Sia $G$ un $p$-gruppo, $|G| = p^n$, proviamo la tesi per induzione su $n$. Per $n = 1$ si ha che $|G| = p \implies G \cong \Zp$, e quindi la tesi è verificata.
     Supponiamo la tesi vera per $1 \leq m <n$ e proviamola per $n$; sia $x_1 \in G$ un elemento di ordine massimo, $\ord(x_1) = p^{r_1}$:
     \begin{itemize}
-        \item Se $r_1 = n$, allora $G$ è ciclo $\implies G \cong \Z{p^n}$.
+        \item Se $r_1 = n$, allora $G$ è ciclico $\implies G \cong \Z{p^n}$.
         \item Se $r_1 < n$, poiché $G$ è abeliano si ha $\left<x_1\right> \triangleleft G$, quindi possiamo considerare $\faktor{G}{\left<x_1\right>}$ che ha ordine $p^{n-r_1} < p^n$, dunque vale l'ipotesi induttiva ed il gruppo quoziente può essere fattorizzato come prodotto di gruppi ciclici:
             \[ \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \footnote{Dunque si ha $|\left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>| = p^{n - r_1}$.}
                 \]
@@ -1476,7 +1476,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
-            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
             Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
@@ -1506,7 +1506,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
         Quindi le lunghezze delle fattorizzazioni sono uguali, per concludere ci basta utilizzare l'ipotesi induttiva al gruppo $pG$ (con $|pG| = p^{n-t}$):
             \[ pG \cong \frac{p\ZZ}{p^{r_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{r_t}\ZZ} \cong \Z{p^{r_1-1}} \times \ldots \times \Z{p^{r_t-1}} \cong \Z{p^{k_1-1}} \times \ldots \times \Z{p^{k_t-1}}
                 \]
-        quindi $G_p$ ha decomposizione unica, da cui:
+        quindi $pG$ ha decomposizione unica (per ipotesi induttiva), da cui:
             \[ r_1 - 1 = k_1 -1, \ldots, r_t - 1 = k_t - 1 \iff r_1 = k_1, \ldots , r_t = k_t
                 \]
 \end{proof}
@@ -1534,8 +1534,8 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
         \begin{itemize}
             \item $H \leqslant G \implies |H| \mid |G|$ (Teorema Di Lagrange).
             \item $\forall p$ primo tale che $p \mid |G|$, $\exists x \in G : \ord_G(x) = p$ (\hyperref[p:Cauchy]{Teorema Di Cauchy}).
-            \item Se $G$ è ciclico, $\forall d \mid |G|$, $\exists x \in G : \ord_G(x) = d$ (per definizione di gruppo ciclico).
-            \item $G$ è ciclico se e solo se $d = |G|$ ($d = \ord_G(x)$ per qualche $x \in G$).
+            \item Se $G$ è ciclico, $\forall d \mid |G|$, $\exists x \in G : \ord_G(x) = d$ (dalla definizione di gruppo ciclico).
+            \item $G$ è ciclico se e solo se $d = |G|$ (esiste $x \in G$ tale che $d = \ord_G(x)$).
             \item Se $G$ è abeliano $\forall d \mid |G|$, $\exists H \leqslant G$ tale che $|H| = d$ (\hyperref[davide]{Lemma Di Ranieri}).
         \end{itemize}
 \end{remark}
@@ -1582,7 +1582,14 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
 \end{lemma}
 
 \begin{proof}
-    
+    Essendo $G$ un $p$-gruppo abbiamo che $|G|=p^n$. Procediamo per induzione su $n$. Se $n=0$ non c'è niente da dimostrare. Se $n>0$ consideriamo due casi: 
+    \begin{itemize}
+        \item Se $Z(G)\not\subseteq H$, dato che $H\cup Z(G)\subseteq N_G(H)$, abbiamo che $\emptyset\neq Z(G)\setminus H\subseteq N_G(H)\setminus H$ da cui la tesi.
+        \item Se $Z(G)\subseteq H$ osserviamo che $Z(G)$ è normale in $G$ e che $Z(G)$ non è banale perché $G$ è un $p-$gruppo, dunque possiamo considerare $\faktor{G}{Z(G)}$
+        di ordine strettamente minore all'ordine di $G$. Sia $\pi:G \longrightarrow \faktor{G}{Z(G)}$ la mappa di proiezione al quoziente. Per ipotesi induttiva $N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)$ contiene strettamente $\faktor{H}{Z(G)}$, quindi per il teorema di corrispondenza si ha che anche
+        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)=H$, quindi basta mostrare che $\pi^{-1}(N_{\faktor{G}{Z(G)}}(\faktor{H}{Z(G)}))\subseteq N_G(H)$, e questo deriva 
+        dal fatto che se $g\in \pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
+    \end{itemize}
 \end{proof}
 
 \begin{definition}
@@ -1659,7 +1666,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 dove $|g_iSg_i^{-1}| = |S|$ dunque $g_iSg_i^{-1}$ è un $p$-Sylow ed $H$ di ordine $p^{\alpha}$ è contenuto in un $p$-Sylow. Questo dimostra il punto $(3)$,
                 ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
                 i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
-                Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$, dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
+                Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$ (stiamo supponendo che $H$ stia in $S$), dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
                 sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i
                 sottogruppi di $N_{S}(H)$ che contengono $H$.}, $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
                 ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
