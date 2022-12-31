@@ -1551,7 +1551,7 @@ Poiché:
         \]
 possiamo costruire sottogruppi di ogni ordine \footnote{Ad esempio $|H_p| = p^{72}$, preso $G_p = \Z{p^{30}} \times \Z{p^{30}} \times \Z{p^{30}}$, può essere ottenuto come $H_p = \Z{p^{30}} \times \Z{p^{30}} \times p^{18} \Z{p^{30}}$.};
 inoltre, dato che $G$ è abeliano il prodotto di sottogruppi è un sottogruppo:
-    \[ H_{p_1}\ldots H_{p_r} < H
+    \[ H_{p_1}\ldots H_{p_r} < G
         \]
 e inoltre:
     \[ H_{p_1}\ldots H_{p_r} \cong H_{p_1} \times \ldots \times H_{p_r}
@@ -1626,7 +1626,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 \[ \nu_p(p^nm-i) = \nu_p(p^\alpha - i) = \nu_p(i)
                     \]
                 dunque, se $p \nmid i \implies p^nm - i$ e $p^{\alpha} - i$ non sono divisibili per $p$; se fosse $i = p^kj$, con $(j,p) = 1$, allora
-                 $p^{\alpha} - i = p^{\alpha} - p^kj = p^k\underbrace{(p^{\alpha - k} - j)}_{\text{non divisibile per $p$}}$, con $k < \alpha$, (analogamente per $p^nm - i$), per quanto abbiamo detto deve essere necessariamente che:
+                 $p^{\alpha} - i = p^{\alpha} - p^kj = p^k\cdot\underbrace{(p^{\alpha - k} - j)}_{\text{non divisibile per $p$}}$, con $k < \alpha$, (analogamente per $p^nm - i$), per quanto abbiamo detto deve essere necessariamente che:
                 \[ p^{n - \alpha} \pdiv |\mathcal{M}|
                     \] 
                 ovvero $p^{n - \alpha}$ è l'esatta potenza di $p$ che divide $|\mathcal{M}|$.
@@ -1636,12 +1636,12 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 dove $\varphi_g : \mathcal{M} \longrightarrow \mathcal{M} : M \longmapsto gM$ è una bigezione. Data l'azione $\phi$ sappiamo che:
                 \[ \mathcal{M} = \bigcupdot_{i = 1}^{s}\Orb(M_i) \implies |\mathcal{M}| = \sum_{i = 1}^{s} |\Orb(M_i)| = \sum_{i = 1}^s \frac{|G|}{|\St(M_i)|}
                     \]
-                unendo ciò a quanto detto si ha che $p^{n - \alpha} \pdiv \sum_{i = 1}^s \frac{|G|}{|\St(M_i)|}$, quindi non tutte le orbite possono essere divisibili per una potenza maggiore di $p^{n - \alpha}$, ovvero esiste almeno un $i$
+                unendo ciò a quanto detto si ha che $p^{n - \alpha} \pdiv \sum_{i = 1}^{s} |\Orb(M_i)|$, quindi non tutte le orbite possono essere divisibili per una potenza maggiore di $p^{n - \alpha}$, ovvero esiste almeno un $i$
                 tale per cui $p^{n - \alpha + 1} \nmid |\Orb(M_i)|$(ovvero non può essere diviso per una potenza più grande di quanto detto), da ciò segue: $ p^{n - \alpha + 1} \nmid |\Orb(M_i)| = \frac{|G|}{|\St(M_i)|} = \frac{p^nm}{|\St(M_i)|}$,
                 pertanto deve essere necessariamente che:
                 \[ p^{\alpha} \mid |\St(M_i)| = t
                     \]
-                cioè, affinché il rapporto non sia divisibile per $p^{\alpha}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, sia $x \in M_i$, la funzione:
+                cioè, affinché il rapporto non sia divisibile per $p^{n - \alpha + 1}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, dato $x \in M_i$, la funzione
                 \[ \varphi_x : \St(M_i) \longrightarrow M_i : y \longmapsto yx 
                     \]
                 è iniettiva\footnote{Si vede che $\varphi_x(y) = \varphi_x(z) \iff yx = zx \iff y = z$.}, dunque $t = |\St(M_i)| \leq |M_i| = p^{\alpha}$, segue quindi $t = p^{\alpha}$, pertanto $\St(M_i)$ è il sottogruppo di ordine $p^{\alpha}$ cercato.
@@ -1654,7 +1654,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 con $\varphi_h : X \longrightarrow X : gS \longmapsto hgS$ bigezione; per la formula delle classi si ha:
                 \[ m = |X| = \sum_{i = 1}^{r}|\Orb(g_iS)| = \sum_{i = 1}^{r} \frac{|H|}{|\St(g_iS)|} = \sum_{i = 1}^{r} p^{a_i}
                     \]
-                (essendo $p$-gruppi). Poiché  per ipotesi $p \nmid m$, allora esiste $i$ tale che $a_i = 0$ (dunque c'è un $1$ nella fattorizzazione
+                (essendo $p$-gruppi). Poiché  per ipotesi $p \nmid m$, allora esiste $i$ tale che $a_i = 0$ (dunque c'è un $1$ nella somma
                 che impedisce la divisibilità di $m$ per $p$) $ \implies \Orb(g_iS) = \{g_iS\} \implies \St(g_iS) = H$ (ovvero per tale $i$ si ha una classe
                 laterale $g_iS$ la cui orbita è solo se stessa, e quindi il suo stabilizzatore è tutto $H$). Da ciò segue che $\forall h \in H$:
                 \[ hg_iS = g_iS \iff hg_i \in g_iS \iff h \in g_iSg_{i}^{-1}\iff H \subset g_iSg_i^{-1}
@@ -1669,7 +1669,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 \skipitems{1}
             \item Sia $n_p$ il numero dei $p$-sottogruppi di Sylow, per quanto detto al punto $(3)$ i $p$-sottogruppi di Sylow sono tutti coniugati,
             dunque per ciò che abbiamo visto sul numero di coniugi rispetto all'azione di coniugio si ha $n_p = |\mathcal{C}\ell(S)|=[G:N_G(S)]$, da cui:
-                        \[ n_p = \frac{|G|}{|N_G(S)|} \implies |G| = n_p|N_G(S)| \implies n_p \mid |G|
+                        \[ n_p = \frac{|G|}{|N_G(S)|} \implies |G| = n_p \cdot |N_G(S)| \implies n_p \mid |G|
                             \]
                 Sia $X$ l'insieme dei $p$-Sylow di $G$, consideriamo l'azione di coniugio:
                     \[ \phi : S \longrightarrow S(X) : s \longmapsto \varphi_s
@@ -1683,7 +1683,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 ma sappiamo anche che $H \lneq N_G(H)$, pertanto si deve avere che:
                     \[ HS < N_G(H)
                         \]
-                (poiché $S$ normalizza $H$ il prodotto di sottogruppi da un sottogruppo), ma questo è assurdo se $S \ne H$, perché avremmo:
+                (poiché $S$ normalizza $H$ il prodotto di sottogruppi dà un sottogruppo), ma questo è assurdo se $S \ne H$, perché avremmo:
                     \[ |SH| = \frac{|S||H|}{|S \cap H|} = \frac{p^n \cdot p^n}{p^k} \footnote{$k<n$.} = p^{2n - k} \nmid |G|
                         \]
                 Quindi esiste un'unica orbita banale e applicando la formula delle classi otteniamo:
@@ -1759,8 +1759,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
     L'ultimo prodotto possibile è:
         \[ \Z{3} \rtimes_{\varphi} (\Z{2} \times \Z{2}) \qquad \text{con} \qquad \varphi : \Z{2} \times \Z{2} \longrightarrow \Aut(\Z{3}) \cong \Z{2}
             \]
-    se mandassimo tutti gli elementi nell'identità otterremmo un prodotto semidiretto, alternativamente, riscrivendo $\Z{2} \times \Z{2}$ come $\left<x\right> \times \left<y\right>$ (i cui elementi saranno $\{e,x,y,xy\}$), 
-    abbiamo due elementi di ordine $2$ che vanno in $-id$ e l'elemento neutro e un altro elemento di ordine $2$ che vanno in $id$. Possiamo dunque costruire tre prodotti semidiretti che danno 
+    se mandassimo tutti gli elementi nell'identità otterremmo un prodotto diretto, alternativamente, riscrivendo $\Z{2} \times \Z{2}$ come $\left<x\right> \times \left<y\right>$ (i cui elementi saranno $\{e,x,y,xy\}$), 
+    abbiamo due elementi di ordine $2$ che vanno in $-id$, mentre l'elemento neutro e un altro elemento di ordine $2$ vanno in $id$. Possiamo dunque costruire tre prodotti semidiretti che danno 
     origine a gruppi isomorfi, supponiamo (WLOG) che:
         \[ \varphi_x = id \qquad \varphi_y = -id \qquad \varphi_{xy} = -id
             \]
@@ -1768,7 +1768,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \[ \left<x\right> \times \left<y\right> \cong \Z{2} \times \Z{2} \qquad \text e \qquad \left<z\right> \cong \Z{3}
             \]
     possiamo osservare che:
-        \[ \varphi_{x}(Z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
+        \[ \varphi_{x}(z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
             \]
     similmente:
         \[ \varphi_{y}(z) = yzy^{-1} = -id(z) = -z
@@ -1792,7 +1792,7 @@ Abbiamo quindi classificato tutti i gruppi di ordine 12:
 
 \begin{definition}
     Si definisce gruppo dei \vocab{quaternioni} il gruppo con la seguente presentazione:
-        \[ Q_8 = \left<i,j | i^4 = 1, i^2 = j^2, ij = j^3i\right>
+        \[ Q_8 = \left<i,j \mid i^4 = 1, i^2 = j^2, ij = j^3i\right>
             \]
 \end{definition}
 
@@ -1819,7 +1819,7 @@ quindi il gruppo dei quaternioni ha $8$ elementi, dati da:
 \end{remark}
 
 \begin{remark}
-    Osserviamo che $\left<i\right>,\left<j\right> \triangleleft Q_8$ perché hanno indice $2$, inoltre $\left<i^2\right>, \left<j^2\right> \triangleleft Q_8$ (per verifica diretta). 
+    Osserviamo che $\left<i\right>,\left<j\right> \triangleleft Q_8$ perché hanno indice $2$, inoltre $\left<i^2\right> = \left<j^2\right> \triangleleft Q_8$ (per verifica diretta). 
 \end{remark}
 
 Ricordando che un sottogruppo di ordine $2$ è normale se e solo se è un sottogruppo di $Z(G)$ \footnote{Infatti, preso $H = \{e,h\} \trianglelefteqslant G$, allora $gHg^{-1} = H$, $\forall g \in G$, ovvero $ghg^{-1} \in H \iff ghg^{-1} = h \iff
@@ -1869,8 +1869,9 @@ con $i^2 = -1$, $i^3 = -i$, $j^3 = -j$, $i^3j = -k$.
     Dunque in $Q_8$ 1 ha ordine 1, $-1$ ha ordine 2, mentre $i$, $-i$, $j$, $-j$, $k$, $-k$ hanno ordine 4.   
 \end{remark}
 
-Abbiamo visto che $Q_8$ è un gruppo di ordine $8$ non è abeliano, e per quanto detto $Q_8 \ncong D_4$,
-poiché ha $Q_8$ ha sei elementi di ordine 4, mentre $D_4$ ne ha soltanto uno. \\
+Abbiamo visto che $Q_8$ è un gruppo di ordine $8$ non abeliano ma non è isomorfo a $D_4$,
+poiché $Q_8$ ha sei elementi di ordine 4 ($\pm i, \pm j, \pm k$) e un solo elemento di ordine 2 ($-1$), 
+mentre $D_4$ ha due elementi di ordine 4 (le rotazioni di $\pm 90°$) e cinque elementi di ordine 2 (le simmetrie e la rotazione di $180°$). \\
 
 \begin{remark}
     [Sottogruppi di $Q_8$]
@@ -1935,8 +1936,8 @@ Dunque i gruppi di ordine 8 sono:
     Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $S_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
         \[ S_4,S_5,S_6,S_7,S_8
             \]
-    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $S_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
-    ed in particolare $D_4$ è un $2$-Sylow di $S_4$, ma ciò significa che $Q_8$ non è in $S_4$, poiché non è un coniugato di $D_4$. \\
+    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $S_n$ (per $n \geq 3$) \footnote{In tal caso infatti basta mandare $x \in D_n$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
+    ed in particolare $D_4$ è un $2$-Sylow di $S_4$, ma ciò significa che $Q_8$ non è contenuto in $S_4$, poiché non è un coniugato di $D_4$. \\
     Si ragiona in maniera analoga per $S_5$, infatti $|S_5| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset S_4 \subset S_5$, dunque i due $2$-Sylow di $S_4$ sono isomorfi a quelli di $S_5$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
     Sia $|S_6| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $S_6$, osserviamo che se fosse $Q_8 \varlonghookrightarrow S_6$, dovremmo avere:
         \[ i \longmapsto \sigma \qquad j \longmapsto \rho \qquad k \longmapsto \sigma\rho = \eta
@@ -1953,7 +1954,7 @@ Dunque i gruppi di ordine 8 sono:
                 Se $\eta$ è un $k$-ciclo, con $k$ pari, allora si verifica che:
                         \[ \cycle{a_1,\ldots,a_k}\cycle{b_1,\ldots,b_k} = \cycle{a_1,b_1,\ldots,a_k,b_k}^2
                             \]
-                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_2}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
+                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_s}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
             \end{itemize}
         Ad esempio, in $S_6$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
             \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,2,3}\cycle{4,5,6}\right)^2
@@ -1963,7 +1964,7 @@ Dunque i gruppi di ordine 8 sono:
                 \]
     \end{remark}
     Dunque il fatto che $\sigma^2 = \rho^2 = \eta^2$ hanno ordine $2$ (quindi sono fatte da sole trasposizioni) e che sono quadrati (quindi i cicli di lunghezza pari compaiono a coppie),
-    ci dice che le trasposizioni sono prodotti di un numero pari di trasposizioni, pertanto l'unica possibilità è che:
+    ci dice che $\sigma$, $\rho$, $\eta$ sono prodotti di un numero pari di trasposizioni, pertanto l'unica possibilità è che siano del tipo:
         \[ \sigma^2 = \rho^2 = \eta^2 = \cycle{a,b}\cycle{c,d}
             \]
     Risolvendo $x^2 = \cycle{1,2}\cycle{3,4}$, otteniamo:
@@ -1977,7 +1978,7 @@ Dunque i gruppi di ordine 8 sono:
     Per \hyperref[p:Cayley]{Cayley} l'immersione è di $Q_8$ in $S(Q_8)$, dunque la mappa che realizza ciò è data da:
         \[ i \longmapsto \varphi_i \qquad \text{con} \qquad \varphi_i : Q_8 \longrightarrow Q_8 : x \longmapsto ix
             \]
-    in particolare con la notazione dei cicli abbiamo che l'immagine di $\varphi_i$ di $Q_8$ è data da:
+    in particolare con la notazione dei cicli abbiamo che l'immagine di $\varphi_i$ di $Q_8$ è data da: [bisogna mettere degli spazi]
         \[ \cycle{1,i,-1,i}\cycle{j,k,-j,-k}
             \]
     analogamente per $\varphi_j(Q_8)$:
@@ -2012,6 +2013,7 @@ Dunque i gruppi di ordine 8 sono:
                 \[ \varphi_y(x) = x^{-1} \iff yxy^{-1} = x^{-1} \implies \Z{15} \rtimes_{\varphi} \Z{2} \cong  \color{LimeGreen!90!black}{D_{15}}
                     \]
             Per $l = 4$ invece si ottiene $\color{LimeGreen!90!black}{D_5 \times \Z{3}}$ e per $l = -4$ si ottiene $\color{LimeGreen!90!black}{D_3 \times \Z{5}}$ \footnote{Andrebbe aggiunto il perché ma non è chiarissimo dalle note della Del Corso.},
+	    [c'è roba che commuta con altra roba, in particolare se ord(x) = 3, x^4 = x e se ord(x) = 5, x^-4 = (x^4)^-1 = (x^-1)^-1 = x quindi x commuta con y]
             i quali sono gruppi non isomorfi, ad esempio perché hanno centri diversi:
                 \[ Z(D_{15}) = \left<id\right> \qquad Z(D_5 \times \Z{3}) = Z(D_5) \times Z(\Z{3}) \cong \Z{3} \]
                 \[ Z(D_3 \times \Z{5}) \cong \Z{5}
