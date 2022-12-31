@@ -2218,7 +2218,7 @@ sui generatori $\cycle{1, 2}\cycle{3, 4}$, $\cycle{1, 3}\cycle{2, 4}$ di $V_4$:
     \cycle{1, 2}(\cycle{1, 2}\cycle{3, 4})\cycle{1, 2} = \cycle{1, 2}\cycle{3, 4}
 \]
 \[
-    \cycle{1, 2}(\cycle{1, 3}\cycle{2, 4})\cycle{1, 2} = \cycle{1, 4}\cycle{1, 3}
+    \cycle{1, 2}(\cycle{1, 3}\cycle{2, 4})\cycle{1, 2} = \cycle{1, 4}\cycle{2, 3}
 \]
 Pertanto $\varphi(\cycle{1, 2, 3}) = f$ e $\varphi(\cycle{1, 2}) = g$,
 dove $f$ e $g$ sono gli automorfismi di $\Z2\times\Z2$ tali che
@@ -2236,7 +2236,7 @@ Consideriamo il gruppo
     G = \{f: \Zn\longrightarrow\Zn\mid \exists a \in (\Zn)^*, b \in \Zn\text{ per cui }
     f(x) = ax + b~\forall x \in \Zn\}
 \]
-delle sostituzioni lineari in $\Zn$, effettivamente $G$ è un gruppo con 
+delle trasformazioni affini di $\Zn$, effettivamente $G$ è un gruppo con 
 l'operazione di composizione. Infatti fissati $a \in (\Zn)^*$, $b \in \Zn$ e
 $f \in G$ tali che $f(x) = ax + b$, abbiamo che $f^{-1}$ è tale che 
 $f^{-1}(x) = a^{-1}(x - b)$ (chiaramente $G$ contiene l'applicazione nulla 
@@ -2268,7 +2268,7 @@ contiene $n\phi(n)$ elementi. In realtà possiamo essere più precisi:
         |NH| = \frac{|N|\cdot|H|}{|N\cap|H|} = |N|\cdot|H| = n\phi(n) = |G|
     \]
     Mostriamo quindi che $N$ è un sottogruppo normale di $G$: fissati $f \in N$
-    e $g \in H$ tali che $f(x) = x + t$ e $g(x) = ax + b$, con $b, t \in \Zn$ e 
+    e $g \in G$ tali che $f(x) = x + t$ e $g(x) = ax + b$, con $b, t \in \Zn$ e 
     $a \in (\Zn)^*$, abbiamo
     \[
         (g^{-1}\circ f \circ g)(x) = (g^{-1}\circ f)(ax + b) = g^{-1}(ax + b + t) = 
@@ -2302,7 +2302,7 @@ dove $\varphi_a$ è l'omomorfismo di moltiplicazione per $a$
 \]
 
 \begin{proposition}
-    Il gruppo $G$ delle sostituzioni lineari in $\Zn$ è isomorfo a $\Aut(D_n)$
+    Il gruppo $G$ delle trasformazioni affini di $\Zn$ è isomorfo a $\Aut(D_n)$
     per $n \geq 3$.
 \end{proposition}
 
@@ -2354,7 +2354,7 @@ mostriamo che $GL_3(\RR) \cong SL_3(\RR)\times\RR^*$. Consideriamo il sottogrupp
     \item $N \cap H = \{Id\}$ in quanto $M = \lambda Id \in N\cap H$ è tale
     che $\det M = \lambda^3 = 1$, cioè $\lambda = 1$ e quindi $M = Id$;
     \item $H$ è un sottogruppo normale di $GL_3(\RR)$, in quanto tutti i suoi elementi
-    sono mutlipli scalari della matrice identità e quindi commutano con gli
+    sono multipli scalari della matrice identità e quindi commutano con gli
     elementi di $GL_3(\RR)$;
     \item $GL_3(\RR) = NH$, infatti per ogni $M \in GL_3(\RR)$ possiamo scrivere $M = S(\lambda Id)$,
     dove $\lambda = \nolinebreak(\det M)^{\frac 1 3}$ e $S = (\det M)^{-\frac 1 3} M \in N$.
@@ -2439,7 +2439,7 @@ procedura nella seguente dimostrazione.
         (g_1, g_2) = (g_1g_2^{-1}, e)(g_2, g_2)
     \]
     con $(g_1g_2^{-1}, e) \in N$ e $(g_2, g_2) \in H$, pertanto possiamo 
-    scrivere $G = N \rtimes_{\varphi} H$, dove $\varphi$ è un omomorfismo
+    scrivere $G\times G = N \rtimes_{\varphi} H$, dove $\varphi$ è un omomorfismo
     \[
         \varphi: H \longrightarrow \Aut(N)
     \]
@@ -2447,7 +2447,7 @@ procedura nella seguente dimostrazione.
     se e solo se $hnh^{-1} = n$ per ogni $h \in H$, per ogni $n \in N$.
     Questo è equivalente a richiedere 
     \[
-        (g, g)(n, e)(g^{-1}, g^{-1}) = (gng^{-1}, e)= (n, e)~\forall g \in G,\forall n \in N
+        (g, g)(g', e)(g^{-1}, g^{-1}) = (gg'g^{-1}, e)= (g', e)~\forall g, g' \in G
     \]
     cioè $g \in Z(G)$ per ogni $g \in G$,
     ma questo è assurdo in quanto $G$ non è abeliano, pertanto $\varphi$
@@ -2540,7 +2540,7 @@ due prodotti semidiretti di $p$-gruppi non siano isomorfi.
     Dimostriamo la contronominale, cioè che se $X_1$ e $X_2$ sono isomorfi
     allora $\ker\varphi_1 \cong \ker\varphi_2$.\newline
     Sia $f: X_1\longrightarrow X_2$ un isomorfismo, poniamo $\mathcal{G}_1 = 
-    G\rtimes_{\varphi_1}\{e_H\}$, $\mathcal{G}_2 = G\rtimes{\varphi_2}\{e_H\}$,
+    G\rtimes_{\varphi_1}\{e_H\}$, $\mathcal{G}_2 = G\rtimes_{\varphi_2}\{e_H\}$,
     $\mathcal{H}_1 = \{e_G\}\rtimes_{\varphi_1}H$, $\mathcal{H}_2 = \{e_G\}\rtimes_{\varphi_2}H$.
     Osserviamo che $f(\mathcal{G}_1) = \mathcal{G}_2$ in quanto $\mathcal{G}_1$
     è l'unico $p$-Sylow di $X_1$ e $\mathcal{G}_2$ è l'unico $p$-Sylow di $X_2$
@@ -2611,6 +2611,19 @@ ci permetterà di ridurre lo studio a pochi casi interessanti.
     di Sylow, pertanto almeno uno di questi è normale e non banale;
     \item $\mathcal{A}_5$ è un gruppo semplice di ordine $60$.
 \end{itemize}
+
+Dopo queste osservazioni rimangono i gruppi di cardinalità 12, 20, 24, 28, 36, 40, 44, 45, 48, 52, 56, 60, 63, 68, 72, 75, 76, 80, 84, 88, 92, 96, 99, 100.
+Sia $|G|=n$, si può verificare che:
+\begin{itemize}
+    \item per $n \in \{20, 28, \mathbf{40}, 44, 45, 52, \mathbf{63}, 68, 75, 76, \mathbf{84}, \mathbf{88}, 92, 99, 100\}$ G ha un Sylow normale, applicando direttamente il quarto teorema di Sylow;
+    \item per $n \in \{12, 24, 36, 48, \mathbf{56}, 80, 96\}$ G ha almeno uno dei due Sylow normale, infatti se entrambi i Sylow fossero non normali si avrebbe che il numero di elementi in essi contenuti supererebbe la cardinalità del gruppo;
+    \item per $n \in \{12, 24, 28, 36, 44, 48, 52, 68, 75, 76, 92, 96, 100\}$ G contiene un sottogruppo normale proprio, per applicazione del teorema di Poincaré (osservazione 1.51) usando come sottogruppo un Sylow;
+    \item per $n \in \{12, 24, 36, 48, \mathbf{72}, 80, 96\}$ G contiene un sottogruppo normale proprio, il nucleo dell'azione sull'insieme X dei p-Sylow (p dipende da n), infatti questo non può essere tutto G (perché l'azione è transitiva) e non è banale (si dimostra caso per caso ragionando sulle cardinalità di G e S(X));
+    \item per  $n \in \{12, 20, 24, 28, 36, 44, 45, 48, 52, 68, 75, 76, 80, 92, 96, 99, 100\}$ G contiene un sottogruppo normale proprio, il nucleo dell'azione sull'insieme G/P delle classi laterali di P un p-Sylow (p dipende da n), per lo stesso motivo del punto precedente.
+\end{itemize}
+Fun fact: in grassetto le cardinalità che si possono escludere con uno solo dei metodi illustrati.
+Nota: per Poincaré e l'azione su G/P non c'è bisogno di applicare il teorema di Sylow (e quindi andare a risolvere i sistemini) ma basta guardare la fattorizzazione in fattori primi di n.
+In ogni caso solo col teorema di Sylow si possono già escludere tutte le cardinalità tranne 60 e 72.
 
 Ci riduciamo quindi a studiare i gruppi di ordine 56, 60, 72, 80, 96.
 \newline\newline
@@ -2934,11 +2947,9 @@ l'azione transitiva di coniugio di $S$ su $X$
     \Phi: S \longrightarrow S(X) \cong S_4
 \]
 il nucleo di $\Phi$ è
-\begin{multline*}
-    \ker\Phi = \{g \in S \mid gPg^{-1} = P~\forall P \in X\} = \\
-    = \{g \in S\mid g \in N_S(P)~\forall P \in X\} = \\
+    \ker\Phi = \{g \in S \mid gPg^{-1} = P \quad \forall P \in X\} = \\
+    = \{g \in S\mid g \in N_S(P) \quad \forall P \in X\} = \\
     = \bigcap_{P \in X}N_S(P) = \bigcap_{P \in X}PZ(S) = Z(S)
-\end{multline*}
 dove l'ultima uguaglianza è giustificata dal fatto che i 3-Sylow di $S$
 si intersecano banalmente. Per il Primo Teorema di Omomorfismo otteniamo
 che $\mathrm{Im}\Phi \cong \faktor{S}{Z(S)}$, che ha cardinalità 12. D'altra
@@ -2947,7 +2958,7 @@ $\faktor{S}{Z(S)} \cong \mathcal{A}_4$, sfruttiamo questo fatto per studiare
 i 2-Sylow di $S$. Per il Teorema di Corrispondenza i sottogruppi di $S$
 contenenti $Z(S)$ sono in bigezione con i sottogruppi di $\mathcal{A}_4$,
 e tale bigezione preserva l'indice e la normalità dei sottogruppi. Poiché 
-$V_4$ è l'unico 2-Sylow di $S_4$ abbiamo che $S$ contiene un unico 2-Sylow 
+$V_4$ è l'unico 2-Sylow di $\mathcal{A}_4$ abbiamo che $S$ contiene un unico 2-Sylow 
 di indice $3$, cioè di cardinalità 8, chiamiamo $J$ tale sottogruppo. 
 $J$ contiene le matrici
 \[
