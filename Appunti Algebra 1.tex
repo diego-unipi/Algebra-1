@@ -2753,7 +2753,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
             Resta da verificare che tale elemento massimale $M$ sia un ideale massimale dell'anello (poiché abbiamo dimostrato che è massimale per la famiglia $\mathcal{F}$ degli ideali che ne contengono uno proprio,
             la quale ovviamente non è la famiglia di tutti gli ideali propri di $A$), ciò segue subito osservando che,
             supponendo $L \subsetneq A$ ideale proprio con $M \subseteq L$, allora:
-                \[ I \subseteq M \subseteq L \implies L \subset \mathcal{F}
+                \[ I \subseteq M \subseteq L \implies L \in \mathcal{F}
                     \]
             dunque $L$ è un elemento della famiglia $\mathcal{F}$, e per la massimalità di $M$ in $\mathcal{F}$, segue che $M = L$.
         \item Segue immediatamente dal punto (1), infatti, sia $x \in A \setminus A^*$, allora per la \hyperref[2.26]{Proposizione 2.26} l'ideale generato da $x$ è proprio,
@@ -2777,7 +2777,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Verifichiamo le affermazioni:
     \begin{enumerate}[(1)]
         \item Presi $x,y \in A$, per definizione abbiamo che $I$ è primo se e solo se $xy \in I \implies x \in I$ o $y \in I$, d'altra parte, $\faktor{A}{I}$ è un dominio se e solo se:
-            \[ (x+I)(y+I) = xy + I = I \iff xy \in I \implies x \in I \quad\text o\quad y \in I
+            \[ (x+I)(y+I) = \underbrace{xy + I = I}_{\iff xy \in I} \implies \underbrace{x+I = I \quad\text o\quad y+I = I}_{x \in I \quad\text o\quad y \in I} 
                 \]
             ovvero se e solo se, quando un prodotto di elementi si annulla (quindi fa la classe laterale neutra in questo caso) uno dei due elementi è già nella classe laterale neutra 
             dell'anello quoziente (quindi è già l'unico elemento neutro del prodotto, come richiesto dal fatto che l'anello sia un dominio), ma come si vede ciò è equivalente a dire che $I$ è primo.
@@ -2831,11 +2831,12 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Osserviamo preliminarmente che si ha $I \subseteq J \subseteq A$, dunque nella proiezione $\pi_I$ si ha che:
         \[ J \longmapsto \pi_I(J) = \faktor{J}{I}
             \]
-    Dobbiamo dimostrare che $J$ è primo (massimale) in $A$ se e solo se $\faktor{J}{I}$ è primo (massimale) in $\faktor{A}{I}$. Per quanto detto nella \hyperref[2.56]{Proposizione 2.56} $J$ primo (massimale) 
-    è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e, ugualmente deve essere che $\displaystyle\frac{A/I}{J/I}$ è un dominio (campo) ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
+    Dobbiamo dimostrare che $J$ è primo (massimale) in $A$ se e solo se $\faktor{J}{I}$ è primo (massimale) in $\faktor{A}{I}$. 
+    Per quanto detto nella \hyperref[2.56]{Proposizione 2.56} $J$ primo (massimale) in $A$ è equivalente al fatto che $\faktor{A}{J}$ sia un dominio (campo), e analogamente $\faktor{J}{I}$ primo (massimale) in $\faktor{A}{I}$ è equivalente a $\displaystyle\frac{A/I}{J/I}$ dominio (campo). 
+    Ma dal Secondo Teorema di Omomorfismo di Anelli si ha:
     \[ \frac{A/I}{J/I} \cong \faktor{A}{J}
         \]
-    che in entrambi i casi verifica la tesi.
+    che conclude.
 \end{proof}
 
 \newpage
@@ -2861,13 +2862,13 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \begin{remark}
     La relazione $\sim$ usata nella definizione precedente è una relazione di equivalenza, infatti:
     \begin{itemize}
-        \item $\sim$ è riflessiva in quanto $\displaystyle\frac{a}{s} \sim \frac{a}{s} \iff as = sa$, che è vero in quanto abbiamo supposto $A$ commutativo.
-        \item $\sim$ è simmetrica in quanto $\displaystyle\frac{a}{s} \sim \frac{b}{t} \iff at = bs \iff \frac{b}{t} \sim \frac{a}{s}$.
+        \item $\sim$ è riflessiva in quanto $\displaystyle\frac{a}{s} \sim \frac{a}{s} \iff as = as$.
+        \item $\sim$ è simmetrica in quanto $\displaystyle\frac{a}{s} \sim \frac{b}{t} \iff at = bs \iff bs = at \iff \frac{b}{t} \sim \frac{a}{s}$.
         \item $\sim$ è transitiva in quanto, dati $\displaystyle\frac{a}{s} \sim \frac{b}{t}$ e $\displaystyle\frac{b}{t} \sim \frac{c}{u}$ abbiamo che:
-            \[ at = bs \qquad \text e \qquad bu = tc
+            \[ at = bs \qquad \text e \qquad bu = ct
                 \]
-        da cui, moltiplicando la prima per $u$ si ha:
-            \[ aut = bus = tcu \implies aut = cts \iff t(au-cs) = 0
+        da cui, moltiplicando la prima per $u$ e usando il fatto che $A$ è commutativo si ha:
+            \[ (at)u = (bs)u = (bu)s = (ct)s \implies atu = cts \iff t(au-cs) = 0
                 \]
         essendo per ipotesi $A$ un dominio\footnote{È importante notare che qui stiamo usando il fatto che $A$ è un dominio.} e $t \in S$ (dunque $t \ne 0$) segue:
             \[ au = cs \iff \frac{a}{s} \sim \frac{c}{u}
@@ -2890,8 +2891,8 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     diano lo stesso risultato; per ipotesi sappiamo che $as^{\prime}=a^{\prime}s$ e $bt^{\prime}=b^{\prime}t$, osserviamo che l'uguaglianza tra le due somme è vera se e solo se:
     \[ (at+bs)s^{\prime}t^{\prime} = (a^{\prime}t^{\prime}+b^{\prime}s^{\prime})st
         \]
-    sviluppando l'LHS otteniamo:
-    \[ att^{\prime}s^{\prime} + bss^{\prime}t^{\prime} = a^{\prime}stt^{\prime}+b^{\prime}tss^{\prime} = (a^{\prime}t^{\prime}+b^{\prime}s^{\prime})st
+    sviluppando otteniamo:
+    \[ ats^{\prime}t^{\prime} + bss^{\prime}t^{\prime} = (as^{\prime})tt^{\prime} + (bt^{\prime})ss^{\prime} = (a^{\prime}s)tt^{\prime} + (b^{\prime}t)ss^{\prime} = a^{\prime}t^{\prime}st + b^{\prime}s^{\prime}st
         \]
     che dimostra che l'operazione $+$ è ben definita.\footnote{Le restanti (lunghissime e noiosissime) 9 verifiche verranno aggiunte in seguito :).}
 \end{proof}
@@ -2926,15 +2927,14 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     \[ f(ab) = \frac{ab}{1} = \frac{a}{1} \cdot \frac{b}{1} = f(a)f(b) \qquad \forall a,b \in A
         \]
     Per l'iniettività studiamo il nucleo:
-    \[ \ker f = \left\{a \in A \m f(a) = \frac{a}{1} = \frac{0}{1}\right\}\footnote{Ricordiamo che $0/1$ è l'elemento neutro di $S^{-1}A$.} = \{a \in A | a \cdot 1 = 0 \cdot 1 = 0\} = \{0\}
+    \[ \ker f = \left\{a \in A \m f(a) = \frac{a}{1} = \frac{0}{1}\right\}\footnote{Ricordiamo che $0/1$ è l'elemento neutro di $S^{-1}A$.} = \{a \in A \mid a \cdot 1 = 0 \cdot 1 = 0\} = \{0\}
         \]
     dunque l'omomorfismo è iniettivo.
 \end{proof}
 
 \begin{remark}
     [$S = A \setminus\{0\}$]
-    Se $A$ è un dominio, allora $S = A \setminus\{0\}$\footnote{Sarebbe $A^*$ se $A$ fosse finito.} è una parte moltiplicativa, infatti, $\forall x,y \in S$, ovvero $x \ne 0$ e $y \ne 0$, dunque 
-    $xy \in S$, $xy \ne 0$.
+    Se $A$ è un dominio, allora $S = A \setminus\{0\}$\footnote{Sarebbe $A^*$ se $A$ fosse finito.} è una parte moltiplicativa, infatti, $\forall x,y \in S$, ovvero $x \ne 0$ e $y \ne 0$, vale $xy \ne 0$, dunque $xy \in S$.
 \end{remark}
 
 \begin{definition}
@@ -2959,12 +2959,12 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
          possono essere scritti come $\displaystyle\frac{1}{a}$) ed è tale per cui:
             \[ \frac{a}{1} \cdot \frac{1}{a} = \frac{1}{1}
                 \]
-        \item Per la \hyperref[2.66]{Proposizione 2.66} sappiamo già che $A \subset S^{-1}A$, ed ora abbiamo dimostrato che $S^{-1}A$ è un campo, ci resta da verificare 
-        che $S^{-1}A (= Q(A))$ sia effettivamente il più piccolo campo che contiene $A$. Sia $K$ è un campo tale che $A \subset K$, allora $\displaystyle \frac{1}{a} \in K$, $\forall a \in A \setminus\{0\}$, ovvero $K$ 
-        contiene tutti gli inversi degli elementi di $A$, allora, $\forall b \in A$, $\forall a \in A \setminus \{0\}$, cioè $K$ contiene tutti gli elementi di $S^{-1}A$:
-            \[ \frac{b}{a} \in K \implies Q(A) = S^{-1}A \subset K
+        \item Per la \hyperref[2.66]{Proposizione 2.66} sappiamo già che $A \subset Q(A)$, ed ora abbiamo dimostrato che $Q(A)$ è un campo, ci resta da verificare che $Q(A)$ sia effettivamente il più piccolo campo che contiene $A$. 
+	Sia $K$ un campo tale che $A \subset K$, allora $\displaystyle \frac{1}{a} \in K \quad \forall a \in A \setminus\{0\}$, ovvero $K$ contiene gli inversi di tutti gli elementi non nulli di $A$; 
+	allora $K$ contiene anche tutti gli elementi di $Q(A)$:
+            \[ \forall b \in A, \forall a \in A \setminus \{0\} \frac{1}{a} \cdot \frac{b}{1} = \frac{b}{a} \in K \implies S^{-1}A = Q(A) \subset K
                 \]
-        pertanto, essendo contenuto in ogni campo che contiene $A$, e contenendolo a sua volta, $Q(A)$ è il più piccolo campo che contiene $A$.
+        pertanto, essendo contenuto in ogni campo che contiene $A$, $Q(A)$ è il più piccolo campo che contiene $A$.
     \end{itemize}
 \end{proof}
 
@@ -2981,12 +2981,12 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
             $0 \not\in S$, $1 \in S$ e $\forall x,y \in S$ si ha:
             \[ x,y \not\in P \implies xy \not\in P
                 \]
-            poiché $P$ è primo, dunque $xy \in A \setminus P = S$. In questo caso indichiamo $S^{-1}A = A_p$ e prende il nome di \vocab{localizzato} dell'anello $A$ all'ideale $P$.
+            poiché $P$ è primo, dunque $xy \in A \setminus P = S$. In questo caso indichiamo $S^{-1}A = A_P$ e prende il nome di \vocab{localizzato} dell'anello $A$ all'ideale $P$.
     \end{itemize}
 \end{example}
 
 \begin{remark}
-    Dato il localizzato di $A$ a $P$, $A_p$, si osserva che esso è un \vocab{anello locale}, ovvero un anello che ha un unico ideale massimale.
+    Dato il localizzato di $A$ a $P$, $A_P$, si osserva che esso è un \vocab{anello locale}, ovvero un anello che ha un unico ideale massimale.
 \end{remark}
 
 \begin{example}[Localizzato di un ideale primo]
@@ -3000,8 +3000,9 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{exercise}
 
 \begin{soln}
-    La tesi è equivalente a mostrare che $\ZZ_{(2)}^*=\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$. Infatti, sappiamo già che 
-    $(2)\ZZ_{(2)}$ è un ideale, mentre qualunque ideale non contenuto in esso contiene necessariamente un elemento invertibile ed è perciò non proprio.
+    La tesi è equivalente a mostrare che $\ZZ_{(2)}^*=\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$. 
+    Infatti, sappiamo già che $(2)\ZZ_{(2)}$ è un ideale (i suoi elementi sono del tipo $\frac{a}{b}$ con $a$ pari e $b$ dispari), 
+    mentre qualunque ideale non contenuto in esso contiene necessariamente un elemento invertibile (cioè un elemento del tipo $\frac{a}{b}$ con $a$ e $b$ entrambi dispari) ed è perciò non proprio, quindi non massimale.
     Se $\displaystyle\frac{a}{b}\notin (2)\ZZ_{(2)}$ allora sia $a$ che $b$ sono dispari, dunque $\displaystyle\frac{b}{a}\in\ZZ_{(2)}$ ed è chiaramente l'inverso di $\displaystyle\frac{a}{b}$.
     Viceversa se $\displaystyle\frac{a}{b}$ è invertibile esiste $\displaystyle\frac{c}{d}\in\ZZ_{(2)}$ tale che $\displaystyle\frac{ac}{bd}=1$, cioè $ac=bd$. Se uno tra $a$ e $c$ fosse pari lo sarebbe
     anche $bd$, e poiché 2 è primo uno tra $b$ e $d$ sarebbe pari, contraddicendo la definizione di $\ZZ_{(2)}$. Dunque $\displaystyle\frac{a}{b}\in\ZZ_{(2)}\setminus (2)\ZZ_{(2)}$.\footnote{Dimostrazione proposta da Davide Ranieri.}
@@ -3035,7 +3036,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Sia $I \subset A$ e sia $S^{-1}A$ l'insieme costruito come sopra, allora:
     \begin{enumerate}[(1)]
         \item $S^{-1}I$ è un ideale di $S^{-1}A$.
-        \item $\forall J \subset S^{-1}A$, $\exists I \subset A$ tale che $J = S^{-1}I$ (cioè ogni ideale di $S^{-1}A$ si ottiene da un ideale di $A$, considerandone il relativo anello delle frazioni).
+        \item $\forall J \subset S^{-1}A$, $\exists I \subset A$ tale che $J = S^{-1}I$ (cioè ogni ideale di $S^{-1}A$ si ottiene localizzando un ideale di $A$).
         \item $S^{-1}I$ è un ideale proprio di $S^{-1}A$ se e solo se $I \cap S = \emptyset$.
         \item Sia $P$ un ideale primo di $A$, con $P \cap S = \emptyset$, allora $S^{-1}P$ è un ideale primo di $S^{-1}A$.
     \end{enumerate}
@@ -3044,35 +3045,35 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \begin{proof}
     Dimostriamo le singole affermazioni:
     \begin{enumerate}[(1)]
-        \item Per verificare che $S^{-1}I$ sia un ideale verifichiamo prima la chiusura per somma:
+        \item Per verificare che $S^{-1}I$ è un ideale verifichiamo prima la chiusura per somma:
             \[ \frac{x}{s} + \frac{y}{t} = \frac{\overbrace{xt + ys}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall x,y \in I
                 \]
             dove l'appartenenza del numeratore deriva dal fatto che $x$, $y$ siano elementi di un ideale. Per verificare la proprietà di assorbimento osserviamo che:
-            \[ \frac{a}{s} \cdot \frac{x}{t} = \frac{\overbrace{ax}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall \frac{a}{s} \in S^{-1}A 
+            \[ \frac{a}{s} \cdot \frac{x}{t} = \frac{\overbrace{ax}^{\in I}}{\underbrace{st}_{\in S}} \in S^{-1}I \qquad \forall~\frac{a}{s} \in S^{-1}A 
                  \]
         \item Sia $J \subset S^{-1}A$ un ideale, per quanto detto nella \hyperref[2.66]{Proposizione 2.66}, sappiamo che $S^{-1}A$ è un'estensione di $A$, inoltre se consideriamo $f^{-1}(J)$, che per il \hyperref[2.35]{Lemma 2.35}, 
             sappiamo essere un ideale, ed in particolare una contrazione di $J$ ad $A$, abbiamo che:
             \[ f^{-1}(J) = J \cap A = I \subset A
                 \]
             vogliamo mostrare che vale $J = S^{-1}I$. Osserviamo che $\forall x \in I$ si ha $\displaystyle f(x) = \frac{x}{1} \in J$, dunque:
-            \[ \underbrace{\frac{1}{s}}_{\in S^{-1}A} \cdot \frac{x}{1} = \frac{x}{s} \in J \implies S^{-1}I \subseteq J
+            \[ \underbrace{\frac{1}{s}}_{\in S^{-1}A} \cdot \, \frac{x}{1} = \frac{x}{s} \in J \implies S^{-1}I \subseteq J
                 \]
             cioè per assorbimento di $J$ ci sono tutti gli elementi di $S^{-1}I$. Viceversa si ha che $\displaystyle\forall \frac{x}{s} \in J$ possiamo scrivere:
             \[ \frac{x}{1} = \frac{x}{s}\cdot \frac{s}{1} \in J \implies x = f^{-1}\left(\frac{x}{1}\right) \in I
                 \]
-            ovvero il numeratore di ogni elemento in $S^{-1}J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $S^{-1}J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
-        \item Dimostriamo la negazione\footnote{Poiché trattandosi di un'equivalenza logica va bene lo stesso.}, ovvero $S^{-1}I$ non proprio equivale a $S^{-1}I = S^{-1}A$, ma essendo il primo un ideale questo è vero se e solo se:
+            ovvero il numeratore di ogni elemento in $S^{-1}J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $S^{-1}J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$. [Da riguardare]
+        \item Dimostriamo la negazione\footnote{Poiché trattandosi di un'equivalenza logica va bene lo stesso.}: sia $S^{-1}I$ non proprio, questo equivale a $S^{-1}I = S^{-1}A$, ma essendo il primo un ideale questo è vero se e solo se:
             \[ \frac{1}{1} \in S^{-1}I \iff \exists x \in I, \exists s \in S : \frac{1}{1} = \frac{x}{s}
                 \]
             che, per la relazione definita sugli anelli di frazioni è equivalente a chiedere che $I \ni x = s \in S \iff I \cap S \ne \emptyset$.
         \item Sia $P$ un ideale primo, se fosse $P \cap S \ne \emptyset$, allora per quanto visto al punto (3) non sarebbe proprio (e dunque nemmeno primo), viceversa, se $P \cap S = \emptyset$ vogliamo dimostrare che $S^{-1}P$ primo in $S^{-1}A$; consideriamo:
                 \[ \frac{a}{s} \cdot \frac{b}{t} \in S^{-1}P
                     \]
-            ciò è equivalentemente al fatto che $\exists \sigma \in S$ e $\exists p \in P$ tali per cui:
-                \[ \frac{ab}{st} = \frac{p}{\sigma} \iff ab\sigma = \underbrace{p}_{\in P}st \in P \implies ab\sigma \in P
+            ciò è equivalente al fatto che $\exists \sigma \in S$ e $\exists p \in P$ tali che:
+                \[ \frac{ab}{st} = \frac{p}{\sigma} \iff ab\sigma = pst \in P
                     \]
-            ma, essendo per ipotesi che $\sigma \in P$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ p $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
-            e quindi $S^{-1}P$ primo.
+            ma, essendo per ipotesi che $\sigma \in S$ e $P \cap S = \emptyset$, allora $ab \in P$, perché $P$ è primo; 
+	    inoltre, sempre perché $P$ è primo, si deve avere $a \in P \quad \text{o} \quad b \in P \implies \frac{a}{s} \in S^{-1}P \quad \text{o} \quad \frac{b}{t} \in S^{-1}P$ e quindi $S^{-1}P$ primo.
     \end{enumerate}
 \end{proof}
 
@@ -3105,17 +3106,17 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Osserviamo che le tre condizioni date sono equivalenti, infatti, per quanto riguarda (i) e (iii) si ha:
     \[ a \mid a^{\prime} \iff (a^{\prime}) \subseteq (a) \qquad \text e \qquad a^{\prime}\mid a \iff (a) \subseteq (a^{\prime})
         \]
-    dunque se sono vere entrambe le condizioni (i) e (iii) sono equivalenti. Dobbiamo da verificare che (i)$\implies$(ii), dalle due divisibilità segue che:
-    \[ a^{\prime} = xa \qquad \text e \qquad a = y a^{\prime} \implies a = yxa \implies a(1-xy) = 0
+    dunque se sono vere entrambe le condizioni, (i) e (iii) sono equivalenti. Dobbiamo verificare che (i)$\iff$(ii), dalle due divisibilità segue che:
+    \[ a^{\prime} = xa \quad \text e \quad a = y a^{\prime} \implies a = yxa \implies a(1-xy) = 0
         \]
     poiché $a \ne 0$, ed $A$ dominio per ipotesi si ha che $xy = 1 \implies y \in A^*$, ovvero la (ii). Viceversa, assumiamo (ii) e deduciamo 
     (iii):\footnote{A questo punto sappiamo che già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
-    \[ a = ua^{\prime} \implies a \in (a^{\prime}) \implies (a^{\prime}) \subseteq (a)
+    \[ a = ua^{\prime} \implies a \in (a^{\prime}) \implies (a) \subseteq (a^{\prime})
         \]
     con $u \in A^*$, pertanto $\exists v \in A^*$ tale che $uv = vu = 1$, moltiplicando la prima relazione per $v$ si ottiene:
-    \[ a^{\prime} = va \implies a^{\prime} \in (a) \implies (a) \subseteq (a^{\prime})
+    \[ a^{\prime} = va \implies a^{\prime} \in (a) \implies (a^{\prime}) \subseteq (a)
         \]
-    e si conclude $(a) \subseteq (a^{\prime})$.
+    e si conclude $(a) = (a^{\prime})$.
 \end{remark}
 
 \begin{definition}
@@ -3179,9 +3180,9 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
     \[ x = ab
         \]
     essendo $x$ primo, allora $x \mid a$ o $x \mid b$, assumiamo (WLOG) che $x \mid a$, allora:
-    \[ a = xc \implies x = bcx \implies x(1-bc) = 0
+    \[ a = xc \implies ab = xcb \implies x = bcx \implies x(1-bc) = 0
         \]
-    poiché $A$ è un dominio, e poiché $x \ne 0$ per ipotesi segue che:
+    poiché $A$ è un dominio, e poiché $x \ne 0$ per ipotesi ($x$ primo) segue che:
     \[ bc = 1 \implies b,c \in A^*
         \]
     in particolare ciò significa che $x$ è irriducibile, in quanto scrivendolo come $x = ab$, abbiamo verificato che $b \in A^*$.
@@ -3199,12 +3200,14 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
 \begin{proof}
     Verifichiamo entrambe le proprietà:
     \begin{enumerate}[(1)]
-        \item Sia $(x)$ un ideale primo, ovvero:
-            \[ ab \in (x) \iff a \in (x) \vee b \in (x)
+        \item Sia $x \in A$, allora:
+            \[ x \mid ab \iff ab \in (x)
                 \]
-        ciò è equivalente al richiedere che $x \mid a$ o $x \mid b$, ovvero che $x$ sia primo in $A$.
+	    \[ x \mid a \vee x \mid b \iff a \in (x) \vee b \in (x)
+	        \]
+        da ciò si deduce la tesi.
         \item Dimostriamo separatamente le due implicazioni. Sia $x$ irriducibile e supponiamo che sia $(x) \subseteq (y) \subsetneq A$,
-            dunque $\exists z \in A$ tale che $x = yz$, sappiamo che $y \not \in A^*$ (altrimenti sarebbe l'ideale conterebbe l'identità
+            dunque $\exists z \in A$ tale che $x = yz$, sappiamo che $y \not \in A^*$ (altrimenti l'ideale conterebbe l'identità
             e avremmo $(y) = A$), poiché $x$ deve essere irriducibile segue necessariamente che $z \in A^*$ e quindi $x \sim y$, cioè:
             \[ (x) = (y)
                 \]
