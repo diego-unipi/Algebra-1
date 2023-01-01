@@ -2611,8 +2611,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
             \]
     Verifichiamo separatamente le due implicazioni della seconda parte del teorema:
     \begin{itemize}
-        \item Supponiamo che $I+J = A$, ovvero che esistono $i$ e $j$ tali che $i+j = 1$\footnote{Poiché
-        l'identità è in $I+J$, allora per la proprietà di assorbimento ogni altro elemento di $A$ è in $I+J$.},
+        \item Supponiamo che $I+J = A$, ovvero che esistono $i$ e $j$ tali che $i+j = 1$,
         e verifichiamo che $f$ è surgettiva. Per verificare che $f$ è surgettiva dobbiamo far vedere che:
             \[ \forall a,b \in A, \exists x \in A : f(x) = (a+I,b+J)
                 \]
@@ -2717,7 +2716,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Gli ideali primi di $\ZZ$ sono $(p)$ con $p$ primo, infatti:
     \[ xy \in (p) \iff p \mid xy \iff p \mid x \vee p \mid y
         \]
-    ovvero se $x \in (p)$ o $y \in p$. Se consideriamo invece $(m)$, con $m$ non primo, dunque riducibile $m = ab$, con $1<a<m$ e $1<b<m$, allora:
+    ovvero se $x \in (p)$ o $y \in (p)$. Se consideriamo invece $(m)$, con $m$ non primo, dunque riducibile $m = ab$, con $1<a<m$ e $1<b<m$, allora:
     \[ ab \in (m) \qquad \text{ma} \quad a \not\in (m) \quad \text e \quad b \not\in (m)
         \]
     dunque $(m)$ non è primo.
@@ -2735,16 +2734,16 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Verifichiamo le affermazioni:
     \begin{enumerate}
         \item Sia $I \subsetneq A$ un ideale proprio e sia $\mathcal{F}$ la famiglia di tutti gli ideali propri che lo contengono:
-            \[ \mathcal{F} = \{J \subsetneq A | I \subseteq J\}
+            \[ \mathcal{F} = \{J \subsetneq A \, \text{ideale} \mid I \subseteq J\}
                 \]
             osserviamo che $I \in \mathcal{F} \implies \mathcal{F} \ne \emptyset$, inoltre $(\mathcal{F},\subseteq)$ è induttivo, infatti, detta $\mathscr{C}$ una catena, essa
             sarà un sottoinsieme di $\mathcal{F}$ totalmente ordinato della forma:
-            \[ \mathscr{C} = \{J_n\}\footnote{I vari $J_i$ sono contenuti tutti uno dentro l'altro "in catena".} \subseteq \mathcal{F}
+            \[ \mathscr{C} = \{J_n\}\footnote{I vari $J_n$ sono contenuti tutti uno dentro l'altro "in catena".} \subseteq \mathcal{F}
                 \]
-            allora posta $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$, verifichiamo che
+            allora posta $J = \bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} \in \mathcal{F}$, verifichiamo che
             $J$ è maggiorante di $\mathscr{C}$. Si ha che:
             \begin{itemize}
-                \item $\forall J_n \in \mathscr{C} : J_n \subseteq J$, segue ovviamente da come abbiamo definito $J$, avendolo costruito come l'unione di tutti i $J_n$.
+                \item $J_n \subseteq J \quad \forall J_n \in \mathscr{C}$, segue ovviamente da come abbiamo definito $J$, avendolo costruito come l'unione di tutti i $J_n$.
                 \item $J \in \mathcal{F}$, poiché $I \subset J_n \subset J$, $\forall J_n \in \mathcal{F}$, e infine $J$ è un ideale proprio, infatti, se per assurdo fosse
                 $1 \in J = \bigcup J_n \implies \exists n$ tale che $1 \in J_n \subsetneq A$ che è assurdo (se un ideale contenesse l'identità del prodotto, allora conterrebbe
                 tutti gli elementi dell'anello).
