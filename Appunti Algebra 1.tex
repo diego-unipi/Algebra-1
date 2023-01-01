@@ -2084,20 +2084,20 @@ dove sono state trattate più ampiamente.} le definizioni che riguardano gli ane
 
 \begin{definition}
     Un anello $A$ si dice \vocab{dominio d'integrità} se:
-        \[ D(A) = \{x \in A |\, \text{$x$ è un divisore di $0$}\} = \{0\}
+        \[ D(A) = \{x \in A \mid \text{$x$ è un divisore di $0$}\} = \{0\}
             \]
 \end{definition}
 
 Definiamo inoltre l'insieme degli elementi invertibili di $A$:
-    \[ A^* = \{x \in A |\, \text{$x$ è invertibile}\}
+    \[ A^* = \{x \in A \mid \text{$x$ è invertibile}\}
         \]
 e dei nilpotenti:
-    \[ \mathcal{N} = \{x \in A |\, \text{$x$ è nilpotente}\} 
+    \[ \mathcal{N} = \{x \in A \mid \text{$x$ è nilpotente}\} 
         \]
 
 \begin{exercise}
     Calcolare i divisori di zero, gli invertibili ed i nilpotenti di:
-        \[ \ZZ, \Zn, \Zn \times \Zn
+        \[ \ZZ, \quad \Zn, \quad \Zn \times \Zn
             \]
 \end{exercise}
 
@@ -2120,26 +2120,25 @@ e dei nilpotenti:
     \begin{enumerate}[(1)]
         \item Per provare che $(A^*, \cdot)$ è un gruppo abeliano, è sufficiente verificare le proprietà richieste dalla definizione:
         \begin{enumerate}[(a)]
-            \item Chiusura: osserviamo che $\forall x,y \in A^*$, allora $\exists x^{-1}y^{-1} \in A$, pertanto $xy \in A^*$, poiché $y^{-1}x^{-1} \in A^*$. 
-            \item Associatività: poiché $A \subseteq A^*$, allora, essendo $A$ associativo rispetto al $\cdot$, allora anche gli elementi di un suo qualsiasi sottoinsieme saranno associativi tra loro. 
-            \item Elemento Neutro: $1 \in A$, infatti, l'inverso di $1$ è se stesso, quindi $1$ è invertibile.
-            \item Inverso: Segue per la stessa definizione di $A^*$ che ogni suo elemento debba avere inverso moltiplicativo nel gruppo, $\forall x \in A, \exists x^{-1} \in A$:
+            \item Chiusura: osserviamo che $\forall x,y \in A^*$, allora $x^{-1}, y^{-1} \in A \implies y^{-1}x^{-1} = (xy)^{-1} \in A$, pertanto $xy \in A^*$.
+            \item Associatività: poiché $A^* \subseteq A$, allora, essendo $A$ associativo rispetto al $\cdot$, allora anche gli elementi di un suo qualsiasi sottoinsieme saranno associativi tra loro. 
+            \item Elemento Neutro: $1 \in A^*$, infatti, l'inverso di $1$ è se stesso, quindi $1$ è invertibile.
+            \item Inverso: Segue per la stessa definizione di $A^*$ che ogni suo elemento debba avere inverso moltiplicativo nel gruppo, 
+	    $\forall x \in A, \exists x^{-1} \in A$:
                 \[ x \cdot x^{-1} = x^{-1} \cdot x = 1
-                \qquad
-                \forall x \in A
                 \]
             \item L'abelianità segue immediatamente dall'abelianità di $A$ (infatti $A^* \subset A$, dunque l'abelianità vale in particolare per gli elementi di $A^*$).
         \end{enumerate}
-        \item Supponiamo per assurdo che $D(A) \cap A^* \neq \emptyset$, e consideriamo $x \in D(A) \cap A^*$, poiché $x \in D(A)$, allora $\exists z \in A, z \ne 0$, tale per cui:
+        \item Supponiamo per assurdo che $D(A) \cap A^* \neq \emptyset$, e consideriamo $x \in D(A) \cap A^*$, poiché $x \in D(A)$, allora $\exists z \in A, z \ne 0$, tale che:
 		    \[ xz = zx = 0
 		        \]
-            d'altra parte, poiché $x \in A^*$, allora $\exists x^{-1}$ tal per cui:
+            d'altra parte, poiché $x \in A^*$, allora $\exists y \in A$ tale che:
             \[  xy = yx = 1
                     \]
             da cui segue:
-            \[ (zx)y = z(xy) \implies 0 \cdot y = z \implies z = 0
+            \[ (zx)y = z(xy) \implies 0 \cdot y = z \cdot 1 \implies z = 0
                     \]
-            ma ciò è assurdo, pertanto l'ipotesi $D(A) \cap A^*$ è vuoto.
+            ma ciò è assurdo, pertanto $D(A) \cap A^*$ è vuoto.
         \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del primo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
             se $x \in A \setminus D(A)$, allora possiamo definire l'omomorfismo di gruppi:
                 \[ \varphi_x : A \longrightarrow A : a \longmapsto xa
@@ -2147,7 +2146,7 @@ e dei nilpotenti:
             con:
                 \[ \ker \varphi_{x} = \{y \in A | \varphi_x(y) = xy = 0\} = \{0\}
                     \]
-            infatti, non essendo $x$ un divisore di zero, l'unica possibilità, in base all'annullamento del prodotto è che $y = 0 \implies xy = 0$. Poiché $|A| < +\infty$ l'omomorfismo è anche surgettivo, dunque è una bigezione,
+            infatti, non essendo $x$ un divisore di zero, l'unica possibilità, in base all'annullamento del prodotto è che $y = 0$. Poiché $|A| < +\infty$ l'omomorfismo è anche surgettivo, dunque è una bigezione,
             pertanto $1 \in \text{Im} \varphi_x \implies \exists a \in A$ tale che $\varphi_x(a) = xa = 1 \implies x \in A^*$.
     \end{enumerate}
 \end{proof}
@@ -2169,8 +2168,7 @@ e dei nilpotenti:
 \end{definition}
 
 \begin{remark}
-    Per verificare che un sottoinsieme di un anello commutativo con identità è un ideale ci basta verificare soltanto che $(I,+)$ è chiuso per l'operazione $+$ e che valga la proprietà di assorbimento, infatti, da ciò segue 
-    che $(-1)a \in I$, dove $(-1)$ esiste in $A$ è un gruppo rispetto al $+$.
+    Per verificare che un sottoinsieme di un anello commutativo con identità è un ideale ci basta verificare soltanto che $(I,+)$ è chiuso per l'operazione $+$ e che valga la proprietà di assorbimento, infatti, da ciò segue che $0 = 0a \in I$ e $-a = (-1)a \in I$, quindi $I$ è un gruppo rispetto a $+$.
 \end{remark}
 
 Da questo momento in poi, anche se non specificato, assumiamo di star operando sempre in anelli commutativi con identità.
@@ -2217,12 +2215,12 @@ nella $i$-esima riga per ogni $i$, e sommando tutte queste matrici otteniamo $I_
 
 \begin{definition}
     Dato un sottoinsieme non vuoto di un anello $S \subset A$, si definisce \vocab{ideale generato} da $S$ in $A$:
-        \[ (S) \vcentcolon =  \left\{\sum_{i = 1}^{n}a_is_i \m a_i \in A, s_i \in S, n \in \NN\right\}
+        \[ (S) \vcentcolon =  \left\{\sum_{i = 1}^{n}a_is_i \mid a_i \in A, s_i \in S, n \in \NN\right\}
             \]
 \end{definition}
 
 Osserviamo che se $S = \{x\}$ possiamo definire l'ideale generato da un elemento:
-        \[ (x) = \{ax | a \in A\} = Ax
+        \[ (x) = \{ax \mid a \in A\} = Ax
             \]
 in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
         
@@ -2248,8 +2246,8 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
     Alcuni esempi di ideali generati possono essere:
     \begin{itemize}
         \item $n\ZZ = (n)$, con $n \in \ZZ$.
-        \item Dato $K \subset F$ e $\alpha \in F$ algebrico su $K$, sia $\mu_{\alpha}(x) \in K[x]$ il polinomio minimo di $\alpha$, sappiamo che:
-            \[ (\mu_{\alpha}(x)) = \{p(x) \in K[x] | p(\alpha) = 0\}
+        \item Dati $K \subset F$ campi e $\alpha \in F$ algebrico su $K$, sia $\mu_{\alpha}(x) \in K[x]$ il polinomio minimo di $\alpha$, sappiamo che:
+            \[ (\mu_{\alpha}(x)) = \{p(x) \in K[x] \mid p(\alpha) = 0\}
                 \]
     \end{itemize}
 \end{example}
@@ -2261,28 +2259,28 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
     Dato $A$ un anello commutativo e $I,J \subset A$ ideali, abbiamo che:
     \begin{itemize}
         \item $I \cap J$ è un ideale.
-        \item $I + J = (I,J) = \{i + j | i \in I, j \in J\}$ è un ideale.
-        \item $IJ = (\{xy|x \in I, y \in J\})$ è un ideale.
-        \item $\sqrt{I} = \{x \in A | \exists n \in \NN : x^n \in I\}$ è un ideale. In particolare $\sqrt{0} = \mathcal{N}$ è un ideale.
-        \item $(I : J) = \{x \in A | xJ \subseteq I\}$ è un ideale.
+        \item $I + J = (I,J) = \{i + j \mid i \in I, j \in J\}$ è un ideale.
+        \item $IJ = (\{xy \mid x \in I, y \in J\})$ è un ideale.
+        \item $\sqrt{I} = \{x \in A \mid \exists n \in \NN : x^n \in I\}$ è un ideale. In particolare $\sqrt{0} = \mathcal{N}$ è un ideale.
+        \item $(I : J) = \{x \in A \mid xJ \subseteq I\}$ è un ideale.
     \end{itemize}
 \end{proposition}
 
 \begin{proof}
     Verifichiamo tutte le affermazioni:
     \begin{itemize}
-        \item $I \cap J$ è un sottogruppo di $A$ e, $\forall x \in I \cap J$ si ha:
+        \item $(I \cap J,+)$ è un sottogruppo di $(A,+)$ e, $\forall x \in I \cap J$ si ha:
             \[ ax \in I \qquad \text e \qquad ax \in J \qquad \forall a \in A
                 \]
             dunque $I \cap J$ assorbe e quindi è un ideale (bilatero in quanto abbiamo supposto l'anello commutativo).
-        \item Dato $I + J = \{i + j | i \in I, j \in J\}$, presi $x,y \in I + J$, ovvero:
-            \[ x = i_1 + j_1 \qquad \text e \qquad y = i_2 + j_2 \implies x + y = (\underbrace{i_1 + i_2}_{\in I}) + (\underbrace{j_1 + j_2}_{\in J}) \in I + J
+        \item Dato $I + J = \{i + j \mid i \in I, j \in J\}$, presi $x,y \in I + J$, ovvero:
+            \[ x = i_1 + j_1 \quad \text e \quad y = i_2 + j_2 \implies x + y = (\underbrace{i_1 + i_2}_{\in I}) + (\underbrace{j_1 + j_2}_{\in J}) \in I + J
                 \]
             inoltre, $\forall a \in A$ si ha che:
             \[ ax = \underbrace{ai_1}_{\in I} + \underbrace{aj_1}_{\in J} \in I + J \qquad \forall x \in I + J
                 \]
             dunque $I+J$ è un ideale. Verifichiamo che $I+J = (I,J)$; osserviamo che ovviamente:
-            \[ \forall i+j \in I+J, i+j \in (I,J) \implies I + J \subseteq (I,J)
+            \[ \forall i \in I, \forall j \in J, \quad i+j \in (I,J) \implies I + J \subseteq (I,J)
                 \]
             per verificare l'altro contenimento bisogna verificare che $I,J \subset I + J$ e da queste inclusioni e dal fatto che $I + J$ è un ideale segue che
             $I + J$ contiene il più piccolo ideale di $A$ che contiene sia $I$ che $J$ (e quindi contiene il loro generato). Osserviamo innanzitutto che in generale:
@@ -2291,25 +2289,25 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
             dove l'intersezione è appunto il più piccolo ideale di $A$ che contiene $S$.
             Dobbiamo dimostrare ora quanto detto; osserviamo che $(S)$ è contenuto nell'intersezione in quanto
             è uno dei termini di quest'ultima; il contenimento opposto segue dal fatto che $\forall x \in S$ si ha $x = \sum a_is_i \in X$ (poiché $X$ è un ideale che contiene $S$, per come l'abbiamo definito),
-            d'altra parte, per vedere che un ideale generato $(S)$ è contenuto a sua volta in un ideale $\mathcal{I}$ di $A$, basta vedere che $S \subset \mathcal{I}$ (ed è ciò che abbiamo appena fatto con $S$).
+            d'altra parte, per vedere che un ideale generato $(S)$ è contenuto a sua volta in un ideale $\mathcal{I}$ di $A$, basta vedere che $S \subset \mathcal{I}$ (ed è ciò che abbiamo appena fatto con $S$). [Hai dimostrato la stessa inclusione di prima, devi mostrare quella opposta]
             A questo punto, tornando all'inclusione iniziale, ci basta verificare che, come abbiamo anticipato, $I+J$ contenga sia $I$ che $J$; essendo $0 \in J$ abbiamo:
                 \[ I \subset I + J
                     \]
             infatti basta considerare sempre $j = 0$ per ottenere tutti gli elementi di $I$; in maniera simmetrica si dimostra la stessa cosa per $J$, dunque $I,J \subset I + J \implies (I,J) \subset I + J \implies I + J = (I,J)$.
         \item $IJ = (\{xy | x \in I, y \in J\})$ è un ideale per definizione.
-        \item Verifichiamo che $\sqrt{I} = \{x \in A | x^n \in I, n \in \NN\}$ è un ideale, presi $x,y \in \sqrt{I}$, ovvero $x^n,y^m \in I$, $n,m \in \NN$, vogliamo 
+        \item Verifichiamo che $\sqrt{I} = \{x \in A \mid x^n \in I, n \in \NN\}$ è un ideale, presi $x,y \in \sqrt{I}$, ovvero $x^n,y^m \in I$, $n,m \in \NN$, vogliamo 
             provare che $x + y \in \sqrt{I}$ (ovvero che esiste $d \in \NN$ tale che $(x+y)^d \in I$), osserviamo che:
                 \[ (x + y)^{n + m} = \sum_{i = 0}^{n + m} \binom{n+m}{i} x^i y^{m+n-i}
                     \]
-            dove $\forall i \in \{0,\ldots,m+n\}$ si ha che $i \geq n \implies x^i \in I$, oppure che $n+m-i \geq m \implies y^{n+m-i} \in I$, dunque tutti i termini di $(x+y)^{n+m}$ stanno in $I$
+            dove $\forall i \in \{0,\ldots,m+n\}$ si ha che $i \geq n \implies x^i \in I$, e che $i \leq n \iff n+m-i \geq m \implies y^{n+m-i} \in I$, dunque tutti i termini di $(x+y)^{n+m}$ stanno in $I$
             e quindi $x + y \in \sqrt{I}$. Osserviamo che $\forall a \in A$ si che:
                 \[ (ax)^n = a^n\underbrace{x^n}_{\in I} \in I \implies ax \in \sqrt{I}
                     \]
-        \item Dato $(I : J) = \{x \in A | xJ \subseteq I\}$ e presi $x,y \in (I : J)$ si ha che:
+        \item Dato $(I : J) = \{x \in A \mid xJ \subseteq I\}$ e presi $x,y \in (I : J)$ si ha che:
             \[ (x+y)J = \underbrace{xJ}_{\subseteq I} + \underbrace{yJ}_{\subseteq I} \implies x+y \in (I:J)
                 \]
         inoltre, $\forall a \in A$ abbiamo:
-            \[ axJ = a(xJ) \subseteq aI \subseteq I \implies ax \in (I:J) \qquad \forall x \in (I:J)
+            \[ (ax)J = a(xJ) \subseteq aI \subseteq I \implies ax \in (I:J) \qquad \forall x \in (I:J)
                 \]
     \end{itemize}
 \end{proof}
@@ -2348,13 +2346,13 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
         \[ m\ZZ + n\ZZ = (m,n)\ZZ
             \]
     infatti, per l'identità di Bézout, si ha:
-        \[ m\ZZ + n\ZZ = \{am + bn | a,b \in \ZZ\} = \{dx | x \in \ZZ\}
+        \[ m\ZZ + n\ZZ = \{am + bn \mid a,b \in \ZZ\} = \{dx \mid x \in \ZZ\}
             \]
-    Consideriamo ora $n = p_1^{e_1} \ldots p_r^{e_r}$, possiamo considerare:
+    Consideriamo ora $n = p_1^{e_1} \ldots p_r^{e_r}$, allora:
         \[ \sqrt{n\ZZ} = p_1 \ldots p_r\ZZ
             \]
     poiché:
-        \[ \sqrt{n\ZZ} = \{x \in \ZZ | x^k \in n\ZZ, k \in \ZZ\} = \{x \in \ZZ | n \mid x^k, k \in \ZZ\}
+        \[ \sqrt{n\ZZ} = \{x \in \ZZ \quad : \quad x^k \in n\ZZ, k \in \ZZ\} = \{x \in \ZZ \quad : \quad n \mid x^k, k \in \ZZ\}
             \]
     ma $n \mid x^k \implies p_i \mid x^k$, $\forall i \in \{1,\ldots,r\}$, ovvero $p_1 \ldots p_r \mid x \implies x \in p_1\ldots p_r\ZZ$.
     Viceversa $x = p_1 \ldots p_r m \in \sqrt{n\ZZ}$ perché, detto $e = \max e_i$:
@@ -2370,7 +2368,7 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
         \[ (75\ZZ : 18\ZZ) = \frac{75}{(75,18)} = 25\ZZ
             \]
     questo poiché:
-        \[ (75\ZZ : 18\ZZ) = \{x \in \ZZ | 18x \ZZ \subset 75\ZZ\} = 25\ZZ
+        \[ (75\ZZ : 18\ZZ) = \{x \in \ZZ \mid 18x \ZZ \subset 75\ZZ\} = 25\ZZ
             \]
     infatti $18x \ZZ \subset 75\ZZ \iff 75 \mid 18x \iff 25 \mid 6x \iff 25 \mid x$.
 \end{example}
@@ -2389,11 +2387,11 @@ Valgono i seguenti fatti:
 \begin{proof}
     Dimostriamo singolarmente i fatti:
     \begin{enumerate}[(1)]
-        \item Se $I \cap A^* = \emptyset$, poiché vale sempre che $1 \in A^*$, allora c'è almeno un elemento di $A$ che non sta nell'ideale, quindi $I \subsetneq A$.
+        \item Se $I \cap A^* = \emptyset$, poiché vale sempre che $1 \in A^*$ quindi $A^* \neq \emptyset$, allora c'è almeno un elemento di $A$ che non sta nell'ideale, quindi $I \subsetneq A$.
             Viceversa, sia $I$ ideale proprio e supponiamo $x \in I \cap A^*$, allora $x$ è invertibile, dunque $\exists y \in A$ tale che $xy = 1$, ma:
-                \[ 1 = \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \implies a \cdot 1 \in I\footnote{In pratica se c'è l'identità in $I$ c'è esattamente ogni elemento dell'anello che contiene l'ideale.} \qquad \forall a \in A \implies A \subset I
+                \[ 1 = \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \implies a \cdot 1 \in I\footnote{In pratica se c'è l'identità in $I$ c'è ogni elemento dell'anello.} \forall a \in A \implies A \subset I
                     \]
-            che è assurdo in quanto avevamo supposto $I \subset A$, dunque $I \cap A^* = \emptyset$.
+            che è assurdo in quanto avevamo supposto $I \subsetneq A$, dunque $I \cap A^* = \emptyset$.
         \item $A$ è un campo se e solo se $A^* = A \setminus \{0\}$, ma per il punto (1) l'unico elemento fuori da $A^*$ è 0, dunque $I = \{0\}$ e $I = A$ sono gli unici ideali che possiamo avere.
     \end{enumerate}
 \end{proof}
@@ -2404,8 +2402,8 @@ Valgono i seguenti fatti:
 \begin{definition}
     Dati $A$ e $B$ anelli, $f : A \longrightarrow B$ è un \vocab{omomorfismo di anelli} se:
     \begin{itemize}
-        \item $f(a_1 + a_2) = f(a_1) + f(a_2)$, $\forall a_1,a_2 \in A$.
-        \item $f(a_1a_2) = f(a_1)f(a_2)$, $\forall a_1,a_2 \in A$.
+        \item $f(a_1 + a_2) = f(a_1) + f(a_2) \quad \forall a_1,a_2 \in A$.
+        \item $f(a_1a_2) = f(a_1)f(a_2) \quad \forall a_1,a_2 \in A$.
     \end{itemize}
 \end{definition}
 
@@ -2432,7 +2430,7 @@ Valgono i seguenti fatti:
         \[ a + I = a^{\prime} + I \qquad \text e \qquad b + I = b^{\prime} + I
             \]
     segue:
-        \[ (a^{\prime} + I) \cdot (b^{\prime} + I) = a^{\prime}b^{\prime} + I = (a + I)(b + I) + I = ab + I
+        \[ ab + I = (a + I) \cdot (b + I) = (a^{\prime} + I) \cdot (b^{\prime} + I) = a^{\prime}b^{\prime} + I
             \]
 \end{remark}
 
@@ -2452,9 +2450,9 @@ Valgono i seguenti fatti:
 \end{proposition}
 
 \begin{proof}
-    Sia $\varphi : A \longrightarrow B$ un omomorfismo di anelli, allora $\ker \varphi$ è un ideale di $A$, infatti $\ker \varphi < A$ perché $\varphi$ 
+    Sia $\varphi : A \longrightarrow B$ un omomorfismo di anelli, allora $\ker \varphi$ è un ideale di $A$, infatti $(\ker \varphi, +) < (A,+)$ perché $\varphi$ 
     è in particolare un omomorfismo di gruppi, inoltre, $\forall a \in A$ si ha che:
-        \[ ax \in \ker \varphi \qquad \forall x \in \ker \varphi
+        \[ ax \in \ker \varphi \quad \forall x \in \ker \varphi
             \]
     in quanto $\varphi(ax) = \varphi(a)\varphi(x) = \varphi(a) \cdot 0 = 0$; dunque i nuclei degli omomorfismi di anelli sono ideali. Viceversa, tutti gli ideali 
     sono nuclei degli omomorfismi di proiezione al quoziente $\pi_I$.
@@ -2488,7 +2486,7 @@ Valgono i seguenti fatti:
         \[ \varphi((a+I)(b+I)) = \varphi(ab+I) = f(ab) \qquad \forall a,b \in A
             \]
     viceversa:
-        \[ f(ab) = f(a)f(b) = \varphi(a+I)\varphi(b+I) \qquad \forall a,b \in I
+        \[ f(ab) = f(a)f(b) = \varphi(a+I)\varphi(b+I) \qquad \forall a,b \in A
             \]
     dove la seconda uguaglianza è vera per ipotesi.
 \end{proof}
@@ -2514,7 +2512,7 @@ Valgono i seguenti fatti:
                 \]
             da cui $ax \in f^{-1}(J)$.
         \item Sappiamo che $f(I)$ è un sottogruppo di $B$, verifichiamo l'assorbimento, sia $b \in B$, poiché $f$ è surgettiva esiste $a \in A$ tale che $b = f(a)$, dunque:
-            \[ bf(x) = f(a)f(x) = f(\underbrace{ax}_{\in I}) \in f(I)
+            \[ bf(x) = f(a)f(x) = f(\underbrace{ax}_{\in I}) \in f(I) \qquad \forall x \in I
                 \]
     \end{enumerate}
 \end{proof}
@@ -2530,7 +2528,7 @@ Valgono i seguenti fatti:
 Per il Teorema di Corrispondenza tra sottogruppi abbiamo già la bigezione tra questi, dobbiamo tuttavia verificare che restringendo la corrispondenza agli ideali  questa associ ancora un 
 ideale di $A$ ad un ideale di $\faktor{A}{I}$ e viceversa, cioè l'immagine e la controimmagine di un ideale mediante $\pi_I$ è ancora un ideale (in particolare, per la Corrispondenza tra Sottogruppi sappiamo già
 che le controimmagini contengono l'ideale per il quale si quozienta). Siano:
-    \[ X = \{J \subseteq A \, \text{ideale}| I \subset J\} \qquad \text e \qquad Y=\left\{\mathcal{J} \subset \faktor{A}{I} \m \,\text{$\mathcal{J}$ ideale}\right\}
+    \[ X = \{J \subseteq A \, \text{ideale} \mid I \subset J\} \qquad \text e \qquad Y=\left\{\mathcal{J} \subset \faktor{A}{I} \mid \text{$\mathcal{J}$ ideale}\right\}
         \]
 per il \hyperref[2.35]{Lemma 2.35}, essendo $\pi_I$ surgettivo, si ha che le immagini e la controimmagini via $\pi_I$:
     \[ J \longmapsto \pi_I(J) \qquad \text e \qquad \mathcal{J} \longmapsto \pi_{I}^{-1}(\mathcal{J})
@@ -2539,7 +2537,7 @@ sono ideali, e ciò conclude la dimostrazione.
 \end{proof}
 
 \begin{example}
-    Se nel \hyperref[2.35]{Lemma 2.35} $f$ non fosse surgettiva, allora l'immagine di un ideale non sarebbe un ideale, ad esempio presa:
+    Se nel \hyperref[2.35]{Lemma 2.35} $f$ non fosse surgettiva, allora l'immagine di un ideale può non essere un ideale, ad esempio presa:
         \[ f : \ZZ \varlonghookrightarrow \QQ : (2) \longmapsto 2\ZZ
             \]
     con $2\ZZ$ che non è un ideale di $\QQ$ perché $\QQ$ è un campo e quindi i suoi ideali sono soltanto $\{0\}$ e $\QQ$.
@@ -2566,7 +2564,7 @@ sono ideali, e ciò conclude la dimostrazione.
         \[ \varphi : A \varlonghookrightarrow B \longrightarrow \faktor{B}{J}
             \]
     sia tale che:
-        \[ \ker \varphi = \{a \in A | \varphi(a) = a + J = J\} = \{a \in A | a \in J\} = J \cap A = \pi_{I}^{-1}(J)
+        \[ \ker \varphi = \{a \in A \mid \varphi(a) = a + J = J\} = \{a \in A \mid a \in J\} = J \cap A = \pi_{I}^{-1}(J)
             \]
     da cui si ha anche che:
         \[ \frac{A}{J \cap A} \varlonghookrightarrow \faktor{B}{J}
@@ -2609,7 +2607,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
         \[ f(ab) = (ab+I,ab+J) = (a+I,a+J)(b+I,b+J) = f(a)f(b) \quad \forall a,b \in A
             \]
     Osserviamo ora che:
-        \[ \ker f =\{a \in A | f(a) = (a+I,a+J) = (I,J)\} = \{a\in A | a \in I, a \in J\} = I \cap J
+        \[ \ker f =\{a \in A \mid f(a) = (a+I,a+J) = (I,J)\} = \{a\in A \mid a \in I, a \in J\} = I \cap J
             \]
     Verifichiamo separatamente le due implicazioni della seconda parte del teorema:
     \begin{itemize}
