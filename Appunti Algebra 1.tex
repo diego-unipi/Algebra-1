@@ -3299,7 +3299,7 @@ Osserviamo il reticolo formato dai multipli di $\beta$ nel piano complesso:\foot
     \caption{Reticolo dei multipli interi di $\beta$ nel piano complesso.}
 \end{figure}
 
-Come si osserva $\alpha$ cade in un quadrato (compreso il bordo) e del quale $q\beta$ è il multiplo di $\beta$ più vicino ad $\alpha$, pertanto, scelto $q\beta$ abbiamo:
+Come si osserva $\alpha$ cade in un quadrato (compreso il bordo) del quale $q\beta$ è il multiplo di $\beta$ più vicino ad $\alpha$, pertanto, scelto $q\beta$ abbiamo:
 \[ r = \alpha - q\beta
     \]
 con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato} = N(\beta)$.
@@ -3365,7 +3365,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 
 \begin{proposition}[Ideali di un dominio euclideo]
     \label{2.93}
-    Dato un dominio euclideo $A$, tutti gli ideali di $A$ sono principali\footnote{Quindi ogni dominio euclideo è un PID.} e generati da un elemento di grado minimo.
+    Dato un dominio euclideo $A$, tutti gli ideali di $A$ sono principali\footnote{Quindi ogni dominio euclideo è un PID.} e generati da un elemento di grado minimo (nell'ideale).
 \end{proposition}
 
 \begin{proof}
@@ -3373,9 +3373,10 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     Sia $x \in I$ un elemento di grado minimo (esiste perché $d(I) \subset \NN$ e non vuoto), allora è ovvio che $(x) \subseteq I$, viceversa, si ha che $\forall a \in A$ si può fare la divisione euclidea per $x$:
     \[ a = qx + r \qquad d(r) < d(x) \vee r = 0
         \]
-    da cui segue che $r = a - qx \in I$ da cui $d(x) \leq d(r) \implies r = 0$, ovvero:
-    \[ a = qx \in (a) \implies I \subseteq (a)
+    da cui segue che, se $a \in I$, $r = a - qx \in I$ da cui $d(x) \leq d(r) \implies r = 0$, ovvero:
+    \[ a = qx \in (a) \implies I \subseteq (a) \forall a \in I \implies I \subseteq (x)
         \]
+    Quindi $I = (x)$.
 \end{proof}
 
 
@@ -3404,10 +3405,10 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     Se $A$ è un PID e $x,y \in A$, non entrambi nulli, osserviamo che l'ideale generato da $x$ e $y$ deve essere tale che:
     \[ (x,y) = (d)
         \]
-    con $d$ un M.C.D.\footnote{M.C.D. a meno di prodotto per elementi di $A^*$.} di $x$ e $y$. Infatti:
-    \[ x \in (d) \qquad \text e \qquad y \in (d)
+    con $d$ un M.C.D.\footnote{M.C.D. a meno di associati.} di $x$ e $y$. Infatti se $(x,y) = (d)$, allora:
+    \[ x \in (d) \quad \text e \quad y \in (d) \implies d \mid x \quad \text e \quad d \mid 
         \]
-    dunque $d \mid x$ e $d \mid y$, inoltre, se $c \mid x$ e $c \mid y$, allora $x,y \in (x)$, da cui:
+    Inoltre, se $c \mid x$ e $c \mid y$, allora $x,y \in (c)$, da cui:
     \[ (d) = (x,y) \subseteq (c) \implies d \in (c) \implies c \mid d
         \]
     dunque $d$ è un M.C.D. tra $x$ ed $y$.
@@ -3417,7 +3418,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 \newpage
 \subsection{Domini a fattorizzazione unica (UFD)}
 \begin{definition}
-    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, $x \not\in A^*\setminus\{0\}$ si scrive in modo
+    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, , con $x \not\in A^* \cup \{0\}$ si scrive in modo
     unico, a meno dell'ordine di fattori e di moltiplicazione per elementi invertibili, come prodotto di elementi irriducibili.
 \end{definition}
 
@@ -3455,10 +3456,10 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
         Infatti, sicuramente è vero che $(a,b) \subset (d)$, ma non è detto che valga il contenimento opposto, il quale vale solo se $d = ax_0 + by_0$. Ad esempio, preso l'UFD $\ZZ[x]$, l'ideale:
         \[ I = (2,x)
             \]
-        è tale che $\text{M.C.D.}(2,x) = 1$, ma $1 \not \in (2,x)$, perché se non fosse coì avremmo:
+        è tale che $\text{M.C.D.}(2,x) = 1$, ma $1 \not \in (2,x)$, perché altrimenti avremmo:
         \[ 1 = 2a(x) + xb(x)
             \]
-        che per $x = 0$ porta a:
+        che valutata in $x = 0$ porta a:
         \[ 1 = 2a(0) + 0 \implies 2 \mid 1
             \]
         che è assurdo.
@@ -3474,7 +3475,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
         \item Valgono le due condizioni seguenti:
         \begin{enumerate}[(i)]
             \item Ogni elemento irriducibile è primo.
-            \item Ogni catena discendete di divisibilità è stazionaria, ovvero se $\{a_i\} \subset A$, con:
+            \item Ogni catena discendente di divisibilità è stazionaria, ovvero se $\{a_i\} \subset A$, con:
             \[ a_{i+1} \mid a_i \qquad \forall i \geq 0
                 \]
             allora $\exists n_0$ tale che $a_i \sim a_{n_0}$, $\forall i \geq n_0$.
@@ -3489,8 +3490,8 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 \end{remark}
 
 \begin{remark}
-    Osserviamo che la condizione (ii) può essere riformulata equivalentemente come: ogni catena ascendente di ideali principali è stazionaria, ovvero,
-    considerata $\{(a_i)\}_{i \geq 0}$, catena  ascendente di ideali di $A$:
+    Osserviamo che la condizione (ii) può essere riformulata equivalentemente come: ogni catena ascendente di ideali principali è stazionaria, ovvero
+    data $\{(a_i)\}_{i \geq 0}$, catena ascendente di ideali di $A$:
     \[ (a_1) \subseteq (a_2) \subseteq \ldots
         \]
     allora $\exists n_0$ tale che $(a_i) = (a_{n_0})$, $\forall i \geq n_0$.\footnote{Tra l'altro ciò, estendendo la condizione di stazionarietà ad ogni catena di ideali (quindi non solo principali), definisce un \vocab{anello noetheriano}.}
@@ -3503,7 +3504,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 
 \begin{proof}
     Per dimostrare il corollario ci basta verificare che per ogni PID valgono le condizioni (i) e (ii) del \hyperref[2.101]{Teorema 2.101}, e ciò è equivalente al dire che ogni PID è un UFD.
-    Sia $A$ un PID, e sia $x \in A$ un elemento irriducibile, per quanto visto nella \hyperref[2.95]{Proposizione 2.95} l'ideale $(x)$ è massimale in $A$, ma dalla (3) del \hyperref[2.57]{Corollario 2.57}, sappiamo quindi che 
+    Sia $A$ un PID, e sia $x \in A$ un elemento irriducibile, allora dalla (2) della \hyperref[2.86]{Proposizione 2.86} l'ideale $(x)$ è massimale in $A$, ma dalla (3) del \hyperref[2.57]{Corollario 2.57}, sappiamo quindi che 
     $(x)$ è primo, e poiché siamo in un dominio vale la (1) della \hyperref[2.86]{Proposizione 2.86} che ci assicura che $x$ è primo, dunque vale la (i).\\
     Consideriamo ora una catena ascendente di ideali (principali):
     \[ (a_1) \subseteq (a_2) \subseteq \ldots
@@ -3581,7 +3582,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     Iniziamo quindi verificando il primo punto come segue.
     \begin{enumerate}[(1)]
         \item Siano $f(x),g(x) \in A[x] \setminus\{0\}$, e $\deg f(x) = n \geq 0$, $\deg g(x) = m \geq 0$, essendo $a_n, b_m \ne 0$, segue che
-        $a_nb_m \ne 0$ poiché per ipotesi $A$ un dominio di integrità, pertanto $f(x) \cdot g(x) \ne 0$ se $f(x),g(x) \ne 0 \implies A[x]$ è un dominio d'integrità.
+        $a_nb_m \ne 0$ poiché per ipotesi $A$ un dominio di integrità, pertanto $f(x) \cdot g(x) \ne 0 \implies A[x]$ è un dominio d'integrità.
         \begin{remark}
             Osserviamo anche che da ciò discende che $(A[x])^* = A^*$, infatti, considerando $f(x) \in (A[x])^*$, $\exists g(x) \in A[x]$ tale che:
             \[ f(x)g(x) = 1 \implies \deg f(x) + \deg g(x) = 0
@@ -3593,11 +3594,11 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     \end{enumerate}
 \end{proof}
 
-Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili di $A[x]$, e fare ciò abbiamo bisogno del Lemma di Gauss.
+Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili di $A[x]$, e per fare ciò abbiamo bisogno del Lemma di Gauss.
 
 \begin{definition}
     Dato $A$ un UFD e $f(x) \in A[x]$, con $f(x) = \sum_{i=0}^n a_ix^i$, si dice \vocab{contenuto} di $f(x)$ l'M.C.D. dei suoi coefficienti:
-    \[ c(f(x)) = (a_0,\ldots,a_n)
+    \[ c(f(x)) = (a_0,\ldots,a_n) \in A
         \]
 \end{definition}
 
@@ -3629,12 +3630,15 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $f(x)g(x)$ non fosse primitivo (ovvero associato ad 1)
-            allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$, consideriamo la proiezione modulo $(p)$:
+        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; 
+            se $f(x)g(x)$ non fosse primitivo (ovvero contenuto associato ad 1),
+            allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), 
+	    ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$\footnote{Stiamo usando il fatto che $A$ è UFD: basta prendere un fattore irriducibile della fattorizzazione di $c(f(x)g(x))$ (che esiste unica) ed, essendo A UFD, questo è anche primo.}, consideriamo la proiezione modulo $(p)$:
             \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
                 \]
-            con $\overline{f(x)} \ne 0$ in quanto $p \nmid c(f(x))$, analogamente $\pi_{(p)}(g(x)) = \overline{g(x)} \ne 0$, poiché $p \nmid c(g(x))$, ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
-            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio e quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, ovvero $\displaystyle \frac{A}{(p)} [x]$
+            con $\pi_{(p)}(g(x)) = \overline{f(x)} \ne 0$ in quanto $p \nmid c(f(x)) = 1$, analogamente $\overline{g(x)} \ne 0$, ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
+            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio.
+	    Quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, ovvero $\displaystyle \frac{A}{(p)} [x]$
             è un dominio, da cui $c(f(x)g(x)) = 1$.
         \item Consideriamo ora il caso generale, sia $f(x) = c(f(x))f^{\prime}(x)$, con $f^{\prime}(x)$ primitivo, e analogamente $g(x) = c(g(x))g^{\prime}(x)$, con $g^{\prime}(x)$ primitivo, abbiamo che:
             \[ h(x) = f(x)g(x) = c(f(x))c(g(x))g^{\prime}(x)f^{\prime}(x)
@@ -3672,21 +3676,21 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \begin{corollary}
     \label{2.119}
     Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$,
-    allora esiste $\delta \in K^*$ tale che $g_1(x) = \delta g(x) \in A[x]$, $h_1(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_1(x)h_1(x)$.
+    allora esiste $\delta \in K^*$ tale che $g_0(x) = \delta g(x) \in A[x]$, $h_0(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_0(x)h_0(x)$.
 \end{corollary}
 
 \begin{proof}
     Analogamente a quanto fatto per il corollario precedente, sappiamo che $\exists d \in A$ tale che $g_1(x) = dg(x) \in A[x]$ (stiamo di nuovo "eliminando" i denominatori, ad esempio moltiplicando per l'm.c.m.),
     dunque:
-    \[ f(x) = dg(x)d^{-1}h(x) = g_1(x)(d^{-1}h(x)) = c(g_1(x))g_1^{\prime}(x)(d^{-1}h(x))
+    \[ f(x) = dg(x)d^{-1}h(x) = g_1(x)(d^{-1}h(x)) = c(g_1(x))g_1^{\prime}(x)(d^{-1}h(x)) 
+    ~\footnote{Non possiamo usare $g_1(x) = dg(x)$ e $h_1(x) = d^{-1}h(x)$ perché in generale $d^{-1} \notin A^*$, quindi $h_1(x) \notin A[x]$}
         \]
     con $g_1^{\prime}(x) \in A[x]$ primitivo (dividendo per il contenuto, che è un invertibile di $A$, siamo rimasti in $A[x]$), pertanto abbiamo:
     \[ f(x) = g_1^{\prime}(x)(\underbrace{c(g_1(x))d^{-1}h(x)}_{\in K[x]})
         \]
     ovvero $g_1^{\prime}(x) \mid f(x)$ in $K[x]$, ma allora per il \hyperref[2.118]{Corollario 2.118} segue che $g_1^{\prime}(x) \mid f(x)$ in $A[x]$, dunque:
-    \[ h_1(x) = \underbrace{\frac{c(g_1(x))}{d}}_{= \delta^{-1}}h(x)
+    \[ g_0(x) = g_1^{\prime}(x) = \underbrace{\frac{d}{c(g_1(x))}}_{= \delta}g(x) \qquad h_0(x) = \underbrace{\frac{c(g_1(x))}{d}}_{= \delta^{-1}}h(x)
         \]
-    abbiamo quindi determinato $\delta$ e $\delta^{-1}$ richiesti dalla tesi.
 \end{proof}
 
 \begin{remark}
@@ -3716,18 +3720,19 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
         \[ f(x) = g(x)h(x) \implies \deg g(x) + \deg h(x) = \deg f(x) = 0
             \]
         dove l'implicazione è data dal fatto che siamo in un dominio, dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto $g(x),h(x) \in A$,
-        per cui $f(x)$ è irriducibile in $A[x]$ se e sole $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
+        per cui $f(x)$ è irriducibile in $A[x]$ se e solo se $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
         \item Sia $f(x)$ con $\deg f(x) \geq 1$. Supponiamo che $f(x)$ sia irriducibile in $A[x]$, abbiamo che:
         \[ f(x) = c(f(x))f^{\prime}(x)
             \]
         con $c(f(x))$ invertibile in $A[x]$, $c(f(x)) \in (A[x])^* = A^*$ (per quanto detto al punto (1)), d'altra parte, sia $f(x) = g(x)h(x)$ in $K[x]$, allora per il
         \hyperref[2.119]{Corollario 2.119}, possiamo scriverlo come prodotto di polinomi dello stesso grado in $A[x]$:
-        \[ f(x) = g_1(x)h_1(x) \qquad \text{con} \qquad \deg g_1(x) = \deg g(x), \deg h_1(x) = \deg h(x)
+        \[ f(x) = g_1(x)h_1(x) \qquad \text{con} ~ \deg g_1(x) = \deg g(x), ~ \deg h_1(x) = \deg h(x)
             \]
-        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ sono invertibili. Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui
+        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ sono invertibili in $A[x]$ (quindi in $A$). 
+	Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui
         $\deg g(x) = 0$ o $\deg h(x) = 0$, ovvero $g(x) \in (K[x])^*$ o $h(x) \in (K[x])^*$, dunque $f(x)$ è irriducibile in $K[x]$. \\
         Verifichiamo il viceversa, sia $f(x)$ primitivo ed irriducibile in $K[x]$, e sia $f(x) = g(x)h(x)$ in $A[x]$ (e anche in $K[x]$), poiché $f(x)$ è irriducibile in $K[x]$ 
-        $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, supponiamo quindi ad esempio che sia $g(x) \in A$, da ciò segue che:
+        o $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, supponiamo quindi ad esempio che sia $g(x) \in A$, da ciò segue che:
         \[ 1 = c(f(x)) = c(g(x)h(x)) = c(g(x))c(h(x)) = g c(h(x))
             \]
         dove nell'ultima uguaglianza abbiamo usato il fatto che, essendo $g(x)$ costante, allora è uguale al suo contenuto, dunque $g \in A^* (= (A[x])^*)$, pertanto $f(x)$ è irriducibile in $A[x]$.
