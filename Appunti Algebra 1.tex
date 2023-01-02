@@ -3850,16 +3850,17 @@ Allora $f(x)$ è irriducibile in $A[x]$ (quindi in $K[x]$, con $K$ campo dei quo
 \begin{proof}
     La dimostrazione è simile a quella già trattata in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, 
     con la differenza che in questo caso utilizziamo un UFD generico al posto di $\ZZ$. \\
-    Posso supporre $\deg f(x) = n \geq 2$: infatti un polinomio primitivo di primo grado è sempre irriducibile su $K[x]$ (e quindi su $A[x]$), 
+    Posso supporre $\deg f(x) = n \geq 2$: infatti un polinomio primitivo di primo grado ($\deg f(x) = 1$) è sempre irriducibile su $K[x]$ (e quindi su $A[x]$), 
     perché, per questioni di grado, si può fattorizzare solo come un altro polinomio di primo grado per una costante non nulla (altrimenti anche $f(x)$ sarebbe nullo) ed, essendo $K$ un campo, ogni costante non nulla è invertibile;
-    mentre se $f(x)$ fosse una costante allora non sarebbero soddisfatte le ipotesi, perché si avrebbe $p \nmid a_n$ e $p \mid a_0$ ma $a_n = a_0 = f(x)$, assurdo.
+    mentre se $f(x)$ fosse una costante ($\deg f(x) = 0$) allora non sarebbero soddisfatte le ipotesi, 
+    perché si avrebbe $p \nmid a_n$ e $p \mid a_0$ ma $a_n = a_0 = f(x)$, assurdo. \\
     Supponiamo per assurdo che $f(x)$ sia riducibile in $A[x]$, allora:
         \[ f(x) = g(x)h(x)
 	    \]
-    con $\deg g(x) = m \geq 1$, $\deg h(x) = n-m \geq 1$. 
-    \footnote{Posso supporre questi gradi $\geq 1$ perché se, per assurdo, $f(x)$ si potesse spezzare solo come prodotto di un polinomio dello stesso grado per una costante non nulla, allora, guardando queste fattorizzazioni in $K[x]$, si avrebbe che $f(x)$ è irriducibile su $K[x]$ (e quindi su $A[x]$).}
+    con $\deg g(x) = m \geq 1$, $\deg h(x) = n-m \geq 1$ e supponiamo (WLOG) che $m \geq n-m$. 
+    \footnote{Posso supporre questi gradi $\geq 1$ perché se, per assurdo, $f(x)$ si potesse spezzare solo come prodotto di un polinomio dello stesso grado per una costante non nulla, allora questa costante divide $f(x)$, in particolare divide tutti i suoi coefficienti, dunque divide il loro M.C.D, cioè $c(f(x))$, che è uguale a 1, perché f è primitivo; ma questo può accadere soltanto se la costante è invertibile, quindi $f(x)$ era irriducibile.}
     Possiamo applicare la proiezione al quoziente modulo $(p)$, e per le ipotesi si ha:
-        \[ \overline{f(x)} = \pi_{(p)}(f(x)) = \overline{a_n}x^n \ne \overline 0
+        \[  \pi_{(p)}(f(x)) = \overline{f(x)} = \overline{a_n}x^n \ne \overline 0
 	    \] 
     e inoltre:
 	\[ \pi_{(p)}(f(x)) =  \pi_{(p)}(g(x)) \pi_{(p)}(h(x))
@@ -3870,10 +3871,26 @@ Allora $f(x)$ è irriducibile in $A[x]$ (quindi in $K[x]$, con $K$ campo dei quo
 	   \pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m} + \ldots + \overline{c_0}
 	    \]
     Per concludere basta mostrare che $\overline{b_0} = \overline{c_0} = 0$, 
-    infatti da questo segue che $b_0 \equiv c_0 \equiv 0 \pmod p \implies a_0 \equiv b_0c_0 \equiv 0 \pmod{p^2} \implies p^2 \mid a_0$ che è assurdo.
-    Intanto osserviamo che tutti i coefficienti stanno in $\displaystyle \frac{A}{(p)}[x]$ che è un dominio, perché $p$ primo (proposizione 2.56).
+    infatti da questo segue che $b_0 \equiv c_0 \equiv 0 \pmod p \implies a_0 = b_0c_0 \equiv 0 \pmod{p^2} \implies p^2 \mid a_0$ che è assurdo.
+    Intanto osserviamo che tutti i coefficienti stanno in $\displaystyle \frac{A}{(p)}$ che è un dominio, perché $p$ primo (proposizione 2.56).
+    \footnote{Notare come nella dimostrazione per $A = \ZZ$ si usa il fatto che $\displaystyle \frac{\ZZ}{(p)}$ sia un campo, che per un anello generico non vale (per esempio $\displaystyle \frac{\ZZ}{(x^2+5)} \cong \ZZ[\sqrt{-5}]$)}
     Dato che $\overline{b_0}\overline{c_0} = \overline{a_0} = 0$, abbiamo che o $\overline{b_0} = 0$ o $\overline{c_0} = 0$.
     Sia (WLOG) $\overline{b_0} = 0$ e supponiamo, per assurdo, che $\overline{c_0} \neq 0$. 
+    Allora si dimostra per induzione (forte) che tutti i coefficienti di $\overline{g(x)}$ sono nulli. Infatti si può scrivere: 
+        \[ \overline{f(x)} = \overline{g(x)}\overline{h(x)} = 
+	   \sum_{k = 0}^{n} ( \sum_{\substack{0 \leq i \leq m \\ 0 \leq j \leq n-m \\ i+j = k}} \overline{b_i}\overline{c_j} )x^k
+            \]
+    Abbiamo già visto che il caso base $\overline{b_0} = 0$ vale. Sia $k \leq m$ e supponiamo che $\overline{b_h} = 0 \quad \forall ~ 0 \leq h \leq k-1$, allora 
+        \[ \sum_{\substack{0 \leq i \leq m \\ 0 \leq j \leq n-m \\ i+j = k}} \overline{b_i}\overline{c_j} 
+	   = b_{k}c_0 = 0 \implies b_{k} = 0
+            \]
+    che mostra in particolare $\overline{b_m} = 0$, che è assurdo perché $\overline{b_m}\overline{c_{n-m}} = \overline{a_n} \neq 0$.
+    Perciò anche $\overline{c_0} = 0$ e si potrebbe già concludere per quanto detto sopra. 
+    In realtà continuando per induzione con questo procedimento si può mostrare che tutti i coefficienti di $\overline{g(x)}$ e $\overline{h(x)}$ tranne quelli direttori sono nulli cioè: 
+        \[ \pi_{(p)}(g(x)) = \overline{g(x)} = \overline{b_m}x^m 
+	   \qquad \text e \qquad 
+	   \pi_{(p)}(h(x)) = \overline{h(x)} = \overline{c_{n-m}}x^{n-m}
+            \]
 \end{proof}
 
 \newpage
