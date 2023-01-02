@@ -2,6 +2,7 @@
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
 \usepackage{graphicx}
+\usepackage{hyperref}
 
 
 \begin{document}
@@ -4250,12 +4251,56 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
     \end{itemize}
 \end{proof}
 
+\begin{definition}
+    [Polinomio ciclotomico]
+    Data $\zeta_n \in \CC$ una radice primitiva $n$-esima dell'unità, chiamiamo
+    \vocab{$n$-esimo polinomio ciclotomico} il polinomio minimo $\Phi_n(x)$
+    di $\zeta_n$ su $\QQ$.
+\end{definition}
+
+\begin{remark}
+    Poiché gli elementi di $\Gal(\QQ(\zeta_n)/\QQ)$ sono
+    \[
+        \psi_k: \QQ(\zeta_n) \longrightarrow \ol{\QQ}: \zeta_n \longmapsto \zeta_n^k
+    \]
+    per $0 \leq k \leq n$, $(k, n) = 1$, possiamo scrivere $\Phi_n(x)$ come 
+    \[
+        \Phi_n(x) = \prod_{\substack{0\leq k \leq n\\(k, n) = 1}}(x - \zeta_n^k)
+    \]
+    Notiamo che le radici di $\Phi_n(x)$ sono tutte e sole le radici primitive
+    $n$-esime dell'unità e che $\deg\Phi_n = \phi(n)$.
+\end{remark}
+
+\begin{proposition}
+    \[
+        x^n - 1 = \prod_{d\mid n}\Phi_d(x)
+    \]
+\end{proposition}
+
+\begin{proof}
+    Sia $f(x) = \displaystyle\prod_{d \mid n}\Phi_d(x)$, notiamo che:
+    \begin{itemize}
+        \item sia $\alpha$ una radice di $x^n - 1$, posta $\zeta_n$ una radice
+        primitiva $n$-esima si ha $\alpha = \zeta_n^{\frac n d}$ con $d \mid n$.
+        Allora $\ord\alpha = d$, pertanto $\alpha$ è una radice primitiva
+        $d$-esima. In particolare ogni radice di $x^n - 1$ è una radice di 
+        $f(x)$, cioè $x^n - 1 \mid f(x)$;
+        \item sia $\alpha$ una radice di $f(x)$, allora $\alpha$ è una radice
+        primitiva $d$-esima dell'unità con $d\mid n$, in particolare$\alpha^d = 1$
+        e quinci $\alpha^n = 1$. Allora $\alpha$ è una radice $n$-esima dell'unità,
+        cioè $f(x) \mid x^n - 1$;
+        \item dai due punti precedenti si deduce che esiste $\lambda \in \QQ^*$
+        tale che $x^n - 1 = \lambda f(x)$, d'altra parte entrambi i polinomi
+        sono monici, quindi $x^n - 1 = f(x)$.
+    \end{itemize}
+\end{proof}
+
 \newpage
 
 \subsection{Gruppo di Galois del traslato e del composto}
 
 \begin{proposition}
-    \label{prop3.10}
+    \label{prop3.13}
     Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione
     finita, allora
     \begin{enumerate}[(1)]
@@ -4333,7 +4378,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
     \end{center}
     per il Teorema delle Torri abbiamo $[KL:F] = [KL:L][L:F]$. Poiché 
     $\Gal(KL/L) \cong \Gal(K/K\cap L) = \Gal(K/F)$ per la 
-    \hyperref[prop3.10]{Proposizione 3.10}, in particolare $[KL:L] = [K:F]$,
+    \hyperref[prop3.13]{Proposizione 3.13}, in particolare $[KL:L] = [K:F]$,
     quindi $[KL:F] = [K:F][L:F]$.
 \end{proof}
 
@@ -4370,7 +4415,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
         che hanno la stessa cardinalità per concludere che sono isomorfi.
         Per il Teorema delle Torri abbiamo $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$,
         d'altra parte $[K_1K_2:K_1] = [K_2:K_1\cap K_2]$ per
-        la \hyperref[prop3.10]{Proposizione 3.10}. Pertanto $|\Gal(K_1K_2/F)| =
+        la \hyperref[prop3.13]{Proposizione 3.13}. Pertanto $|\Gal(K_1K_2/F)| =
         |\Gal(K_1/F)|\cdot |\Gal(K_2/F)|$ 
         se e solo se $[K_2:K_1\cap K_2][K_1:F] = [K_1:F][K_2:F]$, cioè se e 
         solo se $[K_2:K_1\cap K_2] = [K_2:F]$, ovvero $K_1\cap K_2 = F$.
@@ -4465,7 +4510,6 @@ Il polinomio minimo di $\alpha$ su $\QQ$ è quindi
 \[
     \mu_{\alpha}(x) = (x - (\zeta_7 + \zeta_7^{-1}))(x - (\zeta_7^2 + \zeta_7^{-2}))(x - (\zeta_7^3 + \zeta_7^{-3}))
     = x^3 + x^2 - 2x - 1
-
 \]
 Notiamo che $\zeta_7^2 + \zeta_7^{-2}$ e $\zeta_7^3 + \zeta_7^{-3}$ sono
 elementi di $\QQ(\alpha)$, in quanto
@@ -4487,9 +4531,42 @@ Vogliamo vedere quali gruppi finiti si possono realizzare come gruppi di
 Galois di un'estensione di campi. 
 
 \begin{lemma}
+    \label{lemma3.18}
+    Dato $p$ un primo, $S_p$ è generato da un $p$-ciclo e da una trasposizione.
+\end{lemma}
+
+\begin{proof}
+    Per motivi di notazione, consideriamo $S_p$ come l'insieme delle permutazioni
+    dell'insieme $\{0, 1, \ldots, p - 1\}$, che pensiamo come $\FF_p$. Siano
+    $\sigma = \cycle{0, 1, \ldots, p - 1}$ un $p$-ciclo e $\tau = \cycle{a, b}$
+    una trasposizione, poiché $\sigma^k\tau\sigma^{-k} = \cycle{a + k, b + k}$
+    ed esiste $h \in \FF_p$ tale che $a + h = 0$, possiamo supporre
+    $\tau = \cycle{0, \alpha}$ senza perdita di generalità. Notiamo che gli 
+    elementi $\sigma^k\tau\sigma^{-k}$ sono tutti della forma $\cycle{k, \alpha + k}$,
+    in particolare $\langle\sigma, \tau\rangle$ contiene le permutazioni 
+    $\cycle{k\alpha, (k + 1)\alpha}$ al variare di $k \in \FF_p$. Possiamo
+    quindi costruire in modo iterativo le permutazioni $\cycle{0, k\alpha}$,
+    ad esempio
+    \[
+        \cycle{0, \alpha}\cycle{\alpha, 2\alpha}\cycle{0, \alpha} = \cycle{0, 2\alpha}
+    \]
+    \[
+        \cycle{0, 2\alpha}\cycle{2\alpha, 3\alpha}\cycle{0, 2\alpha} = \cycle{0, 3\alpha}
+    \]
+    \[
+        \cycle{0, 3\alpha}\cycle{3\alpha, 4\alpha}\cycle{0, 3\alpha} = \cycle{0, 4\alpha}
+    \]
+    e così via. Poiché $\FF_p$ è un campo e $\alpha \neq 0$ (altrimenti $\tau$ 
+    non sarebbe una trasposizione) esiste $h \in \FF_p$ tale che $h\alpha = 1$,
+    pertanto $\cycle{0, 1} \in \langle\sigma, \tau\rangle$. Poiché 
+    $\langle\cycle{0, 1}, \sigma\rangle = S_p$ si ha la tesi.
+\end{proof}
+
+\begin{lemma}
+    \label{lemma3.19}
     Dati $p$ un primo e $f(x) \in \QQ[x]$ un polinomio irriducibile di grado
     $p$, se $f(x)$ ha esattamente $p - 2$ radici reali e 2 radici non reali
-    e $K$ è il suo campo di spezzamento su $\QQ$ allora $\Gal(K/\QQ) \con S_p$.
+    e $K$ è il suo campo di spezzamento su $\QQ$ allora $\Gal(K/\QQ) \cong S_p$.
 \end{lemma}
 
 \begin{proof}
@@ -4500,17 +4577,37 @@ Galois di un'estensione di campi.
     inoltre $p \mid [K:\QQ]$ in quanto $f(x)$ è irriducibile su $\QQ$, pertanto 
     $\Phi(\Gal(K/\QQ))$ contiene un $p$-ciclo. Notiamo che contiene anche una
     trasposizione, che corrisponde alla restrizione del coniugio complesso 
-    in $\Gal(K/\QQ)$. 
+    in $\Gal(K/\QQ)$. Allora $\Phi(\Gal(K/\QQ)) = S_p$ per il 
+    \hyperref[lemma3.18]{Lemma 3.18}, cioè $\Gal(K/\QQ) \cong S_p$.
 \end{proof}
 
 \begin{lemma}
     [Lemma di Artin]
+    \label{lemma3.20}
     Dato $K$ un campo e $G$ un sottogruppo finito di $\Aut(K)$, allora 
     $\faktor{K}{K^G}$ è un'estensione di Galois finita e $\Gal(K/K^G) = G$.
 \end{lemma}
 
 \begin{proof}
     (In seguito scriverò la dimostrazione)
+\end{proof}
+
+\begin{proposition}
+    Ogni gruppo finito $G$ si realizza come gruppo di Galois di un'estensione
+    di campi.
+\end{proposition}
+
+\begin{proof}
+    Sia $|G| = n$ e $p \geq n$ un primo, si hanno le immersioni
+    \[
+        G \longhookrightarrow S_n \longhookrightarrow S_p
+    \]
+    Consideriamo $f(x) \in \QQ[x]$ un polinomio irriducibile di grado $p$
+    avente esattamente $p - 2$ radici reali e 2 radici non reali e sia $K$ 
+    il suo campo di spezzamento su $\QQ$. Per il \hyperref[lemma3.19]{Lemma 3.19}
+    vale $\Gal(K/\QQ) \cong S_p$, per il \hyperref[lemma3.20]{Lemma di Artin}
+    allora $\faktor{K}{K^G}$ è un'estensione di Galois finita e il suo gruppo
+    di Galois è isomorfo a $G$.
 \end{proof}
 
 
