@@ -3156,7 +3156,19 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
         \[ d = ud^{\prime} = uvd \implies d(1-uv) = 0 \implies uv = 1 \implies u,v \in A^*
             \]
     e quindi $d \sim d^{\prime}$ per definizione.
+    Viceversa, se $d$ è un massimo comune divisore di $a$ e $b$ e $d \sim d^{\prime}$, allora:
+    	\[ d \mid d^{\prime} \quad \text{e} \quad d^{\prime} \mid d
+   	    \]
+    quindi
+    	\[ d^{\prime} \mid d \mid a \quad \text{e} \quad d^{\prime} \mid d \mid b
+   	    \]
+    inoltre $\forall x \in A$ tale che $x \mid a$ o $x \mid b$
+    	\[ x \mid d \mid d^{\prime}
+   	    \]
+    cioè anche $d^{\prime}$ è un massimo comune divisore di $a$ e $b$.
 \end{proof}
+
+Come conseguenza l'M.C.D è definito a meno di associati.
 
 \begin{definition}
     Dato un dominio $A$ e $x\in A$, con $x \not\in A^* \cup \{0\}$, $x$ si dice \vocab{primo} se $\forall a,b \in A$:
@@ -3603,18 +3615,18 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \end{definition}
 
 \begin{remark}
-    Il contenuto di un polinomio a coefficienti in un UFD è definito a meno di associati.
+    Il contenuto di un polinomio a coefficienti in un UFD è definito a meno di associati (perché l'M.C.D. lo è).
 \end{remark}
 
 \begin{definition}
-    Dato $A$ un UFD e $f(x) \in A[x]$, $f(x)$ si dice \vocab{primitivo} se $c(f(x)) \sim 1$.
+    Dato $A$ un UFD e $f(x) \in A[x]$, $f(x)$ si dice \vocab{primitivo} se $c(f(x)) = 1$.
 \end{definition}
 
 \begin{remark}
-    Ovviamente dato $f(x) \in A[x]$ si ha che:
+    Dato $f(x) \in A[x]$ si può scrivere come:
     \[ f(x) = c(f(x))f^{\prime}(x) \qquad c(f^{\prime}(x)) = 1
         \]
-    dove $f^{\prime}(x) \in A[x]$ e:
+    dove $f^{\prime}(x) \in A[x]$ primitivo e, detto $d$ un M.C.D. dei coefficienti di f:
     \[ f^{\prime}(x) = \sum_{i=0}^n \frac{a_i}{d}x^i \qquad \frac{a_i}{d} \in A, \left(\frac{a_0}{d},\ldots,\frac{a_n}{d}\right) = 1
         \]
 \end{remark}
@@ -3630,53 +3642,57 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; 
-            se $f(x)g(x)$ non fosse primitivo (ovvero contenuto associato ad 1),
-            allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), 
-	    ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$\footnote{Stiamo usando il fatto che $A$ è UFD: basta prendere un fattore irriducibile della fattorizzazione di $c(f(x)g(x))$ (che esiste unica) ed, essendo A UFD, questo è anche primo.}, consideriamo la proiezione modulo $(p)$:
+        \item Dati $f(x)$ e $g(x)$ primitivi, vogliamo verificare che $f(x)g(x)$ è primitivo; 
+            se così non fosse, ovvero $c(f(x)g(x)) \neq 1$, 
+            esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$
+	    \footnote{Stiamo usando il fatto che $A$ è UFD: basta prendere un fattore irriducibile della fattorizzazione di $c(f(x)g(x))$ (che esiste unica) ed, essendo A UFD, questo è anche un primo.}. 
+	    Consideriamo la proiezione modulo $(p)$:
             \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
                 \]
-            con $\pi_{(p)}(g(x)) = \overline{f(x)} \ne 0$ in quanto $p \nmid c(f(x)) = 1$, analogamente $\overline{g(x)} \ne 0$, ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
-            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio.
-	    Quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, ovvero $\displaystyle \frac{A}{(p)} [x]$
-            è un dominio, da cui $c(f(x)g(x)) = 1$.
+            con $\pi_{(p)}(f(x)) = \overline{f(x)} \neq 0$ in quanto $p \nmid c(f(x)) = 1$, analogamente $\overline{g(x)} \neq 0$, 
+	    ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
+            perché avevamo supposto che $p \mid c(f(x)g(x))$. 
+	    Ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio, quindi $c(f(x)g(x)) = 1$.
         \item Consideriamo ora il caso generale, sia $f(x) = c(f(x))f^{\prime}(x)$, con $f^{\prime}(x)$ primitivo, e analogamente $g(x) = c(g(x))g^{\prime}(x)$, con $g^{\prime}(x)$ primitivo, abbiamo che:
-            \[ h(x) = f(x)g(x) = c(f(x))c(g(x))g^{\prime}(x)f^{\prime}(x)
+            \[ h(x) = f(x)g(x) = c(f(x))c(g(x))f^{\prime}(x)g^{\prime}(x)
                 \]
-            dove $h^{\prime}(x) = g^{\prime}(x)f^{\prime}(x)$ è primitivo perché prodotto di polinomi primitivi, dunque:
+            dove $h^{\prime}(x) = f^{\prime}(x)g^{\prime}(x)$ è primitivo perché prodotto di polinomi primitivi, dunque:
             \[ h(x) = c(h(x))h^{\prime}(x)
                 \]
             e uguagliando i contenuti si ha:
             \begin{multline*}
-                c(h(x))\underbrace{c(h^{\prime}(x))}_{= 1} = c(f(x))c(g(x))\underbrace{c(g^{\prime}(x)f^{\prime}(x))}_{= 1} \implies \\
-                c(h(x)) = c(f(x)g(x)) = c(f(x))c(g(x))
+                c(h(x))\underbrace{c(h^{\prime}(x))}_{= 1} = c(f(x))c(g(x))\underbrace{c(f^{\prime}(x)g^{\prime}(x))}_{= 1} \implies \\
+                c(f(x)g(x)) = c(h(x)) = c(f(x))c(g(x))
             \end{multline*}
     \end{itemize}
 \end{proof}
 
+Nelle prossime proposizioni indicheremo con $K$ il campo dei quozienti di $A$.
+
 \begin{corollary}
     \label{2.118}
-    Siano $f(x),g(x) \in A[x]$, con $c(f(x)) = 1$ e $f(x) \mid g(x)$ in $K[x]$, con $K$ campo dei quozienti di $A$, allora $f(x) \mid g(x)$ in $A[x]$.
+    Siano $f(x),g(x) \in A[x]$, con $f$ prmitivo e $f(x) \mid g(x)$ in $K[x]$, allora $f(x) \mid g(x)$ in $A[x]$.
 \end{corollary}
 
 \begin{proof}
-    Per ipotesi sappiamo che $f(x) \mid g(x)$ in $K[x]$, ovvero $\exists h(x) \in K[x]$ tale che $g(x) = f(x)h(x)$, allora $\exists d \in A$ tale che:
+    Per ipotesi sappiamo che $f(x) \mid g(x)$ in $K[x]$, ovvero $\exists h(x) \in K[x]$ tale che $g(x) = f(x)h(x)$. 
+    Possiamo "cancellare" i denominatori moltiplicando per un loro m.c.m., quindi $\exists d \in A$ tale che:
     \[ h_1(x) = dh(x) \in A[x]
         \]
-    (stiamo "cancellando" il denominatore), dunque:
+    e dunque:
     \[ dg(x) = f(x)h_1(x) \in A[x]
         \]
     da cui per il \hyperref[gauss]{Lemma di Gauss}:
     \[ dc(g(x)) = c(f(x)h_1(x)) = c(f(x))c(h_1(x)) = c(h_1(x)) \implies d \mid c(h_1(x))
         \]
-    dove abbiamo usato nell'ultimo passaggio il fatto che $c(f(x)) = 1$, dunque abbiamo $\displaystyle\frac{h_1(x)}{d} = h(x) \in A[x]$
+    dove abbiamo usato nell'ultimo passaggio il fatto che $c(f(x)) = 1$, dunque abbiamo $h(x) = \displaystyle\frac{h_1(x)}{d} \in A[x]$
     e quindi la divisibilità iniziale era anche in $A[x]$. 
 \end{proof}
 
 \begin{corollary}
     \label{2.119}
-    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$,
-    allora esiste $\delta \in K^*$ tale che $g_0(x) = \delta g(x) \in A[x]$, $h_0(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_0(x)h_0(x)$.
+    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$, con $\deg f(x),\deg g(x) \geq 1$,
+    allora esiste $\delta \in K^*$ tale che $g_0(x) = \delta g(x) \in A[x]$, $h_0(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_0(x)h_0(x)$ (in $A[x]$).
 \end{corollary}
 
 \begin{proof}
@@ -3706,36 +3722,36 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 
 \begin{theorem}
     [Caratterizzazione degli irriducibili di $A\lbrack x\rbrack$]
-    Dato $A$ UFD, gli elementi irriducibili di $A[x]$ sono tutti e soli quelli che soddisfano una tra le seguenti:
+    Dato $A$ UFD, gli elementi irriducibili di $A[x]$ sono tutti e soli:
     \begin{enumerate}[(1)]
-        \item $f(x) \in A$ irriducibile in $A$.
-        \item $f(x) \in A[x]$, con $\deg f(x) \geq 1$, $c(f(x)) = 1$ e $f(x)$ irriducibile in $K[x]$ (anello dei polinomi a coefficienti nel campo dei quozienti di $A$).
+        \item le costanti irriducibili in A;
+        \item i polinomi non costanti, primitivi, irriducibili in $K[x]$.
     \end{enumerate}
 \end{theorem}
 
 \begin{proof}
     Distinguiamo i due casi:
     \begin{enumerate}
-        \item Se $f(x) \in A$, dunque è costante, allora, come già osservato in precedenza, si ha:
+        \item Se $f(x)$ è costante, $f(x) \in A$, allora, come già osservato in precedenza, si ha:
         \[ f(x) = g(x)h(x) \implies \deg g(x) + \deg h(x) = \deg f(x) = 0
             \]
-        dove l'implicazione è data dal fatto che siamo in un dominio, dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto $g(x),h(x) \in A$,
+        dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto anche $g(x)$ e $h(x)$ sono costanti, $g(x), h(x) \in A$,
         per cui $f(x)$ è irriducibile in $A[x]$ se e solo se $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
-        \item Sia $f(x)$ con $\deg f(x) \geq 1$. Supponiamo che $f(x)$ sia irriducibile in $A[x]$, abbiamo che:
-        \[ f(x) = c(f(x))f^{\prime}(x)
-            \]
-        con $c(f(x))$ invertibile in $A[x]$, $c(f(x)) \in (A[x])^* = A^*$ (per quanto detto al punto (1)), d'altra parte, sia $f(x) = g(x)h(x)$ in $K[x]$, allora per il
-        \hyperref[2.119]{Corollario 2.119}, possiamo scriverlo come prodotto di polinomi dello stesso grado in $A[x]$:
-        \[ f(x) = g_1(x)h_1(x) \qquad \text{con} ~ \deg g_1(x) = \deg g(x), ~ \deg h_1(x) = \deg h(x)
-            \]
-        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ sono invertibili in $A[x]$ (quindi in $A$). 
-	Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui
-        $\deg g(x) = 0$ o $\deg h(x) = 0$, ovvero $g(x) \in (K[x])^*$ o $h(x) \in (K[x])^*$, dunque $f(x)$ è irriducibile in $K[x]$. \\
-        Verifichiamo il viceversa, sia $f(x)$ primitivo ed irriducibile in $K[x]$, e sia $f(x) = g(x)h(x)$ in $A[x]$ (e anche in $K[x]$), poiché $f(x)$ è irriducibile in $K[x]$ 
-        o $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, supponiamo quindi ad esempio che sia $g(x) \in A$, da ciò segue che:
+        \item Sia $f(x) \in A[x]$ non costante, $\deg f(x) \geq 1$. 
+	Supponiamo $f(x)$ primitivo e irriducibile in $K[x]$ e sia $f(x) = g(x)h(x)$ in $A[x]$ (e quindi anche in $K[x]$). Poiché $f(x)$ è irriducibile in $K[x]$, 
+        o $g(x)$ o $h(x)$ è invertibile in $K[x]$ e quindi costante; supponiamo (WLOG) che sia $g(x) = g \in A$, da ciò segue che:
         \[ 1 = c(f(x)) = c(g(x)h(x)) = c(g(x))c(h(x)) = g c(h(x))
             \]
-        dove nell'ultima uguaglianza abbiamo usato il fatto che, essendo $g(x)$ costante, allora è uguale al suo contenuto, dunque $g \in A^* (= (A[x])^*)$, pertanto $f(x)$ è irriducibile in $A[x]$.
+        dove nell'ultima uguaglianza abbiamo usato il fatto che, essendo $g(x)$ costante, è uguale al suo contenuto,
+	dunque $g(x) = g \in A^* = (A[x])^*$ (osservazione 2.112), pertanto $f(x)$ è irriducibile in $A[x]$. \\
+	Viceversa, supponiamo $f(x)$ irriducibile in $A[x]$ e sia $f(x) = g(x)h(x)$ in $K[x]$.
+	Allora per il \hyperref[2.119]{Corollario 2.119}, possiamo scriverlo come prodotto di polinomi dello stesso grado in $A[x]$:
+        \[ f(x) = g_1(x)h_1(x) \qquad \text{con} ~ \deg g_1(x) = \deg g(x), ~ \deg h_1(x) = \deg h(x)
+            \]
+        Poiché $f(x)$ è irriducibile in $A[x]$ deve essere che o $g_1(x)$ o $h_1(x)$ è invertibile in $A[x]$, cioè appartiene a $(A[x])^* = A^*$ (osservazione 2.112). 
+	In particolare $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui $\deg g(x) = 0$ o $\deg h(x) = 0$, cioè sono costanti in $K[x]$. 
+	Ma dato che $K \setminus \{0\} = K^*$ e sia $g(x)$ che $h(x)$ non sono nulli (perché altrimenti anche $f(x)$ sarebbe nullo), allora o $g(x)$ o $h(x)$ è invertibile in $K$, cioè appartiene a $K^* = (K[x])^*$ (osservazione 2.112).
+	Dunque $f(x)$ è irriducibile in $K[x]$.
     \end{enumerate}
 \end{proof}
 
@@ -3749,18 +3765,14 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
         \]
     Distinguiamo due casi:
     \begin{itemize}
-        \item Se $\deg f(x) = 0$, ovvero $f(x) = f \in A$, dunque se $f$ è irriducibile in $A$, essendo $A$ UFD, allora $f$ è primo in $A$;
-        infatti abbiamo che:
-        \[ f \mid gh \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) = g \quad \text o \quad f \mid c(h) = h
+        \item Sia $f$ costante, ovvero $f(x) = f \in A$. Allora, per la caratterizzazione precedente, $f$ irriducibile in $A[x]$ implica $f$ irriducibile in $A$, quindi $f$ è primo in $A$, dato che $A$ è UFD. Passando ai contenuti e applicando il \hyperref[gauss]{Lemma di Gauss} abbiamo che
+        \[ f \mid g(x)h(x) \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) \mid g(x) \quad \text o \quad f \mid c(h) \mid h(x)
             \]
-        dunque $f$ primo.
-        \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$, si osserva che $K[x]$ è euclideo, dunque $f(x)$ è primo
-        in $K[x]$ (poiché avevamo detto che ED $\subset$ UFD), dunque se:
-        \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
-            \]
-        allora $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $K[x]$. Avendo supposto che $f(x)$ è primitivo, allora per il \hyperref[2.118]{Corollario 2.118}:
-        \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
-            \]
+        dunque $f$ è primo anche in $A[x]$.
+        \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$. 
+	Si osserva che $K[x]$ è euclideo, quindi $f(x)$ è primo in $K[x]$ (poiché ED $\implies$ UFD).
+	Dunque se $f(x) \mid g(x)h(x)$ in $A[x]$ (e quindi in $K[x]$), allora $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $K[x]$. 
+	Avendo supposto $f(x)$ primitivo, per il \hyperref[2.118]{Corollario 2.118} $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $A[x]$.
     \end{itemize}
 \end{proof}
 
@@ -3773,23 +3785,23 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 
 \begin{proof}
     Si osserva che per il \hyperref[gauss]{Lemma di Gauss} si ha che:
-    \[ f(x) \mid g(x) \implies c(f(x)) \mid c(g(x)) \qquad \text e \qquad f^{\prime}(x) \mid g^{\prime}(x)
+    \[ f(x) \mid g(x) \implies c(f(x)) \mid c(g(x)) \quad \text e \quad f^{\prime}(x) \mid g^{\prime}(x)
         \]
-    infatti, se $g(x) = f(x) h(x) \implies c(g(x))g^{\prime}(x) = c(f(x))f^{\prime}(x)c(h(x))c^{\prime}(x)$,
-    ma per quanto detto $c(g(x)) = c(f(x)h(x)) = c(f(x))c(hc(x))$, da cui $f^{\prime}(x) \mid g^{\prime}(x)$.
+    infatti, se $g(x) = f(x) h(x) \implies c(g(x))g^{\prime}(x) = c(f(x))f^{\prime}(x)c(h(x))h^{\prime}(x)$,
+    ma per quanto detto $c(g(x)) = c(f(x)h(x)) = c(f(x))c(h(x))$, da cui $f^{\prime}(x) \mid g^{\prime}(x)$.
     Alla successione $\{f_i(x)\}$ possiamo quindi associare le successioni $\{c(f_i(x))\}$ e $\{f_i^{\prime}(x)\}$, per quanto abbiamo detto si ha:
     \[ c(f_{i+1}(x)) \mid c(f_{i}(x)) \qquad \text e \qquad f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \qquad \forall i \geq 0
         \]
-    dove la successione $\{c(f_i(x))\}$ è stazionaria, in quanto è una catena discendete di divisibilità dell'UFD $A$, dunque:
+    dove la successione $\{c(f_i(x))\}$ è stazionaria, in quanto è una catena discendente di divisibilità dell'UFD $A$, dunque:
     \[ \exists m_0 : c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \forall i \geq m_0
         \]
     Consideriamo ora $\{f_i^{\prime}(x)\}$ e associamo a questa la successione $\{\deg f_i^{\prime}(x)\}$, ma dalla condizione:
     \[ f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \implies \deg f_{i+1}^{\prime}(x) \leq \deg f_i^{\prime}(x)
         \]
     dunque $\{\deg f_i^{\prime}(x)\}$ è una successione di numeri naturali decrescente, pertanto si stabilizza:
-    \[ \exists d_0 : \deg f_{i}^{\prime}(x) \leq \deg f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
+    \[ \exists d_0 : \deg f_{i}^{\prime}(x) = \deg f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
         \]
-    pertanto $\forall i \geq d_0$ abbiamo che $f_i^{\prime}(x)$ e $\deg f_{i+1}^{\prime}(x)$ hanno lo stesso grado e $f_{i}^{\prime}(x) \mid f_{d_0}^{\prime}(x)$,
+    pertanto $\forall i \geq d_0$ abbiamo che $f_i^{\prime}(x)$ e $f_{d_0}^{\prime}(x)$ hanno lo stesso grado e $f_{i}^{\prime}(x) \mid f_{d_0}^{\prime}(x)$,
     cioè differiscono per una costante, ma essendo entrambi primitivi la costante deve essere un'unità, per cui:
     \[ f_{i}^{\prime}(x) \sim f_{d_0}^{\prime}(x) \qquad \forall i \geq d_0
         \]
@@ -3797,21 +3809,22 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     \[ c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \text e \qquad f_{i}^{\prime}(x) \sim f_{d_0}^{\prime}(x)
         \]
     da cui la tesi:
-    \[ f_i(x) = c(f_i(x))f_{i}^{\prime}(x) \sim c(f_{n_0}(x))f_{n_0}^{\prime}(x) \qquad \forall i \geq n_0
+    \[ f_i(x) = c(f_i(x))f_{i}^{\prime}(x) \sim c(f_{n_0}(x))f_{n_0}^{\prime}(x) = f_{n_0}(x) \qquad \forall i \geq n_0
         \]
 \end{proof}
 
-Con la dimostrazione di quest'ultima proposizione abbiamo concluso la dimostrazione del \hyperref[2.109]{Teorema di Caratterizzazione degli UFD}.
+Con quest'ultima proposizione abbiamo concluso la dimostrazione del fatto che \hyperref[2.109]{$A[x]$ è UFD}.
 
 \begin{remark}
-    Osserviamo che in generale se $A$ è un PID, allora non è sempre vero che $A[x]$ sia un PID, ad esempio nel caso di $\ZZ$ sappiamo che $\ZZ[x]$ non è un PID, in quanto,
-    ad esempio, l'ideale $I = (2,x)$ non è principale. Analogamente, in generale se $A$ è un ED, allora non è sempre vero che $A[x]$ sia un ED, anche qui come controesempio possiamo 
-    considerare il caso di $\ZZ$ e $\ZZ[x]$.
+    Osserviamo che, in generale, se $A$ è un PID non è sempre vero che $A[x]$ è un PID. 
+    Nel caso di $\ZZ$ sappiamo che $\ZZ[x]$ non è un PID, in quanto, ad esempio, l'ideale $I = (2,x)$ non è principale. 
+    Analogamente, in generale se $A$ è un ED non è sempre vero che $A[x]$ è un ED, 
+    (anche qui come controesempio possiamo considerare il caso di $\ZZ$ e $\ZZ[x]$).
 \end{remark}
 
 \begin{remark}
-    Se $K$ è un campo, allora abbiamo che $K[x]$ è euclideo, mentre $K[x,y]$ è un UFD (poiché vale sempre il \hyperref[2.109]{Teorema di Caratterizzazione degli UFD}, e $K[x]$ è un UFD), ma
-    $K[x,y]$ non è un PID, in quanto ad esempio $I = (x,y)$ non è principale.
+    Se $K$ è un campo abbiamo che $K[x]$ è ED, mentre $K[x,y]$ è solo UFD (poiché $K[x]$ ED $\implies$ $K[x]$ UFD $\implies$ $K[x,y] = K[x][y]$ UFD), 
+    infatti $K[x,y]$ non è un PID, in quanto ad esempio $I = (x,y)$ non è principale.
 \end{remark}
 
 \begin{exercise}
@@ -3831,37 +3844,36 @@ Dato $A$ UFD e $f(x) \in A[x]$ primitivo, con $f(x) = \sum_{i=0}^n a_ix^i$, e $p
     \item $p \mid a_i$, $\forall i \in \{0,\ldots,n-1\}$.
     \item $p^2 \nmid a_0$.
 \end{enumerate}
-Allora $f(x)$ è irriducibile in $A[x]$ (e in $K[x]$, con $K$ campo dei quozienti di $A$).
+Allora $f(x)$ è irriducibile in $A[x]$ (quindi in $K[x]$, con $K$ campo dei quozienti di $A$).
 \end{proposition}
 
 \begin{proof}
-    La dimostrazione è identica a quella già trattata in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, con 
-    la sola differenza che in questo caso utilizziamo un UFD generico al posto di $\ZZ$.\\
-    Supponiamo per assurdo che $f(x)$, con $\deg(f(x)) = n$ sia riducibile, allora:
-	\[ f(x) = g(x)h(x)
-	\]
-    con $\deg f(x) = m \geq 1$, $\deg(h(x)) = n-m \geq 1$. Possiamo applicare la proiezione al quoziente modulo $(p)$, e per le ipotesi si ha:
-	\[ \overline{f(x)} = \overline{a_n}x^n (\ne \overline 0)
-	\] 
+    La dimostrazione è simile a quella già trattata in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, 
+    con la differenza che in questo caso utilizziamo un UFD generico al posto di $\ZZ$. \\
+    Posso supporre $\deg f(x) = n \geq 2$: infatti un polinomio primitivo di primo grado è sempre irriducibile su $K[x]$ (e quindi su $A[x]$), 
+    perché, per questioni di grado, si può fattorizzare solo come un altro polinomio di primo grado per una costante non nulla (altrimenti anche $f(x)$ sarebbe nullo) ed, essendo $K$ un campo, ogni costante non nulla è invertibile;
+    mentre se $f(x)$ fosse una costante allora non sarebbero soddisfatte le ipotesi, perché si avrebbe $p \nmid a_n$ e $p \mid a_0$ ma $a_n = a_0 = f(x)$, assurdo.
+    Supponiamo per assurdo che $f(x)$ sia riducibile in $A[x]$, allora:
+        \[ f(x) = g(x)h(x)
+	    \]
+    con $\deg g(x) = m \geq 1$, $\deg h(x) = n-m \geq 1$. 
+    \footnote{Posso supporre questi gradi $\geq 1$ perché se, per assurdo, $f(x)$ si potesse spezzare solo come prodotto di un polinomio dello stesso grado per una costante non nulla, allora, guardando queste fattorizzazioni in $K[x]$, si avrebbe che $f(x)$ è irriducibile su $K[x]$ (e quindi su $A[x]$).}
+    Possiamo applicare la proiezione al quoziente modulo $(p)$, e per le ipotesi si ha:
+        \[ \overline{f(x)} = \pi_{(p)}(f(x)) = \overline{a_n}x^n \ne \overline 0
+	    \] 
     e inoltre:
 	\[ \pi_{(p)}(f(x)) =  \pi_{(p)}(g(x)) \pi_{(p)}(h(x))
-	\]
+	    \]
     con:
-	\[ \pi_{(p)}(g(x)) = \overline{b_m}x^m + \ldots + \overline{b_0}
-	\qquad
-	\text e
-	\qquad
-	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m} + \ldots + \overline{c_0}
-	\]
-    Si ha che $\displaystyle\pi_{(p)}(f(x)) \in \frac{A}{(p)}[x]$ (che è un campo), quindi UFD, da ciò segue che $\pi_{(p)}(g(x))$ e 
-    $\pi_{(p)}(h(x))$ sono fattori del polinomio $\overline{a_n}x^n$, da cui segue, per la definizione di prodotto tra polinomi che:
-	\[  \pi_{(p)}(g(x)) = \overline{b_m}x^m
-	\qquad
-	\text e
-	\qquad
-	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m}
-	\]
-    ma da ciò segue che $b_0 \equiv c_0 \equiv 0 \pmod p$, da cui $a_0 \equiv b_0c_0 \equiv 0 \pmod{p^2}$, ovvero $p^2 \mid a_0$, ma ciò è assurdo.
+	\[ \pi_{(p)}(g(x)) = \overline{b_m}x^m + \ldots + \overline{b_0} 
+	   \qquad \text e \qquad 
+	   \pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m} + \ldots + \overline{c_0}
+	    \]
+    Per concludere basta mostrare che $\overline{b_0} = \overline{c_0} = 0$, 
+    infatti da questo segue che $b_0 \equiv c_0 \equiv 0 \pmod p \implies a_0 \equiv b_0c_0 \equiv 0 \pmod{p^2} \implies p^2 \mid a_0$ che è assurdo.
+    Intanto osserviamo che tutti i coefficienti stanno in $\displaystyle \frac{A}{(p)}[x]$ che è un dominio, perché $p$ primo (proposizione 2.56).
+    Dato che $\overline{b_0}\overline{c_0} = \overline{a_0} = 0$, abbiamo che o $\overline{b_0} = 0$ o $\overline{c_0} = 0$.
+    Sia (WLOG) $\overline{b_0} = 0$ e supponiamo, per assurdo, che $\overline{c_0} \neq 0$. 
 \end{proof}
 
 \newpage
