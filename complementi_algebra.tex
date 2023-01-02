@@ -13,13 +13,13 @@
 \newpage
 
 \tableofcontents
-%\eject
+\eject
 \newpage
 
 \section*{Ringraziamenti}
 
 Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani, Daniele
-Lapadula, Francesco Sorce.
+Lapadula, Francesco Sorce, Alessandro Moretti.
 
 \newpage
 
@@ -125,7 +125,7 @@ Dato $p$ un primo, allora \[
     Osserviamo che un elemento di $\Aut((\Zp)^n)$ deve necessariamente mandare 
     una base di $(\Zp)^n$ in un'altra base, e si dermina univocamente in questo 
     modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
-    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(1)$ può assumere
+    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(v_1)$ può assumere
     qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
     l'immagine del primo vettore. Per quanto riguarda $v_2$, $\varphi(v_2)$
     può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$,
@@ -787,13 +787,10 @@ Mostriamo che $\iota$ è ben definita e che è effettivamente un omomorfismo ini
         \ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K) \mid
         \iota(\varphi_1, \varphi_2) = id_{\Aut(H\times K)}\} = \\
         = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K)\mid 
-        (\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)~\forall 
-        (g_1, g_2) \in H\times K\}
-    \end{multline*} Poiché gli unici elementi $\varphi_1 \in \Aut(H)$,
-    $\varphi_2 \in \Aut(K)$ tali che $\varphi_1(H) = \{e_H\}$ e $\varphi_2(K) = \{e_K\}$
-    sono rispettivamente $id_{\Aut(H)}$, $id_{\Aut(K)}$ abbiamo \[
-        \ker\iota = \{(id_{\Aut(H)}, id_{\Aut(K)})\} = \{id_{\Aut(H \times K)}\}
-    \] 
+        (\varphi_1(g_1), \varphi_2(g_2)) = (g_1, g_2)~\forall 
+        (g_1, g_2) \in H\times K\} = \\
+        = \{(id_{\Aut(H)}, id_{\Aut(K)})\} = \{id_{\Aut(H)\times\Aut(K)}\}
+    \end{multline*}
 
 \end{itemize}
 
@@ -872,7 +869,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     \[
         S = \{(g_1, g_2) \in H\times K\mid (g_1, g_2)^n = (e_H, e_K)\}\]
     Osserviamo che $H\times \{e_K\} = S$, infatti 
-    $H\times \{e_K\} \subseteq S$ in quanto tutti gli elementi di $H\times{e_K}$
+    $H\times \{e_K\} \subseteq S$ in quanto tutti gli elementi di $H\times\{e_K\}$
     hanno ordine che divide $n$. D'altra parte dato $(g_1, g_2) \in S$, se
     $\ord(g_1, g_2) \mid n$ allora $\ord(g_1)\mid n$ e $\ord(g_2)\mid n$, ma 
     $\ord(g_2) \mid m$ per il Teorema di Lagrange, quindi $\ord(g_2) = 1$ e
@@ -929,7 +926,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
         Fissati $x, y \in\nolinebreak G$ abbiamo 
         \[
             \varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = \varphi(x)\varphi(y)
-            \varphi(x)^{-1}\varphi(y)^{-1} \in G'
+            \varphi(x)^{-1}\varphi(y)^{-1} = [\varphi(x), \varphi(y)]\in G'
         \]pertanto $\varphi(G') \subseteq G'$, da cui l'uguaglianza in quanto 
         $\varphi$ è bigettiva;
         \item dati $x, y \in G$, $xG'\cdot yG' = yG'\cdot xG'$ se e solo se 
@@ -1151,7 +1148,7 @@ nel seguente modo:
 \]
 con
 \[
-    \psi_g:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
+    \psi_a:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
 \]
 
 Fissato $x \in X$, poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$
@@ -1192,7 +1189,7 @@ quindi due casi:
         id_H:H\longrightarrow H: h \longmapsto h
     \]
     Poiché $H \cong \Z5$, abbiamo $\Aut(H)\cong (\Z5)^* \cong \Z4$, d'altra 
-    parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |H|) = 1$, pertanto
+    parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |\Aut(H)|) = 1$, pertanto
     $|\mathrm{Im}\varphi| = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
     Diamo adesso due modi per concludere l'esercizio:
     \begin{enumerate}[(1)]
@@ -1597,7 +1594,7 @@ i suoi sottogruppi abeliani massimali.
 Studiamo le classi di coniugio in $\mathcal{A}_n$. In particolare,
 fissato $\sigma \in \mathcal{A}_n$, vogliamo determinare una relazione tra
 $\Cl_{\mathcal{A}_n}(\sigma)$ e $\Cl_{S_n}(\sigma)$.
-Poiché valgono $|\mathcal{A}_n| = |\Cl_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n(\sigma)}|$
+Poiché valgono $|\mathcal{A}_n| = |\Cl_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n}(\sigma)|$
 e $Z_{\mathcal{A}_n}(\sigma) = Z_{S_n}(\sigma) \cap \mathcal{A}_n$, abbiamo
 \[
     |\Cl_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
@@ -1633,14 +1630,14 @@ Infatti $\Cl_{\mathcal{A}_n}(\sigma) \cup \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1
 coniugati di $\sigma$), d'altra parte per ogni $\rho \in S_n$ abbiamo
 $\rho\sigma\rho^{-1} \in \Cl_{\mathcal{A}_n}(\sigma)$ se $\rho$ è pari,
 $\rho\sigma\rho^{-1} = (\rho\tau^{-1})(\tau\sigma\tau^{-1})(\rho\tau^{-1})^{-1}
-\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau)$ se $\rho$ è dispari, da cui l'uguaglianza.
+\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ se $\rho$ è dispari, da cui l'uguaglianza.
 Abbiamo altri due casi:
 \begin{itemize}
     \item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{S_n}(\tau\sigma\tau^{-1})|$;
     \item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
     |\Cl_{S_n}(\tau\sigma\tau^{-1})|$.
 \end{itemize}
-Tuttavia se fosse $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau)| = |\Cl_{S_n}(\tau\sigma\tau)|$
+Tuttavia se fosse $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{S_n}(\tau\sigma\tau^{-1})|$
 avremmo $\Cl_{\mathcal{A}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
 che è assurdo in quanto $\tau\sigma\tau^{-1} \notin \Cl_{\mathcal{A}_n}(\sigma)$,
 pertanto \[
@@ -1795,7 +1792,7 @@ Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
     In generale, un sottogruppo è normale se e solo se è unione disgiunta
     delle classi di coniugio dei suoi elementi, quindi la cardinalità
     di $N \trianglelefteqslant \mathcal{A}_5$ deve essere somma di alcuni 
-    termini nella seconda colonna, compreso 1. D'altra parte $|N| \mid \mathcal{A}_5 = 60$,
+    termini nella seconda colonna, compreso 1. D'altra parte $|N| \mid |\mathcal{A}_5| = 60$,
     da cui $|N| = 1$ oppure $|N| = 60$. Pertanto $\mathcal{A}_5$ è semplice.
 \end{proof}
 
@@ -1919,7 +1916,7 @@ In effetti vale un risultato più generale
         d'altra parte $a_1$ è un punto fisso per $\rho$, che è assurdo;
         \item se $k > 1$ e $l > 2$, poiché $\sigma_1^{-1}$ è un $l$-ciclo
         disgiunto da $\sigma_2, \ldots, \sigma_k$ la permutazione 
-        $\rho = \sigma^{-1}\sigma_2\ldots\sigma_k$ è un elemento di $N$. 
+        $\rho = \sigma_1^{-1}\sigma_2\ldots\sigma_k$ è un elemento di $N$. 
         Consideriamo $\alpha = \rho\sigma \in N$, osserviamo che 
         \[
             \alpha = \sigma_2^2\ldots\sigma_k^2 \neq id
@@ -1995,13 +1992,13 @@ In effetti vale un risultato più generale
         \item se $K = \{id\}$, poiché $[S_n:\mathcal{A}_n] = 2$ per la 
         \hyperref[prop1.49]{Proposizione 1.49} vale $[N:K] \in \{1, 2\}$, 
         da cui $|N| \leq 2$. Se $|N| = 1$ allora $N = \{id\}$, se $|N| = 2$
-        consideriamo l'azione di coniugio di $S_n$ su $N$
+        consideriamo l'azione di coniugio di $S_n = N_{S_n}(N)$ su $N$
         \[
             \varphi: N_{S_n}(N)\longrightarrow Aut(N): g \longmapsto \varphi_g
         \]
         dove $\varphi_g$ è la mappa
         \[
-            \varphi_g:H \longrightarrow H :h \longmapsto ghg^{-1}
+            \varphi_g:N \longrightarrow N :h \longmapsto ghg^{-1}
         \]
         il nucleo di $\varphi$ coincide con $Z_{S_n}(N)$. Per il Primo Teorema
         di Omomorfismo allora abbiamo un omomorfismo iniettivo
@@ -2017,11 +2014,13 @@ In effetti vale un risultato più generale
 
 \begin{remark}
     L'enunciato è vero anche per $n = 3$ con la stessa dimostrazione, infatti
-    $\mathcal{A}_3 \cong \Z3$ è un gruppo semplice, ed è vero anche per $n = 4$
-    anche se con una dimostrazione diversa. Infatti un sottogruppo $H$ di 
-    indice 2 di $S_n$ contiene necessariamente il commutatore, in quanto
-    $\faktor{S_n}{H}\cong \Z2$, d'altra parte il commutatore di $S_n$ è 
-    $\mathcal{A}_n$, pertanto $H = \mathcal{A}_4$.
+    $\mathcal{A}_3 \cong \Z3$ è un gruppo semplice, mentre per $n = 4$ è falso.
+    Infatti $\mathcal{A}_4$ non è semplice, e il sottogruppo di Klein
+    \[
+        V_4 = \{id, \cycle{1, 2}\cycle{3, 4}, \cycle{1, 3}\cycle{2, 4}, \cycle{1, 4}\cycle{2, 3}\}
+    \]
+    è un suo sottogruppo normale non banale. Notiamo che $V_4$ è normale in 
+    $S_4$ in quanto unione delle classi di coniugio di tutti i suoi elementi.
 \end{remark}
 
 
@@ -2219,7 +2218,7 @@ sui generatori $\cycle{1, 2}\cycle{3, 4}$, $\cycle{1, 3}\cycle{2, 4}$ di $V_4$:
     \cycle{1, 2}(\cycle{1, 2}\cycle{3, 4})\cycle{1, 2} = \cycle{1, 2}\cycle{3, 4}
 \]
 \[
-    \cycle{1, 2}(\cycle{1, 3}\cycle{2, 4})\cycle{1, 2} = \cycle{1, 4}\cycle{1, 3}
+    \cycle{1, 2}(\cycle{1, 3}\cycle{2, 4})\cycle{1, 2} = \cycle{1, 4}\cycle{2, 3}
 \]
 Pertanto $\varphi(\cycle{1, 2, 3}) = f$ e $\varphi(\cycle{1, 2}) = g$,
 dove $f$ e $g$ sono gli automorfismi di $\Z2\times\Z2$ tali che
@@ -2269,7 +2268,7 @@ contiene $n\phi(n)$ elementi. In realtà possiamo essere più precisi:
         |NH| = \frac{|N|\cdot|H|}{|N\cap|H|} = |N|\cdot|H| = n\phi(n) = |G|
     \]
     Mostriamo quindi che $N$ è un sottogruppo normale di $G$: fissati $f \in N$
-    e $g \in H$ tali che $f(x) = x + t$ e $g(x) = ax + b$, con $b, t \in \Zn$ e 
+    e $g \in G$ tali che $f(x) = x + t$ e $g(x) = ax + b$, con $b, t \in \Zn$ e 
     $a \in (\Zn)^*$, abbiamo
     \[
         (g^{-1}\circ f \circ g)(x) = (g^{-1}\circ f)(ax + b) = g^{-1}(ax + b + t) = 
@@ -2355,7 +2354,7 @@ mostriamo che $GL_3(\RR) \cong SL_3(\RR)\times\RR^*$. Consideriamo il sottogrupp
     \item $N \cap H = \{Id\}$ in quanto $M = \lambda Id \in N\cap H$ è tale
     che $\det M = \lambda^3 = 1$, cioè $\lambda = 1$ e quindi $M = Id$;
     \item $H$ è un sottogruppo normale di $GL_3(\RR)$, in quanto tutti i suoi elementi
-    sono mutlipli scalari della matrice identità e quindi commutano con gli
+    sono multipli scalari della matrice identità e quindi commutano con gli
     elementi di $GL_3(\RR)$;
     \item $GL_3(\RR) = NH$, infatti per ogni $M \in GL_3(\RR)$ possiamo scrivere $M = S(\lambda Id)$,
     dove $\lambda = \nolinebreak(\det M)^{\frac 1 3}$ e $S = (\det M)^{-\frac 1 3} M \in N$.
@@ -2440,7 +2439,7 @@ procedura nella seguente dimostrazione.
         (g_1, g_2) = (g_1g_2^{-1}, e)(g_2, g_2)
     \]
     con $(g_1g_2^{-1}, e) \in N$ e $(g_2, g_2) \in H$, pertanto possiamo 
-    scrivere $G = N \rtimes_{\varphi} H$, dove $\varphi$ è un omomorfismo
+    scrivere $G \times G = N \rtimes_{\varphi} H$, dove $\varphi$ è un omomorfismo
     \[
         \varphi: H \longrightarrow \Aut(N)
     \]
@@ -2448,7 +2447,7 @@ procedura nella seguente dimostrazione.
     se e solo se $hnh^{-1} = n$ per ogni $h \in H$, per ogni $n \in N$.
     Questo è equivalente a richiedere 
     \[
-        (g, g)(n, e)(g^{-1}, g^{-1}) = (gng^{-1}, e)= (n, e)~\forall g \in G,\forall n \in N
+        (g, g)(h, e)(g^{-1}, g^{-1}) = (ghg^{-1}, e)= (h, e)~\forall g, h \in G
     \]
     cioè $g \in Z(G)$ per ogni $g \in G$,
     ma questo è assurdo in quanto $G$ non è abeliano, pertanto $\varphi$
@@ -2541,7 +2540,7 @@ due prodotti semidiretti di $p$-gruppi non siano isomorfi.
     Dimostriamo la contronominale, cioè che se $X_1$ e $X_2$ sono isomorfi
     allora $\ker\varphi_1 \cong \ker\varphi_2$.\newline
     Sia $f: X_1\longrightarrow X_2$ un isomorfismo, poniamo $\mathcal{G}_1 = 
-    G\rtimes_{\varphi_1}\{e_H\}$, $\mathcal{G}_2 = G\rtimes{\varphi_2}\{e_H\}$,
+    G\rtimes_{\varphi_1}\{e_H\}$, $\mathcal{G}_2 = G\rtimes_{\varphi_2}\{e_H\}$,
     $\mathcal{H}_1 = \{e_G\}\rtimes_{\varphi_1}H$, $\mathcal{H}_2 = \{e_G\}\rtimes_{\varphi_2}H$.
     Osserviamo che $f(\mathcal{G}_1) = \mathcal{G}_2$ in quanto $\mathcal{G}_1$
     è l'unico $p$-Sylow di $X_1$ e $\mathcal{G}_2$ è l'unico $p$-Sylow di $X_2$
@@ -2948,7 +2947,7 @@ $\faktor{S}{Z(S)} \cong \mathcal{A}_4$, sfruttiamo questo fatto per studiare
 i 2-Sylow di $S$. Per il Teorema di Corrispondenza i sottogruppi di $S$
 contenenti $Z(S)$ sono in bigezione con i sottogruppi di $\mathcal{A}_4$,
 e tale bigezione preserva l'indice e la normalità dei sottogruppi. Poiché 
-$V_4$ è l'unico 2-Sylow di $S_4$ abbiamo che $S$ contiene un unico 2-Sylow 
+$V_4$ è l'unico 2-Sylow di $\mathcal{A}_4$ abbiamo che $S$ contiene un unico 2-Sylow 
 di indice $3$, cioè di cardinalità 8, chiamiamo $J$ tale sottogruppo. 
 $J$ contiene le matrici
 \[
@@ -4332,34 +4331,49 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
             \draw (Q3)--(Q4);
         \end{tikzpicture}
     \end{center}
-    per il Teorema delle Torri abbiamo $[KL:F] = [KL:L][L:F]$. Poiché $\Gal(KL/L) \cong \Gal(K/K\cap L) = \Gal(K/F)$ per la 
-    \hyperref[prop3.10]{Proposizione 3.10}, in particolare $[KL:L] = [K:F]$, quindi $[KL:F] = [K:F][L:F]$.
+    per il Teorema delle Torri abbiamo $[KL:F] = [KL:L][L:F]$. Poiché 
+    $\Gal(KL/L) \cong \Gal(K/K\cap L) = \Gal(K/F)$ per la 
+    \hyperref[prop3.10]{Proposizione 3.10}, in particolare $[KL:L] = [K:F]$,
+    quindi $[KL:F] = [K:F][L:F]$.
 \end{proof}
 
 \begin{proposition}
-    Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois. Inoltre:
+    Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, 
+    allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois. Inoltre:
     \begin{enumerate}[(1)]
-        \item esiste un'immersione $\Phi: \Gal(K_1K_2/F) \longhookrightarrow \Gal(K_1/F)\times\Gal(K_2/F)$;
-        \item $\Gal(K_1K_2/F)\cong \Gal(K_1/F)\times\Gal(K_2/F)$ se e solo se $K_1\cap K_2 = F$. 
+        \item esiste un'immersione $\Phi: \Gal(K_1K_2/F) \longhookrightarrow 
+        \Gal(K_1/F)\times\Gal(K_2/F)$;
+        \item $\Gal(K_1K_2/F)\cong \Gal(K_1/F)\times\Gal(K_2/F)$ se e solo 
+        se $K_1\cap K_2 = F$. 
     \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-    Poiché $\faktor{K_1}{F}$ e $\faktor{K_2}{F}$ sono estensioni normali, esistono $p_1(x), p_2(x) \in F[x]$ tali che $K_1$ e $K_2$ 
-    sono rispettivamente i campi di spezzamento di $p_1(x)$ e $p_2(x)$ su $F$. Allora il composto $K_1K_2$ è il campo di spezzamento  
-    del polinomio $p_1(x)p_2(x)$ su $F$, quindi $\faktor{K_1K_2}{F}$ è un'estensione di Galois.
+    Poiché $\faktor{K_1}{F}$ e $\faktor{K_2}{F}$ sono estensioni normali, 
+    esistono $p_1(x), p_2(x) \in F[x]$ tali che $K_1$ e $K_2$ 
+    sono rispettivamente i campi di spezzamento di $p_1(x)$ e $p_2(x)$ su 
+    $F$. Allora il composto $K_1K_2$ è il campo di spezzamento  
+    del polinomio $p_1(x)p_2(x)$ su $F$, quindi $\faktor{K_1K_2}{F}$ è un'estensione 
+    di Galois.
     \begin{enumerate}[(1)]
         \item Consideriamo la mappa
         \[
-            \Phi: \Gal(K_1K_2/F)\longrightarrow \Gal(K_1/F)\times \Gal(K_2/F): \varphi\longmapsto (\varphi_{\mid K_1}, \varphi_{\mid K_2})
+            \Phi: \Gal(K_1K_2/F)\longrightarrow \Gal(K_1/F)\times 
+            \Gal(K_2/F): \varphi\longmapsto (\varphi_{\mid K_1}, \varphi_{\mid K_2})
         \]
-        chiaramente $\Phi$ è un omomorfismo di gruppi, mostriamo quindi che il suo nucleo è banale. $\Phi(\varphi) = (id_{K_1}, id_{K_2})$
-        se e solo se $\varphi_{\mid K_1} = id_{K_1}$ e $\varphi_{\mid K_2} = id_{K_2}$, ma allora $\varphi$ è l'identità anche sul composto
+        chiaramente $\Phi$ è un omomorfismo di gruppi, mostriamo quindi che 
+        il suo nucleo è banale. $\Phi(\varphi) = (id_{K_1}, id_{K_2})$
+        se e solo se $\varphi_{\mid K_1} = id_{K_1}$ e $\varphi_{\mid K_2} =
+        id_{K_2}$, ma allora $\varphi$ è l'identità anche sul composto
         $K_1K_2$, pertanto $\Phi$ è iniettivo;
-        \item poiché i gruppi in questione sono finiti, è sufficiente mostrare che hanno la stessa cardinalità per concludere che sono isomorfi.
-        Per il Teorema delle Torri abbiamo $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$, d'altra parte $[K_1K_2:K_1] = [K_2:K_1\cap K_2]$ per
-        la \hyperref[prop3.10]{Proposizione 3.10}. Pertanto $|\Gal(K_1K_2/F)| = |\Gal(K_1/F)|\cdot |\Gal(K_2/F)|$ 
-        se e solo se $[K_2:K_1\cap K_2][K_1:F] = [K_1:F][K_2:F]$, cioè se e solo se $[K_2:K_1\cap K_2] = [K_2:F]$, ovvero $K_1\cap K_2 = F$.
+        \item poiché i gruppi in questione sono finiti, è sufficiente mostrare 
+        che hanno la stessa cardinalità per concludere che sono isomorfi.
+        Per il Teorema delle Torri abbiamo $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$,
+        d'altra parte $[K_1K_2:K_1] = [K_2:K_1\cap K_2]$ per
+        la \hyperref[prop3.10]{Proposizione 3.10}. Pertanto $|\Gal(K_1K_2/F)| =
+        |\Gal(K_1/F)|\cdot |\Gal(K_2/F)|$ 
+        se e solo se $[K_2:K_1\cap K_2][K_1:F] = [K_1:F][K_2:F]$, cioè se e 
+        solo se $[K_2:K_1\cap K_2] = [K_2:F]$, ovvero $K_1\cap K_2 = F$.
     \end{enumerate}
 \end{proof}
 
@@ -4367,15 +4381,23 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 
 \subsection{Gruppo di Galois di un polinomio di grado 3}
 
-Consideriamo un polinomio $f(x)$ di grado 3 che non sia completamente fattorizzabile in $\QQ[x]$, cioè che ha campo di spezzamento $K$ 
-su $\QQ$ diverso da $\QQ$. Dalla teoria sappiamo che 3 divide l'ordine di $\Gal(K/\QQ)$ e che questo è isomorfo a un sottogruppo di 
-$S_3$, pertanto $\Gal(K/\QQ) \cong S_3$ oppure $\Gal(K/\QQ) \cong \ZZ3$. Vediamo che entrambi i casi sono possibili con due esempi.
+Consideriamo un polinomio $f(x)$ di grado 3 che non sia completamente fattorizzabile 
+in $\QQ[x]$, cioè che ha campo di spezzamento $K$ 
+su $\QQ$ diverso da $\QQ$. Dalla teoria sappiamo che 3 divide l'ordine di 
+$\Gal(K/\QQ)$ e che questo è isomorfo a un sottogruppo di 
+$S_3$, pertanto $\Gal(K/\QQ) \cong S_3$ oppure $\Gal(K/\QQ) \cong \ZZ3$. 
+Vediamo che entrambi i casi sono possibili con due esempi.
 \newline
-Consideriamo il polinomio $f(x) = x^3 - 2$, le sue radici in $\ol{\QQ}$ sono $\alpha_0 = \sqrt[3]{2}$, $\alpha_1 = \sqrt[3]2 \zeta_3$,
-$\alpha_2 = \sqrt[3]2\zeta_3^2$, dove $\zeta_3$ è una radice primitiva terza di 1. In particolare, il campo di spezzamento di $f(x)$ su $\QQ$
-è $K = \QQ(\alpha_0, \alpha_1, \alpha_2) = \QQ(\sqrt[3]2, \zeta_3)$. Infatti $\sqrt[3]2 = \alpha_0$ e $\zeta_3 = \frac{\alpha_1}{\alpha_0}$,
-quindi $\QQ(\sqrt[3]2, \zeta_3) \subseteq \QQ(\alpha_0, \alpha_1, \alpha_2)$, d'altra parte $\alpha_i = \sqrt[3](2)\zeta_3^i$ per 
-$i = 0, 1, 2$, pertanto si ha anche l'altra inclusione, da cui l'uguaglianza. Consideriamo il diagramma di campi 
+Consideriamo il polinomio $f(x) = x^3 - 2$, le sue radici in $\ol{\QQ}$ sono 
+$\alpha_0 = \sqrt[3]{2}$, $\alpha_1 = \sqrt[3]2 \zeta_3$,
+$\alpha_2 = \sqrt[3]2\zeta_3^2$, dove $\zeta_3$ è una radice primitiva terza 
+di 1. In particolare, il campo di spezzamento di $f(x)$ su $\QQ$
+è $K = \QQ(\alpha_0, \alpha_1, \alpha_2) = \QQ(\sqrt[3]2, \zeta_3)$. Infatti 
+$\sqrt[3]2 = \alpha_0$ e $\zeta_3 = \frac{\alpha_1}{\alpha_0}$,
+quindi $\QQ(\sqrt[3]2, \zeta_3) \subseteq \QQ(\alpha_0, \alpha_1, \alpha_2)$, 
+d'altra parte $\alpha_i = \sqrt[3](2)\zeta_3^i$ per 
+$i = 0, 1, 2$, pertanto si ha anche l'altra inclusione, da cui l'uguaglianza. 
+Consideriamo il diagramma di campi 
 \begin{center}
     \begin{tikzpicture}
         \node (Q1) at (0,0) {$\QQ$};
@@ -4390,12 +4412,107 @@ $i = 0, 1, 2$, pertanto si ha anche l'altra inclusione, da cui l'uguaglianza. Co
         \draw (Q3)--(Q4);
     \end{tikzpicture}
 \end{center}
-l'estensione $\faktor{\QQ(\sqrt[3]2)}{\QQ}$ ha grado 3 in quanto il polinomio minimo di $\sqrt[3]2$ su $\QQ$ è $x^3 - 2$, mentre 
-l'estensione $\faktor{\QQ(\zeta_3)}{\QQ}$ ha grado 2 in quanto il polinomio minimo di $\zeta_3$ su $\QQ$ è $x^2 + x + 1$. Dato 
-che i gradi sono coprimi, l'estensione $\faktor{K}{\QQ}$ ha grado 6, di conseguenza $\Gal(K/\QQ) \cong S_3$.
+l'estensione $\faktor{\QQ(\sqrt[3]2)}{\QQ}$ ha grado 3 in quanto il 
+polinomio minimo di $\sqrt[3]2$ su $\QQ$ è $x^3 - 2$, mentre 
+l'estensione $\faktor{\QQ(\zeta_3)}{\QQ}$ ha grado 2 in quanto il polinomio
+ minimo di $\zeta_3$ su $\QQ$ è $x^2 + x + 1$. Dato 
+che i gradi sono coprimi, l'estensione $\faktor{K}{\QQ}$ ha grado 6, di 
+conseguenza $\Gal(K/\QQ) \cong S_3$.
 \newline
-Adesso vogliamo determinare un polinomio il cui gruppo di Galois sia isomorfo a $\ZZ3$. Consideriamo l'estensione $\faktor{\QQ(\zeta_7)}{\QQ}$,
-dove $\zeta_7$ è una radice primitiva settima di 1, per il \hyperref[teorema3.9]{Teorema 3.9} $\Gal(\QQ(\zeta_7)/\QQ) \cong \Z7^* \cong \Z6$.
+
+Adesso vogliamo determinare un polinomio il cui gruppo di Galois sia 
+isomorfo a $\ZZ3$. Consideriamo l'estensione $\faktor{\QQ(\zeta_7)}{\QQ}$,
+dove $\zeta_7$ è una radice primitiva settima di 1, per il 
+\hyperref[teorema3.9]{Teorema 3.9} $\Gal(\QQ(\zeta_7)/\QQ) \cong \Z7^* \cong \Z6$.
+Vale il seguente risultato.
+
+\begin{proposition}
+    Sia $\zeta_n \in \ol{\QQ}$ una radice primitiva $n$-esima di 1 per $n \geq 3$,
+    allora $[\QQ(\zeta_n):\QQ(\zeta_n)\cap \RR] = 2$.
+\end{proposition}
+
+\begin{proof}
+    Sia $\alpha = \zeta_n + \zeta_n^{-1}$, poiché $\ol{\zeta_n} = \zeta_n^{-1}$
+    si ha $\ol{\alpha} = \ol{\zeta_n + \zeta_n^{-1}} = \zeta_n + \zeta_n^{-1} = \alpha$,
+    cioè $\alpha \in \RR$ e quindi $\QQ(\alpha) \subseteq \QQ(\zeta_n)\cap \RR$.
+    Il polinomio $x^2 - \alpha x + 1$ è a coefficienti reali e si annulla in 
+    $\zeta_n$, pertanto $[\QQ(\zeta_n):\QQ(\zeta_n)\cap \RR]\leq 2$. D'altra
+    parte $\QQ(\zeta_n)\neq \QQ(\zeta_n)\cap \RR$, quindi 
+    $[\QQ(\zeta_n):\QQ(\zeta_n)\cap \RR] = 2$.
+\end{proof}
+
+\begin{remark}
+    In realtà vale che $\QQ(\zeta_n)\cap \RR = \QQ(\zeta_n + \zeta_n^{-1})$.
+    Infatti il polinomio $x^2 - \alpha x + 1$, con le notazioni di sopra, 
+    è un polinomio a coefficienti in $\QQ(\alpha)$ che si annulla in $\zeta_n$,
+    pertanto $[\QQ(\zeta_n):\QQ(\alpha)] \leq 2$. D'altra parte $\QQ(\zeta_n)\neq \QQ(\alpha)$,
+    pertanto $[\QQ(\zeta_n):\QQ(\alpha)] = 2$ e quindi 
+    $\QQ(\zeta_n + \zeta_n^{-1}) = \QQ(\zeta_n)\cap \RR$.
+\end{remark}
+
+Abbiamo quindi che la sottoestensione $\QQ(\zeta_7 + \zeta_7^{-1})$ ha grado
+3 su $\QQ$, mostriamo quindi che è una sua estensione normale. Posto 
+$\alpha = \zeta_7 + \zeta_7^{-1}$, le immersioni di 
+$\QQ(\alpha) \longhookrightarrow\ol(QQ)$ sono le restrizioni a $\QQ(\alpha)$
+degli elementi di $\Gal(\QQ(\zeta_7)/\QQ)$, pertanto sono univocamente determinate
+dalle assegnazioni 
+\[
+    \zeta_7 + \zeta_7^{-1} \longmapsto \zeta_7 + \zeta_7^{-1}\qquad
+    \zeta_7 + \zeta_7^{-1} \longmapsto \zeta_7^2 + \zeta_7^{-2}\qquad
+    \zeta_7 + \zeta_7^{-1} \longmapsto \zeta_7^3 + \zeta_7^{-3}
+\]
+Il polinomio minimo di $\alpha$ su $\QQ$ è quindi 
+\[
+    \mu_{\alpha}(x) = (x - (\zeta_7 + \zeta_7^{-1}))(x - (\zeta_7^2 + \zeta_7^{-2}))(x - (\zeta_7^3 + \zeta_7^{-3}))
+    = x^3 + x^2 - 2x - 1
+
+\]
+Notiamo che $\zeta_7^2 + \zeta_7^{-2}$ e $\zeta_7^3 + \zeta_7^{-3}$ sono
+elementi di $\QQ(\alpha)$, in quanto
+\[
+    \zeta_7^2 + \zeta_7^{-2} = (\zeta_7 + \zeta_7^{-1})^2 - 1
+\]
+\[
+    \zeta_7^3 + \zeta_7^{-3} = (\zeta_7 + \zeta_7^{-1})^3 - 3(\zeta_7 - \zeta_7^{-1})
+\]
+pertanto $\faktor{\QQ(\alpha)}{\QQ}$ è un'estensione normale di grado 3 in 
+quanto campo di spezzamento di $\mu_{\alpha}(x)$ su $\QQ$,
+quindi il suo gruppo di Galois è isomorfo a $\Z3$.
+
+\newpage
+
+\subsection{Possibili gruppi di Galois}
+
+Vogliamo vedere quali gruppi finiti si possono realizzare come gruppi di 
+Galois di un'estensione di campi. 
+
+\begin{lemma}
+    Dati $p$ un primo e $f(x) \in \QQ[x]$ un polinomio irriducibile di grado
+    $p$, se $f(x)$ ha esattamente $p - 2$ radici reali e 2 radici non reali
+    e $K$ è il suo campo di spezzamento su $\QQ$ allora $\Gal(K/\QQ) \con S_p$.
+\end{lemma}
+
+\begin{proof}
+    Poiché $\deg f = p$ esiste un omomorfismo iniettivo 
+    \[
+        \Phi: \Gal(K/\QQ) \longhookrightarrow S_p
+    \]
+    inoltre $p \mid [K:\QQ]$ in quanto $f(x)$ è irriducibile su $\QQ$, pertanto 
+    $\Phi(\Gal(K/\QQ))$ contiene un $p$-ciclo. Notiamo che contiene anche una
+    trasposizione, che corrisponde alla restrizione del coniugio complesso 
+    in $\Gal(K/\QQ)$. 
+\end{proof}
+
+\begin{lemma}
+    [Lemma di Artin]
+    Dato $K$ un campo e $G$ un sottogruppo finito di $\Aut(K)$, allora 
+    $\faktor{K}{K^G}$ è un'estensione di Galois finita e $\Gal(K/K^G) = G$.
+\end{lemma}
+
+\begin{proof}
+    (In seguito scriverò la dimostrazione)
+\end{proof}
+
 
 
 \end{document}
