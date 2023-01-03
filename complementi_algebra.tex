@@ -3052,8 +3052,8 @@ Cinese del Resto.
 
 \begin{proof}
     Posto $I_i = (x - a_i)$ per $i \in \{1, \ldots, n\}$, osserviamo che 
-    $I_i + I_j = \QQ[x]$ per $i \neq j$, infatti $a_i - a_j \in I_i + I_j$, 
-    che è un elemento invertibile di $\QQ[x]$. Per il Teorema Cinese del Resto
+    $I_i + I_j = (1) = \QQ[x]$ per $i \neq j$, infatti $a_i - a_j \in I_i + I_j$ ed è un elemento non nullo ($a_i \neq a_j$),
+    quindi è invertibile in $\QQ[x]$ ($(\QQ[x])^* = \QQ^* = \QQ \setminus \{0\}$). Per il Teorema Cinese del Resto
     abbiamo quindi
     \[
         \frac{\QQ[x]}{I_1\ldots I_n} \cong \faktor{\QQ[x]}{I_1}\times 
@@ -3110,7 +3110,7 @@ tale ideale è $S^{-1}\ZZ \setminus (S^{-1}\ZZ)^*$ e il gruppo degli elementi
 invertibili è
 \[
     (S^{-1}\ZZ)^* = \left\{\frac a s \Bigm| a, s \in S\right\}
-\] 
+\] [Ci sarebbe da spiegare perché, nel caso generale non è così]
 Inoltre, gli ideali di $S^{-1}\ZZ$
 sono tutti della forma $S^{-1}(m)$ con $(m)\subseteq \ZZ$ un ideale, e vale 
 \[
@@ -3130,7 +3130,7 @@ rispetto a $S$, in particolare
     S^{-1}(m) = S^{-1}(n) \iff \exists u \in (S^{-1}\ZZ)^* \text{ tale che }
     m = un \iff u = \frac m n \in (S^{-1}\ZZ)^*
 \]
-dove l'ultima uguaglianza è giustificata dal fatto che $S^{-1}\ZZ$ è un 
+dove l'ultima equivalenza è giustificata dal fatto che $S^{-1}\ZZ$ è un 
 sottoanello di $\QQ$, pertanto esiste $\displaystyle\frac m n$ come numero
 razionale ed è l'unico valore per cui l'equazione è verificata. D'altra parte
 abbiamo 
@@ -3161,7 +3161,7 @@ $(0)$ e $S^{-1}(2)$.
 \begin{lemma}
     \label{lemma2.3}
     Se $A \subseteq R$ sono due anelli e $P \subseteq R$ è un ideale primo
-    di $R$ allora $P\cap A$ è un ideale primo di $A$.
+    di $R$ allora $P\cap A$ è un ideale primo di $A$ (cioè restrizioni di ideali primi a sottoanelli sono ideali primi  ).
 \end{lemma}
 
 \begin{proof}
@@ -3181,16 +3181,16 @@ Consideriamo $P \subseteq \ZZ[x]$ un ideale primo, studiamo l'intersezione
 $P \cap \ZZ$. Questo è un ideale primo di $\ZZ$ per il 
 \hyperref[lemma2.3]{Lemma 2.3}, pertanto $P\cap \ZZ = (0)$ oppure esiste un
 primo $p \in \ZZ$ tale che $P\cap\ZZ = (p)$. Se non è l'ideale nullo allora
-$(p)\ZZ[x]$ è un ideale contenuto in $P$, per il Teorema di 
+$(p)\ZZ[x]$ è un ideale contenuto in $P$, ma per il Teorema di 
 Corrispondenza gli ideali primi di $\ZZ[x]$ contenenti $(p)\ZZ[x]$ sono in 
 bigezione con gli ideali primi del quoziente $\faktor{\ZZ[x]}{(p)\ZZ[x]} \cong \FF_p[x]$
 e vale la stessa cosa per gli ideali massimali. 
-Poiché $\FF_p[x]$ è un dominio a ideali principali, i suoi ideali primi 
-sono $(\overline{0})$ e quelli generati da un polinomio irriducibile, in particolare
-tutti i suoi ideali primi non nulli sono anche massimali. Pertanto se $\overline{f(x)} \in \FF_p[x]$ è un polinomio
-irriducibile allora $(\overline{f(x)})$ è un ideale primo di $\FF_p[x]$
-e quindi $(p, f(x))$ è un ideale primo e massimale di $\ZZ[x]$. Abbiamo quindi che 
-l'insieme degli ideali massimali di $\ZZ[x]$ contenenti $p$ è
+Poiché $\FF_p[x]$ è un PID, i suoi ideali primi sono $(\overline{0})$ e quelli massimali, 
+cioè generati da un polinomio irriducibile.
+Pertanto se $\overline{f(x)} \in \FF_p[x]$ è un polinomio irriducibile, 
+allora $(\overline{f(x)})$ è un ideale massimale di $\FF_p[x]$
+e, per corrispondenza, $(p, f(x))$ è un ideale massimale (quindi primo) di $\ZZ[x]$. 
+Abbiamo quindi che l'insieme degli ideali massimali di $\ZZ[x]$ contenenti $p$ è
 \[
     \mathcal{M}_p = \{(p, f(x))\mid \overline{f(x)}\text{ è irriducibile in }
     \FF_p[x]\}
@@ -3209,8 +3209,8 @@ Consideriamo la bigezione
     \{\text{Ideali primi } P\subseteq \ZZ[x] \mid P\cap S = \emptyset\}: 
     \mathfrak{P}\longmapsto \mathfrak{P}\cap\ZZ[x]
 \]
-poiché $S^{-1}\ZZ[x] = \QQ[x]$ abbiamo che $P$ corrisponde a un unico ideale
-primo di $\QQ[x]$. Essendo $\QQ[x]$ un dominio a ideali principali, questi sono
+poiché $(S^{-1}\ZZ)[x] = \QQ[x]$ abbiamo che $P$ corrisponde a un unico ideale
+primo di $\QQ[x]$. Essendo $\QQ[x]$ un PID, questi sono
 l'ideale nullo e gli ideali generati da polinomi irriducibili. Se $f(x)\in \QQ[x]$
 è un polinomio irriducibile il cui ideale corrisponde a $P$ allora, posto 
 $m$ il minimo comune denominatore dei suoi coefficienti, abbiamo che 
@@ -3226,7 +3226,7 @@ Gli ideali primi di $\ZZ[x]$ possono quindi avere la seguente forma:
 \end{itemize}
 
 Mostriamo che gli ideali primi di quest'ultimo tipo non sono massimali.\newline
-Siano $f(x) \in \ZZ[x]$ un polinomio primitivo, irriducibile, non costante,
+Siano $f(x) \in \ZZ[x]$ un polinomio primitivo, irriducibile (quindi non costante),
 $a \in \ZZ$ tale che $f(a) \notin\{-1, 0, 1\}$, $p \in \ZZ$ un primo che 
 divide $f(a)$ e consideriamo le applicazioni
 \[
@@ -3241,7 +3241,7 @@ Osserviamo che $(\psi\circ\varphi)(f(x)) = a \equiv 0 \pmod{p}$ e che
 $(\psi\circ\varphi)(p) = p \equiv 0 \pmod{p}$, pertanto $p, f(x) \in 
 \ker{\psi\circ\varphi}$ e quindi $(p, f(x)) \subseteq \ker(\psi\circ \varphi) \neq \ZZ[x]$.
 Abbiamo quindi $(f(x)) \subseteq (p, f(x))$, se $(f(x))$ fosse massimale allora
-conterrebbe $p$, che è assurdo in quanto $\deg f \geq 1$.
+conterrebbe $p$, cioè $f(x) \mid p$, che è assurdo in quanto $\deg f \geq 1$.
 
 Poiché gli ideali di questo tipo non sono massimali, gli ideali massimali di
 $\ZZ[x]$ sono tutti e soli quelli della forma
@@ -3294,6 +3294,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
     $p \mid c_0$. D'altra parte $a_0 = b_0c_0$ e quindi $p^2 \mid a_0$, che 
     è assurdo.
 \end{proof}
+[Vedi dispense di Teoria]
 
 \newpage
 
@@ -3327,7 +3328,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
 
 \begin{proof}
     Notiamo che $\ker \varphi$ è un ideale primo di $A$ in quanto $\faktor{A}{\ker\varphi}
-    \cong B$ è un dominion di integrità. Se $\ker\varphi = (0)$, allora 
+    \cong B$ è un dominio di integrità. Se $\ker\varphi = (0)$, allora 
     $\varphi$ è un isomorfismo di anelli. Altrimenti $\ker\varphi$ è un ideale
     massimale, pertanto $\faktor{A}{\ker\varphi}\cong B$ è un campo.
 \end{proof}
@@ -3338,7 +3339,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
 
 \begin{proof}
     Dall'inclusione $C \subseteq C[x]$ abbiamo che $C$ è un dominio di integrità.
-    L'ideale $(x)$ è quindi primo in $C[x]$ in quanto $\faktor{C[x]}{(x)} \cong X$
+    L'ideale $(x)$ è quindi primo non nullo in $C[x]$ in quanto $\faktor{C[x]}{(x)} \cong C$
     è un dominio, quindi è massimale dato che $C[x]$ è un PID. Pertanto 
     $C$ è un campo.
 \end{proof}
@@ -3348,8 +3349,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
 \subsection{Operazioni tra ideali}
 
 Ricordiamo che in un anello commutativo con identità $A$, sono ben definite
-le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
-(possibilmente uguale a uno dei due):
+le seguenti operazioni su due ideali $I, J$ e danno luogo a un ideale:
 \begin{itemize}
     \item $I\cap J = \{k \in A \mid k \in I, k \in J\}$;
     \item $I + J = (I, J) = \{i + j \mid i \in I, j \in J\}$;
@@ -3379,7 +3379,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     tali che $b^m \in I$ e $b^n \in J$, da cui
     \[
         b^{m + n} = \underset{\in I}{\underbrace{b^m}}\cdot
-        \underset{\in J}{\underbrace{b^n}} \in I\cap J
+        \underset{\in J}{\underbrace{b^n}} \in IJ \subseteq I\cap J
     \]
     Pertanto $\sqrt{I}\cap \sqrt{J} \subseteq \sqrt{I\cap J}$. Viceversa, Se
     $c \in \sqrt{I\cap J}$ allora esiste $n \in \NN$ tale che $c^n \in I\cap J$, 
@@ -3391,7 +3391,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     \label{prop2.9}
     Dato $A$ un anello commutativo con identità, allora
     \[
-        \sqrt{(0)} = \bigcap_{\substack{P\subseteq A\\ P \text{ ideale primo}}}P
+        \sqrt{(0)} = \bigcap_{P \subseteq A\text{ ideale primo}}P
     \]
 \end{proposition}
 
@@ -3454,11 +3454,13 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     $0$ in $\faktor A I$. Per la \hyperref[prop2.9]{Proposizione 2.9}
     abbiamo
     \[
-        \sqrt{I} = \pi^{-1}(\sqrt{(0)}) = \pi^{-1}\left(\bigcap_{\substack{
-            P\subseteq \faktor A I\\ P \text{ ideale primo}}} P\right) = 
+        \sqrt{I} = \pi^{-1}(\sqrt{(0)}) = \pi^{-1}\left(
+            \bigcap_{P \subseteq \faktor A I\text{ ideale primo}} P\right) = 
             \bigcap_{\substack{P\supseteq I\\P \subseteq A\text{ ideale primo}}}P
     \]
 \end{proof}
+
+\newpage
 
 Grazie a questo risultato, possiamo classificare gli elementi invertibili 
 degli anelli di polinomi.
@@ -3505,7 +3507,7 @@ degli anelli di polinomi.
         \pi: A[x]\longrightarrow \faktor A P [x] \cong \faktor{A[x]}{P[x]}
     \]
     Abbiamo $\pi(f(x))\pi(g(x)) = \pi(1)$, cioè $\pi(f(x))$ è invertibile in 
-    $\faktor A P [x]$, da cui otteniamo $\pi(f(x)) \in (\faktor A P)^*$ in quanto $\faktor A P$
+    $\faktor A P [x]$, da cui otteniamo $\pi(f(x)) \in (\faktor A P [x])^* = (\faktor A P)^*$ in quanto $\faktor A P$
     è un dominio di integrità. Allora abbiamo $a_i \in P$ per ogni $i \in \{1, \ldots, n\}$,
     in particolare tali coefficienti sono contenuti nell'intersezione di tutti
     gli ideali primi di $A$ per l'arbitrarietà di $P$, sono quindi nilpotenti
@@ -3528,14 +3530,14 @@ degli anelli di polinomi.
         \item poiché $I + J + K = A$ esistono $i \in I, j \in J, k \in K$ tali che $i + j + k = 1$.
         Consideriamo la potenza 
         \[
-            (i + j + k)^N = \sum_{x + y + z = N}\binom{N}{x, y, z}i^xj^yk^z\footnote{
+            (i + j + k)^N = \sum_{x + y + z = N}\binom{N}{x, y, z}i^xj^yk^z \quad \footnote{
                 Ricordiamo che $\displaystyle\binom{N}{x, y, z} = \frac{N!}{x!\ y!\ z!}$.
             }
         \]
-        Se $N \geq 3n$ osserviamo che $\max{x, y, z} \geq n$ per ogni $x, y, z \in \NN$
+        Se $N \geq 3n$ osserviamo che $\max\{x, y, z\} \geq n$ per ogni $x, y, z \in \NN$
         tali che $x + y + z = N$, pertanto scegliendo $N$ in questo modo abbiamo
-        che $(x + y + z)^N = 1$ è un elemento di $I^n + J^n + K^n$, quindi l'ideale
-        coincide con $A$;
+        che $(i + j + k)^N = 1$ è un elemento di $I^n + J^n + K^n$ (perché ogni addendo dello sviluppo appartiene ad almeno uno dei tre), 
+        quindi l'ideale coincide con $A$;
         \item dalle ipotesi esistono $i_1, i_2 \in I, j_1, j_2 \in J, k_1, k_2 \in K$
         tali che 
         \[
@@ -3584,7 +3586,7 @@ norma complessa, pertanto è una funzione moltiplicativa.
 \end{lemma}
 
 \begin{proof}
-    Supponiamo per assurdo che $p$ sia irriducibile in $\ZZ[i]$, scriviamo quindi
+    Supponiamo per assurdo che $p$ sia riducibile in $\ZZ[i]$, scriviamo quindi
     la fattorizzazione
     \[
         p = (a + ib)(c + id)
@@ -3652,7 +3654,7 @@ norma complessa, pertanto è una funzione moltiplicativa.
         Notiamo che 2 è un elemento dell'ideale $(x^2 + 1, 1 + x)$, in quanto 
         possiamo scrivere
         \[
-            2 = x^2 + 1 - x(x + 1) + x + 1
+            2 = (x^2 + 1) - (x-1)(x+1)
         \]
         Pertanto
         \[
@@ -3726,8 +3728,8 @@ norma complessa, pertanto è una funzione moltiplicativa.
     \[
         a^2 + b^2 = \prod_{j = 1}^k p_j^{e_j}
     \]
-    Poiché $a + bi \mid a^2 + b^2$ in $\ZZ[i]$, poiché primo si ha che esiste 
-    $j_0 \in \{1, \ldots, k\}$ tale che $a + bi \mid p_{j_0}$, distinguiamo tre casi:
+    Poiché $a + bi \mid a^2 + b^2$ in $\ZZ[i]$, e dato che $a + bi$ è primo deve dividere uno dei fattori irriducibili di $a^2 + b^2$,  
+    cioè esiste $j_0 \in \{1, \ldots, k\}$ tale che $a + bi \mid p_{j_0}$, distinguiamo tre casi:
     \begin{itemize}
         \item se $p_{j_0}\equiv 3 \pmod 4$ allora $p_{j_0}$ è irriducibile in 
         $\ZZ[i]$, pertanto $a + bi$ è associato a $p_{j_0}$;
@@ -3737,7 +3739,7 @@ norma complessa, pertanto è una funzione moltiplicativa.
         \]
         con $c + di, c - di$ primi, quindi irriducibili, di $\ZZ[i]$ non 
         associati, pertanto $a + bi$ è associato a uno dei due;
-        \item se $p_{j_0} = 2$ allora $a + bi \mid -i(1 + i)^2$. Poiché $a + bi$
+        \item se $p_{j_0} = 2$ allora $a + bi \mid 2 = -i(1 + i)^2$. Poiché $a + bi$
         non è invertibile si ha $a + bi \mid 1 + i$, cioè $a + bi$ è 
         associato a $1 + i$.
     \end{itemize}
@@ -3759,7 +3761,7 @@ quozienti sono dei domini finiti, quindi dei campi.
         \item se $p \equiv 3 \pmod 4$ allora $\faktor{\ZZ[i]}{(p)}
         \cong \FF_{p^2}$;
         \item se $p \equiv 1 \pmod 4$ e $p = (a + bi)(a - bi)$ è la sua 
-        fattorizzazione in primi di $\ZZ[i]$ allora $\displaystyle\frac{\ZZ[i]}{(a + bi)}
+        fattorizzazione in primi in $\ZZ[i]$ allora $\displaystyle\frac{\ZZ[i]}{(a + bi)}
         \cong \FF_p$.
     \end{enumerate}
 \end{proposition}
@@ -3864,7 +3866,7 @@ quozienti sono dei domini finiti, quindi dei campi.
     \[
         \faktor A I \cong \faktor{I}{I^2}
     \]
-    pertanto
+    e per il Secondo Teorema di Omomorfismo
     \[
         \faktor A I \cong \frac{\faktor{A}{I^2}}{\faktor{I}{I^2}}
     \]
@@ -3925,8 +3927,8 @@ La cardinalità di questo quoziente è $N(z)$, infatti applicando il
     \left|\prod_{j = 1}^r\frac{\ZZ[i]}{(a_j + b_ji)^{e_j}}\right|\cdot
     \left|\prod_{h = 1}^s \frac{\ZZ[i]}{(p)^{e_h}}\right| = \\
     = \left|\frac{\ZZ[i]}{(1 + i)}\right|^e\cdot
-    \left|\prod_{j = 1}^r\frac{\ZZ[i]}{(a_j + b_ji)}\right|^{e_j}\cdot
-    \left|\prod_{h = 1}^s \frac{\ZZ[i]}{(p)}\right|^{e_h} = \\
+    \prod_{j = 1}^r \left|\frac{\ZZ[i]}{(a_j + b_ji)}\right| ^{e_j}\cdot
+    \prod_{h = 1}^s \left|\frac{\ZZ[i]}{(p)}\right| ^{e_h} = \\
     = N(1 + i)^e\prod_{j = 1}^r N(a_j + b_ji)^{e_j}\prod_{h = 1}^s N(p_h)^{e_h} = \\
     = N\left(u(1 + i)^e\prod_{j = 1}^r (a_j + b_j i)^{e_j}\prod_{h = 1}^s p_h^{e_h}\right)
     = N(z)\\
@@ -3977,7 +3979,7 @@ vogliamo mostrare che non è un dominio euclideo.
     \[
         \ZZ[x] \cap \left(x^2 - x - \frac 1 2\right)\QQ[x] =(2x^2 - 2x - 1)\ZZ[x]
     \]
-    E $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)} \cong \ZZ[\beta]$.
+    e $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)} \cong \ZZ[\beta]$.
     D'altra parte 
     \[
         \ZZ[\beta] \neq \{a + b\beta\mid a, b \in \ZZ\}
@@ -4023,9 +4025,9 @@ possibilmente con ripetizioni, per gli elementi del quoziente $\faktor{A}{(x)}$,
 che è quindi isomorfo a $\FF_2$ oppure $\FF_3$.\newline
 Il polinomio $\mu(x) = x^2 - x + 5$ ha come soluzioni in $A$ $\omega$ e $\overline{\omega}$,
 pertanto è riducibile in $A[x]$. Da questo si ricava che le classi di $\omega$
-e $\overline{\omega}$ nel quoziente $\faktor{A}{(x)}$ sono le radici della 
-classe del polinomio $\mu(x)$, che è assurdo in quanto $\mu(x)$ è irriducibile
-in $\FF_2[x]$ e in $\FF_3[x]$. Pertanto $A$ non è un dominio euclideo.
+e $\overline{\omega}$ nel quoziente $\faktor{A}{(x)}$ sono le radici $\overline{\mu(x)}$, 
+che è assurdo in quanto $\overline{\mu(x)}$ è irriducibile in $\FF_2[x]$ e in $\FF_3[x]$. 
+Pertanto $A$ non è un dominio euclideo.
 
 \newpage
 
