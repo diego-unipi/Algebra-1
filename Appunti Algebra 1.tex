@@ -3899,13 +3899,14 @@ Allora $f(x)$ è irriducibile in $A[x]$ (quindi in $K[x]$, con $K$ campo dei quo
     Si definiscono \vocab{terne pitagoriche} le terne di soluzioni intere dell'equazione:
     \[ x^2 + y^2 = z^2 \qquad x,y,z \in \ZZ
         \]
-    con  $(x,y,z) = 1$.
 \end{definition}
 
 Osserviamo che possiamo riformulare il problema negli interi di Gauss nel modo che segue:
 \[ x^2+y^2 = (x+iy)(x-iy) = z^2
     \]
 dunque determinare le terne pitagoriche significa risolvere questo problema moltiplicativo in $\ZZ[i]$.
+
+Ci limiteremo a studiare le cosiddette terne primitive, dove $(x,y,z) = 1$ (le altre si ottengono moltiplicando i tre termini per un fattore comune).
 
 \begin{remark}
     Osserviamo che la coprimalità dei tre fattori la implica anche a coppie: $(x,y,z) = 1 \implies (x,y) = (x,z) = (y,z) = 1$.
@@ -3915,32 +3916,40 @@ dunque determinare le terne pitagoriche significa risolvere questo problema molt
     Abbiamo che $x \not\equiv y \pmod 2$, infatti, studiando l'equazione modulo 4:
     \[ x^2 + y^2 \equiv z^2 \pmod 4
         \]
-    dove essendo un quadrato modulo 4 abbiamo che $z^2 \in \{0,1\}$, dunque $x^2,y^2 \in \{0,1\}$, ma non possono essere contemporaneamente pari,
+    dove essendo quadrati modulo 4 abbiamo che $x^2, y^2, z^2 \in \{0,1\}$, ma $x$ e $y$ non possono essere contemporaneamente pari,
     altrimenti avremmo che $(x,y) \ne 1$, e neppure contemporaneamente dispari, altrimenti la somma dei loro quadrati modulo 4 sarebbe 2,
     pertanto $x$ ed $y$ sono uno pari e l'altro dispari.
 \end{remark}
 
 \begin{remark}
-    Consideriamo l'ideale $I = (x+iy,x-iy)$, verifichiamo che $I = (1)$, o equivalentemente che $x+iy$ e $x-iy$ sono coprimi 
+    Consideriamo l'ideale $I = (x+iy, x-iy)$, verifichiamo che $I = (1)$, o equivalentemente che $x+iy$ e $x-iy$ sono coprimi 
     (abbiamo visto che in un ED l'ideale generato da due elementi è quello generato dal loro M.C.D.). Osserviamo che:
-    \[ 2x = (x+iy) + (x-iy) \in I
+    \begin{align*}
+        2x = (x+iy) + (x-iy) \in I \\
+        2yi = (x+iy) - (x-iy) \in I \\
+	a^2 + b^2 = (x+iy)(x-iy) \in I
+    \end{align*} 
+    Mostriamo che:
+    \[ 1 \in (2x, 2yi, x^2+y^2) \subset \underbrace{(x+iy,x-iy)}_{I} \subset \ZZ[i]
         \]
-    Analogamente, considerando la differenza si ha $2y \in y$ e, considerando il prodotto, $x^2+y^2 \in I$; poiché $x$ ed $y$ hanno
-    diversa parità, $x^2+y^2$ è dispari, mentre $2x$ è pari, dunque si ha che:
-    \[ 1 \in (2x,2y,x^2+y^2) \subset \ZZ \subset \ZZ[i]
-        \]
-    infatti, se non ci fosse 1, $\exists p$ tale che $p \mid 2x$, $p \mid 2y$, da cui $p = 2$ (in quanto $(x,y) = 1$), ma $2 = p \mid x^2+y^2$,
-    che però è dispari, dunque:
-    \[ I = (1)
-        \]
-    o equivalentemente $x+iy$ e $x-iy$ sono coprimi e quindi entrambi dei quadrati a meno di unità.
+    infatti, se non ci fosse 1, $\exists p$ primo tale che $(p) \supseteq (2x, 2yi, x^2+y^2)$,
+    \footnote{Perché ogni ideale proprio (cioè che non contiene 1) è contenuto in un ideale massimale (proposizione 2.55), ma massimale implica primo (corollario 2.57) e gli ideali primi sono generati da elementi primi (proposizione 2.86).}
+    quindi $p \mid 2x$ e $p \mid 2yi \implies p \mid 2y$, 
+    \footnote{Come vedremo nella prossima osservazione, $i$ è invertibile in $\ZZ[i]$, quindi $p$ non può dividere $i$ altrimenti sarebbe anch'esso invertibile (infatti sarebbe associato a un elemento invertibile), che è assurdo per definizione di elemento primo.}
+    da cui $p = 2$ (in quanto $(x,y) = 1$), 
+    ma $2 = p \mid x^2+y^2$, che però è dispari (perché $x$ e $y$ hanno diversa parità), 
+    dunque $I = (1)$ o equivalentemente $x+iy$ e $x-iy$ sono coprimi e quindi entrambi dei quadrati a meno di unità. [Perché???]
 \end{remark}
 
 \pagebreak
 \begin{remark}
     [Invertibili di $\ZZ\lbrack i \rbrack$]
-    Osserviamo che gli elementi di $(\ZZ[i])^*$ sono gli $u \in \ZZ[i]$ tali per cui $\exists v \in \ZZ[i]$:
-    \[ uv = 1\footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati.} \implies v = \overline u \implies u\overline u = 1
+    Osserviamo che gli elementi di $(\ZZ[i])^*$ sono gli $u \in \ZZ[i]$ tali che $\exists v \in \ZZ[i]$:
+    \[ uv = 1 \implies 
+       \footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati.
+       [Detto così è falso, infatti detto \alpha = \frac{1}{\sqrt{2}} si ha che \alpha non è coniugato a sé stesso ma \alpha\alpha = \frac{1}{2} + \frac{1}{2} = 1]
+       } \quad 
+       v = \overline u \implies u\overline u = 1
         \]
     ovvero $u = \varepsilon + i\delta \in \ZZ[i]$ dove:
     \[ u \overline u = \varepsilon^2 + \delta^2 = 1
@@ -3956,36 +3965,44 @@ dunque determinare le terne pitagoriche significa risolvere questo problema molt
         \delta = \pm 1
     \end{cases}
         \]
-    dunque $(\ZZ[i])^* = \{\pm 1, \pm i\}$.
+    dunque $(\ZZ[i])^* = \{\pm 1, \pm i\}$. \\
+    Inoltre abbiamo che $N(u) = \varepsilon^2 + \delta^2 = 1$.
 \end{remark}
 
 Allora, per quanto detto sappiamo che:
-\[ x + iy = u\alpha^2 \qquad \alpha \in \ZZ[i], u \in \{\pm 1, \pm i\}
-\]
+    \[ x + iy = u\alpha^2 \qquad \alpha \in \ZZ[i], u \in \{\pm 1, \pm i\}
+        \]
 e analogamente:
-\[ x - iy = \overline u \,\overline\alpha^2 \qquad \overline\alpha \in \ZZ[i], \overline u \in \{\pm 1, \pm i\}
-    \]
+    \[ x - iy = \overline{x + iy} = \overline u \,\overline\alpha^2 \qquad \overline\alpha \in \ZZ[i], \overline u \in \{\pm 1, \pm i\}
+        \]
 Considerando $\alpha = a+ib$ si ottiene:
-\[ x + iy = u(a^2-b^2-2iab)
-    \]
-distinguiamo ora due casi:
+\begin{align*}
+    x + iy = u(a^2 - b^2 + 2abi) \\
+    x - iy = \overline{u}(a^2 - b^2 - 2abi)
+\end{align*} 
+inoltre
+    \[ z^2 = (x + iy)(x - iy) = (u\overline{u})(\alpha\overline{\alpha})^2 = N(u)(N(\alpha))^2 = 1 \cdot (a^2 + b^2)^2
+        \]
+Distinguiamo ora due casi:
 \begin{itemize}
     \item Se $u = \pm 1$, allora si ottiene:
     \[ \begin{cases}
-        x = \pm(a^2-b^2) \\
-        y = \mp 2ab \\
-        z = \pm (a^2+b^2)
-    \end{cases}
+        x = \pm (a^2 - b^2) \\
+        y = \mp 2ab
+       \end{cases}
         \]
     \item Se $u = \pm i$, allora si ottiene:
     \[ \begin{cases}
         x = \mp 2ab \\
-        z = \pm(a^2-b^2-2) \\
-        y = \pm (a^2+b^2)
-    \end{cases}
-    \]
+        y = \pm (a^2 - b^2)
+       \end{cases}
+        \]
 \end{itemize}
-che forniscono la parametrizzazione delle terne pitagoriche e rispondono al problema iniziale di determinarle.
+mentre 
+    \[ z = \pm (a^2 + b^2)
+       \]
+indipendentemente da $u$ (il segno viene dall'estrazione di radice). \\
+Queste formule forniscono la parametrizzazione delle terne pitagoriche e rispondono al problema iniziale di determinarle.
 
 \newpage
 \begin{remark}[Ultimo teorema di Fermat]
