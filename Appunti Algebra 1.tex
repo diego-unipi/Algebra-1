@@ -1,7 +1,6 @@
 \documentclass[11pt]{scrartcl}
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
-\usepackage{graphicx}
 
 
 \begin{document}
@@ -22,7 +21,7 @@
 
 \newpage
 \section{Gruppi}
-\subsection{Automorfismi di $G$}
+\subsection{Automorfismi}
 Dato un gruppo $G$ possiamo definire l'insieme degli automorfismi di $G$ come segue:
     \[ \Aut(G) = \{\varphi : G \longrightarrow G |\, \varphi \, \text{isomorfismo}\}
         \]
@@ -715,12 +714,14 @@ o anche con la notazione dei cicli:
     \[ \sigma = \cycle{1,3,4,5} \cycle{6,9} \cycle{7,8} \cycle{10,12}
             \]
 ogni ciclo prende il nome di \vocab{$k$-ciclo} (dove $k$ indica la sua lunghezza), come si osserva i cicli di lunghezza $1$ sono stati omessi,
- in quanto lasciano fissi gli elementi, inoltre, i $2$-cicli prendono il nome di \vocab{trasposizioni}. Formalmente, sia $\sigma \in S_n$ una permutazione di un insieme di $n$ elementi,
+in quanto lasciano fissi gli elementi, inoltre, i $2$-cicli prendono il nome di \vocab{trasposizioni}.\\
+Formalmente, sia $\sigma \in S_n$ una permutazione di un insieme di $n$ elementi, per descrivere tale permutazione
  possiamo considerare l'insieme $X$, con $|X| = n$, il gruppo $G = \left<\sigma\right>$ e definire l'azione:
-    \[ \varphi : G = \left<\sigma\right> \longrightarrow S(X) \cong S_n : \sigma \longmapsto \sigma
+    \[ \varphi : G = \left<\sigma\right> \varlonghookrightarrow S(X) \cong S_n : \sigma \longmapsto \sigma
         \]
-con $\sigma \in S_n$ e $\sigma : i \longmapsto \sigma(i)$. Osserviamo quindi che:
-    \[ \Orb(x) = \{\sigma(x) | \sigma \in \left<\sigma\right>\} = \{\sigma^l(x) | l \in \NN\} = \{x, \sigma(x), \sigma^2(x),\ldots,\sigma^{m-1}(x)\}
+con $\sigma \in S_n$ e $\sigma : i \longmapsto \sigma(i)$, dunque abbiamo definito l'azione $\left<\sigma\right> \circlearrowleft X$ data dall'inclusione, la quale ci permetterà di descrivere come
+$\sigma$ agisce sull'insieme $\{1,\ldots,n\}$. Osserviamo che:
+    \[ \Orb(x) = \{\sigma(x) | \sigma \in \left<\sigma\right>\} = \{\sigma^l(x) | l \in \NN\} = \{x, \sigma(x), \sigma^2(x),\ldots,\sigma^{m_x-1}(x)\}
         \]
 con $|\Orb(x)| = m_x$, con $m_x = \min\{k > 0 | \sigma^k(x) = x\}$, perché se $\sigma^k(x) = x$, allora $\sigma^{k+1}(x) = \sigma(x)$, pertanto, sia $k \in \NN$
 tale che $\sigma^k(x) \in \{x,\ldots,\sigma^{k-1}(x)\}$, allora $\exists h:$
@@ -757,8 +758,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{example}
 
 \begin{definition}
-    Una permutazione si dice \vocab{ciclica} se ha un unico ciclo (orbita) non banale. 
-    \footnote{D'ora in avanti si utilizzeranno i termini "permutazione ciclica" e "ciclo" come sinonimi, in quanto una permutazione ciclica è appunto un singolo ciclo non banale.}
+    Una permutazione si dice \vocab{ciclica} se ha un unico ciclo (orbita) non banale.\footnote{D'ora in avanti si utilizzeranno i termini "permutazione ciclica" e "ciclo" come sinonimi, in quanto una permutazione ciclica è appunto un singolo ciclo non banale.}
 \end{definition}
 
 \begin{remark}
@@ -858,6 +858,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{proof}
 
 \begin{proposition}
+    [$S_n$ è generato dalle trasposizioni]
     \label{trasp}
     Le trasposizioni generano $S_n$, $\forall n \geq 2$.
 \end{proposition}
@@ -870,7 +871,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
             \]
     dove l'uguaglianza è tra funzioni, quindi ci basta mostrare che danno la stessa immagine. Se $i>k$, allora entrambe le funzioni mandano $i \longmapsto i$, se 
     $i \leq k$, allora la funzione a sinistra manda $i \longmapsto i+1$ e $k \longmapsto 1$, quella a destra lascia fisso $i$ fino al ciclo $\cycle{1,i}$ che manda $i \longmapsto 1$,
-    il ciclo $\cycle{1,i+1}$ manda $1 \longmapsto i+1$ e infine i cicli successivi lasciano fisso $i+1$ (quindi complessivamente abbiamo $i \longmapsto i+1$), 
+    e il ciclo successivo (alla sinistra del precedente) $\cycle{1,i+1}$ manda $1 \longmapsto i+1$, infine i cicli successivi lasciano fisso $i+1$ (quindi complessivamente abbiamo $i \longmapsto i+1$), 
     mentre $k$ viene lasciato fisso da tutti i cicli tranne $\cycle{1,k}$, quindi $k \longmapsto 1$.
 \end{proof}
 
@@ -880,10 +881,10 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
             \]
 \end{remark}
 
-La seguente proposizione ci mostra invece che è fissata la parità della decomposizione in trasposizioni, cioè se $\sigma$ si compone come prodotto di $m$ trasposizioni,
+La seguente proposizione ci mostra invece che è fissata la parità della decomposizione in trasposizioni, cioè se $\sigma$ si scompone come prodotto di $m$ trasposizioni,
 ogni altra decomposizione come prodotto di trasposizioni ha un numero di trasposizioni con la stessa parità.
 
-\begin{proposition}
+\begin{proposition}[Segno di una permutazione]
     L'applicazione:
         \[ sgn : S_n \longrightarrow \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq n} \frac{\sigma(i) - \sigma(j)}{i - j}
             \]
@@ -894,7 +895,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
     Osserviamo inizialmente che $sgn$ è ben definita cioè:
         \[ sgn(\sigma) = \prod_{1 \leq i < j \leq n} \frac{\sigma(i) - \sigma(j)}{i - j} \in \{\pm 1\}
             \]
-    al denominatore del prodotto vi sono tutte le possibili coppie $i - j$ (in $\{1,\ldots,n\}$) e anche al numeratore poiché $\sigma$ è bigettiva, l'unica cosa che 
+    al denominatore del prodotto vi sono tutte le possibili coppie $i - j$ (in $\{1,\ldots,n\}$, prese tutte ordinatamente con $i<j$) e anche al numeratore poiché $\sigma$ è bigettiva, l'unica cosa che 
     può cambiare è l'ordine (ovvero potrebbe comparire $i - j$ al numeratore e $j - i$ al denominatore), quindi $sgn(\sigma) \in \{\pm 1\}$. Mostriamo che $sgn$ 
     è un omomorfismo:
         \[ sgn(\sigma \circ \tau) = \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{i - j} =  \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{i - j}\frac{\tau(i) - \tau(j)}{\tau(i) - \tau(j)}
@@ -904,7 +905,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
         \underbrace{\prod_{i < j} \frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}}_{sgn(\sigma)} \underbrace{\prod_{i < j}\frac{\tau(i) - \tau(j)}{ i - j}}_{sgn(\tau)}
         \qquad \forall \sigma,\tau \in S_n
             \]
-    Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizzando il segno delle varie coppie, distinguiamo le seguenti possibilità:
+    Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizzando il segno delle varie coppie, distinguiamo le seguenti possibilità per i vari fattori del prodotto:
     \begin{itemize}
         \item $\{i,j\} \cap \{a,b\} = \emptyset $, in tal caso $\sigma$ lascia fissi gli elementi, $\sigma(i) = i, \sigma(j) = j \implies \frac{\sigma(i) - \sigma(j)}{i - j} = 1$.
         \item $\{i,a\}$ con $i \ne b$ (il caso $\{i,b\}$ con $i \ne a$ è analogo), in tal caso $\frac{\sigma(i) - \sigma(a)}{i - a} = \frac{i - b}{i - a}$, però vi è anche il fattore $\frac{\sigma(i) - \sigma(b)}{i - b} = \frac{i - a}{i - b}$ e 
@@ -934,7 +935,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{definition}
 
 \begin{remark}
-    Si osserva che $\mathcal{A}_n \trianglelefteqslant S_n$ e $|\mathcal{A}_n| = \frac{n!}{2}$ poiché $\faktor{S_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
+    Si osserva che $\mathcal{A}_n \trianglelefteqslant S_n$ e $\displaystyle|\mathcal{A}_n| = \frac{n!}{2}$ poiché $\faktor{S_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
 \end{remark}
 
 \begin{remark}
@@ -955,7 +956,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
     Mostriamo le due implicazioni:
         \begin{itemize}
             \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo.
-                Sia $\tau(a_i) = b_i$, allora $\tau\sigma\tau^{-1} = \cycle{b_1,\ldots,b_k}$, con $b_i \ne b_j$, $\forall i \ne j$, poiché $\tau$ è bigettiva; verifichiamo
+                Sia $\tau(a_i) = b_i$, allora si ha che $\tau\sigma\tau^{-1} = \cycle{b_1,\ldots,b_k}$, con $b_i \ne b_j$, $\forall i \ne j$, poiché $\tau$ è bigettiva; verifichiamo
                 l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
                     \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
                         \]
@@ -1128,7 +1129,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \pagebreak
 
 \begin{remark}
-    Si osserva che $H \rtimes_{\varphi} K$ è il prodotto diretto se e solo se $\varphi_k = e$, $\forall k \in K$.
+    Si osserva che $H \rtimes_{\varphi} K$ è il prodotto diretto se e solo se $\varphi_k = id_H$, $\forall k \in K$.
     Infatti:
         \[ (h,k)(h^{\prime},k^{\prime}) = (h\cdot \varphi_k(h^{\prime}), kk^{\prime}) = (hh^{\prime}, kk^{\prime}) \iff \varphi_k(h^{\prime}) = h^{\prime}
         \qquad \forall k \in K
@@ -1200,7 +1201,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     Osserviamo inoltre che:
         \[ \varphi : \left<\cycle{1,2}\right> \longrightarrow \Aut(\mathcal{A}_n) : \cycle{1,2} \longmapsto \varphi_{\cycle{1,2}}, id \longmapsto id
             \]
-    con $\varphi_{\cycle{1,2}} : \mathcal{A}_n \longrightarrow \mathcal{A}_n : \rho \longmapsto \cycle{1,2}\rho\cycle{1,2}$.
+    con $\varphi_{\cycle{1,2}} : \mathcal{A}_n \longrightarrow \mathcal{A}_n : \rho \longmapsto \cycle{1,2}\rho\cycle{1,2}^{-1}$.
 \end{example}
 
 \begin{example}
@@ -1587,7 +1588,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \item Se $Z(G)\not\subseteq H$, dato che $H\cup Z(G)\subseteq N_G(H)$, abbiamo che $\emptyset\neq Z(G)\setminus H\subseteq N_G(H)\setminus H$ da cui la tesi.
         \item Se $Z(G)\subseteq H$ osserviamo che $Z(G)$ è normale in $G$ e che $Z(G)$ non è banale perché $G$ è un $p-$gruppo, dunque possiamo considerare $\faktor{G}{Z(G)}$
         di ordine strettamente minore all'ordine di $G$. Sia $\pi:G \longrightarrow \faktor{G}{Z(G)}$ la mappa di proiezione al quoziente. Per ipotesi induttiva $N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)$ contiene strettamente $\faktor{H}{Z(G)}$, quindi per il teorema di corrispondenza si ha che anche
-        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)=H$, quindi basta mostrare che $\pi^{-1}(N_{\faktor{G}{Z(G)}}(\faktor{H}{Z(G)}))\subseteq N_G(H)$, e questo deriva 
+        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)=H$, quindi basta mostrare che $\pi^{-1}\left(N_{\faktor{G}{Z(G)}}\left(\faktor{H}{Z(G)}\right)\right)\subseteq N_G(H)$, e questo deriva 
         dal fatto che se $g\in \pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
     \end{itemize}
 \end{proof}
@@ -5157,8 +5158,8 @@ Dimostriamo le affermazione:
         \]
     da cui $N \subset H \cap S \iff L^N \supset L^{H \cap S}$.
     \item Abbiamo che $H \subseteq \left<H,S\right>$ e $S \subseteq \left<H,S\right>$, da cui $L^S,L^H \supseteq L^{\left<H,S\right>}$, da cui $L^{\left<H,S\right>} \subseteq L^H \cap L^S$.\\
-    Viceversa sia $\alpha \in L^H \cap L^S$, allora $\varphi(\alpha) = \alpha$, $\forall \varphi \in H,S$, quindi $\alpha$ è fissato dai generatori del gruppo $\left<H,S\right>$, pertanto $\alpha$ è fissato
-    da tutti gli elementi di $\left<H,S\right>$, da cui la tesi:
+    Viceversa sia $\alpha \in L^H \cap L^S$, allora $\varphi(\alpha) = \alpha$, $\forall \varphi \in H,S$, quindi $\alpha$ è fissato dai generatori
+    del gruppo $\left<H,S\right>$, pertanto $\alpha$ è fissato da tutti gli elementi di $\left<H,S\right>$, da cui la tesi:
     \[ L^H \cap L^S \subseteq L^{\left<H,S\right>}
         \]
 \end{enumerate}
