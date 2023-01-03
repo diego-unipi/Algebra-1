@@ -3935,7 +3935,8 @@ Ci limiteremo a studiare le cosiddette terne primitive, dove $(x,y,z) = 1$ (le a
     infatti, se non ci fosse 1, $\exists p$ primo tale che $(p) \supseteq (2x, 2yi, x^2+y^2)$,
     \footnote{Perché ogni ideale proprio (cioè che non contiene 1) è contenuto in un ideale massimale (proposizione 2.55), ma massimale implica primo (corollario 2.57) e gli ideali primi sono generati da elementi primi (proposizione 2.86).}
     quindi $p \mid 2x$ e $p \mid 2yi \implies p \mid 2y$, 
-    \footnote{Come vedremo nella prossima osservazione, $i$ è invertibile in $\ZZ[i]$, quindi $p$ non può dividere $i$ altrimenti sarebbe anch'esso invertibile (infatti sarebbe associato a un elemento invertibile), che è assurdo per definizione di elemento primo.}
+    \footnote{Come vedremo nella prossima osservazione, $i$ è invertibile in $\ZZ[i]$, quindi $p$ non può dividere $i$ altrimenti sarebbe anch'esso invertibile (infatti sarebbe associato a un elemento invertibile), che è assurdo per definizione di elemento primo. \\
+    [In realtà si poteva considerare direttamente l'ideale $(2x, 2y, x^2+y^2)$ in quanto $2y = (2yi)i^3 \in I$ perché $2yi \in I$]}
     da cui $p = 2$ (in quanto $(x,y) = 1$), 
     ma $2 = p \mid x^2+y^2$, che però è dispari (perché $x$ e $y$ hanno diversa parità), 
     dunque $I = (1)$ o equivalentemente $x+iy$ e $x-iy$ sono coprimi e quindi entrambi dei quadrati a meno di unità. [Perché???]
@@ -3946,8 +3947,7 @@ Ci limiteremo a studiare le cosiddette terne primitive, dove $(x,y,z) = 1$ (le a
     [Invertibili di $\ZZ\lbrack i \rbrack$]
     Osserviamo che gli elementi di $(\ZZ[i])^*$ sono gli $u \in \ZZ[i]$ tali che $\exists v \in \ZZ[i]$:
     \[ uv = 1 \implies 
-       \footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati.
-       [Detto così è falso, infatti detto \alpha = \frac{1}{\sqrt{2}} si ha che \alpha non è coniugato a sé stesso ma \alpha\alpha = \frac{1}{2} + \frac{1}{2} = 1]
+       \footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati. [Detto così è falso, infatti detto \alpha = \frac{1}{\sqrt{2}} si ha che \alpha non è coniugato a sé stesso ma \alpha\alpha = \frac{1}{2} + \frac{1}{2} = 1; il modo giusto di farlo è con la norma (vedi Esercitazioni)]
        } \quad 
        v = \overline u \implies u\overline u = 1
         \]
