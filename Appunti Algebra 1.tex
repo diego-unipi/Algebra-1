@@ -1251,45 +1251,47 @@ Osserviamo che un prodotto semidiretto deve avere un'operazione definita da:
 Essendo $\Zp = \left<y\right>$ e $\ZZ/q\ZZ = \left<x\right>$ possiamo scrivere:
     \[ \varphi : \left<y\right> \longrightarrow \Aut(\left<x\right>) (\cong \ZZ/q\ZZ^* \cong \ZZ/(q-1)\ZZ) : y \longmapsto \varphi_y
             \]
-con $\varphi_y : \left<x\right> \longrightarrow \left<x\right> : x \longmapsto x^l$. Per definire $\varphi$ su $\left<y\right>$ (un dominio ciclico)
+dove $\varphi_y : \left<x\right> \longrightarrow \left<x\right> : x \longmapsto x^l$ (poiché gli automorfismi di un gruppo ciclico mandano un elemento in una sua potenza, o prodotto se la notazione è additiva).
+Per definire $\varphi$ su $\left<y\right>$ (un dominio ciclico)
 basta assegnare $\varphi_y$ con la condizione $\ord \varphi_y \mid \ord y = p$, inoltre, $\varphi_y \in \Aut(\Z{q}) \cong \Z{(q-1)} \implies \ord \varphi_y \mid q-1$, 
 quindi $\ord \varphi_y \mid (p,q-1)$. Distinguiamo due casi:
     \begin{itemize}
         \item Se $p \nmid q-1$, si ha che $\ord \varphi_y \mid 1 \implies \varphi_y = id$, dunque l'unico automorfismo possibile di $\Z{q}$ è l'identità, pertanto si ha un prodotto diretto tra $\Z{p}$ e
-            $\Z{q}$ e quindi esiste ed è unico il gruppo di ordine $pq$, $\Z{pq}$.  
+            $\Z{q}$ e quindi esiste ed è unico il gruppo di ordine $pq$: $\Z{pq}$.  
         \item Se $p \mid q-1$, allora o $\ord \varphi_y = 1$ e quindi ancora $\varphi_y = id$; oppure $\ord \varphi_y = p$, e poiché ci sono $p-1$ elementi di ordine $p$ in $\Z{(q-1)}$, abbiamo $p-1$
             scelte per $\varphi_y$ che danno un prodotto semidiretto.
     \end{itemize}
-Si osserva che $\ord \varphi_y = \ord_{\Z{q}^*}(\overline l)$ e:
-    \[ \varphi_y(x) = x^l \implies (\varphi_y(x))^k = x^{l^k}
-        \]
-quindi $\ord \varphi_y = p \iff l^p \equiv 1 \pmod q \iff \ord l = p$.
-Le $p-1$ scelte per $\varphi_y$ danno tutte gruppi isomorfi, quindi se $p \mid q-1$ ci sono esattamente due gruppi di ordine $pq$ a meno di isomorfismo. Infatti, detti:
-    \[ G_1 = \left<x\right> \rtimes_{\varphi} \left<y\right>
+
+Si osserva che $\ord_{\Aut(\left<x\right>)} \varphi_y = \ord_{\Z{q}^*}(\overline l)$, in quanto:
+\[ \varphi_y(x) = x^l \implies (\varphi_y(x))^k\footnote{In questo caso si intende $\underbrace{\varphi_y \circ \ldots \circ \varphi_y}_{\text{$k$-volte}}(x)$, da cui l'esponente $l^k$ di $x$.} = x^{l^k}
+    \]
+quindi $\ord \varphi_y = p \iff l^p \equiv 1 \pmod q \iff \ord(\ol l) = p$.
+
+Possiamo verificare che le $p-1$ scelte per $\varphi_y$ danno tutte gruppi isomorfi, quindi se $p \mid q-1$ ci sono esattamente due gruppi di ordine $pq$ a meno di isomorfismo. Detti:
+    \[ G_1 \cong \left<x\right> \rtimes_{\varphi} \left<y\right>
     \qquad \text e \qquad 
-    G_2 = \left<x\right> \rtimes_{\psi} \left<y\right>
+    G_2 \cong \left<x\right> \rtimes_{\psi} \left<y\right>
         \]
-con $\varphi_y(x) = x^l$, $\ord l = p$ e $\psi_y(x) = x^\lambda$, $\ord \lambda = p$, pertanto $\left<l\right> = \left<\lambda\right>$ se e solo se 
-$l = \lambda^r$, con $0 < r < p$. Possiamo scrivere l'applicazione:
+con $\varphi_y(x) = x^l$, $\psi_y(x) = x^\lambda$ e $\ord_{\Z{q}^*}(\ol\lambda) = \ord_{\Z{q}^*}(\ol l) = p$ (necessariamente, per quanto detto sopra è l'unico altro ordine possibile, oltre ad 1), abbiamo $\left<l\right> = \left<\lambda\right>$ se e solo se 
+$l = \lambda^r$, con $0 < r < p$. Consideriamo l'applicazione:
     \[ \mathcal{F} : G_1 \longrightarrow G_2 : x \longmapsto x, y \longmapsto y^r
         \]
-che definisce un isomorfismo tra i due gruppi:
-    \[ G_1 = \left<x,y | x^q = y^p = 1, yxy^{-1} = x^l\right> \quad \text e \quad G_2 = \left<x,y | x^q = y^p = 1, yxy^{-1} = x^\lambda\right>
+essa definisce un isomorfismo tra i due gruppi $G_1$ e $G_2$. Per verificare che la mappa sia effettivamente un isomorfismo, consideriamo le presentazioni dei due gruppi:
+    \[ G_1 = \left<x,y \m x^q = y^p = e_1, yxy^{-1} = x^l\right> \quad \text e \quad G_2 = \left<x,y \m x^q = y^p = e_2, yxy^{-1} = x^\lambda\right>
         \]
-Per mostrare che è un isomorfismo basta osservare che:
-    \[ \mathcal{F}(x^q) = (\mathcal{F}(x))^q = id \qquad \text{in quanto $x^q = id$}
+affinché $\mathcal{F}$ sia un isomorfismo, deve rispettare gli ordini dei generatori e verificare che sia preservata la relazione di commutazione su di essi definita; osserviamo che:
+    \[ \mathcal{F}(x^q) = (\mathcal{F}(x))^q = x^q = e_2 \qquad \text{in quanto $x^q = e_2$ in $G_2$}
         \]
 e anche:
-    \[ \mathcal{F}(y^p) = (\mathcal{F}(y))^p = id \qquad \text{in quanto $y^p = id$}
+    \[ \mathcal{F}(y^p) = (\mathcal{F}(y))^p = (y^r)^p = (y^p)^r = e_2 \qquad \text{in quanto $y^p = e_2$ in $G_2$}
         \]
 ed infine:
     \[ \mathcal{F}(yxy^{-1}) = \mathcal{F}(x^l)
         \]
 in quanto:
-    \[ \mathcal{F}(yxy^{-1}) = \mathcal{F}(y) \mathcal{F}(x) \mathcal{F}(y^{-1}) = \underbrace{y^rxy^{-r}}_{\in G_2} = x^{\lambda^{r}} = x^l = \mathcal{F}(x^l)
+    \[ \mathcal{F}(yxy^{-1}) = \mathcal{F}(y) \mathcal{F}(x) \mathcal{F}(y^{-1}) = \underbrace{y^rxy^{-r}}_{\in G_2} = (\varphi_y(x))^r \footnote{Anche in questo caso si intende la composizione $r$ volte.} = x^{\lambda^{r}} =\footnote{Qui stiamo usando l'ipotesi per cui $l = \lambda^r$.} x^l = \mathcal{F}(x^l)
         \]
-ciò garantisce che $\mathcal{F}$ ottenuto estendendo l'assegnamento $x \longmapsto x, y \longmapsto y^r$ è un omomorfismo, segue banalmente che è anche una bigezione e quindi è un isomorfismo. \footnote{Quest'ultima pagina non è in versione 
-definitiva e necessita di ulteriori revisioni.}
+ciò garantisce che $\mathcal{F}$, ottenuto estendendo l'assegnamento $x \longmapsto x, y \longmapsto y^r$ a tutto il gruppo, è un omomorfismo; si verifica inoltre che è anche una bigezione e quindi è un isomorfismo.
 
 \newpage
 \subsection{Teorema di struttura per i gruppi abeliani finiti}
