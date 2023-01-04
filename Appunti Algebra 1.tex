@@ -4038,6 +4038,7 @@ Queste formule forniscono la parametrizzazione delle terne pitagoriche e rispond
     Dato un campo $K$ ed una sua estensione $L$, $\alpha \in L$ si dice \vocab{trascendente} su $K$ se non è algebrico, ovvero:
         \[ \not\exists f(x) \in K[x]\setminus\{0\} : f(\alpha) = 0
         \] 
+	[Aggiustare "non esiste"]
 \end{definition}
 
 \begin{definition}
@@ -4073,7 +4074,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 
 \begin{remark}
     Poiché $K[x]$ è un PID, si ha che $\ker \varphi_{\alpha} = (\mu_{\alpha}(x))$, con $\mu_\alpha(x) \in \ker \varphi_\alpha$, ed essendo un ideale massimale $\mu_\alpha(x)$ è irriducibile in $K[x]$ (\hyperref[2.86]{Proposizione 2.86}).
-    Inoltre, scegliamo $\mu_\alpha(x)$ come l'unico generatore monico, infatti essendo $K[x]$ anche un ED, per la \hyperref[2.93]{Proposizione 2.93} sappiamo che i suoi ideali sono generati da elementi di grado minimo, e tali elementi differiscono per un elemento di $K \setminus\{0\}$.
+    Possiamo scegliere $\mu_\alpha(x)$ come l'unico generatore monico, infatti essendo $K[x]$ anche un ED, per la \hyperref[2.93]{Proposizione 2.93} sappiamo che i suoi ideali sono generati da elementi di grado minimo, e tali elementi differiscono per un elemento di $K \setminus\{0\}$.
 \end{remark}
 
 \begin{definition}
@@ -4110,20 +4111,20 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 \begin{proposition}
     [Proprietà delle torri di estensioni]
     \label{torri}
-    Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono finite e inoltre:
-    \[ [F:K] = [F:L][L:K]
+    Data una torre di estensioni $K \subset F \subset L$, allora $\faktor{L}{K}$ è finita se e solo se $\faktor{L}{F}$ e $\faktor{F}{K}$ sono finite e inoltre:
+    \[ [L:K] = [L:F][F:K]
         \]
 \end{proposition}
 
 \begin{proof}
     La dimostrazione è identica a quella già vista in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}. Siano $[F:K] = n$ e $[L:F] = m$, verifichiamo che $[L:K]=nm$;
-    per definizione sappiamo che $[F:K] = n$ ovvero $F$ è un $K$-spazio vettoriale con $\dim_KF = n$, e ugualmente, $[L:F] = m$ ovvero $L$ è un $F$-spazio vettoriale con $\dim_FL = m$, possiamo considerare allora una $K$-base di $F$, $\{v_1,\ldots,v_n\}$, ed una $F$-base di $L$, $\{w_1,\ldots,w_m\}$, per dimostrare la tesi, dobbiamo dimostrare che $\dim_KL = nm$, ovvero $L$ ammette una $K$-base di cardinalità $nm$. Consideriamo l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$, come si osserva facilmente, esso ha cardinalità $nm$, dimostriamo quindi che tale insieme è una $K$-base di $L$, per fare ciò verifichiamo separatamente che gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ generano tutti gli elementi di $L$ e che sono tra loro linearmente indipendenti:
+    per definizione sappiamo che $[F:K] = n$ ovvero $F$ è un $K$-spazio vettoriale con $\dim_KF = n$, e ugualmente, $[L:F] = m$ ovvero $L$ è un $F$-spazio vettoriale con $\dim_FL = m$. Possiamo considerare allora una $K$-base di $F$, $\{v_1,\ldots,v_n\}$, ed una $F$-base di $L$, $\{w_1,\ldots,w_m\}$; per dimostrare la tesi, dobbiamo dimostrare che $\dim_KL = nm$, ovvero $L$ ammette una $K$-base di cardinalità $nm$. Consideriamo l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$, come si osserva facilmente, esso ha cardinalità $nm$, dimostriamo quindi che tale insieme è una $K$-base di $L$, per fare ciò verifichiamo separatamente che gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ generano tutti gli elementi di $L$ e che sono tra loro linearmente indipendenti:
 	\begin{itemize}
 	\ii Sia $\alpha \in L$, poiché $L$ è per ipotesi un $F$-spazio vettoriale, quindi $L = \left<w_1,\ldots,w_m\right>_F$, si ha che:
 		\[ \alpha = \sum_{j=1}^{m} \lambda_jw_j
 		\qquad\qquad \lambda_j \in F
 		\]
-		d'altra parte, poiché $F$ è un $K$-spazio vettoriale, quindi $F = \left<w_1,\ldots,w_m\right>_K$, si ha che:
+		d'altra parte, poiché $F$ è un $K$-spazio vettoriale, quindi $F = \left<v_1,\ldots,v_n\right>_K$, si ha che:
 		\[ \lambda_j = \sum_{i=1}^{n} a_{j_i}v_i
 		\qquad\qquad a_{j_i} \in K
 		\]
@@ -4142,7 +4143,8 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 	\[ \sum_{i=1}^{n} a_{1_i}v_i =\ldots=\sum_{i=1}^{n} a_{m_i}v_i = 0
 	\]
 	\end{itemize}
-    essendo $\{v_1,\ldots,v_n\}$ una $K$-base di $F$, le singole somme $\sum_{i=1}^{n} a_{j_i}v_i$ sono nulle se e solo se $a_{j_i} = 0$, $\forall i \in\{1,\ldots,n\}$, quindi la somma iniziale è nulla se e solo se $a_{j_i} = 0$, $\forall i \in\{1,\ldots,n\}$, $\forall j \in \{1,\ldots,m\}$, quindi gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ sono linearmente indipendenti.
+    essendo $\{v_1,\ldots,v_n\}$ una $K$-base di $F$, le singole somme $\sum_{i=1}^{n} a_{j_i}v_i$ sono nulle se e solo se $a_{j_i} = 0$, $\forall j_i$,
+    ossia $\forall i \in\{1,\ldots,n\}$, $\forall j \in \{1,\ldots,m\}$, quindi gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ sono linearmente indipendenti.
 \end{proof}
 
 \begin{proposition}
@@ -4187,19 +4189,21 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     quindi per la \hyperref[3.7]{Proposizione 3.7} $\alpha$ è algebrico su $K$ (poiché siamo nel caso di un'estensione semplice), ed essendo vero per ogni $\alpha$, allora $L$ è un'estensione algebrica di $K$.
 \end{proof}
 
-\begin{proposition}[Campo delle estensioni algebriche]
+\begin{proposition}[Campo delle estensioni algebriche][Si chiama così? dovrebbe essere campo degli elementi algebrici]
     \label{3.12}
     Data un'estensione $\faktor{L}{K}$, sia $A = \{\alpha \in L | \, \text{$\alpha$ è algebrico su $K$}\}$, allora $A$ è un campo (ed ovviamente
     è un'estensione algebrica di $K$).
 \end{proposition}
 
 \begin{proof}
-    Verifichiamo che $A$ sia un campo; siano $\alpha,\beta \in A$, allora $[K(\alpha):K] <+\infty$ e $[K(\beta):K]<+\infty$, consideriamo la torre:
+    Verifichiamo che $A$ sia un campo; siano $\alpha,\beta \in A$, allora $[K(\alpha):K] <+\infty$ e $[K(\beta):K]<+\infty$,
+    (perché algebriche e semplici quindi finite per la \hyperref[3.7]{Proposizione 3.7}). Consideriamo la torre:
     \[ K \subseteq K(\alpha) \subseteq K(\alpha)(\beta) = K(\alpha,\beta)
         \]
-    la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.9]{Proposizione 3.9} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
-    Essendo dunque $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
-    è algebrica, quindi tutti gli elementi $\alpha\pm\beta$, $\alpha\beta$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$, pertanto $A$ è un campo.
+    la seconda estensione è finita per la \hyperref[3.9]{Proposizione 3.9}, in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ entrambe finite.
+    Essendo dunque anche $K \subseteq K(\alpha,\beta)$ un'estensione finita (per \hyperref[torri]{Torri}), per la \hyperref[3.11]{Proposizione 3.11}
+    è algebrica, quindi gli elementi $\alpha\pm\beta$, $\alpha\beta$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$ in quanto elementi di $K(\alpha,\beta)$ 
+    \footnote{Stiamo usando il fatto che $K(\alpha,\beta)$ è un campo.}, pertanto $A$ è un campo.
 \end{proof}
 
 \begin{remark}
@@ -4223,7 +4227,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{remark}
     Ricordiamo che avevamo definito un'estensione \vocab{finitamente generata} una scrittura del tipo $L = K(\alpha_1,\ldots,\alpha_n)$ che può essere definita equivalentemente come:
-    \[ K(\alpha_1,\ldots,\alpha_n) = K(\alpha_1)\ldots(\alpha_n) = \{p(\alpha_1,\ldots,\alpha_n) | p(x_1,\ldots,x_n) \in K[x_1,\ldots,x_n] \}
+    \[ K(\alpha_1,\ldots,\alpha_n) = K(\alpha_1)\ldots(\alpha_n) = \{p(\alpha_1,\ldots,\alpha_n) \mid p(x_1,\ldots,x_n) \in K[x_1,\ldots,x_n] \}
         \]
     con $\alpha_1,\ldots,\alpha_n$ algebrici su $K$, o anche come il più piccolo campo che contiene $K$ e gli elementi $\alpha_1,\ldots,\alpha_n$:
     \[ K(\alpha_1,\ldots,\alpha_n) = \bigcap_{\substack{K \subseteq M \subseteq L \\ \alpha_1,\ldots,\alpha_n \in M}}M
@@ -4280,19 +4284,23 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     Proviamo le due affermazioni:
     \begin{enumerate}[(1)]
         \item La prima implicazione segue quasi immediatamente, infatti, se $\faktor{F}{K}$ è algebrica, allora $\forall \alpha \in F$, $\alpha$ è algebrico su $K$,
-            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$, inoltre, $F$ è algebrico su $L$ perché contiene $K$, dunque tutti gli elementi di $F$ sono già algebrici su $K$ e quindi lo saranno anche in un campo più grande.\\
+            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$;
+	    inoltre, $F$ è algebrico su $L$ perché contiene $K$, dunque tutti gli elementi di $F$ sono già algebrici su $K$ e quindi lo saranno anche in un campo più grande.\\
             Viceversa sia $\alpha \in F$, per ipotesi sappiamo che $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche, quindi $\alpha$ è algebrico su $L$, dunque:
             \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \qquad f(x) = \sum_{i=0}^n a_ix^i
                 \]
             consideriamo $L_0=K(a_0,\ldots,a_n)$ (estensione finitamente generata ed algebrica di $K$), si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
             \[ K \subset L_0 \subset L_0(\alpha)
                 \]
-            dove la prima estensione è finitamente generata ed algebrica (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
-            estensione è a sua volta finita perché algebrica (quindi vale la \hyperref[3.11]{Proposizione 3.11}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
-            $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
+            dove la prima estensione è finitamente generata ed algebrica (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, 
+	    inoltre la seconda estensione è a sua volta finita perché algebrica e semplice (\hyperref[3.7]{Proposizione 3.7}). 
+	    Di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione $[L_0(\alpha) : K]$ è finita,
+	    dunque, per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica, e in particolare $\alpha$ è algebrico su $K$.
+	    Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
             dunque $\faktor{F}{K}$ è algebrica.
          \item Sia $\faktor{LM}{K}$ algebrica e sia $\alpha \in M \subset LM$, allora è algebrico su $K$, in quanto tutti gli elementi di $LM$ già lo erano, dunque non stiamo facendo altro che prendere una sottoestensione di un'estensione algebrica, che quindi 
-         sarà a sua volta algebrica, ovvero $\faktor{M}{K}$ algebrica; in maniera identica $\faktor{L}{K}$ è anch'essa algebrica.\\
+         sarà a sua volta algebrica, \footnote{Volendo per il punto (1).}
+	 ovvero $\faktor{M}{K}$ algebrica; in maniera identica $\faktor{L}{K}$ è anch'essa algebrica.\\
          Supponiamo ora che $\faktor{L}{K}$ e $\faktor{M}{K}$ siano algebriche, consideriamo $\alpha \in LM = L(M)$, ovvero $\alpha = \sum_{i=1}^{n} \lambda_i m_i$, con $\lambda_i \in L$ e $m_i \in M$, dunque:
          \[ \alpha \in F = K(\lambda_1,\ldots,\lambda_n,m_1,\ldots,m_n)
             \]
@@ -4333,39 +4341,44 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{theorem}
     [Esistenza e unicità della chiusura algebrica]
-    Sia $K$ un campo, allora esiste sempre una sua chiusura algebrica. Inoltre due qualsiasi chiusure algebriche su $K$ sono isomorfe.\footnote{Nel senso che gli isomorfismi tra le varie chiusure algebriche fissano $K$.}
+    Sia $K$ un campo, allora esiste sempre una sua chiusura algebrica. Inoltre due qualsiasi chiusure algebriche su $K$ sono isomorfe su K.
+    \footnote{Nel senso che gli isomorfismi tra le varie chiusure algebriche fissano $K$.}
 \end{theorem}
 
 \begin{example}
-    Consideriamo $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, tale insieme è un campo, per quanto asserito nella
-    \hyperref[3.12]{Proposizione 3.12}, ed è per una chiusura algebrica di $\QQ$, infatti $\faktor{\overline\QQ}{\QQ}$ è un'estensione algebrica per definizione.
-    Verifichiamo che $\overline\QQ$ è algebricamente chiuso; sia $f(x) \in \overline\QQ[x]$ non costante, allora $f(x)$ ammette almeno una radice $\alpha \in \CC$, poiché
-    $f(x) \in \overline\QQ[x] \subset \CC[x]$ e $\CC$ è algebricamente chiuso. Per mostrare che $\alpha \in \overline\QQ$, bisogna
+    Consideriamo $\overline\QQ = \{\alpha \in \CC \mid \text{$\alpha$ è algebrico su $\QQ$}\}$, tale insieme è un campo, per quanto asserito nella
+    \hyperref[3.12]{Proposizione 3.12}, e inoltre è una chiusura algebrica di $\QQ$. 
+    Infatti $\faktor{\overline\QQ}{\QQ}$ è un'estensione algebrica per definizione.
+    Verifichiamo che $\overline\QQ$ è algebricamente chiuso; sia $f(x) \in \overline\QQ[x]$ non costante, 
+    allora $f(x)$ ammette almeno una radice $\alpha \in \CC$, poiché $f(x) \in \overline\QQ[x] \subset \CC[x]$ e $\CC$ è algebricamente chiuso. 
+    Per mostrare che $\alpha \in \overline\QQ$, bisogna
     dimostrare che $\alpha$ è algebrico su $\QQ$, consideriamo la torre:
     \[ \QQ \subset \overline \QQ \subset \overline\QQ (\alpha)
         \]
-    la prima estensione è algebrica per quanto già discusso, la seconda è algebrica perché semplice (\hyperref[3.7]{Proposizione 3.7}), dunque per \hyperref[torri]{torri} $\alpha$
-    è algebrico su $\QQ$, inoltre $\alpha \in \CC$, per cui $\alpha \in \overline\QQ$ che quindi è algebricamente chiuso, perché quanto detto vale per qualunque polinomio in $\overline\QQ[x]$.
+    la prima estensione è algebrica per quanto già discusso, 
+    la seconda è algebrica perché $\alpha$ è algebrico su $\overline\QQ$ (è radice di $f(x) \in \overline\QQ[x]$),
+    dunque per torri (osservazione 3.18) $\alpha$ è algebrico su $\QQ$, ossia $\alpha \in \overline\QQ$. 
+    Quindi $\overline\QQ$ è algebricamente chiuso perché quanto detto vale per qualunque polinomio in $\overline\QQ[x]$.
 \end{example}
 
 \begin{remark}
     L'argomento dell'esempio precedente può essere utilizzato per costruire $\overline K$ chiusura algebrica di $K$ ogni volta che si ha:
     \[ K \subset \Omega
         \]
-    con $\Omega$ algebricamente chiuso, definendo $\overline K = \{\alpha \in \Omega |  \, \text{$\alpha$ è algebrico su $K$}\}$, da cui $\overline K$ chiusura algebrica si $K$ (infatti $\overline K$ è un estensione algebrica 
+    con $\Omega$ algebricamente chiuso, definendo $\overline K = \{\alpha \in \Omega \mid \text{$\alpha$ è algebrico su $K$}\}$, da cui $\overline K$ chiusura algebrica di $K$ (infatti $\overline K$ è un estensione algebrica 
     di $K$ per definizione, ed iterando il ragionamento precedente si mostra come sia anche algebricamente chiuso).
 \end{remark}
 
 \begin{definition}
-    Sia $f(x) \in K[x]$, con $\deg f(x) \geq 1$, e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f(x)$, si definisce \vocab{campo di spezzamento} di $f(x)$ su $K$ il sottocampo di $\overline K$:
+    Sia $f(x) \in K[x]$, con $\deg f(x) \geq 1$, e, detta $\overline K$ una chiusura algebrica di $K$, siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f(x)$, si definisce \vocab{campo di spezzamento} di $f(x)$ su $K$ il sottocampo di $\overline K$:
     \[ K(\alpha_1,\ldots,\alpha_n)
         \]
 \end{definition}
 
 \begin{remark}
-    La definizione di campo di spezzamento può essere estesa ad una famiglia di polinomi $\mathcal{F} = \{f_i(x) | i \in I\} \subset K[x]$, infatti, dato l'insieme delle radici di un polinomio $f_i(x)$ della famiglia,
+    La definizione di campo di spezzamento può essere estesa ad una famiglia di polinomi $\mathcal{F} = \{f_i(x) \mid i \in I\} \subset K[x]$, infatti, dato l'insieme delle radici di un polinomio $f_i(x)$ della famiglia,
     $ \{\alpha_{ij}\}_{i \in I}^{j = 1,\ldots,n_i} $, il campo di spezzamento di $\mathcal{F}$ su $K$ è dato da:
-    \[ K(\{\alpha_{ij}\}_{j = 1,\ldots,n_i} | i \in I)
+    \[ K(\{\alpha_{ij}\}_{j = 1,\ldots,n_i} \mid i \in I)
         \]
     Tale estensione della definizione risulta necessaria soltanto nel caso di famiglie infinite di polinomi, infatti nel caso finito è sufficiente considerare il campo di spezzamento dell'unico polinomio prodotto di tutti gli altri 
     (prodotto che non è definito nel caso di una famiglia infinita).
@@ -4387,7 +4400,10 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
         \]
 \end{example}
 
-Ci poniamo ora il seguente problema: dato un campo $K$, la sua chiusura algebrica $\overline K$ e $\alpha \in \overline K$ (algebrico su $K$), vogliamo sapere in quanti modi si può immerge $K(\alpha)$ in $\overline K$ con:
+\newpage
+[Forse sarebbe il caso di fare un nuovo capitolo qui]
+
+Ci poniamo ora il seguente problema: dato un campo $K$, la sua chiusura algebrica $\overline K$ e $\alpha \in \overline K$ (algebrico su $K$), vogliamo sapere in quanti modi si può immerge $K(\alpha)$ in $\overline K$ fissando $K$:
 \[ \varphi : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
     \]
 
@@ -4402,18 +4418,19 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
 \begin{proposition}[Numero di estensioni  via identità di $K(\alpha)$ a $\overline K$]
     \label{3.33}
     Dato un campo $K$ ed $\alpha \in \overline K$, con $\overline K$ chiusura algebrica di $K$, detto $k$ il numero di radici distinte di $\mu_\alpha(x)$ in $\overline K$, allora:
-    \[ \exists \varphi_1,\ldots,\varphi_k : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = id_K
+    \[ \exists ~ \varphi_1,\ldots,\varphi_k : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = id_K
         \]
     ovvero esistono esattamente $k$ estensioni distinte da $K(\alpha)$ a $\ol K$.
 \end{proposition}
 
 \begin{proof}
-    Per quanto detto sull'omomorfismo di valutazione sappiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$, dunque, determinando un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il 
-    \hyperref[omo]{Primo Teorema di Omomorfismo}. Sia dunque:
-    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta , p(x) \longmapsto p(\beta) \qquad \forall \beta \in \overline K
+    Per quanto detto sull'omomorfismo di valutazione sappiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$, 
+    dunque, determinato un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il \hyperref[omo]{Primo Teorema di Omomorfismo}. 
+    Consideriamo l'omomorfismo di valutazione in un generico elemento $\overline K$:
+    \[ \widetilde{\varphi}_{\beta} : K[x] \longrightarrow \overline K : x \longmapsto \beta , p(x) \longmapsto p(\beta) \qquad \beta \in \overline K
         \]
-    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$,
-    quindi per tutte le radici di $\mu_\alpha(x)$ in $\overline K$ si ha che:
+    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$.
+    Dunque per tutte le radici di $\mu_\alpha(x)$ in $\overline K$ si ha che:
     \[\begin{tikzcd}
 		K[x] \arrow[d, "\pi_{(\mu_\alpha(x))}" left, twoheadrightarrow] \arrow[r, "\widetilde{\varphi}"] & \overline K \\	
 		\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))} \arrow[ur, "\varphi"', hookrightarrow] & 
@@ -4423,24 +4440,27 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
     le $\varphi_i$ sono distinte perché danno diversa immagine quando calcolate su $x$.
 \end{proof}
 
-Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$, essendo $\overline K$ algebricamente chiuso, allora il numero delle radici del polinomio, ciascuna contata 
-con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$, a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple possiamo fare uso del criterio che segue.
+Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$. 
+Essendo $\overline K$ algebricamente chiuso, il numero delle radici del polinomio, ciascuna contata con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$; 
+a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple possiamo fare uso del criterio che segue.
 
 \begin{theorem}
 	[Criterio della Derivata]
 	\label{derivata}
-	Sia $f(x) \in K[x]$, $f(x)$, allora $f(x)$ ha radici multiple in $\overline K$ se e solo se $(f(x),f^{\prime}(x)) \ne 1$. Inoltre se $f(x)$ è irriducibile in $K[x]$, allora $f(x)$ ha radici multiple se e solo se $f^{\prime}(x) = 0$.
+	Sia $f(x) \in K[x]$, allora $f(x)$ ha radici multiple in $\overline K$ se e solo se $(f(x),f^{\prime}(x)) \ne 1$. 
+	Inoltre se $f(x)$ è irriducibile in $K[x]$, allora $f(x)$ ha radici multiple se e solo se $f^{\prime}(x) = 0$.
 \end{theorem}
 
 \begin{proof}
     Il primo fatto è stato trattato in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, quindi non ne forniremo qui una dimostrazione. Per il secondo fatto si può osservare che $f(x) \in K[x] \implies f^{\prime}(x) \in K[x]$,
-    da cui $(f(x),f^{\prime}(x)) \in K[x]$ (perché si ottiene mediante l'Algoritmo di Euclide), e se $f(x)$ è irriducibile in $K[x]$ l'M.C.D. fa 1 oppure $f(x)$; dove il secondo caso si realizza se e solo se $f^{\prime}(x) = 0$ (dato che $\deg f^{\prime}(x) < \deg f(x)$).
+    da cui $(f(x),f^{\prime}(x)) \in K[x]$ (perché si ottiene mediante l'Algoritmo di Euclide), e se $f(x)$ è irriducibile in $K[x]$, l'M.C.D. fa 1 oppure $f(x)$; 
+    il secondo caso si realizza se e solo se $f^{\prime}(x) = 0$ (dato che $\deg f^{\prime}(x) < \deg f(x)$).
 \end{proof}
 
 Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il numero delle loro radici distinte coincide con il loro grado.
 
 \begin{definition}
-    Un campo $K$ tale per cui tutti i polinomi irriducibili in $K[x]$ hanno derivata non nulla prende il nome di \vocab{campo perfetto}.
+    Un campo $K$ tale che tutti i polinomi irriducibili in $K[x]$ hanno derivata non nulla prende il nome di \vocab{campo perfetto}.
 \end{definition}
 
 \begin{remark}
@@ -4450,12 +4470,15 @@ Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il 
         \item Se $\ch K = 0$, allora $K$ è un campo perfetto, infatti, detto $f(x) = \sum_{i=0}^n a_ix^i$, allora $f^{\prime}(x) = \sum_{i=0}^{n-1} ia_ix^i$, $\forall n \geq 1$, ovvero la derivata di un polinomio non 
         costante non può essere mai nulla.
         \item $\Fpn$ è perfetto $\forall p$ primo, $\forall n \geq 1$.
-        \item Al contrario possiamo vedere che per campi con caratteristica diversa da 0 esistono polinomi irriducibili con derivata nulla, sia $K = \Fp(t)$ e $f(x) = x^p - t \in K[x]$, abbiamo che $f^{\prime}(x) = px^{p-1} = 0$,
+        \item Al contrario possiamo vedere che per campi con caratteristica diversa da 0 esistono polinomi irriducibili con derivata nulla:
+	sia $K = \Fp(t)$ e $f(x) = x^p - t \in K[x]$, abbiamo che $f^{\prime}(x) = px^{p-1} = 0$,
         possiamo verificare che $f(x)$ è irriducibile in $K[x]$. Osserviamo che:
         \[ f(x) \in \Fp[t][x] := A[x]
             \]
         dove $A$ UFD (essendo un ED), dunque per il \hyperref[gauss]{Lemma di Gauss} verificare che $f(x)$ è irriducibile in $K[x] = \Fp(t)[x]$ è equivalente a verificare che sia irriducibile in $A[x] = \Fp[t][x]$.
-        In $A[x]$, essendo UFD vale il \hyperref[eisenstein]{Criterio di Eisenstein}, dunque $f(x)$ è irriducibile rispetto all'ideale $P = (t)$, che è primo in quanto massimale, infatti $\displaystyle\frac{A}{(t)} \cong \Fp$.
+        In $A[x]$, essendo UFD (perché $A$ lo è) vale il \hyperref[eisenstein]{Criterio di Eisenstein}:
+	$t$ è un elemento primo, perché l'ideale $(t)$ è massimale ($\displaystyle\frac{A}{(t)} \cong \Fp$ campo) e quindi primo;
+	possiamo concludere che $f(x)$ è irriducibile. \\
         Inoltre se $\alpha \in \overline K$ è una radice di $f(x)$, abbiamo che $f(\alpha) = \alpha^p - t = \implies t = \alpha^p$, da cui:
         \[ f(x) = x^p - \alpha^p = (x - \alpha)^p
             \]
