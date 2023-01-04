@@ -4287,7 +4287,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
             dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$;
 	    inoltre, $F$ è algebrico su $L$ perché contiene $K$, dunque tutti gli elementi di $F$ sono già algebrici su $K$ e quindi lo saranno anche in un campo più grande.\\
             Viceversa sia $\alpha \in F$, per ipotesi sappiamo che $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche, quindi $\alpha$ è algebrico su $L$, dunque:
-            \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \qquad f(x) = \sum_{i=0}^n a_ix^i
+            \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \quad f(x) = \sum_{i=0}^n a_ix^i
                 \]
             consideriamo $L_0=K(a_0,\ldots,a_n)$ (estensione finitamente generata ed algebrica di $K$), si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
             \[ K \subset L_0 \subset L_0(\alpha)
@@ -4415,21 +4415,21 @@ sono se stesso e $\{0\}$, dunque il nucleo o è tutto o è banale, pertanto gli 
 
 Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
 
-\begin{proposition}[Numero di estensioni  via identità di $K(\alpha)$ a $\overline K$]
+\begin{proposition}[Numero di estensioni di $K(\alpha)$ a $\overline K$ via identità]
     \label{3.33}
     Dato un campo $K$ ed $\alpha \in \overline K$, con $\overline K$ chiusura algebrica di $K$, detto $k$ il numero di radici distinte di $\mu_\alpha(x)$ in $\overline K$, allora:
-    \[ \exists ~ \varphi_1,\ldots,\varphi_k : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = id_K
+    \[ \exists ~ \varphi_1,\ldots,\varphi_k : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{i|K} = id_K
         \]
     ovvero esistono esattamente $k$ estensioni distinte da $K(\alpha)$ a $\ol K$.
 \end{proposition}
 
 \begin{proof}
     Per quanto detto sull'omomorfismo di valutazione sappiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$, 
-    dunque, determinato un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il \hyperref[omo]{Primo Teorema di Omomorfismo}. 
-    Consideriamo l'omomorfismo di valutazione in un generico elemento $\overline K$:
-    \[ \widetilde{\varphi}_{\beta} : K[x] \longrightarrow \overline K : x \longmapsto \beta , p(x) \longmapsto p(\beta) \qquad \beta \in \overline K
+    dunque, determinato un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il \hyperref[omo]{Primo Teorema di Omomorfismo}. Sia dunque:
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta , p(x) \longmapsto p(\beta) \qquad \beta \in \overline K
         \]
-    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$.
+    Si verifica che $\widetilde{\varphi}|_{K} = id$ (infatti valutare una costante restituisce sé stessa). \\
+    Per l'omomorfismo $\widetilde{\varphi}$ abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$.
     Dunque per tutte le radici di $\mu_\alpha(x)$ in $\overline K$ si ha che:
     \[\begin{tikzcd}
 		K[x] \arrow[d, "\pi_{(\mu_\alpha(x))}" left, twoheadrightarrow] \arrow[r, "\widetilde{\varphi}"] & \overline K \\	
@@ -4439,6 +4439,10 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
     dove $\varphi$ è un omomorfismo per il \hyperref[omo]{Primo Teorema di Omomorfismo}, ed è iniettivo (per quanto già visto nell'\hyperref[3.32]{Osservazione 3.32}) perché omomorfismo \textbf{non nullo} tra campi (ad esempio perché $1 \longmapsto 1$). Si osserva infine che 
     le $\varphi_i$ sono distinte perché danno diversa immagine quando calcolate su $x$.
 \end{proof}
+
+Osservazione importante: 
+Le $\varphi_i$ che abbiamo trovato mandano $\alpha$ in una radice di $\mu_\alpha(x)$. 
+Ragionando in modo analogo per le altri radici e sfruttando l'iniettività di $\varphi_i$ possiamo concludere che le $\varphi_i$ agiscono sull'insieme delle radici di $\mu_\alpha(x)$ permutandole. \\
 
 Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$. 
 Essendo $\overline K$ algebricamente chiuso, il numero delle radici del polinomio, ciascuna contata con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$; 
@@ -4483,6 +4487,8 @@ Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il 
         \[ f(x) = x^p - \alpha^p = (x - \alpha)^p
             \]
         dove nell'ultima uguaglianza abbiamo usato il lemma del Binomio Ingenuo, pertanto in realtà $f(x)$ ha un'unica radice in $\overline K$.
+	\item La chiusura algebrica di un campo perfetto è un campo perfetto: 
+        infatti i polinomi irriducibili a coefficienti in una chiusura algebrica sono solo quelli di primo grado, quindi la loro derivata non si annulla mai.
     \end{itemize}
 \end{remark}
 
@@ -4491,37 +4497,46 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \begin{proposition}[Numero di estensioni di $K(\alpha)$ a $\overline K$]
     \label{3.37}
     Dato $\alpha \in \overline K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
-    \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{i|K} = \varphi
         \]
 \end{proposition}
 
 \begin{remark}
     Abbiamo già visto che ciò è vero se $\varphi = id_K$, nella \hyperref[3.33]{Proposizione 3.33},
-    la nuova proposizione ci permette di contare il numero di estensioni di un omomorfismo da $K$ in $\ol K$ ad uno da $K(\alpha)$ in $\ol K$.
+    la nuova proposizione ci permette di contare il numero di estensioni di un omomorfismo qualsiasi da $K$ in $\ol K$ ad uno da $K(\alpha)$ in $\ol K$.
     Ad esempio, dato $K = \QQ(\sqrt[3]{2})$ e l'omomorfismo:
     \[ \varphi : K \varlonghookrightarrow \ol K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
         \]
     ci chiediamo quanti sono gli omomorfismi:
-    \[ \varphi_i : K(\zeta_3) \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    \[ \varphi_i : K(\zeta_3) \varlonghookrightarrow \ol K \qquad \text{con} \quad \varphi_{i|K} = \varphi
         \]
     cioè che quando ristretti a $K$ si comportano come $\varphi$.
 \end{remark}
 
 \begin{proof}
-    In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo:
-    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    Per prima cosa estendiamo $\varphi$ a un omomorfismo sui polinomi:
+    \[ \varphi : K[x] \longrightarrow \overline{K}[x] : p(x) \longmapsto \varphi(p(x)) = (\varphi \circ p)(x)
         \]
-    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \varphi(\mu_\alpha(x))(\beta) = 0$, 
-    dunque applichiamo $\varphi$ ai coefficienti di $\mu_\alpha(x)$ (prima venivano lasciati fissi perché usavamo l'identità) e poi valutiamo il nuovo polinomio in $\beta$, pertanto $\beta$
-    deve essere una radice di $\varphi(\mu_\alpha(x))$, dunque le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\overline K$. \\
-    Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora $\varphi(\mu_\alpha(x))$ è irriducibile, inoltre, $\deg \mu_\alpha(x) = \deg \varphi(\mu_\alpha(x))$ (poiché l'omomorfismo è
-    iniettivo), pertanto, essendo il campo perfetto il numero di radici distinte di $\varphi(\mu_\alpha(x))$ è uguale al suo grado, e quindi a quello di $\mu_\alpha(x)$.
+    dove, se $p(x) = \sum{a_i x^i}$,
+    \[ (\varphi \circ p)(x) = \sum{\varphi(a_i) x^i}
+        \]
+    In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo:
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : p(x) \longmapsto (\varphi \circ p)(\beta)
+        \]
+    cioè applichiamo $\varphi$ ai coefficienti di $\mu_\alpha(x)$ (prima venivano lasciati fissi perché usavamo l'identità) e poi valutiamo il nuovo polinomio in $\beta$. Si verifica che $\widetilde{\varphi}|_{K} = id$. \\
+    Per l'omomorfismo $\widetilde{\varphi}$ abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff (\varphi \circ \mu_\alpha)(\beta) = 0$, cioè $\beta$ deve essere una radice di $(\varphi \circ \mu_\alpha)(x)$. 
+    Dunque le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $(\varphi \circ \mu_\alpha)(x)$ in $\overline K$. \\
+    Poiché $\mu_\alpha(x)$ è irriducibile in $K[x]$ (per definizione), allora $(\varphi \circ \mu_\alpha)(x)$ è irriducibile in $\varphi(K)[x]$ 
+    \footnote{Mostriamo la contronominale. Sia $(\varphi \circ f)(x)$ riducibile in $\varphi(K)[x]$, allora si spezza in due polinomi non costanti $(\varphi \circ f)(x) = g(x)h(x)$ con $g(x), h(x) \in \varphi(K)[x]$. Ma allora si può scrivere $f(x) = (\varphi^{-1} \circ g)(x)\cdot(\varphi^{-1} \circ h)(x)$ con $(\varphi^{-1} \circ g)(x), (\varphi^{-1} \circ h)(x) \in K[x]$ (notare che per iniettività di $\varphi$ è tutto ben definito), quindi anche $f(x)$ è riducibile.}
+    ed essendo $\varphi(K) \cong K$ perfetto, il numero di radici distinte di $(\varphi \circ \mu_\alpha)(x)$ coincide con
+    $\deg (\varphi \circ \mu_\alpha)(x) = \deg \mu_\alpha(x) = n$. 
+    ~\footnote{$\varphi$ è iniettiva, ossia $Ker \varphi = \{0\}$, quindi non può mandare il coefficiente direttore in 0.}
 \end{proof}
 
 \begin{corollary}[Numero di estensioni a $\overline K$ di un'estensione qualsiasi]
     \label{3.39}
     Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono $n$ immersioni:
-    \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{i|K} = \varphi
         \]
 \end{corollary}
 
@@ -4531,11 +4546,11 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
     \[ K \subset K(\alpha) \subset E
         \]
     con $[K(\alpha) : K] = m$ e $[E : K(\alpha)] = d$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$,
-    essendo $n = md$ (in pratica stiamo supponendo di aver già messo nell'estensione almeno un nuovo elemento), dunque per la \hyperref[3.37]{Proposzione 3.37} $\varphi$ si estende in $m$ modi a $K(\alpha)$:
-    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    essendo $n = md$ (in pratica stiamo supponendo di aver già messo nell'estensione almeno un nuovo elemento), dunque per la \hyperref[3.37]{Proposizione 3.37} $\varphi$ si estende in $m$ modi a $K(\alpha)$:
+    \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{i|K} = \varphi
         \]
     Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \overline K$ si estende a sua volta per ipotesi induttiva:
-    \[ \varphi_{i1},\ldots,\varphi_{1d} : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{ij|K(\alpha)} = \varphi_i
+    \[ \varphi_{i1},\ldots,\varphi_{id} : E \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{ij|K(\alpha)} = \varphi_i
         \]
     dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ovvero $md = n$ estensioni, con $\varphi_{ij | K(\alpha)} = \varphi_i $, per cui $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi tutte le $n$ estensioni funzionano.
 \end{proof}
@@ -4544,7 +4559,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \subsection{Estensioni normali}
 
 \begin{definition}
-    Dato $\alpha \in \overline K$, diciamo che i \vocab{coniugati} di $\alpha$ su $K$ sono le radici del polinomio minimo di $\alpha$ su $K$. 
+    Dato $\alpha \in \overline K$, diciamo che i \vocab{coniugati} di $\alpha$ su $K$ sono le radici in $\overline K$ del polinomio minimo di $\alpha$ su $K$. 
 \end{definition}
 
 \begin{definition}
@@ -4555,10 +4570,11 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \end{definition}
 
 Nella trattazione di teoria di campi di queste dispense considereremo soltanto estensioni separabili.
+Abbiamo visto che su un campo perfetto ogni polinomio irriducibile è separabile.
 
 \begin{example}
     Sia $f(x) = x^3 - 2$, tale polinomio coincide con $\mu_{\sqrt[3]{2}/\QQ}(x)$, ovvero il polinomio minimo di $\alpha = \sqrt[3]{2}$ su $\QQ$, vogliamo studiare le immersioni di $\QQ(\alpha)$ in $\overline \QQ$:
-    \[ \varphi : \QQ(\alpha) \varlonghookrightarrow \overline \QQ \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
+    \[ \varphi : \QQ(\alpha) \varlonghookrightarrow \overline \QQ \qquad \text{con} \quad \varphi_{|\QQ} = id_\QQ
         \]
     dati i coniugati di $\alpha$ (dunque le radici di $\mu_{\alpha/\QQ}$): $\alpha$, $\alpha\zeta_3$, $\alpha\zeta_3^2$, il nostro omomorfismo deve mandare ogni radice in un'altra, dunque abbiamo più possibilità:
     \[ \varphi(\alpha) = \begin{cases}
@@ -4581,11 +4597,13 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     Sia $p$ un primo e consideriamo il campo ciclotomico $p$-esimo $\QQ(\zeta_p)$; per tale campo abbiamo che:
     \[ \mu_{\zeta_p/\QQ} (x) = \frac{x^p - 1}{x -1} = x^{p-1} + \ldots + x + 1
         \] 
-    il quale è irriducibile perché è traslato di un $p$-Eisenstein, pertanto i coniugati di $\zeta_p$ sono $\zeta_p^i$, con $1 \leq i < p$ (ovvero sono $p-1$), da cui:
+    il quale è irriducibile perché è traslato di un $p$-Eisenstein,
+    \footnote{Cioè \mu(x+1) = \frac{(x+1)^p - 1}{(x+1)-1}} = \frac{x^p}{x} = x^{p-1}}
+    pertanto i coniugati di $\zeta_p$ sono $\zeta_p^i$, con $1 \leq i < p$ (ovvero sono $p-1$), da cui:
     \[ [\QQ(\zeta_p) : \QQ] = \phi(p) = p - 1 
         \]
     Le immersioni di $\faktor{\QQ(\zeta_p)}{\QQ}$ sono del tipo:
-    \[ \varphi_i : \QQ(\zeta_p) \longrightarrow \overline \QQ : \zeta_p \longmapsto \zeta_p^i \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
+    \[ \varphi_i : \QQ(\zeta_p) \longrightarrow \overline \QQ : \zeta_p \longmapsto \zeta_p^i \qquad \text{con} \quad \varphi_{i|\QQ} = id_\QQ
         \]
     ed abbiamo quindi $p - 1$ possibili immersioni, ancora una volta in accordo con la \hyperref[3.33]{Proposizione 3.33}, per cui abbiamo:
     \[ \varphi_i(\QQ(\zeta_p)) = \QQ(\varphi_i(\zeta_p)) = \QQ(\zeta_p^i) = \QQ(\zeta_p) \qquad \forall i \in \{1,\ldots,p-1\}
@@ -4596,7 +4614,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 
 \begin{definition}
     Un'estensione algebrica $\faktor{F}{K}$ si dice \vocab{normale} se:
-    \[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
+    \[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{|K} = id_K
         \]
     si ha che $\varphi(F) = F$, ovvero l'estensione viene fissata da ogni immersione del campo di partenza nella sua chiusura algebrica.
 \end{definition}
@@ -4607,10 +4625,10 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     \begin{itemize}
         \item $\QQ(\zeta_p)$ è un'estensione normale su $\QQ$.
         \item Detto $F = \QQ(\sqrt[3]{2},\zeta_3)$, allora l'estensione $\faktor{F}{\QQ}$ è normale, infatti data:
-        \[ \varphi : F \varlonghookrightarrow \overline \QQ \qquad \text{con} \qquad \varphi_{|\QQ} = id_\QQ
+        \[ \varphi : F \varlonghookrightarrow \overline \QQ \qquad \text{con} \quad \varphi_{|\QQ} = id_\QQ
             \]
-        con:
-        \[ \varphi(\QQ(\sqrt[3]{2},\zeta_3)) = \QQ(\varphi(\sqrt[3]{2}),\varphi(\zeta_3)) =\footnote{Le immagini di entrambi gli elementi devono essere loro coniugati per quanto detto in precedenza.} \,\QQ(\sqrt[3]{2}\zeta_3^i,\zeta_3^j) = \QQ(\sqrt[3]{2},\zeta_3)
+        abbiamo che:
+        \[ \varphi(\QQ(\sqrt[3]{2},\zeta_3)) = \QQ(\varphi(\sqrt[3]{2}),\varphi(\zeta_3)) =\footnote{Le immagini di entrambi gli elementi devono essere loro coniugati per quanto detto in precedenza.} ~ \QQ(\sqrt[3]{2}\zeta_3^i,\zeta_3^j) = \QQ(\sqrt[3]{2},\zeta_3)
             \]
         per $i \in \{0,1,2\}$ e $j \in \{1,2\}$ (dunque abbiamo 6 immersioni, come previsto dall'\hyperref[3.39]{Corollario 3.39}), quindi abbiamo $F$ invariante rispetto a $\varphi$, per cui $\faktor{F}{\QQ}$ è un'estensione normale.
     \end{itemize}
@@ -4630,41 +4648,41 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 \begin{proof}
     Verifichiamo le varie equivalenze:
     \begin{itemize}
-        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $F$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
+        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f(x)$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
         $\forall i \in \{1,\ldots,n\}$ consideriamo le immersioni:
-        \[ \varphi_i : K(\alpha_1) \varlonghookrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
+        \[ \varphi_i : K(\alpha_1) \varlonghookrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \quad \varphi_{i|K} = id_K
             \]
         esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33}, inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K(\alpha_i)$ si estende ad $F$
         in tanti modi quanti il grado $[F : K(\alpha_1)]$, pertanto, fissata un'estensione di $\varphi_i$:
-        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_1)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
+        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \overline K \qquad \text{con} \quad \widetilde{\varphi}_{i|K(\alpha_1)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
         dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\widetilde{\varphi}_i$, otteniamo tutte le altre radici dentro $F$:
-        \[ \widetilde{\varphi}_i(\alpha_1) = \varphi_i(\alpha_1) = \alpha_i \in F \qquad \forall i \in \{1,\ldots,n\}
+        \[ \alpha_i = \varphi_i(\alpha_1) = \widetilde{\varphi}_i(\alpha_1) \in F \qquad \forall i \in \{1,\ldots,n\}
             \]
         che prova la tesi.
         \item \underline{\textbf{$(2)\implies (3)$}}: Consideriamo $F_0$ il campo di spezzamento su $K$ della famiglia di polinomi:
-        \[ \mathcal{F} = \{\mu_\alpha(x) | \alpha \in F, \, \text{$\mu_\alpha(x)$ polinomio minimo di $\alpha$ su $K$}\}
+        \[ \mathcal{F} = \{\mu_\alpha(x) \mid \alpha \in F, \, \text{$\mu_\alpha(x)$ polinomio minimo di $\alpha$ su $K$}\}
             \]
-        abbiamo che $F \subseteq F_0$, poiché abbiamo aggiunto tutte le radici di tutti i polinomi minimi di tutti gli elementi di $F$, dunque $F_0$ contiene almeno $F$.
+        abbiamo che $F \subseteq F_0$, poiché abbiamo aggiunto tutte le radici del polinomio minimo di ogni elemento di $F$, dunque $F_0$ contiene $F$.
         D'altra parte:
-        \[ F_0 = K(\beta | \, \text{$\beta$ radice di $\mu_\alpha(x) \in \mathcal{F}$})
+        \[ F_0 = K(\beta \mid \text{$\beta$ radice di $\mu_\alpha(x) \in \mathcal{F}$})
             \]
         dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$, $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
         quindi $F = F_0$, per cui $F$ è proprio il campo di spezzamento dei polinomi della famiglia $\mathcal{F}$.
         \item \underline{\textbf{$(3)\implies (1)$}}: Consideriamo:
-        \[ \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
+        \[ \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \quad \varphi_{|K} = id_K
             \]
         vogliamo dimostrare che $\varphi(F) = F$, avendo per ipotesi che $F$ è il campo di spezzamento di:
         \[ \mathcal{F} = \{f_1(x),\ldots,f_k(x)\}
             \]
         per cui $\{\alpha_{ij}\}_{j = 1,\ldots,n_i}$ sono le radici di $f_i(x)$, dunque possiamo riscrivere $F$ come:
-        \[ F = K(\{\alpha_{ij}\} | i = 1,\ldots,k, j = 1, \ldots, n_i) \footnote{Potremmo anche considerare il campo di spezzamento del polinomio prodotto dei precedenti, ma le radici sarebbero sempre le stesse.}
+        \[ F = K(\{\alpha_{ij}\} \mid i = 1,\ldots,k, j = 1, \ldots, n_i) \footnote{Potremmo anche considerare il campo di spezzamento del polinomio prodotto dei precedenti, ma le radici sarebbero sempre le stesse.}
             \]
         Sappiamo che per ogni $i$ e $j$, poiché $\varphi$ è un'immersione deve mandare le radici in loro coniugati, dunque $\varphi(\alpha_{ij}) = \alpha_{ij^{\prime}}$ (ovvero un'altra radice dello stesso polinomio $f_i(x) \in K[x]$, con $\mu_{\alpha_{ij}} (x) \mid f_i(x)$), da cui abbiamo che:
         \begin{multline*}
             \varphi(F) = \varphi(K(\{\alpha_{ij}\} | i = 1,\ldots,k, j = 1, \ldots, n_i)) = \\
-             = K(\varphi(\alpha_{ij}) | i = 1,\ldots,k, j = 1, \ldots, n_i) \subset F
+             = K(\varphi(\alpha_{ij}) \mid i = 1,\ldots,k, j = 1, \ldots, n_i) \subset F
         \end{multline*}
         dove il contenimento segue dal fatto che abbiamo soltanto permutato gli elementi $\{\alpha_{ij}\}$, per cui $K \subset \varphi(F) \subset F$, ma poiché $F$ e $\varphi(F)$ hanno lo stesso grado finito su $K$,
         allora $\varphi(F) = F$.
@@ -4676,7 +4694,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 Sia $\faktor{F}{K}$ un'estensione, supponiamo di essere in caratteristica diversa da 2\footnote{Per la precisione, l'osservazione funziona anche in questo caso,
 infatti l'unico polinomio di grado 2 irriducibile in un campo di caratteristica 2 può essere solo $x^2+x+1$ (dato che tutti quei campi estendono $\F{2}$) e per questo si verifica che se $\alpha$ è una radice,
 $\alpha+1$ è l'altra radice e quindi effettivamente l'estensione è sempre di grado 2.}, con $[F : K] = 2$ e sia $\alpha \in F \setminus K \implies F = K(\alpha)$ abbiamo che quindi il polinomio minimo è della forma:
-\[ \mu_\alpha(x) = x^2 + bx + x \in K[x]
+\[ \mu_\alpha(x) = x^2 + bx + c \in K[x]
     \]
 con:
 \[ \alpha_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2} \implies \alpha = \frac{-b + \sqrt{\Delta}}{2} \implies F = K(\alpha) = K(\sqrt{\Delta})
@@ -4717,9 +4735,10 @@ Data una torre di estensioni $K \subset F \subset L$ in una fissata chiusura alg
 Per ipotesi sappiamo che:
 \[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|F} = id_F
     \]
-essendo $K \subset F$, allora $id_F$ include già $id_K$, quindi $\varphi_{|F} = id_F \implies \varphi_{|K} = id_K$, dato che $\faktor{L}{K}$ è normale,
-abbiamo $\varphi(L)=L$ per tutte le immersioni $\varphi$ di $L$ che fissano $K$, ma abbiamo visti che le immersioni che fissano $F$ fissano $K$ dunque $\varphi(L) = L$ anche un questo caso,
-pertanto $\faktor{L}{F}$ è normale. \\
+essendo $K \subset F$, allora $id_F$ include già $id_K$, quindi $\varphi_{|F} = id_F \implies \varphi_{|K} = id_K$. 
+Dato che $\faktor{L}{K}$ è normale, abbiamo $\varphi(L)=L$ per tutte le immersioni $\varphi$ di $L$ che fissano $K$, 
+ma abbiamo visto che le immersioni che fissano $F$ fissano anche $K$ dunque $\varphi(L) = L$ per tutte le immersioni di $L$ che fissano $F$,
+ovvero $\faktor{L}{F}$ è normale. \\
 \emph{Dimostrazione alternativa.}\footnote{Proposta da Francesco Sorce.}\; $\faktor{L}{K}$ normale significa che è campo di spezzamento di una famiglia di polinomi in $K[x]\subseteq F[x]$, quindi $L$ è il campo di spezzamento
 della stessa famiglia vista come polinomi in $F$.
 \end{proof}
