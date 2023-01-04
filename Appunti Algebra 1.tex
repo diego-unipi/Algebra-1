@@ -848,7 +848,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
         \[ \ord\sigma = [l_1,\ldots,l_k] = d
             \]
     osserviamo che $\sigma^d = (\sigma_1\ldots\sigma_k)^d = \sigma_1^d\ldots\sigma_k^d$, in quanto i cicli $\sigma_i$ sono disgiunti (pertanto commutano),
-    ed essendo $d = [l_1,\ldots,l_k]$ si ha che $d \mid l_i$, $\forall \in \{1,\ldots,k\}$, pertanto:
+    ed essendo $d = [l_1,\ldots,l_k]$ si ha che $l_i \mid d$, $\forall \in \{1,\ldots,k\}$, pertanto:
         \[ \sigma^d = \sigma_1^d\ldots\sigma_k^d = id \implies \ord \sigma = m \mid d
             \]
     d'altra parte, si ha che:
@@ -1410,7 +1410,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
             \[ \ord(x) \mid m \qquad \text e \qquad \ord(x) \mid m^{\prime} \implies \ord(x) \mid (m,m^{\prime}) = 1 \implies x = 0
                 \]
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
-            \[ mG = G_{m^{\prime}} = \{g \in G | m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = \{g \in G | mg = 0\}
+            \[ mG = G_{m^{\prime}} = \{g \in G | m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = G_m = \{g \in G | mg = 0\}
                 \]
         Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi; $m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}x \in G_m$, perché $mm^{\prime}x = nx = 0$, viceversa, preso 
         $x \in G_m$, ovvero $mx = 0$, per quanto visto sopra abbiamo che:
@@ -1428,30 +1428,33 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
             \[ G \cong H_1 \times \ldots \times H_n \qquad \text{con $H_i$ $p_i$-gruppo e $H_i<G$}
                 \]
         allora $H_i \subseteq G(p_i)$ (in quanto $G(p_i)$ contiene tutti gli elementi di ordine potenze di $p_i$), ma:
-            \[ |G| = |H_1| \ldots |H_s| = |G(p_1)| \ldots |G(p_s)| \implies\footnote{Ciò deriva dal fatto che per coprimalità tra gli altri fattori $|G(p_i)|$ divide $|H_i|$.} |H_i| = |G(p_i)| \qquad \forall i \in \{1,\ldots,s\}
+            \[ |G| = |H_1| \ldots |H_s| = |G(p_1)| \ldots |G(p_s)| \implies\footnote{Ciò deriva dal fatto che per coprimalità tra gli altri fattori $|G(p_i)|$ divide $|H_i|$, dunque vale anche la divisibilità inversa tra gli ordini.} |H_i| = |G(p_i)| \qquad \forall i \in \{1,\ldots,s\}
                 \]
         quindi segue che $H_i = G(p_i)$, $\forall i \in \{1,\ldots,s\}$. 
 \end{proof}
 
 \begin{lemma}
     \label{l:1.91}
-    Sia $G$ un $p$-gruppo abeliano, e sia $x_1$ un elemento di ordine massimo in $G$, preso $\overline x \in G/\left<x_1\right>$
-     esiste $y \in \pi^{-1}(\overline x) : \ord_G(y) = \ord_{G/\left<x_1\right>}(\overline x)$.
+    Sia $G$ un $p$-gruppo abeliano e sia $x_1$ un elemento di ordine massimo in $G$, preso $\overline x \in \faktor{G}{\left<x_1\right>}$
+     esiste $y \in \pi^{-1}_{\left<x_1\right>}(\overline x) : \ord_G(y) = \ord_{G/\left<x_1\right>}(\overline x)$, ovvero preso un elemento nel quoziente, esiste sempre un elemento nella sua fibra con lo stesso ordine.
 \end{lemma}
 
 \begin{proof}
-    Osserviamo che $\pi^{-1}(\overline x) = x + \left<x_1\right>$, dunque $y \in \pi^{-1}(\overline x)$ è della forma:
+    Nelle ipotesi in cui siamo, sia $\pi^{-1}_{\left<x_1\right>}(\overline x) = \pi^{-1}_{\left<x_1\right>}(x + \left<x_1\right>)$, dunque l'elemento $y \in \pi^{-1}(\overline x)$ che cerchiamo è della forma:
         \[ y = x + ax_1
             \]
-    Sappiamo che $\pi(y) = \pi(x) = \overline x$, allora $p^r = \ord(\pi(y)) = \ord(\overline x) \mid \ord(y)$ (per le proprietà di omomorfismo), scegliamo $y$ (cioè $a$) in modo che:
-        \[ 0 = p^ry = p^rx + p^rax_1 \iff p^rx = -p^rax_1 
+    Sappiamo che $\pi_{\left<x_1\right>}(y) = \pi_{\left<x_1\right>}(x) = \overline x$ (stiamo considerando due elementi nella stessa classe laterale); dato che il quoziente è ancora un $p$-gruppo, sia $p^r = \ord_{\left<x_1\right>}(\pi_{\left<x_1\right>}(y)) = \ord_{\left<x_1\right>}(\overline x) \mid \ord_G(y)$ (per le proprietà di omomorfismo),
+    possiamo scegliere $y$ (scegliendo $a$\footnote{Infatti $x_1$ è fissato per ipotesi, mentre $x$ è fissato perché determinato da $\ol x$, sempre per ipotesi.}) in modo che il suo ordine sia esattamente $p^r$ (dalla divisibilità precedente sappiamo che $p^r$ divide il suo ordine):
+        \[ (p^ry =) p^rx + p^rax_1 = 0 \iff p^rx = -p^rax_1 
             \]
-    dove $\ord(\overline x) = p^r \implies p^rx \in \left<x_1\right> \implies p^rx = bx_1$, tuttavia, dato che $x_1$ ha ordine massimo $p^{r_1}$, deve essere che $r \leq r_1$, ma:
-        \[ 0 = p^{r_1}x = p^{r_1 - r}p^rx = p^{r_1 - r}bx_1
+    dove essendo $\ord_{\left<x_1\right>}(\overline x) = p^r $ allora $p^rx \in \left<x_1\right>$ (ovvero la sua proiezione modulo $\left<x_1\right>$, sta nella classe laterale banale) dunque $p^rx = bx_1$. Per ipotesi avevamo assunto che $x_1$ ha ordine massimo,
+    chiamiamolo $p^{r_1}$, deve essere che $r \leq r_1$, ma:
+        \[ 0 = p^{r_1}x \iff\footnote{Abbiamo moltiplicato e diviso per $p^r$.} p^{r_1 - r}p^rx = 0 \iff  p^{r_1 - r}bx_1 = 0
             \]  
-    ma $\ord(x_1) = p^{r_1} \implies p^r \mid b \implies b = p^rb_1$. Scegliendo $a = -b_1$ si ha:
+    quindi l'ultima uguaglianza è vera se e solo se $p^{r_1}\mid p^{r_1 - r}b$ (essendo $\ord_G(x_1) = p^{r_1}$), dunque se e solo se $p^r \mid b \implies b = p^rb_1$. Infine, scegliendo $a = -b_1$ e sostituendo nell'espressione iniziale, si ha:
         \[ p^ry = p^rx - p^rb_1x_1 = bx_1 - \underbrace{p^rb_1}_{= b}x_1 = 0
             \]
+    pertanto $y = x -b_1x_1 \in G$ realizza la proprietà richiesta.
 \end{proof}
 
 \pagebreak
@@ -1479,7 +1482,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
-            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
             Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
@@ -4154,7 +4157,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 \end{proof}
 
 \begin{remark}
-    Il viceversa della \hyperref[3.11]{Proposizione 3.11} in generale è falso; non lo è ad esempio nel caso in cui l'estensione sia semplice, come visto nella \hyperref[3.7]{Proposizione 3.7}.
+    Il viceversa della \hyperref[3.11]{Proposizione 3.11} in generale è falso; non lo è nel caso in cui l'estensione sia semplice, come visto nella \hyperref[3.7]{Proposizione 3.7}.
 \end{remark}
 
 \begin{example}
@@ -4199,7 +4202,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \pagebreak
 \begin{remark}
-    Della \hyperref[3.16]{Proposizione 3.16} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$ base di $L$, allora 
+    Della \hyperref[3.16]{Proposizione 3.16} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$-base di $L$, allora 
     è vero che è finitamente generata:
     \[ L = \left<v_1,\ldots,v_n\right>_K = K(v_1,\ldots,v_n)
         \]
@@ -4825,8 +4828,8 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
 \newpage
 \subsection{Gruppo di Galois di $\F{q^d}/\F{q}$}
 
-\begin{proposition}[L'estensione $\faktor{\F{q^d}}{\F{q}}$]
-    Data l'estensione $\faktor{\F{q^d}}{\F{q}}$, con $q = p^r$, allora è normale.
+\begin{proposition}[L'estensione $\F{q^d}/\F{q}$]
+    Data l'estensione $\F{q^d}/\F{q}$, con $q = p^r$, essa è normale.
 \end{proposition}
 
 \begin{proof}
@@ -4834,7 +4837,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
     \[ \forall \varphi : \Fpn \varlonghookrightarrow \overline \Fp
         \]
     $\varphi(\Fpn)$ è un sottocampo di $\overline\Fp$ con $p^n$ elementi (essendo $\varphi$ iniettiva), e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
-    pertanto l'estensione è normale.
+    pertanto l'estensione è normale.\footnote{Alternativamente si ricorda che in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo costruito tutte le estensioni $\Fpn$ di campi finiti $\Fp$, come campi di spezzamento del polinomio $f(x) = x^{p^n} - x \in \Fp[x]$.}
 \end{proof}
 
 \begin{remark}
