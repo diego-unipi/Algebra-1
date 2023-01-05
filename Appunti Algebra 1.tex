@@ -1,7 +1,6 @@
 \documentclass[11pt]{scrartcl}
 \usepackage[italian]{babel}
 \usepackage[sexy]{evan}
-\usepackage{wrapfig}
 
 
 \begin{document}
@@ -18,12 +17,12 @@
 
 \section*{Ringraziamenti}
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti.
+\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
 	\centering
-	\includegraphics[width=0.2\textwidth]{licenza.png}
+	\href{https://creativecommons.org/licenses/by-nc/4.0/deed.it}{\includegraphics[width=0.2\textwidth]{licenza.png}}
 \end{wrapfigure}
 
 Quest'opera è stata rilasciata con licenza Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale. Per leggere
@@ -595,7 +594,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
     infine, per l'iniettività si ha che:
         \[ \ker \lambda = \{g \in G | \lambda(g) = \varphi_g = id = \varphi_e\} = \{e\}
             \]
-    da ciò segue che $G \cong \Imm(G) \leqslant S(G)$, e se $|G| = n$ si ha che $\Imm(G) \leqslant S_n$.
+    da ciò segue che $G \cong \lambda(G) \leqslant S(G)$, e se $|G| = n$ si ha che $\Imm(G) \leqslant S_n$.
 \end{proof}
 
 \begin{remark}
@@ -970,7 +969,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
                 l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
                     \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
                         \]
-                Se, invece, $x \ne b_i$, a sinistra si ha $\tau^{-1}(x) \ne a_1,\ldots,a_k$ (perché non si parte da alcun $b_i$), quindi $\sigma(\tau^{-1}(x)) = \tau^{-1}(x)$, e quindi
+                Se, invece, $x \ne b_i$, $\forall i \in \{1,\ldots,k\}$, a sinistra si ha $\tau^{-1}(x) \ne a_1,\ldots,a_k$ (perché non si parte da alcun $b_i$), quindi $\sigma(\tau^{-1}(x)) = \tau^{-1}(x)$, e quindi
                 $\tau\sigma\tau^{-1}(x) = \tau \tau^{-1} (x) = x$; a destra invece, essendo $x \ne b_i \forall i$ viene lasciato fisso, ciò conclude che le due funzioni sono uguali e quindi $\tau\sigma\tau^{-1}$ è un $k$-ciclo.
             \item Mostriamo ora che due permutazioni con la stessa fattorizzazione in cicli disgiunti sono coniugate. Siano:
                 \[ \sigma = \cycle{a_1, \ldots, a_l}\cycle{b_1, \ldots, b_s} \ldots \cycle{z_1, \ldots, z_t}
@@ -1461,7 +1460,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     chiamiamolo $p^{r_1}$, deve essere che $r \leq r_1$, ma:
         \[ 0 = p^{r_1}x \iff\footnote{Abbiamo moltiplicato e diviso per $p^r$.} p^{r_1 - r}p^rx = 0 \iff  p^{r_1 - r}bx_1 = 0
             \]  
-    quindi l'ultima uguaglianza è vera se e solo se $p^{r_1}\mid p^{r_1 - r}b$ (essendo $\ord_G(x_1) = p^{r_1}$), dunque se e solo se $p^r \mid b \implies b = p^rb_1$. Infine, scegliendo $a = -b_1$ e sostituendo nell'espressione iniziale, si ha:
+    e l'ultima uguaglianza è vera se e solo se $p^{r_1}\mid p^{r_1 - r}b$ (essendo $\ord_G(x_1) = p^{r_1}$), dunque se e solo se $p^r \mid b \implies b = p^rb_1$. Infine, scegliendo $a = -b_1$ e sostituendo nell'espressione iniziale, si ha:
         \[ p^ry = p^rx - p^rb_1x_1 = bx_1 - \underbrace{p^rb_1}_{= b}x_1 = 0
             \]
     pertanto $y = x -b_1x_1 \in G$ realizza la proprietà richiesta.
