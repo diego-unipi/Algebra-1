@@ -14,7 +14,7 @@
 \newpage
 
 \tableofcontents
-\eject
+
 \newpage
 
 \section*{Ringraziamenti}
@@ -418,7 +418,7 @@ tutti distinti.
         sr^h = (r^m)^t sr^l \iff sr^h = s^2r^{mt}sr^l \iff r^h = r^{-mt + l}
         \iff h \equiv l - mt \pmod n
         \]da cui ricaviamo $h \equiv l \pmod m$ in quanto $m \mid n$. Ma allora 
-        $h =l$ dato che $0 \leq h < k$ e $0\leq l < m$.
+        $h =l$ dato che $0 \leq h < k$, $0\leq l < m$ e $k = l$.
     \end{itemize}
 \end{proof}
 
@@ -1035,7 +1035,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
     \]è un'azione transitiva valgono i seguenti fatti:
     \begin{enumerate}[(1)]
         \item per ogni $x, y \in X$ esiste $g \in G$ tale che $g\St(x)g^{-1} = \St(y)$;
-        \item se $|X|\geqslant 2$ allora esiste $g \in G$ che agisce su $X$ senza
+        \item se $|X|\geqslant 2$ e $G$ è finito allora esiste $g \in G$ che agisce su $X$ senza
         punti fissi, cioè tale che $\varphi_g(x) \neq x$ per ogni $x \in X$.
     \end{enumerate}
 \end{proposition}
@@ -3328,7 +3328,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
 
 \begin{proof}
     Dall'inclusione $C \subseteq C[x]$ abbiamo che $C$ è un dominio di integrità.
-    L'ideale $(x)$ è quindi primo in $C[x]$ in quanto $\faktor{C[x]}{(x)} \cong X$
+    L'ideale $(x)$ è quindi primo in $C[x]$ in quanto $\faktor{C[x]}{(x)} \cong C$
     è un dominio, quindi è massimale dato che $C[x]$ è un PID. Pertanto 
     $C$ è un campo.
 \end{proof}
@@ -3574,7 +3574,7 @@ norma complessa, pertanto è una funzione moltiplicativa.
 \end{lemma}
 
 \begin{proof}
-    Supponiamo per assurdo che $p$ sia irriducibile in $\ZZ[i]$, scriviamo quindi
+    Supponiamo per assurdo che $p$ non sia irriducibile in $\ZZ[i]$, scriviamo quindi
     la fattorizzazione
     \[
         p = (a + ib)(c + id)
@@ -3780,7 +3780,8 @@ quozienti sono dei domini finiti, quindi dei campi.
             \{a + bi \mid 0\leq a\leq p - 1, 0\leq b\leq p -1\}
         \]
         che è isomorfo a $\Zp\times\Zp$. Osserviamo che il quoziente
-        $\faktor{(a + bi)}{(p)}$ ha cardinalità 1, $p$, oppure $p^2$. Questa 
+        $\faktor{(a + bi)}{(p)}$ ha cardinalità 1, $p$, oppure $p^2$ in quanto,
+        come gruppo, è isomorfo a un sottogruppo di $\Zp\times\Zp$. Questa 
         non può essere 1 in quanto altrimenti si avrebbe l'identità
         \[
             (a + bi) = ((a + bi)(a - bi))
