@@ -4444,7 +4444,7 @@ Osservazione importante:
 Le $\varphi_i$ che abbiamo trovato mandano $\alpha$ in una radice di $\mu_\alpha(x)$. 
 Ragionando in modo analogo per le altri radici e sfruttando l'iniettività di $\varphi_i$ possiamo concludere che le $\varphi_i$ agiscono sull'insieme delle radici di $\mu_\alpha(x)$ permutandole. \\
 
-Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$. 
+Dalla proposizione appena dimostrata ci poniamo un secondo problema: quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$. 
 Essendo $\overline K$ algebricamente chiuso, il numero delle radici del polinomio, ciascuna contata con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$; 
 a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple possiamo fare uso del criterio che segue.
 
@@ -4461,7 +4461,7 @@ a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple 
     il secondo caso si realizza se e solo se $f^{\prime}(x) = 0$ (dato che $\deg f^{\prime}(x) < \deg f(x)$).
 \end{proof}
 
-Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il numero delle loro radici distinte coincide con il loro grado.
+Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il numero delle loro radici distinte in $\overline K$ coincide con il loro grado.
 
 \begin{definition}
     Un campo $K$ tale che tutti i polinomi irriducibili in $K[x]$ hanno derivata non nulla prende il nome di \vocab{campo perfetto}.
@@ -4563,14 +4563,16 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \end{definition}
 
 \begin{definition}
-    Data un'estensione algebrica $K \subset L$, essa si dice \vocab{separabile} se il polinomio minimo di ogni elemento è un
-    \vocab{polinomio separabile}, ovvero se ha radici tutte distinte in un suo campo di spezzamento.\footnote{Questa definizione
-    è stata aggiunta per completezza al materiale della professoressa, infatti verrà citata successivamente qualche volta, pertanto, sebbene non vi sarà una trattazione ulteriore 
-    a riguardo, ho ritenuto opportuno aggiungerla qui.}
+    Data un'estensione algebrica $K \subset L$, essa si dice \vocab{separabile} se il polinomio minimo di ogni elemento di $L$ è un
+    \vocab{polinomio separabile}, ovvero ha radici tutte distinte nel suo campo di spezzamento (o equivalentemente in una chiusura algebrica di $K$).
+    \footnote{Questa definizione è stata aggiunta per completezza al materiale della professoressa, infatti verrà citata successivamente qualche volta; 
+    pertanto, sebbene non vi sarà una trattazione ulteriore a riguardo, ho ritenuto opportuno aggiungerla qui.}
 \end{definition}
 
 Nella trattazione di teoria di campi di queste dispense considereremo soltanto estensioni separabili.
-Abbiamo visto che su un campo perfetto ogni polinomio irriducibile è separabile.
+\footnote{Abbiamo visto che su un campo perfetto ogni polinomio irriducibile è separabile.
+Questo implica che le estensioni algebriche di un campo perfetto sono separabili, dato che i polinomi minimi sono polinomi irriducibili.
+Quindi limitandoci ai campi perfetti effettivamente abbiamo a che fare solo con estensioni separabili.}
 
 \begin{example}
     Sia $f(x) = x^3 - 2$, tale polinomio coincide con $\mu_{\sqrt[3]{2}/\QQ}(x)$, ovvero il polinomio minimo di $\alpha = \sqrt[3]{2}$ su $\QQ$, vogliamo studiare le immersioni di $\QQ(\alpha)$ in $\overline \QQ$:
@@ -4767,19 +4769,21 @@ della stessa famiglia vista come polinomi in $F$.
 \subsection{Gruppo di Galois}
 \begin{definition}
     Un'estensione $\faktor{E}{K}$ si dice \vocab{estensione di Galois} se è normale e separabile.
+    \footnote{Dato che in queste dispense consideriamo solo estensioni separabili, per noi "estensione di Galois" è equivalente a "estensione normale".}
 \end{definition}
 
-In queste dispense tratteremo soltanto il caso di estensioni di Galois finite.
-Poiché $\faktor{E}{K}$ è normale possiamo considerare l'insieme:
-\[ \{\varphi : E \varlonghookrightarrow \overline K| \varphi_{|K} = id_K\}
+In queste dispense tratteremo soltanto il caso di estensioni di Galois finite. \\ \\
+Consideriamo l'insieme:
+\[ \{\varphi : E \varlonghookrightarrow \overline K \mid \varphi_{|K} = id_K\}
     \]
-considerando ora lo stesso insieme, poiché l'estensione è normale, dunque $\varphi(E) = E$ per ogni $\varphi$, possiamo restringere l'insieme di arrivo degli omomorfismi ottenendo:
-\[ \Aut_K E = \{\varphi : E \underset{\sim}{\longrightarrow} E| \varphi_{|K} = id_K\}
+Poiché $\faktor{E}{K}$ è normale, dunque $\varphi(E) = E$ per ogni $\varphi$, possiamo restringere il codominio ottenendo:
+\[ \Aut_K E = \{\varphi : E \overset{\sim}{\longrightarrow} E \mid \varphi_{|K} = id_K\}
+   \footnote{\varphi è iniettiva perché omomorfismo da un campo e surgettiva (dopo aver ristretto il codominio) grazie all'ipotesi di normalità, quindi è un automorfismo di E.}
     \]
 i $K$-automorfismi di $E$, cioè gli automorfismi dell'estensione che fissano $K$, tale insieme con l'operazione di composizione forma il \vocab{gruppo di Galois}:
 \[ \Gal\left(\faktor{E}{K}\right) := \Aut_K(E)
     \]
-con:
+e per il corollario 3.39 (ricordiamo che come sempre E è perfetto)
 \[ \Big|\Gal\left(\faktor{E}{K}\right)\Big| = [E : K]
     \]
 
@@ -4788,7 +4792,7 @@ con:
 \end{proposition}
 
 \begin{proof}
-    Essendo un sottoinsieme del gruppo degli automorfismi di un campo, è sufficiente mostrare che un sottogruppo, dunque date $\varphi,\psi \in \Gal\left(\faktor{E}{K}\right)$, allora 
+    Essendo un sottoinsieme del gruppo degli automorfismi di un campo, è sufficiente mostrare che è un suo sottogruppo, dunque date $\varphi,\psi \in \Gal\left(\faktor{E}{K}\right)$, allora 
     si verifica che $\varphi \circ \psi \in \Gal\left(\faktor{E}{K}\right)$, inoltre, essendo automorfismi sono invertibili e i loro inversi sono ancora automorfismi, dunque:
     \[ \forall \varphi \in \Gal\left(\faktor{E}{K}\right) \implies \varphi^{-1} \in \Gal\left(\faktor{E}{K}\right)
         \]
@@ -4804,7 +4808,7 @@ con:
 
 \begin{proof}
     Dette $\alpha_1,\ldots,\alpha_n$ le radici di $f(x)$ in $\overline K$, allora $F = K(\alpha_1,\ldots,\alpha_n)$, da cui si ha la torre:
-    \[ K \subseteq K(\alpha_1) \subseteq F \implies n = [K(\alpha_1) : K] \mid [F : K] = \Big|\Gal\left(\faktor{F}{K}\right)\Big|
+    \[ K \subseteq K(\alpha_1) \subseteq F \implies n = [K(\alpha_1) : K] \Big| [F : K] = \Big|\Gal\left(\faktor{F}{K}\right)\Big|
         \]
     dove la divisibilità segue ovviamente dal \hyperref[torri]{Teorema delle torri}. Consideriamo ora:
     \[ \phi: \Gal\left(\faktor{F}{K}\right) \longrightarrow S(\{\alpha_1,\ldots,\alpha_n\}) \cong S_n : \varphi \longmapsto \varphi_{|\{\alpha_1,\ldots,\alpha_n\}}
@@ -4812,25 +4816,25 @@ con:
     Osserviamo che:
     \begin{itemize}
         \item \underline{\textbf{$\phi$ è ben definita}}: poiché $\forall \varphi \in \Gal\left(\faktor{F}{K}\right)$, $\varphi$ permuta le radici di $f(x)$ poiché manda ciascuna in un suo coniugato.
-        \item \underline{\textbf{$\phi$ è un omomorfismo}}: si verifica direttamente che:
-        \[ \phi(\varphi \circ \psi) = (\varphi \circ \psi)_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \varphi(\psi{|{\{\alpha_1,\ldots,\alpha_n\}}}) = \varphi_{|{\{\alpha_1,\ldots,\alpha_n\}}} \circ \psi_{|{\{\alpha_1,\ldots,\alpha_n\}}}
+        \item \underline{\textbf{$\phi$ è un omomorfismo}}: si verifica direttamente che $\forall \varphi,\psi \in \Gal\left(\faktor{F}{K}\right)$:
+        \[ \phi(\varphi \circ \psi) = (\varphi \circ \psi)_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \varphi(\psi_{|{\{\alpha_1,\ldots,\alpha_n\}}}) = \varphi_{|{\{\alpha_1,\ldots,\alpha_n\}}} \circ \psi_{|{\{\alpha_1,\ldots,\alpha_n\}}}
             \]
-        $\forall \phi,\psi \in \Gal\left(\faktor{F}{K}\right)$, in questo caso stiamo restringendo $\varphi$ alle radici perché $\psi$ sulle radici ha immagine nelle radici, per quanto detto sopra.    
+        in questo caso stiamo restringendo $\varphi$ alle radici perché $\psi$ sulle radici ha immagine nelle radici, per quanto detto sopra.    
         \item \underline{\textbf{$\phi$ è iniettiva}}: poiché, avendo dimostrato che è un omomorfismo possiamo studiarne il nucleo:
         \[ \ker \phi = \left\{\varphi \in \Gal\left(\faktor{F}{K}\right) \m \varphi(\alpha_i) = id(\alpha_i) = \alpha_i, \forall i \in \{1,\ldots,n\}\right\} = \{id\}
             \]
         dove l'ultima uguaglianza è data dal fatto che se $\varphi$ fissa tutti i generatori di $\faktor{F}{K}$, l'unica possibilità è che sia l'identità (banalmente perché stiamo considerando funzioni che permutano delle radici,
         dunque ce n'è una sola che le lascia tutte fisse ed è l'identità). In alternativa si poteva anche osservare che $\varphi$ è in particolare $K$ lineare e le radici formano una base su $K$ di $F$, dunque dato che $\varphi$ coincide
-        con l'identità su queste essa è l'identità.
+        con l'identità su queste, essa è l'identità.
     \end{itemize}
 \end{proof}
 
 \begin{remark}
 Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agisce fedelmente su $\{\alpha_1,\ldots,\alpha_n\}$. Inoltre tale azione è transitiva perché ha un'unica orbita:
-\[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) \m \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
+\[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) ~\Big|~ \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
 infatti, essendo $[K(\alpha_1) : K] = n$, allora ho esattamente $n$ immersioni che permutano i coniugati (ognuna delle quali si può estendere ad $F$):
-\[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_i
+\[ \exists~ \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_i \qquad \forall i \in \{1,\ldots,n\}
     \]
 e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 \end{remark}
@@ -4839,11 +4843,16 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
     [Gruppo di Galois]
     Sia $K$ un campo e $f(x) \in K[x]$ irriducibile, con $F$ campo di spezzamento di $f(x)$ su $K$, studiamo il gruppo di Galois di $\faktor{F}{K}$ al variare del grado di $f(x)$:
     \begin{itemize}
-        \item Se $\deg f(x) = 2$, allora $[F : K] = 2$, per la \hyperref[3.55]{Proposizione 3.55}, dunque $\Gal\left(\faktor{F}{K}\right) \cong \Z{2}$, pertanto $\Gal\left(\faktor{F}{K}\right) = \{id,\varphi\}$, dove, essendo $F = K(\sqrt{\Delta})$ abbiamo che:
+        \item Se $\deg f(x) = 2$, allora $[F : K] = 2$, dunque $\Gal\left(\faktor{F}{K}\right) \cong \Z{2}$, pertanto $\Gal\left(\faktor{F}{K}\right) = \{id,\varphi\}$, dove, essendo $F = K(\sqrt{\Delta})$ abbiamo che:
         \[ id : a+b\sqrt{\Delta} \longmapsto a+b\sqrt{\Delta} \qquad \text{e} \qquad \varphi : a+b\sqrt{\Delta} \longmapsto a-b\sqrt{\Delta}
             \]
-        o analogamente, se fosse $f(x) = (x - \alpha_1)(x - \alpha_2 )$ le applicazioni sarebbero state tali che $id : \alpha_1 \longmapsto \alpha_1$ e $\varphi : \alpha_1 \longmapsto \alpha_2$.
-        \item Se $\deg f(x) = 3$, allora $3 \mid [F : K] \mid 6$, per la \hyperref[3.55]{Proposizione 3.55} sappiamo che $\Gal\left(\faktor{F}{K}\right) \leqslant S_3$ pertanto:
+        o analogamente, se fosse $f(x) = (x - \alpha_1)(x - \alpha_2 )$ le applicazioni sarebbero state tali che 
+	\begin{align*}
+            id : \alpha_1 \longmapsto \alpha_1, \alpha_2 \longmapsto \alpha_2 \\
+            \varphi : \alpha_1 \longmapsto \alpha_2, \alpha_2 \longmapsto \alpha_1
+        \end{align*}
+        \item Se $\deg f(x) = 3$, allora per la \hyperref[3.55]{Proposizione 3.55} vale
+	$3 \mid [F : K] \mid 6$ e $\Gal\left(\faktor{F}{K}\right) \leqslant S_3$ pertanto:
         \[ \Gal\left(\faktor{F}{K}\right) \cong \begin{cases}
             \mathcal{A}_3 \cong \Z{3} \\
             S_3
@@ -4854,12 +4863,19 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 \end{example}
 
 \begin{example}
-    Se fosse $f(x) = x^3 - 2$, con $K = \QQ$ e $F = \QQ(\sqrt[3]{2},\zeta_3) \implies [F : K] = 6$ e quindi $\Gal\left(\faktor{F}{K}\right) \cong S_3$; per quanto detto sulle immersioni sappiamo che qualsiasi automorfismo del gruppo di Galois 
-    deve mandare un elemento nei suoi coniugati, quindi abbiamo in totale appunto 6 possibili immersioni al variare di $\varphi$:
-    \[ \varphi(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i \qquad \text{e} \qquad \varphi(\zeta_3) = \zeta_3^j \qquad \text{con}\quad i \in \{0,1,2\},j \in \{0,1\}
+    Se fosse $f(x) = x^3 - 2$, con $K = \QQ$ e $F = \QQ(\sqrt[3]{2},\zeta_3) \implies [F : K] = 6$ e quindi $\Gal\left(\faktor{F}{K}\right) \cong S_3$ (ricordiamo che questa estensione è normale, quindi di Galois). \\
+    Infatti, per quanto detto sulle immersioni sappiamo che qualsiasi automorfismo del gruppo di Galois 
+    deve mandare le radici di $f(x)$ nei suoi coniugati, quindi abbiamo 6 possibili immersioni:
+    \[ \varphi(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i \qquad \text{e} \qquad \varphi(\zeta_3) = \zeta_3^j \qquad \text{con}\quad i \in \{0,1,2\},j \in \{1,2\}
         \]
-    Necessariamente $\varphi$ deve verificare le relazioni sopra\footnote{E per la precisione, affinché il discorso fatto sopra funzioni gli elementi devono essere algebricamente indipendenti.} che
-    danno al più 6 possibili $\varphi$. Poiché il grado è 6, tutte e 6 funzionano cioè si estendono ad $F$, ciò perché:
+    Necessariamente $\varphi$ deve verificare le relazioni sopra che danno al più 6 possibilità. 
+    \footnote{Definire gli omomorfismi sui generatori ci dà un upper bound perché in generale ci potrebbero essere delle relazioni ulteriori tra questi generatori;
+    quindi non tutte le immersioni $\varphi$ potrebbero andar bene. 
+    Se i generatori sono algebricamente indipendenti (cioè non sussistono relazioni di tipo polinomiale tra loro), 
+    allora tutte le $\varphi$ funzionano e possiamo contarle in modo combinatorio contando le scelte per ogni generatore. \\
+    Detto questo non è facile mostrare che due elementi sono indipendenti (bisognerebbe mostrare che ogni possibile relazione polinomiale non è verificata), 
+    quindi nella pratica si preferisce ricorrere ad argomenti più generali (per esempio il corollario 3.39).}
+    Ma dalla teoria sappiamo che ci devono essere esattamente 6 estensioni:
     \[ \begin{tikzpicture}
         \node (Q1) at (0,0) {$\QQ$};
         \node (Q2) at (1.5,1.5) {$\QQ(\zeta_3)$};
@@ -4872,21 +4888,22 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
         \draw (Q1)--(Q3) node [pos=0.7, below, right,inner sep=0.25cm, yshift=-0.4cm]{};
         \end{tikzpicture}
     \]
-    ovvero $[F : \QQ] = [Q (\sqrt[3]{2}) : \QQ][\QQ(\zeta_3) : \QQ] = 6$.
+    ovvero $[F : \QQ] = [Q (\sqrt[3]{2}) : \QQ][\QQ(\zeta_3) : \QQ] = 6$. \\
+    Quindi effettivamente tutte le $\varphi$ che avevamo trovato funzionano.
 \end{example}
 
 \begin{example}[Vi sconsiglio caldamente di leggere quest'esempio prima che l'abbia riscritto]
 \footnote{Questo è l'esercizio risolto dalla Del Corso con la spiegazione più contorta in assoluto, prometto di riscriverlo per bene nella prima revisione.}
-Consideriamo $f(x) = x^3 + x^2 - 2x -1$, ovvero il polinomio minimo di $\zeta_7+\zeta_7^{-1}$ su $\QQ$ e $\faktor{\QQ(\zeta_7+\zeta^{-1})}{\QQ}$, che è normale, quindi 
-di Galois\footnote{Ciò sempre in virtù del fatto che stiamo lavorando soltanto su estensioni separabili.}, abbiamo quindi che:
+Consideriamo $f(x) = x^3 + x^2 - 2x -1$, ovvero il polinomio minimo di $\zeta_7+\zeta_7^{-1}$ su $\QQ$ e $\faktor{\QQ(\zeta_7+\zeta_7^{-1})}{\QQ}$, 
+che è normale (quindi di Galois) e dunque abbiamo che:
 \[ \Gal\left(\faktor{\QQ(\zeta_7+\zeta_7^{-1})}{\QQ}\right) \cong \mathcal{A}_3
     \]
-verifichiamo quanto appena detto. Abbiamo che $[\QQ(\zeta_7) : \QQ] = \phi(7) = 6$, pertanto:
+Verifichiamo quanto appena detto. Abbiamo che $[\QQ(\zeta_7) : \QQ] = \phi(7) = 6$, pertanto:
 \[ \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) = \{\varphi : \zeta_7 \longmapsto \zeta_7^i | (i,7) = 1\}
     \]
 Osserviamo che il polinomio scritto sopra è proprio il polinomio minimo di $\alpha = \zeta_7+\zeta_7^{-1} \in \QQ(\zeta_7)$, infatti per l'appartenenza appena citata sappiamo che tutte le radici
 di $\mu_{\zeta_7+\zeta_7^{-1}}(x)$ stanno in $\QQ(\zeta_7)$, ed esse sono:
-\[ \left\{\varphi(\alpha) \m \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) \right\}
+\[ \left\{\varphi(\alpha) \mid \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) \right\}
     \]
 le radici sono queste poiché, data la torre:
 \[ \QQ \subseteq \QQ(\alpha) \subseteq \QQ(\zeta_7)
