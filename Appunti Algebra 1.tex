@@ -3940,10 +3940,12 @@ Ci limiteremo a studiare le cosiddette terne primitive, dove $(x,y,z) = 1$ (le a
     quindi $p \mid 2x$ e $p \mid 2yi \implies p \mid 2y$, 
     \footnote{Come vedremo nella prossima osservazione, $i$ è invertibile in $\ZZ[i]$, quindi $p$ non può dividere $i$ altrimenti sarebbe anch'esso invertibile (infatti sarebbe associato a un elemento invertibile), che è assurdo per definizione di elemento primo. \\
     [In realtà si poteva considerare direttamente l'ideale $(2x, 2y, x^2+y^2)$ in quanto $2y = (2yi)i^3 \in I$ perché $2yi \in I$]}
-    da cui $p = 2$ (in quanto $(x,y) = 1$), 
-    ma $2 = p \mid x^2+y^2$, che però è dispari (perché $x$ e $y$ hanno diversa parità), 
-    dunque $I = (1)$ o equivalentemente $x+iy$ e $x-iy$ sono coprimi. 
-    Ciò siginifica che $x+iy$ e $x-iy$ sono dei quadrati (a meno di unità): 
+    da cui $p \mid 2$ (in quanto $(x,y) = 1$). 
+    In $\ZZ[i]$ la fattorizzazione in irriducibili di $2$ è $2 = -i(1+i)^2$, quindi $p = 1+i$ (a meno di associati); 
+    ma $1+i \mid a+bi \implies N(a+bi) = a^2+b^2$ è pari [in realtà vale "se e solo se" ma non ho voglia di scrivere l'altra freccia]
+    e $x^2+y^2$ è dispari (perché $x$ e $y$ hanno diversa parità), assurdo. 
+    Dunque $I = (1)$ o equivalentemente $x+iy$ e $x-iy$ sono coprimi. 
+    Ciò significa che $x+iy$ e $x-iy$ sono dei quadrati (a meno di unità): 
     infatti se fattorizziamo $z$ in irriducibili (ricordiamo che $\ZZ[i]$ è UFD), 
     un suo fattore primo non può appartenere sia a $x+iy$ che $x-iy$ (per coprimalità); 
     dato che $(x+iy)(x-iy) = z^2$, nel membro destro questi fattori primi compaiono come potenze con esponente pari 
