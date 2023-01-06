@@ -4168,7 +4168,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
     \]
     e l'equazione è verificata se e solo se il polinomio $t^{p^k} - t$ ha almeno
     $p^n$ radici, cioè se $k \geq n$. D'altra parte l'ordine di $\Phi$ deve 
-    dividere $n$, pertanto $\ord\Phi = n$. Quindi $\Phi$ è un generatore 
+    dividere $\Big|\Gal(\FF_{p^n}/\FF_p)\Big| = n$, pertanto $\ord\Phi = n$. Quindi $\Phi$ è un generatore 
     di $\Gal(\FF_{p^n}/\FF_p)$, che è isomorfo a $\Zn$.
 \end{proof}
 
@@ -4213,18 +4213,22 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
         Supponiamo per assurdo che $\psi(\zeta_n) = \zeta_n^k$ con $d = (k, n)\neq 1$, 
         allora
         \[
-            \psi(\zeta_n^{\frac n d})\psi(\zeta_n)^{\frac n d} = \zeta^{k\frac n d} = 
+            \psi(\zeta_n^{\frac n d}) = \psi(\zeta_n)^{\frac n d} = \zeta^{k\frac n d} = 
             \zeta^{\frac k d n} = 1
         \]
-        da cui $\zeta_n^{\frac n d} = 1$, che è assurdo in quanto $\ord \zeta_n = n$.
+        da cui $\zeta_n^{\frac n d} = 1$,
+        \footnote{$\psi$ è un omomorfismo di anelli con identità iniettivo, quindi l'unico elemento che può andare in 1 è proprio 1.}
+        che è assurdo in quanto $\ord \zeta_n = n$.
         Pertanto $\psi(\zeta_n) \in \{\zeta_n^k\mid k < n,~(n, k) = 1\}$, quindi
         $[\QQ(\zeta_n):\QQ] \leq \phi(n)$;
         \item siano $p$ un primo che non divide $n$, $f(x)$ e $g(x)$ i polinomi 
         minimi su $\QQ$ rispettivamente di $\zeta_n$ e $\zeta_n^p$, osserviamo
         che $f(x) \mid g(x^p)$ in quanto $g(\zeta_n^p) = 0$;
         \item supponiamo per assurdo $f(x) \neq g(x)$, allora $f(x)$ e $g(x)$
-        sono coprimi in $\QQ[x]$ ed entrambi dividono $x^n - 1$, pertanto $f(x)g(x) \mid x^n -1$.
-        Per il Lemma di Gauss esistono $q(x), r(x) \in \ZZ[x]$ tali che 
+        sono coprimi in $\QQ[x]$ (perché sono irriducibili) ed entrambi dividono $x^n - 1$, pertanto $f(x)g(x) \mid x^n -1$.
+        Per il Lemma di Gauss
+        \footnote{Queste divisibilità valgono in $\QQ[x]$ quindi, per un corollario del Lemma di Gauss, valgono anche in $ZZ[x]$.}
+        esistono $q(x), r(x) \in \ZZ[x]$ tali che 
         \[
             f(x)g(x)q(x) = x^n - 1\qquad f(x)r(x) = g(x^p)
         \]
