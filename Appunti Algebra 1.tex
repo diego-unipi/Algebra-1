@@ -17,7 +17,7 @@
 
 \section*{Ringraziamenti}
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, Leonardo Migliorini, Matteo Gori, Daniele Lapadula, Alessandro Fenu,
-\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti.
+\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
@@ -26,7 +26,7 @@
 \end{wrapfigure}
 
 Quest'opera è stata rilasciata con licenza Creative Commons Attribuzione - Condividi allo stesso modo 4.0 Internazionale. Per leggere
-una copia della licenza visita il sito web \href{http://creativecommons.org/licenses/by-sa/4.0/}{\textcolor{blue}{https://creativecommons.org/licenses/by-nc/4.0/deed.it}}.\\
+una copia della licenza visita il sito web \href{http://creativecommons.org/licenses/by-sa/4.0/deed.it}{\textcolor{blue}{https://creativecommons.org/licenses/by-nc/4.0/deed.it}}.\\
 
 \newpage
 \section{Gruppi}
@@ -693,7 +693,7 @@ da cui $\lambda$ fedele.
         \[ p^i = [\mathcal{G} : \mathcal{H}_i] = [G : H]
             \]
     dunque la catena esiste  e $|H_i| = p^{n-i}$ per $1\leq i \leq m$. Essendo $Z(G)$ abeliano, i sottogruppi di ogni suo ordine (che esistono sempre
-    per il \hyperref[davide]{Lemma Di Ranieri}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \mid z$), pertanto esiste la catena:
+    per il \hyperref[davide]{Lemma Di Ranieri}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \geq z$), pertanto esiste la catena:
         \[ \{e\} = H_n < \ldots < H_m = Z(G)
         \qquad \text{con $|H_j| = p^{n-j}$, $\forall m \leq j \leq n$} 
             \]
@@ -1778,7 +1778,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
     L'ultimo prodotto possibile è:
         \[ \Z{3} \rtimes_{\varphi} (\Z{2} \times \Z{2}) \qquad \text{con} \qquad \varphi : \Z{2} \times \Z{2} \longrightarrow \Aut(\Z{3}) \cong \Z{2}
             \]
-    se mandassimo tutti gli elementi nell'identità otterremmo un prodotto semidiretto, alternativamente, riscrivendo $\Z{2} \times \Z{2}$ come $\left<x\right> \times \left<y\right>$ (i cui elementi saranno $\{e,x,y,xy\}$), 
+    se mandassimo tutti gli elementi nell'identità otterremmo un prodotto diretto, alternativamente, riscrivendo $\Z{2} \times \Z{2}$ come $\left<x\right> \times \left<y\right>$ (i cui elementi saranno $\{e,x,y,xy\}$), 
     abbiamo due elementi di ordine $2$ che vanno in $-id$ e l'elemento neutro e un altro elemento di ordine $2$ che vanno in $id$. Possiamo dunque costruire tre prodotti semidiretti che danno 
     origine a gruppi isomorfi, supponiamo (WLOG) che:
         \[ \varphi_x = id \qquad \varphi_y = -id \qquad \varphi_{xy} = -id
@@ -2138,7 +2138,7 @@ e dei nilpotenti:
         \item Per provare che $(A^*, \cdot)$ è un gruppo abeliano, è sufficiente verificare le proprietà richieste dalla definizione:
         \begin{enumerate}[(a)]
             \item Chiusura: osserviamo che $\forall x,y \in A^*$, allora $\exists x^{-1}y^{-1} \in A$, pertanto $xy \in A^*$, poiché $y^{-1}x^{-1} \in A^*$. 
-            \item Associatività: poiché $A \subseteq A^*$, allora, essendo $A$ associativo rispetto al $\cdot$, allora anche gli elementi di un suo qualsiasi sottoinsieme saranno associativi tra loro. 
+            \item Associatività: poiché $A^* \subseteq A$, allora, essendo $A$ associativo rispetto al $\cdot$, allora anche gli elementi di un suo qualsiasi sottoinsieme saranno associativi tra loro. 
             \item Elemento Neutro: $1 \in A$, infatti, l'inverso di $1$ è se stesso, quindi $1$ è invertibile.
             \item Inverso: Segue per la stessa definizione di $A^*$ che ogni suo elemento debba avere inverso moltiplicativo nel gruppo, $\forall x \in A, \exists x^{-1} \in A$:
                 \[ x \cdot x^{-1} = x^{-1} \cdot x = 1
@@ -2150,13 +2150,13 @@ e dei nilpotenti:
         \item Supponiamo per assurdo che $D(A) \cap A^* \neq \emptyset$, e consideriamo $x \in D(A) \cap A^*$, poiché $x \in D(A)$, allora $\exists z \in A, z \ne 0$, tale per cui:
 		    \[ xz = zx = 0
 		        \]
-            d'altra parte, poiché $x \in A^*$, allora $\exists x^{-1}$ tal per cui:
+            d'altra parte, poiché $x \in A^*$, allora $\exists y$ per cui:
             \[  xy = yx = 1
                     \]
             da cui segue:
             \[ (zx)y = z(xy) \implies 0 \cdot y = z \implies z = 0
                     \]
-            ma ciò è assurdo, pertanto l'ipotesi $D(A) \cap A^*$ è vuoto.
+            ma ciò è assurdo, pertanto $D(A) \cap A^*$ è vuoto.
         \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del primo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
             se $x \in A \setminus D(A)$, allora possiamo definire l'omomorfismo di gruppi:
                 \[ \varphi_x : A \longrightarrow A : a \longmapsto xa
@@ -2622,7 +2622,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Verifichiamo in primis che $f$ sia un omomorfismo di anelli:
         \[ f(a+b) = ((a+b)+I,(a+b)+J) = (a+I,a+J) + (b+I,b+J) = f(a)+f(b) \quad \forall a,b \in A
             \]
-    dove la terza uguaglianza è assicura dalla struttura di anello del quoziente; analogamente:
+    dove la terza uguaglianza è assicurata dalla struttura di anello del quoziente; analogamente:
         \[ f(ab) = (ab+I,ab+J) = (a+I,a+J)(b+I,b+J) = f(a)f(b) \quad \forall a,b \in A
             \]
     Osserviamo ora che:
@@ -2736,7 +2736,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     Gli ideali primi di $\ZZ$ sono $(p)$ con $p$ primo, infatti:
     \[ xy \in (p) \iff p \mid xy \iff p \mid x \vee p \mid y
         \]
-    ovvero se $x \in (p)$ o $y \in p$. Se consideriamo invece $(m)$, con $m$ non primo, dunque riducibile $m = ab$, con $1<a<m$ e $1<b<m$, allora:
+    ovvero se $x \in (p)$ o $y \in (p)$. Se consideriamo invece $(m)$, con $m$ non primo, dunque riducibile $m = ab$, con $1<a<m$ e $1<b<m$, allora:
     \[ ab \in (m) \qquad \text{ma} \quad a \not\in (m) \quad \text e \quad b \not\in (m)
         \]
     dunque $(m)$ non è primo.
@@ -4243,7 +4243,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     Proviamo le due affermazioni:
     \begin{enumerate}[(1)]
         \item La prima implicazione segue quasi immediatamente, infatti, se $\faktor{F}{K}$ è algebrica, allora $\forall \alpha \in F$, $\alpha$ è algebrico su $K$,
-            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$, inoltre, $F$ è algebrico su $L$ perché contiene $K$, dunque tutti gli elementi di $F$ sono già algebrici su $K$ e quindi lo saranno anche in un campo più grande.\\
+            dunque tutti gli $\alpha \in L \subset F$ sono algebrici su $K$ perché elementi anche di $F$, pertanto $L$ è algebrico su $K$; inoltre, $F$ è algebrico su $L$ perché contiene $K$, dunque tutti gli elementi di $F$ sono già algebrici su $K$ e quindi lo saranno anche in un campo più grande.\\
             Viceversa sia $\alpha \in F$, per ipotesi sappiamo che $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche, quindi $\alpha$ è algebrico su $L$, dunque:
             \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \qquad f(x) = \sum_{i=0}^n a_ix^i
                 \]
