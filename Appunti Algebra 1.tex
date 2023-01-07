@@ -2371,7 +2371,7 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
         \[ \sqrt{n\ZZ} = p_1 \ldots p_r\ZZ
             \]
     poiché:
-        \[ \sqrt{n\ZZ} = \{x \in \ZZ | x^k \in n\ZZ, k \in \ZZ\} = \{x \in \ZZ | n \mid x^k, k \in \ZZ\}
+        \[ \sqrt{n\ZZ} = \{x \in \ZZ | x^k \in n\ZZ, k \in \NN\} = \{x \in \ZZ | n \mid x^k, k \in \NN\}
             \]
     ma $n \mid x^k \implies p_i \mid x^k$, $\forall i \in \{1,\ldots,r\}$, ovvero $p_1 \ldots p_r \mid x \implies x \in p_1\ldots p_r\ZZ$.
     Viceversa $x = p_1 \ldots p_r m \in \sqrt{n\ZZ}$ perché, detto $e = \max e_i$:
@@ -3080,7 +3080,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
             cioè per assorbimento di $J$ ci sono tutti gli elementi di $S^{-1}I$. Viceversa si ha che $\displaystyle\forall \frac{x}{s} \in J$ possiamo scrivere:
             \[ \frac{x}{1} = \frac{x}{s}\cdot \frac{s}{1} \in J \implies x = f^{-1}\left(\frac{x}{1}\right) \in I
                 \]
-            ovvero il numeratore di ogni elemento in $S^{-1}J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $S^{-1}J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
+            ovvero il numeratore di ogni elemento in $J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
         \item Dimostriamo la negazione\footnote{Poiché trattandosi di un'equivalenza logica va bene lo stesso.}, ovvero $S^{-1}I$ non proprio equivale a $S^{-1}I = S^{-1}A$, ma essendo il primo un ideale questo è vero se e solo se:
             \[ \frac{1}{1} \in S^{-1}I \iff \exists x \in I, \exists s \in S : \frac{1}{1} = \frac{x}{s}
                 \]
@@ -3135,7 +3135,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
     con $u \in A^*$, pertanto $\exists v \in A^*$ tale che $uv = vu = 1$, moltiplicando la prima relazione per $v$ si ottiene:
     \[ a^{\prime} = va \implies a^{\prime} \in (a) \implies (a) \subseteq (a^{\prime})
         \]
-    e si conclude $(a) \subseteq (a^{\prime})$.
+    e si conclude $(a) = (a^{\prime})$.
 \end{remark}
 
 \begin{definition}
@@ -3292,7 +3292,7 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
         e vale la divisione euclidea tra polinomi con resto:
         \[ \forall f(x),g(x) \in K[x], \exists q(x),r(x)\in K[x] : f(x) = g(x)q(x) + r(x)
             \]
-        con $\deg r(x) < \deg g(x)$ oppure $\deg r(x) = 0$.
+        con $\deg r(x) < \deg g(x)$ oppure $ r(x) = 0$.
         \item $(\ZZ[i],N)$, l'anello degli \vocab{interi di Gauss}, $\ZZ[i] = \{a + ib | a,b \in \ZZ\}$, con la norma data da:
             \[ N : \ZZ[i] \longrightarrow \NN : (a +ib =)\alpha \longmapsto N(\alpha) = \alpha \overline{\alpha} = a^2+b^2
                 \]
@@ -3391,7 +3391,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     \[ a = qx + r \qquad d(r) < d(x) \vee r = 0
         \]
     da cui segue che $r = a - qx \in I$ da cui $d(x) \leq d(r) \implies r = 0$, ovvero:
-    \[ a = qx \in (a) \implies I \subseteq (a)
+    \[ a = qx \in (x) \implies I \subseteq (x)
         \]
 \end{proof}
 
@@ -3424,7 +3424,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     con $d$ un M.C.D.\footnote{M.C.D. a meno di prodotto per elementi di $A^*$.} di $x$ e $y$. Infatti:
     \[ x \in (d) \qquad \text e \qquad y \in (d)
         \]
-    dunque $d \mid x$ e $d \mid y$, inoltre, se $c \mid x$ e $c \mid y$, allora $x,y \in (x)$, da cui:
+    dunque $d \mid x$ e $d \mid y$, inoltre, se $c \mid x$ e $c \mid y$, allora $x,y \in (c)$, da cui:
     \[ (d) = (x,y) \subseteq (c) \implies d \in (c) \implies c \mid d
         \]
     dunque $d$ è un M.C.D. tra $x$ ed $y$.
@@ -3440,7 +3440,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 
 \begin{example}
     [Esempi di UFD]
-    Esempi noti di UFD sono il dominio degli interi $\ZZ$, e quello dei polinomi in un'ordinata a coefficienti in un campo $K[x]$.
+    Esempi noti di UFD sono il dominio degli interi $\ZZ$, i polinomi in $\ZZ[x]$ e in generale polinomi in un'ordinata a coefficienti in un campo $K[x]$.
 \end{example}
 
 \begin{proposition}[UFD$\implies\exists$M.C.D.]
