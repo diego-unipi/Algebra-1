@@ -656,7 +656,7 @@ da cui $\lambda$ fedele.
     per $k=1$ la tesi è equivalente al \hyperref[p:Cauchy]{Teorema di Cauchy} (anche solo per i gruppi abeliani).
     Supponiamo la tesi per $k-1$. Poiché in particolare $p\mid |G|$ scegliamo un sottogruppo $H$ di $G$ di ordine $p$;
     tale sottogruppo è normale poiché $G$ è abeliano. $p^{k-1}\mid |G/H|\implies$ per ipotesi induttiva $\exists K \leqslant G/K : |K|=p^{k-1}$. \\
-    Prendendo la controimmagine di $K$ tramite la proiezione al quoziente troviamo il sottogruppo di G cercato. \\
+    Prendendo la controimmagine di $K$ tramite la proiezione al quoziente troviamo il sottogruppo di $G$ cercato. \\
     A questo punto possiamo scrivere in generale $d=p_1^{k_1}\ldots p_s^{k_s}$; per ogni $i$ troviamo sottogruppi $H_i$ di ordini $p_i^{k_i}$ (tutti normali), poiché considerando il generato dagli elementi di ordine potenza di $p_i$:
     questo è un $p_i$-gruppo ed è normale per abelianità, se non avesse ordine $p_i^{k_i}$ allora quozientando $G$ per questo avremmo per \hyperref[Cauchy]{Cauchy} un elemento di ordine $p_i$ e considerando la controimmagine della proiezione avremmo
     perso un elemento di ordine potenza di $p_i$ (dato che avevamo quozientato per un $p_i$-gruppo). Si ha quindi che $H_1H_2\leqslant G$ per normalità,
@@ -1412,7 +1412,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
         È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
             \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \qquad \forall g \in G \implies G \subseteq mG + m^{\prime}G
                 \]
-        il contrario è ovvio, dunque:
+        il contrario è ovvio (per chiusura di $G$ rispetto all'operazione), dunque:
             \[ mG + m^{\prime}G = G
                 \]
         Inoltre, sia $x \in mG \cap m^{\prime}G$, ovvero $x = mg = m^{\prime}g^{\prime}$, allora si osserva che $m^{\prime}x = m^{\prime}mg = ng = 0$ e $mx = mm^{\prime}g^{\prime} = ng^{\prime} = 0$, dunque:
@@ -1421,15 +1421,17 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
             \[ mG = G_{m^{\prime}} = \{g \in G | m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = G_m = \{g \in G | mg = 0\}
                 \]
-        Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi; $m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}x \in G_m$, perché $mm^{\prime}x = nx = 0$, viceversa, preso 
-        $x \in G_m$, ovvero $mx = 0$, per quanto visto sopra abbiamo che:
+        Verifichiamo (WLOG) $m^{\prime}G = G_m$ (ovvero l'insieme dei multipli di $m^{\prime}$ è uguale a quello degli elementi di $G$ il cui ordine divide $m$) mostrando la doppia inclusione tra insiemi.
+        Per verificare che $m^{\prime}G \subseteq G_m$, consideriamo $m^{\prime}x \in m^{\prime}G$, poiché $mm^{\prime}x = nx = 0$, allora $\ord(x) \mid m$ (stiamo escludendo $m^{\prime}$ perché per ipotesi
+        stiamo considerando un elemento $m^{\prime}x$ diverso da 0) dunque $m^{\prime}x \in G_m$; viceversa, preso $x \in G_m$, ovvero $mx = 0$, per quanto visto sopra abbiamo che:
             \[ \underbrace{mx}_{= 0}h + m^{\prime}kx = x \implies x = m^{\prime}(kx) \implies x \in m^{\prime}G
                 \]
         quindi $G_m \subseteq m^{\prime}G \implies m^{\prime}G = G_m$. Pertanto possiamo scrivere:
             \[ G \cong G_m \times G_{m^\prime}
                 \]
-        Poiché $|G_m|,|G_{m^\prime}| < |G|$, perché $G_m$ contiene tutti e soli gli elementi di $G$ di ordine che divide $m$, inoltre $G_m \ne \{0\}$ (per \hyperref[p:Cauchy]{Cauchy}, dato che $1 < m < n$),
-        quindi $G_{m^{\prime}} \lneq G$ e viceversa. Possiamo quindi applicare l'ipotesi induttiva e scrivere:
+        A questo punto siamo sicuri che $|G_m|,|G_{m^\prime}| < |G|$, perché $G_m$ contiene tutti e soli gli elementi di $G$ di ordine che divide $m$, e $G_m \ne \{0\}$ (per \hyperref[p:Cauchy]{Cauchy}, dato che $1 < m < n$),
+        pertanto $G_{m^{\prime}} \lneq G$ e $G_{m} \lneq G$.\footnote{Il problema dell'avere sottogruppi propri con le cardinalità giuste per poter applicare l'ipotesi induttiva poteva essere risolto anche in altri modi anziché passare ai gruppi $G_m$ e $G_{m^{\prime}}$ come abbiamo fatto,
+        ad esempio fissando inizialmente $m = p_1^{e_1}$ e $m^{\prime} = p_2^{e_2}\ldots p_s^{e_s}$.} Ora che sappiamo che i due sottogruppi sono propri possiamo applicare l'ipotesi induttiva e scrivere:
             \[ G_m = \prod_{i \in I}G(p_i) \qquad \text e \qquad G_{m^{\prime}} = \prod_{j \in J}G(p_j)
                 \]
         con $I \cup J = \{1,\ldots,s\}$ e $I \cap J = \emptyset$ (poiché $(m,m^{\prime}) = 1$). \\
@@ -1466,8 +1468,6 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     pertanto $y = x -b_1x_1 \in G$ realizza la proprietà richiesta.
 \end{proof}
 
-\pagebreak
-
 Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
 
 \begin{proof}
@@ -1485,13 +1485,14 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             per il \hyperref[l:1.91]{Lemma 1.91} esistono $x_2,\ldots,x_t \in G$ tali che $\ord_G(x_i) = \ord_{G/\left<x_1\right>}(\overline{x_i}) = p^{r_i}$. Vogliamo mostrare allora che:
                 \[ H = \left<x_2,\ldots,x_t\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
-            ovvero che il sottogruppo di $G$ finitamente generato da $x_2,\ldots,x_t$ è isomorfo al prodotto diretto dei singoli sottogruppi ciclici generati dai medesimi elementi. Consideriamo di nuovo la proiezione al quoziente modulo $\left<x_1\right>$, ma ristretta ad $H$:
+            ovvero che il sottogruppo di $G$ finitamente generato da $x_2,\ldots,x_t$ è isomorfo al prodotto diretto dei singoli sottogruppi ciclici generati dai medesimi elementi.\footnote{Per fare questo mostriamo prima l'isomorfismo tra il gruppo finitamente generato
+            e il prodotto $\left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right>$, e da ciò successivamente seguirà l'isomorfismo voluto.} Consideriamo di nuovo la proiezione al quoziente modulo $\left<x_1\right>$, ma ristretta ad $H$:
                 \[ \pi_{\mid H} : H \longrightarrow \faktor{G}{\left<x_1\right>} \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> : a_2x_2 + \ldots + a_tx_t \longmapsto (a_2\overline{x_2}, \ldots, a_t\overline{x_t})
                     \]
             è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
-            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, ma essendo anche che $\ord(x_i) = p^r_i$, allora la divisibilità precedente è equivalente al chiedere $a_ix_i = 0$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
             Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
@@ -1499,11 +1500,11 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             Per mostrare che l'intersezione è banale, consideriamo un elemento in quest'ultima, ovvero un elemento che può essere scritto come:
                 \[ a_1x_1 = a_2x_2 + \ldots + a_tx_t
                     \]
-            applicando $\pi$ alle due scritture si ha:
+            con $a_1$ e $a_2,\ldots,a_t$ fissati; applicando $\pi_{\left<x_1\right>}$ alle due scritture si ha:
                 \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\overline 0,\ldots, \overline 0)
                     \]
-            in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_1}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
-            anche nel gruppo di partenza $a_i = 0$ e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
+            in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_i}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
+            nel gruppo di partenza $x_i = 0$ (perché come prima $p^{r_i}$ è ordine anche di $x_i$, pertanto se $a_i$ è sempre un suo multiplo, allora tutti i fattori $a_ix_i$ sono nulli), $\forall i \in \{2,\ldots,t\}$, e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
             Per mostrare che $\left<x_1\right> + H = G$, osserviamo che $\left<x_1\right> + H \subseteq G$ e che la sua cardinalità è:
                 \[ |\left<x_1\right> + H| = \frac{|\left<x_1\right>||H|}{|\left<x_1\right> \cap H|} = \frac{p^{r_1}\cdot p^{n - r_1}}{1} = p^n
                     \]
@@ -1513,17 +1514,21 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
         \[ G \cong \Z{p^{r_1}} \times \ldots \times \Z{p^{r_t}} \cong \Z{p^{k_1}} \times \ldots \times \Z{p^{k_s}}
             \]
         dove supponiamo $r_1 \geq \ldots \geq r_t$ e $k_1 \geq \ldots \geq k_s$. Deve essere necessariamente che $t = s$, perché, considerando:
-            \[ G_p = \{g \in G | pg = 0\}
+            \[ G_p = \{g \in G | pg = 0\}\footnote{Il sottogruppo degli elementi di $G$ il cui ordine divide $p$.}
                 \]
-        con $G_p$ gruppo caratteristico (poiché gli isomorfismi conservano gli ordini degli elementi) e quindi:
-            \[ G_p \cong \left(\Zp\right)^t \cong \left(\Zp\right)^s \implies t = s
+        con $G_p$ gruppo caratteristico (poiché gli isomorfismi conservano gli ordini degli elementi) e quindi gli elementi di $G$ di ordine che divide $p$ stanno tutti in $G_p$, pertanto $G_p$ è isomorfo ad un sottogruppo del tipo $(\Zp)^l$ (che è esattamente quello che contiene
+        tutti e soli gli elementi con ordine che divide $p$), con $l$ numero dei fattori $\Z{p^h}$ distinti, di entrambe le fattorizzazioni:
+            \[ G_p \cong \left(\Zp\right)^t \cong \left(\Zp\right)^s \iff t = s
                 \]
-        Quindi le lunghezze delle fattorizzazioni sono uguali, per concludere ci basta utilizzare l'ipotesi induttiva al gruppo $pG$ (con $|pG| = p^{n-t}$):
-            \[ pG \cong \frac{p\ZZ}{p^{r_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{r_t}\ZZ} \cong \Z{p^{r_1-1}} \times \ldots \times \Z{p^{r_t-1}} \cong \Z{p^{k_1-1}} \times \ldots \times \Z{p^{k_t-1}}
-                \]
-        quindi $pG$ ha decomposizione unica (per ipotesi induttiva), da cui:
+        Quindi le lunghezze delle fattorizzazioni sono uguali, per concludere dobbiamo mostrare che anche le singole potenze di tutti i fattori sono a due a due uguali; possiamo applicare l'ipotesi induttiva al gruppo $pG$ (con $|pG| = p^{n-t}$):
+            \begin{multline*}
+                pG \cong \frac{p\ZZ}{p^{r_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{r_t}\ZZ} \cong \Z{p^{r_1-1}} \times \ldots \times \Z{p^{r_t-1}} \cong \\
+                \cong \Z{p^{k_1-1}} \times \ldots \times \Z{p^{k_t-1}} \cong \frac{p\ZZ}{p^{k_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{k_t}\ZZ}
+            \end{multline*}
+        dove la sequenza di isomorfismi è valida perché stiamo assumendo ci siano due fattorizzazioni per $G$ (e quindi anche per $pG$), ma $pG$ ha decomposizione unica (per ipotesi induttiva). dunque segue che:
             \[ r_1 - 1 = k_1 -1, \ldots, r_t - 1 = k_t - 1 \iff r_1 = k_1, \ldots , r_t = k_t
                 \]
+        e quindi i singoli fattori sono esattamente gli stessi.
 \end{proof}
 
 \begin{remark}
