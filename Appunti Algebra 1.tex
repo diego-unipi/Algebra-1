@@ -1503,7 +1503,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             con $a_1$ e $a_2,\ldots,a_t$ fissati; applicando $\pi_{\left<x_1\right>}$ alle due scritture si ha:
                 \[ \overline 0 =  a_2\overline{x_2} + \ldots + a_t\overline{x_t} \iff (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (\overline 0,\ldots, \overline 0)
                     \]
-            in quanto $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_i}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
+            in quanto, come detto prima $G/\left<x_1\right> \cong \prod_{i= 2}^{t}\left<\overline{x_i}\right>$, dunque l'unica possibilità di annullare la somma scritta è che $a_i \equiv 0 \pmod{p^{r_i}}$ (ovvero $a_i$ è multiplo dell'ordine di $\overline{x_i}$), $\forall i \in \{2,\ldots,t\}$, da ciò segue che
             nel gruppo di partenza $x_i = 0$ (perché come prima $p^{r_i}$ è ordine anche di $x_i$, pertanto se $a_i$ è sempre un suo multiplo, allora tutti i fattori $a_ix_i$ sono nulli), $\forall i \in \{2,\ldots,t\}$, e quindi $a_1x_1 = 0$, pertanto $\left<x_1\right> \cap H = \{0\}$.
             Per mostrare che $\left<x_1\right> + H = G$, osserviamo che $\left<x_1\right> + H \subseteq G$ e che la sua cardinalità è:
                 \[ |\left<x_1\right> + H| = \frac{|\left<x_1\right>||H|}{|\left<x_1\right> \cap H|} = \frac{p^{r_1}\cdot p^{n - r_1}}{1} = p^n
@@ -1525,7 +1525,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
                 pG \cong \frac{p\ZZ}{p^{r_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{r_t}\ZZ} \cong \Z{p^{r_1-1}} \times \ldots \times \Z{p^{r_t-1}} \cong \\
                 \cong \Z{p^{k_1-1}} \times \ldots \times \Z{p^{k_t-1}} \cong \frac{p\ZZ}{p^{k_1}\ZZ} \times \ldots \times \frac{p\ZZ}{p^{k_t}\ZZ}
             \end{multline*}
-        dove la sequenza di isomorfismi è valida perché stiamo assumendo ci siano due fattorizzazioni per $G$ (e quindi anche per $pG$), ma $pG$ ha decomposizione unica (per ipotesi induttiva). dunque segue che:
+        dove la sequenza di isomorfismi è valida perché stiamo assumendo ci siano due fattorizzazioni per $G$ (e quindi anche per $pG$), ma $pG$ ha decomposizione unica (per ipotesi induttiva), dunque segue che:
             \[ r_1 - 1 = k_1 -1, \ldots, r_t - 1 = k_t - 1 \iff r_1 = k_1, \ldots , r_t = k_t
                 \]
         e quindi i singoli fattori sono esattamente gli stessi.
@@ -1687,7 +1687,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
                 i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
                 Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$ (stiamo supponendo che $H$ stia in $S$), dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
-                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\frac{N_{S}(H)}{H}$ ed i
+                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\displaystyle\frac{N_{S}(H)}{H}$ ed i
                 sottogruppi di $N_{S}(H)$ che contengono $H$.}, $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
                 ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
                 \skipitems{1}
@@ -3851,36 +3851,6 @@ Dato $A$ UFD e $f(x) \in A[x]$ primitivo, con $f(x) = \sum_{i=0}^n a_ix^i$, e $p
 Allora $f(x)$ è irriducibile in $A[x]$ (e in $K[x]$, con $K$ campo dei quozienti di $A$).
 \end{proposition}
 
-\begin{proof}
-    La dimostrazione è identica a quella già trattata in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, con 
-    la sola differenza che in questo caso utilizziamo un UFD generico al posto di $\ZZ$.\\
-    Supponiamo per assurdo che $f(x)$, con $\deg(f(x)) = n$ sia riducibile, allora:
-	\[ f(x) = g(x)h(x)
-	\]
-    con $\deg f(x) = m \geq 1$, $\deg(h(x)) = n-m \geq 1$. Possiamo applicare la proiezione al quoziente modulo $(p)$, e per le ipotesi si ha:
-	\[ \overline{f(x)} = \overline{a_n}x^n (\ne \overline 0)
-	\] 
-    e inoltre:
-	\[ \pi_{(p)}(f(x)) =  \pi_{(p)}(g(x)) \pi_{(p)}(h(x))
-	\]
-    con:
-	\[ \pi_{(p)}(g(x)) = \overline{b_m}x^m + \ldots + \overline{b_0}
-	\qquad
-	\text e
-	\qquad
-	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m} + \ldots + \overline{c_0}
-	\]
-    Si ha che $\displaystyle\pi_{(p)}(f(x)) \in \frac{A}{(p)}[x]$ (che è un campo), quindi UFD, da ciò segue che $\pi_{(p)}(g(x))$ e 
-    $\pi_{(p)}(h(x))$ sono fattori del polinomio $\overline{a_n}x^n$, da cui segue, per la definizione di prodotto tra polinomi che:
-	\[  \pi_{(p)}(g(x)) = \overline{b_m}x^m
-	\qquad
-	\text e
-	\qquad
-	\pi_{(p)}(h(x)) = \overline{c_{n-m}}x^{n-m}
-	\]
-    ma da ciò segue che $b_0 \equiv c_0 \equiv 0 \pmod p$, da cui $a_0 \equiv b_0c_0 \equiv 0 \pmod{p^2}$, ovvero $p^2 \mid a_0$, ma ciò è assurdo.
-\end{proof}
-
 \newpage
 \subsection{Terne pitagoriche}
 \begin{definition}
@@ -3913,7 +3883,7 @@ dunque determinare le terne pitagoriche significa risolvere questo problema molt
     (abbiamo visto che in un ED l'ideale generato da due elementi è quello generato dal loro M.C.D.). Osserviamo che:
     \[ 2x = (x+iy) + (x-iy) \in I
         \]
-    Analogamente, considerando la differenza si ha $2y \in y$ e, considerando il prodotto, $x^2+y^2 \in I$; poiché $x$ ed $y$ hanno
+    Analogamente, considerando la differenza si ha $2y \in I$ e, considerando il prodotto, $x^2+y^2 \in I$; poiché $x$ ed $y$ hanno
     diversa parità, $x^2+y^2$ è dispari, mentre $2x$ è pari, dunque si ha che:
     \[ 1 \in (2x,2y,x^2+y^2) \subset \ZZ \subset \ZZ[i]
         \]
@@ -4078,7 +4048,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 \begin{proposition}
     [Proprietà delle torri di estensioni]
     \label{torri}
-    Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono finite e inoltre:
+    Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{L}{F}$ e $\faktor{F}{K}$ sono finite e inoltre:
     \[ [F:K] = [F:L][L:K]
         \]
 \end{proposition}
@@ -4254,15 +4224,15 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
             Viceversa sia $\alpha \in F$, per ipotesi sappiamo che $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche, quindi $\alpha$ è algebrico su $L$, dunque:
             \[ \exists f(x) \in L[x]\setminus\{0\} : f(\alpha) = 0 \qquad \text{con} \qquad f(x) = \sum_{i=0}^n a_ix^i
                 \]
-            consideriamo $L_0=K(a_0,\ldots,a_n)$ (essendo un'estensione algebrica per ipotesi, ciò, come detto nell'\hyperref[3.17]{Osservazione 3.17}, è equivalente a dire che è un'estensione finitamente generata da elementi algebrici su $K$), si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
+            consideriamo il campo generato su $K$ dai coefficienti di $f(x)$, $L_0=K(a_0,\ldots,a_n)$, si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
             \[ K \subset L_0 \subset L_0(\alpha)
                 \]
-            dove la prima estensione è finitamente generata ed algebrica (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
-            estensione è a sua volta finita perché algebrica (quindi vale la \hyperref[3.11]{Proposizione 3.11}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
+            dove la prima estensione è finitamente generata da elementi algebrici (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
+            estensione è a sua volta finita perché estensione semplice algebrica (quindi vale la \hyperref[3.7]{Proposizione 3.7}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
             $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
             dunque $\faktor{F}{K}$ è algebrica.
          \item Sia $\faktor{LM}{K}$ algebrica e sia $\alpha \in M \subset LM$, allora è algebrico su $K$, in quanto tutti gli elementi di $LM$ già lo erano, dunque non stiamo facendo altro che prendere una sottoestensione di un'estensione algebrica, che quindi 
-         sarà a sua volta algebrica, ovvero $\faktor{M}{K}$ algebrica; in maniera identica $\faktor{L}{K}$ è anch'essa algebrica.\\
+         sarà a sua volta algebrica, ovvero $\faktor{M}{K}$ algebrica; in maniera identica $\faktor{L}{K}$ è anch'essa algebrica.\footnote{Con lo stesso argomento del punto precedente si potrebbe anche far vedere che $\displaystyle\faktor{LM}{K}$ algebrica implica $\displaystyle\faktor{LM}{L}$ e $\displaystyle\faktor{LM}{M}$ algebriche.}\\
          Supponiamo ora che $\faktor{L}{K}$ e $\faktor{M}{K}$ siano algebriche, consideriamo $\alpha \in LM = L(M)$, ovvero $\alpha = \sum_{i=1}^{n} \lambda_i m_i$, con $\lambda_i \in L$ e $m_i \in M$, dunque:
          \[ \alpha \in F = K(\lambda_1,\ldots,\lambda_n,m_1,\ldots,m_n)
             \]
@@ -4314,7 +4284,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     dimostrare che $\alpha$ è algebrico su $\QQ$, consideriamo la torre:
     \[ \QQ \subset \overline \QQ \subset \overline\QQ (\alpha)
         \]
-    la prima estensione è algebrica per quanto già discusso, la seconda è algebrica perché semplice (\hyperref[3.7]{Proposizione 3.7}), dunque per \hyperref[torri]{torri} $\alpha$
+    la prima estensione è algebrica per quanto già discusso, la seconda è algebrica perché semplice e finita (\hyperref[3.7]{Proposizione 3.7}), dunque per \hyperref[torri]{torri} $\alpha$
     è algebrico su $\QQ$, inoltre $\alpha \in \CC$, per cui $\alpha \in \overline\QQ$ che quindi è algebricamente chiuso, perché quanto detto vale per qualunque polinomio in $\overline\QQ[x]$.
 \end{example}
 
@@ -4363,7 +4333,7 @@ Ci poniamo ora il seguente problema: dato un campo $K$, la sua chiusura algebric
 
 \begin{remark}[Omomorfismi da campi]
     \label{3.32}
-Osserviamo che in generale un omomorfismo definito su un campo può avere solo nucleo banale, infatti, esso è in particolare un omomorfismo tra anelli, dunque il nucleo è un ideale, ma per la (2) della \hyperref[2.26]{Proposizione 2.26} gli unici ideali di un campo 
+Osserviamo che in generale un omomorfismo definito su un campo può avere solo nucleo banale o tutto il campo, infatti, esso è in particolare un omomorfismo tra anelli, dunque il nucleo è un ideale, ma per la (2) della \hyperref[2.26]{Proposizione 2.26} gli unici ideali di un campo 
 sono se stesso e $\{0\}$, dunque il nucleo o è tutto o è banale, pertanto gli unici omomorfismi possibili da un campo sono o iniettivi o nulli.    
 \end{remark}
 
@@ -4379,10 +4349,10 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
 
 \begin{proof}
     Per quanto detto sull'omomorfismo di valutazione sappiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$, dunque, determinando un omomorfismo da $K[x]$ ad $\overline K$ possiamo applicare il 
-    \hyperref[omo]{Primo Teorema di Omomorfismo}. Sia dunque:
+    \hyperref[omo]{Primo Teorema di Omomorfismo}. Consideriamo l'immersione $K \varlonghookrightarrow \ol K$, tale immersione (che in questo caso è l'identità) si può estendere in una mappa da $K[x]$ a $\ol K$ nel seguente modo:
     \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta , p(x) \longmapsto p(\beta) \qquad \forall \beta \in \overline K
         \]
-    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$,
+    per tale omomorfismo abbiamo che $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$ se e solo se $(\mu_\alpha(x)) \subset \ker \widetilde{\varphi} \iff \mu_\alpha(x) \in \ker \widetilde{\varphi}$ (per le proprietà degli ideali), quindi se e solo se $\mu_\alpha(\beta) = 0$,
     quindi per tutte le radici di $\mu_\alpha(x)$ in $\overline K$ si ha che:
     \[\begin{tikzcd}
 		K[x] \arrow[d, "\pi_{(\mu_\alpha(x))}" left, twoheadrightarrow] \arrow[r, "\widetilde{\varphi}"] & \overline K \\	
@@ -4410,7 +4380,7 @@ con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$, a questo punt
 Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il numero delle loro radici distinte coincide con il loro grado.
 
 \begin{definition}
-    Un campo $K$ tale per cui tutti i polinomi irriducibili in $K[x]$ hanno derivata non nulla prende il nome di \vocab{campo perfetto}.
+    Un campo $K$ tale per cui tutti i polinomi irriducibili in $K[x]$ hanno derivata non nulla prende il nome di \vocab{campo perfetto}.\footnote{Dunque per il criterio precedente hanno radici tutte distinte.}
 \end{definition}
 
 \begin{remark}
@@ -4444,7 +4414,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 
 \begin{remark}
     Abbiamo già visto che ciò è vero se $\varphi = id_K$, nella \hyperref[3.33]{Proposizione 3.33},
-    la nuova proposizione ci permette di contare il numero di estensioni di un omomorfismo da $K$ in $\ol K$ ad uno da $K(\alpha)$ in $\ol K$.
+    la nuova proposizione ci permette di contare il numero di estensioni di un omomorfismo qualsiasi da $K$ in $\ol K$ ad uno da $K(\alpha)$ in $\ol K$.
     Ad esempio, dato $K = \QQ(\sqrt[3]{2})$ e l'omomorfismo:
     \[ \varphi : K \varlonghookrightarrow \ol K : \sqrt[3]{2} \longmapsto \sqrt[3]{2}\zeta_3
         \]
@@ -4455,10 +4425,12 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \end{remark}
 
 \begin{proof}
-    In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo:
-    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : p(x) \longmapsto p(\beta) \qquad \text{con} \qquad \varphi_{i|K} = \varphi
+    In analogia con quanto fatto nella dimostrazione della \hyperref[3.33]{Proposizione 3.33}, consideriamo l'estensione di $\varphi : K \varlonghookrightarrow \ol K$ ad una mappa da $K[x]$ a $\ol K$:
+    \[ \widetilde{\varphi} : K[x] \longrightarrow \overline K : x \longmapsto \beta : x \longmapsto \beta, p(x) \longmapsto (\varphi(p(x)))(\beta)\footnote{Cioè applichiamo $\varphi$ a $p(x)$ e poi valutiamo il nuovo polinomio ottenuto in $\beta$.} \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
-    per tale omomorfismo abbiamo che $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \varphi(\mu_\alpha(x))(\beta) = 0$, 
+    per tale omomorfismo abbiamo che\footnote{Come nel caso precedente vogliamo $\displaystyle K(\alpha) \cong \frac{K[x]}{(\mu_\alpha(x))}$ per avere l'omomorfismo iniettivo richiesto dalla tesi.} $(\mu_\alpha(x)) \subseteq \ker \widetilde{\varphi} \footnote{Una
+    volta dimostrato il contenimento varrà in realtà proprio l'uguaglianza perché $(\mu_\alpha(x))$ è un ideale massimale, perché siamo in un PID e $\mu_\alpha(x)$ è irriducibile dunque primo, e l'omomorfismo che abbiamo non è quello nullo.}
+    \iff \widetilde{\varphi}(\mu_\alpha(x)) = 0 \iff \varphi(\mu_\alpha(x))(\beta) = 0$, 
     dunque applichiamo $\varphi$ ai coefficienti di $\mu_\alpha(x)$ (prima venivano lasciati fissi perché usavamo l'identità) e poi valutiamo il nuovo polinomio in $\beta$, pertanto $\beta$
     deve essere una radice di $\varphi(\mu_\alpha(x))$, dunque le estensioni di $\varphi$ a $K(\alpha)$ sono tante quante le radici distinte di $\varphi(\mu_\alpha(x))$ in $\overline K$. \\
     Poiché $\mu_\alpha(x)$ è irriducibile per definizione, allora $\varphi(\mu_\alpha(x))$ è irriducibile, inoltre, $\deg \mu_\alpha(x) = \deg \varphi(\mu_\alpha(x))$ (poiché l'omomorfismo è
@@ -4467,21 +4439,22 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 
 \begin{corollary}[Numero di estensioni a $\overline K$ di un'estensione qualsiasi]
     \label{3.39}
-    Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono $n$ immersioni:
+    Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono esattamente $n$ immersioni:
     \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
 \end{corollary}
-
+\pagebreak
 \begin{proof}
     La dimostrazione segue facilmente per induzione, infatti per $n = 1$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>1$ consideriamo
     $\alpha \in E \setminus K$ per il quale si ha la torre di estensioni:
     \[ K \subset K(\alpha) \subset E
         \]
-    con $[K(\alpha) : K] = m$ e $[E : K(\alpha)] = d$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$,
+    con $[K(\alpha) : K] = m$, $[E : K(\alpha)] = d$ e $n = md$. Se $m = n$, allora $E = K(\alpha)$ e siamo ancora nel caso precedente; se $1 < m < n \implies d < n$,
     essendo $n = md$ (in pratica stiamo supponendo di aver già messo nell'estensione almeno un nuovo elemento), dunque per la \hyperref[3.37]{Proposzione 3.37} $\varphi$ si estende in $m$ modi a $K(\alpha)$:
     \[ \varphi_1,\ldots,\varphi_m : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
-    Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \overline K$ si estende a sua volta per ipotesi induttiva:
+    Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \overline K$ si estende a sua volta\footnote{Stiamo cioè estendendo in due step, prima estendiamo gli omomorfismi $\varphi : K \varlonghookrightarrow \ol K$ alle estensioni semplici per la \hyperref[3.37]{Proposzione 3.37}, ed a questo punto, essendo il grado della nuova 
+    estensione $K(\alpha) \subset E$ più piccolo di $n$, possiamo estendere di nuovo tutti gli omomorfismi trovati da $K(\alpha)$ a $\ol K$ ad omomorfismi da $E$ a $\ol K$.} per ipotesi induttiva (essendo $[E : K(\alpha)] = d < n$):
     \[ \varphi_{i1},\ldots,\varphi_{1d} : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{ij|K(\alpha)} = \varphi_i
         \]
     dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ovvero $md = n$ estensioni, con $\varphi_{ij | K(\alpha)} = \varphi_i $, per cui $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi tutte le $n$ estensioni funzionano.
@@ -5021,7 +4994,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
 \newpage
 \subsection{Teorema di corrispondenza di Galois}
 Data l'estensione di Galois (finita) $\faktor{L}{K}$ e $H < \Gal\left(\faktor{L}{K}\right)$ sottogruppo, definiamo la scrittura $L^H$ come:
-\[ L^H = \Fix(H) := \{ \alpha \in L | \varphi(\alpha) = \alpha, \forall \alpha \in H \} \subseteq L
+\[ L^H = \Fix(H) := \{ \alpha \in L | \varphi(\alpha) = \alpha, \forall \varphi \in H \} \subseteq L
     \]
 ovvero il sottocampo\footnote{Andrebbe verificato che è un campo.} di $L$ di tutti gli elementi fissati da tutti i $K$-automorfismi del sottogruppo $H$. Si osserva che per tale sottocampo si ha che:
 \[ K \subseteq L^H \subseteq L
