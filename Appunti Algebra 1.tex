@@ -3766,8 +3766,10 @@ Nelle prossime proposizioni indicheremo con $K$ il campo dei quozienti di $A$.
     Distinguiamo due casi:
     \begin{itemize}
         \item Sia $f$ costante, ovvero $f(x) = f \in A$. Allora, per la caratterizzazione precedente, $f$ irriducibile in $A[x]$ implica $f$ irriducibile in $A$, quindi $f$ è primo in $A$, dato che $A$ è UFD. Passando ai contenuti e applicando il \hyperref[gauss]{Lemma di Gauss} abbiamo che
-        \[ f \mid g(x)h(x) \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) \mid g(x) \quad \text o \quad f \mid c(h) \mid h(x)
-            \]
+        \begin{multline*}
+            f \mid g(x)h(x) \implies f = c(f) \mid c(g(x)h(x)) = c(g(x))c(h(x)) \\
+            \implies f \mid c(g(x)) \mid g(x) \quad \text o \quad f \mid c(h(x)) \mid h(x)
+        \end{multline*}
         dunque $f$ è primo anche in $A[x]$.
         \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$. 
 	Si osserva che $K[x]$ è euclideo, quindi $f(x)$ è primo in $K[x]$ (poiché ED $\implies$ UFD).
