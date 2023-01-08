@@ -3201,7 +3201,7 @@ mentre l'insieme degli ideali primi di $\ZZ[x]$ contenenti $p$ è
 \]
 
 Supponiamo adesso che $P$ sia un ideale primo di $\ZZ[x]$ tale che 
-$P \cap \ZZ = 0$. $S = \ZZ\setminus \{0\}$ è una parte moltiplicativa di 
+$P \cap \ZZ = \{0\}$. $S = \ZZ\setminus \{0\}$ è una parte moltiplicativa di 
 $\ZZ$ e l'ipotesi appena data su $P$ può essere espressa come $P \cap S = \emptyset$.
 Consideriamo la bigezione 
 \[
@@ -3237,7 +3237,7 @@ divide $f(a)$ e consideriamo le applicazioni
     \psi: \faktor{\ZZ[x]}{(p)\ZZ[x]}\longrightarrow \FF_p: 
     \overline{g(x)}\longmapsto g(a)
 \]
-Osserviamo che $(\psi\circ\varphi)(f(x)) = a \equiv 0 \pmod{p}$ e che 
+Osserviamo che $(\psi\circ\varphi)(f(x)) = f(a) \equiv 0 \pmod{p}$ e che 
 $(\psi\circ\varphi)(p) = p \equiv 0 \pmod{p}$, pertanto $p, f(x) \in 
 \ker{\psi\circ\varphi}$ e quindi $(p, f(x)) \subseteq \ker(\psi\circ \varphi) \neq \ZZ[x]$.
 Abbiamo quindi $(f(x)) \subseteq (p, f(x))$, se $(f(x))$ fosse massimale allora
@@ -4213,8 +4213,8 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
         Supponiamo per assurdo che $\psi(\zeta_n) = \zeta_n^k$ con $d = (k, n)\neq 1$, 
         allora
         \[
-            \psi(\zeta_n^{\frac n d}) = \psi(\zeta_n)^{\frac n d} = \zeta^{k\frac n d} = 
-            \zeta^{\frac k d n} = 1
+            \psi(\zeta_n^{\frac n d}) = \psi(\zeta_n)^{\frac n d} = \zeta_n^{k\frac n d} = 
+            \zeta_n^{\frac k d n} = 1
         \]
         da cui $\zeta_n^{\frac n d} = 1$,
         \footnote{$\psi$ è un omomorfismo di anelli con identità iniettivo, quindi l'unico elemento che può andare in 1 è proprio 1.}
@@ -4324,7 +4324,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
             K^H = \{x \in K \mid \psi(x) = x~\forall \psi \in \Gal(KL/L)\} = \\ = K\cap\{x \in KL \mid \psi(x) = x~\forall \psi \in \Gal(KL/L)\} =\\=
             K \cap (KL)^{\Gal(KL/L)} = K\cap L
         \end{multline*}
-        pertanto $H = \Gal(K/K\cap L)$ per il Teorema di Corrispondenza di Galois. Quindi $\Phi$ è surgettivo, di conseguenza è un isomorfismo
+        pertanto $H = \Gal(K/K\cap L)$ per il Lemma di Artin. Quindi $\Phi$ è surgettivo, di conseguenza è un isomorfismo
         tra $\Gal(KL/L)$ e $\Gal(K/K\cap L)$.
     \end{enumerate}
 \end{proof}
