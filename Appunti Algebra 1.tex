@@ -3050,7 +3050,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \begin{remark}
     [Ideali di $S^{-1}A$]
     Sia $I \subset A$ un ideale di $A$, possiamo costruire l'insieme:
-    \[ S^{-1}I = \left\{\frac{x}{s} \in S^{-1}A \m x \in I, s \in S \right\} \cong \frac{I \times S}{\sim}
+    \[ S^{-1}I = \left.\left\{\frac{x}{s} \in S^{-1}A \m x \in I, s \in S \right\}\middle/ \sim \right.\cong \frac{I \times S}{\sim}
         \]
     per tale insieme valgono le proprietà espresse dalla proposizione seguente.
 \end{remark}
@@ -3096,7 +3096,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
             ciò è equivalentemente al fatto che $\exists \sigma \in S$ e $\exists p \in P$ tali per cui:
                 \[ \frac{ab}{st} = \frac{p}{\sigma} \iff ab\sigma = \underbrace{p}_{\in P}st \in P \implies ab\sigma \in P
                     \]
-            ma, essendo per ipotesi che $\sigma \in P$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ p $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
+            ma, essendo per ipotesi che $\sigma \in P$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ o $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
             e quindi $S^{-1}P$ primo.
     \end{enumerate}
 \end{proof}
@@ -4593,10 +4593,8 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 
 \begin{example}
 [Ogni estensione di grado 2 è normale]
-Sia $\faktor{F}{K}$ un'estensione, supponiamo di essere in caratteristica diversa da 2\footnote{Per la precisione, l'osservazione funziona anche in questo caso,
-infatti l'unico polinomio di grado 2 irriducibile in un campo di caratteristica 2 può essere solo $x^2+x+1$ (dato che tutti quei campi estendono $\F{2}$) e per questo si verifica che se $\alpha$ è una radice,
-$\alpha+1$ è l'altra radice e quindi effettivamente l'estensione è sempre di grado 2.}, con $[F : K] = 2$ e sia $\alpha \in F \setminus K \implies F = K(\alpha)$ abbiamo che quindi il polinomio minimo è della forma:
-\[ \mu_\alpha(x) = x^2 + bx + x \in K[x]
+Sia $\faktor{F}{K}$ un'estensione, supponiamo di essere in caratteristica diversa da 2, con $[F : K] = 2$ e sia $\alpha \in F \setminus K \implies F = K(\alpha)$ abbiamo che quindi il polinomio minimo è della forma:
+\[ \mu_\alpha(x) = x^2 + bx + c \in K[x]
     \]
 con:
 \[ \alpha_{1,2} = \frac{-b \pm \sqrt{\Delta}}{2} \implies \alpha = \frac{-b + \sqrt{\Delta}}{2} \implies F = K(\alpha) = K(\sqrt{\Delta})
@@ -4714,7 +4712,7 @@ con:
     \begin{itemize}
         \item \underline{\textbf{$\phi$ è ben definita}}: poiché $\forall \varphi \in \Gal\left(\faktor{F}{K}\right)$, $\varphi$ permuta le radici di $f(x)$ poiché manda ciascuna in un suo coniugato.
         \item \underline{\textbf{$\phi$ è un omomorfismo}}: si verifica direttamente che:
-        \[ \phi(\varphi \circ \psi) = (\varphi \circ \psi)_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \varphi(\psi{|{\{\alpha_1,\ldots,\alpha_n\}}}) = \varphi_{|{\{\alpha_1,\ldots,\alpha_n\}}} \circ \psi_{|{\{\alpha_1,\ldots,\alpha_n\}}}
+        \[ \phi(\varphi \circ \psi) = (\varphi \circ \psi)_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \varphi(\psi{|{\{\alpha_1,\ldots,\alpha_n\}}}) = \varphi_{|{\{\alpha_1,\ldots,\alpha_n\}}} \circ \psi_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \phi(\varphi) \circ \phi(\psi)
             \]
         $\forall \phi,\psi \in \Gal\left(\faktor{F}{K}\right)$, in questo caso stiamo restringendo $\varphi$ alle radici perché $\psi$ sulle radici ha immagine nelle radici, per quanto detto sopra.    
         \item \underline{\textbf{$\phi$ è iniettiva}}: poiché, avendo dimostrato che è un omomorfismo possiamo studiarne il nucleo:
@@ -4757,7 +4755,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 \begin{example}
     Se fosse $f(x) = x^3 - 2$, con $K = \QQ$ e $F = \QQ(\sqrt[3]{2},\zeta_3) \implies [F : K] = 6$ e quindi $\Gal\left(\faktor{F}{K}\right) \cong S_3$; per quanto detto sulle immersioni sappiamo che qualsiasi automorfismo del gruppo di Galois 
     deve mandare un elemento nei suoi coniugati, quindi abbiamo in totale appunto 6 possibili immersioni al variare di $\varphi$:
-    \[ \varphi(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i \qquad \text{e} \qquad \varphi(\zeta_3) = \zeta_3^j \qquad \text{con}\quad i \in \{0,1,2\},j \in \{0,1\}
+    \[ \varphi(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i \qquad \text{e} \qquad \varphi(\zeta_3) = \zeta_3^j \qquad \text{con}\quad i \in \{0,1,2\},j \in \{1,2\}
         \]
     Necessariamente $\varphi$ deve verificare le relazioni sopra\footnote{E per la precisione, affinché il discorso fatto sopra funzioni gli elementi devono essere algebricamente indipendenti.} che
     danno al più 6 possibili $\varphi$. Poiché il grado è 6, tutte e 6 funzionano cioè si estendono ad $F$, ciò perché:
@@ -4776,43 +4774,6 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
     ovvero $[F : \QQ] = [Q (\sqrt[3]{2}) : \QQ][\QQ(\zeta_3) : \QQ] = 6$.
 \end{example}
 
-\begin{example}[Vi sconsiglio caldamente di leggere quest'esempio prima che l'abbia riscritto]
-\footnote{Questo è l'esercizio risolto dalla Del Corso con la spiegazione più contorta in assoluto, prometto di riscriverlo per bene nella prima revisione.}
-Consideriamo $f(x) = x^3 + x^2 - 2x -1$, ovvero il polinomio minimo di $\zeta_7+\zeta_7^{-1}$ su $\QQ$ e $\faktor{\QQ(\zeta_7+\zeta^{-1})}{\QQ}$, che è normale, quindi 
-di Galois\footnote{Ciò sempre in virtù del fatto che stiamo lavorando soltanto su estensioni separabili.}, abbiamo quindi che:
-\[ \Gal\left(\faktor{\QQ(\zeta_7+\zeta_7^{-1})}{\QQ}\right) \cong \mathcal{A}_3
-    \]
-verifichiamo quanto appena detto. Abbiamo che $[\QQ(\zeta_7) : \QQ] = \phi(7) = 6$, pertanto:
-\[ \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) = \{\varphi : \zeta_7 \longmapsto \zeta_7^i | (i,7) = 1\}
-    \]
-Osserviamo che il polinomio scritto sopra è proprio il polinomio minimo di $\alpha = \zeta_7+\zeta_7^{-1} \in \QQ(\zeta_7)$, infatti per l'appartenenza appena citata sappiamo che tutte le radici
-di $\mu_{\zeta_7+\zeta_7^{-1}}(x)$ stanno in $\QQ(\zeta_7)$, ed esse sono:
-\[ \left\{\varphi(\alpha) \m \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) \right\}
-    \]
-le radici sono queste poiché, data la torre:
-\[ \QQ \subseteq \QQ(\alpha) \subseteq \QQ(\zeta_7)
-    \]
-le immersioni $\psi$ mandano $\alpha$ in una qualsiasi radice coniugata di $\mu_{\alpha}(x)$, per cui l'insieme:
-\[ \{\psi(\alpha)\}
-    \]
-che, al variare delle immersioni $\psi$ di $\QQ(\alpha)$ in $\overline \QQ$, è l'insieme delle radici di $\mu_\alpha(x)$, dunque possiamo scrivere:
-\[ \mu_\alpha(x) = \prod_{\psi}(x - \psi(\alpha))
-    \]
-D'altra parte ogni immersione $\psi$ si estende ad uno $\varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right)$ e $\forall \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right)$, sappiamo che 
-$\varphi(\alpha)$ sarà ancora una radice di $\mu_\alpha(x)$, pertanto abbiamo:
-\[ \{\text{radici di $\mu_\alpha(x)$}\} = \{\psi(\alpha)\}_{\psi : \QQ(\alpha) \longrightarrow \QQ} = \{\varphi(\alpha)\}_{\varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right)}
-    \]
-infine abbiamo che:
-\[  \{\text{radici di $\mu_\alpha(x)$}\} = \{\varphi(\zeta_7+\zeta_7^{-1}) = \zeta_7^i+\zeta_7^{-i} | i = 1,\ldots,6\} = \{\zeta_7+\zeta_7^{-1}, \zeta_7^2+\zeta_7^{-2},\zeta_7^3+\zeta_7^{-3}\}
-    \]
-ciò dimostra l'assunto iniziale $[\QQ(\zeta_7+\zeta_7^{-1}) : \QQ] = \deg \mu_{\zeta_7+\zeta_7^{-1}}(x) = 3$. Per concludere osserviamo che l'estensione è di Galois perché è il campo di spezzamento di $\mu_{\zeta_7+\zeta_7^{-1}}(x)$ in quanto:
-\[ \zeta_7^2+\zeta_7^{-2} = (\zeta_7+\zeta_7^{-1})^2 - 2 \in \QQ(\zeta_7+\zeta_7^{-1})
-    \]
-e analogamente:
-\[ \zeta_7^3+\zeta_7^{-3} = (\zeta_7+\zeta_7^{-1})^3 - 3(\zeta_7+\zeta_7^{-1}) \in \QQ(\zeta_7+\zeta_7^{-1})
-    \]
-si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'espressione di $\mu_\alpha(x)$.
-\end{example}
 
 \newpage
 \subsection{Gruppo di Galois di $\F{q^d}/\F{q}$}
