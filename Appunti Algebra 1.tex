@@ -3430,7 +3430,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 \newpage
 \subsection{Domini a fattorizzazione unica (UFD)}
 \begin{definition}
-    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, , con $x \not\in A^* \cup \{0\}$ si scrive in modo
+    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, $x \not\in A^* \cup \{0\}$, si scrive in modo
     unico, a meno dell'ordine di fattori e di moltiplicazione per elementi invertibili, come prodotto di elementi irriducibili.
 \end{definition}
 
@@ -3737,7 +3737,7 @@ Nelle prossime proposizioni indicheremo con $K$ il campo dei quozienti di $A$.
             \]
         dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto anche $g(x)$ e $h(x)$ sono costanti, $g(x), h(x) \in A$,
         per cui $f(x)$ è irriducibile in $A[x]$ se e solo se $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
-        \item Sia $f(x) \in A[x]$ non costante, $\deg f(x) \geq 1$. 
+        \item Sia $f(x) \in A[x]$ non costante, $\deg f(x) \geq 1$. \\
 	Supponiamo $f(x)$ primitivo e irriducibile in $K[x]$ e sia $f(x) = g(x)h(x)$ in $A[x]$ (e quindi anche in $K[x]$). Poiché $f(x)$ è irriducibile in $K[x]$, 
         o $g(x)$ o $h(x)$ è invertibile in $K[x]$ e quindi costante; supponiamo (WLOG) che sia $g(x) = g \in A$, da ciò segue che:
         \[ 1 = c(f(x)) = c(g(x)h(x)) = c(g(x))c(h(x)) = g c(h(x))
@@ -3959,7 +3959,7 @@ Ci limiteremo a studiare le cosiddette terne primitive, dove $(x,y,z) = 1$ (le a
     [Invertibili di $\ZZ\lbrack i \rbrack$]
     Osserviamo che gli elementi di $(\ZZ[i])^*$ sono gli $u \in \ZZ[i]$ tali che $\exists v \in \ZZ[i]$:
     \[ uv = 1 \implies 
-       \footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati. [Detto così è falso, infatti detto \alpha = \frac{1}{\sqrt{2}} si ha che \alpha non è coniugato a sé stesso ma \alpha\alpha = \frac{1}{2} + \frac{1}{2} = 1; il modo giusto di farlo è con la norma (vedi Esercitazioni)]
+       \footnote{Stiamo usando il fatto che nei complessi il prodotto fa 1 se è tra elementi coniugati. [Detto così è falso; il modo giusto di farlo è con la norma (vedi Esercitazioni)]
        } \quad 
        v = \overline u \implies u\overline u = 1
         \]
@@ -4126,8 +4126,17 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 \end{proposition}
 
 \begin{proof}
-    La dimostrazione è identica a quella già vista in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}. Siano $[F:K] = n$ e $[L:F] = m$, verifichiamo che $[L:K]=nm$;
-    per definizione sappiamo che $[F:K] = n$ ovvero $F$ è un $K$-spazio vettoriale con $\dim_KF = n$, e ugualmente, $[L:F] = m$ ovvero $L$ è un $F$-spazio vettoriale con $\dim_FL = m$. Possiamo considerare allora una $K$-base di $F$, $\{v_1,\ldots,v_n\}$, ed una $F$-base di $L$, $\{w_1,\ldots,w_m\}$; per dimostrare la tesi, dobbiamo dimostrare che $\dim_KL = nm$, ovvero $L$ ammette una $K$-base di cardinalità $nm$. Consideriamo l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$, come si osserva facilmente, esso ha cardinalità $nm$, dimostriamo quindi che tale insieme è una $K$-base di $L$, per fare ciò verifichiamo separatamente che gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ generano tutti gli elementi di $L$ e che sono tra loro linearmente indipendenti:
+    La dimostrazione è identica a quella già vista in 
+    \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}. 
+    Siano $[F:K] = n$ e $[L:F] = m$, verifichiamo che $[L:K]=nm$;
+    per definizione sappiamo che $[F:K] = n$ ovvero $F$ è un $K$-spazio vettoriale con $\dim_KF = n$,
+    e ugualmente, $[L:F] = m$ ovvero $L$ è un $F$-spazio vettoriale con $\dim_FL = m$. 
+    Possiamo considerare allora una $K$-base di $F$, $\{v_1,\ldots,v_n\}$, ed una $F$-base di $L$, $\{w_1,\ldots,w_m\}$; 
+    per dimostrare la tesi, dobbiamo dimostrare che $\dim_KL = nm$, ovvero $L$ ammette una $K$-base di cardinalità $nm$. 
+    Consideriamo l'insieme $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$, come si osserva facilmente, 
+    esso ha cardinalità $nm$, dimostriamo quindi che tale insieme è una $K$-base di $L$, 
+    per fare ciò verifichiamo separatamente che gli elementi di $\{v_iw_j\}_{i=1,\ldots,n}^{j=1,\ldots,m}$ 
+    generano tutti gli elementi di $L$ e che sono tra loro linearmente indipendenti:
 	\begin{itemize}
 	\ii Sia $\alpha \in L$, poiché $L$ è per ipotesi un $F$-spazio vettoriale, quindi $L = \left<w_1,\ldots,w_m\right>_F$, si ha che:
 		\[ \alpha = \sum_{j=1}^{m} \lambda_jw_j
