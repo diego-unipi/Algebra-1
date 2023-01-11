@@ -1607,7 +1607,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \item Se $Z(G)\not\subseteq H$, dato che $H\cup Z(G)\subseteq N_G(H)$, abbiamo che $\emptyset\neq Z(G)\setminus H\subseteq N_G(H)\setminus H$ da cui la tesi.
         \item Se $Z(G)\subseteq H$ osserviamo che $Z(G)$ è normale in $G$ e che $Z(G)$ non è banale perché $G$ è un $p-$gruppo, dunque possiamo considerare $\faktor{G}{Z(G)}$
         di ordine strettamente minore all'ordine di $G$. Sia $\pi:G \longrightarrow \faktor{G}{Z(G)}$ la mappa di proiezione al quoziente. Per ipotesi induttiva $N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)$ contiene strettamente $\faktor{H}{Z(G)}$, quindi per il teorema di corrispondenza si ha che anche
-        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)=H$, quindi basta mostrare che $\pi^{-1}\left(N_{\faktor{G}{Z(G)}}\left(\faktor{H}{Z(G)}\right)\right)\subseteq N_G(H)$, e questo deriva 
+        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)=H$, quindi basta mostrare che $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)\subseteq N_G(H)$, e questo deriva 
         dal fatto che se $g\in \pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
     \end{itemize}
 \end{proof}
@@ -1646,22 +1646,24 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                         \]
                 dove nell'ultimo passaggio abbiamo raccolto il primo termine, $p^{n-\alpha}m$, e lo abbiamo portato fuori dalla produttoria.\\
                 Osserviamo a questo punto che $p^{n-\alpha}$ è la più grande potenza di $p$ che divide $|\mathcal{M}|$\footnote{O anche $p^{n - \alpha} \pdiv |\mathcal{M}|$, o ancora $\nu_p(|\mathcal{M}|) = n - \alpha$.}, infatti,
-                si osserva che $p \nmid \prod_{i=1}^{p^\alpha-1}\frac{p^nm - i}{p^\alpha - i}$, cioè $\forall \in \{1,\ldots,p^\alpha - 1\}$ si ha che $p \nmid \frac{p^nm - i}{p^\alpha - i}$, come si osserva infatti:
-                \[ \nu_p(p^nm-i) = \nu_p(p^\alpha - i) = \nu_p(i)
+                si osserva che $p \nmid \prod_{i=1}^{p^\alpha-1}\frac{p^nm - i}{p^\alpha - i}$, cioè $\forall i \in \{1,\ldots,p^\alpha - 1\}$ si ha che $p \nmid \frac{p^nm - i}{p^\alpha - i}$, come si osserva infatti:
+                \[ \nu_p(p^nm-i) = \nu_p(p^\alpha - i) = \nu_p(i)\footnote{Ovvero la massima potenza di $p$ che divide numeratore e denominatore dipende unicamente da $i$.}
                     \]
                 dunque, se $p \nmid i \implies p^nm - i$ e $p^{\alpha} - i$ non sono divisibili per $p$; se fosse $i = p^kj$, con $(j,p) = 1$, allora
-                 $p^{\alpha} - i = p^{\alpha} - p^kj = p^k\underbrace{(p^{\alpha - k} - j)}_{\text{non divisibile per $p$}}$, con $k < \alpha$, (analogamente per $p^nm - i$), per quanto abbiamo detto deve essere necessariamente che:
+                 $p^{\alpha} - i = p^{\alpha} - p^kj = p^k\underbrace{(p^{\alpha - k} - j)}_{\text{non divisibile per $p$}}$, con $k < \alpha$, (analogamente per $p^nm - i$)\footnote{Cioè nel caso in cui $i$ è divisibile per
+                $p$ al numeratore ed al denominatore compare la stessa potenza di $p$, che quindi si semplifica ed otteniamo, come nel primo caso, che numeratore e denominatore non sono divisibili per $p$ (in entrambi i casi serve soltanto che il numeratore non sia divisibile per $p$ per non avere la divisibilità sull'intera frazione).},
+                per quanto abbiamo detto deve essere necessariamente che:
                 \[ p^{n - \alpha} \pdiv |\mathcal{M}|
                     \] 
                 ovvero $p^{n - \alpha}$ è l'esatta potenza di $p$ che divide $|\mathcal{M}|$.
-                Consideriamo $M \in \mathcal{M}$, allora $gM \in \mathcal{M}$, $\forall g \in G$, dunque possiamo considerare l'azione:
+                Consideriamo $M \in \mathcal{M}$, allora $gM \in \mathcal{M}$ (non varia la cardinalità di $M$), $\forall g \in G$, dunque possiamo considerare l'azione:
                 \[ \phi : G \longrightarrow S(\mathcal{M}) : g \longmapsto \varphi_g
                     \]
                 dove $\varphi_g : \mathcal{M} \longrightarrow \mathcal{M} : M \longmapsto gM$ è una bigezione. Data l'azione $\phi$ sappiamo che:
                 \[ \mathcal{M} = \bigcupdot_{i = 1}^{s}\Orb(M_i) \implies |\mathcal{M}| = \sum_{i = 1}^{s} |\Orb(M_i)| = \sum_{i = 1}^s \frac{|G|}{|\St(M_i)|}
                     \]
                 unendo ciò a quanto detto si ha che $p^{n - \alpha} \pdiv \sum_{i = 1}^s \frac{|G|}{|\St(M_i)|}$, quindi non tutte le orbite possono essere divisibili per una potenza maggiore di $p^{n - \alpha}$, ovvero esiste almeno un $i$
-                tale per cui $p^{n - \alpha + 1} \nmid |\Orb(M_i)|$(ovvero non può essere diviso per una potenza più grande di quanto detto), da ciò segue: $ p^{n - \alpha + 1} \nmid |\Orb(M_i)| = \frac{|G|}{|\St(M_i)|} = \frac{p^nm}{|\St(M_i)|}$,
+                tale per cui $p^{n - \alpha + 1} \nmid |\Orb(M_i)|$(cioè non può essere diviso per una potenza più grande di quanto detto), da ciò segue: $\displaystyle p^{n - \alpha + 1} \nmid |\Orb(M_i)| = \frac{|G|}{|\St(M_i)|} = \frac{p^nm}{|\St(M_i)|}$,
                 pertanto deve essere necessariamente che:
                 \[ p^{\alpha} \mid |\St(M_i)| = t
                     \]
@@ -1678,8 +1680,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 con $\varphi_h : X \longrightarrow X : gS \longmapsto hgS$ bigezione; per la formula delle classi si ha:
                 \[ m = |X| = \sum_{i = 1}^{r}|\Orb(g_iS)| = \sum_{i = 1}^{r} \frac{|H|}{|\St(g_iS)|} = \sum_{i = 1}^{r} p^{a_i}
                     \]
-                (essendo $p$-gruppi). Poiché  per ipotesi $p \nmid m$, allora esiste $i$ tale che $a_i = 0$ (dunque c'è un $1$ nella fattorizzazione
-                che impedisce la divisibilità di $m$ per $p$) $ \implies \Orb(g_iS) = \{g_iS\} \implies \St(g_iS) = H$ (ovvero per tale $i$ si ha una classe
+                (essendo $p$-gruppi). Poiché  per ipotesi $p \nmid m$, allora esiste $i$ tale che $a_i = 0$ (dunque c'è un $1$ nella somma
+                che impedisce la divisibilità di $m$ per $p$) per questo $i$ si ha che $\Orb(g_iS) = \{g_iS\} \implies \St(g_iS) = H$ (ovvero per tale $i$ si ha una classe
                 laterale $g_iS$ la cui orbita è solo se stessa, e quindi il suo stabilizzatore è tutto $H$). Da ciò segue che $\forall h \in H$:
                 \[ hg_iS = g_iS \iff hg_i \in g_iS \iff h \in g_iSg_{i}^{-1}\iff H \subset g_iSg_i^{-1}
                     \]
@@ -2008,7 +2010,7 @@ Dunque i gruppi di ordine 8 sono:
         \[ \cycle{1,j,-1,-j}\cycle{i,-k,-i,k}
             \]
     e numerando in qualsiasi ordine gli elementi di $Q_8$ possiamo scrivere le permutazioni corrispondenti in $S_8$:
-        \[ i \longmapsto \cycle{1,2,3,4}\cycle{5,6,7,8} \qquad j \longmapsto \cycle{1,5,2,6}\cycle{3,8,4,7}
+        \[ i \longmapsto \cycle{1,2,3,4}\cycle{5,6,7,8} \qquad j \longmapsto \cycle{1,5,3,7}\cycle{2,8,4,6}
             \]
 \end{soln}
 
@@ -4344,7 +4346,7 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
     Dato un campo $K$ ed $\alpha \in \overline K$, con $\overline K$ chiusura algebrica di $K$, detto $k$ il numero di radici distinte di $\mu_\alpha(x)$ in $\overline K$, allora:
     \[ \exists \varphi_1,\ldots,\varphi_k : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = id_K
         \]
-    ovvero esistono esattamente $k$ estensioni distinte da $K(\alpha)$ a $\ol K$.
+    ovvero esistono esattamente $k$ estensioni distinte da $K(\alpha)$ a $\ol K$, che estendono l'immersione di $K$ in $\ol K$ per mezzo dell'identità.
 \end{proposition}
 
 \begin{proof}
@@ -4407,7 +4409,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 
 \begin{proposition}[Numero di estensioni di $K(\alpha)$ a $\overline K$]
     \label{3.37}
-    Dato $\alpha \in \overline K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono esattamente $n$ estensioni a $K(\alpha)$, cioè:
+    Dato $\alpha \in \overline K$, con $[K(\alpha) : K] = n$, si ha che $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono esattamente $n$ estensioni di $\varphi$ ad una immersione da $K(\alpha)$ a $\ol K$, cioè:
     \[ \exists \varphi_1,\ldots,\varphi_n : K(\alpha) \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
 \end{proposition}
@@ -4476,7 +4478,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 
 Nella trattazione di teoria di campi di queste dispense considereremo soltanto estensioni separabili.
 
-\begin{example}
+\begin{example}[Immersioni nella chiusura algebrica e coniugati]
     Sia $f(x) = x^3 - 2$, tale polinomio coincide con $\mu_{\sqrt[3]{2}/\QQ}(x)$, ovvero il polinomio minimo di $\alpha = \sqrt[3]{2}$ su $\QQ$, vogliamo studiare le immersioni di $\QQ(\alpha)$ in $\overline \QQ$:
     \[ \varphi : \QQ(\alpha) \varlonghookrightarrow \overline \QQ \qquad \text{con} \qquad \varphi_{i|\QQ} = id_\QQ
         \]
@@ -4497,7 +4499,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     da cui $\QQ(\alpha)$ è isomorfo su $\QQ$ (o si dice anche i tre isomorfismi fissano $\QQ$ puntualmente) a questi tre campi (distinti), ciò è in accordo con la \hyperref[3.33]{Proposizione 3.33}.
 \end{example}
 
-\begin{example}
+\begin{example}[Polinomio ciclotomico $p$-esimo]
     Sia $p$ un primo e consideriamo il campo ciclotomico $p$-esimo $\QQ(\zeta_p)$; per tale campo abbiamo che:
     \[ \mu_{\zeta_p/\QQ} (x) = \frac{x^p - 1}{x -1} = x^{p-1} + \ldots + x + 1
         \] 
@@ -4522,7 +4524,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 \end{definition}
 
 \begin{example}
-    [Estensione normale]
+    [Estensioni normali]
     Alcuni esempi di estensioni normali possono essere:
     \begin{itemize}
         \item $\QQ(\zeta_p)$ è un'estensione normale su $\QQ$.
@@ -4554,12 +4556,12 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
         $\forall i \in \{1,\ldots,n\}$ consideriamo le immersioni:
         \[ \varphi_i : K(\alpha_1) \varlonghookrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
             \]
-        esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33}, inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K(\alpha_i)$ si estende ad $F$
-        in tanti modi quanti il grado $[F : K(\alpha_1)]$, pertanto, fissata un'estensione di $\varphi_i$:
-        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_1)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
+        esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33} (ed in particolare sono quelle che mandano una radice in un suo coniugato), inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K(\alpha_i)$ si estende ad $F$
+        in tanti modi quanti il grado $[F : K(\alpha_1)]$, fissata un'estensione di $\varphi_i$:
+        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_i)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
-        dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\widetilde{\varphi}_i$, otteniamo tutte le altre radici dentro $F$:
+        dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\widetilde{\varphi}_i$, otteniamo tutte le altre radici dentro $F$\footnote{Il punto di questa dimostrazione è che se aggiungiamo una radice all'estensione, allora esistono degli omomorfismi, grazie all'ipotesi di normalità, che ci permettono di ottenerle tutte.}:
         \[ \widetilde{\varphi}_i(\alpha_1) = \varphi_i(\alpha_1) = \alpha_i \in F \qquad \forall i \in \{1,\ldots,n\}
             \]
         che prova la tesi.
@@ -4918,7 +4920,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.16]{Proposizione 3.16}, ciò è equivalente al dire che $E$ è finitamente generata da 
+        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.16]{Proposizione 3.16}, ciò è equivalente al dire che l'estensione $E$ è finitamente generata da 
         elementi algebrici, $E = K(\alpha_1,\ldots,\alpha_n)$, dimostriamo per induzione che $\faktor{E}{K}$ è semplice. Per $n = 2$ (trattiamo solo di questo caso in quanto una volta dimostrata la tesi per $n = 2$, basterà
         come al solito aggiungere un altro alla volta e procedere per induzione usando il caso $n = 2$ come fatto che rende vero il passo induttivo\footnote{Andrebbe dimostrato anche il caso $n = 1$, ma è banale.}) abbiamo $E = K(\alpha,\beta)$, sia $[E : K] = n$, allora per il \hyperref[3.39]{Corollario 3.35}:
         \[ \exists \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = id_K
