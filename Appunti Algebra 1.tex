@@ -4439,13 +4439,15 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
     iniettivo), pertanto, essendo il campo perfetto il numero di radici distinte di $\varphi(\mu_\alpha(x))$ è uguale al suo grado, e quindi a quello di $\mu_\alpha(x)$.
 \end{proof}
 
+\pagebreak
+
 \begin{corollary}[Numero di estensioni a $\overline K$ di un'estensione qualsiasi]
     \label{3.39}
     Sia $\faktor{E}{K}$ un'estensione, con $[E:K] = n$, allora $\forall \varphi : K \varlonghookrightarrow \overline K$ immersione, esistono esattamente $n$ immersioni:
     \[ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{i|K} = \varphi
         \]
 \end{corollary}
-\pagebreak
+
 \begin{proof}
     La dimostrazione segue facilmente per induzione, infatti per $n = 1$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>1$ consideriamo
     $\alpha \in E \setminus K$ per il quale si ha la torre di estensioni:
@@ -4461,9 +4463,6 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
         \]
     dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ovvero $md = n$ estensioni, con $\varphi_{ij | K(\alpha)} = \varphi_i $, per cui $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi tutte le $n$ estensioni funzionano.
 \end{proof}
-
-\newpage
-\subsection{Estensioni normali}
 
 \begin{definition}
     Dato $\alpha \in \overline K$, diciamo che i \vocab{coniugati} di $\alpha$ su $K$ sono le radici del polinomio minimo di $\alpha$ su $K$. 
@@ -4515,6 +4514,9 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     dove l'ultima uguaglianza deriva dal fatto che $\QQ(\zeta_p^i) \subseteq \QQ(\zeta_p)$ e $\mu_{\zeta_p^i}(x) = \mu_{\zeta_p}(x)$, dunque abbiamo un contenimento di estensioni
     che hanno lo stesso grado, quindi sono la stessa estensione.
 \end{example}
+
+\newpage
+\subsection{Estensioni normali}
 
 \begin{definition}
     Un'estensione algebrica $\faktor{F}{K}$ si dice \vocab{normale} se:
@@ -4648,8 +4650,6 @@ della stessa famiglia vista come polinomi in $F$.
     Prendendo $K = \QQ$, $F = \QQ(\sqrt[3]{2})$ e $L = \QQ(\sqrt[3]{2},\zeta_3)$, abbiamo che $\faktor{L}{K}$ è normale in quanto tutte le radici del polinomio minimo dei due elementi sono in $L$, ma per lo stesso motivo 
     $\faktor{F}{K}$ non è normale.
 \end{remark}
-
-\pagebreak
 
 \begin{remark}
     Osserviamo che il viceversa della \hyperref[3.50]{Proposizione 3.50} è falso, presa ad esempio la torre:\
