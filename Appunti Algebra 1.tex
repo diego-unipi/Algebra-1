@@ -625,8 +625,10 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
     Un'azione $\lambda$ si dice \vocab{fedele} se è iniettiva.
 \end{definition}
 Ad esempio l'azione di rappresentazione regolare a sinistra è fedele:
-    $\ker \lambda = \{g \in G | \lambda(g) = id\} = \{e\}$, infatti $\lambda(e) = \lambda_e = id$ e inoltre
-    \[ \lambda(g) = \lambda_g = id \implies \lambda_g(e) = e \implies ge = e \implies g = e
+    \[ \ker \lambda = \{g \in G \mid \lambda(g) = id\} = \{e\}
+        \]
+    infatti $\lambda(e) = \lambda_e = id$ e inoltre
+    \[ \lambda(g) = \lambda_g = id ~\implies~ \lambda_g(e) = e ~\implies~ ge = e ~\implies~ g = e
         \]
 da cui $\lambda$ fedele.
 
@@ -1410,8 +1412,8 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
         Quindi $mG \cap m^{\prime}G = \{e\}$, pertanto sono verificate ipotesi del \hyperref[t:1.72]{Teorema 1.72}, dunque è vero che $G \cong mG \times m^{\prime}G$. Osserviamo che:
             \[ mG = G_{m^{\prime}} = \{g \in G \mid m^{\prime}g = 0\} \qquad \text e \qquad m^{\prime}G = G_m = \{g \in G \mid mg = 0\}
                 \]
-        Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi: 
-	$m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}g \in G_m \forall g \in G$, perché $mm^{\prime}g = ng = 0$; viceversa, preso 
+        Verifichiamo (WLOG) $m^{\prime}G = G_m$ mostrando la doppia inclusione tra insiemi; 
+	$m^{\prime}G \subseteq G_m$, ovvero $m^{\prime}g \in G_m \forall g \in G$, perché $mm^{\prime}g = ng = 0$, viceversa, preso 
         $x \in G_m$, ovvero $mx = 0$, per quanto visto sopra abbiamo che:
             \[ \underbrace{mx}_{= 0}h + m^{\prime}kx = x \implies x = m^{\prime}(kx) \implies x \in m^{\prime}G
                 \]
@@ -3767,8 +3769,8 @@ Nelle prossime proposizioni indicheremo con $K$ il campo dei quozienti di $A$.
     \begin{itemize}
         \item Sia $f$ costante, ovvero $f(x) = f \in A$. Allora, per la caratterizzazione precedente, $f$ irriducibile in $A[x]$ implica $f$ irriducibile in $A$, quindi $f$ è primo in $A$, dato che $A$ è UFD. Passando ai contenuti e applicando il \hyperref[gauss]{Lemma di Gauss} abbiamo che
         \begin{multline*}
-            f \mid g(x)h(x) \implies f = c(f) \mid c(g(x)h(x)) = c(g(x))c(h(x)) \\
-            \implies f \mid c(g(x)) \mid g(x) \quad \text o \quad f \mid c(h(x)) \mid h(x)
+        	f \mid g(x)h(x) \implies f = c(f) \mid c(g(x)h(x)) = c(g(x))c(h(x)) \\
+        	\implies f \mid c(g(x)) \mid g(x) \quad \text o \quad f \mid c(h(x)) \mid h(x)
         \end{multline*}
         dunque $f$ è primo anche in $A[x]$.
         \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$. 
@@ -4701,7 +4703,7 @@ Quindi limitandoci ai campi perfetti effettivamente abbiamo a che fare solo con 
             \]
         Sappiamo che per ogni $i$ e $j$, poiché $\varphi$ è un'immersione deve mandare le radici in loro coniugati, dunque $\varphi(\alpha_{ij}) = \alpha_{ij^{\prime}}$ (ovvero un'altra radice dello stesso polinomio $f_i(x) \in K[x]$, con $\mu_{\alpha_{ij}} (x) \mid f_i(x)$), da cui abbiamo che:
         \begin{multline*}
-            \varphi(F) = \varphi(K(\{\alpha_{ij}\} | i = 1,\ldots,k, j = 1, \ldots, n_i)) = \\
+            \varphi(F) = \varphi(K(\{\alpha_{ij}\} \mid i = 1,\ldots,k, j = 1, \ldots, n_i)) = \\
              = K(\varphi(\alpha_{ij}) \mid i = 1,\ldots,k, j = 1, \ldots, n_i) \subset F
         \end{multline*}
         dove il contenimento segue dal fatto che abbiamo soltanto permutato gli elementi $\{\alpha_{ij}\}$, per cui $K \subset \varphi(F) \subset F$, ma poiché $F$ e $\varphi(F)$ hanno lo stesso grado finito su $K$,
@@ -4796,7 +4798,7 @@ Consideriamo l'insieme:
     \]
 Poiché $\faktor{E}{K}$ è normale, dunque $\varphi(E) = E$ per ogni $\varphi$, possiamo restringere il codominio ottenendo:
 \[ \Aut_K E = \{\varphi : E \overset{\sim}{\longrightarrow} E \mid \varphi_{|K} = id_K\}
-   \footnote{\varphi è iniettiva perché omomorfismo da un campo e surgettiva (dopo aver ristretto il codominio) grazie all'ipotesi di normalità, quindi è un automorfismo di E.}
+   \footnote{$\varphi$ è iniettiva perché omomorfismo da un campo e surgettiva (dopo aver ristretto il codominio) grazie all'ipotesi di normalità, quindi è un automorfismo di E.}
     \]
 i $K$-automorfismi di $E$, cioè gli automorfismi dell'estensione che fissano $K$, tale insieme con l'operazione di composizione forma il \vocab{gruppo di Galois}:
 \[ \Gal\left(\faktor{E}{K}\right) := \Aut_K(E)
@@ -4921,7 +4923,7 @@ Verifichiamo quanto appena detto. Abbiamo che $[\QQ(\zeta_7) : \QQ] = \phi(7) = 
     \]
 Osserviamo che il polinomio scritto sopra è proprio il polinomio minimo di $\alpha = \zeta_7+\zeta_7^{-1} \in \QQ(\zeta_7)$, infatti per l'appartenenza appena citata sappiamo che tutte le radici
 di $\mu_{\zeta_7+\zeta_7^{-1}}(x)$ stanno in $\QQ(\zeta_7)$, ed esse sono:
-\[ \left\{\varphi(\alpha) \mid \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) \right\}
+\[ \left\{\varphi(\alpha) ~\Big|~ \varphi \in \Gal\left(\faktor{\QQ(\zeta_7)}{\QQ}\right) \right\}
     \]
 le radici sono queste poiché, data la torre:
 \[ \QQ \subseteq \QQ(\alpha) \subseteq \QQ(\zeta_7)
@@ -5003,7 +5005,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
     Dato $\alpha \in \F{q}$ si ha che $\phi(\alpha) = \alpha^q = \alpha$ (perché stiamo considerando elementi di $\F{q}$), 
     dunque $\phi$ è un automorfismo di $\F{q^d}$ che lascia fisso $\F{q}$, pertanto $\phi \in \Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, per definizione. \\
     Osserviamo che per ipotesi $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$ è un gruppo di ordine $d$ e quindi 
-    ovviamente $\ord \phi = k \mid d$; d'altra parte se $\phi^k = id$, $\forall \alpha \in \F{q^d}$ si ha che:
+    ovviamente $k = \ord \phi \mid d$; d'altra parte se $\phi^k = id$, $\forall \alpha \in \F{q^d}$ si ha che:
     \[ \phi^k(\alpha) = \alpha^{q^k} = \alpha
         \]
     cioè il polinomio $f(x) = x^{q^k} - x$ ha come radici tutti i $q^d$ elementi di $\F{q^d}$, pertanto abbiamo:
@@ -5105,7 +5107,7 @@ si può verificare che im tal modo, con qualche calcolo, è possibile trovare l'
 	    \]
 	e così via, spostando un elemento per volta e utilizzando ripetutamente l'ipotesi induttiva per $s = 2$. \\
 	Sia $s = 2$ e $n = [E : K]$, allora abbiamo $E = K(\alpha,\beta)$ e per il \hyperref[3.39]{Corollario 3.39}:
-        \[ \exists~ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \quad \text{con} \qquad \varphi_{i|K} = id_K
+        \[ \exists~ \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \qquad \text{con} \quad \varphi_{i|K} = id_K
             \]
         Sia $x$ un'indeterminata e consideriamo i polinomi $\alpha+\beta x$. Possiamo definire il polinomio:
         \[ F(x) = \prod_{i<j} (\varphi_i(\alpha)+x\varphi_i(\beta)-\varphi_j(\alpha)-x\varphi_j(\beta)) \in \ol K[x] 
@@ -5340,7 +5342,7 @@ Dimostriamo le affermazioni:
     \[ \varphi(\alpha) = \alpha \qquad \forall \varphi \in H \cup S
         \]
     quindi $\alpha$ è fissato dai generatori del gruppo $\left<H,S\right>$, 
-    pertanto $\alpha$ è fissato da tutti gli elementi di $\left<H,S\right>$, da cui la tesi:
+    pertanto $\alpha$ è fissato da tutti gli elementi di $\left<H,S\right>$, da cui
     \[ L^H \cap L^S \subset L^{\left<H,S\right>}
         \]
 \end{enumerate}
