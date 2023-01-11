@@ -4364,8 +4364,8 @@ Possiamo rispondere alla domanda iniziale per mezzo della seguente proposizione.
     dove $\varphi$ è un omomorfismo per il \hyperref[omo]{Primo Teorema di Omomorfismo}, ed è iniettivo (per quanto già visto nell'\hyperref[3.32]{Osservazione 3.32}) perché omomorfismo \textbf{non nullo} tra campi (ad esempio perché $1 \longmapsto 1$). Si osserva infine che 
     le $\varphi_i$ sono distinte perché danno diversa immagine quando calcolate su $x$.
 \end{proof}
-
-Dalla proposizione appena dimostrata ci poniamo un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$, essendo $\overline K$ algebricamente chiuso, allora il numero delle radici del polinomio, ciascuna contata 
+Dalla proposizione appena dimostrata segue anche che quindi tutte le estensioni da $K(\alpha)$ a $\ol K$ sono tali che mandano $\alpha$ in un'altra radice del suo polinomio minimo\footnote{O coniugato come vedremo a breve.}.\\
+Ci poniamo ora un secondo problema, quello di contare il numero di radici di $\mu_\alpha (x)$ in $\overline K$, essendo $\overline K$ algebricamente chiuso, allora il numero delle radici del polinomio, ciascuna contata 
 con la propria molteplicità, è dato da $\deg \mu_\alpha(x) = n$, a questo punto, per determinare se $\mu_\alpha(x)$ abbia o meno radici multiple possiamo fare uso del criterio che segue.
 
 \begin{theorem}
@@ -4554,19 +4554,19 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 \begin{proof}
     Verifichiamo le varie equivalenze:
     \begin{itemize}
-        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $F$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
+        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
         $\forall i \in \{1,\ldots,n\}$ consideriamo le immersioni:
-        \[ \varphi_i : K(\alpha_1) \varlonghookrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
+        \[ \varphi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
             \]
-        esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33} (ed in particolare sono quelle che mandano una radice in un suo coniugato), inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K(\alpha_i)$ si estende ad $F$
-        in tanti modi quanti il grado $[F : K(\alpha_1)]$, fissata un'estensione di $\varphi_i$:
-        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \longrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_i)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
+        esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33} (ed in particolare sono quelle che mandano una radice in un suo coniugato), inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K$ in $\ol K$ si estende ad una da $F$ in $\ol K$,
+        in tanti modi quanti il grado $[F : K(\alpha_1)]$ (\hyperref[3.39]{Proposizione 3.39}). Fissata un'estensione di $\varphi_i$:
+        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_i)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
-        dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\widetilde{\varphi}_i$, otteniamo tutte le altre radici dentro $F$\footnote{Il punto di questa dimostrazione è che se aggiungiamo una radice all'estensione, allora esistono degli omomorfismi, grazie all'ipotesi di normalità, che ci permettono di ottenerle tutte.}:
+        dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\varphi_i$, otteniamo tutte le altre radici dentro $F$\footnote{Il punto di questa dimostrazione è che se aggiungiamo una radice all'estensione, allora esistono degli omomorfismi, grazie all'ipotesi di normalità, che ci permettono di ottenerle tutte.}:
         \[ \widetilde{\varphi}_i(\alpha_1) = \varphi_i(\alpha_1) = \alpha_i \in F \qquad \forall i \in \{1,\ldots,n\}
             \]
-        che prova la tesi.
+        dove la prima uguaglianza deriva dal fatto che $\alpha_1 \in F$ ed in particolare in $\alpha_1 \in K(\alpha_1)$, quindi $\widetilde{\varphi_i}$ si comporta come la sua restrizione su quest'ultimo campo, e tale restrizione $\varphi_i$, come detto all'inizio, manda una radice in un suo coniugato.
         \item \underline{\textbf{$(2)\implies (3)$}}: Consideriamo $F_0$ il campo di spezzamento su $K$ della famiglia di polinomi:
         \[ \mathcal{F} = \{\mu_\alpha(x) | \alpha \in F, \, \text{$\mu_\alpha(x)$ polinomio minimo di $\alpha$ su $K$}\}
             \]
@@ -4582,15 +4582,15 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
         vogliamo dimostrare che $\varphi(F) = F$, avendo per ipotesi che $F$ è il campo di spezzamento di:
         \[ \mathcal{F} = \{f_1(x),\ldots,f_k(x)\}
             \]
-        per cui $\{\alpha_{ij}\}_{j = 1,\ldots,n_i}$ sono le radici di $f_i(x)$, dunque possiamo riscrivere $F$ come:
+        per cui $\{\alpha_{ij}\}_{j = 1,\ldots,n_i}$ (con $n_i = \deg f_i(x)$) sono le radici di $f_i(x)$, dunque possiamo riscrivere $F$ come:
         \[ F = K(\{\alpha_{ij}\} | i = 1,\ldots,k, j = 1, \ldots, n_i) \footnote{Potremmo anche considerare il campo di spezzamento del polinomio prodotto dei precedenti, ma le radici sarebbero sempre le stesse.}
             \]
         Sappiamo che per ogni $i$ e $j$, poiché $\varphi$ è un'immersione deve mandare le radici in loro coniugati, dunque $\varphi(\alpha_{ij}) = \alpha_{ij^{\prime}}$ (ovvero un'altra radice dello stesso polinomio $f_i(x) \in K[x]$, con $\mu_{\alpha_{ij}} (x) \mid f_i(x)$), da cui abbiamo che:
         \begin{multline*}
             \varphi(F) = \varphi(K(\{\alpha_{ij}\} | i = 1,\ldots,k, j = 1, \ldots, n_i)) = \\
-             = K(\varphi(\alpha_{ij}) | i = 1,\ldots,k, j = 1, \ldots, n_i) \subset F
+             = K(\varphi(\alpha_{ij}) | i = 1,\ldots,k, j = 1, \ldots, n_i) \subseteq F
         \end{multline*}
-        dove il contenimento segue dal fatto che abbiamo soltanto permutato gli elementi $\{\alpha_{ij}\}$, per cui $K \subset \varphi(F) \subset F$, ma poiché $F$ e $\varphi(F)$ hanno lo stesso grado finito su $K$,
+        dove il contenimento segue dal fatto che abbiamo soltanto permutato gli elementi $\{\alpha_{ij}\}$, per cui $K \subset \varphi(F) \subseteq F$, ma poiché $F$ e $\varphi(F)$ hanno lo stesso grado finito su $K$,
         allora $\varphi(F) = F$.
     \end{itemize}
 \end{proof}
@@ -4612,21 +4612,38 @@ infatti si verifica facilmente che $\alpha_1,\alpha_2 \in K(\sqrt{\Delta}) = F$,
 \end{example}
 
 \begin{proposition}
-[Proprietà delle estensioni normali rispetto a composto ed intersezione]
+[Proprietà delle estensioni normali rispetto al composto ed all'intersezione di estensioni]
 Date due estensioni $\faktor{F}{K}$ e $\faktor{L}{K}$ in una fissata chiusura algebrica $\overline K$ normali, allora $\faktor{FL}{K}$ e $\faktor{F \cap L}{K}$ sono normali.
 \end{proposition}
 
 \begin{proof}
-    La proprietà del composto segue immediatamente dal fatto che l'immersione nella chiusura algebrica:
-    \[ \varphi : FL \longrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
-        \]
-    è un omomorfismo, per cui:
-    \[ \varphi(FL) =\footnote{Ciò deriva dal fatto che gli elementi di $FL$ sono combinazioni polinomiali degli elementi di $F$ e di $L$.} \varphi(F)\varphi(L) = FL
-        \]
-    dunque $FL$ è un'estensione normale. Analogamente per l'intersezione abbiamo:
-    \[ \varphi(F \cap L) =\footnote{Ciò andrebbe verificato, ma è abbastanza semplice.} \varphi(F) \cap \varphi(L) = F \cap L
-        \]
-    ed in questo caso stiamo estendendo $\varphi$ sia ad $L$ sia ad $F$.
+Consideriamo il diagramma:
+
+\[\begin{tikzcd}
+	& FL \\
+	F && L \\
+	& {F\cap L} \\
+	& K
+	\arrow[no head, from=2-1, to=1-2]
+	\arrow[no head, from=1-2, to=2-3]
+	\arrow[no head, from=2-1, to=3-2]
+	\arrow[no head, from=3-2, to=2-3]
+	\arrow[color={rgb,255:red,214;green,153;blue,92}, no head, from=3-2, to=1-2]
+	\arrow[color={rgb,255:red,214;green,153;blue,92}, no head, from=3-2, to=4-2]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, no head, from=4-2, to=2-3]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, no head, from=4-2, to=2-1]
+\end{tikzcd}\]
+
+La proprietà del composto segue immediatamente dal fatto che l'immersione nella chiusura algebrica:
+\[ \varphi : FL \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
+    \]
+è un omomorfismo, per cui:
+\[ \varphi(FL) =\footnote{Ciò deriva dal fatto che gli elementi di $FL$ sono combinazioni polinomiali degli elementi di $F$ e di $L$.} \varphi(F)\varphi(L) = FL
+    \]
+dunque $FL$ è un'estensione normale. Analogamente per l'intersezione abbiamo:
+\[ \varphi(F \cap L) =\footnote{Ciò andrebbe verificato, ma è abbastanza semplice.} \varphi(F) \cap \varphi(L) = F \cap L
+    \]
+ed in questo caso stiamo estendendo $\varphi$ sia ad $L$ sia ad $F$.
 \end{proof}
 
 \begin{proposition}
@@ -4636,12 +4653,22 @@ Data una torre di estensioni $K \subset F \subset L$ in una fissata chiusura alg
 \end{proposition}
 
 \begin{proof}
-Per ipotesi sappiamo che:
-\[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|F} = id_F
+Abbiamo il diagramma:
+\[\begin{tikzcd}
+	L \\
+	F \\
+	K
+	\arrow[color={rgb,255:red,214;green,214;blue,92}, no head, from=1-1, to=2-1]
+	\arrow[no head, from=2-1, to=3-1]
+	\arrow[color={rgb,255:red,214;green,92;blue,92}, bend right, no head, from=1-1, to=3-1]
+\end{tikzcd}\]
+
+
+vogliamo verificare che:
+\[ \forall \varphi : L \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|F} = id_F
     \]
-essendo $K \subset F$, allora $id_F$ include già $id_K$, quindi $\varphi_{|F} = id_F \implies \varphi_{|K} = id_K$, dato che $\faktor{L}{K}$ è normale,
-abbiamo $\varphi(L)=L$ per tutte le immersioni $\varphi$ di $L$ che fissano $K$, ma abbiamo visti che le immersioni che fissano $F$ fissano $K$ dunque $\varphi(L) = L$ anche un questo caso,
-pertanto $\faktor{L}{F}$ è normale. \\
+abbiamo $\varphi(L) = L$; se $\varphi_{|F} = id_F$, allora $\varphi_{|K} = id_K$ perché $K \subset F$, ma ciò è equivalente a chiedere $\varphi(L) = L$ con la restrizione su $K$ uguale all'identità, che è l'ipotesi
+\footnote{In altre parole se $L$ è normale su $K$, con la restrizione all'identità su $K$, allora lo sarà anche su $F$, in quanto le restrizioni ad identità su $F$ sono solo alcune di tutte quelle su $K$.}.\\
 \emph{Dimostrazione alternativa.}\footnote{Proposta da Francesco Sorce.}\; $\faktor{L}{K}$ normale significa che è campo di spezzamento di una famiglia di polinomi in $K[x]\subseteq F[x]$, quindi $L$ è il campo di spezzamento
 della stessa famiglia vista come polinomi in $F$.
 \end{proof}
@@ -4677,11 +4704,11 @@ Poiché $\faktor{E}{K}$ è normale possiamo considerare l'insieme:
 considerando ora lo stesso insieme, poiché l'estensione è normale, dunque $\varphi(E) = E$ per ogni $\varphi$, possiamo restringere l'insieme di arrivo degli omomorfismi ottenendo:
 \[ \Aut_K E = \{\varphi : E \underset{\sim}{\longrightarrow} E| \varphi_{|K} = id_K\}
     \]
-i $K$-automorfismi di $E$, cioè gli automorfismi dell'estensione che fissano $K$, tale insieme con l'operazione di composizione forma il \vocab{gruppo di Galois}:
+i $K$-automorfismi di $E$, cioè gli automorfismi dell'estensione che fissano puntualmente $K$, tale insieme con l'operazione di composizione forma il \vocab{gruppo di Galois}:
 \[ \Gal\left(\faktor{E}{K}\right) := \Aut_K(E)
     \]
 con:
-\[ \Big|\Gal\left(\faktor{E}{K}\right)\Big| = [E : K]
+\[ \Big|\Gal\left(\faktor{E}{K}\right)\Big| = [E : K]\footnote{Perché stiamo considerando delle estensioni con insieme di arrivo ristretto, dunque vale la \hyperref[3.39]{Proposizione 3.39}.}
     \]
 
 \begin{proposition}
@@ -4689,35 +4716,35 @@ con:
 \end{proposition}
 
 \begin{proof}
-    Essendo un sottoinsieme del gruppo degli automorfismi di un campo, è sufficiente mostrare che un sottogruppo, dunque date $\varphi,\psi \in \Gal\left(\faktor{E}{K}\right)$, allora 
+    Essendo un sottoinsieme del gruppo degli automorfismi di un campo, è sufficiente mostrare che un sottogruppo di quest'ultimo; date $\varphi,\psi \in \Gal\left(\faktor{E}{K}\right)$, allora 
     si verifica che $\varphi \circ \psi \in \Gal\left(\faktor{E}{K}\right)$, inoltre, essendo automorfismi sono invertibili e i loro inversi sono ancora automorfismi, dunque:
     \[ \forall \varphi \in \Gal\left(\faktor{E}{K}\right) \implies \varphi^{-1} \in \Gal\left(\faktor{E}{K}\right)
         \]
 \end{proof}
    
-\begin{proposition}
+\begin{proposition}[Grado del campo di spezzamento]
     \label{3.55}
     Dato $f(x) \in K[x]$ irriducibile di grado $n$ e detto $F$ il suo campo di spezzamento su $K$, allora:
     \[ n \mid [F : K] \mid n!
         \]
-    e $\Gal\left(\faktor{F}{K}\right) \varlonghookrightarrow S_n$. 
+    e $\Gal\left(\faktor{F}{K}\right) \varlonghookrightarrow S_n$, ovvero il gruppo di Galois agisce sulle radici di $f(x)$. 
 \end{proposition}
 
 \begin{proof}
     Dette $\alpha_1,\ldots,\alpha_n$ le radici di $f(x)$ in $\overline K$, allora $F = K(\alpha_1,\ldots,\alpha_n)$, da cui si ha la torre:
     \[ K \subseteq K(\alpha_1) \subseteq F \implies n = [K(\alpha_1) : K] \mid [F : K] = \Big|\Gal\left(\faktor{F}{K}\right)\Big|
         \]
-    dove la divisibilità segue ovviamente dal \hyperref[torri]{Teorema delle torri}. Consideriamo ora:
+    dove la divisibilità segue ovviamente dal \hyperref[torri]{Teorema delle torri}. Consideriamo ora l'azione che restringe gli automorfismi di Galois alle sole radici di $f(x)$:
     \[ \phi: \Gal\left(\faktor{F}{K}\right) \longrightarrow S(\{\alpha_1,\ldots,\alpha_n\}) \cong S_n : \varphi \longmapsto \varphi_{|\{\alpha_1,\ldots,\alpha_n\}}
         \]
     Osserviamo che:
     \begin{itemize}
-        \item \underline{\textbf{$\phi$ è ben definita}}: poiché $\forall \varphi \in \Gal\left(\faktor{F}{K}\right)$, $\varphi$ permuta le radici di $f(x)$ poiché manda ciascuna in un suo coniugato.
+        \item \underline{\textbf{$\phi$ è ben definita}}: poiché $\forall \varphi \in \Gal\left(\faktor{F}{K}\right)$, $\varphi$ permuta le radici di $f(x)$ poiché manda ciascuna in un suo coniugato (per quanto già discusso sulle immersioni), e quindi è una permutazione dell'insieme $\{\alpha_1,\ldots,\alpha_n\}$.
         \item \underline{\textbf{$\phi$ è un omomorfismo}}: si verifica direttamente che:
-        \[ \phi(\varphi \circ \psi) = (\varphi \circ \psi)_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \varphi(\psi{|{\{\alpha_1,\ldots,\alpha_n\}}}) = \varphi_{|{\{\alpha_1,\ldots,\alpha_n\}}} \circ \psi_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \phi(\varphi) \circ \phi(\psi)
+        \[ \phi(\varphi \circ \psi) = (\varphi \circ \psi)_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \varphi(\psi_{|{\{\alpha_1,\ldots,\alpha_n\}}}) = \varphi_{|{\{\alpha_1,\ldots,\alpha_n\}}} \circ \psi_{|{\{\alpha_1,\ldots,\alpha_n\}}} = \phi(\varphi) \circ \phi(\psi)
             \]
-        $\forall \phi,\psi \in \Gal\left(\faktor{F}{K}\right)$, in questo caso stiamo restringendo $\varphi$ alle radici perché $\psi$ sulle radici ha immagine nelle radici, per quanto detto sopra.    
-        \item \underline{\textbf{$\phi$ è iniettiva}}: poiché, avendo dimostrato che è un omomorfismo possiamo studiarne il nucleo:
+        $\forall \phi,\psi \in \Gal\left(\faktor{F}{K}\right)$, in questo caso stiamo restringendo $\varphi$ alle radici perché $\psi$ sulle radici ha immagine nell'insieme stesso, per quanto detto sopra.    
+        \item \underline{\textbf{$\phi$ è iniettiva}}: avendo dimostrato che è un omomorfismo possiamo studiarne il nucleo:
         \[ \ker \phi = \left\{\varphi \in \Gal\left(\faktor{F}{K}\right) \m \varphi(\alpha_i) = id(\alpha_i) = \alpha_i, \forall i \in \{1,\ldots,n\}\right\} = \{id\}
             \]
         dove l'ultima uguaglianza è data dal fatto che se $\varphi$ fissa tutti i generatori di $\faktor{F}{K}$, l'unica possibilità è che sia l'identità (banalmente perché stiamo considerando funzioni che permutano delle radici,
@@ -4730,7 +4757,7 @@ con:
 Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agisce fedelmente su $\{\alpha_1,\ldots,\alpha_n\}$. Inoltre tale azione è transitiva perché ha un'unica orbita:
 \[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) \m \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
-infatti, essendo $[K(\alpha_1) : K] = n$, allora ho esattamente $n$ immersioni che permutano i coniugati (ognuna delle quali si può estendere ad $F$):
+infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati (ognuna delle quali si può estendere ad $F$):
 \[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_i
     \]
 e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
@@ -4776,7 +4803,6 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
     ovvero $[F : \QQ] = [Q (\sqrt[3]{2}) : \QQ][\QQ(\zeta_3) : \QQ] = 6$.
 \end{example}
 
-
 \newpage
 \subsection{Gruppo di Galois di $\F{q^d}/\F{q}$}
 
@@ -4789,7 +4815,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
     \[ \forall \varphi : \Fpn \varlonghookrightarrow \overline \Fp
         \]
     $\varphi(\Fpn)$ è un sottocampo di $\overline\Fp$ con $p^n$ elementi (essendo $\varphi$ iniettiva), e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
-    pertanto l'estensione è normale.\footnote{Alternativamente si ricorda che in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo costruito tutte le estensioni $\Fpn$ di campi finiti $\Fp$, come campi di spezzamento del polinomio $f(x) = x^{p^n} - x \in \Fp[x]$.}
+    pertanto l'estensione è normale.\footnote{Alternativamente si ricorda che in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo costruito tutte le estensioni $\Fpn$ di campi finiti $\Fp$, come campi di spezzamento del polinomio $f(x) = x^{p^n} - x \in \Fp[x]$, e quindi tali estensioni sono sempre normali.}
 \end{proof}
 
 \begin{remark}
@@ -4800,7 +4826,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
         \node (Q4) at (0,1.5) {$\Fpn = \F{q^d}$};
         \draw (Q4)--(Q3) node [right, yshift=-0.75cm] {};
         \draw (Q1)--(Q3) node [right, yshift=0.75cm] {NOR.};
-        \draw(Q4) to [bend right=45] (Q1) node[left, yshift=1.20cm, xshift=-0.5cm] {NOR.};
+        \draw(Q4) to [bend right=45] (Q1) node[, left, yshift=1.20cm, xshift=-0.5cm] {NOR.};
     \end{tikzpicture}
         \]
     dove per quanto detto $\faktor{\Fpn}{\Fp}$ è normale, dunque per la \hyperref[3.50]{Proposizione 3.50} tutte le estensioni di campi finiti sono normali.
@@ -4812,6 +4838,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
         \]
 \end{definition}
 
+Con $\ord \varphi = d$ in quanto $\phi^d(x) = \underbrace{\phi \circ \ldots \phi}_{\text{$d$ volte}}(x) = x^{q^d} = x$.
 \begin{theorem}[Gruppo di Galois di estensioni di campi finiti]
     Il gruppo di Galois $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, con $q = p^r$, è generato dall'automorfismo di Frobenius $\phi$ di $\F{q^d}$:
     \[ \Gal\left(\faktor{\F{q^d}}{\F{q}}\right) = \left<\phi\right>
@@ -4828,10 +4855,11 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
     dove l'ultima uguaglianza segue dal fatto che $q = p^r$, dunque siamo in caratteristica $p$ e vale il Lemma del Binomio Ingenuo. Analogamente:
     \[ \phi(\alpha\beta) = (\alpha\beta)^q = \alpha^q \beta^q = \phi(\alpha)\phi(\beta) \qquad \forall \alpha,\beta \in \F{q^d} 
         \]
-    si verifica facilmente inoltre che è iniettivo e surgettivo. $\forall \alpha \in \F{q}$ si ha che $\phi(\alpha) = \alpha^q = \alpha$ (perché stiamo considerando elementi di $\F{q}$), dunque $\phi$ è un automorfismo di $\F{q^d}$ che lascia fisso $\F{q}$, pertanto
-    $\phi \in \Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, per definizione. Osserviamo che per ipotesi $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$ è un gruppo di ordine $d$ e quindi 
-    ovviamente $\ord \phi = k \mid d$; d'altra parte se $\phi^k = id$, $\forall \alpha \in \F{q^d}$ si ha che:
-    \[ \phi^k(\alpha) = \alpha^{q^k} = \alpha
+    si verifica facilmente inoltre che è iniettivo e surgettivo. $\forall \alpha \in \F{q}$ si ha che $\phi(\alpha) = \alpha^q = \alpha$ (perché stiamo considerando
+    elementi di $\F{q}$), dunque $\phi$ è un automorfismo di $\F{q^d}$ che lascia fisso $\F{q}$ (o anche $\phi_{|\F{q}} = id_{\F{q}}$), pertanto
+    $\phi \in \Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$, per definizione. Osserviamo che per ipotesi $\Gal\left(\faktor{\F{q^d}}{\F{q}}\right)$ è un gruppo di ordine
+    $d$ (essendo il grado dell'estensione) e quindi ovviamente $\ord \phi = k \mid d$; d'altra parte se $\phi^k = id$, si ha che:
+    \[ \phi^k(\alpha) = \alpha^{q^k} = \alpha \qquad \forall \alpha \in \F{q^d}
         \]
     cioè il polinomio $f(x) = x^{q^k} - x$ ha come radici tutti i $q^d$ elementi di $\F{q^d}$, pertanto abbiamo:
     \[ \deg f(x) = q^k \geq q^d = |\F{q^d}|\implies k \geq d
