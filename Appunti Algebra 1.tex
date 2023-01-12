@@ -1082,7 +1082,8 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
     questo caso tutti gli elementi di $G$ hanno ordine $p$. \\
     Consideriamo $(e \ne) x \in G$ e $H = \left<x\right> \trianglelefteqslant G$ (in quanto $G$ abeliano); prendiamo $y \in G \setminus\left<x\right>$
     e analogamente $K = \left<y\right> \trianglelefteqslant G$, da ciò segue che $H \cap K = \{e\}$, infatti $H$ e $K$ sono sottogruppi ciclici di $G$
-    aventi ordini due primi distinti e quindi hanno in comune solo l'elemento neutro.
+    che hanno per ordine lo stesso primo, dunque o si intersecano banalmente o coincidono (dato che l'intersezione è un gruppo che ha per ordine un divisore di $p$), pertanto si intersecano
+    banalmente perché abbiamo preso $y \in G \setminus \left<x\right>$.
     Osservando infine che per cardinalità $HK = G$, per cardinalità:
         \[ |HK| = \frac{|H||K|}{|H \cap K|} = \frac{p\cdot p}{1} = p^2
             \]
@@ -1607,8 +1608,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \item Se $Z(G)\not\subseteq H$, dato che $H\cup Z(G)\subseteq N_G(H)$, abbiamo che $\emptyset\neq Z(G)\setminus H\subseteq N_G(H)\setminus H$ da cui la tesi.
         \item Se $Z(G)\subseteq H$ osserviamo che $Z(G)$ è normale in $G$ e che $Z(G)$ non è banale perché $G$ è un $p-$gruppo, dunque possiamo considerare $\faktor{G}{Z(G)}$
         di ordine strettamente minore all'ordine di $G$. Sia $\pi:G \longrightarrow \faktor{G}{Z(G)}$ la mappa di proiezione al quoziente. Per ipotesi induttiva $N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)$ contiene strettamente $\faktor{H}{Z(G)}$, quindi per il teorema di corrispondenza si ha che anche
-        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)=H$, quindi basta mostrare che $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)\subseteq N_G(H)$, e questo deriva 
-        dal fatto che se $g\in \pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
+        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(\faktor{H}{Z(G)}\right)=H$, quindi basta mostrare che $\pi^{-1}\left(\faktor{H}{Z(G)}\right)\subseteq N_G(H)$, e questo deriva 
+        dal fatto che se $g\in \pi^{-1}\left(\faktor{H}{Z(G)}\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
     \end{itemize}
 \end{proof}
 
@@ -2000,8 +2001,8 @@ Dunque i gruppi di ordine 8 sono:
     Dunque per esclusione deve essere necessariamente che:
         \[ Q_8 \varlonghookrightarrow S_8 \implies n = 8
             \]
-    Per \hyperref[p:Cayley]{Cayley} l'immersione è di $Q_8$ in $S(Q_8)$, dunque la mappa che realizza ciò è data da:
-        \[ i \longmapsto \varphi_i \qquad \text{con} \qquad \varphi_i : Q_8 \longrightarrow Q_8 : x \longmapsto ix
+    Per \hyperref[p:Cayley]{Cayley} l'immersione di $Q_8$ in $S(Q_8)$ è realizzata dall'azione di moltiplicazione a sinistra:
+        \[ i \longmapsto \varphi_i\footnote{L'azione ovviamente è definita per tutti gli altri elementi di $Q_8$ allo stesso modo.} \qquad \text{con} \qquad \varphi_i : Q_8 \longrightarrow Q_8 : x \longmapsto ix
             \]
     in particolare con la notazione dei cicli abbiamo che l'immagine di $\varphi_i$ di $Q_8$ è data da:
         \[ \cycle{1,i,-1,i}\cycle{j,k,-j,-k}
@@ -3098,7 +3099,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
             ciò è equivalentemente al fatto che $\exists \sigma \in S$ e $\exists p \in P$ tali per cui:
                 \[ \frac{ab}{st} = \frac{p}{\sigma} \iff ab\sigma = \underbrace{p}_{\in P}st \in P \implies ab\sigma \in P
                     \]
-            ma, essendo per ipotesi che $\sigma \in P$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ o $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
+            ma, essendo per ipotesi che $\sigma \in S$ e $P \cap S = \emptyset$, allora $ab \in P$, e poiché $P$ è primo si deve avere $a \in P$ o $b \in P$, e quindi la frazione di uno dei due deve essere quella in $S^{-1}P$: $\displaystyle\frac{a}{s} \in S^{-1}P \qquad \text o \qquad \frac{b}{t} \in S^{-1}P$
             e quindi $S^{-1}P$ primo.
     \end{enumerate}
 \end{proof}
@@ -3171,15 +3172,6 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
         \text e
         \qquad
         x \mid a \land x \mid b \implies x \mid d^{\prime}
-            \]
-    dunque, considerando $d$, esso deve essere diviso da $d^{\prime}$ in quanto massimo comune divisore:
-        \[ d = ud^{\prime}
-            \]
-    e simmetricamente:
-        \[ d^{\prime} = vd
-            \]
-    da cui, sfruttando il fatto che $A$ è un dominio segue:
-        \[ d = ud^{\prime} = uvd \implies d(1-uv) = 0 \implies uv = 1 \implies u,v \in A^*
             \]
     e quindi $d \sim d^{\prime}$ per definizione.
 \end{proof}
@@ -4522,7 +4514,8 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
     Un'estensione algebrica $\faktor{F}{K}$ si dice \vocab{normale} se:
     \[ \forall \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
         \]
-    si ha che $\varphi(F) = F$, ovvero l'estensione viene fissata da ogni immersione del campo di partenza nella sua chiusura algebrica.
+    si ha che $\varphi(F) = F$, ovvero l'estensione viene fissata da ogni immersione del campo di partenza nella
+    sua chiusura algebrica.\footnote{Cioè l'omomorfismo (di estensione dell'identità) permuta gli elementi che generano l'estensione con i loro coniugati, ma in questo caso rimangono sempre nel campo.}
 \end{definition}
 
 \begin{example}
@@ -4563,7 +4556,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
         \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_i)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
-        dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\varphi_i$, otteniamo tutte le altre radici dentro $F$\footnote{Il punto di questa dimostrazione è che se aggiungiamo una radice all'estensione, allora esistono degli omomorfismi, grazie all'ipotesi di normalità, che ci permettono di ottenerle tutte.}:
+        dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\varphi_i$, otteniamo tutte le altre radici dentro $F$:
         \[ \widetilde{\varphi}_i(\alpha_1) = \varphi_i(\alpha_1) = \alpha_i \in F \qquad \forall i \in \{1,\ldots,n\}
             \]
         dove la prima uguaglianza deriva dal fatto che $\alpha_1 \in F$ ed in particolare in $\alpha_1 \in K(\alpha_1)$, quindi $\widetilde{\varphi_i}$ si comporta come la sua restrizione su quest'ultimo campo, e tale restrizione $\varphi_i$, come detto all'inizio, manda una radice in un suo coniugato.
@@ -4574,7 +4567,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
         D'altra parte:
         \[ F_0 = K(\beta | \, \text{$\beta$ radice di $\mu_\alpha(x) \in \mathcal{F}$})
             \]
-        dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$, $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
+        dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$ (in pratica si aggiunge una volta che si aggiunge una radice di ciascun polinomio sappiamo per la (2) che $F$ le contiene tutte), $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
         quindi $F = F_0$, per cui $F$ è proprio il campo di spezzamento dei polinomi della famiglia $\mathcal{F}$.
         \item \underline{\textbf{$(3)\implies (1)$}}: Consideriamo:
         \[ \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
@@ -4662,7 +4655,6 @@ Abbiamo il diagramma:
 	\arrow[no head, from=2-1, to=3-1]
 	\arrow[color={rgb,255:red,214;green,92;blue,92}, bend right, no head, from=1-1, to=3-1]
 \end{tikzcd}\]
-
 
 vogliamo verificare che:
 \[ \forall \varphi : L \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|F} = id_F
@@ -4812,7 +4804,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 
 \begin{proof}
     Osserviamo che:
-    \[ \forall \varphi : \Fpn \varlonghookrightarrow \overline \Fp
+    \[ \forall \varphi : \Fpn \varlonghookrightarrow \overline \Fp \qquad \text{con $\varphi_{|\F{p^n}} = id_{\F{p^n}}$}
         \]
     $\varphi(\Fpn)$ è un sottocampo di $\overline\Fp$ con $p^n$ elementi (essendo $\varphi$ iniettiva), e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\Fpn) = \Fpn$,
     pertanto l'estensione è normale.\footnote{Alternativamente si ricorda che in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo costruito tutte le estensioni $\Fpn$ di campi finiti $\Fp$, come campi di spezzamento del polinomio $f(x) = x^{p^n} - x \in \Fp[x]$, e quindi tali estensioni sono sempre normali.}
