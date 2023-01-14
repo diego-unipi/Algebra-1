@@ -1888,14 +1888,15 @@ In effetti vale un risultato più generale
         \sigma = \cycle{x_1^{(1)}, \ldots, x_{l_1}^{(1)}}\ldots\cycle{x_1^{(k)}, \ldots, x_{l_k}^{(k)}}
     \]
     con $l_1\leqslant l_2\leqslant \ldots\leqslant l_k$, allora i suoi cicli 
-    hanno tutti la stessa lunghezza, cioè $l_i = l_j$ per ogni $i \neq j$.
+    hanno tutti la stessa lunghezza, cioè $l_i = l_j$ per ogni $i, j \in \{1, \ldots, n + 1\}$.
     Infatti, posto $r = \min\{l_i\mid 1\leqslant i \leqslant k\} = l_1$, 
     abbiamo
     \[
         \sigma^{l_1} = id \cdot \cycle{x_1^{(2)}, \ldots, x_{l_2}^{(2)}}^{l_1}
         \ldots\cycle{x_1^{(k)}, \ldots, x_{l_k}^{(k)}}^{l_1}
     \]
-    da cui $\sigma^{l_1} = id$ in quanto ha almeno un punto fisso e quindi 
+    Poiché $\sigma^{l_1}$ ha almeno un punto fisso, esiste $i \in \{1, \ldots, n + 1\}$
+    tale che $\sigma^{l_1} \in N\cap H_i = \{id\}$, cioè $\sigma^{l_1} = id$. Pertanto 
     $l_1 = l_2 = \ldots = l_k$. Fissata $\sigma \in N$ possiamo quindi scrivere
     $\sigma = \sigma_1\ldots\sigma_k$,
     dove $\sigma_i$ sono $l$-cicli disgiunti con $l = \displaystyle\frac{n + 1}{k}$.
@@ -1922,7 +1923,7 @@ In effetti vale un risultato più generale
         \[
             \alpha = \sigma_2^2\ldots\sigma_k^2 \neq id
         \]
-        in quanto $ord(\sigma_i) = l > 2$ per ogni $i \in \{1, \ldots, k\}$,
+        in quanto $\ord(\sigma_i) = l > 2$ per ogni $i \in \{1, \ldots, k\}$,
         tuttavia $a_1$ è un punto fisso per $\alpha$, che è assurdo;
         \item se $k > 1$ e $l = 2$, scriviamo $\sigma$ come prodotto di $k$
         trasposizioni disgiunte
@@ -2918,7 +2919,7 @@ d'altra parte il suo determinante deve essere uguale a 1, quindi $Z(S) =
     -1 & 0\\
     0 & -1
 \end{pmatrix}\right\}$. Utilizziamo questo fatto per determinare la classe
-di isomorfismo di un 3-Sylow di $S$. \newline 
+di isomorfismo del normalizzatore di un 3-Sylow di $S$. \newline 
 Fissiamo $P$ un 3-Sylow, poiché $n_3 = [S: N_S(P)]$ abbiamo 
 \[
     |N_S(P)| = \frac{|S|}{n_3} = 6
@@ -3259,31 +3260,31 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
     allora $f(x)$ è irriducibile in $A[x]$.
 \end{proposition}
 
-\begin{proof}
-    Supponiamo per assurdo che $f(x)$ sia riducibile, allora possiamo scrivere $f(x) = g(x)h(x)$
-    con $g(x), h(x) \in A[x]$, $\deg g = m \geq 1$, $\deg h = n - m \geq 1$. 
-    Consideriamo l'omomorfismo di proiezione
-    \[
-        \pi: A[x] \longrightarrow \faktor{A}{(p)}[x]: 
-        \sum_{j = 0}^k\alpha_ix^i \longmapsto \sum_{j = 0}^k \overline{\alpha_i}x^i
-    \]
-    abbiamo che 
-    \[
-        \pi(f(x)) = \overline{a_n}x^n \neq \overline{0} \qquad\pi(f(x)) = \pi(g(x))\pi(h(x))
-    \]
-    Scriviamo 
-    \[
-        g(x) = \sum_{i = 0}^m b_ix^i\qquad h(x) = \sum_{i = 0}^{n - m}c_ix^i
-    \]
-    poiché $A$ è $UFD$ lo è anche $A[x]$, pertanto le proiezioni di $g(x)$
-    e di $h(x)$ sono necessariamente della forma
-    \[
-        \pi(g(x)) = \overline{b_m}x^m\qquad \pi(h(x)) = \overline{c_{n - m}}x^{n - m}
-    \]
-    da cui $\overline{b_0} = \overline{c_0} = \overline{0}$, cioè $p \mid b_0$ e
-    $p \mid c_0$. D'altra parte $a_0 = b_0c_0$ e quindi $p^2 \mid a_0$, che 
-    è assurdo.
-\end{proof}
+%\begin{proof}
+%    Supponiamo per assurdo che $f(x)$ sia riducibile, allora possiamo scrivere $f(x) = g(x)h(x)$
+%    con $g(x), h(x) \in A[x]$, $\deg g = m \geq 1$, $\deg h = n - m \geq 1$. 
+%    Consideriamo l'omomorfismo di proiezione
+%    \[
+%        \pi: A[x] \longrightarrow \faktor{A}{(p)}[x]: 
+%        \sum_{j = 0}^k\alpha_ix^i \longmapsto \sum_{j = 0}^k \overline{\alpha_i}x^i
+%    \]
+%    abbiamo che 
+%    \[
+%        \pi(f(x)) = \overline{a_n}x^n \neq \overline{0} \qquad\pi(f(x)) = \pi(g(x))\pi(h(x))
+%    \]
+%    Scriviamo 
+%    \[
+%        g(x) = \sum_{i = 0}^m b_ix^i\qquad h(x) = \sum_{i = 0}^{n - m}c_ix^i
+%    \]
+%    poiché $A$ è $UFD$ lo è anche $A[x]$, pertanto le proiezioni di $g(x)$
+%    e di $h(x)$ sono necessariamente della forma
+%    \[
+%        \pi(g(x)) = \overline{b_m}x^m\qquad \pi(h(x)) = \overline{c_{n - m}}x^{n - m}
+%    \]
+%    da cui $\overline{b_0} = \overline{c_0} = \overline{0}$, cioè $p \mid b_0$ e
+%    $p \mid c_0$. D'altra parte $a_0 = b_0c_0$ e quindi $p^2 \mid a_0$, che 
+%    è assurdo.
+%\end{proof}
 
 \newpage
 
@@ -3303,9 +3304,7 @@ ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
     Poiché $A$ è un dominio a ideali principali, esiste $x \in A$ tale che 
     $M = (x)$, quindi $x \mid p$ dato che $P \subsetneq M$. Poiché $P$ è 
     un ideale primo si ha che $p \in A$ è un elemento primo, quindi 
-    irriducibile\footnote{
-        Questo perché PID $\Longrightarrow$ UFD.
-    }. Sia $q \in A$ tale che $p = xq$, dato che $x \notin A^*$ abbiamo che 
+    irriducibile. Sia $q \in A$ tale che $p = xq$, dato che $x \notin A^*$ abbiamo che 
     $q \in A^*$, cioè $(x) = (p)$, che è assurdo.
 \end{proof}
 
@@ -4384,6 +4383,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 \end{proof}
 
 \begin{proposition}
+    \label{prop3.15}
     Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, 
     allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois. Inoltre:
     \begin{enumerate}[(1)]
@@ -4590,7 +4590,34 @@ Galois di un'estensione di campi.
 \end{lemma}
 
 \begin{proof}
-    (In seguito scriverò la dimostrazione)
+    Consideriamo un'immersione $\varphi: K \longrightarrow \ol{K}$ tale che
+    $\varphi_{\mid K^G} = id_{K^G}$, per definizione di $K^G$ si ha che 
+    $\varphi \in G$. In particolare $G$ è l'insieme delle immersioni di $K$
+    in $\ol{K}$ che fissano $K^G$, pertanto $[K:K^G] = |G|$, cioè $\faktor{K}{K^G}$
+    è un'estensione finita. 
+
+    Per il Teorema dell'Elemento Primitivo esiste $\alpha \in K$ tale che 
+    $K = K^G(\alpha)$, posto $\mu(x) \in K^G[x]$ il polinomio minimo di $\alpha$
+    su $K^G$ sia $L$ il campo di spezzamento di $\mu(x)$ su $K^G$, vale
+    l'inclusione $K \subseteq L$ in quanto $K = K^G(\alpha)$. Consideriamo 
+    il polinomio 
+    \[
+        f(x) = \prod_{g \in G}(x - g(\alpha)) \in K[x]
+    \]
+    In realtà si ha $f(x) \in K^G[x]$, in quanto per ogni $h \in G$ vale 
+    \[
+        h(f(x)) = \prod_{g \in G}(x - (hg)(\alpha)) = f(x)
+    \]
+    in quanto la composizione per $h$ induce una bigezione tra gli elementi di $G$,
+    quindi un riordinamento del prodotto. Poichè $f(\alpha) = 0$ si ha che
+    $\mu(x)\mid f(x)$, pertanto le radici di $\mu(x)$ sono tutte della forma
+    $g(\alpha)$ per opportuni $g \in G$. Allora le radici di $\mu(x)$ sono
+    tutti elementi di $K$, pertanto $L = K$ e quindi $\faktor{K}{K^G}$ è 
+    un'estensione di Galois. Sia $H = \Gal(K/K^G)$, allora
+    \[
+        K^H = K^{\Gal(K/K^G)} = K^G
+    \]
+    da cui $H = G$ per il Teorema di Corrispondenza di Galois.
 \end{proof}
 
 \begin{proposition}
@@ -4610,6 +4637,72 @@ Galois di un'estensione di campi.
     allora $\faktor{K}{K^G}$ è un'estensione di Galois finita e il suo gruppo
     di Galois è isomorfo a $G$.
 \end{proof}
+
+\newpage
+
+\subsection{Estensioni quadratiche di $\QQ$}
+
+\begin{theorem}
+    Siano $p_1, \ldots, p_n \in \ZZ$ primi distinti, poniamo $K_n = 
+    \QQ(\sqrt{p_1}, \ldots, \sqrt{p_n})$. $\faktor{K_n}{\QQ}$ è un'estensione
+    di Galois e $\Gal(K_n/\QQ) \cong (\Z2)^n$.
+\end{theorem}
+
+\begin{proof}
+    Mostriamo la tesi per induzione su $n \geq 1$. Per $n = 1$ si ha $K_1 = \QQ(\sqrt{p_1})$,
+    che è un'estensione di Galois di $\QQ$ in quanto di grado 2, e il suo 
+    gruppo di Galois è isomorfo a $\Z2$. Per $n > 1$, supponiamo che l'estensione
+    $\faktor{K_n}{\QQ}$ sia di Galois e che $\Gal(K_n/\QQ) \cong (\Z2)^n$, 
+    mostriamo la tesi per $n + 1$. Consideriamo il seguente diagramma di campi
+    \begin{center}
+        \begin{tikzpicture}
+            \node (Q1) at (0,0) {$\QQ$};
+            \node (Q2) at (-1.5,1.5) {$K_n$};
+            \node (Q3) at (1.5, 1.5) {$\QQ(\sqrt{p_{n + 1}})$};
+            \node (Q4) at (0,3) {$K_{n + 1}$};
+    
+            \draw (Q1)--(Q2);
+            \draw (Q1)--(Q3);
+            \draw (Q1)--(Q4);
+            \draw (Q2)--(Q4);
+            \draw (Q3)--(Q4);
+        \end{tikzpicture}
+    \end{center}
+    l'estensione $\faktor{K_{n + 1}}{\QQ}$ è di Galois in quanto composto
+    di due estensioni di Galois su $\QQ$. Notiamo che si ha la tesi nel caso 
+    in cui $K_n \cap \QQ(\sqrt{p_{n + 1}}) = \QQ$, e che se questo non si 
+    verifica allora $\QQ(\sqrt{p_{n + 1}}) \subseteq K_n$. Per il Teorema di 
+    Corrispondenza di Galois le sottoestensioni di $K_n$ di grado due su 
+    $\QQ$ sono tante quanti i sottogruppi di indice due di $(\Z2)^n$, che a 
+    loro volta sono tanti quanti gli iperpiani di $(\FF_2)^n$\footnote{
+        Stiamo qua considerando la struttura di spazio vettoriale di $(\FF_2)^n$.
+    }, che sono $2^n - 1$.
+    Consideriamo le sottoestensioni quadratiche 
+    $\QQ(\sqrt{p_1^{\varepsilon_1}\ldots p_n^{\varepsilon_n}})$ con $\varepsilon_i \in \{0, 1\}$
+    non tutti nulli, se queste sono due a due distinte allora sono tutte e sole
+    le sottoestensioni quadratiche di $K_n$, in quanto sono $2^n - 1$. In effetti,
+    le estensioni $\QQ(\sqrt{p_1^{\varepsilon_1}\ldots p_n^{\varepsilon_n}})$ e
+    $\QQ(\sqrt{p_1^{\delta_1}\ldots p_n^{\delta_n}})$, con 
+    $\varepsilon_i, \delta_i \in \{0, 1\}$ non tutti nulli, coincidono se e solo se 
+    $(p_1^{\varepsilon_1}\ldots p_n^{\varepsilon_n})(p_1^{\delta_1}\ldots p_n^{\delta^n})$
+    è un quadrato in $\QQ$, quindi in $\ZZ$. Questo è equivalente a richiedere
+    $\varepsilon_i + \delta_i \equiv 0 \pmod 2$ per ogni $i$, ovvero 
+    $\varepsilon_i = \delta_i$ per ogni $i$. Abbiamo quindi determinato tutte 
+    e sole le sottoestensioni di $K_n$ quadratiche su $\QQ$. Notiamo quindi 
+    che $\QQ(\sqrt{p_{n + 1}}) \nsubseteq K_n$ in quanto $p_{n + 1}$ non è 
+    un quadrato in $\QQ$ essendo irriducibile in $\ZZ$, quindi per la 
+    \hyperref[prop3.15]{Proposizione 3.15} si ha $\Gal(K_{n + 1}/\QQ) \cong
+    (\Z_2)^n\times \Z_2 = (\Z_2)^{n + 1}$.
+\end{proof}
+
+\begin{remark}
+    Otteniamo come corollario che $\QQ$ ammette infinite estensioni quadratiche.
+\end{remark}
+
+
+\newpage
+
+\subsection{Gruppo di Galois di un polinomio biquadratico}
 
 
 
