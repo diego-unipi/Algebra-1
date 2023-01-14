@@ -4816,7 +4816,7 @@ e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
 
 \begin{proof}
     Osserviamo che:
-    \[ \forall \varphi : \F{q^d} \varlonghookrightarrow \overline \Fp \qquad \text{con $\varphi_{|\F{q^d}} = id_{\F{q^d}}$}
+    \[ \forall \varphi : \F{q^d} \varlonghookrightarrow \overline \Fp \qquad \text{con $\varphi_{|\F{q}} = id_{\F{q}}$}
         \]
     $\varphi(\F{q^d})$ è un sottocampo di $\overline\Fp$ con $q^d (= p^{rd})$ elementi (essendo $\varphi$ iniettiva), e per l'unicità dei campi con $p^n$ elementi deve essere necessariamente che $\varphi(\F{q^d}) = \F{q^d}$,
     pertanto l'estensione è normale.\footnote{Alternativamente si ricorda che in \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, avevamo costruito tutte le estensioni $\Fpn$ di campi finiti $\Fp$, come campi di spezzamento del polinomio $f(x) = x^{p^n} - x \in \Fp[x]$, e quindi tali estensioni sono sempre normali.}
@@ -5094,9 +5094,9 @@ da cui:
         \]
     infatti, $H < \Gal\left(\faktor{L}{L^H}\right)$ in quanto tutti gli elementi di $L^H$ sono fissati dagli elementi di $H$ per definizione e quindi $H \subseteq \Gal\left(\faktor{L}{L^H}\right)$; d'altra parte 
     $\Gal\left(\faktor{L}{L^H}\right) \subseteq H$, perché, detto $L^H = M$, abbiamo $H \subseteq \Gal\left(\faktor{L}{M}\right)$ e $L^H = M$, dunque per il \hyperref[3.67]{Lemma 3.67} segue che $H = \Gal\left(\faktor{L}{L^H}\right)$.\\
-    Verifichiamo ora la seconda parte del teorema; sappiamo che $H \triangleleft \Gal\left(\faktor{L}{K}\right) \iff gHg^{-1} = H$, $\forall g \in \Gal\left(\faktor{L}{K}\right)$ e per il 
+    Verifichiamo ora la seconda parte del teorema; sappiamo che $H \triangleleft \Gal\left(\faktor{L}{K}\right) \iff \sigma H\sigma^{-1} = H$, $\forall \sigma \in \Gal\left(\faktor{L}{K}\right)$ e per il 
     \hyperref[3.67]{Lemma 3.67} abbiamo che la condizione posta dall'equazione è equivalente a quella di prima:
-    \[ g(L^H) = L^{g H g^{-1}} = L^H \qquad \forall g \in \Gal\left(\faktor{L}{K}\right)
+    \[ \sigma(L^H) = L^{\sigma H \sigma^{-1}} = L^H \qquad \forall \sigma \in \Gal\left(\faktor{L}{K}\right)
         \]
     e ciò è equivalente al dire che $\faktor{L^H}{K}$ è normale, perché, $\forall \psi : L^H \varlonghookrightarrow \ol K$, con $\psi_{|K} = id_K$, si ha che $\psi(L^H) = L^H$, poiché ogni $\psi$ si estende a $L$ e quindi:
     \[ \forall \varphi \in \Gal\left(\faktor{L}{K}\right), \exists \sigma \in \Gal\left(\faktor{L}{K}\right) : \sigma_{|L^H} = \psi
