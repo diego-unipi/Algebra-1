@@ -4699,6 +4699,21 @@ Galois di un'estensione di campi.
     Otteniamo come corollario che $\QQ$ ammette infinite estensioni quadratiche.
 \end{remark}
 
+\begin{remark}
+    Un elemento primitivo per l'estensione $\faktor{K_n}{\QQ}$ è dato da 
+    $\alpha =\displaystyle \sum_{i = 1}^n \sqrt{p_i}$. Consideriamo infatti le immersioni
+    $\QQ(\alpha) \longhookrightarrow \ol{\QQ}$ che fissano $\QQ$, poiché 
+    $\QQ(\alpha) \subseteq K_n$ queste si estendono a immersioni
+    $K_n \longhookrightarrow \ol{\QQ}$, che sono gli elementi di $\Gal(K_n/\QQ)$.
+    In particolare, se $\sigma \in \Gal(K_n/\QQ)$ si ha 
+    $\sigma(\alpha) = \displaystyle\sum_{i = 1}^n a_i\sqrt{p_i}$, con $a_i \in \{1, -1\}$.
+    Le immagini di $\alpha$ tramite gli elementi di $\Gal(K_n/\QQ)$ sono 
+    quindi tutte distinte in quanto $\sqrt{p_1}, \ldots, \sqrt{p_n}$ sono
+    elementi di una base di $K_n$ su $\QQ$, pertanto la scrittura di $\sigma(\alpha)$
+    come combinazione lineare di tali elementi è unica al variare di 
+    $\sigma \in \Gal(K_n/\QQ)$. In particolare $\alpha$ ha $2^n$ immagini distinte,
+    pertanto $[\QQ(\alpha): \QQ] = 2^n$ e quindi $\QQ(\alpha) = K_n$.
+\end{remark}
 
 \newpage
 
