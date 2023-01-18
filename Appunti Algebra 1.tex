@@ -301,7 +301,7 @@ Sia $\varphi: G \longrightarrow S(X)$ un'azione, $\varphi$ definisce una relazio
     ovvero due elementi sono in relazione se esiste un'applicazione $\varphi_g \in S(X)$, per cui un elemento è l'immagine dell'altro mediante 
     tale applicazione. La relazione è appunto di equivalenza, infatti: $x \sim x$, per $g = e$ si ha (essendo $\varphi$ un omomorfismo) $\varphi_e(x) = id(x) = x$, 
     $x \sim y \implies y \sim x$:
-        \[ \varphi_g(x) = y \implies x = (\varphi_g(y))^{-1} = \varphi_{g^{-1}}(y)
+        \[ \varphi_g(x) = y \implies x = \varphi_g^{-1}(y) = \varphi_{g^{-1}}(y)
             \]
     infine $x \sim y$, $y \sim z \implies x \sim z$, infatti si avrebbe: $\varphi_g(x) = y$, $\varphi_h(y) = z$ da cui:
         \[ z = \varphi_h(\varphi_g(x)) = \varphi_{hg}(x) \implies x \sim z
@@ -4564,7 +4564,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
         \[ \varphi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
             \]
         esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33} (ed in particolare sono quelle che mandano una radice in un suo coniugato), inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K$ in $\ol K$ si estende ad una da $F$ in $\ol K$,
-        in tanti modi quanti il grado $[F : K(\alpha_1)]$ (\hyperref[3.39]{Proposizione 3.39}). Fissata un'estensione di $\varphi_i$:
+        in tanti modi quanti il grado $[F : K(\alpha_1)]$ (\hyperref[3.39]{Proposizione 3.39}\footnote{Vale in generale ma lo abbiamo dimostrato solo nel caso delle estensioni finite.}). Fissata un'estensione di $\varphi_i$:
         \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_i)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
@@ -4573,13 +4573,13 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
             \]
         dove la prima uguaglianza deriva dal fatto che $\alpha_1 \in F$ ed in particolare in $\alpha_1 \in K(\alpha_1)$, quindi $\widetilde{\varphi_i}$ si comporta come la sua restrizione su quest'ultimo campo, e tale restrizione $\varphi_i$, come detto all'inizio, manda una radice in un suo coniugato.
         \item \underline{\textbf{$(2)\implies (3)$}}: Consideriamo $F_0$ il campo di spezzamento su $K$ della famiglia di polinomi:
-        \[ \mathcal{F} = \{\mu_\alpha(x) | \alpha \in F, \, \text{$\mu_\alpha(x)$ polinomio minimo di $\alpha$ su $K$}\}
+        \[ \mathcal{F} = \{\mu_\alpha(x) \in K[x] | \alpha \in F, \, \text{$\mu_\alpha(x)$ polinomio minimo di $\alpha$ su $K$}\}
             \]
-        abbiamo che $F \subseteq F_0$, poiché abbiamo aggiunto tutte le radici di tutti i polinomi minimi di tutti gli elementi di $F$, dunque $F_0$ contiene almeno $F$.
+        abbiamo che $F \subseteq F_0$, poiché abbiamo aggiunto tutte le radici di tutti i polinomi minimi di tutti gli elementi di $F$, dunque $F_0$ contiene necessariamente almeno $F$.
         D'altra parte:
         \[ F_0 = K(\beta | \, \text{$\beta$ radice di $\mu_\alpha(x) \in \mathcal{F}$})
             \]
-        dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$ (in pratica si aggiunge una volta che si aggiunge una radice di ciascun polinomio sappiamo per la (2) che $F$ le contiene tutte), $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
+        dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$, $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
         quindi $F = F_0$, per cui $F$ è proprio il campo di spezzamento dei polinomi della famiglia $\mathcal{F}$.
         \item \underline{\textbf{$(3)\implies (1)$}}: Consideriamo:
         \[ \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
@@ -4595,7 +4595,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
             \varphi(F) = \varphi(K(\{\alpha_{ij}\} | i = 1,\ldots,k, j = 1, \ldots, n_i)) = \\
              = K(\varphi(\alpha_{ij}) | i = 1,\ldots,k, j = 1, \ldots, n_i) \subseteq F
         \end{multline*}
-        dove il contenimento segue dal fatto che abbiamo soltanto permutato gli elementi $\{\alpha_{ij}\}$, per cui $K \subset \varphi(F) \subseteq F$, ma poiché $F$ e $\varphi(F)$ hanno lo stesso grado finito su $K$,
+        dove il contenimento segue dal fatto che abbiamo soltanto permutato gli elementi $\{\alpha_{ij}\}$\footnote{Per la precisione ogni radice $\alpha_{ij}$ viene mandata in $\alpha_{ij^{\prime}}$.}, per cui $K \subset \varphi(F) \subseteq F$, ma poiché $F$ e $\varphi(F)$ hanno lo stesso grado finito su $K$,
         allora $\varphi(F) = F$.
     \end{itemize}
 \end{proof}
@@ -4761,10 +4761,10 @@ con:
 Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agisce fedelmente su $\{\alpha_1,\ldots,\alpha_n\}$. Inoltre tale azione è transitiva perché ha un'unica orbita:
 \[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) \m \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
-infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati (ognuna delle quali si può estendere ad $F$):
+infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati, ognuna delle quali iniettiva e si può estende ad $F$:
 \[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_i
     \]
-e per tali immersioni abbiamo appunto che l'unica orbita è quella vista sopra.
+dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1$ (ed in generale di qualsiasi altro $\alpha_i$).
 \end{remark}
 
 \begin{example}
