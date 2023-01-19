@@ -4953,13 +4953,13 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
     \begin{itemize}
         \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.16]{Proposizione 3.16}, ciò è equivalente al dire che l'estensione $E$ è finitamente generata da 
         elementi algebrici, $E = K(\alpha_1,\ldots,\alpha_n)$, dimostriamo per induzione che $\faktor{E}{K}$ è semplice. Per $n = 2$ (trattiamo solo di questo caso in quanto una volta dimostrata la tesi per $n = 2$, basterà
-        come al solito aggiungere un altro alla volta e procedere per induzione usando il caso $n = 2$ come fatto che rende vero il passo induttivo\footnote{Andrebbe dimostrato anche il caso $n = 1$, ma è banale.}) abbiamo $E = K(\alpha,\beta)$, sia $[E : K] = n$, allora per il \hyperref[3.39]{Corollario 3.35}:
-        \[ \exists \varphi_1,\ldots,\varphi_n : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = id_K
+        come al solito aggiungere un altro alla volta e procedere per induzione usando il caso $n = 2$ come fatto che rende vero il passo induttivo\footnote{Andrebbe dimostrato anche il caso $n = 1$, ma è banale.}) abbiamo $E = K(\alpha,\beta)$, sia $[E : K] = m$, allora per il \hyperref[3.39]{Corollario 3.35}:
+        \[ \exists \varphi_1,\ldots,\varphi_m : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = id_K
             \]
         sia $x$ un'indeterminata, consideriamo i polinomi $\alpha+\beta x$, possiamo definire il polinomio:
         \[ F(x) = \prod_{i<j} (\varphi_i(\alpha)+x\varphi_i(\beta)-\varphi_j(\alpha)-x\varphi_j(\beta)) \in \ol K[x] \footnote{È come se applicassimo $\varphi_i$ al polinomio $\alpha + \beta x$ e poi vi sottraessimo $\varphi_j$ applicata allo stesso.}
             \]
-        con $\displaystyle\deg F(x) \leq \binom{n}{2}$ e $F(x) \ne 0$ in quanto se un fattore fosse 0, quindi $\varphi_i(\alpha)+x\varphi_i(\beta) = \varphi_j(\alpha)+x\varphi_j(\beta)$, da cui $x(\varphi_i(\beta) - \varphi_j(\beta)) +\varphi_i(\alpha) - \varphi_i(\alpha) = 0$, per il principio di identità dei polinomi avremmo:
+        con $\displaystyle\deg F(x) \leq \binom{m}{2}$\footnote{Poiché stiamo moltiplicando dei fattori di grado $\leq 1$, il grado di $F(x)$ è minore o uguale al numero di fattori, che è dato appunto dal numero di modi di scegliere due estensioni $\varphi_i$ e $\varphi_j$ per scrivere un fattore.} e $F(x) \ne 0$ in quanto se un fattore fosse 0, quindi $\varphi_i(\alpha)+x\varphi_i(\beta) = \varphi_j(\alpha)+x\varphi_j(\beta)$, da cui $x(\varphi_i(\beta) - \varphi_j(\beta)) +\varphi_i(\alpha) - \varphi_i(\alpha) = 0$, per il principio di identità dei polinomi avremmo:
         \[ \begin{cases}
             \varphi_i(\beta) - \varphi_j(\beta) = 0\\
             \varphi_i(\alpha) - \varphi_i(\alpha) = 0
@@ -4979,7 +4979,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
         da ciò abbiamo che:
         \[ \varphi_i(\alpha+t\beta) \ne \varphi_j(\alpha+t\beta) \qquad \forall i \ne j
             \]
-        quindi $\gamma = \alpha+t\beta$ ha $n$ coniugati, pertanto $[K(\gamma) : K] = n \implies E = K(\gamma)$ (ovvero le due estensioni dello stesso campo hanno lo stesso grado e quindi coincidono).
+        quindi $\gamma = \alpha+t\beta$ ha $m$ coniugati, pertanto $[K(\gamma) : K] = m \implies E = K(\gamma)$ (ovvero le due estensioni dello stesso campo hanno lo stesso grado e quindi coincidono).
         \item \underline{\textbf{$K$ campo finito}}: Se $\faktor{E}{K}$ è finita, allora $E$ è finito, da cui, per la nota proprietà sui sottogruppi moltiplicativi di un campo finito, sia che $E^*$ è un 
         sottogruppo moltiplicativo finito di $E$ ed è ciclico, $E^* = \left<\gamma\right>$, ma per un altro teorema noto da \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, si ha che $E = K(\gamma)$.
         \end{itemize}
