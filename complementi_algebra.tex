@@ -4280,9 +4280,8 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
 \begin{proof}
     Sia $f(x) = \displaystyle\prod_{d \mid n}\Phi_d(x)$, notiamo che:
     \begin{itemize}
-        \item sia $\alpha$ una radice di $x^n - 1$, posta $\zeta_n$ una radice
-        primitiva $n$-esima si ha $\alpha = \zeta_n^{\frac n d}$ con $d \mid n$.
-        Allora $\ord\alpha = d$, pertanto $\alpha$ è una radice primitiva
+        \item sia $\alpha$ una radice di $x^n - 1$, allora esiste un intero $d$
+        che divide $n$ tale che $\alpha^d = 1$, pertanto $\alpha$ è una radice primitiva
         $d$-esima. In particolare ogni radice di $x^n - 1$ è una radice di 
         $f(x)$, cioè $x^n - 1 \mid f(x)$;
         \item sia $\alpha$ una radice di $f(x)$, allora $\alpha$ è una radice
@@ -4719,6 +4718,100 @@ Galois di un'estensione di campi.
 
 \subsection{Gruppo di Galois di un polinomio biquadratico}
 
+\begin{theorem}
+    Siano $f(x) = x^4 + ax^2 + b \in \QQ[x]$ un polinomio irriducibile, definiamo $\Delta = a^2 - 4b$.
+    Posto $K$ il campo di spezzamento di $f(x)$ su $\QQ$ si ha:
+    \begin{enumerate}[(1)]
+        \item se $\sqrt{b} \notin \QQ$ e $\sqrt{b\Delta} \notin \QQ$ allora $\Gal(K/\QQ) \cong D_4$;
+        \item se $\sqrt{b} \in \QQ$ allora $\Gal(K/\QQ) \cong \Z2\times\Z2$;
+        \item se $\sqrt{b\Delta}\in\QQ$ allora $\Gal(K/\QQ) \cong \Z4$;
+    \end{enumerate}
+\end{theorem}
 
+\begin{proof}
+    Sostituendo $t = x^2$ e risolvendo l'equazione $t^2 + at + b$ ricaviamo
+    le radici di $f(x)$ in $\ol{\QQ}$
+    \[
+        x_1 = \sqrt{\frac{-a + \sqrt{\Delta}}{2}}\qquad 
+        x_2 = -\sqrt{\frac{-a + \sqrt{\Delta}}{2}}\qquad
+        x_3 = \sqrt{\frac{-a - \sqrt{\Delta}}{2}}\qquad
+        x_4 = -\sqrt{\frac{-a - \sqrt{\Delta}}{2}}
+    \]
+    quindi $K = \QQ(x_1, x_2, x_3, x_4) = \QQ(x_1, x_3)$. Per ogni $i \in
+    \{1, 2, 3, 4\}$ osserviamo che $\QQ(x_i^2) = \QQ(\sqrt{\Delta})$,
+    consideriamo quindi il seguente diagramma di campi 
+    \begin{center}
+        \begin{tikzpicture}
+            \node (Q1) at (0,0) {$\QQ$};
+            \node (Q2) at (0,1) {$\QQ(\sqrt\Delta)$};
+            \node (Q3) at (-1.5, 2.5) {$\QQ(x_1)$};
+            \node (Q4) at (1.5, 2.5) {$\QQ(x_3)$};
+            \node (Q5) at (0,4) {$K$};
+
+            \draw (Q1)--(Q2);
+            \draw (Q2)--(Q3);
+            \draw (Q2)--(Q4);
+            \draw (Q3)--(Q5);
+            \draw (Q4)--(Q5);
+        \end{tikzpicture}
+    \end{center}
+    Poiché $f(x)$ è irriducibile su $\QQ[x]$ si ha $\sqrt\Delta \notin \QQ$,
+    pertanto $[\QQ(\sqrt\Delta):\QQ] = 2$. Per il Teorema delle Torri allora
+    il grado di $\QQ(x_1)$ e di $\QQ(x_3)$ su $\QQ(\sqrt\Delta)$ è uguale a 2,
+    quindi $[K: \QQ] \in {4, 8}$. In particolare $[K:\QQ] = 4$ se e solo se 
+    $\QQ(x_1) = \QQ(x_3)$, cioè se e solo se $x_1^2x_3^2$ è un quadrato in 
+    $\QQ(\sqrt\Delta)$, cioè $x_1x_3 \in \QQ(\sqrt\Delta)$.
+    \[
+        x_1x_3 = \sqrt{\frac{-a + \sqrt\Delta}{2}\cdot\frac{-a - \sqrt\Delta}{2}} = 
+        \sqrt{\frac{a^2 - \Delta}{4}} = \sqrt b
+    \]
+    quindi $\QQ(x_1) = \QQ(x_3)$ se e solo se $\sqrt b \in \QQ(\Delta)$, cioè
+    se e solo se $\sqrt b \in \QQ$ oppure $\sqrt{b\Delta} \in \nolinebreak\QQ$.
+    Distinguiamo tre casi:
+    \begin{enumerate}[(1)]
+        \item se $\sqrt b \notin \QQ$ e $\sqrt{b\Delta} \notin \QQ$ allora 
+        $[K:\QQ] = 8$. Allora $\Gal(K/\QQ) \cong D_4$ in quanto $\Gal(K/\QQ)$
+        è isomorfo a un sottogruppo di $S_4$ e i 2-Sylow di $S_4$ sono isomorfi
+        a $D_4$;
+        \item se $\sqrt b \in \QQ$ (e di conseguenza $\sqrt{b\Delta}\notin \QQ$)
+        allora $K = \QQ(x_1)$, quindi $[K:\QQ] = 4$ e $\Gal(K/\QQ)$ è isomorfo
+        a $\Z2\times\Z2$ oppure a $\Z4$. Siano $\varphi_i \in \Gal(K/\QQ)$ per 
+        $i \in \{1, 2, 3, 4\}$ gli omomorfismi determinati dalle seguenti assegnazioni
+        \[
+            \varphi_1: x_1\longmapsto x_1\qquad \varphi_2:x_1\longmapsto x_2\qquad
+            \varphi_3: x_1\longmapsto x_3\qquad \varphi_4:x_1\longmapsto x_4
+        \]
+        poiché $x_2 = -x_1$ abbiamo che $\varphi_2^2 = \varphi_1 = id$,
+        cioè $\varphi_2$ ha ordine 2. Sfruttando la relazione $x_1x_3 = \sqrt b$
+        abbiamo 
+        \[
+            \varphi_3^2(x_1) = \varphi_3(x_3) = 
+            \varphi_3\left(\frac{\sqrt b}{x_1}\right) = 
+            \frac{\varphi_3(\sqrt b)}{\varphi_3(x_1)}\footnote{
+                L'uguaglianza è data dal fatto che $\sqrt b$ è un elemento
+                di $\QQ$, pertanto è fissato da tutti gli elementi di $\Gal(K/\QQ)$.
+            } = \frac{\sqrt b}{x_3} = x_1
+        \]
+        pertanto anche $\varphi_3$ ha ordine 2. Allora $\Gal(K/\QQ)$ non è 
+        ciclico, quindi è isomorfo a $\Z2\times\Z2$;
+        \item se $\sqrt{b\Delta} \in \QQ$ (e di conseguenza $\sqrt b \notin \QQ)$
+        scriviamo $b = \Delta q^2$, con $q \in \QQ$. Ragionando allo stesso
+        modo e con le stesse notazioni si ha che $\varphi_2$ ha ordine 2 e 
+        \[
+            \varphi_3^2(x_1) = \varphi_3(x_3) = 
+            \varphi_3\left(\frac{\sqrt b}{x_1}\right) = 
+            \frac{\varphi_3(\sqrt\Delta q)}{\varphi_3(x_1)} = 
+            q\frac{\sqrt\Delta}{x_3}
+        \]
+        Poiché $\sqrt\Delta = 2x_1^2 + a$ si ha $\varphi_3(\sqrt\Delta) =
+        2x_3^2 + a = -\sqrt\Delta$, pertanto
+        \[
+            \varphi_3^2(x_1) = -q\frac{\sqrt\Delta}{x_3} = 
+            -\frac{\sqrt b}{x_3} = -x_1
+        \]
+        quindi $\varphi_3$ ha ordine 4. Allora $\Gal(K/\QQ)$ è ciclico,
+        in particolare è isomorfo a $\Z4$.
+    \end{enumerate}
+\end{proof}
 
 \end{document}
