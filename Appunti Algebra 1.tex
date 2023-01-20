@@ -560,8 +560,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
     che equivale a:
         \[ \Cl_h = \{ghg^{-1} | h \in H\} \subseteq H  \quad \forall h \in H \implies \bigcup_{h \in H} \Cl_h \subseteq H
             \]
-    d'altra parte se $H$ è normale è chiuso per coniugio, ovvero il coniugio di ogni suo elemento è ancora in $H$
-    ($ghg^{-1} = h^{\prime}$, $\forall h \in H$) e in particolare ciò significa che:
+    d'altra parte $H = eHe^{-1}$, ovvero il coniugio di $H$ rispetto all'identità è $H$ stesso e quindi è uno dei termini dell'unione:
         \[ H \subseteq \bigcup_{h \in H} \Cl_h
             \] 
     
@@ -1684,36 +1683,36 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 (essendo $p$-gruppi). Poiché  per ipotesi $p \nmid m$, allora esiste $i$ tale che $a_i = 0$ (dunque c'è un $1$ nella somma
                 che impedisce la divisibilità di $m$ per $p$) per questo $i$ si ha che $\Orb(g_iS) = \{g_iS\} \implies \St(g_iS) = H$ (ovvero per tale $i$ si ha una classe
                 laterale $g_iS$ la cui orbita è solo se stessa, e quindi il suo stabilizzatore è tutto $H$). Da ciò segue che $\forall h \in H$:
-                \[ hg_iS = g_iS \iff hg_i \in g_iS \iff h \in g_iSg_{i}^{-1}\iff H \subset g_iSg_i^{-1}
+                \[ \varphi_h(g_iS) = hg_iS = g_iS \iff hg_i \in g_iS \iff h \in g_iSg_{i}^{-1}\iff H \subseteq g_iSg_i^{-1}
                     \]
                 dove $|g_iSg_i^{-1}| = |S|$ dunque $g_iSg_i^{-1}$ è un $p$-Sylow ed $H$ di ordine $p^{\alpha}$ è contenuto in un $p$-Sylow. Questo dimostra il punto $(3)$,
                 ovvero due $p$-Sylow di $G$ sono coniugati, infatti la relazione trovata vale per ogni $\alpha$ ed in particolare prendendo $|H| = p^n \implies H \leqslant g_iSg_{i}^{-1}$ ma
                 i due sottogruppi hanno lo stesso ordine, quindi $H = g_iSg_{i}^{-1}$; pertanto, tutti i $p$-Sylow per ogni $p$ sono coniugati tra loro in $G$. \\
-                Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$ (stiamo supponendo che $H$ stia in $S$), dunque $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
-                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, infine, per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\displaystyle\frac{N_{S}(H)}{H}$ ed i
+                Per completare la dimostrazione del punto $(2)$ utilizziamo il risultato del \hyperref[l:1.95]{Lemma 1.95}, considerando $|H| = p^{\alpha}$, con $\alpha \leq n - 1$ e $H \lneq S$ ($S$ è un $p$-Sylow), abbiamo $H \lneq N_S(H)$ \footnote{Si noti che abbiamo preso il normalizzatore di $H$ in $S$.},
+                sia ora $\frac{N_{S}(H)}{H}$, esso è un $p$-gruppo non banale e per il \hyperref[p:Cauchy]{Teorema di Cauchy} esiste una classe laterale $\overline x (= xH)$ di ordine $p$, inoltre per il Teorema di Corrispondenza \footnote{Tra i sottogruppi di $\displaystyle\frac{N_{S}(H)}{H}$ ed i
                 sottogruppi di $N_{S}(H)$ che contengono $H$.}, $\pi^{-1}_H(\left<\overline x\right>)$ è un sottogruppo di $N_S(H)$ che contiene $H$ (sempre per il Teorema Di Corrispondenza) ed ha ordine $p^{\alpha+1}$ (poiché stiamo considerando la controimmagine di un sottogruppo con $p$ elementi,
                 ciascuno dei quali fatto da classi laterali di $p^{\alpha}$ elementi, dunque la cardinalità della controimmagine si ottiene moltiplicando la fibra di ciascun elemento, che appunto ha ordine $p^{\alpha}$, per il numero di elementi $p$).
                 \skipitems{1}
             \item Sia $n_p$ il numero dei $p$-sottogruppi di Sylow, per quanto detto al punto $(3)$ i $p$-sottogruppi di Sylow sono tutti coniugati,
-            dunque per ciò che abbiamo visto sul numero di coniugi rispetto all'azione di coniugio si ha $n_p = |\mathcal{C}\ell(S)|=[G:N_G(S)]$, da cui:
+            dunque per quanto sappiamo sul numero di coniugi rispetto all'azione di coniugio si ha $n_p = |\mathcal{C}\ell(S)|=[G:N_G(S)]$\footnote{Dove $S$ è un fissato $p$-Sylow.}, da cui:
                         \[ n_p = \frac{|G|}{|N_G(S)|} \implies |G| = n_p|N_G(S)| \implies n_p \mid |G|
                             \]
                 Sia $X$ l'insieme dei $p$-Sylow di $G$, consideriamo l'azione di coniugio:
-                    \[ \phi : S \longrightarrow S(X) : s \longmapsto \varphi_s
+                    \[ \phi : S \longrightarrow S(X) : s \longmapsto \varphi_s \footnote{Sarebbe l'azione di coniugio di $G$ su $X$ ristretta ad $S$.}
                         \]
-                con $\varphi_s : X \longrightarrow X : H \longmapsto sHs^{-1}$ bigezione; $\phi$ ha un'unica orbita banale, ovvero quella del gruppo $S$, $\Orb(S) = \{S\}$, infatti, per ogni altra orbita si ha:
+                con $\varphi_s : X \longrightarrow X : H \longmapsto sHs^{-1}$ bigezione; osserviamo che $\phi$ ha un'unica orbita banale, ovvero quella del gruppo $S$, infatti per $S \in X$ si ha $\Orb(S) = \{S\}$, mentre per ogni altra orbita:
                     \[ \Orb(H) = \{sHs^{-1} | s \in S\} = \{H\} \iff sHs^{-1} = H \qquad \forall s \in S
                         \]
-                ovvero:
-                    \[ S \subset N_G(H)
+                ovvero se e solo se:
+                    \[ S \leqslant N_G(H)
                         \]
-                ma sappiamo anche che $H \lneq N_G(H)$, pertanto si deve avere che:
-                    \[ HS < N_G(H)
+                pertanto si deve avere che:
+                    \[ HS < G
                         \]
                 (poiché $S$ normalizza $H$ il prodotto di sottogruppi da un sottogruppo), ma questo è assurdo se $S \ne H$, perché avremmo:
                     \[ |SH| = \frac{|S||H|}{|S \cap H|} = \frac{p^n \cdot p^n}{p^k} \footnote{$k<n$.} = p^{2n - k} \nmid |G|
                         \]
-                Quindi esiste un'unica orbita banale e applicando la formula delle classi otteniamo:
+                Quindi esiste un'unica orbita banale (appunto quella del solo elemento $S$) e applicando la formula delle classi \footnote{E ricordando che i coniugi preservano l'ordine dei sottogruppi.} otteniamo:
                     \[ n_p = |X| = \sum_{i = 1}^{r} \underbrace{|\Orb(H_i)| }_{p^{a_i} \ne 1} + \underbrace{|\Orb(S)|}_{= 1} = pf +1 \qquad f \in \ZZ
                         \]
                 o equivalentemente $n_p \equiv 1 \pmod p$.
@@ -4824,15 +4823,14 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
 
 \begin{remark}
     Osserviamo che tutte le estensioni di campi finiti sono normali, infatti, considerando la torre:
-    \[\begin{tikzpicture}
-        \node (Q1) at (0,-1.5) {$\Fp$};
-        \node (Q3) at (0,0) {$\F{q} = \F{p^r}$};
-        \node (Q4) at (0,1.5) {$\Fpn = \F{q^d}$};
-        \draw (Q4)--(Q3) node [right, yshift=-0.75cm] {};
-        \draw (Q1)--(Q3) node [right, yshift=0.75cm] {NOR.};
-        \draw(Q4) to [bend right=45] (Q1) node[, left, yshift=1.20cm, xshift=-0.5cm] {NOR.};
-    \end{tikzpicture}
-        \]
+    \[\begin{tikzcd}
+        {\mathbb{F}_{p^n}=\mathbb{F}_{q^d} } \\
+        {\mathbb{F}_{p^r}=\mathbb{F}_{q} } \\
+        {\mathbb{F}_{p}}
+        \arrow[no head, from=3-1, to=2-1]
+        \arrow[color={rgb,255:red,214;green,92;blue,92}, no head, from=2-1, to=1-1]
+        \arrow[color={rgb,255:red,214;green,92;blue,92}, bend right = 50, no head, from=1-1, to=3-1]
+    \end{tikzcd}\]
     dove per quanto detto $\faktor{\Fpn}{\Fp}$ è normale, dunque per la \hyperref[3.50]{Proposizione 3.50} tutte le estensioni di campi finiti sono normali.
 \end{remark}
 
@@ -5160,4 +5158,6 @@ Dimostriamo le affermazioni:
 \end{enumerate}
 \end{proof}
 
+\newpage
+\subsection{costruzioni con riga e compasso}
 \end{document}
