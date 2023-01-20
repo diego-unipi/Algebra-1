@@ -964,7 +964,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \begin{proof}
     Mostriamo le due implicazioni:
         \begin{itemize}
-            \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo.
+            \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo\footnote{Ciò unito al teorema di struttura delle permutazioni ed al fatto che il coniugio è un omomorfismo verifica l'implicazione per una generica permutazione.}.
                 Sia $\tau(a_i) = b_i$, allora si ha che $\tau\sigma\tau^{-1} = \cycle{b_1,\ldots,b_k}$, con $b_i \ne b_j$, $\forall i \ne j$, poiché $\tau$ è bigettiva; verifichiamo
                 l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
                     \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
@@ -4973,7 +4973,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
         \end{cases}
             \]
         da cui $\varphi_i \equiv \varphi_j$ (cioè $i = j$) perché $E = K(\alpha,\beta)$ (infatti due immersioni in cui i generatori coincidono sono la stessa immersione), ma ciò è assurdo, in quanto avevamo assunto $i < j$. Dunque il polinomio è non nullo ed ha grado limitato, 
-        sappiamo quindi che $F(x)$ ha al più $\deg F(x)$ radici in $\ol K$ e poiché $K$ è un campo infinito, allora $\exists t \in K$ tale che $F(t) \ne 0$, dunque:
+        sappiamo quindi che $F(x)$ ha al più $\deg F(x)$ radici in $\ol K$ e poiché $K$ è un campo infinito, allora $\exists t \in K$ tale che $F(t) \ne 0$ (cioè il numero di radici è un sottoinsieme finito degli elementi di $K$, dunque c'è sempre un elemento che non è radice di $F(x)$), dunque:
         \[ F(t) = \prod_{i<j} (\underbrace{\varphi_i(\alpha)+t\varphi_i(\beta)}_{ = \varphi_i(\alpha+t\beta)}\underbrace{-\varphi_j(\alpha)-t\varphi_j(\beta)}_{ = -\varphi_j(\alpha+t\beta)}) \ne 0
             \]
         da ciò abbiamo che:
@@ -4996,9 +4996,9 @@ ovvero il sottocampo\footnote{Andrebbe verificato che è un campo.} di $L$ di tu
 la seconda inclusione segue immediatamente dalla definizione, la prima deriva dal fatto che essendo i $K$-automorfismi in particolare delle immersioni di $L$ in $\ol K$ via identità (per come è definito il gruppo di Galois), allora almeno tutti gli elementi del campo $K$ devono essere fissati 
 per definizione.
 
-\begin{lemma}[Il campo fissato è quello base$\iff$fissiamo rispetto a tutto il gruppo di Galois]
+\begin{lemma}[Il campo fissato è quello base$\iff$è fissato rispetto a tutto il gruppo]
     \label{3.66}
-    Sia $\faktor{L}{M}$ un'estensione di Galois e $H < \Gal\left(\faktor{L}{M}\right)$, allora:
+    Sia $\faktor{L}{M}$ un'estensione di Galois e $H \leqslant \Gal\left(\faktor{L}{M}\right)$, allora:
     \[ M = L^H \iff H = \Gal\left(\faktor{L}{M}\right)
         \]
 \end{lemma}
@@ -5006,28 +5006,29 @@ per definizione.
 \begin{proof}
     Dimostriamo separatamente le due implicazioni:
     \begin{itemize}
-        \item Supponiamo che $G = \Gal\left(\faktor{L}{M}\right)$ e dimostriamo che $L^G = M$. Se $M \subsetneq L^G$, allora $[L^G : M]>1$, quindi:
-        \[ \exists\varphi : L^G \longrightarrow \ol M \qquad \text{con} \qquad \varphi_{|M} = id_M
+        \item Supponiamo che $G = \Gal\left(\faktor{L}{M}\right)$ e dimostriamo che $L^G = M$. Se $M \subsetneq L^G$, allora $[L^G : M]>1$, quindi esiste almeno un'immersione non banale:
+        \[ \varphi : L^G \varlonghookrightarrow \ol M \qquad \text{con} \qquad \varphi_{|M} = id_M
             \]
-        con $\varphi \ne id$ in quanto il grado è maggiore di 1, per cui non c'è solo l'identità tra le immersioni; a questo punto sappiamo dalla \hyperref[3.39]{Proposizione 3.39} che l'immersione si può estendere ad 
-        un campo più grande, dunque sia:
-        \[ \widetilde{\varphi} : L \longrightarrow \ol M \qquad \text{con} \qquad \widetilde{\varphi}_{|L^G} = \varphi
+        con $\varphi \ne id$ in quanto il grado è maggiore di 1 (per cui non c'è solo l'identità tra le immersioni); a questo punto sappiamo dalla \hyperref[3.39]{Proposizione 3.39} che l'immersione si può estendere ad 
+        immersione di un'estensione più grande nella chiusura algebrica, sia dunque:
+        \[ \widetilde{\varphi} : L \varlonghookrightarrow \ol M \qquad \text{con} \qquad \widetilde{\varphi}_{|L^G} = \varphi
             \]
-        dove $\widetilde{\varphi}_{|M} = \varphi_{|M} = id$. D'altra parte abbiamo per ipotesi che $\faktor{L}{M}$ è normale, dunque $\widetilde{\varphi}(L) = L$, quindi:
+        dove $\widetilde{\varphi}_{|M} = \varphi_{|M} = id_M$. D'altra parte abbiamo per ipotesi che $\faktor{L}{M}$ è normale, dunque $\widetilde{\varphi}(L) = L$, quindi:
         $\widetilde{\varphi} \in \Gal\left(\faktor{L}{M}\right)$ (perché è un automorfismo che fissa puntualmente $L$ e si restringe all'identità su $M$), da ciò abbiamo che $\widetilde{\varphi}$ fissa puntualmente
-        $L^G$, che è assurdo perché avevamo supposto il grado dell'estensione maggiore di 1 (quindi con un elemento non fissato da $\widetilde{\varphi}$).
-        \item Essendo $\faktor{L}{M}$ un'estensione finita, per il \hyperref[prim]{Teorema dell'elemento primitivo} $L = M(\alpha)$, sia $H \leqslant G$ e consideriamo:
+        $L^G$, che è assurdo perché avevamo supposto il grado dell'estensione $\faktor{L^G}{L}$ maggiore di 1 (quindi con almeno un elemento non fissato da $\widetilde{\varphi}$).
+        \item Mostriamo ora che il gruppo che fissa il campo base è proprio tutto il gruppo di Galois; essendo $\faktor{L}{M}$ un'estensione finita, per il \hyperref[prim]{Teorema dell'elemento primitivo} $L = M(\alpha)$, sia $H \leqslant G$ il gruppo che fissa il campo base, $L^H = M$, consideriamo:
         \[ f(x) = \prod_{\sigma \in H}(x - \sigma(\alpha)) \qquad \text{con} \qquad \deg f(x) = |H|
             \]
-        si ha $f(x) \in L^H[x]$, poiché, se consideriamo $\rho \in H$, allora si ha:
-        \[ \rho f(x) = \prod_{\sigma \in H}(x - \rho(\sigma(\alpha))) = \prod_{\sigma \in H}(x - \sigma(\alpha)) = f(x)
+        tale polinomio si annulla in $\alpha$ e si ha $f(x) \in L^H[x]$, poiché, se consideriamo $\rho \in H$, allora si ha:
+        \[ \rho (f(x)) = \prod_{\sigma \in H}(x - \rho(\sigma(\alpha))) = \prod_{\sigma \in H}(x - \sigma(\alpha)) = f(x)
             \]
-        dove l'ultima uguagliando deriva dal fatto che anche $\rho$ è un elemento di $H$, e dunque l'unica cosa che fa è permutare gli elementi dell'insieme stesso. Se $H \lneq G$
-        abbiamo $|G| = [L : M] = [M(\alpha) : M] = \deg \mu_{\alpha/M}(x) \geq \deg f(x) = |H|$, in quanto $f(x) \in L^H[x] = M[x]$ per ipotesi e $f(\alpha) = 0$, da cui $\mu_\alpha(x) \mid f(x)$ e quindi la tesi $H = G$.
+        dove la penultima uguagliando deriva dal fatto che anche $\rho$ è un elemento di $H$, e dunque l'unica cosa che fa è permutare gli elementi dell'insieme stesso senza alterare di fatto il prodotto.
+        Osserviamo dunque che si ha $|G| = [L : M] = [M(\alpha) : M] = \deg \mu_{\alpha/M}(x) \leq \deg f(x) = |H|$, in quanto $f(x) \in L^H[x] = M[x]$ per ipotesi (avevamo assunto che $L^H = M$) e $f(\alpha) = 0$, da cui $\mu_\alpha(x) \mid f(x) \implies |G| \leq |H|$ e quindi la tesi $H = G$.
     \end{itemize}
 \end{proof}
 
 \begin{lemma}
+    [Sottocampo fissato dal coniugato]
     \label{3.67}
     Data l'estensione $\faktor{L}{K}$ di Galois e $H < \Gal\left(\faktor{L}{K}\right)$, sia $\sigma \in \Gal\left(\faktor{L}{K}\right)$, allora:
     \[ L^{\sigma H \sigma^{-1}} = \sigma(L^H)
@@ -5046,6 +5047,7 @@ da cui:
 \end{proof}
 
 \begin{remark}
+    \label{3.68}
     Non è detto che $\sigma(L^H)$ faccia $L^H$, tuttavia sarà sempre una sottoestensione di $\faktor{L}{K}$, poiché $L$ è ancora fissato,
     quindi in generale abbiamo:
     \[\begin{tikzpicture}
@@ -5059,7 +5061,8 @@ da cui:
         \draw (Q2)--(Q3) node [pos=0.3, above] {};
         \draw (Q1)--(Q3) node [pos=0.7, below, right,inner sep=0.25cm, yshift=-0.4cm] {};
         \end{tikzpicture}
-        \] 
+        \]
+    se fosse che $H \trianglelefteqslant G$, allora ovviamente avremmo $L^H = L^{\sigma H \sigma^{-1}} = \sigma(L^H)$.
 \end{remark}
 
 \begin{theorem}
@@ -5081,71 +5084,75 @@ da cui:
     e:
     \[ \beta : \mathcal{G}_{L/K} \longrightarrow \mathcal{E}_{L/K} : H \longmapsto L^H
         \]
-    Si osserva che essendo $L^H$ un campo e $K \subseteq L^H \subseteq L$ per definizione, allora $\beta$ è ben definita; osserviamo anche che si ha:
+    Per quanto già detto $L^H$ un campo e $K \subseteq L^H \subseteq L$ per definizione, dunque $\beta$ è ben definita; osserviamo anche che si ha:
     \[ \Gal\left(\faktor{L}{F}\right) < \Gal\left(\faktor{L}{K}\right)
         \]
-    perché un automorfismo di $F$ che fissa puntualmente $F$, ovviamente fissa puntualmente anche il suo sottoinsieme $K$, dunque l'immagine via $\alpha$ di $F$ sta in $\mathcal{G}$,
-    pertanto $\alpha$ è ben definita. Verifichiamo ora che $\alpha$  e $\beta$ descrivono una bigezione tra $\mathcal{E}_{L/K}$ e $\mathcal{G}_{L/K}$, mostriamo che sono una l'inversa dell'altra:
+    perché un $K$-automorfismo di $F$ (che lo fissa), fissa puntualmente anche il suo sottoinsieme $K$, dunque tutti gli automorfismi di $\Gal\left(\faktor{L}{F}\right)$ sono anche automorfismi di $\Gal\left(\faktor{L}{K}\right)$, pertanto l'immagine via $\alpha$ di $F$ sta in $\mathcal{G}$,
+    pertanto $\alpha$ è ben definita.\\
+    Verifichiamo ora che $\alpha$  e $\beta$ descrivono una bigezione tra $\mathcal{E}_{L/K}$ e $\mathcal{G}_{L/K}$, mostriamo che sono una l'inversa dell'altra:
     \[ \beta \circ \alpha (F) = \beta\left(\Gal\left(\faktor{L}{F}\right)\right) = L^{\Gal\left(\faktor{L}{F}\right)} = F \qquad \forall F \in \mathcal{E}_{F/K}
         \]
-    dove l'ultima uguaglianza è garantita dal \hyperref[3.66]{Lemma 3.66}, in quanto stiamo considerando il campo fissato da tutto il gruppo di Galois $\Gal\left(\faktor{L}{F}\right)$. Viceversa:
-    \[ \alpha \circ \beta (H) = \alpha(L^H) = \Gal\left(\faktor{L}{L^H}\right) = H  \qquad \forall H \in \mathcal{G}_{F/K}
+    dove l'ultima uguaglianza è garantita dal \hyperref[3.66]{Lemma 3.66}, in quanto stiamo considerando il campo fissato da tutto il gruppo $\Gal\left(\faktor{L}{F}\right)$. Viceversa:
+    \[ \alpha \circ \beta (H) = \alpha(L^H) = \Gal\left(\faktor{L}{L^H}\right) = \Aut_{L^H}(L)= H  \qquad \forall H \in \mathcal{G}_{F/K}
         \]
-    infatti, $H < \Gal\left(\faktor{L}{L^H}\right)$ in quanto tutti gli elementi di $L^H$ sono fissati dagli elementi di $H$ per definizione e quindi $H \subseteq \Gal\left(\faktor{L}{L^H}\right)$; d'altra parte 
-    $\Gal\left(\faktor{L}{L^H}\right) \subseteq H$, perché, detto $L^H = M$, abbiamo $H \subseteq \Gal\left(\faktor{L}{M}\right)$ e $L^H = M$, dunque per il \hyperref[3.67]{Lemma 3.67} segue che $H = \Gal\left(\faktor{L}{L^H}\right)$.\\
-    Verifichiamo ora la seconda parte del teorema; sappiamo che $H \triangleleft \Gal\left(\faktor{L}{K}\right) \iff \sigma H\sigma^{-1} = H$, $\forall \sigma \in \Gal\left(\faktor{L}{K}\right)$ e per il 
-    \hyperref[3.67]{Lemma 3.67} abbiamo che la condizione posta dall'equazione è equivalente a quella di prima:
+    infatti, tutti gli elementi di $L^H$ sono fissati dagli elementi di $H$ per definizione e quindi $H \leqslant \Gal\left(\faktor{L}{L^H}\right)$; d'altra parte 
+    $\Gal\left(\faktor{L}{L^H}\right) \subseteq H$, perché, detto $L^H = M$, abbiamo $H \leqslant \Gal\left(\faktor{L}{M}\right)$ e $L^H = M$, dunque per il \hyperref[3.66]{Lemma 3.66}, essendo il campo fissato da $H$ quello base, segue che $H = \Gal\left(\faktor{L}{L^H}\right)$.\\
+    Dimostriamo ora la seconda parte del teorema. Sappiamo che $H \triangleleft \Gal\left(\faktor{L}{K}\right) \iff \sigma H\sigma^{-1} = H$, $\forall \sigma \in \Gal\left(\faktor{L}{K}\right)$ e per il 
+    \hyperref[3.67]{Lemma 3.67} (e come anche già parzialmente osservato nell'\hyperref[3.68]{Osservazione 3.68}) la condizione posta dall'equazione è equivalente a:
     \[ \sigma(L^H) = L^{\sigma H \sigma^{-1}} = L^H \qquad \forall \sigma \in \Gal\left(\faktor{L}{K}\right)
         \]
-    e ciò è equivalente al dire che $\faktor{L^H}{K}$ è normale, perché, $\forall \psi : L^H \varlonghookrightarrow \ol K$, con $\psi_{|K} = id_K$, si ha che $\psi(L^H) = L^H$, poiché ogni $\psi$ si estende a $L$ e quindi:
-    \[ \forall \varphi \in \Gal\left(\faktor{L}{K}\right), \exists \sigma \in \Gal\left(\faktor{L}{K}\right) : \sigma_{|L^H} = \psi
+    ovvero $\faktor{L^H}{K}$ è normale, in quanto per la normalità richiediamo che $\forall \psi : L^H \varlonghookrightarrow \ol K$, con $\psi_{|K} = id_K$, si ha che $\psi(L^H) = L^H$, ma poiché ogni $\psi$ si estende ad un'immersione 
+    di $L$ in $\ol K$ (sempre per la \hyperref[3.39]{Proposizione 3.39}), sappiamo dalla condizione ottenuta sopra che:
+    \[ \forall \psi \in \Gal\left(\faktor{L}{L^H}\right), \exists \sigma \in \Gal\left(\faktor{L}{K}\right) : \sigma_{|L^H} = \psi
         \]
+    dunque tutte le immersioni $\psi$ fissano $L^H$ perché restrizioni di immersioni su tutta l'estensione considerata.
     Infine, resta da verificare che $\Gal\left(\faktor{L^H}{K}\right) \cong \faktor{G}{H}$, consideriamo l'omomorfismo di restrizione:
-    \[ \Gamma : \Gal\left(\faktor{L}{K}\right) \twoheadlongrightarrow \Gal\left(\faktor{L^H}{K}\right) : \varphi \longmapsto \varphi_{|L^H}
+    \[ \phi : \Gal\left(\faktor{L}{K}\right) \twoheadlongrightarrow \Gal\left(\faktor{L^H}{K}\right) : \varphi \longmapsto \varphi_{|L^H}
         \]
     esso è ovviamente surgettivo perché ogni $\psi \in \Gal\left(\faktor{L^H}{K}\right)$ si estende ad $L$, ed inoltre:
     \begin{multline*}
-        \ker \Gamma = \left\{\varphi \in \Gal\left(\faktor{L}{K}\right) \m \varphi_{|L^H} = id \right\} = \left\{\varphi \in \Gal\left(\faktor{L}{K}\right) \m \varphi(\alpha) = \alpha, \forall \alpha \in L^H\right\} = \\ 
+        \ker \phi = \left\{\varphi \in \Gal\left(\faktor{L}{K}\right) \m \varphi_{|L^H} = id_{L^H} \right\} = \left\{\varphi \in \Gal\left(\faktor{L}{K}\right) \m \varphi(\alpha) = \alpha, \forall \alpha \in L^H\right\} = \\ 
         = \Gal\left(\faktor{L}{L^H}\right) \cong H
     \end{multline*}
+    dove l'ultimo isomorfismo vale per il \hyperref[3.66]{Lemma 3.66}, infine si conclude per il Primo Teorema di Omomorfismo.
 \end{proof}
 
-\begin{remark}
+\begin{example}
     Il teorema ci dice che, data ad esempio la torre:
-    \[\begin{tikzpicture}
-        \node (Q1) at (0,-1.5) {$K$};
-        \node (Q3) at (0,0) {$L^H$};
-        \node (Q4) at (0,1.5) {$L$};
-        \draw (Q4)--(Q3) node [right, yshift=-0.75cm, red] {$\faktor{G}{H}$};
-        \draw (Q1)--(Q3) node [right, yshift=0.75cm, red] {$H$};
-        \draw(Q4) to [bend right=45] (Q1) node[left, yshift=1.20cm, xshift=-0.5cm, red] {$G$};
-    \end{tikzpicture}
-        \]
-    dove $G$ è il gruppo di Galois di $\faktor{L}{K}$. Essendo anche $\faktor{L}{L^H}$ di Galois 
-    per ipotesi, e detto $H$ il suo gruppo di Galois, allora, per il teorema precedente, se $H \triangleleft G$,
+    \[\begin{tikzcd}
+        L \\
+        {L^H} \\
+        K
+        \arrow["G", color={rgb,255:red,214;green,92;blue,92}, bend left, no head, from=3-1, to=1-1]
+        \arrow["{G/H}"', color={rgb,255:red,214;green,92;blue,92}, no head, from=3-1, to=2-1]
+        \arrow["H"', color={rgb,255:red,214;green,92;blue,92}, no head, from=2-1, to=1-1]
+    \end{tikzcd}\]
+    dove $G$ è il gruppo di Galois di $\faktor{L}{K}$, essendo anche $\faktor{L}{L^H}$ di Galois 
+    per ipotesi, e detto $H$ il suo gruppo di Galois, allora se $H \triangleleft G$,
     si ha che anche $\faktor{L^H}{K}$ è di Galois ed il suo gruppo di Galois è $\faktor{G}{H}$.
-\end{remark}
+\end{example}
 
 \begin{proposition}[Proprietà della corrispondenza di Galois]
-Dati $H,S < \Gal\left(\faktor{L}{K}\right)$, allora valgono le seguenti:
+Dati $H,S \leqslant \Gal\left(\faktor{L}{K}\right)$, allora valgono le seguenti:
 \begin{enumerate}[(1)]
     \item $H \leqslant  S \iff L^H \supseteq L^S$.
-    \item $L^{H \cap S} = L^H L^S$.\footnote{Intendiamo il composto dei due campi.} 
+    \item $L^{H \cap S} = L^H L^S$.\footnote{Si intende il composto dei due campi.} 
     \item $L^{\left<S,H\right>} = L^H \cap L^S$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Dimostriamo le affermazione:
+Dimostriamo le affermazioni:
 \begin{enumerate}[(1)]
-    \item "Ovvio".
-    \item Osserviamo che $H \cap S \subset H,S$, dunque $L^{H\cap S} \supset L^H,L^S$, per il punto (1); pertanto un campo che contiene entrambi i sottocampi 
-    conterrà anche il composto, $L^{H \cap S} \supset L^H L^S$. D'altra parte $L^H L^S \subset L \implies \exists N \leqslant \Gal\left(\faktor{L}{K}\right) $
-    tale che $L^H L^S = L^N$, per il \hyperref[corrG]{Teorema di corrispondenza di Galois}, inoltre:
-    \[ \Gal\left(\faktor{L}{L^N}\right) = N \subset \left(\underbrace{\Gal\left(\faktor{L}{L^H}\right)}_{= H \cap S} \cap \Gal\left(\faktor{L}{L^S}\right)\right)
+    \item Se $\sigma \in H$, con $L^H \supseteq L^S$, allora fissa tutti gli elementi di $L^H$ ed anche quelli di $L^S$, dunque avremo che $\sigma \in S$, $\forall \sigma \in H$, da cui $H \leqslant S$. Viceversa,
+    poiché ogni elemento di $H$ è anche elemento di $S$, sappiamo che tutti gli elementi di $H$ fissano anche $L^S$, dunque $L^S \subseteq L^H$.
+    \item Osserviamo che $H \cap S \subseteq H,S$, dunque $L^{H\cap S} \supseteq L^H,L^S$, per il punto (1); pertanto un campo che contiene entrambi i sottocampi 
+    conterrà anche il composto, $L^{H \cap S} \supseteq L^H L^S$. D'altra parte $L^H L^S \subseteq L \implies \exists N \leqslant \Gal\left(\faktor{L}{K}\right) $
+    tale che $L^H L^S = L^N$, ed essendo il composto più grande dei singoli campi, per il \hyperref[corrG]{Teorema di corrispondenza di Galois} si ha che:
+    \[ \Gal\left(\faktor{L}{L^HL^S}\right) = \Gal\left(\faktor{L}{L^N}\right) = N \subseteq \left(\Gal\left(\faktor{L}{L^H}\right) \cap \Gal\left(\faktor{L}{L^S}\right)\right) = H \cap S
         \]
-    da cui $N \subset H \cap S \iff L^N \supset L^{H \cap S}$.
-    \item Abbiamo che $H \subseteq \left<H,S\right>$ e $S \subseteq \left<H,S\right>$, da cui $L^S,L^H \supseteq L^{\left<H,S\right>}$, da cui $L^{\left<H,S\right>} \subseteq L^H \cap L^S$.\\
+    quindi abbiamo che $N \subseteq H \cap S$ ma ciò è equivalente a $ L^HL^S= L^N \supseteq L^{H \cap S}$.
+    \item Poiché $H \subseteq \left<H,S\right>$ e $S \subseteq \left<H,S\right>$, abbiamo $L^S,L^H \supseteq L^{\left<H,S\right>}$, da cui $L^{\left<H,S\right>} \subseteq L^H \cap L^S$\footnote{Essendo contenuto in entrambi, è contenuto nell'intersezione.}.
     Viceversa sia $\alpha \in L^H \cap L^S$, allora $\varphi(\alpha) = \alpha$, $\forall \varphi \in H,S$, quindi $\alpha$ è fissato dai generatori
     del gruppo $\left<H,S\right>$, pertanto $\alpha$ è fissato da tutti gli elementi di $\left<H,S\right>$, da cui la tesi:
     \[ L^H \cap L^S \subseteq L^{\left<H,S\right>}
