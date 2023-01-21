@@ -646,8 +646,7 @@ da cui $\lambda$ fedele.
 
 \begin{lemma}[Lemma di Ranieri]
     \label{davide}
-    Sia $G$ un gruppo abeliano di ordine $n$, allora $\forall d\mid n, \exists H \leqslant G : |H| = d$.\footnote{Il nome ovviamente non è ufficiale, ma deriva da un curioso aneddoto in cui è coinvolto il buon Davide
-    Ranieri, pertanto vi sconsiglio di citarlo con questo nome in contesti ufficiali, ma se voleste farlo comunque è a vostro rischio e pericolo :)}\footnote{La dimostrazione non è stata fatta durante il corso, ma è stata comunque aggiunta per completezza.}
+    Sia $G$ un gruppo abeliano di ordine $n$, allora $\forall d\mid n, \exists H \leqslant G : |H| = d$.\footnote{La dimostrazione non è stata fatta durante il corso, ma è stata comunque aggiunta per completezza.}
 \end{lemma}
 
 \begin{proof}
@@ -2212,7 +2211,7 @@ Da questo momento in poi, anche se non specificato, assumiamo di star operando s
             \[ xn\ZZ \subset n\ZZ \qquad \forall x \in \ZZ
                 \]
         ed essendo $\ZZ$ abeliano, abbiamo un ideale.
-        \item I sottogruppi $\{0\}$ (ideale \vocab{banale}) e $A$ (ideale \vocab{improprio}) sono ideali dell'anello $A$.
+        \item I sottogruppi $\{0\}$ (ideale \vocab{banale}) e $A$ (ideale \vocab{improprio}) sono ideali di $A$.
     \end{itemize}
 \end{example}
 
@@ -2743,6 +2742,11 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
         \[ I \, \text{è massimale} \iff \forall J \subsetneq A : I \subseteq J \implies I = J
             \]
 \end{definition}
+
+In ogni anello unitario esistono ideali massimali, infatti, detto $\mathcal{F} = \{I \subsetneq A | \, \text{$I$ ideale}\}$, abbiamo che $(\mathcal{F}, \subseteq)$ è un insieme parzialmente ordinato ed induttivo.
+Sia $\mathscr{C} = \{I_\lambda | \lambda \in \Lambda\}$ una catena in $\mathcal{F}$, si osserva che $I = \bigcup_{\lambda \in \Lambda}I_\lambda$ è un maggiorante per $\mathcal{C}$ ed è un ideale di $A$ (gli ideali si 
+contengono, e d'altra parte $I \ne A$ in quanto $1 \not\in I$, poiché $1 \not \in I_\lambda$, $\forall \lambda \in \Lambda$), dunque $I \in \mathcal{F} \implies \mathcal{F}$ induttivo e per il \hyperref[zorn]{Lemma di Zorn} $\mathcal{F}$
+ammette elementi massimali.
 
 \begin{example}
     [Ideali primi di $\ZZ$]
