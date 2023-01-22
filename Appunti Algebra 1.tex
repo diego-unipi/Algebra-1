@@ -2744,7 +2744,7 @@ dove in entrambi i casi gli isomorfismi sono di anelli.
 \end{definition}
 
 In ogni anello unitario esistono ideali massimali, infatti, detto $\mathcal{F} = \{I \subsetneq A | \, \text{$I$ ideale}\}$, abbiamo che $(\mathcal{F}, \subseteq)$ è un insieme parzialmente ordinato ed induttivo.
-Sia $\mathscr{C} = \{I_\lambda | \lambda \in \Lambda\}$ una catena in $\mathcal{F}$, si osserva che $I = \bigcup_{\lambda \in \Lambda}I_\lambda$ è un maggiorante per $\mathcal{C}$ ed è un ideale di $A$ (gli ideali si 
+Sia $\mathscr{C} = \{I_\lambda | \lambda \in \Lambda\}$ una catena in $\mathcal{F}$, si osserva che $I = \bigcup_{\lambda \in \Lambda}I_\lambda$ è un maggiorante per $\mathscr{C}$ ed è un ideale di $A$ (gli ideali si 
 contengono, e d'altra parte $I \ne A$ in quanto $1 \not\in I$, poiché $1 \not \in I_\lambda$, $\forall \lambda \in \Lambda$), dunque $I \in \mathcal{F} \implies \mathcal{F}$ induttivo e per il \hyperref[zorn]{Lemma di Zorn} $\mathcal{F}$
 ammette elementi massimali.
 
@@ -3018,7 +3018,8 @@ ammette elementi massimali.
             $0 \not\in S$, $1 \in S$ e $\forall x,y \in S$ si ha:
             \[ x,y \not\in P \implies xy \not\in P
                 \]
-            poiché $P$ è primo, dunque $xy \in A \setminus P = S$. In questo caso indichiamo $S^{-1}A = A_p$ e prende il nome di \vocab{localizzato} dell'anello $A$ all'ideale $P$.
+            poiché $P$ è primo, dunque se non contiene due elementi non può contenerne il prodotto (altrimenti per definizione di primo conterrebbe uno dei due fattori), pertanto il prodotto di elementi nel suo complementare
+            sta ancora nel suo complementare $xy \in A \setminus P = S$. In questo caso indichiamo $S^{-1}A = A_p$ e prende il nome di \vocab{localizzato} dell'anello $A$ all'ideale $P$.
     \end{itemize}
 \end{example}
 
@@ -3049,8 +3050,7 @@ ammette elementi massimali.
     Osserviamo che gli invertibili dell'anello $S^{-1}A$ sono:
     \[ (S^{-1}A)^* = \left\{\frac{a}{s} \,\m\, \frac{s}{a} \in S^{-1}A\right\}
         \]
-    ovvero esistono $b \in A$ e $t \in S$ tali che $\displaystyle \frac{s}{a} = \frac{b}{t} \iff st = ab \in S$ (cioè esiste una scrittura di questo tipo in $S^{-1}A$, ma poiché 
-    non è detto che $a$ appartenga ad $S$, sappiamo che, per quanto scritto, almeno un suo multiplo c'è), dunque:
+    ovvero esistono $b \in A$ e $t \in S$ tali che $\displaystyle \frac{s}{a} = \frac{b}{t} \iff st = ab \in S$ (cioè poiché non è detto che $a \in S$, cosa che è sempre vera nel campo dei quozienti, richiediamo che almeno un suo multiplo sia in $S$), dunque:
     \[ (S^{-1}A)^* = \left\{\frac{a}{s} \,\m\, \exists b \in A \;\, \text{t.c.} \;\, ab \in S\right\}
         \]
     Ad esempio, nel caso di $A = \ZZ$ e $S = \{10^k\}_{k\geq 0}$, abbiamo che:
@@ -3069,7 +3069,7 @@ ammette elementi massimali.
 
 \begin{proposition}
     [Ideali di $S^{-1}A$]
-    Sia $I \subset A$ e sia $S^{-1}A$ l'insieme costruito come sopra, allora:
+    Sia $I \subset A$ un ideale e sia $S^{-1}A$ l'anello delle frazioni di $A$, allora:
     \begin{enumerate}[(1)]
         \item $S^{-1}I$ è un ideale di $S^{-1}A$.
         \item $\forall J \subset S^{-1}A$, $\exists I \subset A$ tale che $J = S^{-1}I$ (cioè ogni ideale di $S^{-1}A$ si ottiene da un ideale di $A$, considerandone il relativo anello delle frazioni).
@@ -3097,7 +3097,8 @@ ammette elementi massimali.
             cioè per assorbimento di $J$ ci sono tutti gli elementi di $S^{-1}I$. Viceversa si ha che $\displaystyle\forall \frac{x}{s} \in J$ possiamo scrivere:
             \[ \frac{x}{1} = \frac{x}{s}\cdot \frac{s}{1} \in J \implies x = f^{-1}\left(\frac{x}{1}\right) \in I
                 \]
-            ovvero il numeratore di ogni elemento in $J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $J$, da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
+            ovvero il numeratore di ogni elemento in $J$ è un elemento di $I$, dunque considerando l'anello delle frazioni $S^{-1}I$ esso contiene tutte quelle di $J$ (poiché stiamo considerando gli anelli delle frazioni con la stessa parte
+            moltiplicativa, cioè gli stessi denominatori), da cui si conclude $\displaystyle \frac{x}{s} \in S^{-1}I \implies J \subseteq S^{-1}I$.
         \item Dimostriamo la negazione\footnote{Poiché trattandosi di un'equivalenza logica va bene lo stesso.}, ovvero $S^{-1}I$ non proprio equivale a $S^{-1}I = S^{-1}A$, ma essendo il primo un ideale questo è vero se e solo se:
             \[ \frac{1}{1} \in S^{-1}I \iff \exists x \in I, \exists s \in S : \frac{1}{1} = \frac{x}{s}
                 \]
@@ -3457,7 +3458,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 
 \begin{proof}
     Sia $d$ il prodotto dei fattori irriducibili comuni fra $a$ e $b$, presi con il minimo esponente con cui compaiono,
-    allora per verifica diretta si mostra che $d$ è l'M.C.D.\footnote{Si tratta praticamente solo di verifiche formali, pertanto conto di aggiungerla in seguito.}
+    allora per verifica diretta si mostra che $d$ è l'M.C.D.\footnote{Si tratta praticamente solo di verifiche formali.}
 \end{proof}
 
 \begin{remark}
@@ -3499,7 +3500,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
         \item Valgono le due condizioni seguenti:
         \begin{enumerate}[(i)]
             \item Ogni elemento irriducibile è primo.
-            \item Ogni catena discendete di divisibilità è stazionaria, ovvero se $\{a_i\} \subset A$, con:
+            \item Ogni catena discendente di divisibilità è stazionaria, ovvero se $\{a_i\} \subset A$, con:
             \[ a_{i+1} \mid a_i \qquad \forall i \geq 0
                 \]
             allora $\exists n_0$ tale che $a_i \sim a_{n_0}$, $\forall i \geq n_0$.
@@ -3521,6 +3522,8 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     allora $\exists n_0$ tale che $(a_i) = (a_{n_0})$, $\forall i \geq n_0$.\footnote{Tra l'altro ciò, estendendo la condizione di stazionarietà ad ogni catena di ideali (quindi non solo principali), definisce un \vocab{anello noetheriano}.}
 \end{remark}
 
+\pagebreak
+
 \begin{corollary}
     [A PID$\implies$A UFD]
     Se $A$ è un dominio a ideali principali, allora è anche un dominio a fattorizzazione unica.
@@ -3540,10 +3543,10 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     Osserviamo che $a$ appartiene all'unione, per cui $a \in (a_{n_0})$, e quindi:
     \[ I = (a) \subseteq (a_{n_0})
         \]
-    ma d'altra parte avevamo detto che $I$ è l'unione di tutti gli ideali principali di $A$, quindi $(a_{n_0}) \subseteq (a) = I $, dunque $I = (a_{n_0})$; a questo punto sappiamo che:
-    \[ (a_i) \subset (a_{n_0}) \qquad \forall i \geq 0
+    ma d'altra parte avevamo detto che $I$ è l'unione di tutti gli ideali principali di $A$, quindi $(a_{n_0}) \subseteq (a) = I $, dunque $I = (a_{n_0})$; a questo punto sappiamo, per come è definito $I$, che:
+    \[ (a_i) \subseteq (a_{n_0}) \qquad \forall i \geq 0
         \]
-    dove si ha $(a_i) = (a_{n_0})$ quando vi è anche il contenimento opposto, e ciò avviene, poiché stiamo considerando ideali in catena, $\forall i \geq n_0 \implies \{(a_i)\}$ è stazionaria e quindi è verificata la (ii).
+    dove si ha $(a_i) = (a_{n_0})$ quando vi è anche il contenimento opposto (cioè da $n_0$ in poi), e ciò avviene, poiché stiamo considerando ideali in catena, $\forall i \geq n_0 \implies \{(a_i)\}$ è stazionaria e quindi è verificata la (ii).
 \end{proof}
 
 \begin{remark}
@@ -3581,7 +3584,6 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     Se $A$ è un dominio a fattorizzazione unica, allora anche $A[x]$ è un anello a fattorizzazione unica.
 \end{theorem}
 
-
 \begin{corollary}[$A$ UFD$\implies A\lbrack x_1,\ldots,x_n\rbrack$ UFD]
     Se $A$ un dominio a fattorizzazione unica, allora anche $A[x_1,\ldots,x_n]$ è un anello a fattorizzazione unica.
 \end{corollary}
@@ -3597,7 +3599,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     \begin{enumerate}[(1)]
         \item $A[x]$ dominio.
         \item Ogni irriducibile di $A[x]$ è primo (condizione (i)).
-        \item Ogni catena discendete di divisibilità è stazionaria (condizione (ii)).
+        \item Ogni catena discendente di divisibilità è stazionaria (condizione (ii)).
     \end{enumerate}
     Da cui si conclude per il \hyperref[2.101]{Teorema di Caratterizzazione degli UFD}.
 \end{remark}
@@ -3608,7 +3610,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
         \item Siano $f(x),g(x) \in A[x] \setminus\{0\}$, e $\deg f(x) = n \geq 0$, $\deg g(x) = m \geq 0$, essendo $a_n, b_m \ne 0$, segue che
         $a_nb_m \ne 0$ poiché per ipotesi $A$ un dominio di integrità, pertanto $f(x) \cdot g(x) \ne 0$ se $f(x),g(x) \ne 0 \implies A[x]$ è un dominio d'integrità.
         \begin{remark}
-            Osserviamo anche che da ciò discende che $(A[x])^* = A^*$, infatti, considerando $f(x) \in (A[x])^*$, $\exists g(x) \in A[x]$ tale che:
+            Osserviamo anche che da ciò discende che $(A[x])^* = A^*$\footnote{Se fosse stato $K[x]$, con $K$ campo, per quanto detto sugli ED, sapremmo che gli invertibili sono gli elementi di grado minimo, dunque le costanti (gli elementi di $A^*$).}, infatti, considerando $f(x) \in (A[x])^*$, $\exists g(x) \in A[x]$ tale che:
             \[ f(x)g(x) = 1 \implies \deg f(x) + \deg g(x) = 0
                 \]
             ovvero $\deg f(x) = \deg g(x) = 0$, per cui $f(x),g(x) \in A$, ed in particolare $f(x) = a$, $g(x) = b$, pertanto:
@@ -3654,28 +3656,30 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $f(x)g(x)$ non fosse primitivo (ovvero associato ad 1)
+        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $c(f(x)g(x))$ non fosse primitivo (ovvero associato ad 1)
             allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$, consideriamo la proiezione modulo $(p)$:
             \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
                 \]
             con $\overline{f(x)} \ne 0$ in quanto $p \nmid c(f(x))$, analogamente $\pi_{(p)}(g(x)) = \overline{g(x)} \ne 0$, poiché $p \nmid c(g(x))$, ma $\pi_{(p)}(f(x)g(x)) = \overline{f(x)}\,\overline{g(x)} = 0$, 
-            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio e quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, ovvero $\displaystyle \frac{A}{(p)} [x]$
-            è un dominio, da cui $c(f(x)g(x)) = 1$.
+            perché avevamo supposto che $p \mid c(f(x)g(x))$, ma questo è assurdo in quando $\displaystyle \frac{A}{(p)}$ è un dominio (essendo $(p)$ un ideale primo) e quindi, per quanto detto, $A$ dominio$\implies A[x]$ dominio, abbiamo $\displaystyle \frac{A}{(p)} [x]$
+            dominio, da cui $c(f(x)g(x)) = 1$.
         \item Consideriamo ora il caso generale, sia $f(x) = c(f(x))f^{\prime}(x)$, con $f^{\prime}(x)$ primitivo, e analogamente $g(x) = c(g(x))g^{\prime}(x)$, con $g^{\prime}(x)$ primitivo, abbiamo che:
             \[ h(x) = f(x)g(x) = c(f(x))c(g(x))g^{\prime}(x)f^{\prime}(x)
                 \]
-            dove $h^{\prime}(x) = g^{\prime}(x)f^{\prime}(x)$ è primitivo perché prodotto di polinomi primitivi, dunque:
-            \[ h(x) = c(h(x))h^{\prime}(x)
-                \]
-            e uguagliando i contenuti si ha:
+            dove $h(x) = c(h(x))h^{\prime}(x)$ e uguagliando i contenuti si ha:
             \begin{multline*}
-                c(h(x))\underbrace{c(h^{\prime}(x))}_{= 1} = c(f(x))c(g(x))\underbrace{c(g^{\prime}(x)f^{\prime}(x))}_{= 1} \implies \\
-                c(h(x)) = c(f(x)g(x)) = c(f(x))c(g(x))
+                c(h(x)) = c(c(h(x))h^{\prime}(x)) = c(f(x)g(x)) = c(c(f(x))c(g(x))g^{\prime}(x)f^{\prime}(x))
             \end{multline*}
+            essendo i contenuti presenti delle costanti, possiamo portarli fuori dai contenuti dei polinomi e osservando che il prodotto di polinomi primitivi (per il punto precedente) è primitivo otteniamo:
+            \[ c(h(x))\underbrace{c(h^{\prime}(x))}_{= 1} = c(f(x))c(g(x))\underbrace{c(g^{\prime}(x)f^{\prime}(x))}_{= 1}
+                \]
+            da cui la tesi:
+            \[ c(f(x)g(x)) = c(h(x)) = c(f(x))c(g(x))
+                \]
     \end{itemize}
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[Divisibilità nel campo dei quozienti$\implies$divisibilità]
     \label{2.118}
     Siano $f(x),g(x) \in A[x]$, con $c(f(x)) = 1$ e $f(x) \mid g(x)$ in $K[x]$, con $K$ campo dei quozienti di $A$, allora $f(x) \mid g(x)$ in $A[x]$.
 \end{corollary}
@@ -3684,7 +3688,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     Per ipotesi sappiamo che $f(x) \mid g(x)$ in $K[x]$, ovvero $\exists h(x) \in K[x]$ tale che $g(x) = f(x)h(x)$, allora $\exists d \in A$ tale che:
     \[ h_1(x) = dh(x) \in A[x]
         \]
-    (stiamo "cancellando" il denominatore), dunque:
+    (stiamo "cancellando" il denominatore per portare la relazione data dalla divisione da $K[x]$ ad $A[x]$), dunque:
     \[ dg(x) = f(x)h_1(x) \in A[x]
         \]
     da cui per il \hyperref[gauss]{Lemma di Gauss}:
@@ -3694,10 +3698,10 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     e quindi la divisibilità iniziale era anche in $A[x]$. 
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}[Riducibilità nel campo dei quozienti$\implies$riducibilità]
     \label{2.119}
-    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$,
-    allora esiste $\delta \in K^*$ tale che $g_1(x) = \delta g(x) \in A[x]$, $h_1(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_1(x)h_1(x)$.
+    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$ (dunque $f(x)$ riducibile in $K[x]$),
+    allora esiste $\delta \in K^*$ tale che $g_1(x) = \delta g(x) \in A[x]$, $h_1(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_1(x)h_1(x)$ in $A[x]$.
 \end{corollary}
 
 \begin{proof}
@@ -3705,7 +3709,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     dunque:
     \[ f(x) = dg(x)d^{-1}h(x) = g_1(x)(d^{-1}h(x)) = c(g_1(x))g_1^{\prime}(x)(d^{-1}h(x))
         \]
-    con $g_1^{\prime}(x) \in A[x]$ primitivo (dividendo per il contenuto), pertanto abbiamo:
+    con $g_1^{\prime}(x) \in A[x]$ primitivo, inoltre abbiamo:
     \[ f(x) = g_1^{\prime}(x)(\underbrace{c(g_1(x))d^{-1}h(x)}_{\in K[x]})
         \]
     ovvero $g_1^{\prime}(x) \mid f(x)$ in $K[x]$, ma allora per il \hyperref[2.118]{Corollario 2.118} segue che $g_1^{\prime}(x) \mid f(x)$ in $A[x]$, dunque:
@@ -3801,7 +3805,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     Alla successione $\{f_i(x)\}$ possiamo quindi associare le successioni $\{c(f_i(x))\}$ e $\{f_i^{\prime}(x)\}$, per quanto abbiamo detto si ha:
     \[ c(f_{i+1}(x)) \mid c(f_{i}(x)) \qquad \text e \qquad f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \qquad \forall i \geq 0
         \]
-    dove la successione $\{c(f_i(x))\}$ è stazionaria, in quanto è una catena discendete di divisibilità dell'UFD $A$, dunque:
+    dove la successione $\{c(f_i(x))\}$ è stazionaria, in quanto è una catena discendente di divisibilità dell'UFD $A$, dunque:
     \[ \exists m_0 : c(f_i(x)) \sim c(f_{m_0}(x)) \qquad \forall i \geq m_0
         \]
     Consideriamo ora $\{f_i^{\prime}(x)\}$ e associamo a questa la successione $\{\deg f_i^{\prime}(x)\}$, ma dalla condizione:
@@ -3942,8 +3946,8 @@ distinguiamo ora due casi:
     \item Se $u = \pm i$, allora si ottiene:
     \[ \begin{cases}
         x = \mp 2ab \\
-        z = \pm(a^2-b^2-2) \\
-        y = \pm (a^2+b^2)
+        y = \pm(a^2-b^2) \\
+        z = \pm (a^2+b^2)
     \end{cases}
     \]
 \end{itemize}
@@ -4981,7 +4985,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
         da ciò abbiamo che:
         \[ \varphi_i(\alpha+t\beta) \ne \varphi_j(\alpha+t\beta) \qquad \forall i \ne j
             \]
-        quindi $\gamma = \alpha+t\beta$ ha $m$ coniugati, pertanto $[K(\gamma) : K] = m \implies E = K(\gamma)$ (ovvero le due estensioni dello stesso campo hanno lo stesso grado e quindi coincidono).
+        quindi $\gamma = \alpha+t\beta$ ha $m$ coniugati (perché abbiamo appunto $m$ immersioni distinte), pertanto $[K(\gamma) : K] = m \implies E = K(\gamma)$ (ovvero le due estensioni dello stesso campo hanno lo stesso grado e quindi coincidono).
         \item \underline{\textbf{$K$ campo finito}}: Se $\faktor{E}{K}$ è finita, allora $E$ è finito, da cui, per la nota proprietà sui sottogruppi moltiplicativi di un campo finito, sia che $E^*$ è un 
         sottogruppo moltiplicativo finito di $E$ ed è ciclico, $E^* = \left<\gamma\right>$, ma per un altro teorema noto da \href{https://github.com/diego-unipi/Appunti-Aritmetica}{\textcolor{purple}{Aritmetica}}, si ha che $E = K(\gamma)$.
         \end{itemize}
