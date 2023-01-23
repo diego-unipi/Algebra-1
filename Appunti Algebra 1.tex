@@ -3700,7 +3700,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 
 \begin{corollary}[Riducibilità nel campo dei quozienti$\implies$riducibilità]
     \label{2.119}
-    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg f(x),\deg g(x) \geq 1$ (dunque $f(x)$ riducibile in $K[x]$),
+    Sia $f(x) \in A[x]$ e $f(x) = g(x)h(x)$ in $K[x]$ (con $K$ campo dei quozienti di $A$), con $\deg g(x),\deg h(x) \geq 1$ (dunque $f(x)$ riducibile in $K[x]$),
     allora esiste $\delta \in K^*$ tale che $g_1(x) = \delta g(x) \in A[x]$, $h_1(x) = \delta^{-1}h(x) \in A[x]$ e $f(x) = g_1(x)h_1(x)$ in $A[x]$.
 \end{corollary}
 
@@ -3731,9 +3731,10 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 
 \begin{theorem}
     [Caratterizzazione degli irriducibili di $A\lbrack x\rbrack$]
+    \label{carattirr}
     Dato $A$ UFD, gli elementi irriducibili di $A[x]$ sono tutti e soli quelli che soddisfano una tra le seguenti:
     \begin{enumerate}[(1)]
-        \item $f(x) \in A$ irriducibile in $A$.
+        \item $f(x) \in A$ e irriducibile in $A$.
         \item $f(x) \in A[x]$, con $\deg f(x) \geq 1$, $c(f(x)) = 1$ e $f(x)$ irriducibile in $K[x]$ (anello dei polinomi a coefficienti nel campo dei quozienti di $A$).
     \end{enumerate}
 \end{theorem}
@@ -3745,18 +3746,18 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
         \[ f(x) = g(x)h(x) \implies \deg g(x) + \deg h(x) = \deg f(x) = 0
             \]
         dove l'implicazione è data dal fatto che siamo in un dominio, dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto $g(x),h(x) \in A$,
-        per cui $f(x)$ è irriducibile in $A[x]$ se e sole $f(x)$ è irriducibile in $A$ (che è la stessa cosa che avevamo già osservato dicendo che $(A[x])^* = A^*$).
+        per cui $f(x)$ è irriducibile in $A[x]$ se e sole $f(x)$ è irriducibile in $A$ (dato che tra l'altro abbiamo $(A[x])^* = A^*$, ed uno tra $g(x)$ ed $h(x)$ deve essere invertibile).
         \item Sia $f(x)$ con $\deg f(x) \geq 1$. Supponiamo che $f(x)$ sia irriducibile in $A[x]$, abbiamo che:
         \[ f(x) = c(f(x))f^{\prime}(x)
             \]
-        con $c(f(x))$ invertibile in $A[x]$, $c(f(x)) \in (A[x])^* = A^*$ (per quanto detto al punto (1)), d'altra parte, sia $f(x) = g(x)h(x)$ in $K[x]$, allora per il
+        con $c(f(x))$ invertibile in $A[x]$, dunque $c(f(x)) \in (A[x])^* = A^*$ ovvero $f(x)$ primitivo; d'altra parte, sia $f(x) = g(x)h(x)$ in $K[x]$, allora per il
         \hyperref[2.119]{Corollario 2.119}, possiamo scriverlo come prodotto di polinomi dello stesso grado in $A[x]$:
         \[ f(x) = g_1(x)h_1(x) \qquad \text{con} \qquad \deg g_1(x) = \deg g(x), \deg h_1(x) = \deg h(x)
             \]
-        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ sono invertibili. Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui
+        poiché $f(x)$ è irriducibile in $A[x]$ deve essere che $g_1(x)$ o $h_1(x)$ è invertibile. Abbiamo quindi che $\deg g_1(x) = 0$ o $\deg h_1(x) = 0$, da cui (sempre per il \hyperref[2.119]{Corollario 2.119})
         $\deg g(x) = 0$ o $\deg h(x) = 0$, ovvero $g(x) \in (K[x])^*$ o $h(x) \in (K[x])^*$, dunque $f(x)$ è irriducibile in $K[x]$. \\
-        Verifichiamo il viceversa, sia $f(x)$ primitivo ed irriducibile in $K[x]$, e sia $f(x) = g(x)h(x)$ in $A[x]$ (e anche in $K[x]$), poiché $f(x)$ è irriducibile in $K[x]$ 
-        $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, supponiamo quindi ad esempio che sia $g(x) \in A$, da ciò segue che:
+        Verifichiamo il viceversa, sia $f(x)$ primitivo ed irriducibile in $K[x]$ (anche in questo caso si ha $c(f(x)) \sim 1$), e sia $f(x) = g(x)h(x)$ in $A[x]$ (e anche in $K[x]$), poiché $f(x)$ è irriducibile in $K[x]$ 
+        $g(x)$ o $h(x)$ sono invertibili in $K[x]$ e quindi costanti, possiamo quindi supporre che sia $g(x) \in A$, da ciò segue che:
         \[ 1 = c(f(x)) = c(g(x)h(x)) = c(g(x))c(h(x)) = g c(h(x))
             \]
         dove nell'ultima uguaglianza abbiamo usato il fatto che, essendo $g(x)$ costante, allora è uguale al suo contenuto, dunque $g \in A^* (= (A[x])^*)$, pertanto $f(x)$ è irriducibile in $A[x]$.
@@ -3771,18 +3772,18 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     Sia $f(x) \in A[x]$ irriducibile, per dimostrare che è primo bisogna verificare che $\forall g(x),h(x) \in A[x]$ si ha che:
     \[ f(x) \mid g(x)h(x) \implies f(x) \mid g(x) \quad \text o \quad f(x) \mid h(x) \quad \text{in $A[x]$}
         \]
-    Distinguiamo due casi:
+    Distinguiamo due casi in base al \hyperref[carattirr]{Teorema di caratterizzazione degli irriducibili di $A[x]$}:
     \begin{itemize}
         \item Se $\deg f(x) = 0$, ovvero $f(x) = f \in A$, dunque se $f$ è irriducibile in $A$, essendo $A$ UFD, allora $f$ è primo in $A$;
         infatti abbiamo che:
         \[ f \mid gh \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) = g \quad \text o \quad f \mid c(h) = h
             \]
         dunque $f$ primo.
-        \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$, si osserva che $K[x]$ è euclideo, dunque $f(x)$ è primo
+        \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$, si osserva che $K[x]$ è un dominio euclideo (poiché $K$ è un campo), quindi $f(x)$ è anche primo
         in $K[x]$ (poiché avevamo detto che ED $\subset$ UFD), dunque se:
         \[ f(x) \mid g(x)h(x) \qquad \text{in $A[x]$}
             \]
-        allora $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $K[x]$. Avendo supposto che $f(x)$ è primitivo, allora per il \hyperref[2.118]{Corollario 2.118}:
+        allora $f(x) \mid g(x)$ o $f(x) \mid h(x)$ in $K[x]$. Avendo supposto che $f(x)$ è primitivo, allora vale il \hyperref[2.118]{Corollario 2.118}, pertanto la divisibilità in $K[x]$ implica quella in $A[x]$:
         \[ f(x) \mid g(x) \qquad \text o \qquad f(x) \mid h(x) \qquad \text{in $A[x]$}
             \]
         dunque $f(x)$ è primo in $A[x]$.
