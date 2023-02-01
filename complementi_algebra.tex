@@ -1329,7 +1329,7 @@ Possiamo generalizzare il ragionamento appena usato nel seguente risultato
     Distinguiamo due casi:
     \begin{itemize}
         \item se $K \subseteq H$ allora $H \cap K = K$, da cui $[K:H\cap K] = 1$;
-        \item se $K \subsetneq H$ consideriamo la proiezione 
+        \item se $K \nsubseteq H$ consideriamo la proiezione 
         \[
             \pi_H: G\longrightarrow \faktor{G}{H} :g \longmapsto gH
         \]
@@ -1952,7 +1952,7 @@ In effetti vale un risultato più generale
     $l_1 = l_2 = \ldots = l_k$. Fissata $\sigma \in N$ possiamo quindi scrivere
     $\sigma = \sigma_1\ldots\sigma_k$,
     dove $\sigma_i$ sono $l$-cicli disgiunti con $l = \displaystyle\frac{n + 1}{k}$.
-    Supponiamo per assurdo $N\cap H_i \neq \{id\}$, distinguiamo tre casi:
+    Supponiamo per assurdo $N \neq \{id\}$, distinguiamo tre casi:
     \begin{itemize}
         \item se $k = 1$ abbiamo $l = n + 1$, cioè $\sigma$ è un $n + 1$-ciclo.
         Scriviamo $\sigma = \cycle{a_1, \ldots, a_l}$ e consideriamo la permutazione
@@ -1995,7 +1995,7 @@ In effetti vale un risultato più generale
         \]
         ma $a_3$ è un punto fisso per $\alpha$, che è assurdo.
     \end{itemize}
-    Pertanto $N\cap H_i = \{id\}$, cioè $\mathcal{A}_{n + 1}$ è un gruppo semplice.
+    Pertanto $N = \{id\}$, cioè $\mathcal{A}_{n + 1}$ è un gruppo semplice.
 \end{proof}
 
 \begin{corollary}
@@ -2340,10 +2340,11 @@ contiene $n\phi(n)$ elementi. In realtà possiamo essere più precisi:
     \]
 \end{proof}
 
-Rappresentiamo gli elementi di $G$ tramite le coppie $(b, a) \in \Zn\times (\Zn)^*$,
+Rappresentiamo gli elementi di $G$ tramite le coppie $(b, a) \in \Zn\times (\Zn)^*$
+(come insieme, non come gruppo),
 la composizione in $G$ produce la seguente operazione sulle coppie:
 \[
-    (b_1, a_1)(b_2, a_2) = (b_1 + a_1b_2, a_1 + a_2)
+    (b_1, a_1)(b_2, a_2) = (b_1 + a_1b_2, a_1a_2)
 \]
 pertanto l'omomorfismo che definisce il prodotto semidiretto $\Zn \rtimes_{\varphi}(\Zn)^*$
 a cui è isomorfo $G$ è 
@@ -2846,11 +2847,11 @@ $\mathcal{A}_5$ è l'unico sottogruppo semplice di tale ordine (a meno di isomor
         sottogruppo normale non banale di $G$, che non è possibile in quanto $G$
         è semplice. Inoltre $|N_G(H)| \neq 20$ in quanto si avrebbe $[G:N_G(H)] = 3$,
         allora per il \hyperref[teorema1.50]{Teorema 1.50} $G$ conterrebbe
-        un sottogruppo normale proprio di ordine al più $3!$, che è assurdo.
+        un sottogruppo normale non banale di indice al più $3!$, che è assurdo.
         Abbiamo quindi $|N_G(H)| = 12$, consideriamo l'azione di 
         moltiplicazione a sinistra di $G$ sull'insieme quoziente $\faktor G H$
         \[
-            \varphi : G\longrightarrow S\left(\faktor G H\right)\cong S_5
+            \varphi : G\longrightarrow S\left(\faktor{G}{N_G(H)}\right)\cong S_5
         \]
         argomentando come sopra si ha che tale azione è transitiva, pertanto
         $\ker\varphi \neq G$. Allora $\ker\varphi = \{e\}$ in quanto 
@@ -5000,6 +5001,6 @@ Più in generale vale il seguente teorema, di cui non diamo la dimostrazione.
         \item $\QQ(\sqrt p)$ se $p \equiv 1 \pmod 4$;
         \item $\QQ(\sqrt{-p})$ se $p \equiv 3 \pmod 4$.
     \end{enumerate}
-\end{theorem}
+\end{theorem}   
 
 \end{document}
