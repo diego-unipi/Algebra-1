@@ -960,6 +960,7 @@ sono caratteristici in $H\times K$, da cui il seguente risultato:
 \end{remark}
 
 \begin{proposition}
+    \label{prop1.35}
     Dato un gruppo $G$, valgono i seguenti fatti:
     \begin{enumerate}[(1)]
         \item $G'$ è un sottogruppo caratteristico di $G$;
@@ -1328,7 +1329,7 @@ Possiamo generalizzare il ragionamento appena usato nel seguente risultato
     Distinguiamo due casi:
     \begin{itemize}
         \item se $K \subseteq H$ allora $H \cap K = K$, da cui $[K:H\cap K] = 1$;
-        \item se $K \subsetneq H$ consideriamo la proiezione 
+        \item se $K \nsubseteq H$ consideriamo la proiezione 
         \[
             \pi_H: G\longrightarrow \faktor{G}{H} :g \longmapsto gH
         \]
@@ -1951,7 +1952,7 @@ In effetti vale un risultato più generale
     $l_1 = l_2 = \ldots = l_k$. Fissata $\sigma \in N$ possiamo quindi scrivere
     $\sigma = \sigma_1\ldots\sigma_k$,
     dove $\sigma_i$ sono $l$-cicli disgiunti con $l = \displaystyle\frac{n + 1}{k}$.
-    Supponiamo per assurdo $N\cap H_i \neq \{id\}$, distinguiamo tre casi:
+    Supponiamo per assurdo $N \neq \{id\}$, distinguiamo tre casi:
     \begin{itemize}
         \item se $k = 1$ abbiamo $l = n + 1$, cioè $\sigma$ è un $n + 1$-ciclo.
         Scriviamo $\sigma = \cycle{a_1, \ldots, a_l}$ e consideriamo la permutazione
@@ -1994,7 +1995,7 @@ In effetti vale un risultato più generale
         \]
         ma $a_3$ è un punto fisso per $\alpha$, che è assurdo.
     \end{itemize}
-    Pertanto $N\cap H_i = \{id\}$, cioè $\mathcal{A}_{n + 1}$ è un gruppo semplice.
+    Pertanto $N = \{id\}$, cioè $\mathcal{A}_{n + 1}$ è un gruppo semplice.
 \end{proof}
 
 \begin{corollary}
@@ -2339,10 +2340,11 @@ contiene $n\phi(n)$ elementi. In realtà possiamo essere più precisi:
     \]
 \end{proof}
 
-Rappresentiamo gli elementi di $G$ tramite le coppie $(b, a) \in \Zn\times (\Zn)^*$,
+Rappresentiamo gli elementi di $G$ tramite le coppie $(b, a) \in \Zn\times (\Zn)^*$
+(come insieme, non come gruppo),
 la composizione in $G$ produce la seguente operazione sulle coppie:
 \[
-    (b_1, a_1)(b_2, a_2) = (b_1 + a_1b_2, a_1 + a_2)
+    (b_1, a_1)(b_2, a_2) = (b_1 + a_1b_2, a_1a_2)
 \]
 pertanto l'omomorfismo che definisce il prodotto semidiretto $\Zn \rtimes_{\varphi}(\Zn)^*$
 a cui è isomorfo $G$ è 
@@ -2845,11 +2847,11 @@ $\mathcal{A}_5$ è l'unico sottogruppo semplice di tale ordine (a meno di isomor
         sottogruppo normale non banale di $G$, che non è possibile in quanto $G$
         è semplice. Inoltre $|N_G(H)| \neq 20$ in quanto si avrebbe $[G:N_G(H)] = 3$,
         allora per il \hyperref[teorema1.50]{Teorema 1.50} $G$ conterrebbe
-        un sottogruppo normale proprio di ordine al più $3!$, che è assurdo.
+        un sottogruppo normale non banale di indice al più $3!$, che è assurdo.
         Abbiamo quindi $|N_G(H)| = 12$, consideriamo l'azione di 
         moltiplicazione a sinistra di $G$ sull'insieme quoziente $\faktor G H$
         \[
-            \varphi : G\longrightarrow S\left(\faktor G H\right)\cong S_5
+            \varphi : G\longrightarrow S\left(\faktor{G}{N_G(H)}\right)\cong S_5
         \]
         argomentando come sopra si ha che tale azione è transitiva, pertanto
         $\ker\varphi \neq G$. Allora $\ker\varphi = \{e\}$ in quanto 
@@ -3470,7 +3472,7 @@ le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
     $M$ è massimale in $\mathcal{F}$, esistono $h, k \in \NN$ tali che $x^k \in (M, a)$
     e $x^h \in (M, b)$, da cui
     \[
-        x^{h + k} \in (M, a)(M, b) \subseteq (M, a)\cap (M, b) \subseteq M
+        x^{h + k} \in (M, a)(M, b) \subseteq M
     \]
     che è assurdo in quanto $M$ è un elemento di $\mathcal{F}$. Pertanto 
     $M$ è un ideale primo di $A$ che non contiene nessuna potenza di $x$, 
@@ -4868,5 +4870,137 @@ Galois di un'estensione di campi.
         in particolare è isomorfo a $\Z4$.
     \end{enumerate}
 \end{proof}
+
+\newpage
+
+\subsection{Contare le sottoestensioni quadratiche di un campo}
+
+Consideriamo un'estensione di Galois finta $\faktor F K$, sia $G = \Gal(F/K)$,
+le sottoestensioni di $F$ di grado due su $K$ sono in corrispondenza con i
+sottogruppi di $G$ di indice 2. Osserviamo che un sottogruppo $H \leqslant G$
+di indice 2 contiene il sottogruppo 
+\[
+    \mathscr{G} = \langle g^2\mid g \in \nolinebreak 
+G\rangle\footnote{
+    Stiamo usando la notazione moltiplicativa. In notazione additiva
+    allora $\mathscr{G} = \langle 2g \mid g \in G\rangle$.
+}
+\]
+Infatti se consideriamo il quoziente $\faktor G H \cong \Z2$, per ogni $g \in G$
+si ha
+\[
+    (gH)^2 = g^2H = H
+\]
+da cui $g^2 \in H$ e quindi anche $\mathscr{G} \leqslant H$. Per il 
+Teorema di Corrispondenza tra sottogruppi abbiamo una bigezione 
+\[
+    \{H \leqslant G \mid [G : H] = 2\} \longleftrightarrow \left\{\mathcal{H}
+    \leqslant\faktor{G}{\mathscr{G}}\Bigm| \left[\faktor{G}{\mathscr{G}}:
+    \mathcal{H}\right] = 2\right\}
+\]
+
+Gli elementi di $\faktor{G}{\mathscr{G}}$ hanno ordine al più 2. Questo 
+implica che sia un gruppo abeliano, infatti per ogni $a, b \in \faktor{G}{\mathscr{G}}$
+si ha 
+\[
+    aba^{-1}b^{-1} = abab = (ab)^2 = e
+\]
+pertanto $ab = ba$. Essendo un gruppo finito per il Teorema di Struttura dei
+Gruppi Abeliani Finiti si ha $\faktor{G}{\mathscr{G}} \cong (\Z2)^k$,
+dove $k$ è un parametro che dipende da $G$. Il numero di sottogruppi di 
+indice $2$ di $(\Z2)^k$ è uguale al numero di iperpiani dello spazio vettoriale
+$(\FF_2)^k$, quindi $2^k - 1$, e questo è il numero di sottoestensioni di $F$
+quadratiche su $K$. 
+
+\begin{example}
+    Sia $F = \QQ(i, \zeta_3, \sqrt[3]3)$, si verifica che il gruppo di Galois
+    dell'estensione $\faktor{F}{\QQ}$ è isomorfo a $G = S_3\times\Z2$.
+    Il sottogruppo $\langle g^2 \mid g \in G\rangle$ è isomorfo al sottogruppo
+    $\mathscr{G} = \mathcal{A}_3 \times \{0\}$, pertanto $\faktor{G}{\mathscr{G}}
+    \cong \Z2\times\Z2$, che contiene tre sottogruppi di indice 2. Quindi 
+    $F$ contiene tre sottoestensioni quadratiche su $\QQ$, che sono 
+    $\QQ(\zeta_3) = \QQ(\sqrt{-3})$, $\QQ(i)$, $\QQ(\sqrt 3)$.
+\end{example}
+
+\begin{remark}
+    Possiamo ripetere la costruzione di sopra per cercare i sottogruppi 
+    normali di indice $k$, in quanto questi contengono il sottogruppo
+    $\langle g^k \mid g \in G\rangle$, ma la caratterizzazione del quoziente
+    è più complicata in generale.
+\end{remark}
+
+\newpage
+
+\subsection{Radici dell'unità}
+
+Consideriamo un'estensione di Galois finita $\faktor{K}{\QQ}$ con gruppo di 
+Galois $G$, sia $\zeta_n$ una radice primitiva $n$-esima dell'unità, vogliamo
+capire come determinare se $\zeta_n$ è contenuta in $F$ al variare di $n \in \NN$.
+
+\begin{center}
+    \begin{tikzpicture}
+        \node (Q1) at (0,0) {$\QQ$};
+        \node (Q2) at (0,1.5) {$K = F \cap \QQ(\zeta_n)$};
+        \node (Q3) at (-1.5,3) {$F$};
+        \node (Q4) at (1.5,3) {$\QQ(\zeta_n)$};
+
+        \draw (Q1)--(Q2);
+        \draw (Q2)--(Q3);
+        \draw (Q2)--(Q4);
+    \end{tikzpicture}
+\end{center}
+
+Il gruppo $\Gal(F/\QQ)$ è un sottogruppo di $\Gal(\QQ(\zeta_n)/\QQ)$, che è
+isomorfo a $\Zn^*$ per il \hyperref[teorema3.9]{Teorema 3.9}, in particolare
+$\Gal(F/\QQ)$ è un gruppo abeliano e $\faktor{F}{\QQ}$ è un'estensione normale
+in quanto tutte le sottoestensioni di $\QQ(\zeta_n)$ sono normali. D'altra 
+parte $\Gal(F/\QQ)$ è isomorfo a un quoziente $\faktor G H$, con $H \trianglelefteqslant G$,
+in particolare $H$ deve contenere il sottogruppo derivato $G'$ in quanto
+il quoziente è abeliano (\hyperref[prop1.35]{Proposizione 1.35}).
+
+\begin{example}
+    Per $n\geq 3$, sia $f(x) \in \QQ[x]$ che il gruppo di Galois del suo campo di spezzamento
+    $K$ su $\QQ$ è isomorfo a $S_n$, consideriamo i sottogruppi normali $H$ di $S_n$
+    che contengono $S_n'$. Poiché $S_n' = \mathcal{A}_n$ tali sottogruppi
+    sono solo $\mathcal{A}_n$ e $S_n$. Se $H = S_n$ allora $\QQ(\zeta_n) \cap K = \nolinebreak\QQ$
+    in quanto $\faktor{\Gal(K/\QQ)}{H}$ è il gruppo banale, quindi le uniche
+    radici dell'unità contenute in $K$ sono 1 e $-1$ (che sono rispettivamente
+    $\zeta_1$ e $\zeta_2$). Se $H = \mathcal{A}_n$
+    allora $[\QQ(\zeta_n)\cap K: \QQ] = 2$. Poiché una sottoestensione di 
+    $\QQ(\zeta_n)$ è della forma $\QQ(\zeta_d)$ con $d \mid n$, abbiamo
+    che $[\QQ(\zeta_d):\QQ] = 2$. I possibili $d$ sono quindi da determinare
+    tra le soluzioni dell'equazione $\phi(m) = 2$, cioè $d \in {3, 4, 6}$.
+    In particolare le uniche radici dell'unità non banali che possono essere
+    contenute in $K$ sono $\zeta_3$, $\zeta_4$ e $\zeta_6$, e quali di queste
+    sono effettivamente elementi del campo dipende dalle radici del polinomio $f(x)$.
+\end{example}
+
+Consideriamo adesso le estensioni ciclotomiche $\QQ(\zeta_p)$ con $p$ primo,
+vogliamo determinare quando una sottoestensione quadratica di $\QQ(\zeta_p)$
+è reale oppure no. Il gruppo di Galois dell'estensione è isomorfo a $\Zp^* \cong 
+\Z{(p -1)}$, che è un gruppo ciclico, quindi $\QQ(\zeta_n)$ contiene un'unica 
+sottoestensione quadratica su $\QQ$. Osserviamo che l'insieme dei quadrati 
+di $\Zp^*$ è un sottogruppo di indice 2, in quanto la mappa 
+\[
+    \varphi: \Zp^* \longrightarrow \Zp^*: x \longmapsto x^2
+\]
+è un omomorfismo di gruppi, essendo $\Zp^*$ abeliano, e il suo nucleo è $\{1, -1\}$,
+pertanto $|\mathrm{Im}\varphi| = \displaystyle\frac{p - 1}{2}$. Siano $K = \QQ(\zeta_p)\cap \RR$,
+$F_2$ l'unica sottoestensione quadratica di $\QQ(\zeta_p)$, $K$ è il campo 
+fissato dal coniugio complesso, pertanto corrisponde al sottogruppo
+$\langle -1\rangle \leqslant \Zp^*$, mentre $F_2$ corrisponde al sottogruppo
+dei quadrati di $\Zp^*$. Allora $F_2 \subseteq K$ se e solo se $-1$ è un 
+quadrato in $\Zp^*$, cioè se e solo se $p \equiv 1 \pmod 4$.
+
+Più in generale vale il seguente teorema, di cui non diamo la dimostrazione.
+
+\begin{theorem}
+    Dato $p$ un primo dispari, l'unica sottoestensione di $\QQ(\zeta_p)$ 
+    quadratica su $\QQ$ è
+    \begin{enumerate}[(1)]
+        \item $\QQ(\sqrt p)$ se $p \equiv 1 \pmod 4$;
+        \item $\QQ(\sqrt{-p})$ se $p \equiv 3 \pmod 4$.
+    \end{enumerate}
+\end{theorem}   
 
 \end{document}
