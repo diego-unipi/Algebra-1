@@ -2635,7 +2635,7 @@ due prodotti semidiretti di $p$-gruppi non siano isomorfi.
         = \{\chi(h_1)\mid h_1 \in \mathcal{H}_1, \chi(h_1g_1) = \chi(g_1h_1)
         ~\forall g_1 \in \mathcal{G}_1\} = \\
         = \{\chi(h_1) \mid h_1 \in Z_{\mathcal{H}_1}(\mathcal{G}_1)\} = 
-        \chi(\{e_H\}\rtimes_{\varphi_1}\ker\varphi_1)\\
+        \chi(\{e_G\}\rtimes_{\varphi_1}\ker\varphi_1)\\
     \end{multline*}
     In particolare quindi $\chi$ induce un isomorfismo tra $\ker\varphi_2$ e 
     $\ker\varphi_1$.
@@ -3281,7 +3281,7 @@ divide $f(a)$ e consideriamo le applicazioni
     \psi: \faktor{\ZZ[x]}{(p)\ZZ[x]}\longrightarrow \FF_p: 
     \overline{g(x)}\longmapsto g(a)
 \]
-Osserviamo che $(\psi\circ\varphi)(f(x)) = a \equiv 0 \pmod{p}$ e che 
+Osserviamo che $(\psi\circ\varphi)(f(x)) = f(a) \equiv 0 \pmod{p}$ e che 
 $(\psi\circ\varphi)(p) = p \equiv 0 \pmod{p}$, pertanto $p, f(x) \in 
 \ker{\psi\circ\varphi}$ e quindi $(p, f(x)) \subseteq \ker(\psi\circ \varphi) \neq \ZZ[x]$.
 Abbiamo quindi $(f(x)) \subseteq (p, f(x))$, se $(f(x))$ fosse massimale allora
@@ -3576,7 +3576,7 @@ degli anelli di polinomi.
         \]
         Se $N \geq 3n$ osserviamo che $\max{x, y, z} \geq n$ per ogni $x, y, z \in \NN$
         tali che $x + y + z = N$, pertanto scegliendo $N$ in questo modo abbiamo
-        che $(x + y + z)^N = 1$ è un elemento di $I^n + J^n + K^n$, quindi l'ideale
+        che $(i + j + k)^N = 1$ è un elemento di $I^n + J^n + K^n$, quindi l'ideale
         coincide con $A$;
         \item dalle ipotesi esistono $i_1, i_2 \in I, j_1, j_2 \in J, k_1, k_2 \in K$
         tali che 
@@ -4013,7 +4013,7 @@ vogliamo mostrare che non è un dominio euclideo.
 
 \begin{remark}
     Il risultato appena visto non è un fatto ovvio. Consideriamo $\beta = 
-    \displaystyle 1 + \frac{\sqrt{3}}{2}$,
+    \displaystyle\frac{1 + \sqrt{3}}{2}$,
     il suo polinomio minimo su $\QQ$ è $\displaystyle\mu(x) = x^2 - x - \frac 1 2$.
     Ragionando in modo analogo a quanto fatto sopra, il nucleo della valutazione
     in $\beta$ è 
@@ -4027,7 +4027,7 @@ vogliamo mostrare che non è un dominio euclideo.
     \]
     in quanto il quoziente $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)}$
     contiene delle classi di resto della forma $\overline{x^k}$ per ogni $k \in \NN$,
-    in quanto $x^k$ e $x^2 - x - 1$ sono coprimi in $\ZZ[x]$. Notiamo che
+    in quanto $x^k$ e $2x^2 - x - 1$ sono coprimi in $\ZZ[x]$. Notiamo che
     il risultato di sopra non è valido in questo caso in quanto il polinomio
     minimo di $\beta$ non ha coefficienti interi.
 \end{remark}
@@ -4254,10 +4254,11 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
         Supponiamo per assurdo che $\psi(\zeta_n) = \zeta_n^k$ con $d = (k, n)\neq 1$, 
         allora
         \[
-            \psi(\zeta_n^{\frac n d})\psi(\zeta_n)^{\frac n d} = \zeta^{k\frac n d} = 
+            \psi(\zeta_n^{\frac n d}) = \psi(\zeta_n)^{\frac n d} = \zeta^{k\frac n d} = 
             \zeta^{\frac k d n} = 1
         \]
-        da cui $\zeta_n^{\frac n d} = 1$, che è assurdo in quanto $\ord \zeta_n = n$.
+        da cui $\zeta_n^{\frac n d} = 1$ in quanto $\psi$ è iniettiva, quindi ha 
+        nucleo banale. Questo è assurdo dato che $\ord \zeta_n = n$.
         Pertanto $\psi(\zeta_n) \in \{\zeta_n^k\mid k < n,~(n, k) = 1\}$, quindi
         $[\QQ(\zeta_n):\QQ] \leq \phi(n)$;
         \item siano $p$ un primo che non divide $n$, $f(x)$ e $g(x)$ i polinomi 
