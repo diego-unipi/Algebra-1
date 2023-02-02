@@ -3484,7 +3484,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 \newpage
 \subsection{Domini a fattorizzazione unica (UFD)}
 \begin{definition}
-    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, $x \not\in A^*\setminus\{0\}$ si scrive in modo
+    Dato $A$ un dominio, esso si dice \vocab{a fattorizzazione unica} (UFD) se $\forall x \in A$, $x \not\in A^* \cup \{0\}$ si scrive in modo
     unico, a meno dell'ordine di fattori e di moltiplicazione per elementi invertibili, come prodotto di elementi irriducibili.
 \end{definition}
 
@@ -3787,7 +3787,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
         \[ f(x) = g(x)h(x) \implies \deg g(x) + \deg h(x) = \deg f(x) = 0
             \]
         dove l'implicazione è data dal fatto che siamo in un dominio, dunque segue che $\deg g(x) = \deg h(x) =  0$, pertanto $g(x),h(x) \in A$,
-        per cui $f(x)$ è irriducibile in $A[x]$ se e sole $f(x)$ è irriducibile in $A$ (dato che tra l'altro abbiamo $(A[x])^* = A^*$, ed uno tra $g(x)$ ed $h(x)$ deve essere invertibile).
+        per cui $f(x)$ è irriducibile in $A[x]$ se e solo se $f(x)$ è irriducibile in $A$ (dato che tra l'altro abbiamo $(A[x])^* = A^*$, ed uno tra $g(x)$ ed $h(x)$ deve essere invertibile).
         \item Sia $f(x)$ con $\deg f(x) \geq 1$. Supponiamo che $f(x)$ sia irriducibile in $A[x]$, abbiamo che:
         \[ f(x) = c(f(x))f^{\prime}(x)
             \]
@@ -3843,7 +3843,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     \[ f(x) \mid g(x) \implies c(f(x)) \mid c(g(x)) \qquad \text e \qquad f^{\prime}(x) \mid g^{\prime}(x)
         \]
     infatti, se $g(x) = f(x) h(x) \implies c(g(x))g^{\prime}(x) = c(f(x))f^{\prime}(x)c(h(x))c^{\prime}(x)$,
-    ma per quanto detto $c(g(x)) = c(f(x)h(x)) = c(f(x))c(hc(x))$, da cui $f^{\prime}(x) \mid g^{\prime}(x)$.
+    ma per quanto detto $c(g(x)) = c(f(x)h(x)) = c(f(x))c(h(x))$, da cui $f^{\prime}(x) \mid g^{\prime}(x)$.
     Alla successione $\{f_i(x)\}$ possiamo quindi associare le successioni $\{c(f_i(x))\}$ e $\{f_i^{\prime}(x)\}$, per quanto abbiamo detto si ha:
     \[ c(f_{i+1}(x)) \mid c(f_{i}(x)) \qquad \text e \qquad f_{i+1}^{\prime}(x) \mid f_i^{\prime}(x) \qquad \forall i \geq 0
         \]
@@ -4139,7 +4139,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
     Dati $L,M \subset \Omega$ sottocampi dello stesso campo $\Omega$, abbiamo che il composto è:
     \[ LM = L(M) = M(L)
         \]
-    ovvero il più piccolo sottocampo di $\Omega$ che contiene sia $L$ che $M$. Se $K$ ed $L$ sono finitamente generati:
+    ovvero il più piccolo sottocampo di $\Omega$ che contiene sia $L$ che $M$. Se $M$ ed $L$ sono finitamente generati:
     \[ L = K(\alpha_1,\ldots,\alpha_n) \qquad \text e \qquad M = K(\beta_1,\ldots,\beta_m)
         \]
     allora il loro composto è dato da:
@@ -4512,7 +4512,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
         \]
     Ogni $\varphi_i : K(\alpha) \varlonghookrightarrow \overline K$ si estende a sua volta\footnote{Stiamo cioè estendendo in due step, prima estendiamo gli omomorfismi $\varphi : K \varlonghookrightarrow \ol K$ alle estensioni semplici per la \hyperref[3.37]{Proposzione 3.37}, ed a questo punto, essendo il grado della nuova 
     estensione $K(\alpha) \subset E$ più piccolo di $n$, possiamo estendere di nuovo tutti gli omomorfismi trovati da $K(\alpha)$ a $\ol K$ ad omomorfismi da $E$ a $\ol K$.} per ipotesi induttiva (essendo $[E : K(\alpha)] = d < n$):
-    \[ \varphi_{i1},\ldots,\varphi_{1d} : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{ij|K(\alpha)} = \varphi_i
+    \[ \varphi_{i1},\ldots,\varphi_{id} : E \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{ij|K(\alpha)} = \varphi_i
         \]
     dunque abbiamo $\{\varphi_{ij}\}_{i = 1,\ldots,m}^{j = 1,\ldots,d} : E \varlonghookrightarrow \overline K$, ovvero $md = n$ estensioni, con $\varphi_{ij | K(\alpha)} = \varphi_i $, per cui $\varphi_{ij|K} = \varphi_{i | K} = \varphi$, quindi tutte le $n$ estensioni funzionano.
 \end{proof}
@@ -5063,7 +5063,7 @@ per definizione.
             \]
         dove $\widetilde{\varphi}_{|M} = \varphi_{|M} = id_M$. D'altra parte abbiamo per ipotesi che $\faktor{L}{M}$ è normale, dunque $\widetilde{\varphi}(L) = L$, quindi:
         $\widetilde{\varphi} \in \Gal\left(\faktor{L}{M}\right)$ (perché è un automorfismo che fissa puntualmente $L$ e si restringe all'identità su $M$), da ciò abbiamo che $\widetilde{\varphi}$ fissa puntualmente
-        $L^G$, che è assurdo perché avevamo supposto il grado dell'estensione $\faktor{L^G}{L}$ maggiore di 1 (quindi con almeno un elemento non fissato da $\widetilde{\varphi}$).
+        $L^G$, che è assurdo perché avevamo supposto il grado dell'estensione $\faktor{L^G}{M}$ maggiore di 1 (quindi con almeno un elemento non fissato da $\widetilde{\varphi}$).
         \item Mostriamo ora che il gruppo che fissa il campo base è proprio tutto il gruppo di Galois; essendo $\faktor{L}{M}$ un'estensione finita, per il \hyperref[prim]{Teorema dell'elemento primitivo} $L = M(\alpha)$, sia $H \leqslant G$ il gruppo che fissa il campo base, $L^H = M$, consideriamo:
         \[ f(x) = \prod_{\sigma \in H}(x - \sigma(\alpha)) \qquad \text{con} \qquad \deg f(x) = |H|
             \]
@@ -5151,7 +5151,7 @@ da cui:
         \]
     ovvero $\faktor{L^H}{K}$ è normale, in quanto per la normalità richiediamo che $\forall \psi : L^H \varlonghookrightarrow \ol K$, con $\psi_{|K} = id_K$, si ha che $\psi(L^H) = L^H$, ma poiché ogni $\psi$ si estende ad un'immersione 
     di $L$ in $\ol K$ (sempre per la \hyperref[3.39]{Proposizione 3.39}), sappiamo dalla condizione ottenuta sopra che:
-    \[ \forall \psi \in \Gal\left(\faktor{L}{L^H}\right), \exists \sigma \in \Gal\left(\faktor{L}{K}\right) : \sigma_{|L^H} = \psi
+    \[ \forall \psi \in \Gal\left(\faktor{L^H}{K}\right), \exists \sigma \in \Gal\left(\faktor{L}{K}\right) : \sigma_{|L^H} = \psi
         \]
     dunque tutte le immersioni $\psi$ fissano $L^H$ perché restrizioni di immersioni su tutta l'estensione considerata.
     Infine, resta da verificare che $\Gal\left(\faktor{L^H}{K}\right) \cong \faktor{G}{H}$, consideriamo l'omomorfismo di restrizione:
