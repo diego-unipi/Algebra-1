@@ -4260,7 +4260,7 @@ L'automorfismo di Frobenius è effettivamente un automorfismo, poiché $\FF_{p^n
         da cui $\zeta_n^{\frac n d} = 1$ in quanto $\psi$ è iniettiva, quindi ha 
         nucleo banale. Questo è assurdo dato che $\ord \zeta_n = n$.
         Pertanto $\psi(\zeta_n) \in \{\zeta_n^k\mid k < n,~(n, k) = 1\}$, quindi
-        $[\QQ(\zeta_n):\QQ] \leq \phi(n)$;
+        $[\QQ(\zeta_n):\nolinebreak\QQ] \leq \phi(n)$;
         \item siano $p$ un primo che non divide $n$, $f(x)$ e $g(x)$ i polinomi 
         minimi su $\QQ$ rispettivamente di $\zeta_n$ e $\zeta_n^p$, osserviamo
         che $f(x) \mid g(x^p)$ in quanto $g(\zeta_n^p) = 0$;
@@ -4941,8 +4941,8 @@ capire come determinare se $\zeta_n$ è contenuta in $F$ al variare di $n \in \N
 \begin{center}
     \begin{tikzpicture}
         \node (Q1) at (0,0) {$\QQ$};
-        \node (Q2) at (0,1.5) {$K = F \cap \QQ(\zeta_n)$};
-        \node (Q3) at (-1.5,3) {$F$};
+        \node (Q2) at (0,1.5) {$F = K \cap \QQ(\zeta_n)$};
+        \node (Q3) at (-1.5,3) {$K$};
         \node (Q4) at (1.5,3) {$\QQ(\zeta_n)$};
 
         \draw (Q1)--(Q2);
