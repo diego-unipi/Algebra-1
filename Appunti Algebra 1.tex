@@ -4442,7 +4442,7 @@ Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il 
     [Campi perfetti]
     Osserviamo che:
     \begin{itemize}
-        \item Se $\ch K = 0$, allora $K$ è un campo perfetto, infatti, detto $f(x) = \sum_{i=0}^n a_ix^i$, allora $f^{\prime}(x) = \sum_{i=0}^{n-1} ia_ix^i$, $\forall n \geq 1$, ovvero la derivata di un polinomio non 
+        \item Se $\ch K = 0$, allora $K$ è un campo perfetto, infatti, detto $f(x) = \sum_{i=0}^n a_{i+1}x^i$, allora $f^{\prime}(x) = \sum_{i=0}^{n-1} ia_ix^i$, $\forall n \geq 1$, ovvero la derivata di un polinomio non 
         costante non può essere mai nulla.
         \item $\Fpn$ è perfetto $\forall p$ primo, $\forall n \geq 1$.
         \item Al contrario possiamo vedere che per campi con caratteristica diversa da 0 esistono polinomi irriducibili con derivata nulla, sia $K = \Fp(t)$ e $f(x) = x^p - t \in K[x]$, abbiamo che $f^{\prime}(x) = px^{p-1} = 0$,
@@ -4810,7 +4810,7 @@ con:
 Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agisce fedelmente su $\{\alpha_1,\ldots,\alpha_n\}$. Inoltre tale azione è transitiva perché ha un'unica orbita:
 \[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) \m \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
-infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati, ognuna delle quali iniettiva e si può estende ad $F$:
+infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati, ognuna delle quali iniettiva e si può estendere ad $F$:
 \[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_i
     \]
 dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1$ (ed in generale di qualsiasi altro $\alpha_i$).
