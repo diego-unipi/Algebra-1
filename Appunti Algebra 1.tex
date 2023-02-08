@@ -732,7 +732,7 @@ da cui $\lambda$ fedele.
         \[ p^i = [\mathcal{G} : \mathcal{H}_i] = [G : H]
             \]
     dunque la catena esiste  e $|H_i| = p^{n-i}$ per $1\leq i \leq m$. Essendo $Z(G)$ abeliano, i sottogruppi di ogni suo ordine (che esistono sempre
-    per il \hyperref[davide]{Lemma 1.41}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \geq z$), pertanto esiste la catena:
+    per il \hyperref[davide]{Lemma 1.41}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \leq z$), pertanto esiste la catena:
         \[ \{e\} = H_n < \ldots < H_m = Z(G)
         \qquad \text{con $|H_j| = p^{n-j}$, $\forall m \leq j \leq n$} 
             \]
@@ -2019,10 +2019,10 @@ Dunque i gruppi di ordine 8 sono:
                 Se $\eta$ è un $k$-ciclo, con $k$ pari, allora si verifica che:
                         \[ \cycle{a_1,\ldots,a_k}\cycle{b_1,\ldots,b_k} = \cycle{a_1,b_1,\ldots,a_k,b_k}^2
                             \]
-                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_2}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
+                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_s}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
             \end{itemize}
         Ad esempio, in $S_6$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
-            \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,2,3}\cycle{4,5,6}\right)^2
+            \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,3,2}\cycle{4,6,5}\right)^2
                 \]
         mentre in $S_4$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
             \[ \cycle{1,2}\cycle{3,4} = (\cycle{1,4,2,3})^2 = (\cycle{1,3,2,4})^2
@@ -2210,7 +2210,7 @@ e dei nilpotenti:
             \[ (zx)y = z(xy) \implies 0 \cdot y = z \implies z = 0
                     \]
             ma ciò è assurdo, pertanto $D(A) \cap A^*$ è vuoto.
-        \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del primo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
+        \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del terzo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
             se $x \in A \setminus D(A)$, allora possiamo definire l'omomorfismo di gruppi:
                 \[ \varphi_x : A \longrightarrow A : a \longmapsto xa
                     \]
@@ -2945,7 +2945,7 @@ ammette elementi massimali.
             \[ at = bs \qquad \text e \qquad bu = tc
                 \]
         da cui, moltiplicando la prima per $u$ si ha:
-            \[ aut = bus = tcu \implies aut = cts \iff t(au-cs) = 0
+            \[ aut = bus = tcs \implies aut = cts \iff t(au-cs) = 0
                 \]
         essendo per ipotesi $A$ un dominio\footnote{È importante notare che qui stiamo usando il fatto che $A$ è un dominio.} e $t \in S$ (dunque $t \ne 0$) segue:
             \[ au = cs \iff \frac{a}{s} \sim \frac{c}{u}
@@ -3188,7 +3188,7 @@ ammette elementi massimali.
     \[ a^{\prime} = xa \qquad \text e \qquad a = y a^{\prime} \implies a = yxa \implies a(1-xy) = 0
         \]
     poiché $a \ne 0$, ed $A$ dominio per ipotesi si ha che $xy = 1 \implies y \in A^*$, ovvero la (ii). Viceversa, assumiamo (ii) e deduciamo 
-    (iii):\footnote{A questo punto sappiamo che già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
+    (iii):\footnote{A questo punto sappiamo già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
     \[ a = ua^{\prime} \implies a \in (a^{\prime}) \implies (a^{\prime}) \subseteq (a)
         \]
     con $u \in A^*$, pertanto $\exists v \in A^*$ tale che $uv = vu = 1$, moltiplicando la prima relazione per $v$ si ottiene:
@@ -3697,7 +3697,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $c(f(x)g(x))$ non fosse primitivo (ovvero associato ad 1)
+        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $f(x)g(x)$ non fosse primitivo (ovvero il contenuto non è associato ad 1)
             allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$, consideriamo la proiezione modulo $(p)$:
             \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
                 \]
@@ -4502,7 +4502,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \end{corollary}
 
 \begin{proof}
-    La dimostrazione segue facilmente per induzione, infatti per $n = 1$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>1$ consideriamo
+    La dimostrazione segue facilmente per induzione, infatti per $n = 2$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>2$ consideriamo
     $\alpha \in E \setminus K$ per il quale si ha la torre di estensioni:
     \[ K \subset K(\alpha) \subset E
         \]
