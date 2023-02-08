@@ -4149,7 +4149,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 
 \begin{proposition}
     [Proprietà del composto di estensioni]
-    \label{3.9}
+    \label{3.10}
     Date due torri di estensioni di $K$, $K \subset L \subset FL$ e $K \subset F \subset FL$, con $[L:K] = m$ e $[F:K] = n$, allora $[FL:K] = d < +\infty$ e $[m,n] \mid d$.
 \end{proposition}
 
@@ -4199,7 +4199,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     Verifichiamo che $A$ sia un campo; siano $\alpha,\beta \in A$, allora $[K(\alpha):K] <+\infty$ e $[K(\beta):K]<+\infty$, consideriamo la torre:
     \[ K \subseteq K(\alpha) \subseteq K(\alpha)(\beta) = K(\alpha,\beta)
         \]
-    la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.9]{Proposizione 3.9} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
+    la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.10]{Proposizione 3.10} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
     Essendo dunque $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
     è algebrica, quindi tutti gli elementi $\alpha\pm\beta$, $\alpha\beta$, $\displaystyle\frac{1}{\alpha}$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$, pertanto $A$ è un campo.
 \end{proof}
@@ -4235,7 +4235,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 \end{remark}
 
 \begin{proposition}[Estensione algebrica e finitamente generata$\implies$finita]
-    \label{3.16}
+    \label{3.17}
     Sia $\faktor{L}{K}$ finitamente generata da elementi algebrici, $L = K(\alpha_1,\ldots,\alpha_n)$, allora $\faktor{L}{K}$ è finita.
 \end{proposition}
 
@@ -4247,13 +4247,13 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     \[ K \subset K(\alpha_1,\ldots,\alpha_{n-1}) \subset K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
         \]
     dove la prima estensione è finita per ipotesi induttiva, mentre la seconda perché estensione semplice ed algebrica su un campo più piccolo (quindi vale la \hyperref[3.7]{Proposizione 3.7}), o alternativamente perché estensione composta di estensioni finite per quanto già detto, 
-    quindi vale \hyperref[3.9]{Proposizione 3.9}; pertanto per $\faktor{L}{K}$ è finita per ogni $n \in \NN$.
+    quindi vale \hyperref[3.10]{Proposizione 3.10}; pertanto per $\faktor{L}{K}$ è finita per ogni $n \in \NN$.
 \end{proof}
 
 \pagebreak
 \begin{remark}
-    \label{3.17}
-    Della \hyperref[3.16]{Proposizione 3.16} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$-base di $L$, allora 
+    \label{3.18}
+    Della \hyperref[3.17]{Proposizione 3.17} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$-base di $L$, allora 
     è vero che è finitamente generata:
     \[ L = \left<v_1,\ldots,v_n\right>_K = K(v_1,\ldots,v_n)
         \]
@@ -4281,7 +4281,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
             consideriamo il campo generato su $K$ dai coefficienti di $f(x)$, $L_0=K(a_0,\ldots,a_n)$, si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
             \[ K \subset L_0 \subset L_0(\alpha) \qquad \forall \alpha \in F
                 \]
-            dove la prima estensione è finitamente generata da elementi algebrici (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
+            dove la prima estensione è finitamente generata da elementi algebrici (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.17]{Proposizione 3.17}, inoltre la seconda 
             estensione è a sua volta finita perché estensione semplice algebrica (quindi vale la \hyperref[3.7]{Proposizione 3.7}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
             $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
             dunque $\faktor{F}{K}$ è algebrica.
@@ -4291,7 +4291,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
         lo è anche in $LM$, pertanto $\alpha = \sum_{i=1}^{n} \lambda_i m_i$, con $\lambda_i \in L$ e $m_i \in M$, dunque:
          \[ \alpha \in F = K(\lambda_1,\ldots,\lambda_n,m_1,\ldots,m_n)
             \]
-        dove tale estensione è algebrica (perché tutti gli elementi che abbiamo aggiunto sono algebrici), quindi per la \hyperref[3.16]{Proposizione 3.16} è finita,
+        dove tale estensione è algebrica (perché tutti gli elementi che abbiamo aggiunto sono algebrici), quindi per la \hyperref[3.17]{Proposizione 3.17} è finita,
         e dunque $\alpha$ è algebrico su $K$, $\forall \alpha \in LM$, da cui la tesi.
     \end{enumerate}
 \end{proof}
@@ -4999,7 +4999,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.16]{Proposizione 3.16}, ciò è equivalente al dire che l'estensione $E$ è finitamente generata da 
+        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.17]{Proposizione 3.17}, ciò è equivalente al dire che l'estensione $E$ è finitamente generata da 
         elementi algebrici, $E = K(\alpha_1,\ldots,\alpha_n)$, dimostriamo per induzione che $\faktor{E}{K}$ è semplice. Per $n = 2$ (trattiamo solo di questo caso in quanto una volta dimostrata la tesi per $n = 2$, basterà
         come al solito aggiungere un altro alla volta e procedere per induzione usando il caso $n = 2$ come fatto che rende vero il passo induttivo\footnote{Andrebbe dimostrato anche il caso $n = 1$, ma è banale.}) abbiamo $E = K(\alpha,\beta)$, sia $[E : K] = m$, allora per il \hyperref[3.39]{Corollario 3.35}:
         \[ \exists \varphi_1,\ldots,\varphi_m : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = id_K
