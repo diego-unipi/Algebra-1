@@ -1647,8 +1647,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \item Se $Z(G)\not\subseteq H$, dato che $H\cup Z(G)\subseteq N_G(H)$, abbiamo che $\emptyset\neq Z(G)\setminus H\subseteq N_G(H)\setminus H$ da cui la tesi.
         \item Se $Z(G)\subseteq H$ osserviamo che $Z(G)$ è normale in $G$ e che $Z(G)$ non è banale perché $G$ è un $p-$gruppo, dunque possiamo considerare $\faktor{G}{Z(G)}$
         di ordine strettamente minore all'ordine di $G$. Sia $\pi:G \longrightarrow \faktor{G}{Z(G)}$ la mappa di proiezione al quoziente. Per ipotesi induttiva $N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)$ contiene strettamente $\faktor{H}{Z(G)}$, quindi per il teorema di corrispondenza si ha che anche
-        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(\faktor{H}{Z(G)}\right)=H$, quindi basta mostrare che $\pi^{-1}\left(\faktor{H}{Z(G)}\right)\subseteq N_G(H)$, e questo deriva 
-        dal fatto che se $g\in \pi^{-1}\left(\faktor{H}{Z(G)}\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
+        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(\faktor{H}{Z(G)}\right)=H$, quindi basta mostrare che $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)\subseteq N_G(H)$, e questo deriva 
+        dal fatto che se $g\in \pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
     \end{itemize}
 \end{proof}
 
@@ -1707,7 +1707,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 pertanto deve essere necessariamente che:
                 \[ p^{\alpha} \mid |\St(M_i)| = t
                     \]
-                cioè, affinché il rapporto non sia divisibile per $p^{\alpha}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, sia $x \in M_i$, la funzione:
+                cioè, affinché il rapporto non sia divisibile per $p^{n-\alpha+1}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, sia $x \in M_i$, la funzione:
                 \[ \varphi_x : \St(M_i) \longrightarrow M_i : y \longmapsto yx 
                     \]
                 è iniettiva\footnote{Si vede che $\varphi_x(y) = \varphi_x(z) \iff yx = zx \iff y = z$.}, dunque $t = |\St(M_i)| \leq |M_i| = p^{\alpha}$, segue quindi $t = p^{\alpha}$, pertanto $\St(M_i)$ è il sottogruppo di ordine $p^{\alpha}$ cercato.
