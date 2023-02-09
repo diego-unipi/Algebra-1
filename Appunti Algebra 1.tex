@@ -58,7 +58,7 @@ Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando even
 \section*{Ringraziamenti}
 Di seguito le persone che hanno contribuito segnalando errori e/o aggiungendo dimostrazioni (in grassetto sono segnati coloro i quali hanno contribuito in maniera rilevante e che per tale motivo meritano un ringraziamento speciale):\\
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, Leonardo Migliorini, \textbf{Matteo Gori}, Daniele Lapadula, \textbf{Alessandro Fenu},
-\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti.
+\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
@@ -1449,7 +1449,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     la tesi vera $\forall m : 2 \leq m < n$, possiamo scrivere $n = m m^{\prime}$ con $(m,m^{\prime}) = 1$ e $m,m^{\prime} < n$, allora (in notazione additiva) vogliamo verificare che:
         \[ G \cong mG \times m^{\prime}G
             \]
-        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
+        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,m^{\prime}G \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
             \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \qquad \forall g \in G \implies G \subseteq mG + m^{\prime}G
                 \]
         il contrario è ovvio (per chiusura di $G$ rispetto all'operazione), dunque:
@@ -1532,7 +1532,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
-            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, ma essendo anche che $\ord(x_i) = p^r_i$, allora la divisibilità precedente è equivalente al chiedere $a_ix_i = 0$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, ma essendo anche che $\ord(x_i) = p^{r_i}$, allora la divisibilità precedente è equivalente al chiedere $a_ix_i = 0$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
             Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
