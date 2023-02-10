@@ -49,9 +49,11 @@
 
 \section*{Premessa}
 Il seguente scritto è una mia rielaborazione delle note del corso di Algebra 1 tenuto dalla professoressa Del Corso e dal professor Lombardo nell'anno accademico 
-2022-23, \textbf{le note non sono state revisionate dai suddetti prof}. In questo file ci sono soltanto gli appunti delle lezioni della professoressa Del Corso (per
+2022-23, \textbf{le note non sono state revisionate dai suddetti prof}.\\ 
+In questo file ci sono soltanto gli appunti delle lezioni della professoressa Del Corso (per
 le note delle lezioni del prof. Lombardo vi rimando ai \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Complementi di Algebra 1}}), l'ordine degli argomenti è lo stesso di quello seguito a lezione se non 
-in qualche caso.
+in qualche caso, gli esercizi ed i vari lemmi/corollari con soluzione proposta sono stati lasciati dalla professoressa come esercizio, pertanto le dimostrazioni riportate non sono "ufficiali", bensì proposte individuali delle 
+persone che le hanno inviate, e sono state aggiunte solo al fine di una maggiore completezza della trattazione.\\
 Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alla mia mail.
 
 
@@ -4262,6 +4264,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{proposition}
     [Proprietà delle estensioni algebriche rispetto a torri e composto]
+    \label{3.19}
     Valgono le seguenti proprietà per le estensioni algebriche:
     \begin{enumerate}[(1)]
         \item Data una torre di estensioni $K \subset L \subset F$, $\faktor{F}{K}$ è algebrica se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche.
@@ -4723,7 +4726,7 @@ vogliamo verificare che:
 abbiamo $\varphi(L) = L$; se $\varphi_{|F} = id_F$, allora $\varphi_{|K} = id_K$ perché $K \subset F$, ma ciò è equivalente a chiedere $\varphi(L) = L$ con la restrizione su $K$ uguale all'identità, che è l'ipotesi
 \footnote{In altre parole se $L$ è normale su $K$, con la restrizione all'identità su $K$, allora lo sarà anche su $F$, in quanto le restrizioni ad identità su $F$ sono solo alcune di tutte quelle su $K$ (le cose che fissano un campo più grande sono intuitivamente meno di quelle che fissano un suo sottocampo).}.\\
 \emph{Dimostrazione alternativa.}\footnote{Proposta da Francesco Sorce.}\; $\faktor{L}{K}$ normale significa che è campo di spezzamento di una famiglia di polinomi in $K[x]\subseteq F[x]$, quindi $L$ è il campo di spezzamento
-della stessa famiglia vista come polinomi in $F$.
+della stessa famiglia vista come polinomi a coefficienti in $F$.
 \end{proof}
 
 \begin{remark}
@@ -5210,4 +5213,186 @@ Dimostriamo le affermazioni:
 
 \newpage
 \subsection{Costruzioni con riga e compasso}
+Fissato un piano, disponendo solo di riga e compasso, possiamo tracciare due punti 0 e 1, e la retta passante per essi (mediante la riga), possiamo inoltre (mediante il compasso) tracciare cerchi di centro uno dei due punti e raggio la distanza tra questi due, da ciò, per mezzo 
+di altre costruzioni si possono tracciare anche le perpendicolari ad una retta data per un punto assegnamento ed le sue parallele (ad esempio prendendo la perpendicolare alla perpendicolare).\footnote{Le immagini di questa sezione sono provvisorie.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5cm]{riga.png}
+\end{figure}
+
+\begin{definition}
+    Un punto $n$ si dice \vocab{costruibile} se appartiene ad una successione finita $\Gamma_1,\ldots,\Gamma_n$ tale che:
+    \begin{enumerate}[(i)]
+        \item $\Gamma_i = 0,1$ oppure sono stati costruiti come intersezioni di rette e circonferenze già costruite (usando punti con indici più piccoli).
+        \item $\Gamma_i$ è una retta passante per punti già costruiti.
+        \item $\Gamma_i$ è una circonferenza con centro un punto già costruito e raggio di lunghezza $\ol{\Gamma_j\Gamma_k}$, con $j,k < i$ e $\Gamma_j,\Gamma_k$ punti.
+    \end{enumerate}
+\end{definition}
+Cioè, partendo dai punti iniziali, costruendo ed intersecando rette e circonferenze possiamo costruire altri punti, pertanto un punto è costruibile se esiste una costruzione in cui compare.
+
+\begin{theorem}[Campo reale dei punti costruibili]
+    \label{3.73}
+    Dato $K = \{x \in \RR | \, \text{$x$ è costruibile}\}$, si ha che $\QQ \subset K$ e $K$ è un campo ed è chiuso rispetto all'operazione di radice quadrata, ovvero $\forall a \in K$, $a>0$ si ha che $\sqrt{a} \in K$.
+\end{theorem}
+
+\begin{proof}
+    Dobbiamo verificare che $K$ è un campo e che è chiuso per l'operazione di radice quadrata. Dati due punti $a$ e $b$, possiamo definire la somma $a+b$ come il punto che si ottiene sulla retta per $0$ ed $1$ puntando il compasso in $b$, tracciando la circonferenza di raggio $a$ e prendendo l'intersezione a destra:
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=5cm]{somma.png}
+        \end{figure}
+    \end{center}
+    è analogamente definito l'inverso per la somma di $a$ puntando il compasso in 0 con ampiezza di valore $a$ e prendendo l'intersezione a sinistra.\\ Per definire il prodotto, data la retta passante per 0 ed 1, consideriamo la perpendicolare passante per 0 
+    e riportiamo con il compasso 1 su quest'ultima; dato $b$ sulla retta possiamo riportarlo con il compasso sulla perpendicolare, consideriamo la retta per $a$ e l'1 riportato sulla perpendicolare, il prodotto $ab$ è definito come l'intersezione della parallela alla retta per 1 ed $a$ passante per $b$, con la retta per 0 ed 1:\footnote{Fondamentalmente stiamo utilizzando la similitudine tra triangoli.}
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=4cm]{prodotto.png}
+        \end{figure}
+    \end{center}
+    ripetendo parte della procedura, consideriamo 1 e $b$ sulla perpendicolare, da quanto detto sopra possiamo definire $\displaystyle\frac{1}{b}$ come la parallela alla retta per b (sulla perpendicolare) e 1 (sempre sulla perpendicolare), passante per 1 sulla perpendicolare (in modo che si abbia il prodotto definito sopra uguale ad 1):
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=2.5cm]{reciproco.png}
+        \end{figure}
+    \end{center}
+    ciò dimostra che $K$ è un campo. Verifichiamo infine che sia chiuso anche per l'operazione di radice quadrata, presi -1 ed $a$ (supponiamo $a>0$) sulla retta, possiamo considerare il punto medio $\displaystyle\frac{a-1}{2}$ (si può costruire facilmente nelle ipotesi in cui siamo) e tracciare la circonferenza di centro tale punto e raggio $\displaystyle \Big| \frac{a-1}{2} \Big|$, possiamo considerare il triangolo rettangolo che si ottiene 
+    intersecando la perpendicolare alla retta per 0, e definire $\sqrt{a}$ come l'altezza relativa all'ipotenusa di tale triangolo (per il \href{https://it.wikipedia.org/wiki/Secondo_teorema_di_Euclide}{\textcolor{purple}{Secondo teorema di Euclide}}):
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=4cm]{radice.png}
+        \end{figure}
+    \end{center}
+\end{proof}
+
+\begin{theorem}
+    [Campo complesso dei punti costruibili]
+    \label{3.74}
+    Dato $L = \{\alpha \in \CC | \, \text{$\alpha$ è costruibile}\}$, $L \subset \CC$ è un campo ed è chiuso rispetto all'operazione di radice quadrata.
+\end{theorem}
+
+\begin{proof}
+    Si osserva che $x+iy$ è costruibile se e solo se $(x,y)$ è costruibile, che è a sua volta equivalente al dire che $(x,0)$ e $(0,y)$ sono costruibili,
+    ma ciò segue dal fatto che dati $(x,0)$ ed $(y,0)$ possiamo costruire $(0,y)$ mediante il compasso, e potendo prendere le perpendicolari dei due punti costruiti ed ottenere il punto inizialmente richiesto (essendo i due punti precedenti le sue componenti), da 
+    ciò si verifica facilmente che $L$ è un campo. Si osserva che dato $\alpha \in L$, allora $\alpha \in \CC$ ed in particolare ciò significa che $\alpha = \rho e^{i\theta}$ da cui:
+    \[ \sqrt{\alpha} = \sqrt{\rho}e^{i\frac{\theta}{2} + k\pi}\footnote{Stiamo prendendo una sola delle due radici.}
+        \]
+    ma tale radice è costruibile, in quanto $\sqrt{\rho}$, essendo $\rho > 0$, è la radice di un reale e vale il \hyperref[3.73]{Teorema 3.73} (dunque il modulo della radice sarà un punto costruibile sulla stessa retta del punto iniziale), mentre per determinare
+    $\displaystyle\frac{\theta}{2}$ possiamo tracciare la bisettrice di $\theta$, infatti ci basta tracciare la perpendicolare per una fissata distanza sulla retta per 0 ed $\alpha$ ed intersecarla con la perpendicolare alla retta per 0 ed 1 alla stessa distanza (possiamo riportarla con il compasso),
+    dunque riportando $\sqrt{\rho}$ con il compasso sulla bisettrice appena ottenuta come retta passante per l'intersezione precedente e 0, abbiamo costruito $\sqrt{\alpha}$:
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=4.5cm]{radice2.png}
+        \end{figure}
+    \end{center}
+\end{proof}
+
+\begin{remark}
+    Le equazioni di rette e circonferenze costruibili hanno coefficienti costruibili, in quanto devono passare per punti costruibili.
+\end{remark}
+
+\begin{theorem}
+    \label{3.76}
+    Dato $L$ il sottocampo dei numeri complessi costruibili, $\alpha \in L$ se e solo se esiste una successione di campi $\QQ \subset L_0 \subset L_1 \subset \ldots \subset L_n$, con $\alpha \in L_n$ e $[L_{i+1} : L_i] = 2$, $\forall i \in \{1,\ldots,n-1\}$.
+\end{theorem}
+
+\begin{proof}
+    Dimostriamo separatamente le due implicazioni:
+    \begin{itemize}
+        \item Se $\alpha$ è costruibile, allora esiste una successione $z_0,\ldots,z_n = \alpha$ tale che $\forall i \in \{0,\ldots,n\}$ $z_i$ si ottiene come intersezione di rette costruibili, circonferenze costruibili, rette e circonferenze costruibili; dunque, posto
+        $\QQ = L_0$ e $L_i = \QQ(z_0,\ldots,z_i)$, dato che $\alpha$ è costruibile, sappiamo che $z_{i+1}$ è intersezione di rette/circonferenze con equazioni a coefficienti in $L_i$ (poiché i punti delle rette/circonferenze sono in $L_i$) e siamo in uno dei tre casi:
+        \[ \begin{cases}
+            \text{retta}\\
+            \text{retta}
+            \end{cases}
+            \qquad
+            \begin{cases}
+            \text{circonferenza}\\
+            \text{circonferenza}
+            \end{cases}
+            \qquad
+            \begin{cases}
+            \text{retta}\\
+            \text{circonferenza}
+            \end{cases}
+            \]
+        abbiamo quindi che l'equazione risolvente ha grado minore o uguale a 2, quindi l'estensione $L_{i+1} = L_i(z_{i+1})$ è tale che:
+        \[ [L_{i+1} : L_i] \leq 2
+            \]
+        dove escludiamo l'uguaglianza in quanto in quel caso non abbiamo aggiunto punti che non avevamo già.
+        \item Sia $\alpha \in L_n \supset L_{n-1} \supset \ldots \supset \QQ$ (dove tutte le estensioni hanno grado 2), vogliamo mostrare che $\alpha$ è costruibile. Procediamo per induzione su $n$, nel caso $n = 0$
+        abbiamo che $L_0 = \QQ$ e quindi $\alpha$ è costruibile perché tutti i punti di $\QQ$ lo sono; sia $\alpha \in L_n$, per ipotesi induttiva tutti i punti\footnote{Volendo essere precisi dovremmo dire che tutti
+        gli elementi corrispondono a punti costruibili.} di $L_{n-1}$ sono costruibili, inoltre per ipotesi, essendo $L_n$ un'estensione quadratica di $L_{n-1}$ sarà del tipo $L_n = L_{n-1}(z)$, dove $z$ ha polinomio minimo di grado 2, sia:
+        \[ \mu_z(x) = x^2+bx+c \qquad \text{con} \qquad z = \frac{-a \pm \sqrt{\Delta}}{2}
+            \]
+        dove $\Delta \in L_{n-1}$, ma $L_{n-1}$ per quanto visto nel \hyperref[3.74]{Teorema 3.74} è chiuso per radice quadrata, dunque $z$ è costruibile.
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}
+    \label{3.77}
+    Se $\alpha$ è costruibile, allora $\alpha$ è algebrico su $\QQ$ e l'estensione $\QQ(\alpha)$ ha grado $2^d$, $d \in \NN$.
+\end{corollary}
+
+\begin{proof}
+    Segue immediatamente dal \hyperref[3.76]{Teorema 3.76}, infatti se $\alpha$ è costruibile esiste una torre di estensioni algebriche tra $\QQ$ e $\QQ(\alpha)$,
+    pertanto, per la (1) della \hyperref[3.19]{Proposizione 3.19} $\alpha$ è algebrico su $\QQ$, inoltre, sempre dal \hyperref[3.76]{Teorema 3.76} 
+    essendo ogni elemento della catena di estensioni di grado 2 sul precedente, segue ovviamente che il grado di tutta la torre sia una potenza di 2.
+\end{proof}
+
+\begin{remark}
+    Dai teoremi visti fin qui seguono alcune importanti conseguenze:
+    \begin{itemize}
+        \item $\pi$ non è costruibile perché non è algebrico (e quindi non si può quadrare un cerchio).
+        \item Non si possono trisecare angoli generici con riga e compasso, poiché dovremmo costruire $\sqrt[3]{\alpha}$, ma se $x^3 - \alpha$ è irriducibile
+        allora $\sqrt[3]{\alpha}$ ha grado 3 su $\QQ$ (e quindi non è rispettato il \hyperref[3.77]{Corollario 3.77}).
+        \item Non si può duplicare il cubo con riga e compasso, ovvero, dato un cubo di volume 1, non possiamo costruire un cubo di volume 2, poiché dovremmo
+        costruire un punto associato ad un numero $l$ tale che $l^3 = 2$, ma come prima $x^3-2$ ha radici di grado 3 su $\QQ$ e quindi non è rispettato il \hyperref[3.77]{Corollario 3.77}.\footnote{Con
+        quest'ultima osservazione abbiamo dato risposta negativa tutti i \href{https://it.wikipedia.org/wiki/Tre_grandi_problemi_dell\%27antichit\%C3\%A0}{\textcolor{purple}{Tre grandi problemi dell'antichità}}.}
+        \item Non si può costruire con riga e compasso un poligono regolare con 7 lati, in quanto costruirlo vorrebbe dire costruire $\zeta_7$ che non è costruibile perché $[\QQ(\zeta_7) : \QQ] = \phi(7) = 6$,
+        che non è una potenza di 2 e e quindi non rispetta il \hyperref[3.77]{Corollario 3.77}.
+        \item I poligoni regolari con $n$ lati costruibili con riga e compasso devono avere $\phi(n) = 2^k$, poiché un $n$-agono regolare è costruibile se e solo se $\zeta_n$ è costruibile, dunque da una parte abbiamo che se $\zeta_n$ è costruibile, allora:
+        \[ [\QQ(\zeta_n) : \QQ] = \phi(n) = 2^k
+            \]
+        dunque se $n = 2^a p_1^{e_1}\ldots p_r^{e_r}$, con $p_i$ primi dispari e $p_i \ne p_j$, $\forall i \ne j$, allora:
+        \[ \phi(n) = 2^{a-1}p_1^{e_1-1}(p_1 - 1)\ldots p_r^{e_r-1}(p_r - 1)
+            \]
+        da cui $e_i = 1$, $\forall i \in \{1,\ldots,r\}$. Inoltre deve essere che:
+        \[ p_i - 1 = 2^{k_1} \iff p_i = 2^{k_1} + 1 \qquad \forall i \in \{1,\ldots,r\}
+            \]
+        ed affinché $p_i$ non sia un primo deve essere che $k_i = 2^{d_i}$ e quindi i primi che possono comparire nella fattorizzazione sono i primi della forma:
+        \[ p_i = 2^{2^{d_i}} + 1
+            \]
+        ovvero i \href{https://it.wikipedia.org/wiki/Numero_di_Fermat}{\textcolor{purple}{Numeri di Fermat}} (che non sono tutti primi). Viceversa se $[\QQ(\zeta_n) : \QQ] = \phi(n) = 2^k$, allora $\zeta_n$ è costruibile perché in questo caso 
+        la teoria di Galois assicura l'esistenza della torre di sottocampi richiesta dal \hyperref[3.76]{Teorema 3.76}.
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    Non è detto che se $[\QQ(\alpha) : \QQ] = 2^n$, allora $\alpha$ sia costruibile, vale però se $\QQ(\alpha)$ è un'estensione di Galois perché in questo caso la teoria di Galois ed i risultati sui $p$-gruppi garantiscono l'esistenza 
+    della successione di sottocampi richiesta dal \hyperref[3.76]{Teorema 3.76}.
+\end{remark}
+
+\begin{theorem}
+    $\alpha$ è costruibile se e solo se è contenuto in un'estensione di Galois di grado $2^d$ per qualche $d \in \NN$.
+\end{theorem}
+
+\begin{proof}
+    Ci limiteremo solo a dimostrare che se $\alpha$ è contenuto in un'estensione di Galois di grado $2^d$ per qualche $d \in \NN$, allora $\alpha$ è costruibile. Sia $\alpha \in L$, con $\faktor{L}{\QQ}$ estensione di Galois e sia $G = \Gal\left(\faktor{L}{\QQ}\right)$, sappiamo 
+    per ipotesi che $|G| = 2^d$, $d \in \NN$, dunque esiste una catena di sottogruppi:
+    \[ \{e\} = G_d < G_{d-1} < \ldots < G_0 = G
+        \] 
+    dove ogni sottogruppo $G_{i+1}$ ha indice 2 nel sottogruppo $G_i$ che lo contiene, $\forall i \in \{0,\ldots,d-1\}$, dunque dalla teoria di Galois sappiamo che esiste la catena:
+    \[ L = L^{G_d} \supset L^{G_{d-1}} \supset \ldots \supset L^{G_0} = \QQ
+        \]
+    dove ogni campo $L^{G_{i+1}}$ ha grado 2 sul sottocampo $L^{G_{i}}$, $\forall i \in \{0,\ldots,d-1\}$ e quindi vale il \hyperref[3.76]{Teorema 3.76} che ci assicura che $\alpha$ sia costruibile.
+\end{proof}
+
+\newpage
+\subsection{Risolubilità per radicali}
 \end{document}
