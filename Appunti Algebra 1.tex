@@ -4331,6 +4331,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{theorem}
     [Esistenza e unicità della chiusura algebrica]
+    \label{3.25}
     Sia $K$ un campo, allora esiste sempre una sua chiusura algebrica. Inoltre due qualsiasi chiusure algebriche su $K$ sono isomorfe.\footnote{Nel senso che gli isomorfismi tra le varie chiusure algebriche fissano $K$.}
 \end{theorem}
 
@@ -5295,7 +5296,7 @@ Cioè, partendo dai punti iniziali, costruendo ed intersecando rette e circonfer
 \begin{remark}
     Le equazioni di rette e circonferenze costruibili hanno coefficienti costruibili, in quanto devono passare per punti costruibili.
 \end{remark}
-
+\pagebreak
 \begin{theorem}
     \label{3.76}
     Dato $L$ il sottocampo dei numeri complessi costruibili, $\alpha \in L$ se e solo se esiste una successione di campi $\QQ \subset L_0 \subset L_1 \subset \ldots \subset L_n$, con $\alpha \in L_n$ e $[L_{i+1} : L_i] = 2$, $\forall i \in \{1,\ldots,n-1\}$.
@@ -5395,4 +5396,133 @@ Cioè, partendo dai punti iniziali, costruendo ed intersecando rette e circonfer
 
 \newpage
 \subsection{Risolubilità per radicali}
+Dato $f(x) \in \QQ[x]$, con $\deg f(x) = n$ e $\alpha_1,\ldots,\alpha_n \in \ol \QQ$ radici di $f$, il problema che ci poniamo ora è chiederci se esista una formula che ci permetta di esprimere le radici di $f$
+in termini dei suoi coefficienti con espressioni di campo (somme, prodotti, etc...) e radicali. In alcuni casi ciò è possibile, ad esempio:
+\[ x^7 - 5 = 0 \implies x = \sqrt[7]{5}\zeta_7^i \qquad i = 0,\ldots,6
+    \]
+tuttavia in generale  si dimostra che non esiste una formula generale per tutti polinomi di grado $n$ fissato, per $n \geq 5$.
+
+\begin{definition}
+    Un polinomio $f(x)$ si può \vocab{risolvere per radicali} se il suo campo di spezzamento $\faktor{K}{\QQ}$ ammette una catena del tipo:
+    \[ \QQ = K_0 \subset K_1 \subset \ldots \subset K_n = K \qquad \text{con} \qquad K_{i+1} = K_i(\sqrt[m_i]{\gamma_i}), \gamma_i \in K_i
+        \]
+\end{definition}
+
+\begin{example}
+    Dato $x^7 - 5$, il cui campo di spezzamento è $K = \QQ(\sqrt[7]{5},\zeta_7)$ è tale che:
+    \[ \QQ \underbrace{\subset}_{\color{LimeGreen!90!black}{\Z7^*}} \QQ(\zeta_7) \underbrace{\subset}_{\color{LimeGreen!90!black}{\Z7}} \QQ(\sqrt[7]{5},\zeta_7)
+        \]
+    che dunque è una catena come quella richiesta dalla definizione, e quindi come già sapevamo il polinomio è risolubile per radicali.
+\end{example}
+
+\begin{remark}
+    Le estensioni per radicali, quando normali, hanno gruppo di Galois abeliano. Infatti, preso $K(\sqrt[n]{\gamma})$ e $x^n-\gamma$ il polinomio minimo di $\gamma$\footnote{Lo stiamo assumendo per semplicità, escludendo a priori altri possibili casi che possono presentarsi.}
+    allora l'estensione $\faktor{K(\sqrt[n]{\gamma})}{\QQ}$ è normale se $K$ contiene $\zeta_n$, ed in tal caso il gruppo di Galois è $\Zn$.
+\end{remark}
+
+\begin{remark}
+    Se $\faktor{L}{K}$ ha gruppo di Galois abeliano, allora esiste la successione:
+    \[ K_0 = L_0 \subset L_1 \subset \ldots \subset L_n = L
+        \]
+    dove tutti i gruppi di Galois delle singole estensioni sono ciclici, in quanto un gruppo abeliano ha una successione di sottogruppi (normali) con quozienti ciclici e quindi per corrispondenza di Galois, per un'estensione abeliana esiste una successione di questo tipo.
+\end{remark}
+
+A questo punto possiamo affermare che un polinomio si risolve per radicali se il suo campo di spezzamento ammette una catena:
+\[ L_0 = \QQ \subset L_1 \subset \ldots \subset L_n = L \qquad \text{con} \qquad \faktor{L_{i+1}}{L_i}\,\text{ciclico}
+    \]
+
+\begin{remark}
+    Vale anche il viceversa, se le radici di $f(x)$ appartengono ad un campo $L$, per cui esiste una catena ciclica del tipo visto sopra, allora $f(x)$ è risolubile per radicali. La dimostrazione di questo fatto si basa sul \href{https://en.wikipedia.org/wiki/Hilbert%27s_Theorem_90}{\textcolor{purple}{Teorema 90 di Hilbert}}, il quale
+    implica che se $\faktor{L}{K}$ è ciclica di grado $n$ e $\zeta_n \in K$, allora $L = K(\sqrt[n]{\gamma})$, $\gamma \in K$.
+\end{remark}
+
+Un polinomio generico irriducibile di grado $n$ ha come gruppo di Galois $S_n$\footnote{Andrebbe dimostrato bene, come molte cose in questa sezione, ma non è lo scopo di questa trattazione.}, dunque se $L$ è il campo di spezzamento di $f(x)$, abbiamo $\Gal\left(\faktor{L}{\QQ}\right) = S_n$, se $f(x)$ è risolubile per radicali, allora esiste la successione:
+\[ L_0 = \QQ \subset L_1 \subset \ldots \subset L_n = L \qquad \text{con} \qquad \faktor{L_{i+1}}{L_i}\,\text{ciclico}
+\]
+che per corrispondenza di Galois equivale ad una catena di sottogruppi normali in $S_n$ del tipo:
+\[ \{id\} = G_n \trianglelefteqslant \ldots \trianglelefteqslant G_1 \trianglelefteqslant G_0 = S_n \qquad \text{con} \qquad \faktor{G_{i}}{G_{i+1}}\,\text{ciclico}
+    \]
+Vediamo cosa accade al variare di $n$:
+\begin{itemize}
+    \item Se $n = 2$ abbiamo la catena di sottogruppi normali di $S_2$:
+    \[ \{id\} \trianglelefteqslant S_2
+        \]
+    \item Se $n = 3$ abbiamo la catena di sottogruppi normali di $S_3$:
+    \[ \{id\} \trianglelefteqslant \mathcal{A}_3 \trianglelefteqslant S_3
+        \]
+    \item Se $n = 4$ abbiamo la catena di sottogruppi normali di $S_4$:
+    \[ \{id\} \trianglelefteqslant V_4 \trianglelefteqslant \mathcal{A}_4 \trianglelefteqslant S_4
+        \]
+    \item Se $n \geq 5$, allora $S_n$ non ammette la catena normale con i quozienti ciclici, perché per quanto abbiamo visto, per $n \geq 5$, $S_n$ ha come unici sottogruppi normali $\{id\}$ e $\mathcal{A}_n$, ma quest ultimo è semplice per $n \geq 5$, quindi $S_n$ non è 
+    risolubile per $n \geq 5$, di conseguenza non esiste una formula risolutiva dell'equazione generale di grado $n$ per $n \geq 5$.
+\end{itemize}
+
+\newpage
+\subsection{Complementi su estensioni di omomorfismi e chiusura algebrica}
+
+\begin{theorem}
+[Estensione degli omomorfismi nel caso generale]
+\label{3.86}
+Data $\faktor{F}{K}$ un'estensione algebrica e $\varphi : K \varlonghookrightarrow \ol K$ un'immersione, allora esiste:
+\[ \widetilde{\varphi} : F \varlonghookrightarrow \ol K \qquad \text{con} \qquad \widetilde{\varphi}_{|K} = \varphi
+    \]
+\end{theorem}
+
+\begin{proof}
+Abbiamo già visto il teorema nel caso di un'estensione finita (\hyperref[3.39]{Corollario 3.39}\footnote{In questo caso il numero di
+immersioni distinte era dato dal numero  di radici distinte dell'elemento primitivo che generava l'estensione algebrica finita, ed essendo
+nelle ipotesi di separabilità, tale numero era uguale al grado del polinomio.}), per dimostrarlo in questo caso usiamo il \hyperref[zorn]{Lemma di Zorn}, sia:
+\[ X = \{(E,\psi) | K \subseteq E \subseteq F, \psi : E \varlonghookrightarrow \ol K : \psi_{|K} = \varphi\}
+    \]
+mostriamo che tale insieme è induttivo (ovvero che ogni catena ammette un maggiorante). Osserviamo inizialmente che $X \ne \emptyset$ in quanto $(K,\varphi) \in X$, definiamo ora un ordinamento
+parziale $\leqslant$ come segue:
+\[ (E_1,\psi_1) \leqslant (E_2,\psi_2) \iff E_1 \subseteq E_2 \qquad \text e \qquad \psi_{2|E_1} = \psi_1 \footnote{Si verifica facilmente che è un ordinamento parziale.}
+    \]
+sia ora:
+\[ \mathscr{C} = \{E_i,\psi_i\}_{i \in I}
+    \]
+una catena, consideriamo allora:
+\[ E = \bigcup_{i \in I}E_i
+    \]
+che è un campo in quanto unione di campi in catena. Si ha che $K \subseteq E \subseteq F$ (si verifica facilmente), inoltre possiamo definire:
+\[ \psi(x) = \psi_i(x) \qquad \forall x \in E, x \in E_i
+    \]
+quindi abbiamo $\psi : E \longrightarrow K : x \longmapsto \psi_i(x)$; verifichiamo che è ben definita, sia $x \in E_i$ e $x \in E_j$ vediamo che $\psi_i(x) = \psi_j(x)$ poiché $E_i \subseteq E_j$ (o viceversa), ed in tal caso:
+\[ \psi_{j|E_i} = \psi_i \implies \psi_j(x) = \psi_i(x)
+    \]
+Avendo trovato un maggiorante alla catena $\mathscr{C}$ abbiamo dimostrato che $(X,\leqslant)$ è induttivo e quindi esiste $(\mathscr{F},\psi)$ elemento massimale di $X$. Mostriamo che $\mathscr{F} = F$; chiaramente $\mathscr F \subseteq F$, 
+se fosse $\mathscr F \subsetneq F$, allora $\exists \alpha \in F \setminus \mathscr F \implies \mathscr{F}(\alpha) \subseteq F$\footnote{$\mathscr{F} \subseteq \mathscr{F}(\alpha)$ è finita perché $\alpha$ è algebrico.} e per il
+\hyperref[3.39]{Corollario 3.39} (nel caso finito appunto) $\widetilde{\varphi}$ si estende a:
+\[ \widetilde{\varphi}^{\prime} : \mathscr{F}(\alpha) \varlonghookrightarrow \ol K \qquad \text{con} \qquad \widetilde{\varphi}^{\prime}_{|\mathscr{F}} = \widetilde{\varphi}
+    \]
+quindi $\widetilde{\varphi}^{\prime}_{|K} = \widetilde{\varphi}_{|K} = \varphi$, ma ciò è assurdo perché $(\mathscr{F},\widetilde{\varphi})$ è massimale, ma $(\mathscr{F},\widetilde{\varphi}) \subsetneq (\mathscr{F}(\alpha),\widetilde{\varphi})$, pertanto $\mathscr{F} = F$.
+\end{proof}
+
+\pagebreak
+
+\begin{corollary}
+[Unicità della chiusura algebrica]
+Due chiusure algebriche di uno stesso campo $K$ sono isomorfe.\footnote{Ciò dimostra la seconda parte del \hyperref[3.25]{Teorema di esistenza e unicità della chiusura algebrica}.}
+\end{corollary}
+
+\begin{proof}
+Date $\Omega$, $\ol K$ chiusure algebriche di $K$ e vogliamo mostrare che $\Omega \cong \ol K$; sia:
+\[ i : K \varlonghookrightarrow \ol K
+    \]
+poiché $\faktor{\Omega}{K}$ è algebrica, per il \hyperref[3.86]{Teorema 3.86} $i$ si estende ad un'immersione:
+\[ \varphi : \Omega \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{|K} = i
+    \]
+tale estensione è iniettiva ($\Omega$ è un campo). Mostriamo che $\varphi$ è anche surgettiva, ovvero $\varphi(\Omega) = \ol K$, osserviamo che:
+\begin{itemize}
+    \item Poiché $\Omega$ è un campo algebricamente chiuso, per ipotesi, $\varphi(\Omega)$ è algebricamente chiuso, dunque, preso $p(x) \in \varphi(\Omega)[x]$, con $\deg p(x) \geq 1$ e:
+    \[ p(x) = \varphi(q(x)) \qquad \text{con} \qquad q(x) \in \Omega[x]
+        \]
+    ma essendo $\Omega$ algebricamente chiuso, allora $\exists \alpha \in \Omega$ tale che $q(\alpha) = 0$, da cui:
+    \[ \varphi(\alpha) = \beta \in \varphi(\Omega) \qquad \text e \qquad p(\beta) = \varphi(q(\alpha)) = \varphi(q)(\varphi(\alpha)) = 0 (= \varphi(0))
+        \]
+    \item Dato che $\varphi(\Omega)$, sia $\gamma \in \ol K$, $\gamma$ è algebrico su $K$, e quindi è algebrico anche su $\varphi(\Omega) \supset K$, ma poiché $\varphi(\Omega)$ è algebricamente chiuso si ha 
+    $\gamma \in \varphi(\Omega) \implies \varphi(\Omega) = \ol K \implies \Omega \cong \ol K$.
+\end{itemize}
+\end{proof}
+
 \end{document}
