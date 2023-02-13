@@ -709,7 +709,7 @@ da cui $\lambda$ fedele.
     Sia $G$ un gruppo, se $|G| = p^n$, allora esiste:
         \[ \{e\} = H_n < H_{n-1} < \ldots < H_1 < G
             \]
-    con $H_i \trianglelefteqslant G$ e $|H_i| = p^{n-i}$, $\forall i \in \{1,\ldots,n\}$.
+    con $H_i \trianglelefteqslant G$ e $|H_i| = p^{n-i}$, $\forall i \in \{1,\ldots,n\}$.\footnote{È importante osservare come questo fatto sia equivalente al dire che in un $p$-gruppo esiste sempre una catena di sottogruppi normali ognuno con indice $p$ nel successivo (quello che lo contiene).}
 \end{exercise}
 
 \begin{soln}
@@ -719,12 +719,12 @@ da cui $\lambda$ fedele.
             \]
     sia $\mathcal{G} = \faktor{G}{Z(G)}$, essendo $|G/Z(G)| < p^n$ (perché deve essere $|Z(G)| \geq p$), allora vale l'ipotesi induttiva, dunque
     $|\mathcal{G}| = p^m$, con $m = n-z\ (<n)$, allora esiste:
-        \[ \mathcal{H}_m = \{e_{\mathcal{G}}\} < \mathcal{H}_{m-1} < \ldots < \mathcal{H}_1 < \mathcal{G}
+        \[ \mathcal{H}_m = \{e_{\mathcal{G}}\}\footnote{$e_\mathcal{G} = Z(G)$.} < \mathcal{H}_{m-1} < \ldots < \mathcal{H}_1 < \mathcal{G}
             \]
     con $|\mathcal{H}_i| = p^{m-i}$ e $\mathcal{H}_i \trianglelefteqslant \mathcal{G}$. Data la proiezione al quoziente:
         \[ \pi_{Z(G)} : G \longrightarrow \mathcal{G}
             \]
-    per il Teorema di Corrispondenza dei sottogruppi, esiste una bigezione tra i sottogruppi di $\faktor{G}{Z(G)}$ e i sottogruppi di
+    per il Teorema di corrispondenza dei sottogruppi, esiste una bigezione tra i sottogruppi di $\faktor{G}{Z(G)}$ e i sottogruppi di
     $G$ che contengono $Z(G)$, la quale preserva normalità e indice del sottogruppo, pertanto preso $\mathcal{H}_i \leqslant \faktor{G}{Z(G)}$ è sufficiente
     applicare $\pi_{Z(G)}^{-1}$ alla catena scritta sopra e troviamo:
         \[ Z(G) = \pi_{Z(G)}^{-1}(\mathcal{H}_{m}) < \ldots < \pi_{Z(G)}^{-1}(\mathcal{H}_{1}) < \pi_{Z(G)}^{-1}(\mathcal{G}) (= G)
