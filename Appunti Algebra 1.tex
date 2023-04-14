@@ -1836,7 +1836,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \[ \left<x\right> \times \left<y\right> \cong \Z{2} \times \Z{2} \qquad \text e \qquad \left<z\right> \cong \Z{3}
             \]
     possiamo osservare che:
-        \[ \varphi_{x}(Z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
+        \[ \varphi_{x}(z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
             \]
     similmente:
         \[ \varphi_{y}(z) = yzy^{-1} = -id(z) = -z
@@ -1938,7 +1938,7 @@ con $i^2 = -1$, $i^3 = -i$, $j^3 = -j$, $i^3j = -k$.
 \end{remark}
 
 Abbiamo visto che $Q_8$ è un gruppo di ordine $8$ non è abeliano, e per quanto detto $Q_8 \ncong D_4$,
-poiché ha $Q_8$ ha sei elementi di ordine 4, mentre $D_4$ ne ha soltanto uno. \\
+poiché $Q_8$ ha sei elementi di ordine 4, mentre $D_4$ ne ha soltanto uno. \\
 
 \begin{remark}
     [Sottogruppi di $Q_8$]
@@ -1963,7 +1963,7 @@ A questo punto siamo pronti per classificare tutti i gruppi di ordine 8:
     [Classificazione dei gruppi di ordine $8$]
     Distinguiamo innanzitutto i gruppi in base all'abelianità:
     \begin{itemize}
-        \item Se $G$ è abeliano, allora per il nel \hyperref[t:struttura]{Teorema di Struttura} abbiamo che $G \cong G(2)$ e per la $2$-componente abbiamo le seguenti possibilità:
+        \item Se $G$ è abeliano, allora per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo che $G \cong G(2)$ e per la $2$-componente abbiamo le seguenti possibilità:
             \begin{center}
                 $\color{LimeGreen!90!black}{\Z{8} \qquad \Z{4} \times \Z{2} \qquad \Z{2} \times \Z{2} \times \Z{2}}$
             \end{center}
@@ -1982,7 +1982,7 @@ A questo punto siamo pronti per classificare tutti i gruppi di ordine 8:
                     dove $\varphi : \left<b\right> \longmapsto \Aut(\left<a\right>) \cong \Z{2} : b \longmapsto \varphi_b$ e $\varphi_b : \left<a\right> \longmapsto \left<a\right> : a \longmapsto a^{-1}$ 
                     (ovvero $\varphi_b = -id$, se avessimo scelto l'identità avremmo ottenuto uno dei prodotti diretti già visti sopra).
                 \item Se $a^4 = 1$ e $b^2 = a^2$, osserviamo che $bab^{-1} \in \left<a\right>$ (essendo il generato da $a$ normale in $G$), inoltre non può essere che $bab^{-1} = 1$ (altrimenti $a = 1$) o $bab^{-1} = a^2$ (poiché il coniugio conserva l'ordine degli elementi) e non 
-                    piò nemmeno essere che $bab^{-1} = a$ (poiché abbiamo supposto che $G$ non sia commutativo). Pertanto abbiamo necessariamente $bab^{-1} = a^3 \iff ba = a^3b$, da cui segue:
+                    può nemmeno essere che $bab^{-1} = a$ (poiché abbiamo supposto che $G$ non sia commutativo). Pertanto abbiamo necessariamente $bab^{-1} = a^3 \iff ba = a^3b$, da cui segue:
                         \[ G \cong \color{LimeGreen!90!black}{Q_8}
                             \]
                     dove l'isomorfismo manda $a \longmapsto i$ e $b \longmapsto j$.
