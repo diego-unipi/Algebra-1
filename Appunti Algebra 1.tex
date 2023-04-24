@@ -49,16 +49,18 @@
 
 \section*{Premessa}
 Il seguente scritto è una mia rielaborazione delle note del corso di Algebra 1 tenuto dalla professoressa Del Corso e dal professor Lombardo nell'anno accademico 
-2022-23, \textbf{le note non sono state revisionate dai suddetti prof}. In questo file ci sono soltanto gli appunti delle lezioni della professoressa Del Corso (per
+2022-23, \textbf{le note non sono state revisionate dai suddetti prof}.\\ 
+In questo file ci sono soltanto gli appunti delle lezioni della professoressa Del Corso (per
 le note delle lezioni del prof. Lombardo vi rimando ai \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Complementi di Algebra 1}}), l'ordine degli argomenti è lo stesso di quello seguito a lezione se non 
-in qualche caso.
+in qualche caso, gli esercizi ed i vari lemmi/corollari con soluzione proposta sono stati lasciati dalla professoressa come esercizio, pertanto le dimostrazioni riportate non sono "ufficiali", bensì proposte individuali delle 
+persone che le hanno inviate, e sono state aggiunte solo al fine di una maggiore completezza della trattazione.\\
 Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alla mia mail.
 
 
 \section*{Ringraziamenti}
 Di seguito le persone che hanno contribuito segnalando errori e/o aggiungendo dimostrazioni (in grassetto sono segnati coloro i quali hanno contribuito in maniera rilevante e che per tale motivo meritano un ringraziamento speciale):\\
-\textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, Leonardo Migliorini, \textbf{Matteo Gori}, Daniele Lapadula, \textbf{Alessandro Fenu},
-\textbf{Leonardo Alfani}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti.
+\textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, \textbf{Leonardo Migliorini}, \textbf{Matteo Gori}, Daniele Lapadula, \textbf{Alessandro Fenu},
+\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
@@ -525,7 +527,7 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
              |Z(G)| +  \sum_{x \in \mathcal{R}\setminus Z(G)}\frac{|G|}{|Z_G(x)|} \equiv 0 \pmod p
                 \]
             con $\displaystyle \frac{|G|}{|Z_G(x)|} > 1$, poiché $Z_G(x) = G$ se e solo se $x \in Z(G)$,
-            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^{k_x}$, $k>0$, poiché $G$ è un $p$-gruppo (e quindi anche $Z_G(x)$), dunque:
+            viceversa deve essere che $\displaystyle \frac{|G|}{|Z_G(x)|} = p^{k_x}$, $k_x>0$, poiché $G$ è un $p$-gruppo (e quindi anche $Z_G(x)$), dunque:
                 \[ |Z(G)| \equiv 0 \pmod p \implies |Z(G)| \geq 2
                     \]
             e quindi il centro di un $p$-gruppo non è mai banale.
@@ -707,7 +709,7 @@ da cui $\lambda$ fedele.
     Sia $G$ un gruppo, se $|G| = p^n$, allora esiste:
         \[ \{e\} = H_n < H_{n-1} < \ldots < H_1 < G
             \]
-    con $H_i \trianglelefteqslant G$ e $|H_i| = p^{n-i}$, $\forall i \in \{1,\ldots,n\}$.
+    con $H_i \trianglelefteqslant G$ e $|H_i| = p^{n-i}$, $\forall i \in \{1,\ldots,n\}$.\footnote{È importante osservare come questo fatto sia equivalente al dire che in un $p$-gruppo esiste sempre una catena di sottogruppi normali ognuno con indice $p$ nel successivo (quello che lo contiene).}
 \end{exercise}
 
 \begin{soln}
@@ -717,12 +719,12 @@ da cui $\lambda$ fedele.
             \]
     sia $\mathcal{G} = \faktor{G}{Z(G)}$, essendo $|G/Z(G)| < p^n$ (perché deve essere $|Z(G)| \geq p$), allora vale l'ipotesi induttiva, dunque
     $|\mathcal{G}| = p^m$, con $m = n-z\ (<n)$, allora esiste:
-        \[ \mathcal{H}_m = \{e_{\mathcal{G}}\} < \mathcal{H}_{m-1} < \ldots < \mathcal{H}_1 < \mathcal{G}
+        \[ \mathcal{H}_m = \{e_{\mathcal{G}}\}\footnote{$e_\mathcal{G} = Z(G)$.} < \mathcal{H}_{m-1} < \ldots < \mathcal{H}_1 < \mathcal{G}
             \]
     con $|\mathcal{H}_i| = p^{m-i}$ e $\mathcal{H}_i \trianglelefteqslant \mathcal{G}$. Data la proiezione al quoziente:
         \[ \pi_{Z(G)} : G \longrightarrow \mathcal{G}
             \]
-    per il Teorema di Corrispondenza dei sottogruppi, esiste una bigezione tra i sottogruppi di $\faktor{G}{Z(G)}$ e i sottogruppi di
+    per il Teorema di corrispondenza dei sottogruppi, esiste una bigezione tra i sottogruppi di $\faktor{G}{Z(G)}$ e i sottogruppi di
     $G$ che contengono $Z(G)$, la quale preserva normalità e indice del sottogruppo, pertanto preso $\mathcal{H}_i \leqslant \faktor{G}{Z(G)}$ è sufficiente
     applicare $\pi_{Z(G)}^{-1}$ alla catena scritta sopra e troviamo:
         \[ Z(G) = \pi_{Z(G)}^{-1}(\mathcal{H}_{m}) < \ldots < \pi_{Z(G)}^{-1}(\mathcal{H}_{1}) < \pi_{Z(G)}^{-1}(\mathcal{G}) (= G)
@@ -732,7 +734,7 @@ da cui $\lambda$ fedele.
         \[ p^i = [\mathcal{G} : \mathcal{H}_i] = [G : H]
             \]
     dunque la catena esiste  e $|H_i| = p^{n-i}$ per $1\leq i \leq m$. Essendo $Z(G)$ abeliano, i sottogruppi di ogni suo ordine (che esistono sempre
-    per il \hyperref[davide]{Lemma 1.41}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \geq z$), pertanto esiste la catena:
+    per il \hyperref[davide]{Lemma 1.41}) sono normali in $Z(G)$, inoltre $|Z(G)| = p^z$ (dunque si hanno sottogruppi normali di ordine $p^l$ per $l \leq z$), pertanto esiste la catena:
         \[ \{e\} = H_n < \ldots < H_m = Z(G)
         \qquad \text{con $|H_j| = p^{n-j}$, $\forall m \leq j \leq n$} 
             \]
@@ -1057,7 +1059,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \times G_2$ con l'operazione fatta componente per componente prende il nome di \vocab{prodotto diretto}.
 
 \begin{example}
-    Presi ad esempio $\Z7$ e $S_4$, si ha $\Z7 \times S_4$, con $\sigma = (\overline 1, \cycle{1,2,3})$ e $\rho = (\overline 4, \cycle{1,4,2,4})$ in $\Z7 \times S_4$ e l'operazione:
+    Presi ad esempio $\Z7$ e $S_4$, si ha $\Z7 \times S_4$, con $\sigma = (\overline 1, \cycle{1,2,3})$ e $\rho = (\overline 4, \cycle{1,4,2,3})$ in $\Z7 \times S_4$ e l'operazione:
         \[ \sigma \cdot \rho = (\overline 1 + \overline 4, \cycle{1,2,3} \circ \cycle{1,4,2,3}) = (\overline 5, \cycle{1,4,3,2})
             \]
 \end{example}
@@ -1280,7 +1282,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 
 \begin{example}
     [Gruppi di ordine $pq$]
-    Sia $|G| = pq$, per il \hyperref[p:Cauchy]{Teorema Di Cauchy} esistono $x,y \in G$ tali che $\ord x = q$, $\ord y = p$, assumiamo (WLOG) $q>p$, allora si ha che:
+    Sia $|G| = pq$, con $p$ e $q$ primi distinti, per il \hyperref[p:Cauchy]{Teorema Di Cauchy} esistono $x,y \in G$ tali che $\ord x = q$, $\ord y = p$, assumiamo (WLOG) $q>p$, allora si ha che:
         \[ H = \left<x\right> \triangleleft G
             \]
     poiché $[G : H] = p$, con $p$ più piccolo primo che divide $|G|$. Alternativamente si può vedere che $H$ è caratteristico in $G$ poiché è l'unico sottogruppo di quell'ordine;
@@ -1383,7 +1385,7 @@ ciò garantisce che $\mathcal{F}$, ottenuto estendendo l'assegnamento $x \longma
 \begin{theorem}
     [I $p$-gruppi si spezzano come prodotto di $p$-gruppi ciclici]
     \label{t:t2}
-    Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_s$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
+    Sia $G$ un $p$-gruppo abeliano. Esistono e sono univocamente determinati $r_1,\ldots,r_t$ tali che $r_1 \geq r_2 \geq \ldots \geq r_t$\footnote{L'ordine
      degli esponenti assicura l'unicità della fattorizzazione.}, per i quali:
         \[ G \cong \Z{p^{r_1}} \times \ldots \times \Z{p^{r_t}}
             \]
@@ -1449,7 +1451,7 @@ Dimostriamo ora il \hyperref[t:t1]{Teorema 1.87}
     la tesi vera $\forall m : 2 \leq m < n$, possiamo scrivere $n = m m^{\prime}$ con $(m,m^{\prime}) = 1$ e $m,m^{\prime} < n$, allora (in notazione additiva) vogliamo verificare che:
         \[ G \cong mG \times m^{\prime}G
             \]
-        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,nG \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
+        È facile verificare che $mG,m^{\prime}G < G$ (basta vedere la chiusura per l'operazione), ed essendo $G$ abeliano si ha anche $mG,m^{\prime}G \triangleleft G$; si osserva inoltre che, essendo $(m,m^{\prime}) = 1$, allora $\exists h,k \in \ZZ$:
             \[ mh + m^{\prime}k = 1 \implies m(gh) + m^{\prime}(gk) = g \qquad \forall g \in G \implies G \subseteq mG + m^{\prime}G
                 \]
         il contrario è ovvio (per chiusura di $G$ rispetto all'operazione), dunque:
@@ -1532,7 +1534,7 @@ Dimostriamo ora il \hyperref[t:t2]{Teorema 1.88}:
             è un isomorfismo, infatti $\pi$ è un omomorfismo, è surgettivo (in quanto si possono mandare tutti i generatori $x_i$ di $H$ nelle $t$-uple di generatori di $G/\left<x_1\right>$); per l'iniettività si osserva che gli elementi del nucleo sono del tipo:
                 \[ \pi(a_2x_2 + \ldots + a_tx_t) = (a_2\overline{x_2}, \ldots, a_t\overline{x_t}) = (0,\ldots,0) \iff a_i\overline{x_i} = 0 \quad \forall i \in\{2,\ldots,t\}
                     \]
-            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, ma essendo anche che $\ord(x_i) = p^r_i$, allora la divisibilità precedente è equivalente al chiedere $a_ix_i = 0$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
+            cioè se e solo se $\ord_{G/\left<x_1\right>}(\overline{x_i}) =\footnote{Qui stiamo usando ancora il \hyperref[l:1.91]{Lemma 1.91}} p^{r_i} \mid a_i$, ma essendo anche che $\ord(x_i) = p^{r_i}$, allora la divisibilità precedente è equivalente al chiedere $a_ix_i = 0$, $\forall i \in \{2,\ldots,t\}$. Segue che $\pi_{\mid H}$ è un isomorfismo e si ha:
                 \[ H \cong \left<\overline{x_2}\right> \times \ldots \times \left<\overline{x_t}\right> \cong \left<{x_2}\right> \times \ldots \times \left<{x_t}\right>
                     \]
             Dove l'ultimo isomorfismo deriva dal fatto che abbiamo scelto elementi di ordini uguali, che quindi generano gli stessi gruppi ciclici a meno di isomorfismo.
@@ -1647,8 +1649,8 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \item Se $Z(G)\not\subseteq H$, dato che $H\cup Z(G)\subseteq N_G(H)$, abbiamo che $\emptyset\neq Z(G)\setminus H\subseteq N_G(H)\setminus H$ da cui la tesi.
         \item Se $Z(G)\subseteq H$ osserviamo che $Z(G)$ è normale in $G$ e che $Z(G)$ non è banale perché $G$ è un $p-$gruppo, dunque possiamo considerare $\faktor{G}{Z(G)}$
         di ordine strettamente minore all'ordine di $G$. Sia $\pi:G \longrightarrow \faktor{G}{Z(G)}$ la mappa di proiezione al quoziente. Per ipotesi induttiva $N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)$ contiene strettamente $\faktor{H}{Z(G)}$, quindi per il teorema di corrispondenza si ha che anche
-        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(\faktor{H}{Z(G)}\right)=H$, quindi basta mostrare che $\pi^{-1}\left(\faktor{H}{Z(G)}\right)\subseteq N_G(H)$, e questo deriva 
-        dal fatto che se $g\in \pi^{-1}\left(\faktor{H}{Z(G)}\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
+        le loro controimmagini tramite $\pi$ rispettano un contenimento stretto (perché si preservano gli indici). Sempre per corrispondenza $\pi^{-1}\left(\faktor{H}{Z(G)}\right)=H$, quindi basta mostrare che $\pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)\subseteq N_G(H)$, e questo deriva 
+        dal fatto che se $g\in \pi^{-1}\left(N_{G/Z(G)}\left(\faktor{H}{Z(G)}\right)\right)$ allora $gHg^{-1}\subseteq HZ(G)=H$.\footnote{Dimostrazione proposta da Francesco Sorce.}
     \end{itemize}
 \end{proof}
 
@@ -1707,7 +1709,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 pertanto deve essere necessariamente che:
                 \[ p^{\alpha} \mid |\St(M_i)| = t
                     \]
-                cioè, affinché il rapporto non sia divisibile per $p^{\alpha}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, sia $x \in M_i$, la funzione:
+                cioè, affinché il rapporto non sia divisibile per $p^{n-\alpha+1}$, al denominatore deve esserci una potenza di $p$ maggiore o uguale ad $\alpha$. D'altra parte, sia $x \in M_i$, la funzione:
                 \[ \varphi_x : \St(M_i) \longrightarrow M_i : y \longmapsto yx 
                     \]
                 è iniettiva\footnote{Si vede che $\varphi_x(y) = \varphi_x(z) \iff yx = zx \iff y = z$.}, dunque $t = |\St(M_i)| \leq |M_i| = p^{\alpha}$, segue quindi $t = p^{\alpha}$, pertanto $\St(M_i)$ è il sottogruppo di ordine $p^{\alpha}$ cercato.
@@ -1834,7 +1836,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
         \[ \left<x\right> \times \left<y\right> \cong \Z{2} \times \Z{2} \qquad \text e \qquad \left<z\right> \cong \Z{3}
             \]
     possiamo osservare che:
-        \[ \varphi_{x}(Z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
+        \[ \varphi_{x}(z) = xzx^{-1} = id(z) = z \implies \text{$x$ commuta con $z$}
             \]
     similmente:
         \[ \varphi_{y}(z) = yzy^{-1} = -id(z) = -z
@@ -1936,7 +1938,7 @@ con $i^2 = -1$, $i^3 = -i$, $j^3 = -j$, $i^3j = -k$.
 \end{remark}
 
 Abbiamo visto che $Q_8$ è un gruppo di ordine $8$ non è abeliano, e per quanto detto $Q_8 \ncong D_4$,
-poiché ha $Q_8$ ha sei elementi di ordine 4, mentre $D_4$ ne ha soltanto uno. \\
+poiché $Q_8$ ha sei elementi di ordine 4, mentre $D_4$ ne ha soltanto uno. \\
 
 \begin{remark}
     [Sottogruppi di $Q_8$]
@@ -1961,7 +1963,7 @@ A questo punto siamo pronti per classificare tutti i gruppi di ordine 8:
     [Classificazione dei gruppi di ordine $8$]
     Distinguiamo innanzitutto i gruppi in base all'abelianità:
     \begin{itemize}
-        \item Se $G$ è abeliano, allora per il nel \hyperref[t:struttura]{Teorema di Struttura} abbiamo che $G \cong G(2)$ e per la $2$-componente abbiamo le seguenti possibilità:
+        \item Se $G$ è abeliano, allora per il \hyperref[t:struttura]{Teorema di Struttura} abbiamo che $G \cong G(2)$ e per la $2$-componente abbiamo le seguenti possibilità:
             \begin{center}
                 $\color{LimeGreen!90!black}{\Z{8} \qquad \Z{4} \times \Z{2} \qquad \Z{2} \times \Z{2} \times \Z{2}}$
             \end{center}
@@ -1980,7 +1982,7 @@ A questo punto siamo pronti per classificare tutti i gruppi di ordine 8:
                     dove $\varphi : \left<b\right> \longmapsto \Aut(\left<a\right>) \cong \Z{2} : b \longmapsto \varphi_b$ e $\varphi_b : \left<a\right> \longmapsto \left<a\right> : a \longmapsto a^{-1}$ 
                     (ovvero $\varphi_b = -id$, se avessimo scelto l'identità avremmo ottenuto uno dei prodotti diretti già visti sopra).
                 \item Se $a^4 = 1$ e $b^2 = a^2$, osserviamo che $bab^{-1} \in \left<a\right>$ (essendo il generato da $a$ normale in $G$), inoltre non può essere che $bab^{-1} = 1$ (altrimenti $a = 1$) o $bab^{-1} = a^2$ (poiché il coniugio conserva l'ordine degli elementi) e non 
-                    piò nemmeno essere che $bab^{-1} = a$ (poiché abbiamo supposto che $G$ non sia commutativo). Pertanto abbiamo necessariamente $bab^{-1} = a^3 \iff ba = a^3b$, da cui segue:
+                    può nemmeno essere che $bab^{-1} = a$ (poiché abbiamo supposto che $G$ non sia commutativo). Pertanto abbiamo necessariamente $bab^{-1} = a^3 \iff ba = a^3b$, da cui segue:
                         \[ G \cong \color{LimeGreen!90!black}{Q_8}
                             \]
                     dove l'isomorfismo manda $a \longmapsto i$ e $b \longmapsto j$.
@@ -2019,10 +2021,10 @@ Dunque i gruppi di ordine 8 sono:
                 Se $\eta$ è un $k$-ciclo, con $k$ pari, allora si verifica che:
                         \[ \cycle{a_1,\ldots,a_k}\cycle{b_1,\ldots,b_k} = \cycle{a_1,b_1,\ldots,a_k,b_k}^2
                             \]
-                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_2}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
+                \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_s}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
             \end{itemize}
         Ad esempio, in $S_6$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
-            \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,2,3}\cycle{4,5,6}\right)^2
+            \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,3,2}\cycle{4,6,5}\right)^2
                 \]
         mentre in $S_4$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
             \[ \cycle{1,2}\cycle{3,4} = (\cycle{1,4,2,3})^2 = (\cycle{1,3,2,4})^2
@@ -2210,7 +2212,7 @@ e dei nilpotenti:
             \[ (zx)y = z(xy) \implies 0 \cdot y = z \implies z = 0
                     \]
             ma ciò è assurdo, pertanto $D(A) \cap A^*$ è vuoto.
-        \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del primo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
+        \item Il contenimento $D(A) \cup A^* \subseteq A$ è ovvio in quanto i primi due sono sottoinsiemi del terzo, ci resta da verificare quello opposto. Sia $x \in A$, se $x \in D(A)$ abbiamo concluso,
             se $x \in A \setminus D(A)$, allora possiamo definire l'omomorfismo di gruppi:
                 \[ \varphi_x : A \longrightarrow A : a \longmapsto xa
                     \]
@@ -2816,7 +2818,7 @@ ammette elementi massimali.
                 \]
             osserviamo che $I \in \mathcal{F} \implies \mathcal{F} \ne \emptyset$, inoltre $(\mathcal{F},\subseteq)$ è induttivo, infatti, detta $\mathscr{C}$ una catena, essa
             sarà un sottoinsieme di $\mathcal{F}$ totalmente ordinato della forma:
-            \[ \mathscr{C} = \{J_n\}\footnote{I vari $J_i$ sono contenuti tutti uno dentro l'altro "in catena".} \subseteq \mathcal{F}
+            \[ \mathscr{C} = \{J_n\}\footnote{I vari $J_n$ sono contenuti tutti uno dentro l'altro "in catena".} \subseteq \mathcal{F}
                 \]
             allora posta $\bigcup J_n\footnote{Andrebbe dimostato che l'unione di ideali in catena, analogamente a quanto accade per i sottogruppi, è un ideale.} = J \in \mathcal{F}$, verifichiamo che
             $J$ è maggiorante di $\mathscr{C}$. Si ha che:
@@ -2945,7 +2947,7 @@ ammette elementi massimali.
             \[ at = bs \qquad \text e \qquad bu = tc
                 \]
         da cui, moltiplicando la prima per $u$ si ha:
-            \[ aut = bus = tcu \implies aut = cts \iff t(au-cs) = 0
+            \[ aut = bus = tcs \implies aut = cts \iff t(au-cs) = 0
                 \]
         essendo per ipotesi $A$ un dominio\footnote{È importante notare che qui stiamo usando il fatto che $A$ è un dominio.} e $t \in S$ (dunque $t \ne 0$) segue:
             \[ au = cs \iff \frac{a}{s} \sim \frac{c}{u}
@@ -3184,11 +3186,11 @@ ammette elementi massimali.
     Osserviamo che le tre condizioni date sono equivalenti, infatti, per quanto riguarda (i) e (iii) si ha:
     \[ a \mid a^{\prime} \iff (a^{\prime}) \subseteq (a) \qquad \text e \qquad a^{\prime}\mid a \iff (a) \subseteq (a^{\prime})
         \]
-    dunque se sono vere entrambe le condizioni (i) e (iii) sono equivalenti. Dobbiamo da verificare che (i)$\implies$(ii), dalle due divisibilità segue che:
+    dunque se sono vere entrambe le condizioni (i) e (iii) sono equivalenti. Dobbiamo verificare che (i)$\implies$(ii), dalle due divisibilità segue che:
     \[ a^{\prime} = xa \qquad \text e \qquad a = y a^{\prime} \implies a = yxa \implies a(1-xy) = 0
         \]
     poiché $a \ne 0$, ed $A$ dominio per ipotesi si ha che $xy = 1 \implies y \in A^*$, ovvero la (ii). Viceversa, assumiamo (ii) e deduciamo 
-    (iii):\footnote{A questo punto sappiamo che già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
+    (iii):\footnote{A questo punto sappiamo già che (i) e (iii) sono equivalenti, quindi non è necessario fare verifiche distinte.}
     \[ a = ua^{\prime} \implies a \in (a^{\prime}) \implies (a^{\prime}) \subseteq (a)
         \]
     con $u \in A^*$, pertanto $\exists v \in A^*$ tale che $uv = vu = 1$, moltiplicando la prima relazione per $v$ si ottiene:
@@ -3274,7 +3276,7 @@ Se $d$ e $d^{\prime}$ sono due massimi comun divisori di $a$ e $b$, allora vale 
                 \]
         ciò è equivalente al richiedere che $x \mid a$ o $x \mid b$, ovvero che $x$ sia primo in $A$.
         \item Dimostriamo separatamente le due implicazioni. Sia $x$ irriducibile e supponiamo che sia $(x) \subseteq (y) \subsetneq A$,
-            dunque $\exists z \in A$ tale che $x = yz$, sappiamo che $y \not \in A^*$ (altrimenti sarebbe l'ideale conterebbe l'identità
+            dunque $\exists z \in A$ tale che $x = yz$, sappiamo che $y \not \in A^*$ (altrimenti l'ideale conterebbe l'identità
             e avremmo $(y) = A$), poiché $x$ deve essere irriducibile segue necessariamente che $z \in A^*$ e quindi $x \sim y$, cioè:
             \[ (x) = (y)
                 \]
@@ -3522,7 +3524,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
         Infatti, sicuramente è vero che $(a,b) \subset (d)$, ma non è detto che valga il contenimento opposto, il quale vale solo se $d = ax_0 + by_0$. Ad esempio, preso l'UFD $\ZZ[x]$, l'ideale:
         \[ I = (2,x)
             \]
-        è tale che $\text{M.C.D.}(2,x) = 1$, ma $1 \not \in (2,x)$, perché se non fosse coì avremmo:
+        è tale che $\text{M.C.D.}(2,x) = 1$, ma $1 \not \in (2,x)$, perché se non fosse così avremmo:
         \[ 1 = 2a(x) + xb(x)
             \]
         che per $x = 0$ porta a:
@@ -3661,7 +3663,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
     \end{enumerate}
 \end{proof}
 
-Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili di $A[x]$, e fare ciò abbiamo bisogno del Lemma di Gauss.
+Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili di $A[x]$, e per fare ciò abbiamo bisogno del Lemma di Gauss.
 
 \begin{definition}
     Dato $A$ un UFD e $f(x) \in A[x]$, con $f(x) = \sum_{i=0}^n a_ix^i$, si dice \vocab{contenuto} di $f(x)$ l'M.C.D. dei suoi coefficienti:
@@ -3697,7 +3699,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $c(f(x)g(x))$ non fosse primitivo (ovvero associato ad 1)
+        \item Se $c(f(x)) = c(g(x)) = 1$, dunque $f(x)$ e $g(x)$ sono primitivi, vogliamo verificare che $c(f(x)g(x)) = 1$; se $f(x)g(x)$ non fosse primitivo (ovvero il contenuto non è associato ad 1)
             allora $c(f(x)g(x))$ non sarebbe invertibile (gli elementi invertibili sono associati ad 1), ovvero esisterebbe $p$ primo tale che $p \mid c(f(x)g(x))$, consideriamo la proiezione modulo $(p)$:
             \[ \pi_{(p)} : A[x] \longrightarrow \frac{A}{(p)}[x] : f(x) \longmapsto \overline{f(x)}
                 \]
@@ -4149,7 +4151,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
 
 \begin{proposition}
     [Proprietà del composto di estensioni]
-    \label{3.9}
+    \label{3.10}
     Date due torri di estensioni di $K$, $K \subset L \subset FL$ e $K \subset F \subset FL$, con $[L:K] = m$ e $[F:K] = n$, allora $[FL:K] = d < +\infty$ e $[m,n] \mid d$.
 \end{proposition}
 
@@ -4199,7 +4201,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     Verifichiamo che $A$ sia un campo; siano $\alpha,\beta \in A$, allora $[K(\alpha):K] <+\infty$ e $[K(\beta):K]<+\infty$, consideriamo la torre:
     \[ K \subseteq K(\alpha) \subseteq K(\alpha)(\beta) = K(\alpha,\beta)
         \]
-    la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.9]{Proposizione 3.9} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
+    la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.10]{Proposizione 3.10} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
     Essendo dunque $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
     è algebrica, quindi tutti gli elementi $\alpha\pm\beta$, $\alpha\beta$, $\displaystyle\frac{1}{\alpha}$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$, pertanto $A$ è un campo.
 \end{proof}
@@ -4235,7 +4237,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 \end{remark}
 
 \begin{proposition}[Estensione algebrica e finitamente generata$\implies$finita]
-    \label{3.16}
+    \label{3.17}
     Sia $\faktor{L}{K}$ finitamente generata da elementi algebrici, $L = K(\alpha_1,\ldots,\alpha_n)$, allora $\faktor{L}{K}$ è finita.
 \end{proposition}
 
@@ -4247,13 +4249,13 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     \[ K \subset K(\alpha_1,\ldots,\alpha_{n-1}) \subset K(\alpha_1,\ldots,\alpha_{n-1})(\alpha_n)
         \]
     dove la prima estensione è finita per ipotesi induttiva, mentre la seconda perché estensione semplice ed algebrica su un campo più piccolo (quindi vale la \hyperref[3.7]{Proposizione 3.7}), o alternativamente perché estensione composta di estensioni finite per quanto già detto, 
-    quindi vale \hyperref[3.9]{Proposizione 3.9}; pertanto per $\faktor{L}{K}$ è finita per ogni $n \in \NN$.
+    quindi vale \hyperref[3.10]{Proposizione 3.10}; pertanto per $\faktor{L}{K}$ è finita per ogni $n \in \NN$.
 \end{proof}
 
 \pagebreak
 \begin{remark}
-    \label{3.17}
-    Della \hyperref[3.16]{Proposizione 3.16} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$-base di $L$, allora 
+    \label{3.18}
+    Della \hyperref[3.17]{Proposizione 3.17} vale anche il viceversa, infatti, presa un'estensione finita $[L:K] = n$, consideriamo $v_1,\ldots,v_n$ una $K$-base di $L$, allora 
     è vero che è finitamente generata:
     \[ L = \left<v_1,\ldots,v_n\right>_K = K(v_1,\ldots,v_n)
         \]
@@ -4262,6 +4264,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{proposition}
     [Proprietà delle estensioni algebriche rispetto a torri e composto]
+    \label{3.19}
     Valgono le seguenti proprietà per le estensioni algebriche:
     \begin{enumerate}[(1)]
         \item Data una torre di estensioni $K \subset L \subset F$, $\faktor{F}{K}$ è algebrica se e solo se $\faktor{F}{L}$ e $\faktor{L}{K}$ sono algebriche.
@@ -4281,7 +4284,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
             consideriamo il campo generato su $K$ dai coefficienti di $f(x)$, $L_0=K(a_0,\ldots,a_n)$, si ha per costruzione che $f(x) \in L_0[x]$, dunque $\alpha$ è algebrico su $L_0$:
             \[ K \subset L_0 \subset L_0(\alpha) \qquad \forall \alpha \in F
                 \]
-            dove la prima estensione è finitamente generata da elementi algebrici (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.16]{Proposizione 3.16}, inoltre la seconda 
+            dove la prima estensione è finitamente generata da elementi algebrici (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.17]{Proposizione 3.17}, inoltre la seconda 
             estensione è a sua volta finita perché estensione semplice algebrica (quindi vale la \hyperref[3.7]{Proposizione 3.7}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
             $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
             dunque $\faktor{F}{K}$ è algebrica.
@@ -4291,7 +4294,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
         lo è anche in $LM$, pertanto $\alpha = \sum_{i=1}^{n} \lambda_i m_i$, con $\lambda_i \in L$ e $m_i \in M$, dunque:
          \[ \alpha \in F = K(\lambda_1,\ldots,\lambda_n,m_1,\ldots,m_n)
             \]
-        dove tale estensione è algebrica (perché tutti gli elementi che abbiamo aggiunto sono algebrici), quindi per la \hyperref[3.16]{Proposizione 3.16} è finita,
+        dove tale estensione è algebrica (perché tutti gli elementi che abbiamo aggiunto sono algebrici), quindi per la \hyperref[3.17]{Proposizione 3.17} è finita,
         e dunque $\alpha$ è algebrico su $K$, $\forall \alpha \in LM$, da cui la tesi.
     \end{enumerate}
 \end{proof}
@@ -4328,6 +4331,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{theorem}
     [Esistenza e unicità della chiusura algebrica]
+    \label{3.25}
     Sia $K$ un campo, allora esiste sempre una sua chiusura algebrica. Inoltre due qualsiasi chiusure algebriche su $K$ sono isomorfe.\footnote{Nel senso che gli isomorfismi tra le varie chiusure algebriche fissano $K$.}
 \end{theorem}
 
@@ -4442,7 +4446,7 @@ Dunque se in $K[x]$ i polinomi irriducibili non hanno derivata nulla, allora il 
     [Campi perfetti]
     Osserviamo che:
     \begin{itemize}
-        \item Se $\ch K = 0$, allora $K$ è un campo perfetto, infatti, detto $f(x) = \sum_{i=0}^n a_ix^i$, allora $f^{\prime}(x) = \sum_{i=0}^{n-1} ia_ix^i$, $\forall n \geq 1$, ovvero la derivata di un polinomio non 
+        \item Se $\ch K = 0$, allora $K$ è un campo perfetto, infatti, detto $f(x) = \sum_{i=0}^n a_{i+1}x^i$, allora $f^{\prime}(x) = \sum_{i=0}^{n-1} ia_ix^i$, $\forall n \geq 1$, ovvero la derivata di un polinomio non 
         costante non può essere mai nulla.
         \item $\Fpn$ è perfetto $\forall p$ primo, $\forall n \geq 1$.
         \item Al contrario possiamo vedere che per campi con caratteristica diversa da 0 esistono polinomi irriducibili con derivata nulla, sia $K = \Fp(t)$ e $f(x) = x^p - t \in K[x]$, abbiamo che $f^{\prime}(x) = px^{p-1} = 0$,
@@ -4502,7 +4506,7 @@ Ci limiteremo (assumendolo anche senza ripeterlo ogni volta) ai campi perfetti, 
 \end{corollary}
 
 \begin{proof}
-    La dimostrazione segue facilmente per induzione, infatti per $n = 1$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>1$ consideriamo
+    La dimostrazione segue facilmente per induzione, infatti per $n = 2$ abbiamo che l'estensione è semplice e quindi vale la \hyperref[3.37]{Proposizione 3.37}; per $n>2$ consideriamo
     $\alpha \in E \setminus K$ per il quale si ha la torre di estensioni:
     \[ K \subset K(\alpha) \subset E
         \]
@@ -4723,7 +4727,7 @@ vogliamo verificare che:
 abbiamo $\varphi(L) = L$; se $\varphi_{|F} = id_F$, allora $\varphi_{|K} = id_K$ perché $K \subset F$, ma ciò è equivalente a chiedere $\varphi(L) = L$ con la restrizione su $K$ uguale all'identità, che è l'ipotesi
 \footnote{In altre parole se $L$ è normale su $K$, con la restrizione all'identità su $K$, allora lo sarà anche su $F$, in quanto le restrizioni ad identità su $F$ sono solo alcune di tutte quelle su $K$ (le cose che fissano un campo più grande sono intuitivamente meno di quelle che fissano un suo sottocampo).}.\\
 \emph{Dimostrazione alternativa.}\footnote{Proposta da Francesco Sorce.}\; $\faktor{L}{K}$ normale significa che è campo di spezzamento di una famiglia di polinomi in $K[x]\subseteq F[x]$, quindi $L$ è il campo di spezzamento
-della stessa famiglia vista come polinomi in $F$.
+della stessa famiglia vista come polinomi a coefficienti in $F$.
 \end{proof}
 
 \begin{remark}
@@ -4810,7 +4814,7 @@ con:
 Con la dimostrazione precedente abbiamo anche visto che il gruppo di Galois agisce fedelmente su $\{\alpha_1,\ldots,\alpha_n\}$. Inoltre tale azione è transitiva perché ha un'unica orbita:
 \[ \Orb(\alpha_1) = \left\{\varphi(\alpha_1) \m \varphi \in \Gal\left(\faktor{F}{K}\right)\right\} = \{\alpha_1,\ldots,\alpha_n\}
     \]
-infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati, ognuna delle quali iniettiva e si può estende ad $F$:
+infatti, essendo $[K(\alpha_1) : K] = n$, allora abbiamo esattamente $n$ immersioni che permutano i coniugati, ognuna delle quali iniettiva e si può estendere ad $F$:
 \[ \forall i \in \{1,\ldots,n\},  \exists \psi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subset \overline K : \alpha_1 \longmapsto \alpha_i
     \]
 dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1$ (ed in generale di qualsiasi altro $\alpha_i$).
@@ -4999,7 +5003,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
 \begin{proof}
     Distinguiamo due casi:
     \begin{itemize}
-        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.16]{Proposizione 3.16}, ciò è equivalente al dire che l'estensione $E$ è finitamente generata da 
+        \item \underline{\textbf{$K$ campo infinito}}: Per ipotesi abbiamo che $\faktor{E}{K}$ è finita, dunque per la \hyperref[3.17]{Proposizione 3.17}, ciò è equivalente al dire che l'estensione $E$ è finitamente generata da 
         elementi algebrici, $E = K(\alpha_1,\ldots,\alpha_n)$, dimostriamo per induzione che $\faktor{E}{K}$ è semplice. Per $n = 2$ (trattiamo solo di questo caso in quanto una volta dimostrata la tesi per $n = 2$, basterà
         come al solito aggiungere un altro alla volta e procedere per induzione usando il caso $n = 2$ come fatto che rende vero il passo induttivo\footnote{Andrebbe dimostrato anche il caso $n = 1$, ma è banale.}) abbiamo $E = K(\alpha,\beta)$, sia $[E : K] = m$, allora per il \hyperref[3.39]{Corollario 3.35}:
         \[ \exists \varphi_1,\ldots,\varphi_m : E \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{i|K} = id_K
@@ -5210,4 +5214,315 @@ Dimostriamo le affermazioni:
 
 \newpage
 \subsection{Costruzioni con riga e compasso}
+Fissato un piano, disponendo solo di riga e compasso, possiamo tracciare due punti 0 e 1, e la retta passante per essi (mediante la riga), possiamo inoltre (mediante il compasso) tracciare cerchi di centro uno dei due punti e raggio la distanza tra questi due, da ciò, per mezzo 
+di altre costruzioni si possono tracciare anche le perpendicolari ad una retta data per un punto assegnamento ed le sue parallele (ad esempio prendendo la perpendicolare alla perpendicolare).\footnote{Le immagini di questa sezione sono provvisorie.}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=5cm]{riga.png}
+\end{figure}
+
+\begin{definition}
+    Un punto $n$ si dice \vocab{costruibile} se appartiene ad una successione finita $\Gamma_1,\ldots,\Gamma_n$ tale che:
+    \begin{enumerate}[(i)]
+        \item $\Gamma_i = 0,1$ oppure sono stati costruiti come intersezioni di rette e circonferenze già costruite (usando punti con indici più piccoli).
+        \item $\Gamma_i$ è una retta passante per punti già costruiti.
+        \item $\Gamma_i$ è una circonferenza con centro un punto già costruito e raggio di lunghezza $\ol{\Gamma_j\Gamma_k}$, con $j,k < i$ e $\Gamma_j,\Gamma_k$ punti.
+    \end{enumerate}
+\end{definition}
+Cioè, partendo dai punti iniziali, costruendo ed intersecando rette e circonferenze possiamo costruire altri punti, pertanto un punto è costruibile se esiste una costruzione in cui compare.
+
+\begin{theorem}[Campo reale dei punti costruibili]
+    \label{3.73}
+    Dato $K = \{x \in \RR | \, \text{$x$ è costruibile}\}$, si ha che $\QQ \subset K$ e $K$ è un campo ed è chiuso rispetto all'operazione di radice quadrata, ovvero $\forall a \in K$, $a>0$ si ha che $\sqrt{a} \in K$.
+\end{theorem}
+
+\begin{proof}
+    Dobbiamo verificare che $K$ è un campo e che è chiuso per l'operazione di radice quadrata. Dati due punti $a$ e $b$, possiamo definire la somma $a+b$ come il punto che si ottiene sulla retta per $0$ ed $1$ puntando il compasso in $b$, tracciando la circonferenza di raggio $a$ e prendendo l'intersezione a destra:
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=5cm]{somma.png}
+        \end{figure}
+    \end{center}
+    è analogamente definito l'inverso per la somma di $a$ puntando il compasso in 0 con ampiezza di valore $a$ e prendendo l'intersezione a sinistra.\\ Per definire il prodotto, data la retta passante per 0 ed 1, consideriamo la perpendicolare passante per 0 
+    e riportiamo con il compasso 1 su quest'ultima; dato $b$ sulla retta possiamo riportarlo con il compasso sulla perpendicolare, consideriamo la retta per $a$ e l'1 riportato sulla perpendicolare, il prodotto $ab$ è definito come l'intersezione della parallela alla retta per 1 ed $a$ passante per $b$, con la retta per 0 ed 1:\footnote{Fondamentalmente stiamo utilizzando la similitudine tra triangoli.}
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=4cm]{prodotto.png}
+        \end{figure}
+    \end{center}
+    ripetendo parte della procedura, consideriamo 1 e $b$ sulla perpendicolare, da quanto detto sopra possiamo definire $\displaystyle\frac{1}{b}$ come la parallela alla retta per b (sulla perpendicolare) e 1 (sempre sulla perpendicolare), passante per 1 sulla perpendicolare (in modo che si abbia il prodotto definito sopra uguale ad 1):
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=2.5cm]{reciproco.png}
+        \end{figure}
+    \end{center}
+    ciò dimostra che $K$ è un campo. Verifichiamo infine che sia chiuso anche per l'operazione di radice quadrata, presi -1 ed $a$ (supponiamo $a>0$) sulla retta, possiamo considerare il punto medio $\displaystyle\frac{a-1}{2}$ (si può costruire facilmente nelle ipotesi in cui siamo) e tracciare la circonferenza di centro tale punto e raggio $\displaystyle \Big| \frac{a-1}{2} \Big|$, possiamo considerare il triangolo rettangolo che si ottiene 
+    intersecando la perpendicolare alla retta per 0, e definire $\sqrt{a}$ come l'altezza relativa all'ipotenusa di tale triangolo (per il \href{https://it.wikipedia.org/wiki/Secondo_teorema_di_Euclide}{\textcolor{purple}{Secondo teorema di Euclide}}):
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=4cm]{radice.png}
+        \end{figure}
+    \end{center}
+\end{proof}
+
+\begin{theorem}
+    [Campo complesso dei punti costruibili]
+    \label{3.74}
+    Dato $L = \{\alpha \in \CC | \, \text{$\alpha$ è costruibile}\}$, $L \subset \CC$ è un campo ed è chiuso rispetto all'operazione di radice quadrata.
+\end{theorem}
+
+\begin{proof}
+    Si osserva che $x+iy$ è costruibile se e solo se $(x,y)$ è costruibile, che è a sua volta equivalente al dire che $(x,0)$ e $(0,y)$ sono costruibili,
+    ma ciò segue dal fatto che dati $(x,0)$ ed $(y,0)$ possiamo costruire $(0,y)$ mediante il compasso, e potendo prendere le perpendicolari dei due punti costruiti ed ottenere il punto inizialmente richiesto (essendo i due punti precedenti le sue componenti), da 
+    ciò si verifica facilmente che $L$ è un campo. Si osserva che dato $\alpha \in L$, allora $\alpha \in \CC$ ed in particolare ciò significa che $\alpha = \rho e^{i\theta}$ da cui:
+    \[ \sqrt{\alpha} = \sqrt{\rho}e^{i\frac{\theta}{2} + k\pi}\footnote{Stiamo prendendo una sola delle due radici.}
+        \]
+    ma tale radice è costruibile, in quanto $\sqrt{\rho}$, essendo $\rho > 0$, è la radice di un reale e vale il \hyperref[3.73]{Teorema 3.73} (dunque il modulo della radice sarà un punto costruibile sulla stessa retta del punto iniziale), mentre per determinare
+    $\displaystyle\frac{\theta}{2}$ possiamo tracciare la bisettrice di $\theta$, infatti ci basta tracciare la perpendicolare per una fissata distanza sulla retta per 0 ed $\alpha$ ed intersecarla con la perpendicolare alla retta per 0 ed 1 alla stessa distanza (possiamo riportarla con il compasso),
+    dunque riportando $\sqrt{\rho}$ con il compasso sulla bisettrice appena ottenuta come retta passante per l'intersezione precedente e 0, abbiamo costruito $\sqrt{\alpha}$:
+    \begin{center}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[width=4.5cm]{radice2.png}
+        \end{figure}
+    \end{center}
+\end{proof}
+
+\begin{remark}
+    Le equazioni di rette e circonferenze costruibili hanno coefficienti costruibili, in quanto devono passare per punti costruibili.
+\end{remark}
+\pagebreak
+\begin{theorem}
+    \label{3.76}
+    Dato $L$ il sottocampo dei numeri complessi costruibili, $\alpha \in L$ se e solo se esiste una successione di campi $\QQ \subset L_0 \subset L_1 \subset \ldots \subset L_n$, con $\alpha \in L_n$ e $[L_{i+1} : L_i] = 2$, $\forall i \in \{1,\ldots,n-1\}$.
+\end{theorem}
+
+\begin{proof}
+    Dimostriamo separatamente le due implicazioni:
+    \begin{itemize}
+        \item Se $\alpha$ è costruibile, allora esiste una successione $z_0,\ldots,z_n = \alpha$ tale che $\forall i \in \{0,\ldots,n\}$ $z_i$ si ottiene come intersezione di rette costruibili, circonferenze costruibili, rette e circonferenze costruibili; dunque, posto
+        $\QQ = L_0$ e $L_i = \QQ(z_0,\ldots,z_i)$, dato che $\alpha$ è costruibile, sappiamo che $z_{i+1}$ è intersezione di rette/circonferenze con equazioni a coefficienti in $L_i$ (poiché i punti delle rette/circonferenze sono in $L_i$) e siamo in uno dei tre casi:
+        \[ \begin{cases}
+            \text{retta}\\
+            \text{retta}
+            \end{cases}
+            \qquad
+            \begin{cases}
+            \text{circonferenza}\\
+            \text{circonferenza}
+            \end{cases}
+            \qquad
+            \begin{cases}
+            \text{retta}\\
+            \text{circonferenza}
+            \end{cases}
+            \]
+        abbiamo quindi che l'equazione risolvente ha grado minore o uguale a 2, quindi l'estensione $L_{i+1} = L_i(z_{i+1})$ è tale che:
+        \[ [L_{i+1} : L_i] \leq 2
+            \]
+        dove escludiamo l'uguaglianza in quanto in quel caso non abbiamo aggiunto punti che non avevamo già.
+        \item Sia $\alpha \in L_n \supset L_{n-1} \supset \ldots \supset \QQ$ (dove tutte le estensioni hanno grado 2), vogliamo mostrare che $\alpha$ è costruibile. Procediamo per induzione su $n$, nel caso $n = 0$
+        abbiamo che $L_0 = \QQ$ e quindi $\alpha$ è costruibile perché tutti i punti di $\QQ$ lo sono; sia $\alpha \in L_n$, per ipotesi induttiva tutti i punti\footnote{Volendo essere precisi dovremmo dire che tutti
+        gli elementi corrispondono a punti costruibili.} di $L_{n-1}$ sono costruibili, inoltre per ipotesi, essendo $L_n$ un'estensione quadratica di $L_{n-1}$ sarà del tipo $L_n = L_{n-1}(z)$, dove $z$ ha polinomio minimo di grado 2, sia:
+        \[ \mu_z(x) = x^2+bx+c \qquad \text{con} \qquad z = \frac{-a \pm \sqrt{\Delta}}{2}
+            \]
+        dove $\Delta \in L_{n-1}$, ma $L_{n-1}$ per quanto visto nel \hyperref[3.74]{Teorema 3.74} è chiuso per radice quadrata, dunque $z$ è costruibile.
+    \end{itemize}
+\end{proof}
+
+\begin{corollary}
+    \label{3.77}
+    Se $\alpha$ è costruibile, allora $\alpha$ è algebrico su $\QQ$ e l'estensione $\QQ(\alpha)$ ha grado $2^d$, $d \in \NN$.
+\end{corollary}
+
+\begin{proof}
+    Segue immediatamente dal \hyperref[3.76]{Teorema 3.76}, infatti se $\alpha$ è costruibile esiste una torre di estensioni algebriche tra $\QQ$ e $\QQ(\alpha)$,
+    pertanto, per la (1) della \hyperref[3.19]{Proposizione 3.19} $\alpha$ è algebrico su $\QQ$, inoltre, sempre dal \hyperref[3.76]{Teorema 3.76} 
+    essendo ogni elemento della catena di estensioni di grado 2 sul precedente, segue ovviamente che il grado di tutta la torre sia una potenza di 2.
+\end{proof}
+
+\begin{remark}
+    Dai teoremi visti fin qui seguono alcune importanti conseguenze:
+    \begin{itemize}
+        \item $\pi$ non è costruibile perché non è algebrico (e quindi non si può quadrare un cerchio).
+        \item Non si possono trisecare angoli generici con riga e compasso, poiché dovremmo costruire $\sqrt[3]{\alpha}$, ma se $x^3 - \alpha$ è irriducibile
+        allora $\sqrt[3]{\alpha}$ ha grado 3 su $\QQ$ (e quindi non è rispettato il \hyperref[3.77]{Corollario 3.77}).
+        \item Non si può duplicare il cubo con riga e compasso, ovvero, dato un cubo di volume 1, non possiamo costruire un cubo di volume 2, poiché dovremmo
+        costruire un punto associato ad un numero $l$ tale che $l^3 = 2$, ma come prima $x^3-2$ ha radici di grado 3 su $\QQ$ e quindi non è rispettato il \hyperref[3.77]{Corollario 3.77}.\footnote{Con
+        quest'ultima osservazione abbiamo dato risposta negativa tutti i \href{https://it.wikipedia.org/wiki/Tre_grandi_problemi_dell\%27antichit\%C3\%A0}{\textcolor{purple}{Tre grandi problemi dell'antichità}}.}
+        \item Non si può costruire con riga e compasso un poligono regolare con 7 lati, in quanto costruirlo vorrebbe dire costruire $\zeta_7$ che non è costruibile perché $[\QQ(\zeta_7) : \QQ] = \phi(7) = 6$,
+        che non è una potenza di 2 e e quindi non rispetta il \hyperref[3.77]{Corollario 3.77}.
+        \item I poligoni regolari con $n$ lati costruibili con riga e compasso devono avere $\phi(n) = 2^k$, poiché un $n$-agono regolare è costruibile se e solo se $\zeta_n$ è costruibile, dunque da una parte abbiamo che se $\zeta_n$ è costruibile, allora:
+        \[ [\QQ(\zeta_n) : \QQ] = \phi(n) = 2^k
+            \]
+        dunque se $n = 2^a p_1^{e_1}\ldots p_r^{e_r}$, con $p_i$ primi dispari e $p_i \ne p_j$, $\forall i \ne j$, allora:
+        \[ \phi(n) = 2^{a-1}p_1^{e_1-1}(p_1 - 1)\ldots p_r^{e_r-1}(p_r - 1)
+            \]
+        da cui $e_i = 1$, $\forall i \in \{1,\ldots,r\}$. Inoltre deve essere che:
+        \[ p_i - 1 = 2^{k_1} \iff p_i = 2^{k_1} + 1 \qquad \forall i \in \{1,\ldots,r\}
+            \]
+        ed affinché $p_i$ non sia un primo deve essere che $k_i = 2^{d_i}$ e quindi i primi che possono comparire nella fattorizzazione sono i primi della forma:
+        \[ p_i = 2^{2^{d_i}} + 1
+            \]
+        ovvero i \href{https://it.wikipedia.org/wiki/Numero_di_Fermat}{\textcolor{purple}{Numeri di Fermat}} (che non sono tutti primi). Viceversa se $[\QQ(\zeta_n) : \QQ] = \phi(n) = 2^k$, allora $\zeta_n$ è costruibile perché in questo caso 
+        la teoria di Galois assicura l'esistenza della torre di sottocampi richiesta dal \hyperref[3.76]{Teorema 3.76}.
+    \end{itemize}
+\end{remark}
+
+\begin{remark}
+    Non è detto che se $[\QQ(\alpha) : \QQ] = 2^n$, allora $\alpha$ sia costruibile, vale però se $\QQ(\alpha)$ è un'estensione di Galois perché in questo caso la teoria di Galois ed i risultati sui $p$-gruppi garantiscono l'esistenza 
+    della successione di sottocampi richiesta dal \hyperref[3.76]{Teorema 3.76}.
+\end{remark}
+
+\begin{theorem}
+    $\alpha$ è costruibile se e solo se è contenuto in un'estensione di Galois di grado $2^d$ per qualche $d \in \NN$.
+\end{theorem}
+
+\begin{proof}
+    Ci limiteremo solo a dimostrare che se $\alpha$ è contenuto in un'estensione di Galois di grado $2^d$ per qualche $d \in \NN$, allora $\alpha$ è costruibile. Sia $\alpha \in L$, con $\faktor{L}{\QQ}$ estensione di Galois e sia $G = \Gal\left(\faktor{L}{\QQ}\right)$, sappiamo 
+    per ipotesi che $|G| = 2^d$, $d \in \NN$, dunque esiste una catena di sottogruppi:
+    \[ \{e\} = G_d < G_{d-1} < \ldots < G_0 = G
+        \] 
+    dove ogni sottogruppo $G_{i+1}$ ha indice 2 nel sottogruppo $G_i$ che lo contiene, $\forall i \in \{0,\ldots,d-1\}$, dunque dalla teoria di Galois sappiamo che esiste la catena:
+    \[ L = L^{G_d} \supset L^{G_{d-1}} \supset \ldots \supset L^{G_0} = \QQ
+        \]
+    dove ogni campo $L^{G_{i+1}}$ ha grado 2 sul sottocampo $L^{G_{i}}$, $\forall i \in \{0,\ldots,d-1\}$ e quindi vale il \hyperref[3.76]{Teorema 3.76} che ci assicura che $\alpha$ sia costruibile.
+\end{proof}
+
+\newpage
+\subsection{Risolubilità per radicali}
+Dato $f(x) \in \QQ[x]$, con $\deg f(x) = n$ e $\alpha_1,\ldots,\alpha_n \in \ol \QQ$ radici di $f$, il problema che ci poniamo ora è chiederci se esista una formula che ci permetta di esprimere le radici di $f$
+in termini dei suoi coefficienti con espressioni di campo (somme, prodotti, etc...) e radicali. In alcuni casi ciò è possibile, ad esempio:
+\[ x^7 - 5 = 0 \implies x = \sqrt[7]{5}\zeta_7^i \qquad i = 0,\ldots,6
+    \]
+tuttavia in generale  si dimostra che non esiste una formula generale per tutti polinomi di grado $n$ fissato, per $n \geq 5$.
+
+\begin{definition}
+    Un polinomio $f(x)$ si può \vocab{risolvere per radicali} se il suo campo di spezzamento $\faktor{K}{\QQ}$ ammette una catena del tipo:
+    \[ \QQ = K_0 \subset K_1 \subset \ldots \subset K_n = K \qquad \text{con} \qquad K_{i+1} = K_i(\sqrt[m_i]{\gamma_i}), \gamma_i \in K_i
+        \]
+\end{definition}
+
+\begin{example}
+    Dato $x^7 - 5$, il cui campo di spezzamento è $K = \QQ(\sqrt[7]{5},\zeta_7)$ è tale che:
+    \[ \QQ \underbrace{\subset}_{\color{LimeGreen!90!black}{\Z7^*}} \QQ(\zeta_7) \underbrace{\subset}_{\color{LimeGreen!90!black}{\Z7}} \QQ(\sqrt[7]{5},\zeta_7)
+        \]
+    che dunque è una catena come quella richiesta dalla definizione, e quindi come già sapevamo il polinomio è risolubile per radicali.
+\end{example}
+
+\begin{remark}
+    Le estensioni per radicali, quando normali, hanno gruppo di Galois abeliano. Infatti, preso $K(\sqrt[n]{\gamma})$ e $x^n-\gamma$ il polinomio minimo di $\gamma$\footnote{Lo stiamo assumendo per semplicità, escludendo a priori altri possibili casi che possono presentarsi.}
+    allora l'estensione $\faktor{K(\sqrt[n]{\gamma})}{\QQ}$ è normale se $K$ contiene $\zeta_n$, ed in tal caso il gruppo di Galois è $\Zn$.
+\end{remark}
+
+\begin{remark}
+    Se $\faktor{L}{K}$ ha gruppo di Galois abeliano, allora esiste la successione:
+    \[ K_0 = L_0 \subset L_1 \subset \ldots \subset L_n = L
+        \]
+    dove tutti i gruppi di Galois delle singole estensioni sono ciclici, in quanto un gruppo abeliano ha una successione di sottogruppi (normali) con quozienti ciclici e quindi per corrispondenza di Galois, per un'estensione abeliana esiste una successione di questo tipo.
+\end{remark}
+
+A questo punto possiamo affermare che un polinomio si risolve per radicali se il suo campo di spezzamento ammette una catena:
+\[ L_0 = \QQ \subset L_1 \subset \ldots \subset L_n = L \qquad \text{con} \qquad \faktor{L_{i+1}}{L_i}\,\text{ciclico}
+    \]
+
+\begin{remark}
+    Vale anche il viceversa, se le radici di $f(x)$ appartengono ad un campo $L$, per cui esiste una catena ciclica del tipo visto sopra, allora $f(x)$ è risolubile per radicali. La dimostrazione di questo fatto si basa sul \href{https://en.wikipedia.org/wiki/Hilbert%27s_Theorem_90}{\textcolor{purple}{Teorema 90 di Hilbert}}, il quale
+    implica che se $\faktor{L}{K}$ è ciclica di grado $n$ e $\zeta_n \in K$, allora $L = K(\sqrt[n]{\gamma})$, $\gamma \in K$.
+\end{remark}
+
+Un polinomio generico irriducibile di grado $n$ ha come gruppo di Galois $S_n$\footnote{Andrebbe dimostrato bene, come molte cose in questa sezione, ma non è lo scopo di questa trattazione.}, dunque se $L$ è il campo di spezzamento di $f(x)$, abbiamo $\Gal\left(\faktor{L}{\QQ}\right) = S_n$, se $f(x)$ è risolubile per radicali, allora esiste la successione:
+\[ L_0 = \QQ \subset L_1 \subset \ldots \subset L_n = L \qquad \text{con} \qquad \faktor{L_{i+1}}{L_i}\,\text{ciclico}
+\]
+che per corrispondenza di Galois equivale ad una catena di sottogruppi normali in $S_n$ del tipo:
+\[ \{id\} = G_n \trianglelefteqslant \ldots \trianglelefteqslant G_1 \trianglelefteqslant G_0 = S_n \qquad \text{con} \qquad \faktor{G_{i}}{G_{i+1}}\,\text{ciclico}
+    \]
+Vediamo cosa accade al variare di $n$:
+\begin{itemize}
+    \item Se $n = 2$ abbiamo la catena di sottogruppi normali di $S_2$:
+    \[ \{id\} \trianglelefteqslant S_2
+        \]
+    \item Se $n = 3$ abbiamo la catena di sottogruppi normali di $S_3$:
+    \[ \{id\} \trianglelefteqslant \mathcal{A}_3 \trianglelefteqslant S_3
+        \]
+    \item Se $n = 4$ abbiamo la catena di sottogruppi normali di $S_4$:
+    \[ \{id\} \trianglelefteqslant V_4 \trianglelefteqslant \mathcal{A}_4 \trianglelefteqslant S_4
+        \]
+    \item Se $n \geq 5$, allora $S_n$ non ammette la catena normale con i quozienti ciclici, perché per quanto abbiamo visto, per $n \geq 5$, $S_n$ ha come unici sottogruppi normali $\{id\}$ e $\mathcal{A}_n$, ma quest ultimo è semplice per $n \geq 5$, quindi $S_n$ non è 
+    risolubile per $n \geq 5$, di conseguenza non esiste una formula risolutiva dell'equazione generale di grado $n$ per $n \geq 5$.
+\end{itemize}
+
+\newpage
+\subsection{Complementi su estensioni di omomorfismi e chiusura algebrica}
+
+\begin{theorem}
+[Estensione degli omomorfismi nel caso generale]
+\label{3.86}
+Data $\faktor{F}{K}$ un'estensione algebrica e $\varphi : K \varlonghookrightarrow \ol K$ un'immersione, allora esiste:
+\[ \widetilde{\varphi} : F \varlonghookrightarrow \ol K \qquad \text{con} \qquad \widetilde{\varphi}_{|K} = \varphi
+    \]
+\end{theorem}
+
+\begin{proof}
+Abbiamo già visto il teorema nel caso di un'estensione finita (\hyperref[3.39]{Corollario 3.39}\footnote{In questo caso il numero di
+immersioni distinte era dato dal numero  di radici distinte dell'elemento primitivo che generava l'estensione algebrica finita, ed essendo
+nelle ipotesi di separabilità, tale numero era uguale al grado del polinomio.}), per dimostrarlo in questo caso usiamo il \hyperref[zorn]{Lemma di Zorn}, sia:
+\[ X = \{(E,\psi) | K \subseteq E \subseteq F, \psi : E \varlonghookrightarrow \ol K : \psi_{|K} = \varphi\}
+    \]
+mostriamo che tale insieme è induttivo (ovvero che ogni catena ammette un maggiorante). Osserviamo inizialmente che $X \ne \emptyset$ in quanto $(K,\varphi) \in X$, definiamo ora un ordinamento
+parziale $\leqslant$ come segue:
+\[ (E_1,\psi_1) \leqslant (E_2,\psi_2) \iff E_1 \subseteq E_2 \qquad \text e \qquad \psi_{2|E_1} = \psi_1 \footnote{Si verifica facilmente che è un ordinamento parziale.}
+    \]
+sia ora:
+\[ \mathscr{C} = \{E_i,\psi_i\}_{i \in I}
+    \]
+una catena, consideriamo allora:
+\[ E = \bigcup_{i \in I}E_i
+    \]
+che è un campo in quanto unione di campi in catena. Si ha che $K \subseteq E \subseteq F$ (si verifica facilmente), inoltre possiamo definire:
+\[ \psi(x) = \psi_i(x) \qquad \forall x \in E, x \in E_i
+    \]
+quindi abbiamo $\psi : E \longrightarrow K : x \longmapsto \psi_i(x)$; verifichiamo che è ben definita, sia $x \in E_i$ e $x \in E_j$ vediamo che $\psi_i(x) = \psi_j(x)$ poiché $E_i \subseteq E_j$ (o viceversa), ed in tal caso:
+\[ \psi_{j|E_i} = \psi_i \implies \psi_j(x) = \psi_i(x)
+    \]
+Avendo trovato un maggiorante alla catena $\mathscr{C}$ abbiamo dimostrato che $(X,\leqslant)$ è induttivo e quindi esiste $(\mathscr{F},\psi)$ elemento massimale di $X$. Mostriamo che $\mathscr{F} = F$; chiaramente $\mathscr F \subseteq F$, 
+se fosse $\mathscr F \subsetneq F$, allora $\exists \alpha \in F \setminus \mathscr F \implies \mathscr{F}(\alpha) \subseteq F$\footnote{$\mathscr{F} \subseteq \mathscr{F}(\alpha)$ è finita perché $\alpha$ è algebrico.} e per il
+\hyperref[3.39]{Corollario 3.39} (nel caso finito appunto) $\widetilde{\varphi}$ si estende a:
+\[ \widetilde{\varphi}^{\prime} : \mathscr{F}(\alpha) \varlonghookrightarrow \ol K \qquad \text{con} \qquad \widetilde{\varphi}^{\prime}_{|\mathscr{F}} = \widetilde{\varphi}
+    \]
+quindi $\widetilde{\varphi}^{\prime}_{|K} = \widetilde{\varphi}_{|K} = \varphi$, ma ciò è assurdo perché $(\mathscr{F},\widetilde{\varphi})$ è massimale, ma $(\mathscr{F},\widetilde{\varphi}) \subsetneq (\mathscr{F}(\alpha),\widetilde{\varphi})$, pertanto $\mathscr{F} = F$.
+\end{proof}
+
+\pagebreak
+
+\begin{corollary}
+[Unicità della chiusura algebrica]
+Due chiusure algebriche di uno stesso campo $K$ sono isomorfe.\footnote{Ciò dimostra la seconda parte del \hyperref[3.25]{Teorema di esistenza e unicità della chiusura algebrica}.}
+\end{corollary}
+
+\begin{proof}
+Date $\Omega$, $\ol K$ chiusure algebriche di $K$ e vogliamo mostrare che $\Omega \cong \ol K$; sia:
+\[ i : K \varlonghookrightarrow \ol K
+    \]
+poiché $\faktor{\Omega}{K}$ è algebrica, per il \hyperref[3.86]{Teorema 3.86} $i$ si estende ad un'immersione:
+\[ \varphi : \Omega \varlonghookrightarrow \ol K \qquad \text{con} \qquad \varphi_{|K} = i
+    \]
+tale estensione è iniettiva ($\Omega$ è un campo). Mostriamo che $\varphi$ è anche surgettiva, ovvero $\varphi(\Omega) = \ol K$, osserviamo che:
+\begin{itemize}
+    \item Poiché $\Omega$ è un campo algebricamente chiuso, per ipotesi, $\varphi(\Omega)$ è algebricamente chiuso, dunque, preso $p(x) \in \varphi(\Omega)[x]$, con $\deg p(x) \geq 1$ e:
+    \[ p(x) = \varphi(q(x)) \qquad \text{con} \qquad q(x) \in \Omega[x]
+        \]
+    ma essendo $\Omega$ algebricamente chiuso, allora $\exists \alpha \in \Omega$ tale che $q(\alpha) = 0$, da cui:
+    \[ \varphi(\alpha) = \beta \in \varphi(\Omega) \qquad \text e \qquad p(\beta) = \varphi(q(\alpha)) = \varphi(q)(\varphi(\alpha)) = 0 (= \varphi(0))
+        \]
+    \item Dato che $\varphi(\Omega)$, sia $\gamma \in \ol K$, $\gamma$ è algebrico su $K$, e quindi è algebrico anche su $\varphi(\Omega) \supset K$, ma poiché $\varphi(\Omega)$ è algebricamente chiuso si ha 
+    $\gamma \in \varphi(\Omega) \implies \varphi(\Omega) = \ol K \implies \Omega \cong \ol K$.
+\end{itemize}
+\end{proof}
+
 \end{document}

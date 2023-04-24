@@ -5004,4 +5004,54 @@ Più in generale vale il seguente teorema, di cui non diamo la dimostrazione.
     \end{enumerate}
 \end{theorem}   
 
+\newpage
+\subsection{Teorema fondamentale dell'algebra}
+\begin{theorem}
+    [Teorema fondamentale dell'algebra]
+    $\CC$ è algebricamente chiuso, ovvero ogni polinomio non costante in $\CC[x]$ ammette almeno una radice in $\CC$.
+\end{theorem}
+
+\begin{proof}
+    Dato $p(x) \in \CC[x]$, non costante, vogliamo dimostrare che $\exists \alpha \in \CC$ tale che $p(\alpha) = 0$; detto:
+    \[ q(x) := p(x) \cdot \ol{p(x)} \in \RR[x]
+        \]
+    dove $\ol{p(x)}$ è il polinomio coniugato di $p(x)$\footnote{Il polinomio che si ottiene da $p(x)$ scambiando i suoi coefficienti con i loro complessi coniugati.} e $q(x) \in \RR[x]$ in quanto ad esempio:
+    \[ \ol{q(x)} = \ol{p(x)} \cdot \ol{\ol{p(x)}} = \ol{p(x)} \cdot p(x)
+        \]
+    quindi coincide con il suo coniugato e dunque sta in $\RR[x]$\footnote{La stessa cosa si poteva giustificare anche dai coefficienti.}. A questo punto è sufficiente far vedere che $q(x)$ ha una radice complessa, in quanto, se
+    $q(\alpha) = 0$, o $p(\alpha) = 0$ e quindi abbiamo la tesi, oppure $\ol{p(\alpha)} = 0 \iff \ol{\ol{p(\alpha)}} = 0$ che è equivalente al dire che $\exists \ol \alpha \in \CC$ tale che $p(\ol\alpha) = 0$ e quindi di nuovo la tesi (sostanzialmente se il 
+    coniugato si annulla, allora anche il polinomio iniziale deve annullarsi). Possiamo quindi considerare $q(x) \in \RR[x]$ e chiamare $K$ il campo di spezzamento di $q(x)$ su $\RR$, sia $G = \Gal\left(\faktor{K}{\RR}\right)$ e $P_2 < G$ un 2-Sylow di $G$, abbiamo il diagramma:
+    \[\begin{tikzcd}
+        {\displaystyle K} \\
+        & {\displaystyle K^{P_2} = \RR(\beta)} \\
+        {\displaystyle\mathbb{R}}
+        \arrow["{\displaystyle d}"', no head, from=3-1, to=2-2]
+        \arrow["{\displaystyle|P_2|}", no head, from=1-1, to=2-2]
+        \arrow[no head, from=3-1, to=1-1]
+    \end{tikzcd}\]
+    con $d = [K^{P_2} : \RR]$ dispari in quanto $d = \displaystyle\frac{|G|}{|P_2|}$ e per definizione $|P_2|$ è la massima potenza di 2 che divide $|G|$\footnote{Nel caso in cui il 2-Sylow fosse banale avremmo che $K = \RR$ e quindi non stiamo veramente estendendo il campo.}, inoltre per il Teorema dell'elemento primitivo, essendo $\faktor{K^{P_2}}{\RR}$ un'estensione finita è generata da un singolo elemento 
+    $\beta \in K$, possiamo quindi concludere che il polinomio minimo di $\beta$ su $K$, $\mu_\beta(x)$ ha grado dispari. Poiché $\mu_\beta(x) \in \RR[x]$ e $\mu_\beta(x)$ è un polinomio di grado dispari, vale il Teorema di esistenza degli zeri, dunque $\mu_\beta(x)$ ha almeno una radice in $\RR$, ma 
+    per definizione di polinomio minimo $\mu_\beta(x)$ è irriducibile su $\RR$, dunque l'unica possibilità è che $d = \deg \mu_\beta(x) = 1$\footnote{Il fatto che gli unici polinomi irriducibili in $\RR[x]$ siano di grado 1 o 2 è una conseguenza del Teorema fondamentale dell'algebra, quindi in questo caso non 
+    stiamo usando quel risultato.}, pertanto il gruppo di Galois dell'estensione $\faktor{K}{\RR}$ non può contenere sottoestensioni di grado dispari, quindi $[K : \RR] = 2^n$, $n \in \NN$. Essendo $G$ un $p$-gruppo, sappiamo dalla teoria che esiste una catena del tipo:
+    \[ \{e\} = G_n \trianglelefteqslant \ldots \trianglelefteqslant G_2 \trianglelefteqslant G_1 \trianglelefteqslant G_0 = G
+        \]
+    in cui l'indice di ogni sottogruppo normale nel successivo è esattamente $p$ (quindi 2 in questo caso), ciò si riflette per Corrispondenza di Galois in una catena di sottoestensioni di $\faktor{K}{\RR}$ del tipo:
+    \[\begin{tikzcd}
+        {K = K^{G_n}} \\
+        {K^{G_{n-1}}} \\
+        \vdots \\
+        {K^{G_2} = \mathbb{C}(\sqrt{\gamma_2})} \\
+        {K^{G_1} = \mathbb{R}(\sqrt{\gamma_1})} \\
+        {\mathbb{R}}
+        \arrow["2"', no head, from=1-1, to=2-1]
+        \arrow["2"', no head, from=2-1, to=3-1]
+        \arrow["2"', no head, from=3-1, to=4-1]
+        \arrow["2"', no head, from=5-1, to=6-1]
+        \arrow["2"', no head, from=4-1, to=5-1]
+    \end{tikzcd}\]
+    dove $K^{G_1} = \mathbb{R}(\sqrt{\gamma_1})$ in quanto ogni estensione di grado 2 (in caratteristica diversa da 2) si ottiene estraendo una radice quadrata, inoltre se $\gamma_1 > 0$, allora $K^{G_1} = \RR$, ma questo non è possibile perché di grado 2, quindi $\gamma_1 < 0$, ed in questo caso $K^{G_1} = \CC$ 
+    poiché $\mathbb{R}(\sqrt{\gamma_1}) = \RR(\sqrt{-1}) \iff (-1)\cdot \gamma_1 > 0 $ è un quadrato in $\RR$, ed essendo il prodotto positivo è sempre vero, dunque $K^{G_1} = \CC$. Infine, si osserva che ancora una volta $K^{G_2}$, avendo grado 2, si ottiene estraendo una radice quadrata da $K^{G_1} = \CC$, ma in $\CC$ ogni 
+    elemento è un quadrato, quindi $\CC$ non si può estendere ulteriormente, dunque $K = \CC$, pertanto i polinomi a coefficienti reali hanno tutte le loro radici in $\CC$ e per quanto detto all'inizio ciò significa che tutti i polinomi in $\CC[x]$ hanno tutte le loro radici in $\CC$, che quindi è algebricamente chiuso.
+\end{proof}
+
 \end{document}
