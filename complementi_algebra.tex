@@ -175,7 +175,7 @@ Dato $p$ un primo, allora \[
 
 \begin{proof}
     Osserviamo che un elemento di $\Aut((\Zp)^n)$ deve necessariamente mandare 
-    una base di $(\Zp)^n$ in un'altra base, e si dermina univocamente in questo 
+    una base di $(\Zp)^n$ in un'altra base, e si determina univocamente in questo 
     modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
     \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(v_1)$ può assumere
     qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
@@ -384,7 +384,7 @@ in particolare $\langle r^k\rangle$ e $\langle sr^h\rangle$, $h \in \ZZ$, sono
 contenuti in $H$. 
 
 \begin{proposition}
-    Dati $H\leqslant D_n$ un sottogruppo tale che $H\nsubseteq \mathcal{R}$, se
+    Dato $H\leqslant D_n$ un sottogruppo tale che $H\nsubseteq \mathcal{R}$, se
     $r$ è un generatore di $\mathcal{R}$ tale che $H\cap\mathcal{R} = \langle r^k\rangle$ 
     e $s$ è una simmetria allora \[
     H = \langle r^k\rangle\cdot\langle sr^h\rangle = \{xy \mid x \in \langle r^k\rangle,
@@ -2135,7 +2135,7 @@ dire qualcosa di più forte nei casi $n \neq 2$ e $n \neq 6$.
 \end{theorem}
 
 \begin{remark}
-    In particolare gli automorfismo di $S_n$ sono tutti interni nei casi $n \notin \{2, 6\}$,
+    In particolare gli automorfismi di $S_n$ sono tutti interni nei casi $n \notin \{2, 6\}$,
     cioè sono coniugi per elementi di $S_n$
 \end{remark}
 
@@ -2167,7 +2167,7 @@ Iniziamo osservando che $S_5$ contiene 6 5-Sylow, infatti tali sottogruppi
 sono isomorfi a $\Z5$ e, essendo i 5-cicli gli unici elementi di ordine 5,
 $S_5$ ne contiene esattamente 
 \[
-    \frac{1}{\phi(5)} \binom{5}{4}3! = 6
+    \frac{1}{\phi(5)} \binom{5}{5}4! = 6
 \]
 Posto $X = \{P_1, \ldots, P_6\}$ l'insieme dei 5-Sylow di $S_5$, consideriamo l'azione di coniugio 
 di $S_5$ su $X$
@@ -2182,7 +2182,7 @@ pertanto $\ker\varphi = \{id\}$ oppure $\ker\varphi = \mathcal{A}_5$. D'altra pa
 se fosse $\ker\varphi = \mathcal{A}_5$ si avrebbe che $|\mathrm{Im}\varphi| = 2$,
 pertanto l'orbita di ogni elemento ha cardinalità 2, che è assurdo in quanto
 $\Orb(P_i) = X$ per ogni $P_i \in X$ per transitività di $\varphi$, quindi l'azione
-è inettiva.\newline
+è iniettiva.\newline
 La transitività di $\varphi$ implica che $\Phi$ sia un'azione transitiva
 di $S_5$ sull'insieme $\{1, \ldots, 6\}$, notiamo quindi che $\mathrm{Im}\Phi$
 non può essere lo stabilizzatore di un elemento di $\{1, \ldots, 6\}$
@@ -2731,7 +2731,7 @@ casi.
     sottogruppo normale non banale di $G$, cioè $G$ non è semplice;
     \item se $n_5 = 16$ allora $G$ contiene $4\cdot 16 = 64$ elementi di ordine
     $5$ (dato che i 5-Sylow di $G$ sono isomorfi a $\Z5$), pertanto i restanti
-    15 elementi devono esserre contenuti in un unico 2-Sylow, che è quindi normale.
+    15 elementi devono essere contenuti in un unico 2-Sylow, che è quindi normale.
     Allora $G$ non è semplice. \newline Alternativamente, consideriamo $P_2$ un 2-Sylow
     e l'azione di moltiplicazione a sinistra di $G$ sull'insieme quoziente $\faktor{G}{P_2}$
     \[
@@ -2849,7 +2849,7 @@ $\mathcal{A}_5$ è l'unico sottogruppo semplice di tale ordine (a meno di isomor
         allora per il \hyperref[teorema1.50]{Teorema 1.50} $G$ conterrebbe
         un sottogruppo normale non banale di indice al più $3!$, che è assurdo.
         Abbiamo quindi $|N_G(H)| = 12$, consideriamo l'azione di 
-        moltiplicazione a sinistra di $G$ sull'insieme quoziente $\faktor G H$
+        moltiplicazione a sinistra di $G$ sull'insieme quoziente $\faktor{G}{N_G(H)}$
         \[
             \varphi : G\longrightarrow S\left(\faktor{G}{N_G(H)}\right)\cong S_5
         \]
@@ -3143,7 +3143,7 @@ Sia $P = (p)$ un ideale primo non nullo di $\ZZ$, consideriamo $S = \ZZ \setminu
 $S$ è una parte moltiplicativa di $\ZZ$, infatti
 \begin{itemize}
     \item $0 \notin S$ in quanto $0 \in P$;
-    \item $1 \in S$ in quanto $0 \notin P$;
+    \item $1 \in S$ in quanto $1 \notin P$;
     \item per ogni $x, y \in S$ vale $xy \in S$, infatti se $x, y \notin P$
     allora $xy \notin P$ poiché $P$ è un ideale primo.
 \end{itemize}
@@ -3245,7 +3245,7 @@ mentre l'insieme degli ideali primi di $\ZZ[x]$ contenenti $p$ è
 \]
 
 Supponiamo adesso che $P$ sia un ideale primo di $\ZZ[x]$ tale che 
-$P \cap \ZZ = 0$. $S = \ZZ\setminus \{0\}$ è una parte moltiplicativa di 
+$P \cap \ZZ = (0)$. $S = \ZZ\setminus \{0\}$ è una parte moltiplicativa di 
 $\ZZ$ e l'ipotesi appena data su $P$ può essere espressa come $P \cap S = \emptyset$.
 Consideriamo la bigezione 
 \[
