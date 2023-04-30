@@ -4179,7 +4179,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 \end{definition}
 
 \begin{proposition}[Estensione finita$\implies$algebrica]
-    \label{3.11}
+    \label{3.12}
     Ogni estensione di grado finito è algebrica.
 \end{proposition}
 
@@ -4192,7 +4192,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 \end{proof}
 
 \begin{proposition}[Campo delle estensioni algebriche]
-    \label{3.12}
+    \label{3.13}
     Data un'estensione $\faktor{L}{K}$, sia $A = \{\alpha \in L | \, \text{$\alpha$ è algebrico su $K$}\}$, allora $A$ è un campo (ed ovviamente
     è un'estensione algebrica di $K$).
 \end{proposition}
@@ -4202,17 +4202,17 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
     \[ K \subseteq K(\alpha) \subseteq K(\alpha)(\beta) = K(\alpha,\beta)
         \]
     la prima estensione è finita per ipotesi, mentre la seconda è finita per la \hyperref[3.10]{Proposizione 3.10} in quanto estensione composta da $K(\alpha)$ e $K(\beta)$ (entrambe semplici e quindi finite perché algebriche, per la \hyperref[3.7]{Proposizione 3.7}).
-    Essendo dunque $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.11]{Proposizione 3.11}
+    Essendo dunque $K \subseteq K(\alpha,\beta)$ un'estensione finita, per la \hyperref[3.12]{Proposizione 3.12}
     è algebrica, quindi tutti gli elementi $\alpha\pm\beta$, $\alpha\beta$, $\displaystyle\frac{1}{\alpha}$ e $\displaystyle\frac{1}{\beta}$ sono algebrici su $K$, pertanto $A$ è un campo.
 \end{proof}
 
 \begin{remark}
-    Il viceversa della \hyperref[3.11]{Proposizione 3.11} in generale è falso; non lo è nel caso in cui l'estensione sia semplice, come visto nella \hyperref[3.7]{Proposizione 3.7}.
+    Il viceversa della \hyperref[3.12]{Proposizione 3.12} in generale è falso; non lo è nel caso in cui l'estensione sia semplice, come visto nella \hyperref[3.7]{Proposizione 3.7}.
 \end{remark}
 
 \begin{example}
     [Estensione algebrica non finita]
-    Consideriamo l'estensione $\QQ \subset \CC$, e l'insieme $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, costruito come nella \hyperref[3.12]{Proposizione 3.12},
+    Consideriamo l'estensione $\QQ \subset \CC$, e l'insieme $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, costruito come nella \hyperref[3.13]{Proposizione 3.13},
     che è un'estensione algebrica di $\QQ$. Verifichiamo che $[\overline\QQ:\QQ] = +\infty$; consideriamo la torre:
     \[ \QQ \subset \QQ(\sqrt[n]{2}) \subset \overline \QQ \qquad \forall n \geq 2
         \]
@@ -4286,7 +4286,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
                 \]
             dove la prima estensione è finitamente generata da elementi algebrici (perché $\forall a_i \in L$, $a_i$ è algebrico su $K$), pertanto è finita per la \hyperref[3.17]{Proposizione 3.17}, inoltre la seconda 
             estensione è a sua volta finita perché estensione semplice algebrica (quindi vale la \hyperref[3.7]{Proposizione 3.7}), di conseguenza, per il \hyperref[torri]{Teorema delle torri}, la torre di estensione è finita,
-            $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.11]{Proposizione 3.11} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
+            $[L_0(\alpha) : K] < +\infty$, dunque, sempre per la \hyperref[3.12]{Proposizione 3.12} $\faktor{L_0(\alpha)}{K}$ è algebrica. Abbiamo quindi dimostrato che $\alpha \in F$ è algebrico su $K$, $\forall \alpha \in F$,
             dunque $\faktor{F}{K}$ è algebrica.
         \item Sia $\faktor{LM}{K}$ algebrica e sia $\alpha \in M \subset LM$, allora è algebrico su $K$, in quanto tutti gli elementi di $LM$ già lo erano, dunque non stiamo facendo altro che prendere una sottoestensione di un'estensione algebrica, che quindi 
         sarà a sua volta algebrica, ovvero $\faktor{M}{K}$ algebrica; in maniera identica $\faktor{L}{K}$ è anch'essa algebrica.\footnote{Con lo stesso argomento del punto precedente si potrebbe anche far vedere che $\displaystyle\faktor{LM}{K}$ algebrica implica $\displaystyle\faktor{LM}{L}$ e $\displaystyle\faktor{LM}{M}$ algebriche.}\\
@@ -4337,7 +4337,7 @@ otteniamo che $m \mid d$ e $n \mid d$, da cui la tesi.
 
 \begin{example}
     Consideriamo $\overline\QQ = \{\alpha \in \CC | \, \text{$\alpha$ è algebrico su $\QQ$}\}$, tale insieme è un campo, per quanto asserito nella
-    \hyperref[3.12]{Proposizione 3.12}, ed è per una chiusura algebrica di $\QQ$, infatti $\faktor{\overline\QQ}{\QQ}$ è un'estensione algebrica per definizione.
+    \hyperref[3.13]{Proposizione 3.13}, ed è per una chiusura algebrica di $\QQ$, infatti $\faktor{\overline\QQ}{\QQ}$ è un'estensione algebrica per definizione.
     Verifichiamo che $\overline\QQ$ è algebricamente chiuso; sia $f(x) \in \overline\QQ[x]$ non costante, allora $f(x)$ ammette almeno una radice $\alpha \in \CC$, poiché
     $f(x) \in \overline\QQ[x] \subset \CC[x]$ e $\CC$ è algebricamente chiuso. Per mostrare che $\alpha \in \overline\QQ$, bisogna
     dimostrare che $\alpha$ è algebrico su $\QQ$, consideriamo la torre:
