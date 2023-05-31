@@ -77,7 +77,7 @@ una copia della licenza visita il sito web \href{http://creativecommons.org/lice
 Dato un gruppo $G$ possiamo definire l'insieme degli automorfismi di $G$ come segue:
     \[ \Aut(G) = \{\varphi : G \longrightarrow G |\, \varphi \, \text{isomorfismo}\}
         \]
-si verifica facilmente che $(\Aut(G), \circ)$ è un gruppo, e in particolare $\Aut(G) \leqslant S(G)$,
+si verifica facilmente che $(\Aut(G), \circ)$ è un gruppo, e in particolare $\Aut(G) \leqslant \Sym(G)$,
 ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\varphi \in \Aut(G) \implies 
 \varphi^{-1} \in \Aut(G)$ e $\varphi,\psi \in \Aut(G) \implies \varphi \circ \psi \in \Aut(G)$.
 
@@ -315,7 +315,7 @@ ciò significa che si hanno al più $3!$ automorfismi, dunque:
 
 \begin{definition}
     Sia $G$ un gruppo e $X$ un insieme, un'\vocab{azione} di $G$ su $X$ è un omomorfismo:
-        \[ \varphi : G \longrightarrow S(X) : g \longmapsto \varphi_g 
+        \[ \varphi : G \longrightarrow \Sym(X) : g \longmapsto \varphi_g 
             \]
     dove $\varphi_g : X \longrightarrow X : x \longmapsto \varphi_g(x)$\footnote{Alternativamente si può indicare l'immagine con $\varphi_g : x \longmapsto g \ast x$ dove il simbolo $\ast$ indica l'azione di $g$ su $x$.},
      con $\varphi_g$ bigettiva, $\forall g \in G$. Si può definire un'azione anche come:
@@ -325,7 +325,7 @@ ciò significa che si hanno al più $3!$ automorfismi, dunque:
 \end{definition}
 
 \begin{example}
-    Sia $X = G$, quindi $\varphi : G \longrightarrow S(G) : g \longmapsto \varphi_g$, con $\varphi_g$ coniugio, $\varphi$ è un'azione. Come si è visto nell'($1$)
+    Sia $X = G$, quindi $\varphi : G \longrightarrow \Sym(G) : g \longmapsto \varphi_g$, con $\varphi_g$ coniugio, $\varphi$ è un'azione. Come si è visto nell'($1$)
     della \hyperref[prop1]{Proposizione 1.3} $\varphi_g$ è un automorfismo di $G$ (e quindi una bigezione), e $\varphi$ è un omomorfismo. In questo caso si ha che:
         \[ \varphi_g(x) = gxg^{-1}
             \]
@@ -338,10 +338,10 @@ ciò significa che si hanno al più $3!$ automorfismi, dunque:
     con $\varphi_\lambda : V \longrightarrow V : \underline v \longmapsto \lambda \underline v$, $\varphi$ è un'azione di $K^*$ su $V$.
 \end{example}
 
-Sia $\varphi: G \longrightarrow S(X)$ un'azione, $\varphi$ definisce una relazione di equivalenza su $X$:
+Sia $\varphi: G \longrightarrow \Sym(X)$ un'azione, $\varphi$ definisce una relazione di equivalenza su $X$:
     \[ x \sim y \iff \exists g \in G : \varphi_g(x) = y
         \]
-    ovvero due elementi sono in relazione se esiste un'applicazione $\varphi_g \in S(X)$, per cui un elemento è l'immagine dell'altro mediante 
+    ovvero due elementi sono in relazione se esiste un'applicazione $\varphi_g \in \Sym(X)$, per cui un elemento è l'immagine dell'altro mediante 
     tale applicazione. La relazione è appunto di equivalenza, infatti: $x \sim x$, per $g = e$ si ha (essendo $\varphi$ un omomorfismo) $\varphi_e(x) = id(x) = x$, 
     $x \sim y \implies y \sim x$:
         \[ \varphi_g(x) = y \implies x = \varphi_g^{-1}(y) = \varphi_{g^{-1}}(y)
@@ -366,11 +366,11 @@ applicazioni (permutazioni) dell'insieme $\varphi(G)$.
         \[ \St(x) = \{g \in G | \varphi_g(x) = x\}
             \]
 \end{definition}
-Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in S(X)$, che lasciano fisso un determinato elemento.
+Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine mediante $\varphi$ alle applicazioni $\varphi_g \in \Sym(X)$, che lasciano fisso un determinato elemento.
 
 \begin{example}
     Se $X = \RR^2$ e $G$ è il gruppo di traslazioni di vettore $\ul v = (0, l)$, allora:
-        \[ \varphi : G \longrightarrow S(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)} \footnote{Si osserva che il primo $\tau_{(0,l)}$ è un elemento del gruppo $G$, mentre il secondo è un'applicazione bigettiva di $X$.}
+        \[ \varphi : G \longrightarrow \Sym(X) : \tau_{(0,l)} \longmapsto \tau_{(0,l)} \footnote{Si osserva che il primo $\tau_{(0,l)}$ è un elemento del gruppo $G$, mentre il secondo è un'applicazione bigettiva di $X$.}
             \]
     con:
         \[ \Orb(x,y) = \{(x,y + l) | l \in \RR\}
@@ -397,7 +397,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 
 \begin{proposition}
     [$\St(x) \leqslant G$]
-    Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow S(X)$, si ha che $\St(x) \leqslant G$.\footnote{In generale lo
+    Dato un gruppo $G$ e un'azione $\varphi : G \longrightarrow \Sym(X)$, si ha che $\St(x) \leqslant G$.\footnote{In generale lo
      stabilizzatore non è un sottogruppo normale.}
 \end{proposition}
 
@@ -569,7 +569,7 @@ con $|Z(G)| = p^z$, $0 \leq z \leq n$, facciamo due osservazioni fondamentali:
 
 \newpage
 \subsection{Azione di coniugio su un sottogruppo}
-Sia $X = \{H \leqslant G\}$ e $\varphi : G \longrightarrow S(X) : g \longmapsto \varphi_g(X)$, con $\varphi_g : X \longrightarrow X : H \longmapsto gHg^{-1} = \{ghg^{-1} | h \in H\}$. 
+Sia $X = \{H \leqslant G\}$ e $\varphi : G \longrightarrow \Sym(X) : g \longmapsto \varphi_g(X)$, con $\varphi_g : X \longrightarrow X : H \longmapsto gHg^{-1} = \{ghg^{-1} | h \in H\}$. 
     Si verifica facilmente che $\varphi$ è un omomorfismo; mostriamo invece che $\varphi_g$ è una permutazione (cioè bigettiva), per l'iniettività si osserva che:
         \[ \varphi_g(H) = \varphi_g(K) \iff gHg^{-1} = gKg^{-1} \iff H = K
             \]
@@ -616,16 +616,16 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
     [Teorema di Cayley]
     \label{p:Cayley}
     Ogni gruppo è isomorfo ad un sottogruppo di un gruppo di permutazioni. In particolare, se $|G| = n$, allora 
-    $G$ è isomorfo a un sottogruppo di $S_n$.
+    $G$ è isomorfo a un sottogruppo di $\Sym_n$.
 \end{theorem}
 
 \begin{proof}
     Definiamo la mappa:
-        \[ \lambda : G \varlonghookrightarrow S(G) : g \longmapsto \varphi_g
+        \[ \lambda : G \varlonghookrightarrow \Sym(G) : g \longmapsto \varphi_g
             \]
     con $\varphi_g : G \longrightarrow G : x \longmapsto gx$, l'applicazione $\lambda$ prende il nome di \vocab{rappresentazione regolare a sinistra} di $G$, si 
     vuole dimostrare che $\lambda$ è un omomorfismo iniettivo.
-    Osserviamo innanzitutto che $\lambda$ è ben definita, cioè $\varphi_g \in S(G)$, infatti $\varphi_g$ è iniettiva (segue dalle leggi di cancellazione) e 
+    Osserviamo innanzitutto che $\lambda$ è ben definita, cioè $\varphi_g \in \Sym(G)$, infatti $\varphi_g$ è iniettiva (segue dalle leggi di cancellazione) e 
     surgettiva, perché $\forall y \in G$, $\exists g^{-1}y \in G : \varphi_g(g^{-1}y) = y$. Verifichiamo che $\lambda$ è un omomorfismo:
         \[ \lambda(g_1g_2) = \varphi_{g_1g_2}
             \]
@@ -636,11 +636,11 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
     infine, per l'iniettività si ha che:
         \[ \ker \lambda = \{g \in G | \lambda(g) = \varphi_g = id = \varphi_e\} = \{e\}
             \]
-    da ciò segue che $G \cong \lambda(G) \leqslant S(G)$, e se $|G| = n$ si ha che $\Imm(G) \leqslant S_n$.
+    da ciò segue che $G \cong \lambda(G) \leqslant \Sym(G)$, e se $|G| = n$ si ha che $\Imm(G) \leqslant \Sym_n$.
 \end{proof}
 
 \begin{remark}
-    In generale, dato $G = \left\{g_1 = e,g_2, \ldots, g_n\right\}$ e $\lambda : G \varlonghookrightarrow S(G) \cong S_n$, si ha che:
+    In generale, dato $G = \left\{g_1 = e,g_2, \ldots, g_n\right\}$ e $\lambda : G \varlonghookrightarrow \Sym(G) \cong \Sym_n$, si ha che:
         \[ g_1 = e \longmapsto \lambda_{g_1} \qquad \text{con} \qquad \lambda_{g_1}: G \longrightarrow G : g_i \longmapsto g_i
             \]
         \[ g_2 \longmapsto \lambda_{g_2} \qquad \text{con} \qquad \lambda_{g_2} : G \longrightarrow G : x \longmapsto g_2x \longmapsto g_2^2x \longmapsto \ldots \longmapsto g_2^{k-1}x
@@ -682,7 +682,7 @@ infatti $\lambda(e) = \lambda_e = id$ e inoltre
 da cui $\lambda$ fedele.
 
 \begin{remark}
-    Esiste anche un'applicazione $\rho : G \longrightarrow S(G) (\cong S_n)$, ($n = |G|$), detta azione di \vocab{rappresentazione regolare a destra}, con:
+    Esiste anche un'applicazione $\rho : G \longrightarrow \Sym(G) (\cong \Sym_n)$, ($n = |G|$), detta azione di \vocab{rappresentazione regolare a destra}, con:
         \[ g \longmapsto \rho_g : x \longmapsto xg^{-1}
             \]
 \end{remark}
@@ -752,7 +752,7 @@ Ricordiamo brevemente che:
     Dato un insieme $X$ si definisce \vocab{permutazione} un'applicazione bigettiva di $X$ in se stesso.
 \end{definition}
 
-Indichiamo con $S(X)$ il gruppo delle permutazioni di $X$ e con $S_n$ il gruppo delle permutazioni di un insieme di cardinalità $n$, che 
+Indichiamo con $\Sym(X)$ il gruppo delle permutazioni di $X$ e con $\Sym_n$ il gruppo delle permutazioni di un insieme di cardinalità $n$, che 
 per semplicità indichiamo con $\{1,\ldots,n\}$.
 Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in S_{12}$ si può rappresentare mediante la matrice di permutazione:
     \[ \sigma = \left(\begin{array}{cccccccccccc}
@@ -765,11 +765,11 @@ o anche con la notazione dei cicli:
             \]
 ogni ciclo prende il nome di \vocab{$k$-ciclo} (dove $k$ indica la sua lunghezza), come si osserva i cicli di lunghezza $1$ sono stati omessi,
 in quanto lasciano fissi gli elementi, inoltre, i $2$-cicli prendono il nome di \vocab{trasposizioni}.\\
-Formalmente, sia $\sigma \in S_n$ una permutazione di un insieme di $n$ elementi, per descrivere tale permutazione
+Formalmente, sia $\sigma \in \Sym_n$ una permutazione di un insieme di $n$ elementi, per descrivere tale permutazione
  possiamo considerare l'insieme $X$, con $|X| = n$, il gruppo $G = \left<\sigma\right>$ e definire l'azione:
-    \[ \varphi : G = \left<\sigma\right> \varlonghookrightarrow S(X) \cong S_n : \sigma \longmapsto \sigma
+    \[ \varphi : G = \left<\sigma\right> \varlonghookrightarrow \Sym(X) \cong \Sym_n : \sigma \longmapsto \sigma
         \]
-con $\sigma \in S_n$ e $\sigma : i \longmapsto \sigma(i)$, dunque abbiamo definito l'azione $\left<\sigma\right> \circlearrowleft X$ data dall'inclusione, la quale ci permetterà di descrivere come
+con $\sigma \in \Sym_n$ e $\sigma : i \longmapsto \sigma(i)$, dunque abbiamo definito l'azione $\left<\sigma\right> \circlearrowleft X$ data dall'inclusione, la quale ci permetterà di descrivere come
 $\sigma$ agisce sull'insieme $\{1,\ldots,n\}$. Osserviamo che:
     \[ \Orb(x) = \{\sigma(x) | \sigma \in \left<\sigma\right>\} = \{\sigma^l(x) | l \in \NN\} = \{x, \sigma(x), \sigma^2(x),\ldots,\sigma^{m_x-1}(x)\}
         \]
@@ -782,7 +782,7 @@ Dunque vale che $\sigma^{k-h}(x) = x \in \{x,\ldots,\sigma^{k-1}(x)\}$ e per la 
 L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $\sigma$ agisce ciclicamente (ovvero $\sigma(\Orb(x)) = \Orb(x)$).
 
 \begin{definition}
-    Si dice \vocab{ciclo} di $\sigma \in S_n$ l'orbita di un elemento $x \in \{1,\ldots,n\}$ vista come insieme ordinato:
+    Si dice \vocab{ciclo} di $\sigma \in \Sym_n$ l'orbita di un elemento $x \in \{1,\ldots,n\}$ vista come insieme ordinato:
         \[ (x,\sigma(x),\ldots,\sigma^{m_x-1}(x))
             \]
 \end{definition}
@@ -792,7 +792,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{remark}
 
 \begin{remark}
-    Data $\sigma \in S_n$, essa è determinata dalle immagini di $\{1,\ldots,n\}$, dunque è determinata dai suoi cicli.
+    Data $\sigma \in \Sym_n$, essa è determinata dalle immagini di $\{1,\ldots,n\}$, dunque è determinata dai suoi cicli.
 \end{remark}
 
 \begin{example}
@@ -845,7 +845,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \pagebreak
 
 \begin{corollary}
-    $S_n$ è generato dalle permutazioni cicliche.
+    $\Sym_n$ è generato dalle permutazioni cicliche.
 \end{corollary}
 
 \begin{proof}
@@ -873,7 +873,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 
 \begin{remark}
     Quanto visto nell'esempio precedente può essere generalizzato ottenendo:
-        \[ \#\{\sigma \in S_n | \sigma\,\text{è un $k$-ciclo}\} = \binom{n}{k}\frac{k!}{k} = \binom{n}{k}(k-1)!
+        \[ \#\{\sigma \in \Sym_n | \sigma\,\text{è un $k$-ciclo}\} = \binom{n}{k}\frac{k!}{k} = \binom{n}{k}(k-1)!
             \]
 \end{remark}
 
@@ -888,7 +888,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 
 \begin{proposition}
     [Ordine di una permutazione]
-    Data $\sigma \in S_n$ con $\sigma = \sigma_1\ldots\sigma_k$, con $\sigma_i$ cicli disgiunti, allora:
+    Data $\sigma \in \Sym_n$ con $\sigma = \sigma_1\ldots\sigma_k$, con $\sigma_i$ cicli disgiunti, allora:
         \[ \ord \sigma = [\ord \sigma_1,\ldots, \ord\sigma_k]
             \]
 \end{proposition}
@@ -908,9 +908,9 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{proof}
 
 \begin{proposition}
-    [$S_n$ è generato dalle trasposizioni]
+    [$\Sym_n$ è generato dalle trasposizioni]
     \label{trasp}
-    Le trasposizioni generano $S_n$, $\forall n \geq 2$.
+    Le trasposizioni generano $\Sym_n$, $\forall n \geq 2$.
 \end{proposition}
 
 \begin{proof}
@@ -936,7 +936,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 
 \begin{proposition}[Segno di una permutazione]
     L'applicazione:
-        \[ sgn : S_n \longrightarrow \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq n} \frac{\sigma(i) - \sigma(j)}{i - j}
+        \[ sgn : \Sym_n \longrightarrow \{\pm1\} : \sigma \longmapsto sgn(\sigma) = \prod_{1 \leq i < j \leq n} \frac{\sigma(i) - \sigma(j)}{i - j}
             \]
     è un omomorfismo di gruppi. Inoltre, se $\sigma$ è una trasposizione, allora $sgn(\sigma) = -1$.
 \end{proposition}
@@ -953,7 +953,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
     da cui:
         \[ \prod_{i < j}\frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}\frac{\tau(i) - \tau(j)}{ i - j} =
         \underbrace{\prod_{i < j} \frac{\sigma(\tau(i)) - \sigma(\tau(j))}{\tau(i) - \tau(j)}}_{sgn(\sigma)} \underbrace{\prod_{i < j}\frac{\tau(i) - \tau(j)}{ i - j}}_{sgn(\tau)}
-        \qquad \forall \sigma,\tau \in S_n
+        \qquad \forall \sigma,\tau \in \Sym_n
             \]
     Ci resta da verificare che il segno di una trasposizione è $-1$. Sia $\sigma = \cycle{a,b}$, analizzando il segno delle varie coppie, distinguiamo le seguenti possibilità per i vari fattori del prodotto:
     \begin{itemize}
@@ -975,17 +975,17 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{remark}
 
 \begin{definition}
-    Una permutazione $\sigma \in S_n$ si dice \vocab{pari} se $sgn(\sigma) = 1$, \vocab{dispari} se $sgn(\sigma) = -1$.
+    Una permutazione $\sigma \in \Sym_n$ si dice \vocab{pari} se $sgn(\sigma) = 1$, \vocab{dispari} se $sgn(\sigma) = -1$.
 \end{definition}
 
 \begin{definition}
-    Dato l'omomorfismo $sgn : S_n \longrightarrow \{\pm 1\}$, si definisce \vocab{gruppo alterno}:
-        \[ \mathcal{A}_n = \ker sgn = \{\sigma \in S_n |\, \text{$\sigma$ è pari}\}
+    Dato l'omomorfismo $sgn : \Sym_n \longrightarrow \{\pm 1\}$, si definisce \vocab{gruppo alterno}:
+        \[ \mathcal{A}_n = \ker sgn = \{\sigma \in \Sym_n |\, \text{$\sigma$ è pari}\}
             \]
 \end{definition}
 
 \begin{remark}
-    Si osserva che $\mathcal{A}_n \trianglelefteqslant S_n$ e $\displaystyle|\mathcal{A}_n| = \frac{n!}{2}$ poiché $\faktor{S_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
+    Si osserva che $\mathcal{A}_n \trianglelefteqslant \Sym_n$ e $\displaystyle|\mathcal{A}_n| = \frac{n!}{2}$ poiché $\faktor{\Sym_n}{\mathcal{A}_n} \cong \{\pm 1\}$.
 \end{remark}
 
 \begin{remark}
@@ -997,15 +997,15 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 
 \pagebreak
 
-\subsection{Classi di coniugio in $S_n$}
+\subsection{Classi di coniugio in $\Sym_n$}
 \begin{theorem}
-    Due permutazioni in $S_n$ sono coniugate se e solo se hanno la stessa decomposizione in cicli disgiunti.
+    Due permutazioni in $\Sym_n$ sono coniugate se e solo se hanno la stessa decomposizione in cicli disgiunti.
 \end{theorem}
 
 \begin{proof}
     Mostriamo le due implicazioni:
         \begin{itemize}
-            \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in S_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo\footnote{Ciò unito al teorema di struttura delle permutazioni ed al fatto che il coniugio è un omomorfismo verifica l'implicazione per una generica permutazione.}.
+            \item Presa $\sigma = \cycle{a_1,\ldots,a_k}$ e $\tau \in \Sym_n$, vogliamo dimostrare che $\tau\circ\sigma\circ\tau^{-1}$ è ancora un $k$-ciclo\footnote{Ciò unito al teorema di struttura delle permutazioni ed al fatto che il coniugio è un omomorfismo verifica l'implicazione per una generica permutazione.}.
                 Sia $\tau(a_i) = b_i$, allora si ha che $\tau\sigma\tau^{-1} = \cycle{b_1,\ldots,b_k}$, con $b_i \ne b_j$, $\forall i \ne j$, poiché $\tau$ è bigettiva; verifichiamo
                 l'uguaglianza mostrando che le due funzioni coincidono per tutti gli elementi. Si osserva che nel ciclo a destra accade semplicemente che $b_i \longmapsto b_{i+1}$, a sinistra invece:
                     \[ b_i \xmapsto{\tau^{-1}} a_i \xmapsto{\sigma} a_{i+1} \xmapsto{\tau} b_{i+1} \qquad \forall i \in \{1,\ldots,k\}
@@ -1016,7 +1016,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
                 \[ \sigma = \cycle{a_1, \ldots, a_l}\cycle{b_1, \ldots, b_s} \ldots \cycle{z_1, \ldots, z_t}
                     \]\[ \rho = \cycle{a_1^{\prime}, \ldots, a_l^{\prime}}\cycle{b_1^{\prime}, \ldots, b_s^{\prime}} \ldots \cycle{z_1^{\prime}, \ldots, z_t^{\prime}}
                         \]
-                per dimostrare la tesi è sufficiente trovare $\tau \in S_n$ tale che $\tau\circ\sigma\circ\tau^{-1} = \rho$. Scegliamo $\tau$ definita da:
+                per dimostrare la tesi è sufficiente trovare $\tau \in \Sym_n$ tale che $\tau\circ\sigma\circ\tau^{-1} = \rho$. Scegliamo $\tau$ definita da:
                     \[ \tau(a_i) = a_i^{\prime}, \tau(b_i) = b_i^{\prime}, \ldots, \tau(z_i) = z_i^{\prime}
                         \]
                 ed eventualmente si aggiungono altri elementi. Verifichiamo allora che $\tau\circ\sigma\circ\tau^{-1} = \rho$, consideriamo (WLOG) il primo ciclo:
@@ -1048,8 +1048,8 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
     \label{c:1.68}
     Valgono i seguenti fatti:
         \begin{enumerate}[(1)]
-            \item Il numero di classi di coniugio in $S_n$ è uguale al numero di partizioni di $n$.
-            \item Se $H \leqslant S_n$, allora $H \trianglelefteqslant S_n$ se e solo se contiene tutte le permutazioni di un certo tipo o nessuna.
+            \item Il numero di classi di coniugio in $\Sym_n$ è uguale al numero di partizioni di $n$.
+            \item Se $H \leqslant \Sym_n$, allora $H \trianglelefteqslant \Sym_n$ se e solo se contiene tutte le permutazioni di un certo tipo o nessuna.
         \end{enumerate}
 \end{corollary}
 
@@ -1138,7 +1138,7 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 
 \begin{definition}
     Dati due gruppi $H,K$ e l'azione:
-        \[ \varphi : K \longrightarrow \Aut(H) (\leqslant S(H)) : k \longmapsto \varphi_k
+        \[ \varphi : K \longrightarrow \Aut(H) (\leqslant \Sym(H)) : k \longmapsto \varphi_k
             \]
     si dice \vocab{prodotto semidiretto} di $H$ e $K$ via $\varphi$:
         \[ H \rtimes_{\varphi} K
@@ -1243,11 +1243,11 @@ Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \t
 \end{remark}
 
 \begin{example}
-    [$S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>$]
-    Verifichiamo che $S_n$ è prodotto semidiretto di $H = \mathcal{A}_n$ e $ K = \left<\cycle{1,2}\right>$ \footnote{In generale va bene qualsiasi trasposizione (che esiste sempre in $S_n$ per $n \geq 2$).}
-    usando il \hyperref[t:1.78]{Teorema 1.78}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft S_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
-    per cardinalità che $HK = S_n$. Essendo $\mathcal{A}_n = \ker sgn$ e $\left<\cycle{1,2}\right>$ una trasposizione $H \cap K = \{e\}$ (in quanto il nucleo dell'omomorfismo segno contiene solo permutazioni pari), pertanto segue la tesi:
-        \[ S_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>
+    [$\Sym_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>$]
+    Verifichiamo che $\Sym_n$ è prodotto semidiretto di $H = \mathcal{A}_n$ e $ K = \left<\cycle{1,2}\right>$ \footnote{In generale va bene qualsiasi trasposizione (che esiste sempre in $\Sym_n$ per $n \geq 2$).}
+    usando il \hyperref[t:1.78]{Teorema 1.78}, per quanto detto nel ($1$) del \hyperref[c:1.68]{Corollario 1.68} sappiamo che $\mathcal{A}_n \triangleleft \Sym_n$, inoltre, sempre per il punto ($1$), essendo $|\mathcal{A}_n| = \frac{n!}{2}$, segue
+    per cardinalità che $HK = \Sym_n$. Essendo $\mathcal{A}_n = \ker sgn$ e $\left<\cycle{1,2}\right>$ una trasposizione $H \cap K = \{e\}$ (in quanto il nucleo dell'omomorfismo segno contiene solo permutazioni pari), pertanto segue la tesi:
+        \[ \Sym_n \cong \mathcal{A}_n \rtimes_{\varphi} \left<\cycle{1,2}\right>
             \]
     Osserviamo inoltre che:
         \[ \varphi : \left<\cycle{1,2}\right> \longrightarrow \Aut(\mathcal{A}_n) : \cycle{1,2} \longmapsto \varphi_{\cycle{1,2}}, id \longmapsto id
@@ -1717,7 +1717,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 \[ |X| = [G : S] = \frac{p^nm}{p^n} = m
                     \]
                 Consideriamo l'azione di $H$ su $X$ data da:
-                \[ \varphi: H \longrightarrow S(X) : h \longmapsto \varphi_h
+                \[ \varphi: H \longrightarrow \Sym(X) : h \longmapsto \varphi_h
                     \]
                 con $\varphi_h : X \longrightarrow X : gS \longmapsto hgS$ bigezione; per la formula delle classi si ha:
                 \[ m = |X| = \sum_{i = 1}^{r}|\Orb(g_iS)| = \sum_{i = 1}^{r} \frac{|H|}{|\St(g_iS)|} = \sum_{i = 1}^{r} p^{a_i}
@@ -1740,7 +1740,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                         \[ n_p = \frac{|G|}{|N_G(S)|} \implies |G| = n_p|N_G(S)| \implies n_p \mid |G|
                             \]
                 Sia $X$ l'insieme dei $p$-Sylow di $G$, consideriamo l'azione di coniugio:
-                    \[ \phi : S \longrightarrow S(X) : s \longmapsto \varphi_s \footnote{Sarebbe l'azione di coniugio di $G$ su $X$ ristretta ad $S$.}
+                    \[ \phi : S \longrightarrow \Sym(X) : s \longmapsto \varphi_s \footnote{Sarebbe l'azione di coniugio di $G$ su $X$ ristretta ad $S$.}
                         \]
                 con $\varphi_s : X \longrightarrow X : H \longmapsto sHs^{-1}$ bigezione; osserviamo che $\phi$ ha un'unica orbita banale, ovvero quella del gruppo $S$, infatti per $S \in X$ si ha $\Orb(S) = \{S\}$, mentre per ogni altra orbita:
                     \[ \Orb(H) = \{sHs^{-1} | s \in S\} = \{H\} \iff sHs^{-1} = H \qquad \forall s \in S
@@ -1808,7 +1808,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} = G \varlonghookrightarrow S_4
                     \]
     infatti, $G$ agisce per coniugio sull'insieme $\{P_3,P_3^{\prime},P_3^{\prime\prime},P_3^{\prime\prime\prime}\}$ dei quattro $3$-Sylow di $G$, pertanto abbiamo l'azione transitiva
-    $\phi : G \longrightarrow S(X) \cong S_4$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
+    $\phi : G \longrightarrow \Sym(X) \cong S_4$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
     Si verifica facilmente che l'unica possibilità è che $G$ sia isomorfo al gruppo alternante di $4$ elementi, dunque abbiamo ottenuto il gruppo:
         \begin{center}
             $\color{LimeGreen!90!black}{\mathcal{A}_4}$
@@ -1996,14 +1996,14 @@ Dunque i gruppi di ordine 8 sono:
 
 \newpage
 \begin{exercise}
-    Determinare il minimo $n$ tale che $Q_8 \varlonghookrightarrow S_n$.
+    Determinare il minimo $n$ tale che $Q_8 \varlonghookrightarrow \Sym_n$.
 \end{exercise}
 
 \begin{soln}
-    Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $S_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
+    Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $\Sym_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
         \[ S_4,S_5,S_6,S_7,S_8
             \]
-    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $S_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
+    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $\Sym_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
     ed in particolare $D_4$ è un $2$-Sylow di $S_4$, ma ciò significa che $Q_8$ non è in $S_4$, poiché non è un coniugato di $D_4$. \\
     Si ragiona in maniera analoga per $S_5$, infatti $|S_5| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset S_4 \subset S_5$, dunque i due $2$-Sylow di $S_4$ sono isomorfi a quelli di $S_5$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
     Sia $|S_6| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $S_6$, osserviamo che se fosse $Q_8 \varlonghookrightarrow S_6$, dovremmo avere:
@@ -4784,7 +4784,7 @@ con:
     Dato $f(x) \in K[x]$ irriducibile di grado $n$ e detto $F$ il suo campo di spezzamento su $K$, allora:
     \[ n \mid [F : K] \mid n!
         \]
-    e $\Gal\left(\faktor{F}{K}\right) \varlonghookrightarrow S_n$, ovvero il gruppo di Galois agisce sulle radici di $f(x)$. 
+    e $\Gal\left(\faktor{F}{K}\right) \varlonghookrightarrow \Sym_n$, ovvero il gruppo di Galois agisce sulle radici di $f(x)$. 
 \end{proposition}
 
 \begin{proof}
@@ -4792,7 +4792,7 @@ con:
     \[ K \subseteq K(\alpha_1) \subseteq F \implies n = [K(\alpha_1) : K] \mid [F : K] = \Big|\Gal\left(\faktor{F}{K}\right)\Big|
         \]
     dove la divisibilità segue ovviamente dal \hyperref[torri]{Teorema delle torri}. Consideriamo ora l'azione che restringe gli automorfismi di Galois alle sole radici di $f(x)$:
-    \[ \phi: \Gal\left(\faktor{F}{K}\right) \longrightarrow S(\{\alpha_1,\ldots,\alpha_n\}) \cong S_n : \varphi \longmapsto \varphi_{|\{\alpha_1,\ldots,\alpha_n\}}
+    \[ \phi: \Gal\left(\faktor{F}{K}\right) \longrightarrow S(\{\alpha_1,\ldots,\alpha_n\}) \cong \Sym_n : \varphi \longmapsto \varphi_{|\{\alpha_1,\ldots,\alpha_n\}}
         \]
     Osserviamo che:
     \begin{itemize}
@@ -5436,11 +5436,11 @@ A questo punto possiamo affermare che un polinomio si risolve per radicali se il
     implica che se $\faktor{L}{K}$ è ciclica di grado $n$ e $\zeta_n \in K$, allora $L = K(\sqrt[n]{\gamma})$, $\gamma \in K$.
 \end{remark}
 
-Un polinomio generico irriducibile di grado $n$ ha come gruppo di Galois $S_n$\footnote{Andrebbe dimostrato bene, come molte cose in questa sezione, ma non è lo scopo di questa trattazione.}, dunque se $L$ è il campo di spezzamento di $f(x)$, abbiamo $\Gal\left(\faktor{L}{\QQ}\right) = S_n$, se $f(x)$ è risolubile per radicali, allora esiste la successione:
+Un polinomio generico irriducibile di grado $n$ ha come gruppo di Galois $\Sym_n$\footnote{Andrebbe dimostrato bene, come molte cose in questa sezione, ma non è lo scopo di questa trattazione.}, dunque se $L$ è il campo di spezzamento di $f(x)$, abbiamo $\Gal\left(\faktor{L}{\QQ}\right) = \Sym_n$, se $f(x)$ è risolubile per radicali, allora esiste la successione:
 \[ L_0 = \QQ \subset L_1 \subset \ldots \subset L_n = L \qquad \text{con} \qquad \faktor{L_{i+1}}{L_i}\,\text{ciclico}
 \]
-che per corrispondenza di Galois equivale ad una catena di sottogruppi normali in $S_n$ del tipo:
-\[ \{id\} = G_n \trianglelefteqslant \ldots \trianglelefteqslant G_1 \trianglelefteqslant G_0 = S_n \qquad \text{con} \qquad \faktor{G_{i}}{G_{i+1}}\,\text{ciclico}
+che per corrispondenza di Galois equivale ad una catena di sottogruppi normali in $\Sym_n$ del tipo:
+\[ \{id\} = G_n \trianglelefteqslant \ldots \trianglelefteqslant G_1 \trianglelefteqslant G_0 = \Sym_n \qquad \text{con} \qquad \faktor{G_{i}}{G_{i+1}}\,\text{ciclico}
     \]
 Vediamo cosa accade al variare di $n$:
 \begin{itemize}
@@ -5453,7 +5453,7 @@ Vediamo cosa accade al variare di $n$:
     \item Se $n = 4$ abbiamo la catena di sottogruppi normali di $S_4$:
     \[ \{id\} \trianglelefteqslant V_4 \trianglelefteqslant \mathcal{A}_4 \trianglelefteqslant S_4
         \]
-    \item Se $n \geq 5$, allora $S_n$ non ammette la catena normale con i quozienti ciclici, perché per quanto abbiamo visto, per $n \geq 5$, $S_n$ ha come unici sottogruppi normali $\{id\}$ e $\mathcal{A}_n$, ma quest ultimo è semplice per $n \geq 5$, quindi $S_n$ non è 
+    \item Se $n \geq 5$, allora $\Sym_n$ non ammette la catena normale con i quozienti ciclici, perché per quanto abbiamo visto, per $n \geq 5$, $\Sym_n$ ha come unici sottogruppi normali $\{id\}$ e $\mathcal{A}_n$, ma quest ultimo è semplice per $n \geq 5$, quindi $\Sym_n$ non è 
     risolubile per $n \geq 5$, di conseguenza non esiste una formula risolutiva dell'equazione generale di grado $n$ per $n \geq 5$.
 \end{itemize}
 
