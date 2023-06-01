@@ -87,7 +87,7 @@ ovvero il gruppo delle permutazioni di $G$. Si osserva che $id \in \Aut(G)$, $\v
         \begin{itemize}
             \item $\Aut(\ZZ) = \{\pm id\}$.
             \item $\Aut(\Zn) \cong \Zn^*$.
-            \item $\Aut(\Z2 \times \Z2) \cong S_3$.
+            \item $\Aut(\Z2 \times \Z2) \cong \Sym_3$.
             \item $\Aut(\underbrace{\Zp \times \ldots \times \Zp}_{n \;\text{volte}}) \cong GL_n(\Fp)$
         \end{itemize}
 \end{example}
@@ -292,22 +292,22 @@ da cui si ottiene:
 \end{example}
 
 A questo punto è facile verificare che:
-    \[ \Aut(\Z2 \times \Z2) \cong S_3
+    \[ \Aut(\Z2 \times \Z2) \cong \Sym_3
         \]
 infatti, ogni automorfismo del gruppo si ottiene fissando l'elemento neutro $(\overline 0, \overline 0) \longmapsto (\overline 0, \overline 0)$, quindi il numero possibile di bigezioni è al più $3!$, occorre
 verificare che tutte e $6$ le funzioni sono omomorfismi. Dimostriamo invece che:
-    \[ \boxed{\Aut(S_3) \cong S_3}
+    \[ \boxed{\Aut(\Sym_3) \cong \Sym_3}
         \]
-Per farlo, poiché $S_3$ non è abeliano, possiamo osservare che:
-    \[ \Inn(S_3) \cong \faktor{S_3}{Z(S_3)} \cong S_3
+Per farlo, poiché $\Sym_3$ non è abeliano, possiamo osservare che:
+    \[ \Inn(\Sym_3) \cong \faktor{\Sym_3}{Z(\Sym_3)} \cong \Sym_3
         \]
-in quanto l'unico elemento che commuta con tutti gli altri in $S_3$ è l'identità, quindi $Z(S_3) = \{id\} \cong \{e\}$.
-Per quanto detto si ha $\Inn(S_3) \trianglelefteqslant \Aut(S_3)$ e quindi $\Aut(S_3)$ contiene una copia isomorfa di $S_3$ come sottogruppo normale, pertanto,
-se verifichiamo che $|\Aut(S_3)| \leq 6$ abbiamo concluso. Sia $f \in \Aut(S_3)$, $f$ può al più scambiare i $3$ elementi di ordine $2$, d'altra parte, fissate le 
+in quanto l'unico elemento che commuta con tutti gli altri in $\Sym_3$ è l'identità, quindi $Z(\Sym_3) = \{id\} \cong \{e\}$.
+Per quanto detto si ha $\Inn(\Sym_3) \trianglelefteqslant \Aut(\Sym_3)$ e quindi $\Aut(\Sym_3)$ contiene una copia isomorfa di $\Sym_3$ come sottogruppo normale, pertanto,
+se verifichiamo che $|\Aut(\Sym_3)| \leq 6$ abbiamo concluso. Sia $f \in \Aut(\Sym_3)$, $f$ può al più scambiare i $3$ elementi di ordine $2$, d'altra parte, fissate le 
 immagini di $\tau_1,\tau_2,\tau_3$\footnote{Con $\tau_i$ si intendono le trasposizioni che lasciano fisso l'elemento $i$.}, i due 
-$3$-cicli\footnote{Come si vedrà $S_3 = \left<\tau_1,\tau_2,\tau_3\right>$} sono completamente determinati,
+$3$-cicli\footnote{Come si vedrà $\Sym_3 = \left<\tau_1,\tau_2,\tau_3\right>$} sono completamente determinati,
 ciò significa che si hanno al più $3!$ automorfismi, dunque:
-    \[ \Aut(S_3) = \Inn(S_3) \cong S_3 \implies \Aut(S_3) \cong S_3 
+    \[ \Aut(\Sym_3) = \Inn(\Sym_3) \cong \Sym_3 \implies \Aut(\Sym_3) \cong \Sym_3 
         \]
 
 \newpage
@@ -381,7 +381,7 @@ Cioè lo stabilizzatore è l'insieme degli elementi di $G$, che danno origine me
 
 \begin{example}
     Se $X = \RR^2$ e $G$ è il gruppo delle rotazioni di centro $O$, allora:
-        \[ \varphi: G \longrightarrow S(\RR^2) : r_\theta \longmapsto r_\theta
+        \[ \varphi: G \longrightarrow \Sym(\RR^2) : r_\theta \longmapsto r_\theta
             \]
     con:
         \[ \St(x,y) =
@@ -655,7 +655,7 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
 
 \begin{example}
     Nel caso in cui $G = \Z8$ consideriamo l'azione:
-        \[ \lambda : G \longrightarrow S(\Z8) \cong S_8\footnote{Perché appunto $S(\Z8)$ è l'insieme di permutazioni di un insieme di $8$ elementi.} : \overline a \longmapsto \lambda_a
+        \[ \lambda : G \longrightarrow S(\Z8) \cong \Sym_{8}\footnote{Perché appunto $S(\Z8)$ è l'insieme di permutazioni di un insieme di $8$ elementi.} : \overline a \longmapsto \lambda_a
             \]
     che, per quanto visto  genera ad esempio le applicazioni:\footnote{Per $+$ si intende la somma modulo $8$.}
             \begin{align*}
@@ -754,7 +754,7 @@ Ricordiamo brevemente che:
 
 Indichiamo con $\Sym(X)$ il gruppo delle permutazioni di $X$ e con $\Sym_n$ il gruppo delle permutazioni di un insieme di cardinalità $n$, che 
 per semplicità indichiamo con $\{1,\ldots,n\}$.
-Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in S_{12}$ si può rappresentare mediante la matrice di permutazione:
+Le permutazioni si possono indicare in vari modi, ad esempio, preso $\sigma \in \Sym_{12}$ si può rappresentare mediante la matrice di permutazione:
     \[ \sigma = \left(\begin{array}{cccccccccccc}
         1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
         3 & 2 & 4 & 5 & 1 & 9 & 8 & 7 & 6 & 12 & 11 & 10 
@@ -796,13 +796,13 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{remark}
 
 \begin{example}
-    Presa ad esempio $\sigma \in S_{10}$:
+    Presa ad esempio $\sigma \in \Sym_{10}$:
         \[ \sigma = \cycle{1,2,3}\cycle{4,5}\cycle{6,7,8,9}
             \]
     chiamiamo i suoi cicli:
         \[ \sigma_1 = \cycle{1,2,3} \qquad \sigma_2 = \cycle{4,5} \qquad \sigma_3 = \cycle{6,7,8,9}
             \]
-    dove appunto $\sigma_1,\sigma_2,\sigma_3 \in S_{10}$ e:
+    dove appunto $\sigma_1,\sigma_2,\sigma_3 \in \Sym_{10}$ e:
         \[ \sigma = \sigma_1 \circ \sigma_2 \circ \sigma_3
             \]
 \end{example}
@@ -836,7 +836,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 
 \begin{remark}
     Si osserva che l'unicità della scrittura di una permutazione vista nella \hyperref[perm]{Proposizione 1.50} è effettivamente valida solo nel caso di cicli disgiunti, infatti, prendendo ad esempio:
-        \[ \sigma = \cycle{1,2}\cycle{2,4} \in S_4 \qquad \text{con}\qquad \sigma_1 = \cycle{2,4} \quad \text e \quad \sigma_2 = \cycle{1,2}
+        \[ \sigma = \cycle{1,2}\cycle{2,4} \in \Sym_2 \qquad \text{con}\qquad \sigma_1 = \cycle{2,4} \quad \text e \quad \sigma_2 = \cycle{1,2}
             \]
     non essendo $\sigma_1,\sigma_2$ cicli disgiunti, si osserva che $\sigma_2 \circ \sigma_1 = \cycle{2,4,1}$ e quindi $\sigma$ era in realtà un $3$-ciclo, e la sua fattorizzazione è unica come tale 
     (mentre non era unica come prodotto di cicli non disgiunti). 
@@ -853,7 +853,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{proof}
 
 \begin{example}
-    Per esempio, preso $S_4$, le permutazioni possibili sono cicli del tipo:
+    Per esempio, preso $\Sym_2$, le permutazioni possibili sono cicli del tipo:
         \[ id \qquad \cycle{a,b} \qquad \cycle{a,b,c} \qquad \cycle{a,b,c,d} \qquad \cycle{a,b}\cycle{c,d}
             \]
     per contare il numero di $2$-cicli, ci basta scegliere $2$ elementi dell'insieme in $\binom{4}{2}$ modi e poi considerare tutti i possibili 
@@ -868,7 +868,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
     dividere per il numero di permutazioni dei cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
-    e dal conteggio delle permutazioni di $S_4$ divise per cicli di diversa lunghezza si ottiene: $1+6+8+6+3 = 24 = |S_4|$.
+    e dal conteggio delle permutazioni di $\Sym_2$ divise per cicli di diversa lunghezza si ottiene: $1+6+8+6+3 = 24 = |\Sym_2|$.
 \end{example}
 
 \begin{remark}
@@ -879,7 +879,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 
 \begin{example}
     Per quanto detto risulta semplice ad esempio calcolare:
-        \[ \#\{\sigma \in S_{20} | \text{$\sigma$ si fattorizza in cicli del tipo $2+2+2+4+5+5$}\}
+        \[ \#\{\sigma \in \Sym_{20} | \text{$\sigma$ si fattorizza in cicli del tipo $2+2+2+4+5+5$}\}
             \]
     applicando quanto detto nell'osservazione precedente si trovano:
         \[ \frac{\binom{20}{2}\binom{18}{2}\binom{16}{2}1!1!1!}{3!} \cdot \binom{14}{4}3! \cdot \frac{\binom{10}{5}\binom{5}{5}4!4!}{2!}
@@ -926,7 +926,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{proof}
 
 \begin{remark}
-    La scrittura di una permutazione come prodotto di trasposizioni non è unica. Ad esempio in $S_4$:
+    La scrittura di una permutazione come prodotto di trasposizioni non è unica. Ad esempio in $\Sym_2$:
         \[ \sigma = \cycle{1,2}\cycle{2,4} = \cycle{1,2}\cycle{3,4}\cycle{3,4}\cycle{2,4}
             \]
 \end{remark}
@@ -1027,16 +1027,16 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 \end{proof}
 
 \begin{example}
-    In $S_5$ la classe di coniugio di $\sigma = \cycle{1,2}\cycle{3,4}$ è $C_\sigma = \{\cycle{a,b}\cycle{c,d} \in S_5\}$, con:
-        \[ \#C_\sigma = \frac{\binom{5}{2}\binom{3}{2}1!1!}{2!} = 15
+    In $\Sym_{5}$ la classe di coniugio di $\sigma = \cycle{1,2}\cycle{3,4}$ è $\Cl_\sigma = \{\cycle{a,b}\cycle{c,d} \in \Sym_{5}\}$, con:
+        \[ \#\Cl_\sigma = \frac{\binom{5}{2}\binom{3}{2}1!1!}{2!} = 15
             \]
     e da ciò si ricava anche che:
-        \[ \#Z_{S_5}(\sigma) = \frac{|S_5|}{|C_\sigma|} = \frac{5!}{15} = 8
+        \[ \#Z_{\Sym_{5}}(\sigma) = \frac{|\Sym_{5}|}{|\Cl_\sigma|} = \frac{5!}{15} = 8
             \]
 \end{example}
 
 \begin{example}
-    Sia $\sigma = \cycle{3,5}\cycle{14} \in S_5$ e sia $\rho = \cycle{1,2}\cycle{3,4}$, cerchiamo $\tau \in S_5$ tale che:
+    Sia $\sigma = \cycle{3,5}\cycle{14} \in \Sym_{5}$ e sia $\rho = \cycle{1,2}\cycle{3,4}$, cerchiamo $\tau \in \Sym_{5}$ tale che:
         \[ \tau\circ\sigma\circ\tau^{-1} = \rho
             \]
     si può scegliere $\tau = \cycle{1,3}\cycle{2,5}$, da cui:
@@ -1059,7 +1059,7 @@ ogni altra decomposizione come prodotto di trasposizioni ha un numero di traspos
 Ricordiamo brevemente che se $G_1$ e $G_2$ sono gruppi, allora l'insieme $G_1 \times G_2$ con l'operazione fatta componente per componente prende il nome di \vocab{prodotto diretto}.
 
 \begin{example}
-    Presi ad esempio $\Z7$ e $S_4$, si ha $\Z7 \times S_4$, con $\sigma = (\overline 1, \cycle{1,2,3})$ e $\rho = (\overline 4, \cycle{1,4,2,3})$ in $\Z7 \times S_4$ e l'operazione:
+    Presi ad esempio $\Z7$ e $\Sym_2$, si ha $\Z7 \times \Sym_2$, con $\sigma = (\overline 1, \cycle{1,2,3})$ e $\rho = (\overline 4, \cycle{1,4,2,3})$ in $\Z7 \times \Sym_2$ e l'operazione:
         \[ \sigma \cdot \rho = (\overline 1 + \overline 4, \cycle{1,2,3} \circ \cycle{1,4,2,3}) = (\overline 5, \cycle{1,4,3,2})
             \]
 \end{example}
@@ -1633,7 +1633,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
     poiché $H \triangleleft \mathcal{A}_4$ e per definizione è unione di classi di coniugio in $\mathcal{A}_4$. Sappiamo che:
         \[ \Cl_{\mathcal{A}_4}(x) = \{ \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3}\}
             \]
-    Visto che $|\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d})| = 3$, allora $\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d}) = \Cl_{S_4}(\cycle{a,b} \cycle{c,d})$,
+    Visto che $|\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d})| = 3$, allora $\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d}) = \Cl_{\Sym_2}(\cycle{a,b} \cycle{c,d})$,
     dunque se $H \triangleleft \mathcal{A}_4 \implies H \supset \{e, \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3}\} = V$ \footnote{$V$ prende il nome di \vocab{gruppo di Klein} o \vocab{Klein 4-group}.},
     allora $V < H$, ma $4 \nmid 6 \implies$ assurdo.
 \end{example}
@@ -1797,7 +1797,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 \[ \color{LimeGreen!90!black}{\Z{4} \times \Z{3} \cong \Z{12}}
                     \]
     nel secondo caso abbiamo:
-                \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} \qquad \text{con} \qquad \varphi : \Z{3} \longrightarrow \Aut(\Z{2} \times \Z2) \cong S_3
+                \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} \qquad \text{con} \qquad \varphi : \Z{3} \longrightarrow \Aut(\Z{2} \times \Z2) \cong \Sym_3
                     \]
     a questo punto, possiamo o mandare $[1]_3 \longmapsto id$ ottenendo il prodotto diretto:
             \[ \color{LimeGreen!90!black}{\Z{2} \times \Z{2} \times \Z{3} \cong \Z{2} \times \Z{6}}
@@ -1805,10 +1805,10 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
     oppure mandare $[1]_3$ in un altro elemento il cui ordine divida $3$ (in questo caso uno dei due $3$-cicli),
     dunque abbiamo due scelte per $\varphi([1]_3)$; entrambe le scelte danno origine a due prodotti semidiretti isomorfi\footnote{Come nel caso dei gruppi di ordine $pq$.}.
     Osserviamo che abbiamo:
-                \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} = G \varlonghookrightarrow S_4
+                \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} = G \varlonghookrightarrow \Sym_2
                     \]
     infatti, $G$ agisce per coniugio sull'insieme $\{P_3,P_3^{\prime},P_3^{\prime\prime},P_3^{\prime\prime\prime}\}$ dei quattro $3$-Sylow di $G$, pertanto abbiamo l'azione transitiva
-    $\phi : G \longrightarrow \Sym(X) \cong S_4$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
+    $\phi : G \longrightarrow \Sym(X) \cong \Sym_2$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
     Si verifica facilmente che l'unica possibilità è che $G$ sia isomorfo al gruppo alternante di $4$ elementi, dunque abbiamo ottenuto il gruppo:
         \begin{center}
             $\color{LimeGreen!90!black}{\mathcal{A}_4}$
@@ -2001,16 +2001,16 @@ Dunque i gruppi di ordine 8 sono:
 
 \begin{soln}
     Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $\Sym_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
-        \[ S_4,S_5,S_6,S_7,S_8
+        \[ \Sym_2,\Sym_{5},\Sym_{6},\Sym_{7},\Sym_{8}
             \]
-    Se $Q_8$ si immergesse in $S_4$, con $|S_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $\Sym_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow S_4$, 
-    ed in particolare $D_4$ è un $2$-Sylow di $S_4$, ma ciò significa che $Q_8$ non è in $S_4$, poiché non è un coniugato di $D_4$. \\
-    Si ragiona in maniera analoga per $S_5$, infatti $|S_5| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset S_4 \subset S_5$, dunque i due $2$-Sylow di $S_4$ sono isomorfi a quelli di $S_5$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
-    Sia $|S_6| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $S_6$, osserviamo che se fosse $Q_8 \varlonghookrightarrow S_6$, dovremmo avere:
+    Se $Q_8$ si immergesse in $\Sym_2$, con $|\Sym_2| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $\Sym_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow \Sym_2$, 
+    ed in particolare $D_4$ è un $2$-Sylow di $\Sym_2$, ma ciò significa che $Q_8$ non è in $\Sym_2$, poiché non è un coniugato di $D_4$. \\
+    Si ragiona in maniera analoga per $\Sym_{5}$, infatti $|\Sym_{5}| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset \Sym_2 \subset \Sym_{5}$, dunque i due $2$-Sylow di $\Sym_2$ sono isomorfi a quelli di $\Sym_{5}$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
+    Sia $|\Sym_{6}| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $\Sym_{6}$, osserviamo che se fosse $Q_8 \varlonghookrightarrow \Sym_{6}$, dovremmo avere:
         \[ i \longmapsto \sigma \qquad j \longmapsto \rho \qquad k \longmapsto \sigma\rho = \eta
             \]
-    con $\ord(\sigma) = \ord(\rho) = 4$ e $\sigma^2 = \rho^2 = \eta^2$, dove $\ord(\sigma^2) = \ord(\rho^2) = \ord(\eta^2) = 2$. Osserviamo che le permutazioni di ordine $4$ in $S_6$ possono essere soltanto $4$-cicli o 4-cicli uniti a 2-cicli, mentre
-    le permutazioni di ordine 2 sono prodotto di trasposizioni (al più tre, essendo in $S_6$).
+    con $\ord(\sigma) = \ord(\rho) = 4$ e $\sigma^2 = \rho^2 = \eta^2$, dove $\ord(\sigma^2) = \ord(\rho^2) = \ord(\eta^2) = 2$. Osserviamo che le permutazioni di ordine $4$ in $\Sym_{6}$ possono essere soltanto $4$-cicli o 4-cicli uniti a 2-cicli, mentre
+    le permutazioni di ordine 2 sono prodotto di trasposizioni (al più tre, essendo in $\Sym_{6}$).
 
     \begin{remark}
         Osserviamo che una permutazione è un quadrato se e solo se i cicli di lunghezza pari compaiono a coppie. Infatti:
@@ -2023,10 +2023,10 @@ Dunque i gruppi di ordine 8 sono:
                             \]
                 \item Se $x^2 = \cycle{\eta_1, \ldots, \eta_s}^2 = \eta_1^2 \ldots \eta_s^2$, allora otteniamo cicli di lunghezza dispari e coppie di cicli.
             \end{itemize}
-        Ad esempio, in $S_6$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
+        Ad esempio, in $\Sym_{6}$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
             \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,3,2}\cycle{4,6,5}\right)^2
                 \]
-        mentre in $S_4$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
+        mentre in $\Sym_2$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
             \[ \cycle{1,2}\cycle{3,4} = (\cycle{1,4,2,3})^2 = (\cycle{1,3,2,4})^2
                 \]
     \end{remark}
@@ -2037,10 +2037,10 @@ Dunque i gruppi di ordine 8 sono:
     Risolvendo $x^2 = \cycle{1,2}\cycle{3,4}$, otteniamo:
         \[ x_1 = \cycle{1,3,2,4} \qquad x_2 = \cycle{1,4,2,3} \qquad x_3 = \cycle{1,3,2,4}\cycle{5,6} \qquad x_4 = \cycle{1,4,2,3}\cycle{5,6}
             \]
-    abbiamo quindi 4 soluzioni in $S_6$, mentre in $Q_8$ ne avevamo 6, pertanto nemmeno $S_6$ contiene una copia isomorfa di $Q_8$.\\
-    $Q_8$ non si immerge nemmeno in $S_7$ perché i $2$-Sylow di $S_7$ sono isomorfi a quelli di $S_6$, e quindi siamo nello stesso caso di prima. \\
+    abbiamo quindi 4 soluzioni in $\Sym_{6}$, mentre in $Q_8$ ne avevamo 6, pertanto nemmeno $\Sym_{6}$ contiene una copia isomorfa di $Q_8$.\\
+    $Q_8$ non si immerge nemmeno in $\Sym_{7}$ perché i $2$-Sylow di $\Sym_{7}$ sono isomorfi a quelli di $\Sym_{6}$, e quindi siamo nello stesso caso di prima. \\
     Dunque per esclusione deve essere necessariamente che:
-        \[ Q_8 \varlonghookrightarrow S_8 \implies n = 8
+        \[ Q_8 \varlonghookrightarrow \Sym_{8} \implies n = 8
             \]
     Per \hyperref[p:Cayley]{Cayley} l'immersione di $Q_8$ in $S(Q_8)$ è realizzata dall'azione di moltiplicazione a sinistra:
         \[ i \longmapsto \varphi_i\footnote{L'azione ovviamente è definita per tutti gli altri elementi di $Q_8$ allo stesso modo.} \qquad \text{con} \qquad \varphi_i : Q_8 \longrightarrow Q_8 : x \longmapsto ix
@@ -2051,7 +2051,7 @@ Dunque i gruppi di ordine 8 sono:
     analogamente per $\varphi_j(Q_8)$:
         \[ \cycle{1,j,-1,-j}\cycle{i,-k,-i,k}
             \]
-    e numerando in qualsiasi ordine gli elementi di $Q_8$ possiamo scrivere le permutazioni corrispondenti in $S_8$:
+    e numerando in qualsiasi ordine gli elementi di $Q_8$ possiamo scrivere le permutazioni corrispondenti in $\Sym_{8}$:
         \[ i \longmapsto \cycle{1,2,3,4}\cycle{5,6,7,8} \qquad j \longmapsto \cycle{1,5,3,7}\cycle{2,8,4,6}
             \]
 \end{soln}
@@ -4828,10 +4828,10 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
         \[ id : a+b\sqrt{\Delta} \longmapsto a+b\sqrt{\Delta} \qquad \text{e} \qquad \varphi : a+b\sqrt{\Delta} \longmapsto a-b\sqrt{\Delta}
             \]
         o analogamente, se fosse $f(x) = (x - \alpha_1)(x - \alpha_2 )$ le applicazioni sarebbero state tali che $id : \alpha_1 \longmapsto \alpha_1$ e $\varphi : \alpha_1 \longmapsto \alpha_2$.
-        \item Se $\deg f(x) = 3$, allora $3 \mid [F : K] \mid 6$, per la \hyperref[3.55]{Proposizione 3.55} sappiamo che $\Gal\left(\faktor{F}{K}\right) \leqslant S_3$ pertanto:
+        \item Se $\deg f(x) = 3$, allora $3 \mid [F : K] \mid 6$, per la \hyperref[3.55]{Proposizione 3.55} sappiamo che $\Gal\left(\faktor{F}{K}\right) \leqslant \Sym_3$ pertanto:
         \[ \Gal\left(\faktor{F}{K}\right) \cong \begin{cases}
             \mathcal{A}_3 \cong \Z{3} \\
-            S_3
+            \Sym_3
         \end{cases}
             \]
         Discutiamo di seguito entrambi i casi con due esempi.
@@ -4839,7 +4839,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
 \end{example}
 
 \begin{example}
-    Se fosse $f(x) = x^3 - 2$, con $K = \QQ$ e $F = \QQ(\sqrt[3]{2},\zeta_3) \implies [F : K] = 6$ e quindi $\Gal\left(\faktor{F}{K}\right) \cong S_3$; per quanto detto sulle immersioni sappiamo che qualsiasi automorfismo del gruppo di Galois 
+    Se fosse $f(x) = x^3 - 2$, con $K = \QQ$ e $F = \QQ(\sqrt[3]{2},\zeta_3) \implies [F : K] = 6$ e quindi $\Gal\left(\faktor{F}{K}\right) \cong \Sym_3$; per quanto detto sulle immersioni sappiamo che qualsiasi automorfismo del gruppo di Galois 
     deve mandare un elemento nei suoi coniugati, quindi abbiamo in totale appunto 6 possibili immersioni al variare di $\varphi$:
     \[ \varphi(\sqrt[3]{2}) = \sqrt[3]{2}\zeta_3^i \qquad \text{e} \qquad \varphi(\zeta_3) = \zeta_3^j \qquad \text{con}\quad i \in \{0,1,2\},j \in \{1,2\}
         \]
@@ -5444,14 +5444,14 @@ che per corrispondenza di Galois equivale ad una catena di sottogruppi normali i
     \]
 Vediamo cosa accade al variare di $n$:
 \begin{itemize}
-    \item Se $n = 2$ abbiamo la catena di sottogruppi normali di $S_2$:
-    \[ \{id\} \trianglelefteqslant S_2
+    \item Se $n = 2$ abbiamo la catena di sottogruppi normali di $\Sym_2$:
+    \[ \{id\} \trianglelefteqslant \Sym_2
         \]
-    \item Se $n = 3$ abbiamo la catena di sottogruppi normali di $S_3$:
-    \[ \{id\} \trianglelefteqslant \mathcal{A}_3 \trianglelefteqslant S_3
+    \item Se $n = 3$ abbiamo la catena di sottogruppi normali di $\Sym_3$:
+    \[ \{id\} \trianglelefteqslant \mathcal{A}_3 \trianglelefteqslant \Sym_3
         \]
-    \item Se $n = 4$ abbiamo la catena di sottogruppi normali di $S_4$:
-    \[ \{id\} \trianglelefteqslant V_4 \trianglelefteqslant \mathcal{A}_4 \trianglelefteqslant S_4
+    \item Se $n = 4$ abbiamo la catena di sottogruppi normali di $\Sym_2$:
+    \[ \{id\} \trianglelefteqslant V_4 \trianglelefteqslant \mathcal{A}_4 \trianglelefteqslant \Sym_2
         \]
     \item Se $n \geq 5$, allora $\Sym_n$ non ammette la catena normale con i quozienti ciclici, perché per quanto abbiamo visto, per $n \geq 5$, $\Sym_n$ ha come unici sottogruppi normali $\{id\}$ e $\mathcal{A}_n$, ma quest ultimo è semplice per $n \geq 5$, quindi $\Sym_n$ non è 
     risolubile per $n \geq 5$, di conseguenza non esiste una formula risolutiva dell'equazione generale di grado $n$ per $n \geq 5$.
