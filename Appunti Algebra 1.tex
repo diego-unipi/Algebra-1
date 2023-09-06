@@ -60,7 +60,7 @@ Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando even
 \section*{Ringraziamenti}
 Di seguito le persone che hanno contribuito segnalando errori e/o aggiungendo dimostrazioni (in grassetto sono segnati coloro i quali hanno contribuito in maniera rilevante e che per tale motivo meritano un ringraziamento speciale):\\
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, \textbf{Leonardo Migliorini}, \textbf{Matteo Gori}, Daniele Lapadula, \textbf{Alessandro Fenu},
-\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali, Luca Milanese.
+\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali, Luca Milanese, Rubens Martino.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
@@ -648,9 +648,6 @@ Per quanto affermato nella \hyperref[p:1.25]{Proposizione 1.25} si ha:
         con $k = \ord_G(g_2)$. $\lambda_{g_2}$ può essere rappresentata mediante la notazione dei cicli:
             \[ (x,g_2x,\ldots,g_2^{k-1}x)
                 \]
-        preso poi $y \not\in \lambda_{g_2}(G)$, si ha analogamente:
-        \[ (y,g_2y,\ldots,g_2^{k-1}y)
-            \]
 \end{remark}
 
 \begin{example}
@@ -702,7 +699,7 @@ da cui $\lambda$ fedele.
     questo è un $p_i$-gruppo ed è normale per abelianità, se non avesse ordine $p_i^{k_i}$ allora quozientando $G$ per questo avremmo per \hyperref[Cauchy]{Cauchy} un elemento di ordine $p_i$ e considerando la controimmagine della proiezione avremmo
     perso un elemento di ordine potenza di $p_i$ (dato che avevamo quozientato per un $p_i$-gruppo). Si ha quindi che $H_1H_2\leqslant G$ per normalità,
     inoltre $|H_1\cap H_2|=1$ poiché l'ordine di un elemento in tale intersezione deve dividere $(p_1^{k_1}, p_2^{k_2})=1$. Pertanto $|H_1H_2|=p_1^{k_1}p_2^{k_2}$.
-    Ragionando per induzione otteniamo che il sottogruppo $H_1\ldots H_k$ ha ordine $d$ come voluto.\footnote{Dimostrazione proposta da Davide Ranieri.}
+    Ragionando per induzione otteniamo che il sottogruppo $H_1\ldots H_s$ ha ordine $d$ come voluto.\footnote{Dimostrazione proposta da Davide Ranieri.}
 \end{proof}
 
 \begin{exercise}
@@ -853,7 +850,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
 \end{proof}
 
 \begin{example}
-    Per esempio, preso $\Sym_2$, le permutazioni possibili sono cicli del tipo:
+    Per esempio, preso $\Sym_4$, le permutazioni possibili sono cicli del tipo:
         \[ id \qquad \cycle{a,b} \qquad \cycle{a,b,c} \qquad \cycle{a,b,c,d} \qquad \cycle{a,b}\cycle{c,d}
             \]
     per contare il numero di $2$-cicli, ci basta scegliere $2$ elementi dell'insieme in $\binom{4}{2}$ modi e poi considerare tutti i possibili 
@@ -868,7 +865,7 @@ L'azione di $\left<\sigma\right>$ su $X$ divide $X$ in orbite e su ogni orbita $
     dividere per il numero di permutazioni dei cicli della stessa lunghezza, ovvero $2!$ dunque:
         \[ \binom{4}{2}\frac{2!}{2}\binom{2}{2}\frac{2!}{2} \cdot \frac{1}{2!} = 3
             \]
-    e dal conteggio delle permutazioni di $\Sym_2$ divise per cicli di diversa lunghezza si ottiene: $1+6+8+6+3 = 24 = |\Sym_2|$.
+    e dal conteggio delle permutazioni di $\Sym_4$ divise per cicli di diversa lunghezza si ottiene: $1+6+8+6+3 = 24 = |\Sym_4|$.
 \end{example}
 
 \begin{remark}
@@ -1633,7 +1630,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
     poiché $H \triangleleft \mathcal{A}_4$ e per definizione è unione di classi di coniugio in $\mathcal{A}_4$. Sappiamo che:
         \[ \Cl_{\mathcal{A}_4}(x) = \{ \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3}\}
             \]
-    Visto che $|\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d})| = 3$, allora $\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d}) = \Cl_{\Sym_2}(\cycle{a,b} \cycle{c,d})$,
+    Visto che $|\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d})| = 3$, allora $\Cl_{\mathcal{A}_4}(\cycle{a,b} \cycle{c,d}) = \Cl_{\Sym_4}(\cycle{a,b} \cycle{c,d})$,
     dunque se $H \triangleleft \mathcal{A}_4 \implies H \supset \{e, \cycle{1,2}\cycle{3,4}, \cycle{1,3}\cycle{2,4}, \cycle{1,4}\cycle{2,3}\} = V$ \footnote{$V$ prende il nome di \vocab{gruppo di Klein} o \vocab{Klein 4-group}.},
     allora $V < H$, ma $4 \nmid 6 \implies$ assurdo.
 \end{example}
@@ -1809,7 +1806,7 @@ e quindi otteniamo il sottogruppo di ordine $d$ voluto.
                 \[ (\Z{2} \times \Z{2}) \rtimes_{\varphi} \Z{3} = G \varlonghookrightarrow \Sym_2
                     \]
     infatti, $G$ agisce per coniugio sull'insieme $\{P_3,P_3^{\prime},P_3^{\prime\prime},P_3^{\prime\prime\prime}\}$ dei quattro $3$-Sylow di $G$, pertanto abbiamo l'azione transitiva
-    $\phi : G \longrightarrow \Sym(X) \cong \Sym_2$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
+    $\phi : G \longrightarrow \Sym(X) \cong \Sym_4$, con $\ker \phi = \{id\}$ (dunque è un'azione fedele).
     Si verifica facilmente che l'unica possibilità è che $G$ sia isomorfo al gruppo alternante di $4$ elementi, dunque abbiamo ottenuto il gruppo:
         \begin{center}
             $\color{LimeGreen!90!black}{\mathcal{A}_4}$
@@ -2002,11 +1999,11 @@ Dunque i gruppi di ordine 8 sono:
 
 \begin{soln}
     Osserviamo inizialmente che per il \hyperref[p:Cayley]{Teorema di Cayley} $n \leq 8$ e che per quello di Lagrange l'ordine dell'immagine di $Q_8$ deve dividere quello di $\Sym_n$, pertanto $n \geq 4$, dunque abbiamo un numero finito di possibilità:
-        \[ \Sym_2,\Sym_{5},\Sym_{6},\Sym_{7},\Sym_{8}
+        \[ \Sym_4,\Sym_{5},\Sym_{6},\Sym_{7},\Sym_{8}
             \]
-    Se $Q_8$ si immergesse in $\Sym_2$, con $|\Sym_2| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $\Sym_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow \Sym_2$, 
-    ed in particolare $D_4$ è un $2$-Sylow di $\Sym_2$, ma ciò significa che $Q_8$ non è in $\Sym_2$, poiché non è un coniugato di $D_4$. \\
-    Si ragiona in maniera analoga per $\Sym_{5}$, infatti $|\Sym_{5}| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset \Sym_2 \subset \Sym_{5}$, dunque i due $2$-Sylow di $\Sym_2$ sono isomorfi a quelli di $\Sym_{5}$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
+    Se $Q_8$ si immergesse in $\Sym_4$, con $|\Sym_4| = 2^3 \cdot 3$, sarebbe un suo $2$-Sylow; poiché $D_n$ si immerge sempre in $\Sym_n$ \footnote{In tal caso infatti basta mandare $x \in D_4$ nella corrispondente permutazione dei vertici.}, sappiamo che $D_4 \varlonghookrightarrow \Sym_4$, 
+    ed in particolare $D_4$ è un $2$-Sylow di $\Sym_4$, ma ciò significa che $Q_8$ non è in $\Sym_4$, poiché non è un coniugato di $D_4$. \\
+    Si ragiona in maniera analoga per $\Sym_{5}$, infatti $|\Sym_{5}| = 2^3 \cdot 3 \cdot 5$ e $D_4 \subset \Sym_2 \subset \Sym_{5}$, dunque i due $2$-Sylow di $\Sym_4$ sono isomorfi a quelli di $\Sym_{5}$, ed ancora una volta ciò significa che $Q_8$ non si immerge nel gruppo.\\
     Sia $|\Sym_{6}| = 2^4 \cdot 3^2 \cdot 5$, detto $P_2$ un $2$-Sylow di $\Sym_{6}$, osserviamo che se fosse $Q_8 \varlonghookrightarrow \Sym_{6}$, dovremmo avere:
         \[ i \longmapsto \sigma \qquad j \longmapsto \rho \qquad k \longmapsto \sigma\rho = \eta
             \]
@@ -2027,7 +2024,7 @@ Dunque i gruppi di ordine 8 sono:
         Ad esempio, in $\Sym_{6}$, una coppia di 3-cicli può essere sia un quadrato di un ciclo di lunghezza pari, sia il quadrato di altri due 3-cicli:
             \[ \cycle{1,2,3}\cycle{4,5,6} = \cycle{1,4,2,5,3,6}^2 = \left(\cycle{1,3,2}\cycle{4,6,5}\right)^2
                 \]
-        mentre in $\Sym_2$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
+        mentre in $\Sym_4$ una coppia di cicli di lunghezza pari può essere soltanto il quadrato di un 4-ciclo:
             \[ \cycle{1,2}\cycle{3,4} = (\cycle{1,4,2,3})^2 = (\cycle{1,3,2,4})^2
                 \]
     \end{remark}
