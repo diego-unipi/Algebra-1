@@ -52,7 +52,7 @@ Il seguente scritto è una mia rielaborazione delle note del corso di Algebra 1 
 2022-23, \textbf{le note non sono state revisionate dai suddetti prof}.\\ 
 In questo file ci sono soltanto gli appunti delle lezioni della professoressa Del Corso (per
 le note delle lezioni del prof. Lombardo vi rimando ai \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Complementi di Algebra 1}}), l'ordine degli argomenti è lo stesso di quello seguito a lezione se non 
-in qualche caso, gli esercizi ed i vari lemmi/corollari con soluzione proposta sono stati lasciati dalla professoressa come esercizio, pertanto le dimostrazioni riportate non sono "ufficiali", bensì proposte individuali delle 
+in qualche caso, gli esercizi ed i vari lemmi/corollari con soluzione proposta sono stati lasciati dalla professoressa come esercizio, pertanto le dimostrazioni riportate non sono ``ufficiali'', bensì proposte individuali delle 
 persone che le hanno inviate, e sono state aggiunte solo al fine di una maggiore completezza della trattazione.\\
 Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alla mia mail.
 
@@ -60,7 +60,7 @@ Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando even
 \section*{Ringraziamenti}
 Di seguito le persone che hanno contribuito segnalando errori e/o aggiungendo dimostrazioni (in grassetto sono segnati coloro i quali hanno contribuito in maniera rilevante e che per tale motivo meritano un ringraziamento speciale):\\
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, \textbf{Leonardo Migliorini}, \textbf{Matteo Gori}, Daniele Lapadula, \textbf{Alessandro Fenu},
-\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali, Luca Milanese, Rubens Martino.
+\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali, Luca Milanese, \textbf{Rubens Martino}.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
@@ -2152,7 +2152,7 @@ dove sono state trattate più ampiamente.} le definizioni che riguardano gli ane
 \end{definition}
 
 \begin{definition}
-    Un anello $A$ si dice \vocab{dominio d'integrità} se:
+    Un anello $A$ commutativo si dice \vocab{dominio d'integrità} se:
         \[ D(A) = \{x \in A |\, \text{$x$ è un divisore di $0$}\} = \{0\}
             \]
 \end{definition}
@@ -2181,7 +2181,7 @@ e dei nilpotenti:
         \item $A^* \cap D(A) = \emptyset$.
         \item Se $A$ è un anello finito, allora $A = D(A) \cup A^*$. In particolare, un dominio
             d'integrità finito è un campo.\footnote{La tesi vale anche senza l'ipotesi di commutatività
-            nel campo, infatti un corpo finito è un campo finito per il \href{https://en.wikipedia.org/wiki/Wedderburn\%27s_little_theorem}{\textcolor{purple}{Piccolo Teorema di Wedderburn}}.}
+            dell'anello, infatti un corpo finito è un campo finito per il \href{https://en.wikipedia.org/wiki/Wedderburn\%27s_little_theorem}{\textcolor{purple}{Piccolo Teorema di Wedderburn}}.}
     \end{enumerate}
 \end{proposition}
 
@@ -2190,7 +2190,7 @@ e dei nilpotenti:
     \begin{enumerate}[(1)]
         \item Per provare che $(A^*, \cdot)$ è un gruppo abeliano, è sufficiente verificare le proprietà richieste dalla definizione:
         \begin{enumerate}[(a)]
-            \item Chiusura: osserviamo che $\forall x,y \in A^*$, allora $\exists x^{-1}y^{-1} \in A$, pertanto $xy \in A^*$, poiché $y^{-1}x^{-1} \in A^*$. 
+            \item Chiusura: osserviamo che $\forall x,y \in A^*$, allora $\exists x^{-1},y^{-1} \in A$, pertanto $xy \in A^*$, poiché $y^{-1}x^{-1} \in A^*$. 
             \item Associatività: poiché $A^* \subseteq A$, allora, essendo $A$ associativo rispetto al $\cdot$, allora anche gli elementi di un suo qualsiasi sottoinsieme saranno associativi tra loro. 
             \item Elemento Neutro: $1 \in A$, infatti, l'inverso di $1$ è se stesso, quindi $1$ è invertibile.
             \item Inverso: Segue per la stessa definizione di $A^*$ che ogni suo elemento debba avere inverso moltiplicativo nel gruppo, $\forall x \in A, \exists x^{-1} \in A$:
@@ -2359,8 +2359,8 @@ in tal caso l'ideale prende anche il nome di \vocab{ideale principale}.
                 \[ (S) = \bigcap_{\substack{S \subseteq X \subseteq A\\ X\,\text{ideale}}} X
                     \]
             dove l'intersezione è appunto il più piccolo ideale di $A$ che contiene $S$.
-            Dobbiamo dimostrare ora quanto detto; osserviamo che $(S)$ è contenuto nell'intersezione in quanto
-            è uno dei termini di quest'ultima; il contenimento opposto segue dal fatto che $\forall x \in S$ si ha $x = \sum a_is_i \in X$ (poiché $X$ è un ideale che contiene $S$, per come l'abbiamo definito),
+            Dobbiamo dimostrare ora quanto detto; osserviamo che l'intersezione sta in $(S)$ per costruzione.
+            Il contenimento opposto segue dal fatto che $\forall x \in (S)$ si ha $x = \sum a_is_i \in X$ (poiché $X$ è un ideale che contiene $S$, per come l'abbiamo definito),
             d'altra parte, per vedere che un ideale generato $(S)$ è contenuto a sua volta in un ideale $\mathcal{I}$ di $A$, basta vedere che $S \subset \mathcal{I}$ (ed è ciò che abbiamo appena fatto con $S$).
             A questo punto, tornando all'inclusione iniziale, ci basta verificare che, come abbiamo anticipato, $I+J$ contenga sia $I$ che $J$; essendo $0 \in J$ abbiamo:
                 \[ I \subset I + J
@@ -2463,7 +2463,7 @@ Valgono i seguenti fatti:
             Viceversa, sia $I$ ideale proprio e supponiamo $x \in I \cap A^*$, allora $x$ è invertibile, dunque $\exists y \in A$ tale che $xy = 1$, ma:
                 \[ 1 = \underbrace{x}_{\in I}\underbrace{y}_{\in A} \in I \implies a \cdot 1 \in I\footnote{In pratica se c'è l'identità in $I$ c'è esattamente ogni elemento dell'anello che contiene l'ideale.} \qquad \forall a \in A \implies A \subset I
                     \]
-            che è assurdo in quanto avevamo supposto $I \subset A$, dunque $I \cap A^* = \emptyset$.
+            che è assurdo in quanto avevamo supposto $I \subsetneq A$, dunque $I \cap A^* = \emptyset$.
         \item $A$ è un campo se e solo se $A^* = A \setminus \{0\}$, ma per il punto (1) l'unico elemento fuori da $A^*$ è 0, dunque $I = \{0\}$ e $I = A$ sono gli unici ideali che possiamo avere.
     \end{enumerate}
 \end{proof}
