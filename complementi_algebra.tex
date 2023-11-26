@@ -61,7 +61,7 @@ Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando even
 \section*{Ringraziamenti}
 
 Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani, Daniele
-Lapadula, Francesco Sorce, Alessandro Moretti, Matteo Gori, Lorenzo Bonetti, Rubens Martino, Gabriel Videtta.
+Lapadula, Francesco Sorce, Alessandro Moretti, Matteo Gori, Lorenzo Bonetti, \textbf{Rubens Martino}, Gabriel Videtta.
 
 \mbox{}
 \vfill
@@ -3241,7 +3241,7 @@ l'insieme degli ideali massimali di $\ZZ[x]$ contenenti $p$ è
 \]
 mentre l'insieme degli ideali primi di $\ZZ[x]$ contenenti $p$ è
 \[
-    \mathcal{P}_p = \mathcal{M}_p \cup (p)\ZZ[x]
+    \mathcal{P}_p = \mathcal{M}_p \cup\{(p)\ZZ[x]\}
 \]
 
 Supponiamo adesso che $P$ sia un ideale primo di $\ZZ[x]$ tale che 
@@ -3259,18 +3259,18 @@ l'ideale nullo e gli ideali generati da polinomi irriducibili. Se $f(x)\in \QQ[x
 è un polinomio irriducibile il cui ideale corrisponde a $P$ allora, posto 
 $m$ il minimo comune denominatore dei suoi coefficienti, abbiamo che 
 $P = (f(x))\QQ[x] \cap \ZZ[x] = (mf(x))\QQ[x]\cap\ZZ[x] = (mf(x))\ZZ[x]$. 
-In particolare $P$ è generato da un polinomio primitivo irriducibile.
+In particolare $P$ è generato da un polinomio irriducibile.
 Gli ideali primi di $\ZZ[x]$ possono quindi avere la seguente forma:
 \begin{itemize}
     \item $(0)$;
     \item $(p)\ZZ[x]$ con $p \in \ZZ$ primo;
     \item $(p, f(x))$ con $p \in \ZZ$ primo e $\overline{f(x)}$ irriducibile
     in $\FF_p[x]$;
-    \item $(f(x))$ con $f(x)$ primitivo e irriducibile in $\ZZ[x]$.
+    \item $(f(x))$ con $f(x)$ irriducibile in $\ZZ[x]$.
 \end{itemize}
 
 Mostriamo che gli ideali primi di quest'ultimo tipo non sono massimali.\newline
-Siano $f(x) \in \ZZ[x]$ un polinomio primitivo, irriducibile, non costante,
+Siano $f(x) \in \ZZ[x]$ un polinomio irriducibile, non costante,
 $a \in \ZZ$ tale che $f(a) \notin\{-1, 0, 1\}$, $p \in \ZZ$ un primo che 
 divide $f(a)$ e consideriamo le applicazioni
 \[
@@ -3523,14 +3523,14 @@ degli anelli di polinomi.
     \]
     poniamo $t = \displaystyle -\sum_{i = 1}^n a_i'x^i$. Notiamo che $t$ è
     nilpotente in quanto tutti i coefficienti $a_i'$ sono nilpotenti e l'insieme
-    dei nilpotenti è un ideale. Fissiamo $n \in \NN$ tale che $t^n = 0$, 
+    dei nilpotenti è un ideale. Fissiamo $m \in \NN$ tale che $t^m = 0$, 
     dalla fattorizzazione 
     \[
-        1 - t^n = (1 - t)\left(\sum_{i = 0}^{n - 1}t^i\right)
+        1 - t^m = (1 - t)\left(\sum_{i = 0}^{m - 1}t^i\right)
     \]
     otteniamo 
     \[
-        1 = a_0^{-1}p(x)\left(\sum_{i = 0}^{n - 1}t^i\right)
+        1 = a_0^{-1}p(x)\left(\sum_{i = 0}^{m - 1}t^i\right)
     \]
     in particolare $p(x) \in A[x]^*$ e quindi $X \subseteq A[x]^*$.\newline
     Viceversa, siano $f(x) = \displaystyle\sum_{i = 0}^n\alpha_ix^i$ un 
@@ -3951,15 +3951,15 @@ quozienti sono dei domini finiti, quindi dei campi.
 Consideriamo adesso il quoziente di $\ZZ[i]$ per un generico ideale $I = (z)$,
 fattorizziamo $z$ in primi di $\ZZ[i]$:
 \[
-    z = u(1 + i)^e\prod_{j = 1}^r (a_j + b_j i)^{e_j}\prod_{h = 1}^s p_h^{e_h}
+    z = u(1 + i)^e\prod_{j = 1}^r (a_j + b_j i)^{e_j}\prod_{h = 1}^s p_h^{l_h}
     \qquad u \in \ZZ[i]^*
 \]
-Gli ideali $(1 + i)^e, (a_j + b_j)^{e_j}, (p^{e_h})$ sono a due a due coprimi,
-in quanto massimali, quindi per il Teorema Cinese del Resto
+Gli ideali $(1 + i)^e, (a_j + b_ji)^{e_j}, (p^{e_h})$ sono generati da elementi a due a due coprimi,
+quindi per il Teorema Cinese del Resto
 \[
     \faktor{\ZZ[i]}{I} \cong \frac{\ZZ[i]}{(1 + i)^e}\times
     \prod_{j = 1}^r\frac{\ZZ[i]}{(a_j + b_ji)^{e_j}}
-    \times \prod_{h = 1}^s \frac{\ZZ[i]}{(p)^{e_h}}
+    \times \prod_{h = 1}^s \frac{\ZZ[i]}{(p)^{l_h}}
 \]
 La cardinalità di questo quoziente è $N(z)$, infatti applicando il 
 \hyperref[lemma2.21]{Lemma 2.21} abbiamo
@@ -4006,8 +4006,8 @@ vogliamo mostrare che non è un dominio euclideo.
     polinomio a coefficienti interi primitivo e per il Lemma di Gauss.
     Pertanto per il Primo Teorema di Omomorfismo abbiamo 
     \[
-        \frac{\ZZ[x]}{(x^2 - x + 5)} \cong \mathrm{Im\varphi} = 
-        \{a + b\alpha \mid a, b \in \ZZ\} = \ZZ[\alpha]
+        \{a + b\alpha \mid a, b \in \ZZ\} = \frac{\ZZ[x]}{(x^2 - x + 5)} \cong \mathrm{Im\varphi} = 
+         \ZZ[\alpha]
     \]
 \end{proof}
 

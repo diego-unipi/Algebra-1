@@ -3198,10 +3198,10 @@ ammette elementi massimali.
 \end{remark}
 
 \begin{definition}
-    Dati $a,b \in A$ dominio, non entrambi nulli, diciamo che $d \in A$ è un \vocab{massimo comun divisore} per $a$ e $b$ se:
+    Dati $a,b \in A$ dominio, non entrambi nulli, diciamo che $d \in A$ è un \vocab{massimo comune divisore} per $a$ e $b$ se:
     \begin{enumerate}[(1)]
         \item $d \mid a$ e $d \mid b$.
-        \item $\forall x \in A$ tale che $x \mid a$ o $x\mid b$, allora $x \mid d$.
+        \item $\forall x \in A$ tale che $x \mid a$ e $x\mid b$, allora $x \mid d$.
     \end{enumerate}
 \end{definition}
 
@@ -3437,7 +3437,7 @@ con $\displaystyle N(r) < \frac{1}{2} \; \text{diagonale quadrato} < \text{lato}
 
 \begin{proof}
     Sia $I \subset A$ un ideale, se $I = \{0\}$, allora è principale, altrimenti, preso $I \ne \{0\}$, vogliamo mostrare che $I$ è generato da un singolo elemento di grado minimo.
-    Sia $x \in I$ un elemento di grado minimo (esiste perché $d(I) \subset \NN$ e non vuoto), allora è ovvio che $(x) \subseteq I$, viceversa, si ha che $\forall a \in A$ si può fare la divisione euclidea per $x$:
+    Sia $x \in I$ un elemento di grado minimo (esiste perché $d(I) \subset \NN$ e non vuoto), allora è ovvio che $(x) \subseteq I$, viceversa, si ha che $\forall a \in I$ si può fare la divisione euclidea per $x$:
     \[ a = qx + r \qquad d(r) < d(x) \vee r = 0
         \]
     da cui segue che $r = a - qx \in I$ da cui $d(x) \leq d(r) \implies r = 0$, ovvero:
@@ -3817,7 +3817,7 @@ Per verificare la condizione (i) dobbiamo prima caratterizzare gli irriducibili 
     \begin{itemize}
         \item Se $\deg f(x) = 0$, ovvero $f(x) = f \in A$, dunque se $f$ è irriducibile in $A$, essendo $A$ UFD, allora $f$ è primo in $A$;
         infatti abbiamo che:
-        \[ f \mid gh \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) = g \quad \text o \quad f \mid c(h) = h
+        \[ f \mid gh \implies f = c(f) \mid c(gh) = c(g)c(h) \implies f \mid c(g) \mid g(x) \quad \text o \quad f \mid c(h) \mid h(x)
             \]
         dunque $f$ primo.
         \item Sia $f(x)$ primitivo e irriducibile in $K[x]$, con $\deg f(x) \geq 1$, si osserva che $K[x]$ è un dominio euclideo (poiché $K$ è un campo), quindi $f(x)$ è anche primo
@@ -3886,7 +3886,11 @@ Con la dimostrazione di quest'ultima proposizione abbiamo concluso la dimostrazi
 \end{exercise}
 
 \begin{soln}
-    
+    Osserviamo innanzitutto che $x$ e $y$ sono irriducibili in $K[x,y]$. Infatti dal momento che $\frac{K[x,y]}{(x)}\cong K[y]$ e $K[y]$ è un dominio deduciamo che $(x)$ è un ideale primo.
+    Tuttavia in un dominio $(x)$ è un ideale primo non nullo se e solo se $x$ è primo. Concludiamo utilizzando il fatto che $x$ primo $\implies x$ irriducibile. Similmente si dimostra
+    che $y$ è irriducibile. Osserviamo ora che $x$ e $y$ sono irriducibili non associati in $K[x,y]$. Ciò implica che $MCD(x,y)=1$ a meno di associati. Supponiamo per assurdo esista $f(x,y)$
+    tale che $(f(x,y))=(x,y)$ allora quest'ultimo sarebbe un massimo comun divisore di $x$ e $y$. In quanto tale $f(x,y)$ è associato ad 1. Di conseguenza si ha che $(1)=(f(x,y))=(x,y)$.
+    Tuttavia $1\not\in(x,y)$. Infatti se $1=a(x,y)\cdot x+b(x,y)\cdot y$ allora valutando il membro di destra in $x=0$ e $y=0$ si ottiene 1 = 0 che è assurdo.\footnote{Soluzione proposta da Rubens Martino.}
 \end{soln}
 
 \begin{proposition}
@@ -3901,7 +3905,7 @@ Dato $A$ UFD e $f(x) \in A[x]$ primitivo, con $f(x) = \sum_{i=0}^n a_ix^i$, e $p
 Allora $f(x)$ è irriducibile in $A[x]$ (e in $K[x]$, con $K$ campo dei quozienti di $A$).
 \end{proposition}
 
-\newpage
+\pagebreak
 \subsection{Terne pitagoriche}
 \begin{definition}
     Si definiscono \vocab{terne pitagoriche} le terne di soluzioni intere dell'equazione:
