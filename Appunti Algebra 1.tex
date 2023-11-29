@@ -60,7 +60,7 @@ Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando even
 \section*{Ringraziamenti}
 Di seguito le persone che hanno contribuito segnalando errori e/o aggiungendo dimostrazioni (in grassetto sono segnati coloro i quali hanno contribuito in maniera rilevante e che per tale motivo meritano un ringraziamento speciale):\\
 \textbf{Davide Ranieri}, Federico Allegri, Pietro Crovetto, \textbf{Francesco Sorce}, \textbf{Leonardo Migliorini}, \textbf{Matteo Gori}, Daniele Lapadula, \textbf{Alessandro Fenu},
-\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali, Luca Milanese, \textbf{Rubens Martino}.
+\underline{\textbf{Leonardo Alfani}}, Clementina Salamina, Giorgia Capecchi, Gianni Bellu, Carlo Rotolo, Lorenzo Picinelli, Alessandro Moretti, Lorenzo Bonetti, Vittorio Monti, Eva Bartali, Luca Milanese, \underline{\textbf{Rubens Martino}}, Federico Volpe.
 \mbox{}
 \vfill
 \begin{wrapfigure}{R}{0.2\textwidth}
@@ -4103,7 +4103,7 @@ suo campo dei quozienti\footnote{Volendo per la \hyperref[2.69]{Proposizione 2.6
     [Proprietà delle torri di estensioni]
     \label{torri}
     Data una torre di estensioni $K \subset F \subset L$, $\faktor{F}{K}$ è finita se e solo se $\faktor{L}{F}$ e $\faktor{F}{K}$ sono finite e inoltre:
-    \[ [F:K] = [F:L][L:K]
+    \[ [L:K] = [L:F][F:K]
         \]
 \end{proposition}
 
@@ -4612,22 +4612,22 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
 \end{proposition}
 
 \begin{proof}
-    Verifichiamo le varie equivalenze:
+    Verifichiamo le varie equivalenze.
     \begin{itemize}
-        \item \underline{\textbf{$(1)\implies (2)$}}: sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
+        \item[$\boxed{(1)\implies (2)}$] Sia $f(x) \in K[x]$ e siano $\alpha_1,\ldots,\alpha_n \in \overline K$ le radici di $f$, per ipotesi sappiamo che $f(x)$ ha almeno una radice in $F$, supponiamo sia $\alpha_1$, allora $K(\alpha_1) \subset F$, dunque
         $\forall i \in \{1,\ldots,n\}$ consideriamo le immersioni:
         \[ \varphi_i : K(\alpha_1) \longrightarrow K(\alpha_i) \subseteq \overline K : \alpha_1 \longmapsto \alpha_i \qquad \text{con} \qquad \varphi_{i|K} = id_K
             \]
-        esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33} (ed in particolare sono quelle che mandano una radice in un suo coniugato), inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K$ in $\ol K$ si estende ad una da $F$ in $\ol K$,
+        esse esistono sempre per la \hyperref[3.33]{Proposizione 3.33} (ed in particolare sono quelle che mandano una radice in un suo coniugato), inoltre, $\forall i \in \{1,\ldots,n\}$ sia $\widetilde{\varphi_i}$ un'estensione di $\varphi_i$ a $F$, cioè ogni immersione di $K(\alpha_1)$ in $\ol K$ si estende ad una da $F$ in $\ol K$,
         in tanti modi quanti il grado $[F : K(\alpha_1)]$ (\hyperref[3.39]{Proposizione 3.39}\footnote{Vale in generale ma lo abbiamo dimostrato solo nel caso delle estensioni finite.}). Fissata un'estensione di $\varphi_i$:
-        \[ \widetilde{\varphi_i} : (K(\alpha_i) \subset)F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_i)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
+        \[ \widetilde{\varphi_i} : (K(\alpha_1) \subset)F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \widetilde{\varphi}_{i|K(\alpha_1)} = \varphi_i \implies \widetilde{\varphi}_{i|K} = id_K
             \]
         cioè $\widetilde{\varphi}_i$ si restringe a $K$ proprio come $\varphi_i$, da cui, essendo $\faktor{F}{K}$ normale, si ha che $\widetilde{\varphi}_i(F) = F$, ma in particolare ciò significa che
         dalla radice $\alpha_1$ di $f(x)$, che va nei suoi coniugati mediante $\varphi_i$, otteniamo tutte le altre radici dentro $F$:
         \[ \widetilde{\varphi}_i(\alpha_1) = \varphi_i(\alpha_1) = \alpha_i \in F \qquad \forall i \in \{1,\ldots,n\}
             \]
         dove la prima uguaglianza deriva dal fatto che $\alpha_1 \in F$ ed in particolare in $\alpha_1 \in K(\alpha_1)$, quindi $\widetilde{\varphi_i}$ si comporta come la sua restrizione su quest'ultimo campo, e tale restrizione $\varphi_i$, come detto all'inizio, manda una radice in un suo coniugato.
-        \item \underline{\textbf{$(2)\implies (3)$}}: Consideriamo $F_0$ il campo di spezzamento su $K$ della famiglia di polinomi:
+        \item[$\boxed{(2)\implies (3)}$] Consideriamo $F_0$ il campo di spezzamento su $K$ della famiglia di polinomi:
         \[ \mathcal{F} = \{\mu_\alpha(x) \in K[x] | \alpha \in F, \, \text{$\mu_\alpha(x)$ polinomio minimo di $\alpha$ su $K$}\}
             \]
         abbiamo che $F \subseteq F_0$, poiché abbiamo aggiunto tutte le radici di tutti i polinomi minimi di tutti gli elementi di $F$, dunque $F_0$ contiene necessariamente almeno $F$.
@@ -4636,7 +4636,7 @@ Nella trattazione di teoria di campi di queste dispense considereremo soltanto e
             \]
         dove $\mu_\alpha(x)$ è irriducibile su $K[x]$ e $\alpha$ è una sua radice in $F$, dunque per ipotesi $F$ contiene tutte le radici $\beta$ di $\mu_\alpha(x)$, $\forall \mu_\alpha(x) \in \mathcal{F}$, ovvero $F_0 \subseteq F$,
         quindi $F = F_0$, per cui $F$ è proprio il campo di spezzamento dei polinomi della famiglia $\mathcal{F}$.
-        \item \underline{\textbf{$(3)\implies (1)$}}: Consideriamo:
+        \item[$\boxed{(3)\implies (1)}$] Consideriamo:
         \[ \varphi : F \varlonghookrightarrow \overline K \qquad \text{con} \qquad \varphi_{|K} = id_K
             \]
         vogliamo dimostrare che $\varphi(F) = F$, avendo per ipotesi che $F$ è il campo di spezzamento di:
@@ -5027,7 +5027,7 @@ dunque otteniamo esattamente tutte e sole le $n$ radici nell'orbita di $\alpha_1
         \end{cases}
             \]
         da cui $\varphi_i \equiv \varphi_j$ (cioè $i = j$) perché $E = K(\alpha,\beta)$ (infatti due immersioni in cui i generatori coincidono sono la stessa immersione), ma ciò è assurdo, in quanto avevamo assunto $i < j$. Dunque il polinomio è non nullo ed ha grado limitato, 
-        sappiamo quindi che $F(x)$ ha al più $\deg F(x)$ radici in $\ol K$ e poiché $K$ è un campo infinito, allora $\exists t \in K$ tale che $F(t) \ne 0$ (cioè il numero di radici è un sottoinsieme finito degli elementi di $K$, dunque c'è sempre un elemento che non è radice di $F(x)$), dunque:
+        sappiamo quindi che $F(x)$ ha al più [in realtà esattamente] $\deg F(x)$ radici in $\ol K$ e poiché $K$ è un campo infinito, allora $\exists t \in K$ tale che $F(t) \ne 0$ (cioè il numero di radici è un sottoinsieme finito degli elementi di $K$, dunque c'è sempre un elemento che non è radice di $F(x)$), dunque:
         \[ F(t) = \prod_{i<j} (\underbrace{\varphi_i(\alpha)+t\varphi_i(\beta)}_{ = \varphi_i(\alpha+t\beta)}\underbrace{-\varphi_j(\alpha)-t\varphi_j(\beta)}_{ = -\varphi_j(\alpha+t\beta)}) \ne 0
             \]
         da ciò abbiamo che:
@@ -5070,7 +5070,7 @@ per definizione.
         dove $\widetilde{\varphi}_{|M} = \varphi_{|M} = id_M$. D'altra parte abbiamo per ipotesi che $\faktor{L}{M}$ è normale, dunque $\widetilde{\varphi}(L) = L$, quindi:
         $\widetilde{\varphi} \in \Gal\left(\faktor{L}{M}\right)$ (perché è un automorfismo che fissa puntualmente $L$ e si restringe all'identità su $M$), da ciò abbiamo che $\widetilde{\varphi}$ fissa puntualmente
         $L^G$, che è assurdo perché avevamo supposto il grado dell'estensione $\faktor{L^G}{M}$ maggiore di 1 (quindi con almeno un elemento non fissato da $\widetilde{\varphi}$).
-        \item Mostriamo ora che il gruppo che fissa il campo base è proprio tutto il gruppo di Galois; essendo $\faktor{L}{M}$ un'estensione finita, per il \hyperref[prim]{Teorema dell'elemento primitivo} $L = M(\alpha)$, sia $H \leqslant G$ il gruppo che fissa il campo base, $L^H = M$, consideriamo:
+        \item Mostriamo ora che il gruppo che fissa il campo base è proprio tutto il gruppo di Galois; essendo $\faktor{L}{M}$ un'estensione finita, per il \hyperref[prim]{Teorema dell'elemento primitivo} $L = M(\alpha)$, sia $H \leqslant G$ un gruppo che fissa solo il campo base, $L^H = M$, consideriamo:
         \[ f(x) = \prod_{\sigma \in H}(x - \sigma(\alpha)) \qquad \text{con} \qquad \deg f(x) = |H|
             \]
         tale polinomio si annulla in $\alpha$ e si ha $f(x) \in L^H[x]$, poiché, se consideriamo $\rho \in H$, allora si ha:
@@ -5181,8 +5181,8 @@ da cui:
         \arrow["{G/H}"', color={rgb,255:red,214;green,92;blue,92}, no head, from=3-1, to=2-1]
         \arrow["H"', color={rgb,255:red,214;green,92;blue,92}, no head, from=2-1, to=1-1]
     \end{tikzcd}\]
-    dove $G$ è il gruppo di Galois di $\faktor{L}{K}$, essendo anche $\faktor{L}{L^H}$ di Galois 
-    per ipotesi, e detto $H$ il suo gruppo di Galois, allora se $H \triangleleft G$,
+    dove $G$ è il gruppo di Galois di $\faktor{L}{K}$, essendo anche $\faktor{L}{L^H}$ di Galois,
+    e detto $H$ il suo gruppo di Galois, allora se $H \triangleleft G$,
     si ha che anche $\faktor{L^H}{K}$ è di Galois ed il suo gruppo di Galois è $\faktor{G}{H}$.
 \end{example}
 
