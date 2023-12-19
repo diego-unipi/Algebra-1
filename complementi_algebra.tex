@@ -4568,10 +4568,10 @@ Il polinomio minimo di $\alpha$ su $\QQ$ è quindi
 Notiamo che $\zeta_7^2 + \zeta_7^{-2}$ e $\zeta_7^3 + \zeta_7^{-3}$ sono
 elementi di $\QQ(\alpha)$, in quanto
 \[
-    \zeta_7^2 + \zeta_7^{-2} = (\zeta_7 + \zeta_7^{-1})^2 - 1
+    \zeta_7^2 + \zeta_7^{-2} = (\zeta_7 + \zeta_7^{-1})^2 - 2
 \]
 \[
-    \zeta_7^3 + \zeta_7^{-3} = (\zeta_7 + \zeta_7^{-1})^3 - 3(\zeta_7 - \zeta_7^{-1})
+    \zeta_7^3 + \zeta_7^{-3} = (\zeta_7 + \zeta_7^{-1})^3 - 3(\zeta_7 + \zeta_7^{-1})
 \]
 pertanto $\faktor{\QQ(\alpha)}{\QQ}$ è un'estensione normale di grado 3 in 
 quanto campo di spezzamento di $\mu_{\alpha}(x)$ su $\QQ$,
@@ -4859,7 +4859,7 @@ Galois di un'estensione di campi.
             \varphi_3^2(x_1) = \varphi_3(x_3) = 
             \varphi_3\left(\frac{\sqrt b}{x_1}\right) = 
             \frac{\varphi_3(\sqrt\Delta q)}{\varphi_3(x_1)} = 
-            q\frac{\sqrt\Delta}{x_3}
+            q\frac{\varphi_3(\sqrt\Delta)}{x_3}
         \]
         Poiché $\sqrt\Delta = 2x_1^2 + a$ si ha $\varphi_3(\sqrt\Delta) =
         2x_3^2 + a = -\sqrt\Delta$, pertanto
