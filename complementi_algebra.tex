@@ -5013,7 +5013,7 @@ le sue principali applicazioni nella teoria di Galois.
 	Sia $p \in K[x]$. Se $\deg p = n$ e $\alpha_1$, ..., $\alpha_n \in \overline{K}$ sono le radici
 	di $p$, si definisce il \textbf{discriminante polinomiale} $\disc p$ in modo
 	tale che:
-	\[ \disc p = \disc p(x) = \prod_{i < j} (\alpha_i - \alpha_j)^2 \in K[\alpha_1, \ldots, \alpha_n]. \]
+	\[ \disc p = \disc p(x) = \prod_{i < j} (\alpha_i - \alpha_j)^2 \in K[\alpha_1, \ldots, \alpha_n] \]
 \end{definition}
 
 Si verifica facilmente che $p$ ha radici multiple se e solo se $\disc p = 0$. Inoltre,
@@ -5032,12 +5032,12 @@ una qualsiasi permutazione degli $\alpha_i$ in $p$ restituisce ancora $p$. \meds
 Si osserva facilmente che $\disc p$ è invariante per traslazioni. Infatti,
 se si considera $p(x+a)$ con $a \in K$, le radici di $p(x+a)$ sono $\alpha_1 - a$, ..., $\alpha_n - a$. Pertanto
 vale che:
-\[ \disc p(x+a) = \prod_{i<j} (\alpha_i - a - \alpha_j + a)^2 = \prod_{i<j} (\alpha_i - \alpha_j)^2 = \disc p(x). \]
+\[ \disc p(x+a) = \prod_{i<j} (\alpha_i - a - \alpha_j + a)^2 = \prod_{i<j} (\alpha_i - \alpha_j)^2 = \disc p(x) \]
 
 \begin{example}[$\disc p$ per polinomi di grado $2$]
 	Sia $p(x) = ax^2 + bx + c$ con $a \neq 0$. Se $\alpha_1$ e $\alpha_2$ sono le radici di $p$ in $\overline{K}$, allora vale che:
 	\[ \disc p(x) = (\alpha_1 - \alpha_2)^2 = \alpha_1^2 + \alpha_2^2 - 2 \alpha_1 \alpha_2 = (\alpha_1 + \alpha_2)^2 - 4 \alpha_1 \alpha_2 =
-		\frac{b^2}{a^2} - 4 \frac{c}{a} = \frac{\Delta}{a^2}, \]
+		\frac{b^2}{a^2} - 4 \frac{c}{a} = \frac{\Delta}{a^2} \]
 	dove si è utilizzato il fatto per cui $\alpha_1 + \alpha_2 = -\frac{b}{a}$, $\alpha_1 \alpha_2 = \frac{c}{a}$
 	e dove $\Delta$ indica l'usuale delta delle equazioni di secondo grado.
 \end{example}
@@ -5046,26 +5046,26 @@ vale che:
 	Un'espressione di $\disc p$ può anche essere calcolata attraverso le matrici
 	di Vandermonde. Infatti, se $M$ è la matrice di Vandermonde di $\alpha_1$, ..., $\alpha_n$
 	radici di $p$, vale che:
-	\[ M = \begin{pmatrix}1 & \alpha_1 & \alpha_1^2 & \cdots & \alpha_1^{n-1} \\ 1 & \alpha_2 & \alpha_2^2 & \cdots & \alpha_2^{n-1} \\ \vdots & \vdots & \vdots & \vdots & \vdots \\ 1 & \alpha_n & \alpha_n^2 & \cdots & \alpha_n^{n-1}\end{pmatrix}, \]
+	\[ M = \begin{pmatrix}1 & \alpha_1 & \alpha_1^2 & \cdots & \alpha_1^{n-1} \\ 1 & \alpha_2 & \alpha_2^2 & \cdots & \alpha_2^{n-1} \\ \vdots & \vdots & \vdots & \vdots & \vdots \\ 1 & \alpha_n & \alpha_n^2 & \cdots & \alpha_n^{n-1}\end{pmatrix} \]
 	e quindi:
-	\[ \det(M) = \prod_{i < j} (\alpha_i - \alpha_j). \]
+	\[ \det(M) = \prod_{i < j} (\alpha_i - \alpha_j) \]
 	Pertanto vale che:
-	\[ \det(M^2) = \det(M M^T) = \prod_{i < j} (\alpha_i - \alpha_j)^2 = \disc p(x). \]
+	\[ \det(M^2) = \det(M M^T) = \prod_{i < j} (\alpha_i - \alpha_j)^2 = \disc p(x) \]
 \end{remark}
 
 \begin{remark}
 	Sia $p \in K[x]$ di grado $n$ e siano $\alpha_1$, \ldots, $\alpha_n$ le sue radici.
 	Se allora $\sigma \in S(\{\alpha_1, \ldots, \alpha_n\})$, vale che:
-	\[ \prod_{i < j} (\sigma(\alpha_i) - \sigma(\alpha_j)) = \prod_{i < j} \frac{\sigma(\alpha_i) - \sigma(\alpha_j)}{\alpha_i - \alpha_j} \prod_{i < j} (\alpha_i - \alpha_j) = \sgn(\sigma) \prod_{i < j} (\alpha_i - \alpha_j).  \]
+	\[ \prod_{i < j} (\sigma(\alpha_i) - \sigma(\alpha_j)) = \prod_{i < j} \frac{\sigma(\alpha_i) - \sigma(\alpha_j)}{\alpha_i - \alpha_j} \prod_{i < j} (\alpha_i - \alpha_j) = \sgn(\sigma) \prod_{i < j} (\alpha_i - \alpha_j)  \]
 	Pertanto, se $L = K(\alpha_1, \ldots, \alpha_n)$ è un campo di spezzamento di $p$ su $K$ e
 	ogni fattore irriducibile di $p$ è separabile,
 	elevando al quadrato, vale che:
-	\[ \sigma(\disc p) = \disc p \qquad \forall \sigma \in \Gal\left(\faktor{L}{K}\right), \]
+	\[ \sigma(\disc p) = \disc p \qquad \forall \sigma \in \Gal\left(\faktor{L}{K}\right) \]
 	e quindi\footnote{
 		In generale, $\disc p$ appartiene sempre a $K$. Infatti $\disc p$ è un polinomio
 		simmetrico negli $\alpha_i$, e in quanto tale, per il Teorema fondamentale dei polinomi
 		simmetrici, può scriversi come elemento di $K[e_1, \ldots, e_n]$, dove:
-		\[ e_0 = 1, \quad\qquad e_i = \sum_{1 \leq j_1  \leq \cdots \leq j_i \leq n } \alpha_{j_1} \cdots \alpha_{j_i} \quad \forall \, 1 \leq i \leq n. \]
+		\[ e_0 = 1, \quad\qquad e_i = \sum_{1 \leq j_1  \leq \cdots \leq j_i \leq n } \alpha_{j_1} \cdots \alpha_{j_i} \quad \forall \, 1 \leq i \leq n \]
 		Pertanto, poiché per le formule di Viète vale che $a_i = (-1)^{n-i} a_n e_{n-i} \in K$, e dunque $e_i \in K$, $\disc p$, essendo combinazione dei vari $e_i$, è sempre un elemento di $K$.
 	} $\disc p \in L^G = K$.
 \end{remark}
@@ -5087,7 +5087,7 @@ seguente proposizione:
 	Sia $G := \Gal\left(\faktor{L}{K}\right)$. Allora $G \mono \mathcal{A}_n$ se e solo se
 	$\sgn(\sigma) = 1$ $\forall \sigma \in G$. Siano $\alpha_1$, \ldots, $\alpha_n$ le
 	radici di $p$ in $\overline{K}$. Allora vale la seguente identità:
-	\[ \sigma\left(\prod_{i < j} (\alpha_i - \alpha_j)\right) = \prod_{i < j} (\sigma(\alpha_i) - \sigma(\alpha_j)) = \sgn(\sigma) \prod_{i < j} (\alpha_i - \alpha_j), \]
+	\[ \sigma\left(\prod_{i < j} (\alpha_i - \alpha_j)\right) = \prod_{i < j} (\sigma(\alpha_i) - \sigma(\alpha_j)) = \sgn(\sigma) \prod_{i < j} (\alpha_i - \alpha_j) \]
 	dove si è utilizzata la precedente osservazione.
 	Poiché gli elementi fissati da tutte le $\sigma \in G$ sono esattamente gli
 	elementi di $K$, se $G \mono \mathcal{A}_n$, $\sgn(\sigma)$ è sempre uguale ad $1$, e quindi
@@ -5109,7 +5109,7 @@ seguente proposizione:
 		1 & 1 & 1 \\ \alpha_1 & \alpha_2 & \alpha_3 \\ \alpha_1^2 & \alpha_2^2 & \alpha_3^2
 	\end{pmatrix} \det \begin{pmatrix} 1 & \alpha_1 & \alpha_1^2 \\ 1 & \alpha_2 & \alpha_2^2 \\ 1 & \alpha_3 & \alpha_3^2 \end{pmatrix} = \det \begin{pmatrix}
 		3 & s_1 & s_2 \\ s_1 & s_2 & s_3 \\ s_2 & s_3 & s_4 
-	\end{pmatrix},\]
+	\end{pmatrix}\]
 	dove\footnote{
 		In realtà esiste una relazione esplicita per il termine $s_p$, detta
 		\textit{formula di Newton-Girard}, che dunque permette di estendere i calcoli
@@ -5123,20 +5123,20 @@ seguente proposizione:
 		ossia si può considerare $p\left(x - \frac{a_{n-1}}{n \, a_n}\right)$. Infatti, come visto prima, il discriminante è invariante
 		per traslazione.
 	} di $x^2$ è nullo. Si calcola ora $s_2$:
-	\[ s_2 = s_1^2 - 2(\alpha_1 \alpha_2 + \alpha_2 \alpha_3 + \alpha_3 \alpha_1) = s_1^2 - 2 p = -2p, \]
+	\[ s_2 = s_1^2 - 2(\alpha_1 \alpha_2 + \alpha_2 \alpha_3 + \alpha_3 \alpha_1) = s_1^2 - 2 p = -2p \]
 	dove $\alpha_1 \alpha_2 + \alpha_2 \alpha_3 + \alpha_3 \alpha_1 = e_2(\alpha_1, \alpha_2, \alpha_3) = p$ per le formule di Viète.
 	Si calcola $s_3$:
-	\[ s_3 = s_1^3 - 3 \alpha_1^2 (\alpha_2 + \alpha_3) - 3 \alpha_2^2 (\alpha_1 + \alpha_3) - 3 \alpha_3^2 (\alpha_1 + \alpha_2) - 6 \alpha_1 \alpha_2 \alpha_3. \]
+	\[ s_3 = s_1^3 - 3 \alpha_1^2 (\alpha_2 + \alpha_3) - 3 \alpha_2^2 (\alpha_1 + \alpha_3) - 3 \alpha_3^2 (\alpha_1 + \alpha_2) - 6 \alpha_1 \alpha_2 \alpha_3 \]
 	Sempre per le formule di Viète, vale che $\alpha_1 \alpha_2 \alpha_3 = -q$, e quindi:
-	\[ s_3 = s_1^3 - 3 \alpha_1^2 (s_1 - \alpha_1) - 3 \alpha_2^2 (s_1 - \alpha_2) - 3 \alpha_3^2 (s_1 - \alpha_3) + 6 q, \]
+	\[ s_3 = s_1^3 - 3 \alpha_1^2 (s_1 - \alpha_1) - 3 \alpha_2^2 (s_1 - \alpha_2) - 3 \alpha_3^2 (s_1 - \alpha_3) + 6 q \]
 	da cui, ricordando che $s_1 = 0$, si ricava che:
-	\[ s_3 = 3s_3 + 6q \implies s_3 = -3q. \]
+	\[ s_3 = 3s_3 + 6q \implies s_3 = -3q \]
 	Si calcola infine $s_4$:
-	\[  s_4 = s_1^4 - 4(\alpha_1^3(s_1 - \alpha_1) + \alpha_2^3(s_1 - \alpha_2) + \alpha_3^3(s_1 - \alpha_3)) - 12 \alpha_1\alpha_2\alpha_3 s_1 - 6 (\alpha_1^2\alpha_2^2 + \alpha_2^2 \alpha_3^2 + \alpha_3^2 \alpha_1^2). \]
+	\[  s_4 = s_1^4 - 4(\alpha_1^3(s_1 - \alpha_1) + \alpha_2^3(s_1 - \alpha_2) + \alpha_3^3(s_1 - \alpha_3)) - 12 \alpha_1\alpha_2\alpha_3 s_1 - 6 (\alpha_1^2\alpha_2^2 + \alpha_2^2 \alpha_3^2 + \alpha_3^2 \alpha_1^2) \]
 	Ricordando che $s_1 = 0$, vale allora che:
-	\[ s_4 = 4s_4 - 3 (\alpha_1^2 (s_2 - \alpha_1^2) + \alpha_2^2 (s_2 - \alpha_2^2) + \alpha_3^2 (s_2 - \alpha_3^2)), \]
+	\[ s_4 = 4s_4 - 3 (\alpha_1^2 (s_2 - \alpha_1^2) + \alpha_2^2 (s_2 - \alpha_2^2) + \alpha_3^2 (s_2 - \alpha_3^2)) \]
 	da cui:
-	\[ -3 s_4 = - 3(s_2^2 - s_4) \implies s_4 = \frac{s_2^2}{2} = 2p^2. \]
+	\[ -3 s_4 = - 3(s_2^2 - s_4) \implies s_4 = \frac{s_2^2}{2} = 2p^2 \]
 	Pertanto si può ora concludere che:
 	\[ \disc p(x) = \det \begin{pmatrix}
 		3 & 0 & -2p \\ 0 & -2p & -3q \\ -2p & -3q & 2p^2
@@ -5144,9 +5144,9 @@ seguente proposizione:
 	 -2p & -3q \\ -3q & 2p^2
 	\end{vmatrix} -2p \begin{vmatrix}
 		0 & -2p \\ -2p & -3q
-	\end{vmatrix}, \]
+	\end{vmatrix} \]
 	e quindi che:
-	\[ \disc p(x) = 3(-4p^3 - 9q^2) -2p(-4p^2) = -12 p^3 - 27 q^2 + 8p^3 = \boxed{-4p^3 - 27q^2}. \]
+	\[ \disc p(x) = 3(-4p^3 - 9q^2) -2p(-4p^2) = -12 p^3 - 27 q^2 + 8p^3 = \boxed{-4p^3 - 27q^2} \]
 \end{remark}
 
 \begin{example}[Gruppo di Galois di un polinomio cubico, irriducibile e separabile]
@@ -5160,8 +5160,8 @@ seguente proposizione:
 	Per la proposizione precedente, $G$ è isomorfo a $\mathcal{A}_3$ se e solo
 	se $\disc p(x) = -4p^3 - 27q^2$ è un quadrato in $K$, e quindi:
 	\[ G \cong \begin{cases}
-		\mathcal{A}_3 & \text{se $-4p^3-27q^2$ è quadrato in $K$}, \\
-		\mathcal{S}_3 & \text{altrimenti}.
+		\mathcal{A}_3 & \text{se $-4p^3-27q^2$ è quadrato in $K$} \\
+		\mathcal{S}_3 & \text{altrimenti}
 	\end{cases} \]  
 \end{example}
 
@@ -5184,8 +5184,8 @@ Sia $x = u + v$. Allora $\varphi(u + v) = u^3 + v^3 + 3 u^2 v + 3 u v^2 + p(u + 
 (u^3 + v^3 + q) + (3uv + p)(u + v)$. Si impone allora il seguente sistema di
 equazioni:
 \[ \begin{cases}
-	u^3 + v^3 = -q, \\
-	uv = -\frac{p}{3} \implies u^3 v^3 = - \frac{p^3}{27}.
+	u^3 + v^3 = -q \\
+	uv = -\frac{p}{3} \implies u^3 v^3 = - \frac{p^3}{27}
 \end{cases} \]
 Infatti, se il precedente sistema ammette soluzione, $\varphi(x) = \varphi(u + v)$ si annulla e
 $u + v$ è soluzione. \medskip
@@ -5194,12 +5194,12 @@ $u + v$ è soluzione. \medskip
 Dal momento che abbiamo sia la somma che il prodotto di $u^3$ e $v^3$, è possibile
 ricavare queste due quantità risolvendo l'equazione di secondo grado
 associata:
-\[ 0 = y^2 - (u^3 + v^3) y + u^3 v^3 = y^2 + q y - \frac{p^3}{27}. \]
+\[ 0 = y^2 - (u^3 + v^3) y + u^3 v^3 = y^2 + q y - \frac{p^3}{27} \]
 Una volta ottenuti sia $u^3$ che $v^3$, prendendone la radice cubica, si
 otterrà dunque una radice di $\varphi(x)$. In particolare varrà che:
-\[ y_{1,2} = \frac{-q \pm \sqrt{q^2 + \frac{4p^3}{27}}}{2} = -\frac{q}{2} \pm \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}, \]
+\[ y_{1,2} = \frac{-q \pm \sqrt{q^2 + \frac{4p^3}{27}}}{2} = -\frac{q}{2} \pm \sqrt{\frac{q^2}{4} + \frac{p^3}{27}} \]
 e quindi:
-\[ x = u + v = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}. \]
+\[ x = u + v = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} \]
 Le altre due soluzioni di $\varphi(x)$ si possono poi computare facilmente riducendosi
 a considerare il polinomio di secondo grado $\varphi(x) / (x-\alpha)$, dove $\alpha$ è la soluzione
 ottenuta.
