@@ -5116,7 +5116,7 @@ seguente proposizione:
 	Chiaramente $s_1 = a_1 + a_2 + a_3 = 0$, dal momento che il coefficiente\footnote{
 		Se si sta considerando un polinomio non depresso, ossia per il quale tale
 		coefficiente è non nullo, si può applicare la \textit{trasformazione di Tschirnhaus},
-		ossia considerare $p\left(x + \frac{c_{n-1}}{c_n}\right)$ dove $c_i$ è il coefficiente del termine
+		ossia considerare $p\left(x - \frac{c_{n-1}}{n \, c_n}\right)$ dove $c_i$ è il coefficiente del termine
 		$i$-esimo di $p(x)$. Infatti, come visto prima, il discriminante è invariante
 		per traslazione.
 	} di $x^2$ è nullo. Si calcola ora $s_2$:
@@ -5161,6 +5161,45 @@ seguente proposizione:
 		\mathcal{S}_3 & \text{altrimenti}.
 	\end{cases} \]  
 \end{example}
+
+\newpage
+\subsection{Risoluzione delle equazioni di terzo grado}
+Si illustra adesso il metodo risolutivo delle equazioni di terzo grado,
+tramite la cosiddetta \textbf{formula di Cardano-Tartaglia-Del Ferro}.\medskip
+
+
+Innanzitutto, si
+assume che $\varphi(x)$ sia un polinomio \textit{depresso} di terzo grado
+della forma $x^3 + px + q$. Se invece tale polinomio non è depresso (ossia se il coefficiente
+di $x^2$ non è nullo) ed è della forma $ax^3 + bx^2 + cx + d$ con $b \neq 0$, è sufficiente sostituire $x = y - \frac{b}{3a}$ per
+ottenere un polinomio di tale tipo\footnote{
+	Questa è ancora la cosiddetta \textit{trasformazione di Tschirnhaus}.
+}. \medskip
+
+
+Sia $x = u + v$. Allora $\varphi(u + v) = u^3 + v^3 + 3 u^2 v + 3 u v^2 + p(u + v) + q =
+(u^3 + v^3 + q) + (3uv + p)(u + v)$. Si impone allora il seguente sistema di
+equazioni:
+\[ \begin{cases}
+	u^3 + v^3 = -q, \\
+	uv = -\frac{p}{3} \implies u^3 v^3 = - \frac{p^3}{27}.
+\end{cases} \]
+Infatti, se il precedente sistema ammette soluzione, $\varphi(x) = \varphi(u + v)$ si annulla e
+$u + v$ è soluzione. \medskip
+
+
+Dal momento che abbiamo sia la somma che il prodotto di $u^3$ e $v^3$, è possibile
+ricavare queste due quantità risolvendo l'equazione di secondo grado
+associata:
+\[ 0 = y^2 - (u^3 + v^3) y + u^3 v^3 = y^2 + q y - \frac{p^3}{27}. \]
+Una volta ottenuti sia $u^3$ che $v^3$, prendendone la radice cubica, si
+otterrà dunque una radice di $\varphi(x)$. In particolare varrà che:
+\[ y_{1,2} = \frac{-q \pm \sqrt{q^2 + \frac{4p^3}{27}}}{2} = -\frac{q}{2} \pm \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}, \]
+e quindi:
+\[ x = u + v = \sqrt[3]{-\frac{q}{2} + \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}} + \sqrt[3]{-\frac{q}{2} - \sqrt{\frac{q^2}{4} + \frac{p^3}{27}}}. \]
+Le altre due soluzioni di $\varphi(x)$ si possono poi computare facilmente riducendosi
+a considerare il polinomio di secondo grado $\varphi(x) / (x-\alpha)$, dove $\alpha$ è la soluzione
+ottenuta.
 
 \newpage
 \subsection{Teorema fondamentale dell'algebra}
