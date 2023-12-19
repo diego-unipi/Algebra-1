@@ -4876,7 +4876,7 @@ Galois di un'estensione di campi.
 
 \subsection{Contare le sottoestensioni quadratiche di un campo}
 
-Consideriamo un'estensione di Galois finta $\faktor F K$, sia $G = \Gal(F/K)$,
+Consideriamo un'estensione di Galois finita $\faktor F K$, sia $G = \Gal(F/K)$,
 le sottoestensioni di $F$ di grado due su $K$ sono in corrispondenza con i
 sottogruppi di $G$ di indice 2. Osserviamo che un sottogruppo $H \leqslant G$
 di indice 2 contiene il sottogruppo 
@@ -5003,6 +5003,164 @@ Più in generale vale il seguente teorema, di cui non diamo la dimostrazione.
         \item $\QQ(\sqrt{-p})$ se $p \equiv 3 \pmod 4$.
     \end{enumerate}
 \end{theorem}   
+
+\newpage
+\subsection{Il discriminante polinomiale}
+In questa sezione si illustra il \textit{discriminante polinomiale} e
+le sue principali applicazioni nella teoria di Galois.
+
+\begin{definition}[discriminante polinomiale]
+	Sia $p \in K[x]$. Se $\deg p = n$ e $a_1$, ..., $a_n \in \overline{K}$ sono le radici
+	di $p$, si definisce il \textbf{discriminante polinomiale} $\disc p$ in modo
+	tale che:
+	\[ \disc p = \disc p(x) = \prod_{i < j} (a_i - a_j)^2 \in K[a_1, \ldots, a_n]. \]
+\end{definition}
+
+Si verifica facilmente che $p$ ha radici multiple se e solo se $\disc p = 0$. Inoltre,
+l'annullamento di $\disc p$ è indipendente dal coefficiente di testa del polinomio,
+dal momento che polinomi associati condividono le stesse radici\footnote{
+		In generale, compare sempre un termine $a^{2n-2}$ al denominatore
+		di $\disc p(x)$. Pertanto, in letteratura si definisce $\disc p(x)$
+		anche come il prodotto tra $a^{2n-2}$ e il discriminante qui definito.
+		In tal caso, il discriminante di un polinomio di secondo grado è
+		esattamente $\Delta$. 
+}. Altrettanto
+semplicemente si verifica che $\disc p$ è un polinomio simmetrico negli $a_i$, ovverosia
+una qualsiasi permutazione degli $a_i$ in $p$ restituisce ancora $p$. \medskip
+
+
+Si osserva facilmente che $\disc p$ è invariante per traslazioni. Infatti,
+se si considera $p(x+a)$ con $a \in K$ e $a_1$, ..., $a_n \in \overline{K}$ sono
+radici di $p(x)$, le radici di $p(x+a)$ sono $a_1 - a$, ..., $a_n - a$. Pertanto
+vale che:
+\[ \disc p(x+a) = \prod_{i<j} (a_1 - a - a_2 + a)^2 = \prod_{i<j} (a_1 - a_2)^2 = \disc p(x). \]
+
+\begin{example}[$\disc p$ per polinomi di grado $2$]
+	Sia $p(x) = ax^2 + bx + c$ con $a \neq 0$. Se $a_1$ e $a_2$ sono le radici di $p$ in $\overline{K}$, allora vale che:
+	\[ \disc p(x) = (a_1 - a_2)^2 = a_1^2 + a_2^2 - 2 a_1 a_2 = (a_1 + a_2)^2 - 4 a_1 a_2 =
+		\frac{b^2}{a^2} - 4 \frac{c}{a} = \frac{\Delta}{a^2}, \]
+	dove si è utilizzato il fatto per cui $a_1 + a_2 = -\frac{b}{a}$, $a_1 a_2 = \frac{c}{a}$
+	e dove $\Delta$ indica l'usuale delta delle equazioni di secondo grado.
+\end{example}
+
+\begin{remark}[utilizzo della matrice di Vandermonde]
+	Un'espressione di $\disc p$ può anche essere calcolata attraverso le matrici
+	di Vandermonde. Infatti, se $M$ è la matrice di Vandermonde di $a_1$, ..., $a_n$
+	radici di $p$, vale che:
+	\[ M = \begin{pmatrix}1 & a_1 & a_1^2 & \cdots & a_1^{n-1} \\ 1 & a_2 & a_2^2 & \cdots & a_2^{n-1} \\ \vdots & \vdots & \vdots & \vdots & \vdots \\ 1 & a_n & a_n^2 & \cdots & a_n^{n-1}\end{pmatrix}, \]
+	e quindi:
+	\[ \det(M) = \prod_{i < j} (a_i - a_j). \]
+	Pertanto vale che:
+	\[ \det(M^2) = \det(M M^T) = \prod_{i < j} (a_i - a_j)^2 = \disc p(x). \]
+\end{remark}
+
+\begin{remark}
+	Sia $p \in K[x]$ di grado $n$ e siano $a_1$, \ldots, $a_n$ le sue radici.
+	Se allora $\sigma \in S(\{a_1, \ldots, a_n\})$, vale che:
+	\[ \prod_{i < j} (\sigma(a_i) - \sigma(a_j)) = \prod_{i < j} \frac{\sigma(a_i) - \sigma(a_j)}{a_i - a_j} \prod_{i < j} (a_i - a_j) = \sgn(\sigma) \prod_{i < j} (a_i - a_j).  \]
+	Pertanto, se $L = K(a_1, \ldots, a_n)$ è un campo di spezzamento di $p$ su $K$,
+	elevando al quadrato, vale che:
+	\[ \sigma(\disc p) = \disc p, \]
+	e quindi\footnote{
+		In generale, $\disc p$ appartiene sempre a $K$. Infatti $\disc p$ è un polinomio
+		simmetrico negli $a_i$, e in quanto tale, per il Teorema fondamentale dei polinomi
+		simmetrici, può scriversi come elemento di $K[e_1, \ldots, e_n]$, dove:
+		\[ e_0 = 1, \qquad e_i = \sum_{1 \leq j_1  \leq \cdots \leq j_i \leq n } a_{j_1} \cdots a_{j_i} \;\;\, \forall \, 1 \leq i \leq n. \]
+		Pertanto, poiché per le formule di Viète vale che $a_i = (-1)^{n-i} a_n e_{n-i} \in K$, e dunque $e_i \in K$, $\disc p$, essendo combinazione dei vari $e_i$, è sempre un elemento di $K$.
+	} $\disc p \in L^G = K$.
+\end{remark}
+
+L'utilità del discriminante polinomiale per la teoria di Galois è sancita dalla
+seguente proposizione:
+
+\begin{proposition}
+	Sia $p$ un polinomio irriducibile e separabile di grado $n$. Allora, se $L$ è il suo
+	campo di spezzamento su $K$, $\Gal\left(\faktor{L}{K}\right) \mono A_n$ se e
+	solo se $\disc p$ è un quadrato\footnote{
+		Questa proposizione è ancora vera utilizzando il discriminante moltiplicato
+		per $a^{2n-2}$, e quindi vale ancora per la definizione alternativa di
+		discriminante.
+	} in $K$.
+\end{proposition}
+
+\begin{proof}
+	Sia $G := \Gal\left(\faktor{L}{K}\right)$. Allora $G \mono A_n$ se e solo se
+	$\sgn(\sigma) = 1$ $\forall \sigma \in G$. Si consideri la seguente identità:
+	\[ \sigma\left(\prod_{i < j} (a_i - a_j)\right) = \prod_{i < j} (\sigma(a_i) - \sigma(a_j)) = \sgn(\sigma) \prod_{i < j} (a_i - a_j). \]
+	Poiché gli elementi fissati da tutte le $\sigma \in G$ sono esattamente gli
+	elementi di $K$, se $G \mono A_n$ $\sgn(\sigma)$ è sempre uguale ad $1$, e quindi
+	$\left(\prod_{i < j} (a_i - a_j)\right) \in K$. In tal caso $\disc p$ è un
+	quadrato in $K$, essendo $\left(\prod_{i < j} (a_i - a_j)\right)$ una sua
+	radice quadrata. Analogamente, se $\disc p$ è un quadrato in $K$,
+	$\left(\prod_{i < j} (a_i - a_j)\right) \in K$, e quindi
+	$\sigma$ deve fissarlo, e così deve valere
+	$\sgn(\sigma) = 1$, da cui la tesi.
+\end{proof}
+
+\begin{remark}[$\disc p$ per polinomi \textit{depressi} di grado $3$]
+	Sia $p(x) = x^3 + px + q$. Si calcola il suo discriminante polinomiale
+	in termini di $p$ e $q$. Siano $a_1$, $a_2$ e $a_3$ le radici di $p(x)$.
+	Allora per le osservazioni precedenti vale che:
+	\[ \disc p(x) = \det \begin{pmatrix}
+		1 & 1 & 1 \\ a_1 & a_2 & a_3 \\ a_1^2 & a_2^2 & a_3^2
+	\end{pmatrix} \det \begin{pmatrix} 1 & a_1 & a_1^2 \\ 1 & a_2 & a_2^2 \\ 1 & a_3 & a_3^2 \end{pmatrix} = \det \begin{pmatrix}
+		3 & s_1 & s_2 \\ s_1 & s_2 & s_3 \\ s_2 & s_3 & s_4 
+	\end{pmatrix},\]
+	dove\footnote{
+		In realtà esiste una relazione esplicita per il termine $s_p$, detta
+		\textit{formula di Newton-Girard}, che dunque permette di estendere i calcoli
+		successivi a gradi più alti con più efficienza.
+	} $s_p := a_1^p + a_2^p + a_3^p$. \medskip
+	
+	
+	Chiaramente $s_1 = a_1 + a_2 + a_3 = 0$, dal momento che il coefficiente\footnote{
+		Se si sta considerando un polinomio non depresso, ossia per il quale tale
+		coefficiente è non nullo, si può applicare la \textit{trasformazione di Tschirnhaus},
+		ossia considerare $p\left(x + \frac{c_{n-1}}{c_n}\right)$ dove $c_i$ è il coefficiente del termine
+		$i$-esimo di $p(x)$. Infatti, come visto prima, il discriminante è invariante
+		per traslazione.
+	} di $x^2$ è nullo. Si calcola ora $s_2$:
+	\[ s_2 = s_1^2 - 2(a_1 a_2 + a_2 a_3 + a_3 a_1) = s_1^2 - 2 p = -2p, \]
+	dove $a_1 a_2 + a_2 a_3 + a_3 a_1 = e_2(a_1, a_2, a_3) = p$ per le formule di Viète.
+	Si calcola $s_3$:
+	\[ s_3 = s_1^3 - 3 a_1^2 (a_2 + a_3) - 3 a_2^2 (a_1 + a_3) - 3 a_3^2 (a_1 + a_2) - 6 a_1 a_2 a_3. \]
+	Sempre per le formule di Viète, vale che $a_1 a_2 a_3 = -q$, e quindi:
+	\[ s_3 = s_1^3 - 3 a_1^2 (s_1 - a_1) - 3 a_2^2 (s_1 - a_2) - 3 a_3^2 (s_1 - a_3) + 6 q, \]
+	da cui, ricordando che $s_1 = 0$, si ricava che:
+	\[ s_3 = 3s_3 + 6q \implies s_3 = -3q. \]
+	Si calcola infine $s_4$:
+	\[  s_4 = s_1^4 - 4(a_1^3(s_1 - a_1) + a_2^3(s_1 - a_2) + a_3^3(s_1 - a_3)) - 12 a_1a_2a_3 s_1 - 6 (a_1^2a_2^2 + a_2^2 a_3^2 + a_3^2 a_1^2). \]
+	Ricordando che $s_1 = 0$, vale allora che:
+	\[ s_4 = 4s_4 - 3 (a_1^2 (s_2 - a_1^2) + a_2^2 (s_2 - a_2^2) + a_3^2 (s_2 - a_3^2)), \]
+	da cui:
+	\[ -3 s_4 = - 3(s_2^2 - s_4) \implies s_4 = \frac{s_2^2}{2} = 2p^2. \]
+	Pertanto si può ora concludere che:
+	\[ \disc p(x) = \det \begin{pmatrix}
+		3 & 0 & -2p \\ 0 & -2p & -3q \\ -2p & -3q & 2p^2
+	\end{pmatrix} = 3 \begin{vmatrix}
+	 -2p & -3q \\ -3q & 2p^2
+	\end{vmatrix} -2p \begin{vmatrix}
+		0 & -2p \\ -2p & -3q
+	\end{vmatrix}, \]
+	e quindi che:
+	\[ \disc p(x) = 3(-4p^3 - 9q^2) -2p(-4p^2) = -12 p^3 - 27 q^2 + 8p^3 = \boxed{-4p^3 - 27q^2}. \]
+\end{remark}
+
+\begin{example}[Gruppo di Galois di un polinomio cubico, irriducibile e separabile]
+	Sia $p(x) = x^3 + px + q \in K[x]$ irriducibile e separabile. Sia $L$ un
+	campo di spezzamento di $p$ su $K$. Dalla teoria di Galois sappiamo che
+	$3 \mid [L : K] \mid 3! = 6$. Poiché $G = \Gal\left(\faktor{L}{K}\right)$ si
+	immerge in $S_3$ agendo sulle radici di $p(x)$, $G$ è isomorfo a $\mathcal{A}_3$
+	o a $\mathcal{S}_3$. \medskip
+	
+	
+	Per la proposizione precedente, $G$ è isomorfo a $\mathcal{A}_3$ se e solo
+	se $\disc p(x) = -4p^3 - 27q^2$ è un quadrato in $K$, e quindi:
+	\[ G \cong \begin{cases}
+		\mathcal{A}_3 & \text{se $\disc p(x)$ è quadrato in $K$}, \\
+		\mathcal{S}_3 & \text{altrimenti}.
+	\end{cases} \]  
+\end{example}
 
 \newpage
 \subsection{Teorema fondamentale dell'algebra}
