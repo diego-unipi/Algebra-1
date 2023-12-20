@@ -5011,7 +5011,7 @@ le sue principali applicazioni nella teoria di Galois.
 
 \begin{definition}[discriminante polinomiale]
 	Sia $p \in K[x]$. Se $\deg p = n$ e $\alpha_1$, ..., $\alpha_n \in \overline{K}$ sono le radici
-	di $p$, si definisce il \textbf{discriminante polinomiale} $\disc p$ in modo
+	di $p$, si definisce il \vocab{discriminante polinomiale} $\disc p$ in modo
 	tale che:
 	\[ \disc p = \disc p(x) = \prod_{i < j} (\alpha_i - \alpha_j)^2 \in K[\alpha_1, \ldots, \alpha_n] \]
 \end{definition}
@@ -5042,7 +5042,7 @@ vale che:
 	e dove $\Delta$ indica l'usuale delta delle equazioni di secondo grado.
 \end{example}
 
-\begin{remark}[utilizzo della matrice di Vandermonde]
+\begin{remark}[Utilizzo della matrice di Vandermonde]
 	Un'espressione di $\disc p$ può anche essere calcolata attraverso le matrici
 	di Vandermonde. Infatti, se $M$ è la matrice di Vandermonde di $\alpha_1$, ..., $\alpha_n$
 	radici di $p$, vale che:
@@ -5063,10 +5063,9 @@ vale che:
 	\[ \sigma(\disc p) = \disc p \qquad \forall \sigma \in \Gal\left(\faktor{L}{K}\right) \]
 	e quindi\footnote{
 		In generale, $\disc p$ appartiene sempre a $K$. Infatti $\disc p$ è un polinomio
-		simmetrico negli $\alpha_i$, e in quanto tale, per il Teorema fondamentale dei polinomi
-		simmetrici, può scriversi come elemento di $K[e_1, \ldots, e_n]$, dove:
+		simmetrico negli $\alpha_i$, e in quanto tale, per il \href{https://it.wikipedia.org/wiki/Polinomio_simmetrico\#Teorema_fondamentale_per_i_polinomi_simmetrici}{\textcolor{purple}{Teorema fondamentale dei polinomi simmetrici}}, può scriversi come elemento di $K[e_1, \ldots, e_n]$, dove:
 		\[ e_0 = 1, \quad\qquad e_i = \sum_{1 \leq j_1  \leq \cdots \leq j_i \leq n } \alpha_{j_1} \cdots \alpha_{j_i} \quad \forall \, 1 \leq i \leq n \]
-		Pertanto, poiché per le formule di Viète vale che $a_i = (-1)^{n-i} a_n e_{n-i} \in K$, e dunque $e_i \in K$, $\disc p$, essendo combinazione dei vari $e_i$, è sempre un elemento di $K$.
+		Pertanto, poiché per le \href{https://it.wikipedia.org/wiki/Formule_di_Vi\%C3\%A8te}{\textcolor{purple}{formule di Viète}} vale che $a_i = (-1)^{n-i} a_n e_{n-i} \in K$, e dunque $e_i \in K$, $\disc p$, essendo combinazione dei vari $e_i$, è sempre un elemento di $K$.
 	} $\disc p \in L^G = K$.
 \end{remark}
 
@@ -5111,15 +5110,15 @@ seguente proposizione:
 		3 & s_1 & s_2 \\ s_1 & s_2 & s_3 \\ s_2 & s_3 & s_4 
 	\end{pmatrix}\]
 	dove\footnote{
-		In realtà esiste una relazione esplicita per il termine $s_p$, detta
-		\textit{formula di Newton-Girard}, che dunque permette di estendere i calcoli
-		successivi a gradi più alti con più efficienza.
+		In realtà esistono delle relazioni esplicite per il termine $s_p$, dette
+		\href{https://it.wikipedia.org/wiki/Identit\%C3\%A0_di_Newton}{\textcolor{purple}{formule di Newton-Girard}}, che dunque permettono di estendere i calcoli
+		a gradi più alti con più efficienza.
 	} $s_p := \alpha_1^p + \alpha_2^p + \alpha_3^p$. \medskip
 	
 	
 	Chiaramente $s_1 = \alpha_1 + \alpha_2 + \alpha_3 = 0$, dal momento che il coefficiente\footnote{
 		Se si sta considerando un polinomio non depresso, ossia per il quale tale
-		coefficiente è non nullo, si può applicare la \textit{trasformazione di Tschirnhaus},
+		coefficiente è non nullo, si può applicare la \href{https://en.wikipedia.org/wiki/Tschirnhaus_transformation}{\textcolor{purple}{trasformazione di Tschirnhaus}},
 		ossia si può considerare $p\left(x - \frac{a_{n-1}}{n \, a_n}\right)$. Infatti, come visto prima, il discriminante è invariante
 		per traslazione.
 	} di $x^2$ è nullo. Si calcola ora $s_2$:
@@ -5176,7 +5175,7 @@ assume che $\varphi(x)$ sia un polinomio \textit{depresso} di terzo grado
 della forma $x^3 + px + q$. Se invece tale polinomio non è depresso (ossia se il coefficiente
 di $x^2$ non è nullo) ed è della forma $ax^3 + bx^2 + cx + d$ con $b \neq 0$, è sufficiente sostituire $x = y - \frac{b}{3a}$ per
 ottenere un polinomio di tale tipo\footnote{
-	Questa è ancora la cosiddetta \textit{trasformazione di Tschirnhaus}.
+	Questa è ancora la cosiddetta \href{https://en.wikipedia.org/wiki/Tschirnhaus_transformation}{\textcolor{purple}{trasformazione di Tschirnhaus}}.
 }. \medskip
 
 
