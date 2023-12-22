@@ -134,6 +134,97 @@ Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che
 l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n\rangle = G$.
 
 \newpage
+\subsection{Gruppi liberi e presentazioni}
+
+\begin{definition}
+	Si definisce il \vocab{gruppo libero} su $n$ generatori
+	il gruppo $F_n$ tale per cui:
+	\[ F_n = \langle{x_1, \ldots, x_n\rangle} = \{ x_{i_1}^{\pm 1} \cdots x_{i_k}^{\pm 1} \mid i_j \in \{1, \ldots, n\}, \, k \in \NN \} / \! \sim \]
+	dove\footnote{
+		Si verifica facilmente che la relazione $\sim$ è di equivalenza.
+	} $a \sim b$ se e solo se eliminando le scritture $x_i x_i\inv$ 
+	o $x_i\inv x_i$ da $a$ e $b$ si ottengono in successione gli stessi simboli.
+	L'operazione di
+	questo gruppo è la concatenazione (ossia il prodotto tra
+	$x_i$ e $x_j$ è per definizione $x_i x_j$) e la stringa
+	vuota è per definizione l'identità, indicata con $e$.
+	Per convenzione si denota $x \cdots x$ ripetuto $k$ volte come $x^k$ e si pone $x^{-k} := (x\inv)^k$, facendo
+	valere le usuali proprietà delle potenze.
+\end{definition}
+
+
+\begin{remark}[Costruzione del gruppo $F(S)$]
+	In generale, dato un insieme $S$, si definisce
+	il gruppo libero $F(S)$ come il gruppo libero ottenuto
+	dalle scritture finite di $S$ a meno di equivalenza per
+	$\sim$. Se $S$ è finito e $\abs{S} = n$, allora
+	$F(S) \cong F_n$, dove l'isomorfismo è costruito mandando
+	ordinatamente i generatori di $F(S)$ in
+	$x_1$, \ldots, $x_n$.
+\end{remark}
+
+
+Per i gruppi liberi vale la \vocab{proprietà universale},
+ossia $\Hom(F_n, G)$ è in bigezione con $G^n$ tramite
+la mappa che associa un omomorfismo $\varphi$ alla $n$-upla
+$(\varphi(x_1), \ldots, \varphi(x_n))$, la cui inversa associa
+una $n$-upla $(g_1, \ldots, g_n)$ ad un unico omomorfismo
+tale per cui $\varphi(x_i) = g_i$. Questi gruppi, infatti,
+non presentano alcuna relazione tra i propri generatori,
+e dunque gli omomorfismi presentati sono sempre ben definiti. \medskip
+
+
+\begin{definition}
+	Si dice che un gruppo $G$ ammette una \vocab{presentazione} se esiste un insieme $S$ di generatori di $G$ e un sottoinsieme $R$ di $F(S)$ tale per cui:
+	\[ G \cong \faktor{F(S)}N \]
+	dove $N$ è il più piccolo sottogruppo normale di
+	$F(S)$ contenente $R$, ossia la \textit{chiusura normale}
+	di $R$. In particolare $G$ ammette una presentazione finita se $S$ e $R$ sono finiti.
+\end{definition}
+ \medskip
+
+
+Se $G$ ammette una presentazione, allora esiste un
+omomorfismo surgettivo $\varphi : F(S) \to G$ tale
+per cui $\varphi$ ristretto a $S$ sia l'identità\footnote{
+	A livello astratto $S$ in $F(S)$ è solo una scrittura
+	simbolica, quello che si intende è che si associa
+	al simbolo $s \in S$ l'effettivo elemento $s$ in
+	$G$.
+} e per cui $\ker \varphi = N$. \medskip
+
+
+In tal caso, è decisamente più facile descrivere gli
+omomorfismi da $G$ a un qualsiasi altro gruppo $H$.
+Infatti, poiché $G \cong \faktor{F(S)}N$, esiste una bigezione,
+secondo il Primo Teorema di Omomorfismo, tra
+$\Hom(G, H)$ e gli omomorfismi di $\Hom(F(S), H)$ tali
+per cui $N$ sia contenuto nel nucleo; affinché $N$
+sia contenuto nel nucleo è però sufficiente
+vi sia contenuto $R$, dacché $N$ è la chiusura normale
+di $R$. Pertanto $R$ rappresenta in un certo senso un
+insieme di ``relazioni tra i generatori'' che devono
+essere rispettate affinché l'omomorfismo sia ben definito, e
+così si dice che $R$ è l'insieme dei \vocab{relatori} di $G$.
+Si scrive allora la presentazione di $G$ come:
+\[ G \cong \faktor{F(S)}N = \langle S \mid R \rangle \]
+Talvolta per $R$ si scrive un insieme di identità
+$a_1 = b_1$, sottintendendo che
+$a_1 b_1\inv$ appartiene ad $R$.
+
+\begin{example}
+	Si illustrano alcuni esempi di presentazione:
+	
+	\begin{itemize}
+		\item $\ZZ \cong \langle x_1 \rangle = F_1$
+		\item $\Z{n} \cong \langle{x \mid x^n = e}\rangle$
+		\item $\Z{2} \times \Z{2} \cong \langle{x, y \mid x^2 = y^2 = e, [x, y] = e}\rangle$
+		\item $(\Z2)^3 \cong \langle x, y, z \mid x^2 = y^2 = z^2 = e, [x, y] = [y, z] = [z, x] = e \rangle$
+		\item $D_n \cong \langle{r, s \mid r^n = e, s^2 = e, (sr)^2 = e}\rangle$
+	\end{itemize}
+\end{example}
+
+\newpage
 
 \subsection{Automorfismi di $(\Zp)^n$}
 \label{sez1.2}
@@ -5009,7 +5100,7 @@ Più in generale vale il seguente teorema, di cui non diamo la dimostrazione.
 In questa sezione si illustra il \textit{discriminante polinomiale} e
 le sue principali applicazioni nella teoria di Galois.
 
-\begin{definition}[discriminante polinomiale]
+\begin{definition}
 	Sia $p \in K[x]$. Se $\deg p = n$ e $\alpha_1$, ..., $\alpha_n \in \overline{K}$ sono le radici
 	di $p$, si definisce il \vocab{discriminante polinomiale} $\disc p$ in modo
 	tale che:
