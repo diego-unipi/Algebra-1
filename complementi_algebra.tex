@@ -126,12 +126,12 @@ coincidono.
 \end{proof}
 
 \begin{remark}
-    Se $G$ è un gruppo ciclico abbiamo che esiste $x \in G$ tale che 
+    Se $G$ è un gruppo ciclico, esiste allora $x \in G$ tale che 
     $\langle x\rangle = G$, cioè tutti gli elementi di $G$ sono potenze di $x$.
 \end{remark}
 
 Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
-l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$ se $\langle x_1, \ldots, x_n\rangle = G$.
+l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$, se $\langle x_1, \ldots, x_n\rangle = G$.
 
 \newpage
 \subsection{Gruppi liberi e presentazioni}
@@ -230,54 +230,55 @@ $a_1 b_1\inv$ appartiene ad $R$.
 \label{sez1.2}
 
 Dato $p$ un primo, vogliamo determinare quanti sono gli automorfismi di 
-$(\Zp)^n$, per fare ciò è conveniente definire una struttura di spazio vettoriale,
-quindi un prodotto per scalari\[
-    \cdot:\Zp\times (\Zp)^n \longrightarrow (\Zp)^n : 
+$(\Zp)^n$. Per fare ciò è conveniente osservare che $\Z{p} \cong \FF_p$ è un campo e che
+$(\Z{p})^n$ è dunque uno spazio vettoriale, dove il prodotto per scalari $\cdot : \Zp\times (\Zp)^n$ è
+tale per cui:
+\[
     (\overline{\lambda}, v)\longmapsto \overline{\lambda}v
 \]
 con $\overline{\lambda}v = \underset{\tilde{\lambda}\text{ volte}}{\underbrace{v + \ldots + v}}$
-e $\tilde{\lambda}$ un qualsiasi rappresentante di $\overline{\lambda}$.
-Tale prodotto è ben definito, infatti se $\lambda, \lambda' \in \ZZ$ sono tali che
+e $\tilde{\lambda}$ un qualsiasi rappresentante di $\overline{\lambda}$. \medskip
+
+
+Tale prodotto è ben definito. Se infatti $\lambda, \lambda' \in \ZZ$ sono tali per cui
 $\overline{\lambda} = \overline{\lambda'}$, cioè esiste $k \in \ZZ$ tale che
 $\lambda = \lambda' + kp$, allora \[
     \overline{\lambda'} v = \underset{\lambda'\text{ volte}}{\underbrace{v + \ldots + v}} = 
     \underset{\lambda + kp\text{ volte}}{\underbrace{v + \ldots + v}} = 
     \underset{\lambda\text{ volte}}{\underbrace{v + \ldots + v}}
-\]in quanto $\underset{kp\text{ volte}}{\underbrace{v + \ldots + v}} = 0$. 
-Si verifica che $((\Zp)^n, +, \cdot)$ è effettivamente uno spazio vettoriale
-sul campo $\FF_p = \Zp$ (dove $\cdot$ è il prodotto per scalari appena definito).
-Per come abbiamo definito il prodotto per scalari, abbiamo che per ogni
-$\varphi \in \Aut((\Zp)^n)$ vale $\varphi(\lambda v) = \lambda\varphi(v)$ 
-per ogni $\lambda \in \FF_p$, pertanto
+\] \medskip
+
+
+Per come abbiamo è definito il prodotto per scalari su $(\Zp)^n$, si osserva che per ogni
+$\varphi \in \Aut\left((\Zp)^n\right)$ vale che $\varphi(\lambda v) = \lambda\varphi(v)$ 
+per ogni $\lambda \in \Zp$. Pertanto vale la seguente uguaglianza insiemistica
 \[
-    \Aut((\Zp)^n) = GL((\FF_p)^n) = \{\varphi: (\FF_p)^n\longrightarrow(\FF_p)^n
-    \mid\varphi\text{ isomorfismo di spazi vettoriali}\}
+    \Aut((\Zp)^n) = \GL((\Zp)^n) = \{\varphi: (\Zp)^n\longrightarrow(\Zp)^n
+    \mid\varphi\text{ isomorfismo di sp. vett.}\}
 \]
 
-Poiché $GL((\FF_p)^n) \cong GL_n(\FF_p) = \{M \in M_{n\times n}(\FF_p)\mid \det M \neq 0\}$
+Poiché $\GL((\Zp)^n) \cong \GL_n(\Zp) = \{M \in \M_{n}(\Zp)\mid \det M \neq 0\}$,
 possiamo rappresentare ogni automorfismo di $(\Zp)^n$ con una matrice invertibile
-di taglia $n\times n$ a coefficienti in $\FF_p$.
+di taglia $n\times n$ a coefficienti in $\Zp$.
 
 \begin{proposition}
 Dato $p$ un primo, allora \[
-    |\Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1} (p^n - p^i)
+    \bigg| \! \Aut((\Zp)^n) \bigg| = \prod_{i = 0}^{n - 1} (p^n - p^i)
     \]
 \end{proposition}
 
 \begin{proof}
-    Osserviamo che un elemento di $\Aut((\Zp)^n)$ deve necessariamente mandare 
+    Osserviamo che un elemento di $\Aut\left((\Zp)^n\right)$ deve necessariamente mandare 
     una base di $(\Zp)^n$ in un'altra base, e si determina univocamente in questo 
-    modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e $\varphi \in 
-    \Aut((\Zp)^n)$, consideriamo $\varphi(v_1)$: $\varphi(v_1)$ può assumere
+    modo. Sia $\{v_1, \ldots, v_n\}$ una base di $(\Zp)^n$ e sia $\varphi \in 
+    \Aut((\Zp)^n)$. Consideriamo $\varphi(v_1)$: $\varphi(v_1)$ può assumere
     qualsiasi valore non nullo, pertanto abbiamo $(p^n - 1)$ possibilità per 
-    l'immagine del primo vettore. Per quanto riguarda $v_2$, $\varphi(v_2)$
-    può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$,
-    che sono $p^n - p$, analogamente $\varphi(v_3)$ può assumere qualsiasi
-    valore non nullo che non sia combinazione lineare di $v_1$ e $v_2$, che sono
-    $p^n - p^2$, e così via. Reiteriamo questo ragionamento fino a $\varphi(v_n)$,
-    che può essere scelto in $p^n - p^{n - 1}$ modi, da cui \[
-        |\Aut((\Zp)^n)| = \prod_{i = 0}^{n - 1}(p^n - p^i)
-    \]
+    la sua immagine. Per quanto riguarda $v_2$, $\varphi(v_2)$
+    può assumere qualsiasi valore non nullo che non sia multiplo di $\varphi(v_1)$, e quindi
+    $p^n - p$ valori. Analogamente $\varphi(v_3)$ può assumere qualsiasi
+    valore non nullo che non appartenga a $\Span(\varphi(v_1), \varphi(v_2))$, che consta di
+    $p^2$ elementi, e così via. Iterando questo ragionamento fino a $\varphi(v_n)$,
+    che può essere scelto in $p^n - p^{n - 1}$ modi, si ottiene la tesi.
 \end{proof}
 
 \newpage
