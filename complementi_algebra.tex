@@ -246,7 +246,7 @@ $\lambda = \lambda' + kp$, allora \[
     \overline{\lambda'} v = \underset{\lambda'\text{ volte}}{\underbrace{v + \ldots + v}} = 
     \underset{\lambda + kp\text{ volte}}{\underbrace{v + \ldots + v}} = 
     \underset{\lambda\text{ volte}}{\underbrace{v + \ldots + v}}
-\] \medskip
+\]
 
 
 Per come abbiamo è definito il prodotto per scalari su $(\Zp)^n$, si osserva che per ogni
@@ -288,66 +288,99 @@ Dato $p$ un primo, allora \[
 \subsubsection{Elementi del gruppo}
 
 \begin{definition}
-    Dato $n \geqslant 2$ un numero naturale consideriamo un poligono regolare di $n$ vertici
-    centrato nell'origine del piano $\RR^2$,
-    chiamiamo \vocab{gruppo diedrale} su $n$ vertici l'insieme $D_n$
-    delle isometrie di $\RR^2$ che fissano il poligono, cioè che mandano i 
-    vertici in se stessi (per $n = 2$ consideriamo le isometrie che mandano un 
-    segmento in se stesso).
+    Dato $n \geq 3$ un numero naturale, si può considerare un poligono regolare di $n$ vertici centrato nell'origine del piano $\RR^2$. Si definisce il
+    \vocab{gruppo diedrale} su $n$ vertici, detto $\Dn$, come il gruppo
+    delle isometrie\footnote{
+    	In particolare tutte queste isometrie sono lineari, dal momento che
+    	devono mappare l'origine in se stessa.
+    } di $\RR^2$ che fissano il poligono, cioè che mandano i 
+    vertici in se stessi. Per $n = 2$, si definisce $\D_2$ come il gruppo delle
+    isometrie che mandano un segmento in se stesso.
 \end{definition}
 
 \begin{remark}
-    $D_n$ è un gruppo, in quanto l'applicazione identità che 
+    $\Dn$ è un gruppo, in quanto l'applicazione identità che 
     fissa tutti i vertici è un'isometria dal poligono in se stesso, la 
     composizione di isometrie è un'isometria e un'isometria ammette sempre 
-    un'inversa, che è anch'essa un'isometria.
+    un'inversa\footnote{
+    	In particolare, $\Dn$ si immerge sempre in $\Ort(2)$, il gruppo delle matrici ortogonali
+    	di taglia $2 \times 2$ a coefficienti in $\RR$, dal momento che queste rappresentano esattamente le
+    	isometrie del piano. Una matrice $M$ di $\Ort(2)$ è tale per cui $M M^\top = M^\top M = I_2$, e quindi $\det(M) \in \{\pm 1\}$. In particolare $M$ è invertibile, e la
+    	sua inversa appartiene ancora a $\Ort(2)$.
+    }, che è anch'essa un'isometria.
 \end{remark}
 
 \begin{remark}
-    Una rotazione di angolo $\displaystyle\frac{2\pi}{n}$ è un elemento di $D_n$,
+    Una rotazione di angolo\footnote{
+    	Per convenzione, indichiamo con un angolo positivo una rotazione in senso antiorario e con un angolo negativo una rotazione in senso orario.
+    } $\frac{2\pi}{n}$ è un elemento di $\Dn$,
     così come una simmetria rispetto a un asse.
 \end{remark}
 
 Proseguendo con questa intuizione geometrica, indicheremo con $r$ una rotazione
-di angolo $\displaystyle \frac{2\pi}{n}$ e con $s$ una simmetria rispetto a
-un qualsiasi asse. Notiamo che $\ord(r) = n$ e $\ord(s) = 2$ (per convenzione, 
-indichiamo con un angolo positivo una rotazione in senso antiorario e con un 
-angolo negativo una rotazione in senso orario).
+di angolo $\frac{2\pi}{n}$ e con $s$ una simmetria rispetto a
+un qualsiasi asse. Si osserva facilmente che $\ord(r) = n$ e $\ord(s) = 2$.
 
 \begin{definition}
-    Data $r \in D_n$ una rotazione di ordine $n$, indichiamo con $\mathcal{R}$ il
+    Data $r \in \Dn$ una rotazione di ordine $n$, indichiamo con $\mathcal{R}$ il
     \vocab{sottogruppo delle rotazioni} $\langle r\rangle$.
 \end{definition}
 
 \begin{remark}
-    Il sottogruppo $\mathcal{R}$ contiene tutte le rotazioni di $D_n$, infatti
-    se $r'$ è una rotazione di angolo $\displaystyle\frac{2k\pi}{n}$, $k \in \ZZ$,
-    allora $r^k = r'$ in quanto anche $r^k$ è una rotazione di angolo 
-    $\displaystyle\frac{2k\pi}{n}$.
+    Il sottogruppo $\mathcal{R}$ contiene tutte le rotazioni di $\Dn$.
+    Se infatti $r'$ è una rotazione di angolo $\frac{2k\pi}{n}$ con $k \in \ZZ$,
+    allora $r^k = r'$, e quindi $r' \in \mathcal{R}$. \medskip
+    
+    
+    Inoltre, $\mathcal{R}$ si immerge in $\SO(2)$, il gruppo delle matrici ortogonali speciali,
+    ossia delle matrici ortogonali con determinante $1$. Se infatti $r$ è un elemento
+    di $\mathcal{R}$, $r$
+    è rappresentato da una matrice della seguente forma
+    \[ \begin{pmatrix}
+    	\cos(\theta) & -\sin(\theta) \\
+    	\sin(\theta) & \cos(\theta)
+    \end{pmatrix} \]
+    che ha infatti come determinante $\cos^2(\theta) + \sin^2(\theta) = 1$.
 \end{remark}
 
-Per determinare come sono fatti gli elementi di $D_n$, studiamo il sottogruppo
+Per determinare come sono fatti gli elementi di $\Dn$, studiamo il sottogruppo
 $\langle r, s\rangle$. Sicuramente $\langle r, s\rangle$ contiene il sottogruppo $\mathcal{R}$
-e tutti gli elementi della forma $sr^k$, $sr^ks$, $sr^ksr^h$ e così via, vogliamo
-mostrare che in effetti $D_n$ è generato da $r$ e $s$.
+e tutti gli elementi della forma $sr^k$, $sr^ks$, $sr^ksr^h$, e così via. Vogliamo
+mostrare che in effetti $\Dn$ è generato da $r$ e $s$.
 
 \begin{remark}
     \label{obs1.11}
-    Gli elementi della forma $r^k$ e $sr^h$ sono distinti per ogni $h, k \in \ZZ$. 
-    Infatti sappiamo dall'algebra lineare che il determinante di una simmetria
-    è $-1$ e che il determinante di una rotazione è $1$, per la moltiplicatività
-    del determinante quindi $\det (r^k) = (\det r)^k = 1$ e
-    $\det (sr^h) = (\det s)(\det r)^h = -1$, da cui $r^k \neq sr^h$.
+    Gli elementi della forma $r^k$ e $sr^h$ sono distinti per ogni $h, k \in \ZZ$.
+    Infatti, presi come elementi di base di $\RR^2$ un vettore $v_1$ che giace sull'asse
+    di simmetria di $s$ e un vettore $v_2$ perpendicolare ad esso, $s$
+    si rappresenta in tale base come la matrice
+    \[ \begin{pmatrix}
+    	1 & 0 \\
+    	0 & -1
+    \end{pmatrix} \]
+    e quindi $s$ corrisponde a una matrice di determinante $-1$. In particolare,
+    $\det : \Ort(2) \to \{\pm 1\}$ è un omomorfismo di gruppi tale per cui
+    $\ker \det = \SO(2)$, in cui si immerge $\mathcal{R}$. In particolare, per
+    il Primo Teorema di Omomorfismo vale che
+    \[ \faktor{\Ort(2)}{\SO(2)} \cong \{\pm 1\} \]
+    e quindi
+    esistono solo due classi laterali di $\faktor{\Ort(2)}{\SO(2)}$. \medskip
+    
+    
+    In particolare
+    ogni simmetria della forma $s r^k$ si identifica come elemento di $s \SO(2) \neq \SO(2)$.
+    Dal momento allora che $\det(r^k) = 1$ e $\det(sr^h) = -1$, questi elementi sono
+    distinti.
 \end{remark}
 
 \begin{lemma}
-    Per ogni rotazione $r \in D_n$ e per ogni simmetria $s \in D_n$ vale
+    Per ogni rotazione $r \in \Dn$ e per ogni simmetria $s \in \Dn$ vale
     \[srs^{-1} = r^{-1}\]
 \end{lemma}
 
 \begin{proof}
     Senza perdita di generalità possiamo supporre che $r$ sia la rotazione 
-    di angolo $\displaystyle\frac{2\pi}{n}$ e che $s$ sia la simmetria
+    di angolo $\frac{2\pi}{n}$ e che $s$ sia la simmetria
     (rispetto all'asse $y$) che 
     a ogni punto $x$ del piano associa il punto $-x$. Possiamo rappresentare
     rispettivamente $r$ e $s$ tramite le matrici
@@ -357,7 +390,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
         \begin{pmatrix}
             \cos\left(\frac{2\pi}{n}\right) & -\sin\left(\frac{2\pi}{n}\right)\\
             \sin\left(\frac{2\pi}{n}\right) & \cos\left(\frac{2\pi}{n}\right)
-        \end{pmatrix},
+        \end{pmatrix}, \qquad
         \begin{pmatrix}
             -1 & 0\\
             0 & 1
@@ -365,7 +398,7 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     \]
     \endgroup
 
-    svolgendo esplicitamente il prodotto quindi
+    Svolgendo esplicitamente il prodotto si ottiene quindi che
     
     \begingroup
     \renewcommand{\arraystretch}{1.2}
@@ -401,48 +434,49 @@ mostrare che in effetti $D_n$ è generato da $r$ e $s$.
     \end{multline*}
     \endgroup
     
-    che è la matrice associata alla rotazione di angolo $-\displaystyle
+    che è la matrice associata alla rotazione di angolo $-
     \frac{2\pi}{n}$, cioè $r^{-1}$.
 \end{proof}
 
 \begin{proposition}
-    Se $n \geqslant 3$ allora $|D_n| = 2n$.
+    Se $n \geq 3$ allora $\lvert \Dn \rvert = 2n$.
 \end{proposition}
 
 \begin{proof}
-    Indicando con $1, \ldots, n$ gli $n$ vertici di un poligono regolare di $n$ lati, notiamo
-    che un elemento $g \in D_n$ è univocamente determinato da $g(1), \ldots, g(n)$.
-    In particolare, fissato $g(1)$, per il quale abbiamo $n$ possibili scelte,
-    abbiamo al massimo due valori per $g(2)$, cioè $g(2) \in \{g(1) + 1, g(1) - 1\}$
-    (a meno di sommare $n$ se uno dei due elementi è negativo). Poiché $g(1)$
-    e $g(2)$ individuano due vettori nel piano non allineati, cioè
-    linearmente indipendenti, ne costituiscono una base: fissati i valori di 
-    $g(1)$ e $g(2)$ abbiamo quindi determinato ogni
-    elemento di $D_n$ in modo unico e, poiché possiamo farlo in al più $2n$ modi, 
-    $|D_n| \leq 2n$. Ricordiamo adesso che $D_n$ contiene gli elementi
-    della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$, mostriamo che questi sono 
-    infatti $2n$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
+    Indicando con $0$, ..., $n-1$ gli $n$ vertici di un poligono regolare di $n$ lati, notiamo
+    che un elemento $g \in \Dn$ è univocamente determinato da $g(0)$ e $g(1)$, rappresentando
+    questi una base di vettori per $\RR^2$.
+    In particolare, fissato $g(0)$, per il quale abbiamo $n$ possibili scelte,
+    abbiamo al massimo due valori per $g(1)$, cioè $g(0) + 1$ o $g(0) - 1$ (opportunamente
+    normalizzati modulo $n$). Pertanto possiamo determinare $g$ in al più $2n$ modi, e quindi 
+    $\lvert \Dn \rvert \leq 2n$. Ricordando adesso che $\Dn$ contiene gli elementi
+    della forma $r^k$ e $sr^h$ al variare di $h, k \in \ZZ$, mostriamo che questi sono 
+    esattamente $2n$, e dunque che generano anche $\Dn$. Gli elementi $r^k$ appartengono al gruppo ciclico $\mathcal{R}$
     di ordine $n$, pertanto sono $n$ elementi distinti, inoltre 
     \[
         sr^i = sr^j \iff r^i = r^j\iff i \equiv j \pmod n
-    \] pertanto anche questi sono $n$
+    \] e dunque anche questi sono $n$
     elementi distinti. Poiché gli insiemi $\mathcal{R}$ e 
-    $\{sr^h\mid h \in \ZZ\}$ sono disgiunti (\hyperref[obs1.11]{Osservazione 1.11}) 
-    abbiamo $|D_n| = 2n$.
+    $\{sr^h\mid h \in \ZZ\}$ sono disgiunti (\autoref{obs1.11}), 
+    si ricava che $\lvert \Dn \rvert = 2n$.
 \end{proof}
 
 \begin{remark}
-    Abbiamo mostrato che effettivamente $D_n = \langle r, s\rangle$, quindi i
-    suoi elementi sono tutti della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$. 
+    Abbiamo mostrato che effettivamente $\Dn = \langle r, s\rangle$, quindi i
+    suoi elementi sono tutti della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$. In
+    particolare gli elementi distinti di $\Dn$ sono tutti gli $r^k$ e i $sr^h$ con
+    $1 \leq r, k \leq n-1$, insieme all'identità.
 \end{remark}
 
 \begin{remark}
-    Il risultato è valido anche per $D_2$, ma con motivazioni diverse. 
+    Il risultato è valido anche per $\D_2$, ma con motivazioni leggermente differenti. 
     Se consideriamo un segmento nel piano $\RR^2$ giacente sulla retta $y = 0$, 
     le isometrie che possiamo applicare sono l'identità, la rotazione di 
     angolo $\pi$, la simmetria lungo la retta $y = 0$ e la simmetria lungo l'asse
-    passante per il suo punto medio. $D_2$ contiene quindi quattro elementi,
-    l'identità e tre elementi di ordine 2, pertanto è isomorfo a $\Z2\times\Z2$.
+    passante per il suo punto medio. $\D_2$ contiene quindi quattro elementi:
+    l'identità e tre elementi di ordine 2. Pertanto, essendo composto da $4 = 2^2$ elementi
+    e non essendo ciclico, $\D_2$ è isomorfo a $\Z2\times\Z2 \cong V$,
+    il gruppo di Klein.
 \end{remark}
 
 
