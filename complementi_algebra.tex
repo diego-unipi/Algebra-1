@@ -52,16 +52,17 @@
 	\newpage
 	
 	\section*{Premessa}
-	Il seguente scritto è una mia rielaborazione delle note del corso di Algebra 1 tenuto dalla professoressa Del Corso e dal professor Lombardo nell'anno accademico 
-	2022-23, \textbf{le note non sono state revisionate dai suddetti prof}. In questo file ci sono soltanto gli appunti delle lezioni del professor Lombardo (per
-	le note delle lezioni della professoressa Del Corso vi rimando agli \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Appunti di Algebra 1}}), l'ordine degli argomenti è lo stesso di quello seguito a lezione se non 
-	in qualche caso.
-	Chiunque volesse aiutarmi a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alla mia mail.
+	Il seguente scritto è una mia rielaborazione delle note del corso di Algebra 1 tenuto dalla prof.ssa Del Corso e dal prof. Lombardo nell'anno accademico 
+	2022-23, con alcune aggiunte relative all'anno accademico 2023-24. \textbf{Queste dispense \underline{non} sono state revisionate dai suddetti professori}. \medskip
+	
+	In particolare, queste dispense contengono soltanto gli appunti delle lezioni complementari del prof. Lombardo (per
+	le note delle lezioni della professoressa Del Corso si rimanda agli \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Appunti di Algebra 1}}). L'ordine degli argomenti è pressoché lo stesso di quello seguito a lezione.
+	Chiunque volesse aiutare a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alle mail dei due autori.
 	
 	\section*{Ringraziamenti}
 	
-	Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani, Daniele
-	Lapadula, Francesco Sorce, Alessandro Moretti, Matteo Gori, Lorenzo Bonetti, \textbf{Rubens Martino}.
+	Si ringraziano Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani,
+	Daniele Lapadula, Francesco Sorce, Alessandro Moretti, Matteo Gori, Lorenzo Bonetti e \textbf{Rubens Martino}.
 	
 	\mbox{}
 	\vfill
@@ -734,11 +735,7 @@
 	
 	
 	\subsubsection{Classi di coniugio}
-	
-	Abbiamo già osservato che possiamo scrivere ogni elemento di $\Dn$ nella forma
-	$s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera 
-	$\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$. \medskip
-	
+
 	Consideriamo la classe di coniugio di $r^h$. Chiaramente ogni elemento di
 	$\mathcal{R}$ commuta con $r^h$ e dunque stabilizza $r$ tramite l'azione di
 	coniugio. Se si considera invece $sr^k$ con $0 \leq k \leq n-1$, allora si
@@ -802,63 +799,51 @@
 	
 	\subsubsection{Legge di gruppo e omomorfismi}
 	
-	Se $g$ è un elemento di $D_n$ possiamo scrivere $g$ in modo unico come $s^ar^b$ 
-	con $a \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$, utilizziamo questa 
-	proprietà per esplicitare la legge di gruppo di $D_n$. \newline
-	Fissati $g_1, g_2 \in D_n$, scriviamo $g_1 = s^{a_1}r^{b_1}$ e $g_2 = s^{a_2}r^{b_2}$
-	con $a_1, a_2 \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$, 
+	In questa sezione si ricava la presentazione di $\Dn$ cercando di descrivere
+	un elemento $s^a r^b$ di $\Dn$ come elemento $(a, b) \in \Z2 \times \Z{n}$ con
+	una nuova opportuna operazione di gruppo. Infatti vale che
+	\[ s^{a_1} r^{b_1} \cdot s^{a_2} r^{b_2} = s^{a_1 + a_2} r^{(-1)^{a_2} b_1 + b_2} \]
+	e quindi tale operazione di gruppo sarà descritta dalla relazione\footnote{
+		Questa operazione è esattamente quella che si ottiene considerando il
+		prodotto semidiretto
+		$\Z{n} \rtimes_\varphi \Z2$, dove $\varphi : \Z2 \to \Aut(\Z{n})$ è univocamente
+		determinata dalla relazione $[1] \mapsto -\id_{\Z{n}}$. Più avanti si dimostrerà
+		che in effetti $\Dn$ è proprio isomorfo a questo gruppo.
+	}
+	\[ (a_1, b_1) (a_2, b_2) = (a_1 + a_2, (-1)^{a_2} b_1 + b_2) \]
+
+	Usando il risultato appena ottenuto si possono descrivere gli omomorfismi da $\Dn$ in 
+	un qualsiasi gruppo $G$. Poiché ogni elemento $g \in \Dn$ si scrive come
+	$s^ar^b$, un omomorfismo $\varphi \in \Hom(\Dn, G)$ è chiaramente
+	determinato in modo univoco da $\varphi(r)$ e $\varphi(s)$. Detti $x = \varphi(s)$
+	e $y = \varphi(r)$, necessariamente $\ord(x) \mid 2$
+	e $\ord(y)\mid n$, dacché $x^2 = \varphi(s^2) = \varphi(\id) = e_G$ e
+	$y^n = \varphi(r^n) = \varphi(\id) = e_G$. Inoltre deve valere la seguente relazione
 	\[
-	g_1g_2 = (s^{a_1}r^{b_1})(s^{a_2}r^{b_2}) = s^{a_1}s^{a_2}(s^{a_2}r^{b_1}s^{-a_2})r^{b_2} = 
-	s^{a_1}s^{a_2}\varphi_{s^{a_2}}(r^{b_1})r^{b_2}
-	\]
-	dove $\varphi_{s^{a_2}}$ è l'automorfismo di coniugio per $s^{a_2}$
-	(ricordiamo che $s^{a_2} = s^{-a_2}$). Poiché
-	$\varphi_{s^{a_2}}$ è un omomorfismo e $\varphi_x\circ\varphi_y = \varphi_{xy}$ per ogni $x, y \in G$,
-	abbiamo $(\varphi_{s^{a_2}}(r^{b_1})) = (\varphi_s^{a_2}(r))^{b_1}$, quindi
-	\[
-	g_1g_2 = s^{a_1}s^{a_2}(\varphi_s^{a_2}(r))^{b_1}r^{b_2} = 
-	s^{a_1 + a_2}r^{(-1)^{a_2}b_1 + b_2}
-	\]
-	Per l'unicità della scrittura che stiamo usando (scegliendo 
-	$a \in \{0, 1\}$ e $b \in \{0, \ldots, n - 1\}$)\footnote{
-		Ricordiamo che $\varphi_s^m = \underset{m\text{ volte}}{\underbrace{\varphi_s\circ\ldots\circ\varphi_s}}$
-		in quanto l'operazione del gruppo degli automorfismi è la composizione di 
-		funzioni.} possiamo identificare 
-	ogni elemento $g = s^ar^b \in D_n$ con la coppia $(a, b)$, la legge di gruppo
-	è quindi tale che \[
-	(a_1, b_1)(a_2, b_2) = (a_1 + a_2, (-1)^{a_2}b_1 + b_2)
-	\]
-	\newline 
-	Usiamo il risultato appena ottenuto per descrivere gli omomorfismi da $D_n$ in 
-	un qualsiasi gruppo $G$. Poiché ogni elemento $g \in D_n$ si scrive come
-	$s^ar^b$, con $a, b \in \ZZ$, un omomorfismo $\varphi \in \Hom(D_n, G)$ è univocamente
-	determinato da $\varphi(r)$ e $\varphi(s)$: infatti \[
-	\varphi(g) = \varphi(s^ar^b) = \varphi(s)^a\varphi(r)^b
-	\]Poniamo $x = \varphi(s)$, $y = \varphi(r)$, necessariamente $\ord(x) \mid 2$
-	e $\ord(y)\mid n$, cioè $x^2 = e_G$ e $y^n = e_G$, inoltre \[
 	xyx^{-1} = \varphi(s)\varphi(r)\varphi(s)^{-1} = \varphi(srs^{-1}) = 
 	\varphi(r^{-1}) = \varphi(r)^{-1} = y^{-1}
-	\]Mostriamo che effettivamente queste condizioni sono anche sufficienti:
+	\]Mostriamo che effettivamente queste condizioni sono sufficienti affinché un
+	omomorfismo $\varphi : \Dn \to G$ sia ben definito.
 	
 	\begin{proposition}
 		Dati un gruppo $G$ e un'applicazione
 		\[
-		\varphi:D_n\longrightarrow G :s^ar^b \longmapsto x^ay^b
-		\]dove $x = \varphi(s)$ e $y = \varphi(r)$, allora $\varphi$ è un omomorfismo
+		\varphi: \Dn \longrightarrow G :s^ar^b \longmapsto x^ay^b
+		\] con $x$, $y \in G$, allora $\varphi$ è un omomorfismo
 		se e solo se $x^2 = e_G$, $y^n = e_G$ e $xyx^{-1} = y^{-1}$.
 	\end{proposition}
 	
 	\begin{proof}
 		Mostriamo che tali condizioni sono sufficienti affinché $\varphi$ sia un 
 		omomorfismo. Poiché $x^m = x^{-m}$ per ogni $m \in \ZZ$, fissati 
-		$a_1, a_2, b_1, b_2 \in \ZZ$ abbiamo 
+		$a_1$, $a_2$, $b_1$, $b_2 \in \ZZ$ ricaviamo che 
 		\begin{multline*}
 			(x^{a_1}y^{b_1})(x^{a_2}y^{b_2}) = x^{a_1}x^{a_2}(x^{a_2}y^{b_1}x^{-a_2})y^{b_2} = 
 			x^{a_1 + a_2}\varphi_{x^{a_2}}(y^{b_1})y^{b_2} = \\
-			= x^{a_1 + a_2} (\varphi_x^{a_2}(y))^{b_1}y^{b_2} =
+			= x^{a_1 + a_2} (\varphi(\varphi_{s^{a_2}}(r)))^{b_1}y^{b_2} =
 			x^{a_1 + a_2}y^{(-1)^{a_2}b_1}y^{b_2} = x^{a_1 + a_2}y^{(-1)^{a_2}b_1 + b_2}
-		\end{multline*}dove $\varphi_g$ è l'automorfismo di coniugio per $g \in G$.
-		Allora abbiamo che $\varphi$ è un omomorfismo, infatti per ogni $h_1, h_2, k_1, k_2 \in \ZZ$
+		\end{multline*} dove con $\varphi_g$ si indica l'automorfismo di coniugio per $g$.
+		Allora si verifica facilmente che $\varphi$ è un omomorfismo. Infatti per ogni $h_1$, $h_2$, $k_1$, $k_2 \in \ZZ$ vale che
 		\begin{multline*}
 			\varphi((s^{h_1}r^{k_1})(s^{h_2}r^{k_2})) = \varphi(s^{h_1 + h_2}r^{(-1)^{h_2}k_1 + k_2}) =\\
 			= x^{h_1 + h_2}y^{(-1)^{h_2}k_1 + k_2} = (x^{h_1}y^{k_1})(x^{h_2}y^{k_2}) = 
@@ -867,10 +852,10 @@
 	\end{proof}
 	
 	\begin{remark}
-		Le condizioni $D_n = \langle r, s\rangle$ con $\ord(r) = n$,
+		Le condizioni $\Dn = \langle r, s\rangle$, $\ord(r) = n$,
 		$\ord(s) = 2$ e $srs^{-1} = r^{-1}$ determinano in modo univoco 
-		la struttura astratta di $D_n$. Pertanto la presentazione di $\Dn$ è
-		la seguente
+		la struttura astratta di $\Dn$. Pertanto la presentazione desiderata
+		di $\Dn$ è la seguente
 		\[
 		\langle r, s\mid r^n = s^2 = e, srs^{-1} = r^{-1}\rangle
 		\]
