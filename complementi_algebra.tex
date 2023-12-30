@@ -538,12 +538,12 @@
 	
 	\begin{proof}
 		Per quanto visto sopra vale $\lvert \langle r^k\rangle \rvert = 
-		\frac 1 2|H|$. Inoltre si osserva facilmente che $\ord(sr^h) = 2$:
+		\frac 1 2\lvert H\rvert$. Inoltre si osserva facilmente che $\ord(sr^h) = 2$:
 		\[
 		(sr^h)^2 = sr^hsr^h = (srs)^hr^h = (srs^{-1})^hr^h = r^{-h}r^h = e
 		\]
 		Pertanto $\langle sr^h\rangle \cong \Z2$. Inoltre $\langle sr^h\rangle
-		\subseteq N_{\Dn}(\langle r^k\rangle)$; infatti per ogni $m \in \ZZ$ vale che:
+		\subseteq \N_{\Dn}(\langle r^k\rangle)$; infatti per ogni $m \in \ZZ$ vale che:
 		\[
 		(sr^h)r^{mk}(sr^h)^{-1} = sr^{h + mk} sr^h = r^{-h-mk}r^h = r^{-mk}
 		\in \langle r^k \rangle
@@ -552,7 +552,7 @@
 		$\langle r^k\rangle\cdot\langle sr^h\rangle$ è effettivamente
 		un sottogruppo di $\Dn$\footnote
 		{Dati $H$, $K$ sottogruppi
-			di un gruppo $G$, se $H \subseteq N_G(K)$,
+			di un gruppo $G$, se $H \subseteq \N_G(K)$,
 			allora $HK = KH$, e quindi $HK$ è un sottogruppo di $G$.}.
 		Poiché $\langle r^k\rangle$ e $\langle sr^h\rangle$ sono contenuti in $H$,
 		anche $\langle r^k\rangle\cdot\langle sr^h\rangle$ è
@@ -676,16 +676,16 @@
 	
 	\begin{corollary}
 		Per $k\mid n$ e $0\leq h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
-		è normale in $\Dn$ se e solo se $r, s \in N_{\Dn}(H_{k, h})$.
+		è normale in $\Dn$ se e solo se $r, s \in \N_{\Dn}(H_{k, h})$.
 	\end{corollary}
 	
 	\begin{proof}~
 		\begin{itemize}
-			\item Se $H_{k, h}\trianglelefteqslant \Dn$ allora $N_{\Dn}(H_{k, h}) = \Dn$, 
-			e dunque $r, s \in N_{\Dn}(H_{k, h})$;
-			\item se $r, s \in N_{\Dn}(H_{k, h})$, dacché il normalizzatore è un
+			\item Se $H_{k, h}\trianglelefteqslant \Dn$ allora $\N_{\Dn}(H_{k, h}) = \Dn$, 
+			e dunque $r, s \in \N_{\Dn}(H_{k, h})$;
+			\item se $r, s \in \N_{\Dn}(H_{k, h})$, dacché il normalizzatore è un
 			sottogruppo di $D_n$, si osserva che $\Dn = \langle r, s\rangle \subseteq
-			N_{D_n}(H_{k, h})$, e dunque che $H_{k, h} \trianglelefteqslant \Dn$.
+			\N_{D_n}(H_{k, h})$, e dunque che $H_{k, h} \trianglelefteqslant \Dn$.
 		\end{itemize}
 	\end{proof}
 	
@@ -752,7 +752,7 @@
 	e quindi $m$ deve dividere $h$. Dal momento che $h \leq n-1 = 2m -1$,
 	deve per forza valere $h = m$, e quindi $h = \frac{n}{2}$. Se dunque
 	$n$ è pari, $\Cl(r^{\frac{n}{2}})$ è composta da un singolo elemento
-	e quindi $r^{\frac{n}{2}}$ appartiene a $Z(\Dn)$.
+	e quindi $r^{\frac{n}{2}}$ appartiene a $\z(\Dn)$.
 	
 	\begin{remark}
 		Se $n$ è pari, $r^{\frac{n}{2}}$ rappresenta la rotazione di $180^{\circ}$,
@@ -776,7 +776,7 @@
 		$\Cl(sr^h)$ se e solo se $x \in \ZZ$ tale per cui $sr^{h-2x} = sr^t$
 		e quindi se e solo se $h-2x \equiv t \pmod n$. Quest'ultima equazione
 		è equivalente a $2x \equiv h-t \pmod n$ ed ha soluzione se e solo se
-		$(2, n) \mid h-t$. Se $n$ è dispari, tale soluzione ha sempre soluzione,
+		$(2, n) \mid h-t$. Se $n$ è dispari, tale equazione ha sempre soluzione,
 		se invece $n$ è pari, $(2, n)$ è uguale a $2$ e quindi $sr^t \in \Cl(sr^h)$
 		se e solo se $t$ ha la stessa parità di $h$. \medskip
 		
@@ -791,8 +791,8 @@
 	
 	\begin{remark}
 		Per $n \geq 3$ si osserva che $\Cl(sr^h)$ non è mai composto da un singolo elemento, e dunque
-		$sr^h \notin Z(\Dn)$. Pertanto si conclude facilmente che $\Dn$ ha centro banale
-		per $n \geq 3$ dispari e che $Z(\Dn) = \left\{ \id, r^{\frac{n}{2}} \right\}$ per $n \geq 3$
+		$sr^h \notin \z(\Dn)$. Pertanto si conclude facilmente che $\Dn$ ha centro banale
+		per $n \geq 3$ dispari e che $\z(\Dn) = \left\{ \id, r^{\frac{n}{2}} \right\}$ per $n \geq 3$
 		pari.
 	\end{remark}
 	
@@ -864,76 +864,66 @@
 	
 	\subsubsection{Automorfismi}
 	
-	Studiamo separatamente gli automorfismi di $D_n$ per $n \geqslant 3$ e di $D_2$.\newline
-	Per $n\geqslant 3$ consideriamo $\varphi \in \Aut(D_n)$, poiché $D_n = \langle
-	r, s\rangle$ è sufficiente studiare le immagini di $r, s$ per determinare $\varphi$.
-	Osserviamo che necessariamente $\varphi(r) = r^k$ con $(n, k) = 1$, infatti 
-	$\varphi$ deve preservare l'ordine di $r$ e la sua immagine deve essere un 
-	generatore di $\mathcal{R}$, in quanto $\mathcal{R}$ è caratteristico in $D_n$
-	e isomorfo a $\Zn$. Per quanto riguarda $\varphi(s)$, se $n$ è dispari allora le simmetrie
-	sono gli unici elementi di ordine 2, pertanto $\varphi(s) = sr^h$ con 
-	$0\leq h < n$. Se $n$ è pari abbiamo apparentemente due possibilità:
-	\begin{enumerate}[(1)]
-		\item $\varphi(s) = sr^h$, con $0\leq h < n$;
-		\item $\varphi(s) = r^{\frac n 2}$, se $n$ è pari.
-	\end{enumerate}
+	Studiamo gli automorfismi di $\Dn$. \medskip
 	
-	D'altra parte, se fosse $\varphi(s) = r^{\frac n 2}$ allora $\varphi$ non
-	sarebbe né iniettiva né surgettiva, pertanto $\varphi(s) = sr^h$ con 
-	$0\leq h \leq n$. Verifichiamo che $\varphi$ è un omomorfismo, per la 
-	caratterizzazione che abbiamo dato sopra è sufficiente verificare che
+	
+	Se $n = 2$, $\Aut(\D_2) \cong \Aut(\Z2 \times \Z2) \cong \Sym_3$. Infatti
+	$\Z2 \times \Z2 \cong \Aut(\D_2)$ e $\Aut(\Z2 \times \Z2) \cong \GL_2(\Z2)$ è
+	un gruppo non abeliano di ordine $2 \cdot 3$, e dunque isomorfo a $\Sym_3$. \medskip
+
+	Si può visualizzare facilmente l'isomorfismo
+	tra $\Aut(\Z2 \times \Z2)$ e $\Sym_3$ attraverso il seguente schema:
+	\[
+	\begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix} \leftrightarrow \id, \quad
+	\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} \leftrightarrow (1, 2), \quad
+	\begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix} \leftrightarrow (2, 3),
+	\]
+	
+	\[
+	\begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix} \leftrightarrow (1, 3), \quad
+	\begin{pmatrix}0 & 1 \\ 1 & 1\end{pmatrix} \leftrightarrow (1, 2, 3) \quad
+	\begin{pmatrix}1 & 1 \\ 1 & 0\end{pmatrix} \leftrightarrow (1, 3, 2).
+	\] \medskip
+	
+	Si suppone d'ora in poi che $n \geq 3$. \medskip
+ 
+	Sia $\varphi \in \Aut(\Dn)$. Dacché $\Dn = \langle
+	r, s\rangle$, è sufficiente studiare le immagini di $r$, $s$ per determinare
+	$\varphi$ in modo univoco. Come già osservato in precedenza, $\varphi(r) \in \mathcal{R}$
+	dacché $\mathcal{R}$ è caratteristico in $\Dn$. In particolare, affinché $\varphi$ sia
+	un automorfismo, $\varphi(r) = r^k$ con $(n, k) = 1$, in modo tale da preservare l'ordine
+	di $r$. \medskip
+	
+	
+	Se $n$ è dispari allora anche $\varphi(s)$ è una simmetria, dacché in tal
+	caso le simmetrie sarebbero gli unici elementi di ordine $2$. Se invece $n$ è pari,
+	anche $r^{\frac{n}{2}}$ ha ordine $2$. Se tuttavia $\varphi(s)$ fosse uguale
+	a $r^{\frac{n}{2}}$, $\varphi(s)$ apparterrebbe a $\mathcal{R}$, e quindi
+	a $\langle \varphi(r) \rangle$, e dunque esisterebbe $r^k \in \mathcal{R}$ tale per
+	cui $\varphi(r^k) = r^{\frac{n}{2}} = \varphi(s)$, facendo venire meno l'iniettività
+	di $\varphi$;
+	dacché però $\varphi$ è un automorfismo, ciò non è possibile, e dunque
+	$\varphi(s)$ è ancora una simmetria. Pertanto $\varphi(s) = sr^h$ con
+	$0 \leq h \leq n-1$. \medskip
+
+	
+	Verifichiamo che $\varphi$ è un omomorfismo. Per la 
+	caratterizzazione data in precedenza è sufficiente verificare che
 	$\varphi(s)\varphi(r)\varphi(s)^{-1} = \nolinebreak\varphi(r)^{-1}$:
 	\[
 	\varphi(s)\varphi(r)\varphi(s)^{-1} = (sr^h)r^k(sr^h)^{-1} = sr^{h + k}r^{-h}s =
 	sr^k s^{-1} = r^{-k} = \varphi(r)^{-1}
 	\]
-	Inoltre $\varphi$ è surgettiva, infatti $r^k, sr^h \in \mathrm{Im}\varphi$,
-	cioè 
+	Inoltre $\varphi$ è surgettiva. Infatti vale che
 	\[
-	\langle r^k, sr^h\rangle = \langle r, sr^h\rangle = \langle s, r\rangle =
-	D_n\subseteq \mathrm{Im}\varphi
-	\]da cui $\mathrm{Im}\varphi = D_n$. Poiché $D_n$ è finito abbiamo che $\varphi$
-	è un automorfismo. Gli automorfismi di $D_n = \langle r, s\rangle$ quindi sono
-	tutti e soli gli omomorfismi da $D_n$ in $D_n$ che mandano $r$ in un generatore
-	di $\mathcal{R}$, che sono $\phi(n)$, e $s$ in un'altra simmetria, che sono 
-	$n$, pertanto $|\Aut(D_n)| = n\phi(n)$.\newline
-	
-	Per $n = 2$, sappiamo che $D_2 \cong (\Z2)^2$, pertanto 
-	\[
-	\Aut(D_2) \cong \Aut((\Z2)^2) \cong \mathcal{S}_3
+	\im \varphi \supseteq \langle r^k, sr^h \rangle = \langle r, sr^h \rangle = \langle r, s \rangle =
+	\Dn
 	\]
-	Alternativamente possiamo considerare $(\Z2)^2$ come spazio vettoriale su $\FF_2$,
-	pertanto abbiamo 
-	\[
-	\Aut(D_2) \cong GL_2(\FF_2)
-	\]Per quanto visto nella sezione \hyperref[sez 1.2]{(1.2)}, $GL_2(\FF_2)$ 
-	contiene $(4 - 1)(4 - 2) = 6$ elementi, inoltre $GL_2$ non è un gruppo 
-	commutativo (con l'operazione di prodotto tra matrici), pertanto $GL_2(\FF_2) \cong \mathcal{S}_3$.
-	In particolare, gli elementi di $GL_2(\FF_2)$ sono:
-	\begin{itemize}
-		\item $\begin{pmatrix}
-			1 & 0\\
-			0 & 1
-		\end{pmatrix}$, che è l'identità del gruppo;
-		\item $\begin{pmatrix}
-			0 & 1\\
-			1 & 0
-		\end{pmatrix}, \begin{pmatrix}
-			1 & 0\\
-			1 & 1
-		\end{pmatrix}, \begin{pmatrix}
-			1 & 1\\
-			0 & 1
-		\end{pmatrix}$, che sono gli elementi di ordine 2 corrispondenti alle 
-		trasposizioni;
-		\item $\begin{pmatrix}
-			1 & 1\\
-			1 & 0
-		\end{pmatrix}, \begin{pmatrix}
-			0 & 1\\
-			1 & 1
-		\end{pmatrix}$ che sono gli elementi di ordine $3$ corrispondenti ai $3$-cicli.
-	\end{itemize}
+	da cui si conclude che $\im \varphi = \Dn$. Dacché $\Dn$ è finito la surgettività di $\varphi$ ne implica anche la bigettività, e dunque $\varphi$
+	è un automorfismo. Gli automorfismi di $\Dn = \langle r, s\rangle$ sono quindi
+	tutti e soli gli omomorfismi da $\Dn$ in $\Dn$ che mandano $r$ in un generatore
+	di $\mathcal{R}$ -- e quindi vi sono $\phi(n)$ scelte per $\varphi(r)$ -- e $s$ in un'altra simmetria -- dunque vi sono $n$ scelte per $\varphi(s)$. Si conclude dunque che
+	$\lvert \Aut(D_n) \rvert = n\phi(n)$.
 	
 	\newpage
 	
