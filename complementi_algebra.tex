@@ -220,7 +220,7 @@
 			\item $\Z{n} \cong \langle{x \mid x^n = e}\rangle$
 			\item $\Z{2} \times \Z{2} \cong \langle{x, y \mid x^2 = y^2 = e, [x, y] = e}\rangle$
 			\item $(\Z2)^3 \cong \langle x, y, z \mid x^2 = y^2 = z^2 = e, [x, y] = [y, z] = [z, x] = e \rangle$
-			\item $D_n \cong \langle{r, s \mid r^n = e, s^2 = e, (sr)^2 = e}\rangle$
+			\item $\Dn \cong \langle{r, s \mid r^n = s^2 = e, srs\inv = r\inv}\rangle$
 		\end{itemize}
 	\end{example}
 	
@@ -558,7 +558,7 @@
 		contenuto in $H$. Infine si verifica che
 		\[\lvert \langle r^k\rangle\cdot\langle sr^h\rangle \rvert = \frac 1 2 \lvert H \rvert \cdot 2 = \lvert H \rvert \]
 		in quanto $\langle r^k\rangle\cap\langle sr^h\rangle = \{e\}$\footnote{
-			Se $H, K$ sono sottogruppi finiti di un gruppo $G$ e $HK\leqslant G$ allora
+			Si ricorda che se $H$ e $K$ sono sottogruppi finiti di un gruppo $G$ allora
 			vale che $\lvert HK \rvert = \frac{\lvert H \rvert \cdot \lvert K \rvert}{\lvert H\cap K \rvert}$.
 		}. Pertanto 
 		i due sottogruppi coincidono.
@@ -658,113 +658,145 @@
 	\end{proof}
 	
 	\begin{remark}
-		$\mathcal{R} = \langle r \rangle$ è caratteristico in $\Dn$ per $n \geq 3$.
+		A dire il vero, $\mathcal{R} = \langle r \rangle$ non solo è normale in $\Dn$,
+		ma è anche per $n \geq 3$.
 		Infatti per ogni $\varphi \in \Aut(\Dn)$ allora
-		$\ord(r) = \ord(\varphi(r))$, da cui $|\langle\varphi(r)\rangle| = n$.
-		Se fosse $\varphi(r) \notin \mathcal{R}$ avremmo $\ord(\varphi(r)) = 2$, 
-		e quindi $|\langle \varphi(r)\rangle| = n = 2$, che è assurdo in quanto $\lvert \Dn \rvert \geq 6$.
-		Questo non è vero per $\D_2$, che contiene una rotazione e due
-		simmetrie: poiché $\Aut(\D_2) \cong \Aut(\Z2 \times \Z2) \cong \mathcal{S}_3$, esiste un $\psi \in \Aut(\D_2)$ che manda 
-		la rotazione in una riflessione.
+		$\ord(\varphi(r)) = \ord(r) = n$.
+		Se $\varphi(r)$ non appartenesse a $\mathcal{R}$, avremmo $\ord(\varphi(r)) = 2$,
+		assurdo dacché $n \geq 3$. \medskip
+
+		Questo non è vero per $\D_2$. Sia infatti $\varphi : \D_2 \to \D_2$ l'omomorfismo
+		univocamente determinato da
+		\[ r \mapsto s, \quad s \mapsto r \]
+		Tale omomorfismo è ben definito dal momento che $\varphi(s) \varphi(r) \varphi(s) =
+		r s r = s = s\inv = \varphi(r\inv)$, ed è in particolare un elemento di $\Aut(\D_2)$,
+		dal momento che $\ker \varphi$ è banale. Si osserva inoltre che $\Aut(\D_2) \cong \Aut(\Z2 \times \Z2) \cong \mathcal{S}_3$.
 	\end{remark}
 	
 	\begin{corollary}
 		Per $k\mid n$ e $0\leq h < k$, il sottogruppo $H_{k, h} = \langle r^k, sr^h\rangle$
-		è normale in $D_n$ se e solo se $r, s \in N_{D_n}(H_{k, h})$.
+		è normale in $\Dn$ se e solo se $r, s \in N_{\Dn}(H_{k, h})$.
 	\end{corollary}
 	
 	\begin{proof}~
 		\begin{itemize}
-			\item Se $H_{k, h}\trianglelefteqslant D_n$ allora $N_{D_n}(H_{k, h}) = D_n$, 
-			in particolare $r, s \in N_{D_n}(H_{k, h})$;
-			\item se $r, s \in N_{D_n}(H_{k, h})$, poiché il normalizzatore è un
-			sottogruppo di $D_n$ abbiamo che $D_n = \langle r, s\rangle \subseteq
-			N_{D_n}(H_{k, h})$, pertanto $H_{k, h} \trianglelefteqslant D_n$.
+			\item Se $H_{k, h}\trianglelefteqslant \Dn$ allora $N_{\Dn}(H_{k, h}) = \Dn$, 
+			e dunque $r, s \in N_{\Dn}(H_{k, h})$;
+			\item se $r, s \in N_{\Dn}(H_{k, h})$, dacché il normalizzatore è un
+			sottogruppo di $D_n$, si osserva che $\Dn = \langle r, s\rangle \subseteq
+			N_{D_n}(H_{k, h})$, e dunque che $H_{k, h} \trianglelefteqslant \Dn$.
 		\end{itemize}
 	\end{proof}
 	
-	Vediamo quali sono i sottogruppi normali della forma 
-	$\langle r^k, sr^h\rangle$, consideriamo i coniugi \[
-	\varphi_s: D_n \longrightarrow D_n :x \longmapsto sxs^{-1}\qquad
-	\varphi_r: D_n \longrightarrow D_n :x \longmapsto rxr^{-1}
-	\]e sia $x_1^{\pm 1}\ldots x_m^{\pm 1} \in H_{k, h} = \langle r^k, sr^h\rangle$, allora
-	\[
-	\varphi_s(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_s(x_1)^{\pm 1}\ldots \varphi_s(x_m)^{\pm 1}
-	\in \langle srs, r^hs^{-1}\rangle = \langle sr^ks, r^hs^{-1}\rangle = \langle
-	r^k, sr^{-h}\rangle
-	\]
-	\[
-	\varphi_r(x_1^{\pm 1}\ldots x_m^{\pm 1}) = \varphi_r(x_1)^{\pm 1}\ldots \varphi_r(x_m)^{\pm 1}
-	\in \langle r^k, rsr^{h - 1}\rangle = \langle r^k, sr^{h - 2}\rangle
-	\]
+	Si calcolano adesso i sottogruppi normali di $\Dn$. Come visto prima, i sottogruppi
+	di $\mathcal{R}$ sono tutti normali. Resta da verificare quali sottogruppi di $\Dn$
+	sono normali tra quelli
+	della forma $\langle r^k, sr^h \rangle$ con $k \mid n$ e $0 \leq h \leq k-1$.
+	Sia $H$ un tale sottogruppo. Allora, per il corollario precedente, $H$ è normale
+	se e solo se $rHr\inv = H$ e $sHs\inv = H$. \medskip
 	
-	Pertanto $H_{k, h}\trianglelefteqslant D_n$ se e solo se $\langle r^k, sr^{h - 2}\rangle
-	= \langle r^k, sr^{-h}\rangle = \langle r^k, sr^h\rangle$, se e solo se 
-	$h \equiv h - 2 \pmod k$, cioè $k \in \{1, 2\}$.\begin{itemize}
-		\item Se $k = 1$ allora $H_{k, h} = \langle r, s\rangle = D_n$;
-		\item se $k = 2$ (e $n$ pari) allora $H_{k, h} = \langle r^2, sr\rangle$ oppure 
-		$H_{k, h} = \langle r^2, s\rangle$.
+	
+	Si verifica facilmente
+	che $rHr\inv = r \langle r^k, sr^h \rangle r\inv = \langle r^k, rsr^{h-1} \rangle
+	= \langle r^k, sr^{h-2} \rangle$. Quest'ultimo sottogruppo è uguale ad $H$ se e
+	solo se $h-2 \equiv h \pmod k$, e quindi se e solo se $k \mid 2$. Pertanto
+	$k$ è uguale ad $1$ o $2$. Per $k = 1$, l'unico sottogruppo considerato è
+	$\langle r, s \rangle = \Dn$, che
+	è banalmente normale. \medskip
+	
+	
+	Si considera d'ora in poi il caso $k = 2$. Dal momento che $k \mid n$, questo
+	implica che $n$ sia pari. Pertanto, se $n$ è dispari, non esistono sottogruppi
+	normali che non siano sottogruppi di $\mathcal{R}$ o che non siano $\Dn$ stesso.
+	Si applica il coniugio ad $H$ tramite la simmetria $s$:
+	$sHs\inv = s \langle r^2, sr^h \rangle s\inv = \langle r^{-2}, s^2 r^h s \rangle =
+	\langle r^2, s r^{-h} \rangle$. Quest'ultimo sottogruppo è uguale ad $H$ se e solo
+	se $-h$ è congruo ad $h$ modulo $2$, e quindi sempre. Pertanto, per $n$ pari,
+	sono sottogruppi normali anche $\langle r^2, sr \rangle$ e $\langle r^2, s \rangle$. \medskip
+	
+	Si riassume la classificazione dei sottogruppi normali di $\Dn$ nella seguente lista:
+	
+	\begin{itemize}
+		\item se $n$ è dispari, i sottogruppi normali di $\Dn$ sono $\Dn$ stesso,
+		$\{\id \}$ e i sottogruppi di $\mathcal{R}$,
+		\item se $n$ è dispari, sono sottogruppi normali di $\Dn$ i sottogruppi elencati
+		nel caso in cui $n$ sia pari insieme a $\langle r^2, sr \rangle$ e $\langle r^2, s \rangle$.
 	\end{itemize}
 	
 	\begin{remark}
-		Il secondo caso si presenta solo se $n$ è pari, questo corrisponde al fatto 
+		I sottogruppi aggiuntivi che appaiono nel caso in cui $n$ sia pari corrispondono
+		al fatto 
 		che in un poligono con un numero pari di lati gli assi di simmetria sono 
-		per metà passanti per i lati e metà passanti per i vertici opposti. In un poligono con un numero dispari
+		per metà passanti per i lati e metà passanti per i vertici opposti. Al contrario,
+		per un poligono con un numero dispari
 		di lati gli assi di simmetria sono tutti passanti per i lati.
 	\end{remark}
 	
 	
 	\subsubsection{Classi di coniugio}
 	
-	Abbiamo visto che possiamo scrivere ogni elemento di $D_n$ nella forma
+	Abbiamo già osservato che possiamo scrivere ogni elemento di $\Dn$ nella forma
 	$s^hr^k$, dove $s$ è una simmetria e $r$ è una rotazione che genera 
-	$\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$
-	in quanto $\ord(s)= 2$ e $\ord(r) = n$. Inoltre tutti gli elementi della
-	forma $sr^k$ hanno ordine $2$.
+	$\mathcal{R}$, con $h \in \{0, 1\}$ e $k \in \{0, \ldots, n - 1\}$. \medskip
 	
-	Consideriamo la classe di coniugio di $r$, $\Cl(r) = \{grg^{-1}\mid g \in D_n\}$,
-	fissato $g \in D_n$ abbiamo due possibili valori per $grg^{-1}$:
-	\begin{itemize}
-		\item se $g \in \mathcal{R}$ allora $g$ è una potenza di $r$, pertanto i
-		due elementi commutano e si ha $grg^{-1} = r$;
-		\item se $g\notin\mathcal{R}$ allora $g = sr^h$ con $h \in \ZZ$, quindi
-		\[
-		(sr^h)r(sr^h)^{-1} = (sr^h)r(sr^h) = sr^{h + 1}sr^h = s^2r^{-1-h}r^h = r^{-1}
-		\]
-	\end{itemize}
-	cioè $\Cl(r) = \{r, r^{-1}\}$. In modo analogo si mostra che $\Cl(r^k) = \{r^k, r^{-k}\}$
-	per ogni $k \in \ZZ$.
+	Consideriamo la classe di coniugio di $r^h$. Chiaramente ogni elemento di
+	$\mathcal{R}$ commuta con $r^h$ e dunque stabilizza $r$ tramite l'azione di
+	coniugio. Se si considera invece $sr^k$ con $0 \leq k \leq n-1$, allora si
+	verifica che
+	$sr^k r^h (sr^k)\inv = sr^k r^h r^{-k} s = sr^hs = r^{-h}$. Pertanto
+	$\Cl(r^h) = \{r^h, r^{-h}\}$. In particolare $\Cl(r^h)$ ha sempre due
+	elementi distinti, a meno che $r^h = r^{-h}$. Quest'ultima identità si
+	verifica solo nel caso in cui $r^{2h} = \id$, e quindi se e solo
+	se
+	\[ \frac{n}{(n, h)} = 2 \]
+	da cui si osserva facilmente che $n$ deve essere pari. In tal caso, detto
+	$n = 2m$, vale che
+	\[ \frac{2m}{(2m, h)} = 2 \iff \frac{m}{(2m, h)} = 1 \iff m = (2m, h) \]
+	e quindi $m$ deve dividere $h$. Dal momento che $h \leq n-1 = 2m -1$,
+	deve per forza valere $h = m$, e quindi $h = \frac{n}{2}$. Se dunque
+	$n$ è pari, $\Cl(r^{\frac{n}{2}})$ è composta da un singolo elemento
+	e quindi $r^{\frac{n}{2}}$ appartiene a $Z(\Dn)$.
 	
 	\begin{remark}
-		Se $n$ è pari, scriviamo $n = 2m$ e consideriamo la classe di coniugio
-		di $r^m$. Poiché $r^m \neq e$ e $r^{2m} = (r^m)^2 = e$ abbiamo che
-		$\ord(r^m) = 2$, cioè $(r^m)^{-1} = r^m$. Allora $\Cl(r^m) = \{r^m\}$,
-		pertanto abbiamo trovato un elemento del centro di $D_n$ (infatti se $G$
-		è un gruppo e $x \in G$, allora $x \in Z(G)$ se e solo se $\Cl(x) = \{x\}$).
+		Se $n$ è pari, $r^{\frac{n}{2}}$ rappresenta la rotazione di $180^{\circ}$,
+		che commuta con ogni isometria del piano. Infatti, nella base canonica
+		di $\RR^2$, tale rotazione è rappresentata dalla matrice $-I_2$, che
+		commuta con ogni matrice di $\M_2(\RR)$.
 	\end{remark}
 	
-	Consideriamo adesso la classe di coniugio di $sr^h$, $\Cl(sr^h) = 
-	\{g(sr^h)g^{-1}\mid g\in D_n\}$, fissato $g \in D_n$ abbiamo due possibili
-	valori per $g(sr^h)g^{-1}$:
-	\begin{itemize}
-		\item se $g \in \mathcal{R}$ allora $g = r^k$ con $k \in \ZZ$, pertanto
-		\[
-		r^k(sr^h)r^{-k} = sr^{-k}r^h r^{-k} = sr^{h - 2k}
-		\]
-		\item se $g \notin \mathcal{R}$ allora $g = sr^k$ con $k \in \ZZ$, pertanto
-		\[
-		(sr^k)(sr^h)(sr^k)^{-1} = (sr^k)(sr^h)(sr^k) = sr^{2k - h}
-		\]
-	\end{itemize}
-	cioè $\Cl(sr^h) = \{sr^{h - 2k}, sr^{2k - h}\mid k \in \ZZ\}$. 
+	Consideriamo adesso la classe di coniugio di $sr^h$. Si verifica facilmente
+	che $r^k sr^h r^{-k} = s r^{h-2k}$ e che $sr^k sr^h sr^k = s^2 r^{h-k} sr^k =
+	s r^{2k-h}$. Pertanto vale che
+	\[ \Cl(sr^h) = \{ sr^{h-2k}, sr^{2k-h} \mid k \in \ZZ \} \]
+	I due elementi elencati rappresentano in realtà la stessa sequenza di
+	esponenti, dal momento che $h - 2(h-k) = 2k-h$. Quindi vale
+	che
+	\[ \Cl(sr^h) = \{ sr^{h-2k} \mid k \in \ZZ \} \]
+	
 	
 	\begin{remark}
-		La classe di coniugio di $sr^h$ contiene tutte le simmetrie in cui 
-		l'esponente di $r$ ha la stessa parità di $h$. Se $n$ è 
-		dispari tutte le simmetrie appartengono alla stessa classe,
-		mentre se $n$ è pari abbiamo due classi distinte: quella 
-		delle simmetrie rispetto agli assi passanti per i vertici opposti e quella 
-		delle simmetrie rispetto agli assi passanti per i lati.
+		Si studiano le simmetrie di $\Cl(sr^h)$. La simmetria $sr^t$ appartiene a
+		$\Cl(sr^h)$ se e solo se $x \in \ZZ$ tale per cui $sr^{h-2x} = sr^t$
+		e quindi se e solo se $h-2x \equiv t \pmod n$. Quest'ultima equazione
+		è equivalente a $2x \equiv h-t \pmod n$ ed ha soluzione se e solo se
+		$(2, n) \mid h-t$. Se $n$ è dispari, tale soluzione ha sempre soluzione,
+		se invece $n$ è pari, $(2, n)$ è uguale a $2$ e quindi $sr^t \in \Cl(sr^h)$
+		se e solo se $t$ ha la stessa parità di $h$. \medskip
+		
+		Riassumendo, se $n$ è dispari, $\Cl(sr^h) = \Dn \setminus \mathcal{R}$ e
+		dunque contiene tutte le simmetrie; se invece $n$ è pari, $\Cl(sr^h)$ contiene
+		solo le simmetrie $sr^t$ con $t \equiv h \pmod 2$. Geometricamente questo
+		è equivalente a osservare che, se $n$ è dispari, tutti gli assi di simmetria
+		passano per i vertici (e dunque appartengono alla stessa classe) e che, se $n$
+		è pari, vi sono due classi di assi di simmetria: quelli passanti solo per i vertici e
+		quelli passanti per il punto medio dei segmenti del poligono regolare considerato.
+	\end{remark}
+	
+	\begin{remark}
+		Per $n \geq 3$ si osserva che $\Cl(sr^h)$ non è mai composto da un singolo elemento, e dunque
+		$sr^h \notin Z(\Dn)$. Pertanto si conclude facilmente che $\Dn$ ha centro banale
+		per $n \geq 3$ dispari e che $Z(\Dn) = \left\{ \id, r^{\frac{n}{2}} \right\}$ per $n \geq 3$
+		pari.
 	\end{remark}
 	
 	
@@ -835,30 +867,13 @@
 	\end{proof}
 	
 	\begin{remark}
-		Abbiamo visto che le condizioni $D_n = \langle r, s\rangle$ con $\ord(r) = n$,
+		Le condizioni $D_n = \langle r, s\rangle$ con $\ord(r) = n$,
 		$\ord(s) = 2$ e $srs^{-1} = r^{-1}$ determinano in modo univoco 
-		la struttura astratta di $D_n$, racchiudiamo queste proprietà fondamentali
-		nella scrittura
+		la struttura astratta di $D_n$. Pertanto la presentazione di $\Dn$ è
+		la seguente
 		\[
 		\langle r, s\mid r^n = s^2 = e, srs^{-1} = r^{-1}\rangle
 		\]
-		Tale scrittura si chiama \vocab{presentazione di un gruppo} e ne determina 
-		in modo univoco la classe di isomorfismo. Senza scendere troppo nei dettagli,
-		nella presentazione indichiamo un insieme di generatori minimale e il 
-		minor numero di proprietà che i generatori devono rispettare affinché il 
-		gruppo abbia la struttura desiderata. Altri esempi di presentazioni sono
-		\[
-		\langle x \mid x^n = e\rangle
-		\]
-		\[
-		\langle x\rangle
-		\]
-		\[
-		\langle x, y \mid x^2 = y^2 = e, xy = yx\rangle
-		\]
-		rispettivamente dei gruppi $\Zn$, $\ZZ$, $\Z2\times\Z2$
-		(notiamo che $\Z2\times\Z2$ e $D_2$ hanno la stessa presentazione,
-		e questo ha senso in quanto i due gruppi sono isomorfi).
 	\end{remark}
 	
 	
