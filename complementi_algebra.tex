@@ -1487,7 +1487,7 @@
 		
 		Mostriamo che $H \subseteq \z(G)$. Questo è equivalente a 
 		richiedere che l'omomorfismo \[
-		\varphi: G \longrightarrow \Aut(H) : g \longmapsto \restr{\varphi_{g}}{H}
+		\varphi: G \to \Aut(H) : g \mapsto \restr{\varphi_{g}}{H}
 		\]
 		dove $\varphi_g$ è il coniugio per $g$, abbia come unico elemento dell'immagine
 		$\id_H$.
@@ -1560,70 +1560,85 @@
 	
 	\begin{exercise}
 		\label{ex1.48}
-		Dato $d$ un numero dispari, mostrare che ogni gruppo di ordine $2d$ ammette
-		un sottogruppo normale di indice 2.
+		Dato $d$ un numero dispari, si mostri che ogni gruppo di ordine $2d$ ammette
+		un sottogruppo normale di indice $2$.
 	\end{exercise}
 	
 	\begin{soln}
-		Consideriamo la rappresentazione regolare a sinistra di $G$
+		Consideriamo la rappresentazione regolare a sinistra (\textit{embedding} di Cayley) di $G$, ossia l'azione
 		\[
-		\lambda: G \longrightarrow \mathcal{S}(G) : g\longmapsto \lambda_g
+		\lambda: G \to \mathcal{S}(G) : g \mapsto \lambda_g
 		\]
 		con
 		\[
-		\lambda_g : G\longrightarrow G : x\longmapsto gx
+		\lambda_g : G \to G : x \mapsto gx
 		\]
-		Fissato un isomorfismo $\psi: \mathcal{S}(G) \longrightarrow S_{2d}$ poniamo
-		$\varphi = \psi\circ\lambda :G\longrightarrow S_{2d}$, $\varphi$ è 
-		un omomorfismo iniettivo (infatti nella dimostrazione del Teorema di Cayley
-		abbiamo visto che $\lambda$ è un omomorfismo iniettivo). Consideriamo 
-		il sottogruppo $\varphi^{-1}(\mathcal{A}_{2d})$, mostriamo che il suo 
-		indice in $G$ è al più 2:
-		posta $\pi_{\mathcal{A}_{2d}}$ la proiezione al quoziente
+		Dopo aver fissato un isomorfismo $\psi: \mathcal{S}(G) \to S_{2d}$, poniamo
+		$\varphi = \psi \circ \lambda : G \to S_{2d}$. $\varphi$ è 
+		un omomorfismo iniettivo: infatti $\lambda$ è un'azione fedele e $\psi$ è
+		un isomorfismo. Consideriamo 
+		il sottogruppo $H := \varphi^{-1}(\mathcal{A}_{2d})$; mostriamo che il suo 
+		indice in $G$ è al più $2$.
+		Detta $\pi_{\mathcal{A}_{2d}}$ la proiezione al quoziente di $\Sym_{2d}$ su
+		$\faktor{\Sym_{2d}}{\mathcal{A}_{2d}} \cong \Z2$, possiamo caratterizzare $H$ come
 		\[
-		\pi_{\mathcal{A}_{2d}}:\Sym_{2d}\longrightarrow \faktor{S_{2d}}{\mathcal{A}_{2d}}\cong \Z2
-		\]
-		possiamo caratterizzare $\varphi^{-1}(\mathcal{A}_{2d})$ come
-		\[
-		\varphi^{-1}(\mathcal{A}_{2d}) = \{g \in G \mid \varphi(g) \in \mathcal{A}_{2d}\}
+		H = \varphi^{-1}(\mathcal{A}_{2d}) = \{g \in G \mid \varphi(g) \in \mathcal{A}_{2d}\}
 		= \ker (\pi_{\mathcal{A}_{2d}}\circ\varphi)
 		\]
-		pertanto $\varphi^{-1}(\mathcal{A}_{2d})\trianglelefteqslant G$. 
-		Per il Primo Teorema di Omomorfismo abbiamo che esiste un omomorfismo
-		iniettivo da $\faktor{G}{\ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)}$ in
-		$\Z2$, da cui $[G:\ker(\pi_{\mathcal{A}_{2d}})] \leq 2$. Tale 
-		sottogruppo ha indice 1 se e solo se $G = \ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)$,
-		cioè $\varphi(G) \subseteq \mathcal{A}_{2d}$, mostriamo che in effetti esiste 
+		Pertanto $H$ è normale in $G$, essendo nucleo di un omomorfismo. 
+		Per il Primo Teorema di Omomorfismo vale che
+		
+		\[ \faktor{G}{H} = \faktor{G}{\ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)} \cong \im(\pi_{\mathcal{A}_{2d}}\circ\varphi) \mono \Z2 \]
+		e quindi $[G : H] \mid 2$. \medskip
+		
+
+		Si osserva che $H$ ha indice $1$ se e solo se $G = H = \ker(\pi_{\mathcal{A}_{2d}}\circ\varphi)$,
+		cioè se e solo se $\varphi(G) \subseteq \mathcal{A}_{2d}$. Mostriamo che esiste
+		tuttavia
 		un elemento di $G$ la cui immagine tramite $\varphi$ è una permutazione 
-		dispari. Consideriamo $g \in G$ un elemento di ordine 2, poiché $\varphi$
-		è un omomorfismo iniettivo abbiamo che $\ord(\varphi(g)) = \ord(g) = 2$,
-		pertanto la permutazione $\varphi(g)$ ha una decomposizione in $d$ 2-cicli,
-		cioè è dispari. Pertanto $G \neq \varphi^{-1}(\mathcal{A}_{2d})$,
-		da cui $[G: \varphi^{-1}(\mathcal{A}_{2d})] = 2$,
+		dispari. Poiché $2 \mid \abs{G} = 2d$, per il Teorema di Cauchy esiste
+		$g \in G$ tale per cui $\ord(g) = 2$. Dal momento che $\varphi$
+		è un omomorfismo iniettivo abbiamo che $\ord(\varphi(g)) = \ord(g) = 2$;
+		pertanto la permutazione $\varphi(g)$ si decompone in un prodotto di trasposizioni
+		disgiunte.  \medskip
+		
+		
+		In particolare la decomposizione di $\varphi(g)$ deve essere la stessa di
+		$\lambda(g)$. Per contare il numero di trasposizioni di $\varphi(g)$
+		consideriamo l'azione naturale $\zeta$ di $\lambda(g)$ su $G$, ossia $\zeta : \langle \lambda(g) \rangle \to S(G)$ tale per cui
+		\[ \zeta(\lambda(g)) : G \to G, \, h \mapsto \lambda(g)(h) = gh \]
+		
+	 	Dal momento che $\lambda$ è un'azione fedele, $\Stab_\zeta(h)$ è sempre
+		banale per ogni $h \in G$, e quindi, per il Lemma
+		orbita-stabilizzatore, $\abs{\Orb_\zeta(h)} = \abs{\langle \lambda(g) \rangle} =
+		\ord(\lambda(g)) = 2$. Pertanto $\lambda(g)$ si decompone in $d$ trasposizioni,
+		e quindi $\varphi(g) \notin \ASym_{2d}$. Allora
+		$[G : H] = 2$, da cui la tesi.
 	\end{soln}
 	
 	Possiamo generalizzare il ragionamento appena usato nel seguente risultato
 	
 	\begin{proposition}
 		\label{prop1.49}
-		Dato un gruppo $G$ e $H\lneq G$ un sottogruppo tale che $[G:H] = 2$, se
-		$K$ è un sottogruppo di $G$ allora $H\cap K$ ha indice 1 o 2 in $K$,
-		cioè $[K:H\cap K] \in \{1, 2\}$.
+		Sia $G$ un gruppo e $H$ un sottogruppo tale per cui $[G:H] = 2$. Se
+		$K$ è un sottogruppo di $G$, allora $H\cap K$ ha indice $1$ o $2$ in $K$.
 	\end{proposition}
 	
 	\begin{proof}
 		Distinguiamo due casi:
 		\begin{itemize}
 			\item se $K \subseteq H$ allora $H \cap K = K$, da cui $[K:H\cap K] = 1$;
-			\item se $K \nsubseteq H$ consideriamo la proiezione 
+			\item se $K \nsubseteq H$, consideriamo la proiezione 
 			\[
-			\pi_H: G\longrightarrow \faktor{G}{H} :g \longmapsto gH
+			\pi_H: G \to \faktor{G}{H}, g \mapsto gH
 			\]
-			Poiché $\faktor G H \cong \Z2$ abbiamo che gli unici sottogruppi 
-			del quoziente sono $\{H\}$ e $\faktor G H$, pertanto 
-			$\pi_H(K) = \faktor G H$. Osserviamo che $\ker\pi_{H\mid K}
-			= \ker \pi_H \cap K$, per il Primo Teorema di Omomorfismo allora 
-			$\faktor{K}{H\cap K} \cong \Z2$, cioè $[K:H\cap K] = 2$.
+			Dal momento che $\faktor G H \cong \Z2$, gli unici sottogruppi 
+			del quoziente sono $\{H\}$ e $\faktor G H$ stesso; pertanto 
+			$\pi_H(K) = \faktor G H$ (altrimenti si avrebbe $K \subseteq \ker \pi_H = H$). Osserviamo che $\ker \restr{\pi_{H}}{K}
+			= \ker \pi_H \cap K = H \cap K$, e quindi, per il Primo Teorema di Omomorfismo,
+			vale che 
+			\[ \faktor{K}{H\cap K} = \faktor{K}{\ker \restr{\pi_{H}}{K}} \cong \im \restr{\pi_{H}}{K} = \faktor{G}{H} \cong \Z2 \]
+			ovverosia $[K:H\cap K] = 2$.
 		\end{itemize}
 	\end{proof}
 	
