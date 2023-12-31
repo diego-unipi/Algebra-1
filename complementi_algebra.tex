@@ -227,7 +227,7 @@
 	
 	\newpage
 	
-	\subsection{Automorfismi di $(\Zp)^n$}
+	\subsection{Automorfismi di \texorpdfstring{$(\Zp)^n$}{(Z/pZ)ⁿ}}
 	\label{sez1.2}
 	
 	Dato $p$ un primo, vogliamo determinare quanti sono gli automorfismi di 
@@ -869,20 +869,20 @@
 	
 	Se $n = 2$, $\Aut(\D_2) \cong \Aut(\Z2 \times \Z2) \cong \Sym_3$. Infatti
 	$\Z2 \times \Z2 \cong \Aut(\D_2)$ e $\Aut(\Z2 \times \Z2) \cong \GL_2(\Z2)$ è
-	un gruppo non abeliano di ordine $2 \cdot 3$, e dunque isomorfo a $\Sym_3$. \medskip
+	un gruppo non abeliano di ordine $2 \cdot 3 = 6$, e dunque isomorfo a $\Sym_3$. \medskip
 
 	Si può visualizzare facilmente l'isomorfismo
 	tra $\Aut(\Z2 \times \Z2)$ e $\Sym_3$ attraverso il seguente schema:
 	\[
 	\begin{pmatrix}1 & 0 \\ 0 & 1\end{pmatrix} \leftrightarrow \id, \quad
-	\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} \leftrightarrow (1, 2), \quad
-	\begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix} \leftrightarrow (2, 3),
+	\begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix} \leftrightarrow \cycle{1, 2}, \quad
+	\begin{pmatrix}1 & 1 \\ 0 & 1\end{pmatrix} \leftrightarrow \cycle{2, 3},
 	\]
 	
 	\[
-	\begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix} \leftrightarrow (1, 3), \quad
-	\begin{pmatrix}0 & 1 \\ 1 & 1\end{pmatrix} \leftrightarrow (1, 2, 3) \quad
-	\begin{pmatrix}1 & 1 \\ 1 & 0\end{pmatrix} \leftrightarrow (1, 3, 2).
+	\begin{pmatrix}1 & 0 \\ 1 & 1\end{pmatrix} \leftrightarrow \cycle{1, 3}, \quad
+	\begin{pmatrix}0 & 1 \\ 1 & 1\end{pmatrix} \leftrightarrow \cycle{1, 2, 3} \quad
+	\begin{pmatrix}1 & 1 \\ 1 & 0\end{pmatrix} \leftrightarrow \cycle{1, 3, 2}.
 	\] \medskip
 	
 	Si suppone d'ora in poi che $n \geq 3$. \medskip
@@ -929,57 +929,53 @@
 	
 	\subsection{Automorfismi di un prodotto diretto}
 	
-	Consideriamo due gruppi finiti $H, K$, studiamo il gruppo degli automorfismi 
-	di $H\times K$. Chiaramente esiste un'inclusione di $\Aut(H)\times \Aut(K)$ in 
-	$\Aut(H\times K)$ data dall'omomorfismo 
-	\[
-	\iota: \Aut(H)\times \Aut(K)\longhookrightarrow \Aut(H\times K) :
-	(\varphi_1, \varphi_2)\longmapsto \varphi_1\times \varphi_2
-	\]con 
-	\[
-	\varphi_1\times\varphi_2: H\times K \longrightarrow H\times K:
-	(g_1, g_2)\longmapsto (\varphi_1(g_1), \varphi_2(g_2))
-	\]
+	Studiamo il gruppo degli automorfismi 
+	di $H\times K$, relazionandolo a quello di $H$ e a quello di $K$.
+	Chiaramente esiste un'immersione di $\Aut(H)\times \Aut(K)$ in 
+	$\Aut(H\times K)$ data dall'omomorfismo $\iota$ tale per cui
+	\[ (\varphi_H, \varphi_K) \mapsto \varphi_H \times \varphi_K := [(h, k) \mapsto (\varphi_H(h), \varphi_K(k))] \]
 	Mostriamo che $\iota$ è ben definita e che è effettivamente un omomorfismo iniettivo:
 	\begin{itemize}
-		\item per ogni $(\varphi_1, \varphi_2)\in \Aut(H)\times \Aut(K)$, per ogni
-		$(g_1, g_2), (h_1, h_2)\in H\times K$ abbiamo 
+		\item per ogni $(\varphi_1, \varphi_2)\in \Aut(H)\times \Aut(K)$,
+		$(h_1, k_1), (h_2, k_2)\in H\times K$ si verifica che
 		\begin{multline*}
-			(\varphi_1\times\varphi_2)((g_1, g_2)(h_1, h_2)) = 
-			(\varphi_1(g_1h_1), \varphi_2(g_2h_2)) = 
-			(\varphi_1(g_1)\varphi_1(h_1), \varphi_2(g_2)\varphi_2(h_2)) = \\
-			=(\varphi_1(g_1), \varphi_2(g_2))(\varphi_1(h_1),\varphi_2(h_2)) = 
-			((\varphi_1\times\varphi_2)(g_1, g_2))((\varphi_1\times\varphi_2)(h_1,h_2))
+			(\varphi_H\times\varphi_K)((h_1, k_1)(h_2, k_2)) = 
+			(\varphi_H(h_1 h_2), \varphi_K(k_1k_2)) = \\
+			= (\varphi_H(h_1)\varphi_H(h_2), \varphi_K(k_1)\varphi_K(k_2)) = \\
+			=(\varphi_H(h_1), \varphi_K(k_1))(\varphi_H(h_2),\varphi_K(k_2)) = \\ 
+			= ((\varphi_H\times\varphi_K)(h_1, k_1))((\varphi_H\times\varphi_K)(h_2,k_2))
 		\end{multline*}
-		cioè $\varphi_1\times\varphi_2$ è un omomorfismo. Inoltre 
+		e quindi $\varphi_H\times\varphi_K$ è un omomorfismo. Inoltre 
 		\[
-		\ker (\varphi_1\times\varphi_2) = \{(g_1, g_2) \in H\times K\mid 
-		(\varphi_1(g_1), \varphi_2(g_2)) = (e_H, e_K)\} = \{(e_H, e_K)\}
+		\ker (\varphi_H\times\varphi_K) = \{(h, k) \in H\times K\mid 
+		(\varphi_H(h), \varphi_K(k)) = (e_H, e_K)\} = \{(e_H, e_K)\}
 		\]
-		quindi $\varphi_1\times \varphi_2 \in \Aut(H\times K)$
-		in quanto $H\times K$ è finito, pertanto $\iota$ è ben definita;
-		\item per ogni $(\varphi_1, \varphi_2), (\psi_1, \psi_2) \in \Aut(H)\times \Aut(K)$,
-		per ogni $(g_1, g_2) \in H\times K$ abbiamo 
+		quindi si conclude che $\varphi_H\times \varphi_K$ è iniettivo;
+		inoltre se $(h, k) \in H \times K$, $(\varphi_H \times \varphi_K)(\varphi_H\inv(h), \varphi_K\inv(K)) = (h, k)$, e dunque $\varphi_H \times \varphi_K$ è anche
+		surgettivo, ed è pertanto un automorfismo; quindi $\iota$ è ben definita
+		come mappa;
+		\item per ogni $(\varphi_H, \varphi_K), (\psi_H, \psi_K) \in \Aut(H)\times \Aut(K)$,
+		per ogni $(h, k) \in H\times K$ abbiamo 
 		\begin{multline*}
-			\iota((\varphi_1, \varphi_2)(\psi_1, \psi_2))(g_1, g_2) = 
-			\iota(\varphi_1\psi_1, \varphi_2\psi_2)(g_1, g_2) = 
-			(\varphi_1\psi_1\times\varphi_2\psi_2)(g_1, g_2) =\\
-			= (\varphi_1(\psi_1(g_1)), \varphi_2(\psi_2(g_2))) = 
-			(\varphi_1\times\varphi_2)(\psi_1(g_1), \psi_2(g_2)) = \\
-			= ((\varphi_1\times\varphi_2)(\psi_1\times\psi_2))(g_1, g_2) = 
-			(\iota(\varphi_1, \varphi_2)\iota(\psi_1,\psi_2))(g_1, g_2)
-		\end{multline*}cioè $\iota((\varphi_1, \varphi_2)(\psi_1, \psi_2)) = 
-		\iota(\varphi_1, \varphi_2)\iota(\psi_1, \psi_2)$, quindi $\iota$ è un 
-		omomorfismo;
+			\iota((\varphi_H, \varphi_K)(\psi_H, \psi_K))(h, k) = %TODO: sistemare l'align
+			\iota(\varphi_H \circ \psi_H, \varphi_K \circ \psi_K)(h, k) = \\ = 
+			((\varphi_H \circ \psi_H) \times (\varphi_K\psi_K))(h, k)
+			= (\varphi_H(\psi_H(h)), \varphi_K(\psi_K(k))) = \\ = 
+			(\varphi_H \times \varphi_K)(\psi_H(h), \psi_K(k)) = \\
+			= ((\varphi_H \times \varphi_K) \circ (\psi_H \times\psi_K))(h, k) = 
+			(\iota(\varphi_H, \varphi_K) \circ \iota(\psi_H,\psi_K))(h, k)
+		\end{multline*} quindi $\iota((\varphi_1, \varphi_2)(\psi_1, \psi_2)) = 
+		\iota(\varphi_1, \varphi_2) \circ \iota(\psi_1, \psi_2)$, da cui si
+		conclude che $\iota$ è un omomorfismo;
 		\item$\iota$ è iniettiva, infatti \begin{multline*}
-			\ker \iota = \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K) \mid
-			\iota(\varphi_1, \varphi_2) = id_{\Aut(H\times K)}\} = \\
-			= \{(\varphi_1, \varphi_2) \in \Aut(H)\times \Aut(K)\mid 
-			(\varphi_1(g_1), \varphi_2(g_2)) = (g_1, g_2)~\forall 
-			(g_1, g_2) \in H\times K\} = \\
-			= \{(id_{\Aut(H)}, id_{\Aut(K)})\} = \{id_{\Aut(H)\times\Aut(K)}\}
+			\ker \iota = \{(\varphi_H, \varphi_K) \in \Aut(H)\times \Aut(K) \mid
+			\iota(\varphi_H, \varphi_K) = \id_{H \times K}\} = \\
+			= \{(\varphi_H, \varphi_K) \in \Aut(H)\times \Aut(K)\mid 
+			(\varphi_H(h), \varphi_K(k)) = (h, k) \, ~\forall 
+			(h, k) \in H\times K\} = \\
+			= \{(\id_{H}, \id_{K})\} \}
 		\end{multline*}
-		
+		e dunque il nucleo di $\iota$ è banale.
 	\end{itemize}
 	
 	\begin{proposition}
@@ -990,92 +986,154 @@
 	
 	\begin{proof}
 		Sia $\iota$ l'immersione da $\Aut(H)\times \Aut(K)$ in $\Aut(H\times K)$ 
-		definita come sopra, se $\iota$ è surgettiva allora ogni elemento di 
-		$\Aut(H\times K)$ può essere scritto come $\varphi_1\times\varphi_2$ con
-		$\varphi_1 \in \Aut(H)$ e $\varphi_2 \in \Aut(K)$. Allora abbiamo 
+		definita come sopra. Se $\Aut(H) \times \Aut(K) \cong \Aut(H \times K)$, allora
+		$\iota$ deve essere una bigezione essendo un omomorfismo iniettivo (altrimenti
+		$\Aut(H) \times \Aut(K)$ sarebbe isomorfo a un sottogruppo proprio di
+		$\Aut(H \times K)$ e un gruppo non può essere isomorfo ad un suo sottogruppo
+		proprio, se finito). Pertanto ogni elemento di 
+		$\Aut(H\times K)$ può essere scritto come $\varphi_H \times \varphi_K$ con
+		$\varphi_H \in \Aut(H)$ e $\varphi_K \in \Aut(K)$. Allora abbiamo 
 		\[
-		(\varphi_1\times\varphi_2)(H\times\{e_K\}) = 
-		(\varphi_1(H), \varphi_2(\{e_K\})) = H\times\{e_K\}
+		(\varphi_H \times \varphi_K)(H\times\{e_K\}) = 
+		(\varphi_H(H), \varphi_K(\{e_K\})) = H\times\{e_K\}
 		\]
 		\[
-		(\varphi_1\times \varphi_2)(\{e_H\}\times K) = 
-		(\varphi_1(\{e_H\}), \varphi_2(K)) = \{e_H\}\times K
-		\]cioè $H\times\{e_K\}$ e $\{e_H\}\times K$ sono caratteristici in
-		$H\times K$. Viceversa, se i due sottogruppi sono caratteristici, dato
-		$\varphi \in \Aut(H\times K)$ poniamo $\varphi_1 \in \Aut(H)$ tale che 
-		$\varphi(g_1, e_K) = (\varphi_1(g_1), e_K)$ e $\varphi_2 \in \Aut(K)$ 
-		tale che $\varphi(e_H, g_2) = (e_H, \varphi_2(g_2))$ per ogni $g_1 \in H$,
-		per ogni $g_2 \in K$ (questo possiamo farlo in quanto $H\times\{e_K\}$ 
-		e $\{e_H\}\times K$ sono caratteristici). Allora abbiamo 
-		\begin{multline*}
-			\varphi(g_1, g_2) = \varphi((g_1, e_K)(e_H, g_2)) = 
-			\varphi(g_1, e_K)\varphi(e_H, g_2) = \\
-			= (\varphi_1(g_1), e_K)(e_H, \varphi_2(g_2)) = 
-			(\varphi_1(g_1), \varphi_2(g_2)) = (\varphi_1\times\varphi_2)(g_1, g_2)
-		\end{multline*}cioè $\iota$ è surgettiva e quindi un isomorfismo tra
-		$\Aut(H)\times \Aut(K)$ e $\Aut(H\times K)$.
+		(\varphi_H \times \varphi_K)(\{e_H\}\times K) = 
+		(\varphi_H(\{e_H\}), \varphi_K(K)) = \{e_H\}\times K
+		\]e quindi sia $H\times\{e_K\}$ che $\{e_H\}\times K$ sono caratteristici in
+		$H\times K$. \medskip
+		
+		
+		Viceversa, se i due sottogruppi sono caratteristici, dato
+		$\varphi \in \Aut(H\times K)$, si definisce $\varphi_H : H \to H$ in modo
+		tale che $\varphi_H(h) = \pi_H(\varphi(h, e_K))$, dove $\pi_H$ è la proiezione
+		di $H \times K$ nella prima coordinata (e quindi su $H$). Analogamente si
+		definisce $\varphi_K : K \to K$ in modo tale che $\varphi_K(k) = \pi_K(\varphi(e_H, k))$, dove stavolta $\pi_K$ è la proiezione di $H \times K$ nella seconda coordinata
+		(e quindi su $K$). \medskip
+		
+		
+		Si verifica che $\varphi_H$ è un automorfismo di $H$. Sicuramente infatti
+		$\varphi_H$ è un omomorfismo. Poiché $H \times \{e_K\}$ è caratteristico,
+		$\varphi(H \times \{e_K\}) = H \times \{e_K\}$, e quindi, per ogni $h' \in H$
+		esiste $h \in H$ tale per cui $\varphi(h, e_K) = (h', e_K)$. Si conclude
+		dunque che $\varphi_H(h) = h'$, e quindi $\varphi_H$ è surgettivo. Dacché
+		$H$ è finito, la surgettività di $\varphi_H$ ne implica la bigettività, e quindi
+		$\varphi_H \in \Aut(H)$. Analogamente $\varphi_K \in \Aut(K)$. \medskip
+		
+		
+		Infine, $\iota(\varphi_H, \varphi_K) = \varphi_H \times \varphi_K = \varphi$,
+		dove l'ultima identità è dovuta alla definizione di $\varphi_H$ e
+		di $\varphi_K$. Pertanto $\iota$ è surgettiva, ed essendo un'immersione è dunque
+		un isomorfismo, da cui la tesi.
 	\end{proof}
 	
 	\begin{example}
-		Consideriamo il gruppo $G = \ZZ \times \Zn$, osserviamo che il sottogruppo 
+		Consideriamo il gruppo $G = \ZZ \times \Zn$. Osserviamo che il sottogruppo 
 		$\{0\}\times \Zn$ è caratteristico in quanto un automorfismo $\varphi$ di $G$ deve
-		preservare gli ordini degli elementi, in particolare quello di un generatore,
-		quindi l'immagine di un generatore è un altro generatore del sottogruppo.
-		Poiché gli elementi di $G$ di ordine finito sono tutti della forma $(0, d)$
-		abbiamo che $\varphi(\{0\}\times\Zn) = \{0\}\times\Zn$. Viceversa, l'immagine
-		di $\varphi$ su un generatore di $\ZZ\times\{0\}$, ad esempio 
-		$\varphi(1, 0)$, è della forma $(a, b)$,
-		e questo implica che $\ZZ\times \{0\}$ non è caratteristico. Se $\varphi$ è
-		surgettivo, necessariamente esiste $(x, y) \in \ZZ\times \Zn$ tale che
-		$\varphi(x, y) = (\pm 1, 0)$, da cui, posti $\varphi(1, 0) = (a, b)$ e
-		$\varphi(0, 1) = (0, d)$ con $n$ e $d$ coprimi, abbiamo
+		preservare gli ordini degli elementi, in particolare quello di un generatore. Se
+		infatti la prima coordinata dell'immagine di $(0, \overline{1})$ fosse non nulla,
+		tale elemento avrebbe ordine infinito, e dunque non rispetterebbe l'ordine
+		di $(0, \overline{1})$, che è $n$. 
+		Pertanto $\varphi(\{0\} \times \Zn) = \varphi(\{0\} \times \langle \overline{1} \rangle) =
+		\langle \varphi(0, \overline{1}) \rangle = \{0\} \times \Zn$, e quindi il
+		sottogruppo $\{0\} \times \Zn$ è caratteristico. \medskip
+		
+
+        Viceversa, si consideri l'immagine $(a, b)$ di $(1, 0)$ tramite $\varphi$, dove $1$ è preso in quanto generatore
+        di $\ZZ$. Se $\varphi$ è
+		surgettivo, necessariamente esiste una coppia $(x, y) \in \ZZ\times \Zn$ tale per cui
+		$\varphi(x, y) = (1, 0)$. Posti allora $\varphi(1, 0) = (a, b)$ e
+		$\varphi(0, 1) = (0, d)$ con $n$ e $d$ coprimi, ricaviamo che
 		\begin{multline*}
 			\varphi(x, y) = \varphi(x(1, 0) + y(0, 1)) = x\varphi(1, 0) + y\varphi(0, 1) = \\
-			= x(a, b) + y(0, d) = (xa, xb + yd) = (\pm 1, 0) \iff a = \pm 1
+			= x(a, b) + y(0, d) = (xa, xb + yd) = (1, 0)
 		\end{multline*}
-		Viceversa, se $a = \pm 1$ allora $\varphi$ è surgettiva, infatti 
+		Pertanto $a \in \ZZ^*$, e quindi $a \in \{\pm 1\}$. \medskip
+		
+
+		Posto allora $a = 1$ si verifica che $\varphi$ è surgettiva. Infatti 
 		per ogni $(x_0, y_0) \in \ZZ\times\Zn$, scegliendo
-		$x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\pmod n$ abbiamo \[
+		$x = x_0a$ e $y \equiv d^{-1}(y_0 - x_0ab)\pmod n$ si verifica che \[
 		\varphi(x, y) = (x_0a^2, x_0ab + d d^{-1}(y_0 - x_0ab)) = (x_0, y_0)
-		\]e questo ci permette di concludere che $\ZZ\times\{0\}$ non è un sottogruppo
-		caratteristico. In questo caso abbiamo solo un'immersione del gruppo
-		$\Aut(\ZZ) \times \Aut(\Zn)$ dentro a $\Aut(\ZZ\times \Zn)$, in quanto 
-		gli automorfismi che mandano $(\pm 1, 0)$ in $(a, b)$ con $a = \pm 1$ e 
-		$b \neq 0$ non possono essere ristretti ad automorfismi di $\ZZ\times \{0\}$.
+		\]
+		Infine si mostra che $\varphi$ è iniettiva per $a = 1$ e
+		$b$ qualsiasi. Infatti
+		$\varphi(x, y) = (0, 0)$ se e solo se
+		\[ \begin{cases}
+			xa = 0 \\
+			xb + yd \equiv 0 \pmod n
+		\end{cases} \implies
+		\begin{cases}
+			x = 0 \\
+			yd \equiv 0 \pmod n
+		\end{cases} \implies
+		\begin{cases}
+			x = 0 \\
+			y \equiv 0 \pmod n
+		\end{cases}
+		\]
+		dove l'ultima equazione modulare è dovuta al fatto che $d$ è invertibile in
+		$\Zn$, essendo coprimo con $n$ per ipotesi. Quindi il nucleo di $\varphi$
+		è banale, e dunque $\varphi \in \Aut(\ZZ \times \Zn)$. Tuttavia
+		$\varphi(1, 0)$ per $b \not\equiv 0 \pmod n$ non appartiene a $\ZZ \times \{0\}$, e quindi
+		$\ZZ \times \{0\}$ non è caratteristico in $\ZZ \times \Zn$.
+		 In questo caso esiste solo un'immersione del gruppo
+		$\Aut(\ZZ) \times \Aut(\Zn)$ dentro a $\Aut(\ZZ\times \Zn)$ e non una
+		bigezione.
 	\end{example}
 	
-	È utile riuscire a determinare se i sottogruppi $H\times\{e_K\}$, $\{e_H\}\times K$
-	sono caratteristici in $H\times K$, da cui il seguente risultato:
+	In alcuni casi è facile determinare se $H\times\{e_K\}$ e $\{e_H\}\times K$
+	sono caratteristici in $H\times K$, a partire dal seguente risultato:
 	
 	\begin{proposition}
-		Dati due gruppi finiti $H, K$, se $(|H|, |K|) = 1$ allora $H\times\{e_K\}$
+		Dati due gruppi finiti $H, K$, se $(\lvert H \rvert, \lvert K \rvert) = 1$ allora $H\times\{e_K\}$
 		e $\{e_H\}\times K$ sono sottogruppi caratteristici di $H\times K$.
 	\end{proposition}
 	
 	\begin{proof}
-		Posti $n = |H|$, $m = |K|$, consideriamo l'insieme
+		Posti $n = \lvert H \rvert$, $m = \lvert K \rvert$, consideriamo l'insieme
 		\[
-		S = \{(g_1, g_2) \in H\times K\mid (g_1, g_2)^n = (e_H, e_K)\}\]
-		Osserviamo che $H\times \{e_K\} = S$, infatti 
-		$H\times \{e_K\} \subseteq S$ in quanto tutti gli elementi di $H\times\{e_K\}$
-		hanno ordine che divide $n$. D'altra parte dato $(g_1, g_2) \in S$, se
-		$\ord(g_1, g_2) \mid n$ allora $\ord(g_1)\mid n$ e $\ord(g_2)\mid n$, ma 
-		$\ord(g_2) \mid m$ per il Teorema di Lagrange, quindi $\ord(g_2) = 1$ e
-		$S \subseteq H\times\{e_K\}$, da cui l'uguaglianza. Con un ragionamento
+		S = \{(h, k) \in H\times K\mid (h, k)^n = (e_H, e_K)\}\]
+		Mostriamo che $H\times \{e_K\} = S$. Chiaramente 
+		$H\times \{e_K\} \subseteq S$ dal momento che tutti gli elementi di $H\times\{e_K\}$
+		hanno ordine che divide $n$. D'altra parte, dato $(h, k) \in S$, se
+		$\ord(h, k) \mid n$ allora $\ord(k)\mid n$. Tuttavia 
+		$\ord(k)$ divide anche $m$ per il Teorema di Lagrange, e dunque
+		$\ord(k) \mid (n, m) = 1$, da cui si ricava che $k = e_K$ e dunque l'uguaglianza. Con un ragionamento
 		analogo possiamo caratterizzare $\{e_H\} \times K$ come 
 		\[
-		\{e_H\} \times K = \{(g_1, g_2) \in H\times K\mid (g_1, g_2)^m = (e_H, e_K)\}
+		\{e_H\} \times K = \{(h, k) \in H\times K\mid (h, k)^m = (e_H, e_K)\}
 		\] Poiché un automorfismo di $H\times K$ deve preservare gli ordini degli
-		elementi, per la caratterizzazione data abbiamo che i due sottogruppi sono
-		caratteristici.
+		elementi, per la caratterizzazione data concludiamo che
+		$\varphi(H \times \{e_K\}) \subseteq S = H \times \{e_K\}$, e analogamente
+		che $\varphi(\{e_H\} \times K) \subseteq \{e_H\} \times K$. Pertanto,
+		essendo $H$ e $K$ finiti, i due sottogruppi considerati sono caratteristici.
 	\end{proof}
 	
 	\begin{corollary}
-		Se $m, n \geqslant 2$ sono interi coprimi allora
+		Se $m$, $n \geq 2$ sono interi coprimi allora
 		\[
-		\Aut(\Zn\times\Zm) \cong \Aut(\Zn)\times \Aut(\Zm)
+		\Aut(\Z{mn}) \cong \Aut(\Zm)\times \Aut(\Zn)
 		\]
 	\end{corollary}
+	
+	\begin{proof}
+		Se $m$, $n \geq 2$ allora $\Z{m}$ e $\Z{n}$ sono entrambi gruppi finiti.
+		Per il Teorema cinese del resto, $\Z{mn} \cong \Z{m} \times \Z{n}$, dacché
+		$m$ e $n$ sono coprimi. Dacché $\abs{\Z{m}} = m$ e $\abs{\Z{n}} = n$, ancora
+		per la coprimalità tra $m$ e $n$
+		$\Z{m} \times \{0\}$ e $\{0\} \times \Z{n}$ sono caratteristici in
+		$\Z{m} \times \Z{n}$. Pertanto $\Aut(\Z{m} \times \Z{n}) \cong
+		\Aut(\Zm) \times \Aut(\Zn)$, da cui la tesi.
+	\end{proof}
+	
+	\begin{remark}[Teorema cinese del resto per i gruppi moltiplicativi]
+		Dal momento che $\Aut(\Zn) \cong (\Zn)^\times$, il precedente
+		corollario permette di dimostrare il Teorema cinese del resto anche
+		nel caso dei gruppi moltiplicativi di $\Zn$. Se infatti $(m, n) = 1$
+		con $m$, $n \geq 1$, allora:
+		\[ (\Z{mn})^\times \cong \Aut(\Z{mn}) \cong \Aut(\Zm) \times \Aut(\Zn) \cong (\Zm)^\times \times (\Zn)^\times \]
+	\end{remark}
 	
 	\newpage
 	
@@ -2999,7 +3057,7 @@
 	
 	\newpage
 	
-	\subsection{Studio di $\SL_2(\FF_3)$}
+	\subsection{Studio di \texorpdfstring{$\SL_2(\FF_3)$}{SL₂(F₃)}}
 	
 	Consideriamo il gruppo $\GL_2(\FF_3)$, ricordiamo che il determinante è 
 	un omomorfismo di gruppi surgettivo
