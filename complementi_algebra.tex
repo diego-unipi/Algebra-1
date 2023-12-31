@@ -1283,7 +1283,7 @@
 	
 	\begin{definition}
 		Siano $G$ un gruppo e $X$ un insieme. Un'azione \[
-		\varphi:G\longrightarrow \mathcal{S}(X) :g \longmapsto \varphi_g
+		\varphi:G \to \mathcal{S}(X) :g \mapsto \varphi_g
 		\]si dice \vocab{transitiva} se per ogni $x$, $y \in X$ esiste $g \in G$
 		tale che $\varphi_g(x) = y$. Equivalentemente $\varphi$ è transitiva se
 		$\Orb(x) = X$ per ogni 
@@ -1340,7 +1340,7 @@
 		\label{prop1.41}
 		Sia $G$ un gruppo e $X$ un insieme. Se 
 		\[
-		\varphi:G\longrightarrow \mathcal{S}(X) :g\longmapsto \varphi_g
+		\varphi:G \to \mathcal{S}(X) :g \mapsto \varphi_g
 		\] è un'azione transitiva valgono i seguenti fatti:
 		\begin{enumerate}[(1)]
 			\item tutti gli stabilizzatori sono coniugati tra loro;
@@ -1387,11 +1387,11 @@
 	\begin{proof}
 		Consideriamo l'azione di $G$ sull'insieme quoziente $\faktor{G}{H}$ 
 		\[
-		\psi: G\longrightarrow\mathcal{S}\left(\faktor{G}{H}\right) : g \longmapsto \psi_g
+		\psi: G \to \mathcal{S}\left(\faktor{G}{H}\right) : g \mapsto \psi_g
 		\]
 		tale per cui
 		\[
-		\psi_g : \faktor{G}{H}\longrightarrow\faktor{G}{H} : g'H\longmapsto gg'H
+		\psi_g : \faktor{G}{H} \to \faktor{G}{H} : g'H \mapsto gg'H
 		\]
 		
 		Dal momento che $[G : H] = p$, $\mathcal{S}\left(\faktor{G}{H}\right) \cong \Sym_p$,
@@ -1416,14 +1416,14 @@
 	
 	\subsubsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
 	
-	Vediamo una dimostrazione alternativa del Teorema di Cauchy e del Piccolo
-	Teorema di Fermat, di cui ricordiamo gli enunciati, che fa uso del concetto
-	di azione. 
+	In questa sezione illustriamo una dimostrazione alternativa, che uso del concetto di
+	azione, del Teorema di Cauchy e del Piccolo
+	Teorema di Fermat, di cui ricordiamo gli enunciati:
 	
 	\begin{theorem}
 		[Teorema di Cauchy]
 		\label{teorema1.44}
-		Dato un gruppo $G$ e un numero primo $p$, se $p\mid |G|$ allora esiste 
+		Dato un gruppo finito $G$ e un numero primo $p$, se $p \mid \abs{G}$ allora esiste 
 		$g \in G$ tale che $\ord(g) = p$.
 	\end{theorem}
 	
@@ -1437,34 +1437,41 @@
 	Dati un gruppo $G$ e un numero primo $p$, consideriamo l'insieme 
 	\[
 	X = \{(g_1, \ldots, g_p) \in G^p\mid g_1\ldots g_p = e\}
-	\]osserviamo che $|X| = |G|^{p - 1}$, possiamo infatti scegliere liberamente
+	\]
+	Osserviamo che $\abs{X} = \abs{G}^{p - 1}$: possiamo infatti scegliere liberamente
 	i primi $p - 1$ elementi di ogni $p$-upla, che ne determinano l'ultimo in 
-	modo univoco (per unicità dell'inverso). Definiamo un'azione di $\Zp$ su $X$
+	modo univoco, per l'unicità dell'inverso in un gruppo. \medskip
+	
+	
+	Definiamo $\psi$ come l'azione di $\Zp$ su $X$ univocamente determinata dalla relazione
 	nel seguente modo:
 	\[
-	\psi: \Zp \longrightarrow \mathcal{S}(X) : a \longmapsto \psi_a
+	(g_1, \ldots, g_p) \overset{\psi(\overline{1})}{\mapsto} (g_2, \ldots, g_p, g_1)
 	\]
-	con
-	\[
-	\psi_a:X\longrightarrow X : (g_1, \ldots, g_p)\longmapsto (g_{1 + a}, \ldots, g_p, g_1, \ldots, g_a)
-	\]
+	In particolare $\psi(\overline{a})$ ``shifta'', ossia trasla, di $a$ posizione
+	la $p$-upla verso destra. \medskip
 	
-	Fissato $x \in X$, poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$
-	abbiamo che $|\Orb(x)| \in \{1, p\}$, in particolare le orbite di cardinalità
-	1 sono date dalle $p$-uple della forma $(g, \ldots, g)$ con $g^p = e$.
-	Poniamo $S = \{g\in G \mid \ord(g) = p\}$ e $\mathcal{R}$ un insieme di 
-	rappresentanti per la relazione di equivalenza indotta da $\psi$, poiché 
-	le orbite degli elementi di $X$ formano una partizione dell'insieme abbiamo
+	Sia $x \in X$. Poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$, ossia
+	$p$, ricaviamo che $\abs{\Orb(x)} \in \{1, p\}$. Se $\abs{\Orb(x)} = 1$, allora
+	$x$ è un elemento della forma $(g, \ldots, g)$ con $g \in G$; ed in particolare
+	deve valere $g^p = e$. \medskip
+
+	Poniamo $S = \{g\in G \mid \ord(g) = p\}$ e definiamo $\mathcal{R}$ come un insieme di 
+	rappresentanti per la relazione di equivalenza indotta dalle orbite di $\psi$. Dal
+	momento che
+	le orbite degli elementi di $X$ formano una partizione di $X$ stesso, detto
+	$\mathbf{e} := (e, \ldots, e)$, vale che
 	\[
-	|G|^{p - 1} = |X| = \sum_{x \in \mathcal{R}} |\Orb(x)| = 1 + |S| + \sum_{x \in \mathcal{R}\setminus S}|\Orb(x)|
-	\]dove l'ultimo termine della somma è divisibile per $p$. Distinguiamo 
-	quindi due casi:
+	\abs{G}^{p - 1} = \abs{X} = \sum_{x \in \mathcal{R}} \abs{\Orb(x)} = 1 + \abs{S} + \sum_{x \in \mathcal{R}\setminus (S \cup \{ \mathbf{e} \} )} \frac{\abs{\Zp}}{\abs{\Stab(x)}} = 1 + \abs{S} + \abs{\mathcal{R} \setminus (S \cup \{ \mathbf{e} \})} p
+	\]
+	Distinguiamo dunque due casi:
 	\begin{itemize}
-		\item se $p\mid |G|$, riducendo modulo $p$ la formula sopra otteniamo
-		$|S| \equiv -1 \pmod p$, in particolare esiste almeno un elemento di
+		\item se $p \mid \abs{G}$, riducendo modulo $p$ l'identità ottenuta si ricava che
+		$\abs{S} \equiv -1 \pmod p$, e dunque $S \neq \emptyset$; pertanto
+		esiste almeno un elemento di
 		ordine $p$ (\hyperref[teorema1.44]{Teorema di Cauchy});
 		\item se $G = \Zn$ con $p$ e $n$ coprimi, $\Zn$ non contiene elementi
-		di ordine $p$, pertanto riducendo modulo $p$ la formula sopra otteniamo
+		di ordine $p$, pertanto $S = \emptyset$; riducendo allora modulo $p$ l'identità ottenuta ricaviamo che
 		$n^{p - 1} \equiv 1 \pmod p$ (\hyperref[teorema1.45]{Piccolo Teorema di Fermat}).
 	\end{itemize}
 	
