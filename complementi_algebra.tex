@@ -1416,7 +1416,7 @@
 	
 	\subsubsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
 	
-	In questa sezione illustriamo una dimostrazione alternativa, che uso del concetto di
+	In questa sezione illustriamo una dimostrazione alternativa, che fa uso del concetto di
 	azione, del Teorema di Cauchy e del Piccolo
 	Teorema di Fermat, di cui ricordiamo gli enunciati:
 	
@@ -1449,7 +1449,7 @@
 	(g_1, \ldots, g_p) \overset{\psi(\overline{1})}{\mapsto} (g_2, \ldots, g_p, g_1)
 	\]
 	In particolare $\psi(\overline{a})$ ``shifta'', ossia trasla, di $a$ posizione
-	la $p$-upla verso destra. \medskip
+	la $p$-upla verso sinistra. \medskip
 	
 	Sia $x \in X$. Poiché la cardinalità di $\Orb(x)$ divide l'ordine di $\Zp$, ossia
 	$p$, ricaviamo che $\abs{\Orb(x)} \in \{1, p\}$. Se $\abs{\Orb(x)} = 1$, allora
@@ -1480,48 +1480,82 @@
 	\end{exercise}
 	
 	\begin{soln}
-		Sia $G$ un gruppo di ordine 15, poiché 5 è un primo che divide $|G|$
-		esiste $h \in G$ tale che $\ord(h) = 5$ per il \hyperref[teorema1.44]{Teorema di Cauchy}.
-		Inoltre, posto $H = \langle h\rangle$, abbiamo che $[G:H] = 3$ e quindi,
-		dato che 3 è il più piccolo primo che divide $|G|$, $H$ è un sottogruppo 
-		normale di $G$. Mostriamo che $H \subseteq Z(G)$, questo è equivalente a 
+		Sia $G$ un gruppo di ordine $15$. Poiché $5$ è un primo che divide $\abs{G}$,
+		per il \hyperref[teorema1.44]{Teorema di Cauchy} esiste $h \in G$ tale per cui $\ord(h) = 5$. Posto $H = \langle h\rangle$, $[G:H] = 3$ è il più piccolo primo che divide $\abs{G}$, e quindi $H$ è un sottogruppo 
+		normale di $G$. \medskip
+		
+		
+		Mostriamo che $H \subseteq \z(G)$. Questo è equivalente a 
 		richiedere che l'omomorfismo \[
-		\varphi: G\longrightarrow \Aut(H) :g\longmapsto \varphi_{g\mid H}
+		\varphi: G \longrightarrow \Aut(H) : g \longmapsto \restr{\varphi_{g}}{H}
 		\]
 		dove $\varphi_g$ è il coniugio per $g$, abbia come unico elemento dell'immagine
-		l'applicazione
-		\[
-		id_H:H\longrightarrow H: h \longmapsto h
-		\]
-		Poiché $H \cong \Z5$, abbiamo $\Aut(H)\cong (\Z5)^* \cong \Z4$, d'altra 
-		parte $|\mathrm{Im}\varphi_{\mid H}|$ divide $(|G|, |\Aut(H)|) = 1$, pertanto
-		$|\mathrm{Im}\varphi| = 1$ e l'omomorfismo è banale, cioè $H \subseteq Z(G)$.
-		Diamo adesso due modi per concludere l'esercizio:
+		$\id_H$.
+		Poiché $H \cong \Z5$, si ricava facilmente che $\Aut(H) \cong (\Z5)^* \cong \Z4$. D'altra 
+		parte $\abs{\varphi}$ divide $(\abs{G}, \abs{\Aut(H)}) = (15, 4) = 1$; pertanto
+		$\im \varphi$ è banale, e quindi $H \subseteq \z(G)$. \medskip
+		
+		
+		Osserviamo che se $G$ è un gruppo abeliano, cioè se $\z(G) = G$,
+		allora abbiamo che $G$ è ciclico. Posto infatti $k \in G$ un elemento di 
+		ordine $3$, che esiste in virtù del \hyperref[teorema1.44]{Teorema di Cauchy},
+		abbiamo che $\ord(hk) = \ord(h)\ord(k) = 15$ dacché $h$ e $k$ commutano e hanno
+		ordini coprimi tra loro.
+		Si illustrano adesso due modi per concludere l'esercizio:
 		\begin{enumerate}[(1)]
-			\item osserviamo che se $G$ è un gruppo abeliano, cioè se $Z(G) = G$,
-			allora abbiamo che $G$ è ciclico. Infatti posto $k \in G$ un elemento di 
-			ordine 3 (che esiste in virtù del \hyperref[teorema1.44]{Teorema di Cauchy}),
-			abbiamo che $\ord(hk) = \ord(h)\ord(k) = 15$ in quanto i due elementi hanno
-			ordine coprimo. D'altra parte, se $G$ non fosse abeliano allora avremmo 
-			necessariamente $Z(G) = H$, quindi $\faktor{G}{Z(G)}$ sarebbe ciclico 
-			in quanto di ordine 3, pertanto $G$ sarebbe un gruppo abeliano, da cui 
-			la tesi per quanto appena detto;
-			\item sia $k \in G$ un elemento di ordine 3, consideriamo il centralizzatore
+			\item se $G$ non fosse abeliano, avremmo 
+			necessariamente $\z(G) = H$, e quindi $\faktor{G}{\z(G)}$ sarebbe ciclico 
+			dal momento che si avrebbe $[G : \z(G)] = \frac{15}{5} = 3$; però così $G$ sarebbe un gruppo abeliano e dunque $\z(G)$ sarebbe diverso da $H$, assurdo; quindi $G$
+			è abeliano sin da prima, e dunque è anche ciclico;
+			\item sia $k \in G$ un elemento di ordine 3; consideriamo il centralizzatore
 			di $k$
 			\[
-			Z_G(k) = \{x \in G\mid xk = kx\}
-			\]Osserviamo che $k \in Z_G(k)$ e $Z(G) \subseteq Z_G(k)$, pertanto $h$ è un elemento 
-			di $Z_G(k)$. Abbiamo quindi che $\ord(h)\mid |Z_G(k)|$ e $\ord(k)\mid |Z_G(k)|$, 
-			da cui $|Z_G(k)| = 15$. Abbiamo che tutti gli elementi di ordine 3
-			sono contenuti nel centro di $G$, che quindi coincide con $G$. Allora $G$
-			è ciclico in quanto abeliano e contenente un elemento di ordine 3 e uno
-			di ordine 5, quindi uno di ordine 15.
+			\z_G(k) = \{x \in G\mid xk = kx\}
+			\]Osserviamo che $k \in \z_G(k)$ e $\z(G) \subseteq \z_G(k)$. Pertanto $h \in H \subseteq \z(G)$ è un elemento 
+			di $\z_G(k)$. Abbiamo quindi che $\ord(h)\mid \abs{\z_G(k)}$ e anche che $\ord(k)\mid \abs{\z_G(k)}$, 
+			da cui si ricava che $\abs{\z_G(k)} = 15$. Allora $\z_G(k) = \z(G)$, e quindi
+			$k \in \z(G)$. Poiché $h$ e $k$ appartengono entrambi a $\z(G)$,
+			$[3, 5] = 15 \mid \abs{\z(G)}$, e quindi $\z(G) = G$, dunque
+			$G$ è abeliano, e quindi ciclico.
 		\end{enumerate}
 	\end{soln}
 	
 	\begin{remark}
-		In generale dati $x, y\in G$, se $x$ e $y$ commutano e $(\ord(x),\ord(y)) = 1$, allora 
-		$\ord(xy) = [\ord(x), \ord(y)]$ anche se $G$ non è un gruppo abeliano.
+		In generale, dati $x$, $y\in G$, se $x$ e $y$ commutano e $(\ord(x),\ord(y)) = 1$, allora 
+		$\ord(xy) = [\ord(x), \ord(y)] = \ord(x) \ord(y)$, anche se $G$ non è un gruppo abeliano. \medskip
+		
+		Infatti $\ord(xy) \mid \ord(x) \ord(y)$, dal momento
+		che, siccome $x$ e $y$ commutano, vale che $(xy)^{\ord(x) \ord(y)} = x^{\ord(x) \ord(y)} y^{\ord(x) \ord(y)} = e$.
+		Se allora $k = \ord(xy)$, vale che
+		$x^k y^k = e \implies x^k = y^{-k} \in \langle x \rangle \cap \langle y \rangle$.
+		Tuttavia $\abs{\langle x \rangle \cap \langle y \rangle} \mid
+		(\abs{\langle x \rangle}, \abs{\langle y \rangle}) = (\ord(x), \ord(y)) =
+		1$, e quindi $\langle x \rangle \cap \langle y \rangle = \{e\}$. Pertanto
+		deve valere che $x^k = y^{-k} = e$, e dunque
+		$\ord(x)$, $\ord(y) \mid k$, da cui si deduce che
+		$\ord(xy)$ è esattamente $\ord(x) \ord(y)$.
+	\end{remark}
+	
+	\begin{remark}
+		Se $x$ e $y \in G$ commutano, non è in generale detto che
+		$\ord(xy) = [\ord(x), \ord(y)]$, benché sicuramente
+		$\ord(xy)$ divida $[\ord(x), \ord(y)]$. Si può comunque dimostrare che esiste
+		$g \in G$ tale per cui $\ord(g) = [\ord(x), \ord(y)]$. \medskip
+		
+		Si ponga $m = \ord(x)$ ed $n = \ord(y)$. Siano $m = \prod_{i = 1}^\infty p_i^{m_i}$
+		ed $n = \prod_{i = 1}^\infty p_i^{n_i}$ le due fattorizzazioni in numeri primi
+		di $m$ ed $n$. Allora $[m, n] = \prod_{i = 1}^\infty p_i^{c_i}$,
+		dove si pone $c_i = \max(m_i, n_i)$. Chiaramente esiste un numero finito di
+		$i$ per cui $c_i \neq 0$; per ogni tale $i$, se $c_i = m_i$, si pone
+		$z_i = x^{m /p_i^{m_i}}$, altrimenti
+		$z_i = y^{n / p_i^{n_i}}$. \medskip
+		
+		
+		Si osserva che tali $z_i$ hanno esattamente ordine $p_i^{c_i}$.
+		Sia allora $g = \prod_{i \mid c_i \neq 0} z_i$. Poiché $\ord(z_i)$ è coprimo
+		con $\ord(z_j)$ per $j \neq i$, $g$ ha come ordine, per la precedente osservazione,
+		esattamente $\prod_{i \mid c_i \neq 0} p_i^{c_i} = \prod_{i = 1}^\infty p_i^{c_i} =
+		[m, n]$.
 	\end{remark}
 	
 	\begin{exercise}
