@@ -1378,6 +1378,7 @@
 	\end{proof}
 	
 	\begin{proposition}
+		\label{prop1.52}
 		Dato $G$ un gruppo finito e $H$ un sottogruppo proprio di $G$, se $[G:H]$ è uguale
 		a $p$, dove
 		$p$ è il più piccolo primo che divide l'ordine di $G$, allora $H$ è normale
@@ -1408,7 +1409,7 @@
 		
 		
 		Si osserva che $\ker \psi = \bigcap_{x \in X} \Stab(x)$, e quindi
-		che $\ker \psi \subseteq \Stab(e) = \{g \in G \mid gH = H \} = H$.
+		che $\ker \psi \subseteq \Stab(H) = \{g \in G \mid gH = H \} = H$.
 		Dacché allora $[G : H] = p = \abs{\im \psi} = [G : \ker \psi]$, vale
 		che $H = \ker \psi$, e dunque $H$ è normale in $G$.
 	\end{proof}
@@ -1616,7 +1617,8 @@
 		$[G : H] = 2$, da cui la tesi.
 	\end{soln}
 	
-	Possiamo generalizzare il ragionamento appena usato nel seguente risultato
+	Possiamo generalizzare il ragionamento appena impiegato per dimostrare
+	che $H$ ha indice divisore di $2$:
 	
 	\begin{proposition}
 		\label{prop1.49}
@@ -1644,53 +1646,41 @@
 	
 	\subsubsection{Teorema di Poincaré}
 	
-	Vediamo un risultato che sarà utile nel futuro, che permette di esibire,
-	se esistono, sottogruppi normali non banali di un gruppo finito.
+	Illustriamo un teorema che risulterà utile nel futuro nello stabilire se
+	un gruppo ammette sottogruppi normali.
 	
 	\begin{theorem}
 		[Teorema di Poincaré]
 		\label{teorema1.50}
-		Dato un gruppo $G$ finito e $H\leqslant G$ un suo sottogruppo, 
-		se $[G:H] = n$ allora esiste un sottogruppo normale $N\triangleleft G$ 
-		tale che:
+		Sia $G$ un gruppo finito e sia $H \leqslant G$ un suo sottogruppo. 
+		Se $[G:H] = n$, allora esiste un sottogruppo normale $N \trianglelefteqslant G$ 
+		tale per cui che:
 		\begin{enumerate}[(1)]
-			\item $N\leqslant H \leqslant G$;
-			\item $n \mid [G:N] \mid n!$.
+			\item $N \leqslant H \leqslant G$
+			\item $n \mid [G:N] \mid n!$
 		\end{enumerate}
 	\end{theorem}
 	
 	\begin{proof}
-		Consideriamo l'azione di $G$ su $\faktor{G}{H}$
-		\[
-		\psi: G\longrightarrow\mathcal{S}\left(\faktor{G}{H}\right):g\longmapsto \psi_g
-		\]
-		con
-		\[
-		\psi_g:\faktor{G}{H}\longrightarrow\faktor{G}{H} : g'H\longmapsto gg'H
-		\]
+		La dimostrazione segue in parte lo schema utilizzato precedentemente per
+		dimostrare la \autoref{prop1.52}.
+		Si consideri l'usuale azione $\psi$ di $G$ su $\faktor{G}{H}$ e si
+		ponga $N = \ker \psi$.
 		\begin{enumerate}[(1)]
-			\item Consideriamo il nucleo di $\psi$
-			\[
-			\ker\psi = \{g \in G\mid gg'H = g'H~\forall g' \in G\}
-			\]
-			nel caso particolare $g' = e$ otteniamo l'inclusione
-			\[
-			\ker\psi \subseteq \{g \in G \mid gH = H\} = H
-			\]
-			in quanto stiamo indebolendo la condizione di appartenenza all'insieme,
-			pertanto $\ker\psi \leqslant H$;
-			\item poiché $\ker\psi \leqslant H$ abbiamo $[G:H]\mid [G:\ker\psi]$, cioè
-			$n \mid [G:\ker\psi]$. Dal Primo Teorema di Omomorfismo abbiamo che
-			$\faktor{G}{\ker\psi} \cong \mathrm{Im\psi}$, che è un sottogruppo
-			di $\mathcal{S}\left(\faktor{G}{H}\right)\cong \mathcal{S}_n$, pertanto $[G:\ker\psi]\mid n!$.
+			\item $N = \ker \psi$ è l'intersezione di tutti gli stabilizzatori dell'azione,
+			e quindi è in particolare un sottinsieme di $\Stab(H) = H$. Pertanto
+			$N \leqslant H \leqslant G$.
+			\item Dal momento che $\ker\psi \leqslant H$, si verifica che $n = [G:H] \mid [G:\ker\psi]$. Dal Primo Teorema di Omomorfismo vale che
+			\[ \faktor{G}{N} = \faktor{G}{\ker\psi} \cong \im \psi \mono \Sym_n \]
+			e quindi $[G : N] \mid \abs{\Sym_n} = n!$.
 		\end{enumerate}
-		Poiché $\ker\psi$ è normale in $G$ abbiamo che $N = \ker\psi$ è un sottogruppo
-		con le proprietà cercate.
+		Dal momento che $N$ è normale in qualità di nucleo di $\psi$, $N$ soddisfa i
+		requisiti della tesi, e dunque il teorema è dimostrato.
 	\end{proof}
 	
 	\begin{remark}
-		In particolare, se $G$ ha un sottogruppo di indice $n$ e $n! < |G|$
-		allora $G$ ammette sottogruppi normali non banali.
+		Se dunque $G$ ha un sottogruppo non banale di indice $n$ e $n! < \abs{G}$
+		allora $G$ ammette per il Teorema di Poincaré un sottogruppo normale non banale, ed è in particolare non semplice.
 	\end{remark}
 	
 	\newpage
