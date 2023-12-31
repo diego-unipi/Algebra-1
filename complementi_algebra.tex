@@ -41,7 +41,7 @@
 
 \begin{document}
 	\title{Complementi di Algebra 1}
-	\subtitle{\large\normalfont\rmfamily\scshape APPUNTI DEL CORSO DI ALGEBRA 1 TENUTO\\ DALLA PROF. DEL CORSO E DAL PROF. LOMBARDO}
+	\subtitle{\large\normalfont\rmfamily\scshape APPUNTI DEL CORSO DI ALGEBRA 1 TENUTO\\ DALLA PROF.SSA DEL CORSO E DAL PROF. LOMBARDO}
 	\author{Leonardo Migliorini \\ \textnormal{\href{l.migliorini@studenti.unipi.it}{l.migliorini@studenti.unipi.it}} \\ Università di Pisa \\[0.3in] Gabriel Antonio Videtta \\ \textnormal{\href{g.videtta1@studenti.unipi.it}{g.videtta1@studenti.unipi.it}} \\ Università di Pisa}
 	\date{Anno Accademico 2022-23}
 	\maketitle
@@ -180,7 +180,7 @@
 		\[ G \cong \faktor{F(S)}N \]
 		dove $N$ è il più piccolo sottogruppo normale di
 		$F(S)$ contenente $R$, ossia la \textit{chiusura normale}
-		di $R$. In particolare $G$ ammette una presentazione finita se $S$ e $R$ sono finiti.
+		di $R$. In particolare $G$ ammette una \textit{presentazione finita} se $S$ e $R$ sono finiti.
 	\end{definition}
 	\medskip
 	
@@ -619,6 +619,19 @@
 		
 		Quindi la classificazione è unica e completa.
 	\end{proof}
+	
+	\begin{remark}[numero di sottogruppi di $\Dn$]
+		Si contano i sottogruppi di $\Dn$ a partire dal teorema precedente.
+		I sottogruppi della forma $\langle r^k \rangle$
+		con $k \mid n$ sono tanti quanti i divisori di $n$, e quindi sono\footnote{
+			Con $\sigma_a(n)$ ci si riferisce alla \href{https://it.wikipedia.org/wiki/Funzione_sigma}{\textcolor{purple}{funzione sigma}}.
+		} $d(n) = \sigma_0(n)$.
+		Scelto $k \mid n$, si considerano anche i sottogruppi della forma
+		$\langle r^k, sr^h \rangle$ con $0 \leq h < k$, che quindi prevedono
+		$k$ scelte per il parametro $h$. Vi sono dunque $\sum_{k \mid n} k = \sigma(n)  = \sigma_1(n)$
+		sottogruppi di questa forma. Si conclude dunque che esistono esattamente
+		$d(n) + \sigma(n)$ sottogruppi di $\Dn$.
+	\end{remark}
 	
 	\begin{lemma}
 		\label{lemma1.20}
@@ -1140,17 +1153,24 @@
 	\subsection{Gruppo derivato}
 	
 	\begin{definition}
-		Dati un gruppo $G$ e $x, y$ elementi di $G$, chiamiamo \vocab{commutatore}
-		di $x$ e $y$ l'elemento $[x, y] = xyx^{-1}y^{-1}$. Chiamiamo \vocab{sottogruppo
-			derivato} di $G$, oppure \vocab{sottogruppo dei commutatori} di $G$
-		il sottogruppo 
+		Dati un gruppo $G$ e dati $x$, $y \in G$, si definisce il \vocab{commutatore}
+		di $x$ e $y$ l'elemento\footnote{
+			Talvolta in letteratura si definisce $[x, y] = (yx)\inv xy = x\inv y\inv x y$. In
+			tal caso vale che $xy = yx[x, y]$, mentre vengono mantenute tutte le
+			altre proprietà elencate in questa sezione.
+		} $[x, y] = xy(yx)\inv = xyx^{-1}y^{-1}$. Si definisce inoltre
+		il \vocab{sottogruppo
+			derivato} di $G$, detto anche \vocab{sottogruppo dei commutatori} di $G$,
+		il sottogruppo $G'$ generato da tutti i commutatori di $G$, ossia
 		\[
 		G' = \langle\{[x, y]\mid x, y \in G\}\rangle
 		\]
 	\end{definition}
 	
 	\begin{remark}
-		$[x, y] = e$ se e solo se $x$ e $y$ commutano.
+		Si verifica facilmente che $[x, y] = e$ se e solo se $x$ e $y$ commutano, dacché
+		$xy = [x, y]yx$. Vale inoltre che $[x, y]\inv = (xyx\inv y\inv)\inv = yxy\inv x\inv =
+		[y, x]$. In un certo senso $[x, y]$ ``misura'' quanto $x$ e $y$ non commutano.
 	\end{remark}
 	
 	\begin{proposition}
@@ -1158,8 +1178,9 @@
 		Dato un gruppo $G$, valgono i seguenti fatti:
 		\begin{enumerate}[(1)]
 			\item $G'$ è un sottogruppo caratteristico di $G$;
-			\item $\faktor{G}{G'}$ è un gruppo abeliano;
-			\item dato $A$ un gruppo abeliano e $\varphi \in \Hom(G, A)$,
+			\item dato $N \trianglelefteqslant G$, $\faktor{G}{N}$ è un gruppo abeliano se
+			e solo se $G' \subseteq N$;
+			\item dato $A$ un gruppo abeliano e data $\varphi \in \Hom(G, A)$,
 			allora $G' \subseteq \ker\varphi$.
 		\end{enumerate}
 	\end{proposition}
@@ -1167,70 +1188,91 @@
 	\begin{proof}
 		Mostriamo le affermazioni singolarmente:
 		\begin{enumerate}[(1)]
-			\item consideriamo $\varphi \in \Aut(G)$, poiché $\varphi$ preserva la struttura
-			di gruppo è sufficiente descrivere come $\varphi$ agisce sui 
-			generatori di $G'$ per determinare $\varphi(G')$. 
-			Fissati $x, y \in\nolinebreak G$ abbiamo 
+			\item sia $\varphi \in \Aut(G)$; dati $x$, $y \in G$ si verifica che
 			\[
 			\varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = \varphi(x)\varphi(y)
-			\varphi(x)^{-1}\varphi(y)^{-1} = [\varphi(x), \varphi(y)]\in G'
-			\]pertanto $\varphi(G') \subseteq G'$, da cui l'uguaglianza in quanto 
-			$\varphi$ è bigettiva;
-			\item dati $x, y \in G$, $xG'\cdot yG' = yG'\cdot xG'$ se e solo se 
-			$xyG' = yxG'$, che è equivalente a richiedere $xyx^{-1}y^{-1} \in G'$. 
-			Dato che effettivamente $xyx^{-1}y^{-1} = [x, y]$ è un elemento di $G'$
-			abbiamo che $\faktor{G}{G'}$ è abeliano;
-			\item dati $x, y \in G$, abbiamo 
-			\[
-			\varphi([x, y]) = \varphi(xyx^{-1}y^{-1}) = 
-			\varphi(x)\varphi(y)\varphi(x)^{-1}\varphi(y)^{-1}
-			\]
-			e questo coincide con
-			l'identità di $A$ in quanto $A$ è abeliano. Poiché l'immagine di $\varphi$
-			è un sottogruppo di $A$ allora $G' \subseteq \ker\varphi$, in quanto
-			il commutatore di ogni coppia di elementi di $G$ è contenuto in $\ker \varphi$.
+			\varphi(x)^{-1}\varphi(y)^{-1} = [\varphi(x), \varphi(y)] \in G'
+			\]da cui $\varphi(G') \subseteq G'$, e quindi la tesi;
+			\item se $\faktor{G}{N}$ è abeliano, dati $x$, $y \in G$, vale che $xyN = yxN$
+			se e solo se $xy(yx)\inv = [x, y] \in N$, e dunque $\faktor{G}{N}$ è abeliano
+			se e solo se $G' \subseteq N$;
+			\item dati $x$, $y \in G$, da prima abbiamo che $\varphi([x, y]) = [\varphi(x), \varphi(y)]$; dacché $A$ è abeliano, $\varphi(x)$ e $\varphi(y)$ commutano,
+			e quindi $[\varphi(x), \varphi(y)] = e_A$; pertanto $[x, y] \in \ker \varphi$,
+			da cui $G' \subseteq \ker \varphi$.
 		\end{enumerate}
 	\end{proof}
 	
+	\begin{definition}
+		Si definisce l'\vocab{abelianizzato} $G\ab$ di $G$ il gruppo
+		$\faktor{G}{G'}$.
+	\end{definition}
+	
 	\begin{remark}
-		Come conseguenza del Primo Teorema di Omomorfismo abbiamo che $\faktor{G}{G'}$ è 
-		il "più grande" quoziente abeliano di $G$, o analogamente che 
-		$G'$ è il "più piccolo" sottogruppo di $G$ che produce un quoziente abeliano.
-		In questo senso, $G'$ misura quanto è abeliano il gruppo $G$.
+		In un certo senso la definizione di $G\ab$ è suggerita proprio dalla precedente
+		proposizione. Infatti $G\ab$ è il ``più grande'' quoziente di $G$ abeliano:
+		ogni altro quoziente abeliano $\faktor{G}{N}$ è tale per cui $G' \subseteq N$.
+		Pertanto $G\ab$ dà una misura di quanto non sia abeliano $G$; nel peggiore dei
+		casi $G\ab \cong \{e\}$ e dunque $G$ è ``enormemente'' non abeliano, mentre $G\ab \cong G$
+		se e solo se $G' = \{e_G\}$, e quindi se e solo se $G$ è già abeliano.
+	\end{remark}
+	
+	\begin{remark}[serie derivata]
+		Si può reiterare la costruzione del gruppo derivato su $G'$ stesso, ottenendo
+		$(G')'$. Reiterando indefinitivamente questa costruzione per $G$ finito
+		si ottiene la
+		\vocab{serie derivata} (o \textit{serie dei derivati}) di $G$, ossia una sequenza
+		\[ G^{(n)} \triangleleft G^{(n-1)} \triangleleft \cdots \triangleleft G^{(1)} \triangleleft G^{(0)} \]
+		dove $G^{(0)} = G$, $G^{(i)}$ è l'$i$-esimo derivato di $G$ e $G^{(k)} = G^{(n)}$ per
+		ogni $k \geq n$. Per il Principio della
+		discesa infinita\footnote{Infatti la cardinalità dell'$i$-esimo derivato di $G$ è sempre minore o uguale di quella dell'$i-1$-esimo derivato di $G$.}, una tale sequenza esiste sempre dacché il processo di derivazione di $G$ deve terminare in un certo $G^{(n)}$ per
+		poi stabilizzarsi. \medskip
+		
+		
+		Lo studio di questa serie risulta molto utile nello studio della teoria di Galois.
+		Un gruppo si dice infatti \vocab{risolubile} se e solo se la sua serie derivata termina
+		nel gruppo banale $\{ e \}$.
 	\end{remark}
 	
 	\begin{remark}
-		Dato $A$ un gruppo abeliano, il Primo Teorema di Omomorfismo produce una bigezione naturale tra 
-		$\Hom(G, A)$ e $\Hom\left(\faktor{G}{G'}, A\right)$. Consideriamo infatti $\varphi \in \Hom(G, A)$,
-		$\pi_{G'}: G \longrightarrow \faktor{G}{G'}$ la proiezione al quoziente e 
-		$\overline{\varphi} : \faktor{G}{G'}\longrightarrow A$, il Teorema
-		fornisce un'unico omomorfismo $\overline{\varphi}: \faktor{G}{G'}\longrightarrow A$
-		che rende commutativo il diagramma
+		Dato un gruppo abeliano $A$, il Primo Teorema di Omomorfismo produce una bigezione naturale tra 
+		$\Hom(G, A)$ e $\Hom\left(G\ab, A\right)$. Se infatti $\varphi$ è un omomorfismo di $\Hom(G, A)$, per la proposizione precedente vale che $G' \subseteq \ker \varphi$,
+		e quindi, per il Primo teorema di Omomorfismo, detta
+		$\pi_{G'}: G \to \faktor{G}{G'} = G\ab$ la proiezione al quoziente di $G$
+		su $G\ab$, esiste un'unica
+		$\overline{\varphi} : G\ab \to A$ che fa commutare il
+		seguente diagramma:
 		\begin{center}
 			\begin{tikzcd}[column sep = small, row sep = small]
 				G\arrow[rrr, "\varphi"]\arrow[ddd, "\pi_{G'}"', two heads]& & &A \\
 				{}\arrow[rr, "\circlearrowleft", phantom]& & {}& \\
 				& & & \\
-				\faktor{G}{G'}\arrow[uuurrr, "\overline{\varphi}"', hook]& & &
+				G\ab \arrow[uuurrr, "\overline{\varphi}"', hook]& & &
 			\end{tikzcd}
 		\end{center}
-		Viceversa, dato un omomorfismo $\overline{\varphi}:\faktor{G}{G'}\longrightarrow A$
-		otteniamo un'unico omomorfismo $\varphi:G\longrightarrow A$ con la 
-		composizione $\overline{\varphi}\circ\pi_{G'}$.
+		In particolare $\overline{\varphi}$ è tale per cui $hG' \mapsto \varphi(h)$.
+		Viceversa, dato un omomorfismo $\overline{\varphi}: G\ab \to A$, per il
+		Primo Teorema di Omomorfismo esiste
+		un unico omomorfismo $\varphi: G \to A$ che fa commutare lo stesso diagramma. In
+		particolare vale che $\varphi = \overline{\varphi} \circ \pi_{G'}$.
+		Si conclude quindi che $\Hom(G, A) \leftrightarrow \Hom(G\ab, A)$.
 	\end{remark}
 	
 	\begin{example}
-		Consideriamo il gruppo $\mathcal{S}_3$, chiaramente $(\mathcal{S}_3)' \neq \{id\}$ in quanto
-		$\faktor{\mathcal{S}_3}{\langle id\rangle} \cong \mathcal{S}_3$ che non è abeliano, pertanto 
-		abbiamo due possibilità: $(\mathcal{S}_3)' = \mathcal{S}_3$ oppure $(\mathcal{S}_3)' = \langle\cycle{1, 2, 3}\rangle$\footnote{
-			Gli unici sottogruppi normali di $\mathcal{S}_3$ sono $\{id\}$, 
-			$\langle\cycle{1, 2, 3}\rangle$, $\mathcal{S}_3$.}. D'altra parte 
+		Consideriamo il gruppo $\mathcal{S}_3$. Chiaramente $(\mathcal{S}_3)' \neq \{\id\}$
+		dal momento che $\Sym_3$ non è abeliano. Esistono dunque due sole
+		possibilità: $(\mathcal{S}_3)' = \mathcal{S}_3$ oppure $(\mathcal{S}_3)' = \langle\cycle{1, 2, 3}\rangle = \mathcal{A}_3$\footnote{
+			Gli unici sottogruppi normali di $\mathcal{S}_3$ sono infatti $\{\id\}$, 
+			$\langle\cycle{1, 2, 3}\rangle = \mathcal{A}_3$ e $\mathcal{S}_3$.}. \medskip
+			
+		D'altra parte 
 		$\faktor{\mathcal{S}_3}{\langle\cycle{1, 2, 3}\rangle}$ è isomorfo a $\Z2$, che
-		è abeliano, pertanto $(\mathcal{S}_3)'$ è contenuto in $\langle\cycle{1, 2, 3}\rangle$,
-		da cui necessariamente $(\mathcal{S}_3)' = \langle\cycle{1, 2, 3}\rangle$.
-		Più in generale vedremo che $(\mathcal{S}_n)' = \mathcal{A}_n$, dove $\mathcal{A}_n$ è il sottogruppo
-		di $\mathcal{S}_n$ delle permutazioni pari (sappiamo già che $(\mathcal{S}_n)' \subseteq
-		\mathcal{A}_n$ in quanto $\faktor{\mathcal{S}_n}{\mathcal{A}_n}\cong\Z2$).
+		è abeliano. Pertanto $(\mathcal{S}_3)'$ è contenuto in $\langle\cycle{1, 2, 3}\rangle$,
+		e dunque deve necessariamente valere che $(\mathcal{S}_3)' = \langle\cycle{1, 2, 3}\rangle = \ASym_3$. Si conclude dunque che $(\Sym_3)\abs = \faktor{\Sym_3}{\ASym_3} \cong \Z2$ e quindi che $\Hom(\Sym_3, A) \leftrightarrow \Hom(\Z2, A)$ per un
+		gruppo abeliano $A$. \medskip
+		
+
+		Vedremo più in generale che $(\mathcal{S}_n)' = \mathcal{A}_n$; per adesso ci limiteremo ad osservare che $(\mathcal{S}_n)'$ deve essere un sottogruppo di
+		$\mathcal{A}_n$, dacché $\faktor{\mathcal{S}_n}{\mathcal{A}_n}\cong\Z2$ è abeliano.
 	\end{example}
 	
 	\newpage
