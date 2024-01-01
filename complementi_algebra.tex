@@ -940,7 +940,7 @@
 	è un automorfismo. Gli automorfismi di $\Dn = \langle r, s\rangle$ sono quindi
 	tutti e soli gli omomorfismi da $\Dn$ in $\Dn$ che mandano $r$ in un generatore
 	di $\mathcal{R}$ -- e quindi vi sono $\phi(n)$ scelte per $\varphi(r)$ -- e $s$ in un'altra simmetria -- dunque vi sono $n$ scelte per $\varphi(s)$. Si conclude dunque che
-	$\lvert \Aut(D_n) \rvert = n\phi(n)$.
+	$\lvert \Aut(D_n) \rvert = n \cdot \phi(n)$.
 	
 	\newpage
 	
@@ -1696,26 +1696,36 @@
 	Esibiamo alcuni insiemi di generatori per $\mathcal{S}_n$, con $n \geq 2$:
 	
 	\begin{itemize}
-		\item $S_1 = \{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, dal momento che
+		\item $I_1 = \{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, dal momento che
 		ogni permutazione può essere scritta come prodotto di trasposizione;
-		\item $S_2 = \{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, dal momento che per ogni $i<j$ abbiamo
+		\item $I_2 = \{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, dal momento che per ogni $i<j$ abbiamo
 		\[
 		\cycle{i, j} = \cycle{1, i}\cycle{1, j}\cycle{1, i}
 		\]
-		e dunque $\langle S_2 \rangle = \langle S_1 \rangle = \Sym_n$;
-		\item $S_3 = \{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
+		e dunque $\langle I_2 \rangle = \langle I_1 \rangle = \Sym_n$;
+		\item $I_3 = \{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
 		infatti per ogni $j$ abbiamo 
 		\[
 		\cycle{1, j} = \cycle{j - 1, j}\cycle{1, j - 1}\cycle{j - 1, j}
 		\]
-		e quindi $\langle S_3 \rangle = \langle S_4 \rangle = \Sym_n$;
-		\item $S_4 = \{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
+		e quindi $\langle I_3 \rangle = \langle I_2 \rangle = \Sym_n$;
+		\item $I_4 = \{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
 		$i$ abbiamo 
 		\[
 		\cycle{i, i + 1} = \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i}
 		\]
-		da cui $\langle S_4 \rangle = \langle S_3 \rangle = \Sym_n$.
+		da cui $\langle I_4 \rangle = \langle I_3 \rangle = \Sym_n$.
 	\end{itemize}
+	
+	\begin{remark}
+		Quando si tratta il gruppo $\Sym_n$, bisogna tenere bene a mente che i numeri
+		che si trovano all'interno dei cicli sono soltanto dei simboli. Come
+		$\cycle{1, 2}$ e $\cycle{1, 2, \ldots, n}$ generano $\Sym_n$ per $n \geq 2$,
+		anche $\cycle{3, 4}$ e $\cycle{3, 4, 1, 2, 5, 6, \ldots, n}$ generano lo stesso gruppo,
+		ovverosia non c'è nessuna differenza se si scambia $1$ con $3$ e $2$ con $4$.
+		Per lo stesso motivo, se $X$ è un insieme finito di $n$ elementi, $S(X)$ è
+		isomorfo a $\Sym_n$.
+	\end{remark}
 	
 	\begin{remark}
 		In generale non è vero che una trasposizione e un $n$-ciclo generano $\mathcal{S}_n$.
@@ -1752,6 +1762,35 @@
 		\]per ogni $i \in \{1, \ldots, k\}$, da cui si deduce facilmente la tesi.
 	\end{proof}
 	
+	\begin{remark}
+		Quest'ultima relazione, relativa al coniugio in $\Sym_n$, permette di
+		formalizzare l'osservazione fatta in precedenza, secondo cui
+		``$\Sym_n$ è indipendente dai numeri e tratta solo dei simboli''. Infatti
+		il coniugio è la chiave attraverso cui si possono sostituire (in realtà permutare)
+		i simboli di $S(X)$ con $X$ finito. Ad esempio, per dimostrare formalmente che
+		$\cycle{3, 4}$ e $\cycle{3, 4, 1, 2, 5, 6, \ldots, n}$ generano $\Sym_n$, è
+		sufficiente considerare il coniugio per $\sigma = \cycle{1, 3} \cycle{2, 4}$, detto
+		$\varphi_\sigma$. Infatti $\varphi_\sigma$ è un automorfismo (interno) di $\Sym_n$,
+		e dunque vale che:
+		\[ \langle \varphi_\sigma\cycle{1, 2}, \varphi_\sigma\cycle{1, 2, \ldots, n} \rangle = \langle \cycle{1, 2}, \cycle{1, 2, \ldots, n} \rangle = \Sym_n \]
+		Dal momento che $\varphi_\sigma\cycle{1, 2} = \cycle{3, 4}$ e
+		$\varphi_\sigma\cycle{1, 2, \ldots, n} = \cycle{3, 4, 1, 2, 5, 6, \ldots, n}$, si
+		è così dimostrato che questi due elementi generano $\Sym_n$. \medskip
+		
+		
+		Pertanto $\Inn(\Sym_n)$ si può descrivere intuitivamente come il gruppo di morfismi
+		che permettono di permutare i simboli negli elementi $\Sym_n$. Non c'è dunque
+		da meravigliarsi se $\Inn(\Sym_n) \cong \Sym_n$ per $n \geq 3$, dal momento
+		che, come si è visto, tali morfismi sono delle vere e proprie permutazioni. 
+		Infatti $\Inn(\Sym_n) \cong \faktor{\Sym_n}{\z(\Sym_n)} \cong \Sym_n$. \medskip
+		
+		
+		In
+		realtà, per $n$ diverso da $2$ e $6$ vale un risultato ancora più forte, ossia
+		$\Aut(\Sym_n) \cong \Sym_n$, e dunque \textit{tutti} i morfismi di tali $\Sym_n$
+		sono esattamente quelli che permutano i simboli. 
+	\end{remark}
+	
 	\subsubsection{Sottogruppi abeliani transitivi di $\Sym_n$}
 	
 	\begin{definition}
@@ -1787,12 +1826,12 @@
 		Tuttavia, per quanto detto prima, gli stabilizzatori coincidono, e dunque
 		$\bigcap_{i=1}^{n} \Stab(i) = \Stab(1)$, da cui si deduce che $\Stab(1)$ è
 		banale. Allora, per il Lemma orbita-stabilizzatore, vale che
-		$\abs{G} = \abs{\Stab(1)} \abs{\Orb(1)} = 1 \cdot n = n$, da cui la tesi.
+		$\abs{G} = \abs{\Stab(1)} \cdot \abs{\Orb(1)} = 1 \cdot n = n$, da cui la tesi.
 	\end{proof}
 	
 	\subsubsection{Sottogruppi abeliani massimali di $\mathcal{S}_{3m}$ $\star$}
 	
-	Vogliamo studiare i sottogruppi abeliani di $\mathcal{S}_n$, caratterizzando in particolare
+	Vogliamo studiare i sottogruppi abeliani di $\mathcal{S}_{3m}$, caratterizzando in particolare
 	i suoi sottogruppi abeliani massimali.
 	
 	\begin{lemma}
@@ -1951,65 +1990,84 @@
 	
 	Studiamo le classi di coniugio in $\mathcal{A}_n$. In particolare,
 	fissato $\sigma \in \mathcal{A}_n$, vogliamo determinare una relazione tra
-	$\Cl_{\mathcal{A}_n}(\sigma)$ e $\Cl_{\mathcal{S}_n}(\sigma)$.
-	Poiché valgono $|\mathcal{A}_n| = |\Cl_{\mathcal{A}_n}(\sigma)|\cdot |Z_{\mathcal{A}_n}(\sigma)|$
-	e $Z_{\mathcal{A}_n}(\sigma) = Z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n$, abbiamo
+	$\Cl_{\mathcal{A}_n}(\sigma)$ e $\Cl_{\mathcal{S}_n}(\sigma)$. \medskip
+	
+	
+	Si osserva innanzitutto che per il Lemma orbita-stabilizzatore vale che:
+	\[ \lvert \mathcal{A}_n \rvert = \lvert \Cl_{\mathcal{A}_n}(\sigma)\rvert \cdot \lvert \z_{\mathcal{A}_n}(\sigma) \rvert \]
+	Inoltre $\z_{\mathcal{A}_n}(\sigma) = \z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n$.
+	Pertanto si ricava la seguente identità:
 	\[
-	|\Cl_{\mathcal{A}_n}(\sigma)| = \frac{|\mathcal{A}_n|}{|Z_{\mathcal{A}_n}(\sigma)|} =
-	\frac 1 2 \frac{|\mathcal{S}_n|}{|Z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n|}
+	\lvert \Cl_{\mathcal{A}_n}(\sigma) \rvert = \frac{\lvert\mathcal{A}_n\rvert}{\lvert \z_{\mathcal{A}_n}(\sigma) \rvert} =
+	\frac 1 2 \frac{\lvert \mathcal{S}_n \rvert}{\lvert \z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n \rvert}
 	\]
-	Dato che $[\mathcal{S}_n:\mathcal{A}_n] = 2$, per la \hyperref[prop1.49]{Proposizione 1.49}
-	abbiamo $[Z_{\mathcal{S}_n}(\sigma):Z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n] \in \{1, 2\}$,
-	distinguiamo quindi due casi:
+	Dal momento che $[\mathcal{S}_n:\mathcal{A}_n] = 2$, per la \hyperref[prop1.49]{Proposizione 1.49}
+	$[\z_{\mathcal{S}_n}(\sigma): \z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n]$ vale
+	$1$ se $\z_{\mathcal{S}_n}(\sigma) \leqslant \ASym_n$ e $2$
+	altrimenti. Distinguiamo quindi i due casi:
 	\begin{itemize}
-		\item $|Z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n| = \displaystyle\frac 1 2 |Z_{\mathcal{S}_n}(\sigma)|$;
-		\item $|Z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n| = |Z_{\mathcal{S}_n}(\sigma)|$.
+		\item nel primo caso $\abs{\z_{\Sym_n}(\sigma) \cap \ASym_n} = \abs{\z_{\Sym_n}(\sigma)}$, e quindi $\abs{\Cl_{\ASym_n}(\sigma)} = \frac{1}{2} \abs{\Cl_{\Sym_n}(\sigma)}$;
+		\item nel secondo caso $\abs{\z_{\Sym_n}(\sigma) \cap \ASym_n} = \frac{1}{2}\abs{\z_{\Sym_n}(\sigma)}$, e quindi $\abs{\Cl_{\ASym_n}(\sigma)} = \abs{\Cl_{\Sym_n}(\sigma)}$, ovverosia $\Cl_{\ASym_n}(\sigma)$ e
+		$\Cl_{\Sym_n}(\sigma)$ coincidono.
+	\end{itemize}
+
+	Ipotizziamo di essere nel primo caso. Allora possiamo dimostrare che \[ \Cl_{\mathcal{S}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cupdot
+	\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1}) \]
+	dove $\tau$ è una qualsiasi permutazione dispari di $\Sym_n$. \medskip
+	
+
+	Chiaramente $\Cl_{\mathcal{A}_n}(\sigma) \cup \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
+	\subseteq \Cl_{\mathcal{S}_n}(\sigma)$, dal momento che i coniugati di $\tau\sigma\tau^{-1}$ sono anche
+	coniugati di $\sigma$. D'altra parte per ogni $\rho \in \mathcal{S}_n$ si verifica che:
+	
+	\begin{itemize}
+		\item $\rho\sigma\rho^{-1} \in \Cl_{\mathcal{A}_n}(\sigma)$, se $\rho$ è pari;
+		\item 	$\rho\sigma\rho^{-1} = (\rho\tau^{-1})(\tau\sigma\tau^{-1})(\rho\tau^{-1})^{-1}
+		\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$, se $\rho$ è dispari.
 	\end{itemize}
 	
-	Nel primo caso otteniamo 
-	\[
-	|\Cl_{\mathcal{A}_n}| = \frac 1 2 \frac{|\mathcal{S}_n|}{|Z_{\mathcal{S}_n}(\sigma) \cap \mathcal{A}_n|} =
-	\frac{|\mathcal{S}_n|}{|Z_{\mathcal{S}_n}(\sigma)|} = |\Cl_{\mathcal{S}_n}(\sigma)|
-	\]
-	poiché $\Cl_{\mathcal{A}_n}(\sigma)\subseteq \Cl_{\mathcal{S}_n}(\sigma)$ abbiamo che le
-	due classi coincidono. In particolare questo succede se $Z_{\mathcal{S}_n}(\sigma)
-	\nsubseteq \mathcal{A}_n$.
+	Quindi si conclude che $\Cl_{\mathcal{S}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cup
+	\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$.
 	
-	Nel secondo caso invece, che si verifica se $Z_{\mathcal{S}_n}(\sigma)\subseteq 
-	\mathcal{A}_n$,
-	\[
-	|\Cl_{\mathcal{A}_n}(\sigma)| = \frac 1 2 \frac{|\mathcal{S}_n|}{|Z_{\mathcal{S}_n}(\sigma)\cap\mathcal{A}_n|}
-	= \frac 1 2 \frac{|\mathcal{S}_n|}{|Z_{\mathcal{S}_n}(\sigma)|} = \frac 1 2 |\Cl_{\mathcal{S}_n}(\sigma)|
-	\]
-	Più precisamente, abbiamo $\Cl_{\mathcal{S}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cup
-	\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ per ogni $\tau$ permutazione dispari. 
-	Infatti $\Cl_{\mathcal{A}_n}(\sigma) \cup \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
-	\subseteq \Cl_{\mathcal{S}_n}(\sigma)$ (i coniugati di $\tau\sigma\tau^{-1}$ sono anche
-	coniugati di $\sigma$), d'altra parte per ogni $\rho \in \mathcal{S}_n$ abbiamo
-	$\rho\sigma\rho^{-1} \in \Cl_{\mathcal{A}_n}(\sigma)$ se $\rho$ è pari,
-	$\rho\sigma\rho^{-1} = (\rho\tau^{-1})(\tau\sigma\tau^{-1})(\rho\tau^{-1})^{-1}
-	\in \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ se $\rho$ è dispari, da cui l'uguaglianza.
-	Abbiamo altri due casi:
+	
+	\begin{remark}
+		Si mostra facilmente che $\lvert \Cl_{\mathcal{A}_n}(\sigma) \rvert  = \lvert \Cl_{\mathcal{A}_n}(\tau \sigma \tau\inv) \rvert$. Infatti vale che:
+		\[ \lvert \Cl_{\mathcal{A}_n}(\sigma) \rvert = \frac{\lvert \ASym_n \rvert}{\lvert \z_{\ASym_n}(\sigma) \rvert} = \frac{\lvert \ASym_n \rvert}{\lvert \z_{\ASym_n}(\tau \sigma \tau\inv) \rvert} = \lvert \Cl_{\mathcal{A}_n}(\tau \sigma \tau\inv) \rvert \]
+		dove, ricordando che l'unico coniugato di $\ASym_n$ è $\ASym_n$ stesso, si osserva che\footnote{
+			L'identità $\z_{\Sym_n}(\tau \sigma \tau\inv) = \tau \z_{\Sym_n}(\sigma) \tau\inv$
+			non è altro che un corollario dell'identità $\Stab(g \cdot x) = g \Stab(x) g\inv$,
+			dove si considera come azione l'azione di coniugio.
+		}:
+		\[ \lvert \z_{\ASym_n}(\tau \sigma \tau\inv) \rvert = \lvert \z_{\Sym_n}(\tau \sigma \tau\inv) \cap \ASym_n \rvert = \lvert \tau \z_{\Sym_n}(\sigma) \tau\inv \cap \ASym_n \rvert \]
+		e quindi che:
+		\[ \lvert \z_{\ASym_n}(\tau \sigma \tau\inv) \rvert = \lvert \tau ( \z_{\Sym_n} \cap \ASym_n) \tau\inv \rvert = \lvert \z_{\ASym_n}(\sigma) \rvert \]
+	\end{remark}
+	
+	
+	Si esclude subito il caso in cui $\lvert \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1}) \rvert = \lvert \Cl_{\mathcal{S}_n}(\tau\sigma\tau^{-1}) \rvert$: se così fosse,
+	$\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$ avrebbe tanti elementi quanti
+	$\Cl_{\mathcal{S}_n}(\tau\sigma\tau\inv)$, e così, per l'osservazione precedente, anche $\Cl_{\ASym_n}(\sigma)$; in
+	tal caso saremmo nel secondo caso descritto precedentemente, mentre per ipotesi avevamo
+	posto di essere nel primo. \medskip
+	
+	
+	Pertanto vale che:
+	\[ \lvert \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1}) \rvert = \frac{1}{2} \lvert \Cl_{\mathcal{S}_n}(\tau\sigma\tau^{-1}) \rvert = \frac{1}{2} \lvert \Cl_{\mathcal{S}_n}(\sigma) \rvert \]
+	da cui si ricava che:
+	\[ \lvert \Cl_{\mathcal{S}_n}(\sigma) \rvert = \lvert \Cl_{\mathcal{A}_n}(\sigma) \rvert + \lvert \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1}) \rvert \]
+	Pertanto, per il Principio di Inclusione-Esclusione, l'unione descritta precedentemente
+	è anche disgiunta, come volevamo dimostrare. \medskip
+	
+	
+	Si riassume dunque lo studio della classe di coniugio di $\sigma \in \ASym_n$ in $\ASym_n$ stesso:
 	\begin{itemize}
-		\item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{\mathcal{S}_n}(\tau\sigma\tau^{-1})|$;
-		\item $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
-		|\Cl_{\mathcal{S}_n}(\tau\sigma\tau^{-1})|$.
+		\item se $\z_{\Sym_n}(\sigma) \subseteq \ASym_n$, allora le classi di coniugio di
+		$\sigma$ in $\Sym_n$ e in $\ASym_n$ coincidono;
+		\item altrimenti, se $\tau$ è una permutazione dispari di $\Sym_n$, vale
+		che $\Cl_{\Sym_n}(\sigma) = \Cl_{\ASym_n}(\sigma) \cupdot \Cl_{\ASym_n}(\tau\sigma\tau\inv)$, dove ogni termine dell'unione ha metà degli
+		elementi di $\Cl_{\Sym_n}(\sigma)$.
+		
 	\end{itemize}
-	Tuttavia se fosse $|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = |\Cl_{\mathcal{S}_n}(\tau\sigma\tau^{-1})|$
-	avremmo $\Cl_{\mathcal{A}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})$,
-	che è assurdo in quanto $\tau\sigma\tau^{-1} \notin \Cl_{\mathcal{A}_n}(\sigma)$,
-	pertanto \[
-	|\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})| = \displaystyle\frac 1 2
-	|\Cl_{\mathcal{S}_n}(\tau\sigma\tau^{-1})| = \frac 1 2|\Cl_{\mathcal{S}_n}(\sigma)| =
-	|\Cl_{\mathcal{A}_n}(\sigma)|
-	\]
-	Poiché 
-	$|\Cl_{\mathcal{S}_n}(\sigma)| = |\Cl_{\mathcal{A}_n}(\sigma)| + |\Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})|$,
-	per il Principio di Inclusione-Esclusione abbiamo che l'unione è disgiunta,
-	cioè
-	\[
-	\Cl_{\mathcal{S}_n}(\sigma) = \Cl_{\mathcal{A}_n}(\sigma) \cupdot \Cl_{\mathcal{A}_n}(\tau\sigma\tau^{-1})
-	\]
 	
 	\subsubsection{Studio di $\mathcal{S}_5$}
 	
