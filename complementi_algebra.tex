@@ -57,7 +57,11 @@
 	
 	In particolare, queste dispense contengono soltanto gli appunti delle lezioni complementari del prof. Lombardo (per
 	le note delle lezioni della professoressa Del Corso si rimanda agli \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Appunti di Algebra 1}}). Gli argomenti sono pressoché ordinati secondo il programma del corso.
-	Chiunque volesse aiutare a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alle mail dei due autori.
+	Chiunque volesse aiutare a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alle mail dei due autori. \medskip
+	
+	Con il simbolo della stella ($\star$) si classificano le sezioni di queste dispense che
+	sono considerate opzionali e che sono state inserite per mettere per iscritto la
+	risoluzione di alcuni esercizi proposti dal prof. Lombardo.
 	
 	\section*{Ringraziamenti}
 	
@@ -1687,80 +1691,109 @@
 	
 	\subsection{Gruppo simmetrico}
 	
-	\subsubsection{Generatori di $\mathcal{S}_n$}
+	\subsubsection{Generatori di $\mathcal{S}_n$ e coniugio}
 	
-	Esibiamo alcuni insiemi di generatori per $\mathcal{S}_n$:
+	Esibiamo alcuni insiemi di generatori per $\mathcal{S}_n$, con $n \geq 2$:
 	
 	\begin{itemize}
-		\item $\{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, abbiamo visto 
-		che ogni permutazione può essere scritta come prodotto di trasposizioni;
-		\item $\{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, infatti per ogni $i<j$ abbiamo
+		\item $S_1 = \{\cycle{i, j} \mid i, j \in\{1, \ldots, n\}, i < j\}$, dal momento che
+		ogni permutazione può essere scritta come prodotto di trasposizione;
+		\item $S_2 = \{\cycle{1, j}\mid j \in \{2, \ldots, n\}\}$, dal momento che per ogni $i<j$ abbiamo
 		\[
 		\cycle{i, j} = \cycle{1, i}\cycle{1, j}\cycle{1, i}
 		\]
-		\item $\{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
+		e dunque $\langle S_2 \rangle = \langle S_1 \rangle = \Sym_n$;
+		\item $S_3 = \{\cycle{i, i + 1}\mid i \in\{1, \ldots, n - 1\}\}$,
 		infatti per ogni $j$ abbiamo 
 		\[
 		\cycle{1, j} = \cycle{j - 1, j}\cycle{1, j - 1}\cycle{j - 1, j}
 		\]
-		\item $\{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
+		e quindi $\langle S_3 \rangle = \langle S_4 \rangle = \Sym_n$;
+		\item $S_4 = \{\cycle{1, 2}, \cycle{1, 2, \ldots, n}\}$, infatti per ogni
 		$i$ abbiamo 
 		\[
 		\cycle{i, i + 1} = \cycle{1, \ldots, n}^{i - 1}\cycle{1, 2}\cycle{1, \ldots, n}^{1 - i}
 		\]
+		da cui $\langle S_4 \rangle = \langle S_3 \rangle = \Sym_n$.
 	\end{itemize}
 	
 	\begin{remark}
-		Non è vero in generale che una trasposizione e un $n$-ciclo generano $\mathcal{S}_n$,
-		consideriamo ad esempio $\langle\sigma, \rho\rangle\leqslant \mathcal{S}_4$ con
-		$\sigma = \cycle{1, 2, 3, 4}$, $\rho = \cycle{2, 4}$. Abbiamo
+		In generale non è vero che una trasposizione e un $n$-ciclo generano $\mathcal{S}_n$.
+		Consideriamo ad esempio $H = \langle\sigma, \rho\rangle\leqslant \mathcal{S}_4$ con
+		$\sigma = \cycle{1, 2, 3, 4}$ e $\rho = \cycle{2, 4}$. Allora
 		$\sigma^4 = \rho^2 = 1$ e $\rho\sigma\rho^{-1} = \cycle{1, 4, 3, 2} =
-		\sigma^{-1}$, pertanto $\langle\sigma, \rho\rangle$ è isomorfo a un 
-		quoziente di $D_4$. D'altra parte $\langle\sigma\rangle\cap \langle\rho\rangle = \{id\}$
-		e $\rho \in N_{\mathcal{S}_4}(\sigma)$, pertanto $\langle\sigma, \rho\rangle =
-		\langle\sigma\rangle\langle\rho\rangle$ e $|\langle\sigma, \rho\rangle| = 8$,
-		pertanto è isomorfo a $D_4$. 
+		\sigma^{-1}$. Pertanto $H$ rispetta tutte le condizioni $\D_4$, e dunque sarà
+		isomorfo ad un suo quoziente. D'altra parte $\langle\sigma\rangle\cap \langle\rho\rangle = \{\id\}$
+		e $\rho \in \N_{\mathcal{S}_4}(\sigma)$, da cui si deduce che $\langle\sigma, \rho\rangle =
+		\langle\sigma\rangle\langle\rho\rangle$ e quindi che $\lvert \langle\sigma, \rho\rangle\rvert = 4 \cdot 2 = 8$. Si può allora concludere che
+		$H$ è isomorfo a $\D_4$. \medskip
+		
+		
+		Se tuttavia $n$ fosse un numero primo, la tesi sarebbe valida, come dimostra il
+		\autoref{lemma3.18}. 
 	\end{remark}
 	
-	\subsubsection{Sottogruppi abeliani massimali di $\mathcal{S}_n$}
+	Illustriamo inoltre una relazione fondamentale di $\Sym_n$, che permette di
+	caratterizzarne le classi di coniugio, come già visto negli \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Appunti di Algebra 1}}:
 	
-	Vogliamo studiare i sottogruppi abeliani di $\mathcal{S}_n$, caratterizzando in particolare
-	i suoi sottogruppi abeliani massimali.
+	\begin{lemma}
+		\label{lemma1.56}
+		Siano $\sigma$, $\tau \in \mathcal{S}_n$. Se $\sigma = \cycle{x_1, \ldots, x_k}$ è un 
+		$k$-ciclo, allora vale che
+		\[
+		\tau\sigma\tau^{-1} = \cycle{\tau(x_1),\ldots, \tau(x_k)}
+		\]
+	\end{lemma}
+	
+	\begin{proof}
+		Si verifica facilmente che
+		\[
+		(\tau\sigma\tau^{-1})(\tau(x_i)) = (\tau\sigma)(x_i) = \tau(x_{i + 1})
+		\]per ogni $i \in \{1, \ldots, k\}$, da cui si deduce facilmente la tesi.
+	\end{proof}
+	
+	\subsubsection{Sottogruppi abeliani transitivi di $\Sym_n$}
 	
 	\begin{definition}
 		Un sottogruppo $G\leqslant \mathcal{S}_n$ si dice \vocab{transitivo} se l'azione
+		naturale
 		\[
-		\varphi: G\longrightarrow \mathcal{S}_n :\sigma \longmapsto \sigma
+		\varphi: G \mono \mathcal{S}_n :\sigma \mapsto \sigma
 		\]indotta da $G$ su $\{1, \ldots, n\}$ è transitiva, cioè se per ogni
-		$i, j \in \{1, \ldots, n\}$ esiste $\sigma \in G$ tale che $\sigma(i) = j$.
+		$i$, $j \in \{1, \ldots, n\}$ esiste $\sigma \in G$ tale per cui $\sigma(i) = j$.
 	\end{definition}
 	
 	\begin{lemma}
 		\label{lemma1.54}
-		Dato $G$ un sottogruppo abeliano di $\mathcal{S}_n$, se $G$ è transitivo allora $|G| = n$.
+		Se $G$ è un sottogruppo abeliano e transitivo di $\mathcal{S}_n$,
+		allora\footnote{
+			A partire da questo lemma si può dimostrare che un'azione fedele e
+			transitiva di un gruppo abeliano è in particolare anche libera, ossia
+			ammette solo stabilizzatori banali.
+		} $\lvert G \rvert = n$.
 	\end{lemma}
 	
 	\begin{proof}
-		Consideriamo l'azione di $G$ su $\{1, \ldots, n\}$
+		Consideriamo l'azione naturale $\varphi$ di $G$ su $\{1, \ldots, n\}$. Dal momento
+		che $G$ è transitivo, $\varphi$ è un'azione transitiva, e dunque tutti i suoi
+		stabilizzatori sono coniugati. Dacché però $G$ è abeliano, gli stabilizzatori
+		non solo sono coniugati, ma coincidono del tutto. \medskip
+		
+		
+		L'azione $\varphi$ è fedele, e dunque:
 		\[
-		\psi : G\longrightarrow \mathcal{S}_n :\sigma \longmapsto \sigma
+		\ker \varphi = \bigcap_{i=1}^{n} \Stab(i) = \{\id\}
 		\]
-		poiché $G$ è transitivo, per la \hyperref[prop1.41]{Proposizione 1.41}
-		gli stabilizzatori degli elementi di $\{1, \ldots, n\}$ sono tra loro coniugati.
-		D'altra parte, poiché lo stabilizzatore è un sottogruppo di $G$, che
-		è un gruppo abeliano, la restrizione del coniugio agli
-		stabilizzatori coincide con l'applicazione identità, da cui $\St(i) = \St(j)$
-		per ogni $i, j \in \{1, \ldots, n\}$. Osserviamo infine che 
-		\[
-		\bigcap_{i = 1}^n \St(i) = \{id_{\mathcal{S}_n}\}
-		\]in quanto $id_{\mathcal{S}_n}$ è l'unica permutazione che fissa tutti gli elementi
-		di $\{1, \ldots, n\}$, pertanto $\St(i) = \{id_{\mathcal{S}_n}\}$ per ogni $i \in \{1, \ldots, n\}$.
-		Fissato $i \in \{1, \ldots, n\}$, abbiamo 
-		\[
-		|G| = |\Orb(i)|\cdot|\St(i)| = |\Orb(i)| = n
-		\]
-		in quanto $G$ è transitivo.
+		Tuttavia, per quanto detto prima, gli stabilizzatori coincidono, e dunque
+		$\bigcap_{i=1}^{n} \Stab(i) = \Stab(1)$, da cui si deduce che $\Stab(1)$ è
+		banale. Allora, per il Lemma orbita-stabilizzatore, vale che
+		$\abs{G} = \abs{\Stab(1)} \abs{\Orb(1)} = 1 \cdot n = n$, da cui la tesi.
 	\end{proof}
+	
+	\subsubsection{Sottogruppi abeliani massimali di $\mathcal{S}_{3m}$ $\star$}
+	
+	Vogliamo studiare i sottogruppi abeliani di $\mathcal{S}_n$, caratterizzando in particolare
+	i suoi sottogruppi abeliani massimali.
 	
 	\begin{lemma}
 		\label{lemma1.55}
@@ -1790,25 +1823,6 @@
 		$k = m$ e $a_i = 3$ per ogni $i \in \{1, \ldots, k\}$ in quanto possiamo
 		supporre $a_i \in \{1, 2, 3\}$ senza perdita di generalità.
 	\end{proof}
-	
-	\begin{lemma}
-		\label{lemma1.56}
-		Dati $\sigma, \tau \in \mathcal{S}_n$, se $\sigma = \cycle{x_1, \ldots, x_k}$ è un 
-		$k$-ciclo allora 
-		\[
-		\tau\sigma\tau^{-1} = \cycle{\tau(x_1),\ldots, \tau(x_k)}
-		\]
-	\end{lemma}
-	
-	\begin{proof}
-		\[
-		(\tau\sigma\tau^{-1})(\tau(x_i)) = (\tau\sigma)(x_i) = \tau(x_{i + 1})
-		\]per ogni $i \in \{1, \ldots, k\}$, pertanto
-		\[
-		\tau\sigma\tau^{-1} = \cycle{\tau(x_1), \ldots, \tau(x_k)}
-		\]
-	\end{proof}
-	
 	
 	\begin{exercise}
 		Posto $n = 3m$, mostrare che la massima cardinalità di un sottogruppo
