@@ -485,7 +485,7 @@
 		$\D_2$ contiene quindi esattamente quattro elementi:
 		l'identità e tre elementi di ordine $2$. Essendo composto da $4 = 2^2$ elementi
 		e non essendo ciclico, si conclude infine che
-		$\D_2$ è isomorfo a $\Z2\times\Z2 \cong V$,
+		$\D_2$ è isomorfo a $\Z2\times\Z2 \cong V_4$,
 		il gruppo di Klein.
 	\end{remark}
 	
@@ -1198,7 +1198,7 @@
 	
 	\newpage
 	
-	\subsection{Gruppo derivato}
+	\subsection{Gruppo derivato e abelianizzazione}
 	
 	\begin{definition}
 		Dati un gruppo $G$ e dati $x$, $y \in G$, si definisce il \vocab{commutatore}
@@ -1735,7 +1735,7 @@
 	
 	\subsection{Gruppo simmetrico}
 	
-	\subsubsection{Generatori di $\mathcal{S}_n$ e coniugio}
+	\subsubsection{Generatori di $\mathcal{S}_n$ e $\mathcal{A}_n$}
 	
 	Esibiamo alcuni insiemi di generatori per $\mathcal{S}_n$, con $n \geq 2$:
 	
@@ -1786,6 +1786,29 @@
 		Se tuttavia $n$ fosse un numero primo, la tesi sarebbe valida, come dimostra il
 		\autoref{lemma3.18}. 
 	\end{remark}
+
+	Esibiamo adesso alcuni insiemi di generatori per $\mathcal{A}_n$ con $n \geq 3$:
+	\begin{itemize}
+		\item $G_1 = \{\cycle{i, j}\cycle{k, l}\mid i\neq j, \, k \neq l\}$, infatti
+		ogni elemento di $\mathcal{A}_n$ può essere scritto come prodotto di 
+		coppie di trasposizioni in quanto permutazione pari;
+		\item $G_2 = \{\cycle{i, j, k}\mid i, j, k\text{ distinti}\}$, infatti si
+		può dimostrare che $\langle G_2 \rangle = \langle G_1 \rangle$ considerando
+		tre casi:
+		\begin{itemize}
+			\item se $\{i, j\} = \{k, l\}$, allora $\cycle{i, j}\cycle{k, l} = \id$
+			appartiene già a $\langle G_2 \rangle$, essendo l'identità;
+			\item se $\abs{\{i, j\}\cap\{k, l\}} = 1$, possiamo, senza perdita di
+			generalità, supporre che valga $j = k$; allora, in tal caso,
+			$\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, l} = \cycle{i, j, l} \in G_2$;
+			\item se $\{i, j\}\cap\{k, l\} = \emptyset$, allora
+			$\cycle{i, j} \cycle{k, l} = \cycle{i, j} \cycle{j, k} \cycle{j, k} \cycle{k, l} =
+			\cycle{i, j, k} \cycle{j, k, l} \in \langle G_2 \rangle$.
+		\end{itemize}
+		Pertanto $\langle G_2 \rangle = \langle G_1 \rangle = \ASym_n$.
+	\end{itemize}
+	
+	\subsubsection{Significato del coniugio in $\Sym_n$}
 	
 	Illustriamo inoltre una relazione fondamentale di $\Sym_n$, che permette di
 	caratterizzarne le classi di coniugio, come già visto negli \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Appunti di Algebra 1}}:
@@ -1831,7 +1854,7 @@
 		
 		In
 		realtà, per $n$ diverso da $2$ e $6$ vale un risultato ancora più forte, ossia
-		$\Aut(\Sym_n) \cong \Sym_n$, e dunque \textit{tutti} i morfismi di tali $\Sym_n$
+		$\Aut(\Sym_n) \cong \Sym_n$, e dunque \textit{tutti} i morfismi bigettivi di tali $\Sym_n$
 		sono esattamente quelli che permutano i simboli. 
 	\end{remark}
 	
@@ -2177,28 +2200,49 @@
 		\]
 	\end{itemize}
 	
-	\subsubsection{Sottogruppi normali di $\mathcal{A}_n$}
+	Adesso possiamo illustrare le cardinalità delle classi di coniugio in
+	$\ASym_5$:
 	
-	Esibiamo alcuni insiemi di generatori per $\mathcal{A}_n$:
-	\begin{itemize}
-		\item $\{\cycle{i, j}\cycle{k, l}\mid i\neq j, k \neq l\}$, infatti
-		ogni elemento di $\mathcal{A}_n$ può essere scritto come prodotto di 
-		coppie di trasposizioni in quanto permutazione pari;
-		\item $\{\cycle{i, j, k}\mid i, j, k\text{ distinti}\}$. Infatti se 
-		$\{i, j\} = \{k, l\}$ allora $\cycle{i, j}\cycle{k, l} = id$ è un elemento
-		generato dall'insieme, se invece $|\{i, j\}\cap\{k, l\}| = 1$, ad esempio $j = k$,
-		abbiamo $\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, l} = \cycle{i, j, l}$,
-		che è un elemento generato dall'insieme. Nel caso $\{i, j\}\cap \{k, l\} = \emptyset$ abbiamo
-		$\cycle{i, j}\cycle{k, l} = \cycle{i, j}\cycle{j, k}\cycle{j, k}\cycle{k, l}=
-		\cycle{i, j, k}\cycle{j, k, l}$, che è un elemento generato dall'insieme.
-		Possiamo quindi ottenere il precedente insieme di generatori a partire
-		da questo;
-		%\item $\{\cycle{1, 2, k}\mid k \in \{3, \ldots, n\}\}$, infatti 
-	\end{itemize}
+	\begingroup
+	\renewcommand{\arraystretch}{1.5}
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			Rappresentante della classe & Cardinalità della classe & Coincide con la classe in $\Sym_n$ \\
+			\hline
+			$\cycle{1, 2, 3, 4, 5}$ & $\frac{24}{2} = 12$ & No \\
+			$\cycle{2, 1, 3, 4, 5}$ & $\frac{24}{2} = 12$ & No \\
+			$\cycle{1, 2, 3}$ & $20$ & Sì \\
+			$\cycle{1, 2}\cycle{3, 4}$ & $15$ & Sì \\
+			$\id$ & $1$ & Sì 
+		\end{tabular}
+	\end{center}
+	\endgroup
+	
+	Infatti ogni $3$-ciclo $\sigma_3$, per quanto visto prima, appartiene alla stessa classe di
+	coniugio in $\ASym_n$, dacché $\Cl_{\Sym_n}(\sigma_3) = \Cl_{\ASym_n}(\sigma_3)$. In
+	particolare $\cycle{1, 2, 3}$ è un rappresentante di tale classe. Lo stesso
+	discorso vale per le doppie trasposizioni, che hanno come rappresentante
+	$\cycle{1, 2}\cycle{3, 4}$. Per l'identità, le proprietà elencate nella tabella sono del tutto banali da verificare. \medskip
+	
+	
+	Al contrario, vi sono due classi di coniugio possibili per un $5$-ciclo, e ognuna di
+	queste classi si ottiene coniugando un rappresentante dell'altra per una permutazione
+	dispari, per quanto visto prima. Pertanto, se $\cycle{1, 2, 3, 4, 5}$ è il rappresentante di una classe,
+	$\cycle{1, 2} \cycle{1, 2, 3, 4, 5} \cycle{1, 2}\inv = \cycle{2, 1, 3, 4, 5}$ è
+	rappresentante dell'altra classe. Dal momento che entrambe hanno la stessa cardinalità
+	e partizionano $\Cl_{\Sym_n}\cycle{1, 2, 3, 4, 5}$, in particolare hanno cardinalità
+	$\frac{24}{2} = 12$.
+	
+	\subsubsection{Semplicità di $\mathcal{A}_n$ per $n \geq 5$}
+	
+	Si illustra in questa sezione un risultato fondamentale per
+	$\mathcal{A}_n$ con $n \geq 5$, che permetterà successivamente
+	di classificare tutti i sottogruppi normali di $\Sym_n$.
 	
 	\begin{definition}
-		Un gruppo non banale $G$ si dice \vocab{semplice} se i suoi unici sottogruppi
-		normali sono $\{e\}$ e $G$.
+		Un gruppo $G$ non banale si dice \vocab{semplice} se i suoi unici sottogruppi
+		normali sono $\{e\}$ e $G$, ovverosia se i suoi sottogruppi normali sono
+		banali.
 	\end{definition}
 	
 	
@@ -2208,66 +2252,58 @@
 	\end{proposition}
 	
 	\begin{proof}
-		Ricordiamo le cardinalità delle classi di coniugio in $\mathcal{A}_5$:
-		
-		
-		\begingroup
-		\renewcommand{\arraystretch}{1.5}
-		\begin{center}
-			\begin{tabular}{c|c}
-				Rappresentante della classe & Cardinalità della classe\\
-				\hline
-				$\cycle{1, 2, 3, 4, 5}$ & 12\\
-				$\cycle{2, 1, 3, 4, 5}$ & 12\\
-				$\cycle{1, 2}\cycle{3, 4}$ & 15\\
-				$\cycle{1, 2, 3}$ & 20\\
-				$id$ & 1 
-			\end{tabular}
-		\end{center}
-		\endgroup
-		In generale, un sottogruppo è normale se e solo se è unione disgiunta
-		delle classi di coniugio dei suoi elementi, quindi la cardinalità
+		Un sottogruppo è normale se e solo se è unione disgiunta
+		delle classi di coniugio dei suoi elementi. Pertanto la cardinalità
 		di $N \trianglelefteqslant \mathcal{A}_5$ deve essere somma di alcuni 
-		termini nella seconda colonna, compreso 1. D'altra parte $|N| \mid |\mathcal{A}_5| = 60$,
-		da cui $|N| = 1$ oppure $|N| = 60$. Pertanto $\mathcal{A}_5$ è semplice.
+		termini nella seconda colonna della tabella costruita precedentemente,
+		comprendendo sempre $1$. D'altra parte $\abs{N}$ deve dividere
+		$\abs{\mathcal{A}_5} = 60$, e quindi vale che:
+		\[ \abs{N} \in \{ 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 \} \]
+		Si verifica a mano che nessuna tale somma appartiene all'insieme su desritto
+		eccetto che per i casi in cui $\abs{N} = 1$ o $\abs{N} = 60$, da cui
+		si deduce che $N = \{\id\}$ o $N = \ASym_5$.
+		Pertanto $\mathcal{A}_5$ è semplice.
 	\end{proof}
+	
+	Si illustra adesso un lemma molto utile, che permetterà di dimostrare in modo
+	alternativo la semplicità di $\ASym_5$:
 	
 	\begin{lemma}
 		\label{lemma1.62}
-		Dati un gruppo $G$ e $N\trianglelefteqslant G$ un sottogruppo normale di 
-		indice finito, $N$ contiene ogni elemento di $G$ il cui ordine è coprimo
-		con $[G:N]$.
+		Sia $G$ un gruppo e $N$ un suo sottogruppo normale di 
+		indice finito. Allora $N$ contiene ogni elemento di $G$ il cui ordine è coprimo
+		con $[G : N]$.
 	\end{lemma}
 	
 	\begin{proof}
-		Sia $g \in G$ tale che $(\ord(g), [G:N]) = 1$, consideriamo la proiezione
-		\[
-		\pi_N:G \longrightarrow \faktor{G}{N} (x \longmapsto xN)
-		\]
-		Poiché $\pi_N$ è un omomorfismo abbiamo $\ord(\pi_N(g)) \mid (\ord(g), [G:N]) = 1$,
-		pertanto $\pi_N(g) = N$, cioè $g \in N$.
+		Sia $n = [G : N]$ e
+		sia $g \in G$ tale per cui $(\ord(g), n) = 1$. Si consideri la proiezione
+		$\pi_N$ di $G$ su $\faktor{G}{N}$.
+		Poiché $\pi_N$ è un omomorfismo, $\ord(\pi_N(g))$ divide $(\ord(g), n) = 1$.
+		Pertanto $\pi_N(g) = N$, ossia $g \in N$, da cui la tesi.
 	\end{proof}
 	
-	Diamo adesso una dimostrazione alternativa della semplicità di $\mathcal{A}_5$.
+	Illustriamo adesso la dimostrazione alternativa della semplicità di $\mathcal{A}_5$ a
+	cui accennavamo prima:
 	
-	\begin{proof}
-		Consideriamo un sottogruppo normale $N\trianglelefteqslant \mathcal{A}_5$.
-		Distinguiamo tre casi:
+	\begin{proof}[Dimostrazione alternativa della \autoref{prop1.61}]
+		Sia $N$ un sottogruppo normale di $\mathcal{A}_5$.
+		Distinguiamo tre casi, in base a se $2$ o $3$ dividono $[\ASym_5 : N]$:
 		\begin{itemize}
-			\item se $2 \nmid [\mathcal{A}_5:N]$, per il \hyperref[lemma1.62]{Lemma 1.62}
+			\item se $2 \nmid [\mathcal{A}_5:N]$, per il \autoref{lemma1.62}
 			$N$ contiene tutti gli elementi di 
-			$\mathcal{A}_5$ di ordine $2$, cioè le permutazioni della forma $\cycle{a, b}\cycle{c, d}$
-			con $a\neq b$ e $c \neq d$, da cui $N = \mathcal{A}_5$ in quanto contiene 
-			un suo insieme di generatori;
-			\item se $3\nmid [\mathcal{A}_5:N]$, per il \hyperref[lemma1.62]{Lemma 1.62}
+			$\mathcal{A}_5$ di ordine $2$, cioè le doppie trasposizioni, le quali
+			generano $\ASym_5$, e quindi $N = \ASym_5$;
+			\item se $3\nmid [\mathcal{A}_5:N]$, per il \autoref{lemma1.62}
 			$N$ contiene tutti gli elementi di 
-			$\mathcal{A}_5$ di ordine 3, cioè i 3-cicli, da cui $N = \mathcal{A}_5$
-			in quanto contiene un suo insieme di generatori;
-			\item se $6 \mid [\mathcal{A}_5:N]$ allora $|N| \mid 10$, ma l'unica
-			classe di coniugio di $\mathcal{A}_5$ di cardinalità minore di 10 è
-			$\{id\}$, pertanto $N = \{id\}$.
+			$\mathcal{A}_5$ di ordine $3$, cioè i $3$-cicli, che generano
+			$\ASym_5$, e quindi ancora $N = \ASym_5$;
+			\item se $6 \mid [\mathcal{A}_5:N]$, allora $\lvert N \rvert \mid 10$, ma l'unico
+			divisore di $10$ che si può ottenere sommando i termini della seconda
+			colonna della tabella delle classi di coniugio di $\ASym_5$, ammettendo
+			sempre $1$, è $1$ stesso, e quindi $N = \{\id\}$.
 		\end{itemize}
-		Quindi $\mathcal{A}_5$ è semplice.
+		In ogni caso $N$ è $\ASym_5$ o $\{\id\}$, e dunque $N$ è semplice.
 	\end{proof}
 	
 	In effetti vale un risultato più generale
@@ -2398,18 +2434,20 @@
 	
 	\begin{lemma}
 		\label{lemma1.65}
-		Per $n \geq 3$ il centro di $\mathcal{S}_n$ è banale, cioè $Z(\mathcal{S}_n) = \{id\}$.
+		Per $n \geq 3$ il centro di $\mathcal{S}_n$ è banale, ossia $\z(\mathcal{S}_n) = \{\id\}$.
 	\end{lemma}
 	
 	\begin{proof}
-		Sia $\sigma \in Z(\mathcal{S}_n) \setminus \{id\}$, allora esistono distinti 
-		$x, y \in \{1, \ldots, n\}$ tali che $\sigma(x) = y$. Fissiamo 
-		$z \in \{1, \ldots, n\}\setminus \{x, y\}$ e consideriamo la permutazione
-		$\tau = \cycle{y, z}$, abbiamo
-		\[
-		(\tau\sigma)(x) = z \quad (\sigma\tau)(x) = y
-		\]
-		che è assurdo in quanto $y \neq z$. Pertanto $Z(\mathcal{S}_n) = \{id\}$.
+		Sia $\sigma \in \z(\mathcal{S}_n)$. Si assuma $\sigma \neq \id$.
+		Allora esistono $x$ e $y$
+		distinti in $\{1, \ldots, n\}$ tali per cui $\sigma(x) = y$. Sia $z$ un elemento
+		di $\{1, \ldots, n\}$ distinto da $x$ e $y$. Posto $\tau = \cycle{y z}$
+		vale allora che
+		\[ (\tau \sigma)(x) = \tau(y) = z, \quad (\sigma \tau)(x) = \sigma(x) = y \]
+		Dal momento che $y \neq z$, vale che $\tau \sigma \neq \sigma \tau$, e dunque $\sigma
+		\notin \z(\mathcal{S}_n)$, assurdo. Pertanto $\sigma = \id$, da cui si deduce
+		che $\z(\mathcal{S}_n)$ è composto
+		della sola identità.
 	\end{proof}
 	
 	\begin{proposition}
@@ -2461,7 +2499,7 @@
 	\end{remark}
 	
 	
-	\subsubsection{Sottogruppi isomorfi a $S_{n - 1}$}\footnote{
+	\subsubsection{Sottogruppi isomorfi a $\Sym_{n - 1}$}\footnote{
 		Non sono sicuro di essere stato chiarissimo in questa sezione, se ci 
 		sono dei passi che ritenete poco comprensibili fatemelo sapere :)
 	}
@@ -2666,7 +2704,7 @@
 	g: (1, 0)\longmapsto (1, 0), (0, 1) \longmapsto (1, 1)
 	\]
 	
-	\subsubsection{Automorfismi di $D_n$}
+	\subsubsection{Automorfismi di $\Dn$}
 	
 	Consideriamo il gruppo 
 	\[
@@ -3026,7 +3064,7 @@
 	
 	\newpage
 	
-	\subsection{Classificazione dei gruppi semplici di ordine al più 100}
+	\subsection{Classificazione dei gruppi semplici di ordine al più $100$}
 	
 	In questa sezione vogliamo determinare quali sono i sottogruppi semplici di 
 	ordine minore o uguale a 100. Facciamo prima una serie di osservazioni che 
@@ -3246,7 +3284,7 @@
 	
 	\newpage
 	
-	\subsection{Studio di \texorpdfstring{$\SL_2(\FF_3)$}{SL₂(F₃)}}
+	\subsection{Studio di \texorpdfstring{$\SL_2(\FF_3)$ $\star$}{SL₂(F₃) ★}}
 	
 	Consideriamo il gruppo $\GL_2(\FF_3)$, ricordiamo che il determinante è 
 	un omomorfismo di gruppi surgettivo
