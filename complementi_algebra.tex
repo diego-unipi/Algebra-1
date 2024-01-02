@@ -4,7 +4,6 @@
 \usepackage[sexy]{evan} %evan.sty
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 % BOOST SOFTWARE LICENSE - VERSION 1.0 - 17 AUGUST 2003
@@ -490,6 +489,52 @@
 		il gruppo di Klein.
 	\end{remark}
 	
+	\begin{remark}
+		Grazie a queste ultime osservazioni, possiamo finalmente svelare un legame
+		tra $\Dn$ e $\Sym_n$. Infatti, $\Dn$ è composto dalle isometrie che
+		\textit{permutano} i vertici di un $n$-agono regolare, e quindi può associarsi
+		iniettivamente a una permutazione di $\Sym_n$. Formalmente, $\Dn$ si immerge
+		in $\Sym_n$ in modo del tutto naturale. In particolare, poiché
+		$\abs{\D_3} = 2 \cdot 3 = 3! = \abs{\Sym_3}$ e $n! > 2n$ per $n \geq 4$,
+		$\D_3$ è l'unico gruppo diedrale isomorfo al gruppo simmetrico in cui si immerge,
+		ovverosia $\Sym_3$. \medskip
+	\end{remark}
+	
+	\begin{example}[Esempio di immersione di $\D_5$ in $\Sym_5$]
+		Consideriamo in $\Sym_5$ gli elementi $\sigma = \cycle{1, 2, 3, 4, 5}$ e
+		$\tau = \cycle{2, 5}\cycle{3, 4}$, e si ponga $H = \langle\sigma, \tau\rangle$.
+		Si osserva che:
+		\[
+		\tau\sigma\tau^{-1} = \cycle{\tau(1), \tau(2), \tau(3), \tau(4), \tau(5)} = 
+		\cycle{1, 5, 4, 3, 2} = \sigma\inv
+		\]
+		Questa relazione suggerisce il legame tra $H$ e $\D_5$: non è un caso; come vedremo,
+		dal momento che $\ord(\sigma) = 5$ e $\ord(\tau) = 2$, $H$ soddisfa tutte le relazioni
+		della presentazione di $\D_5$, ed è dunque isomorfo a un suo quoziente. A partire
+		da quest'ultima identità, si ricava che $\langle \sigma, \tau \rangle =
+		\langle \sigma \rangle \cdot \langle \tau \rangle$.
+		Dal momento che
+		$\langle\sigma\rangle \cap \langle\tau\rangle$ è banale,
+		$\abs{H} = \abs{\langle\sigma\rangle} \cdot \abs{\langle\tau\rangle} = 5 \cdot 2 = 10$. Pertanto $H$ è in particolare isomorfo a $\D_5$ stesso. Infatti
+		$H$ rappresenta l'immersione naturale di $\D_5$ in $\Sym_5$ tale per cui
+		$r \mapsto \sigma$ e $s \mapsto \tau$, come illustra il seguente schema: 
+		
+		\[\begin{tikzcd}[cramped,column sep=small,row sep=scriptsize]
+			&& 1 \\
+			\\
+			2 &&&& 5 \\
+			\\
+			& 3 && 4
+			\arrow["r", tail reversed, no head, from=3-5, to=5-4]
+			\arrow["r"', from=3-5, to=1-3]
+			\arrow["r"', from=1-3, to=3-1]
+			\arrow["r"', from=3-1, to=5-2]
+			\arrow["s", tail reversed, from=5-2, to=5-4]
+			\arrow["s"', tail reversed, from=3-5, to=3-1]
+			\arrow["r"', curve={height=12pt}, from=5-2, to=5-4]
+		\end{tikzcd}\]
+	\end{example}
+	
 	
 	\subsubsection{Sottogruppi}
 	
@@ -876,8 +921,7 @@
 		\[
 		\langle r, s\mid r^n = s^2 = e, srs^{-1} = r^{-1}\rangle
 		\]
-	\end{remark}
-	
+	\end{remark}	
 	
 	\subsubsection{Automorfismi}
 	
@@ -2061,7 +2105,7 @@
 	
 	Si riassume dunque lo studio della classe di coniugio di $\sigma \in \ASym_n$ in $\ASym_n$ stesso:
 	\begin{itemize}
-		\item se $\z_{\Sym_n}(\sigma) \subseteq \ASym_n$, allora le classi di coniugio di
+		\item se $\z_{\Sym_n}(\sigma) \not\subseteq \ASym_n$, allora le classi di coniugio di
 		$\sigma$ in $\Sym_n$ e in $\ASym_n$ coincidono;
 		\item altrimenti, se $\tau$ è una permutazione dispari di $\Sym_n$, vale
 		che $\Cl_{\Sym_n}(\sigma) = \Cl_{\ASym_n}(\sigma) \cupdot \Cl_{\ASym_n}(\tau\sigma\tau\inv)$, dove ogni termine dell'unione ha metà degli
@@ -2069,36 +2113,17 @@
 		
 	\end{itemize}
 	
-	\subsubsection{Studio di $\mathcal{S}_5$}
+	\subsubsection{Classi di coniugio di $\mathcal{S}_5$ a confronto con $\mathcal{A}_5$}
 	
-	%trovare un modo per incastrare meglio questo pezzo
-	Consideriamo gli elementi di $\mathcal{S}_5$ $\sigma = \cycle{1, 2, 3, 4, 5}, 
-	\tau = \cycle{2, 5}\cycle{3, 4}$, studiamo il sottogruppo $H = \langle\sigma, \tau\rangle$,
-	in particolare siamo interessati a determinare una regola di commutazione
-	per $\sigma$ e $\tau$. Osserviamo che 
-	\[
-	\tau\sigma\tau^{-1} = \cycle{\tau(1), \tau(2), \tau(3), \tau(4), \tau(5)} = 
-	\cycle{1, 5, 4, 3, 2}
-	\]
-	e che questo coincide con $\sigma^{-1}$. Abbiamo quindi che $H$ è generato 
-	da un elemento $\tau$ di ordine 2 e da un elemento $\sigma$ di ordine 5 
-	che soddisfano la relazione $\tau\sigma\tau^{-1} = \sigma^{-1}$, pertanto 
-	$H$ è isomorfo a un sottogruppo del gruppo diedrale $D_5$. D'altra parte, 
-	da questa relazione ricaviamo che $\langle \tau\rangle \subseteq N_{\mathcal{S}_5}(\langle\sigma\rangle)$,
-	pertanto possiamo scrivere $H = \langle\sigma\rangle\cdot\langle\tau\rangle$
-	in quanto $\langle\sigma\rangle\cdot\langle\tau\rangle$ è un sottogruppo di $H$
-	che ha la sua stessa cardinalità. In particolare otteniamo che $|H| = 10 = |D_5|$,
-	quindi $H \cong D_5$.\\
-	
-	%%%
-	
-	Abbiamo visto che le classi di coniugio in un gruppo simmetrico su $n$ elementi
-	sono parametrizzate dalle partizioni di $n$
+	Illustriamo adesso una tabella che conta le cardinalità delle varie classi di coniugio
+	in $\Sym_5$, che ricordiamo essere esattamente gli insiemi delle permutazioni con
+	la medesima decomposizione in cicli (e dunque le classi di coniugio sono in bigezione
+	con le partizioni di $5$).
 	\begingroup
 	\renewcommand{\arraystretch}{2}
 	\begin{center}
 		\begin{tabular}{c|c}
-			Partizioni di 5 & Cardinalità della classe di coniugio associata\\
+			Partizioni di $5$ & Cardinalità della classe di coniugio associata\\
 			\hline
 			5 & $\displaystyle\binom{5}{5}4! = 4! = 24$\\
 			4 + 1 & $\displaystyle\binom{5}{4}3! = 30$\\
@@ -2110,50 +2135,45 @@
 		\end{tabular}
 	\end{center}
 	\endgroup
-	(Nel calcolo della cardinalità della classe associata alla partizione 2 + 2 + 1
-	dividiamo per 2 in quanto contiamo i cicli a meno dell'ordine, e
-	le coppie di trasposizioni che stiamo considerando commutano).
-	Di queste, le permutazioni che appartengono a $\mathcal{A}_5$ sono quelle
-	la cui classe di coniugio è associata alle partizioni 5, 3 + 1 + 1, 
-	2 + 2 + 1, 1 + 1 + 1 + 1 + 1, cioè le permutazioni $\sigma, \tau, \rho$
+	Si osserva che nel calcolo della cardinalità della classe associata
+	alla partizione $2 + 2 + 1$ è necessario dividere per $2$, dacché contiamo i cicli di
+	stessa lunghezza a meno dell'ordine.
+	Di queste, le permutazioni non banali che appartengono a $\mathcal{A}_5$ sono quelle
+	la cui classe di coniugio è associata alle partizioni $5$, $3 + 1 + 1$ e
+	$2 + 2 + 1$, cioè le permutazioni $\sigma_5$, $\sigma_3$ e $\sigma_2$
 	aventi una decomposizione in cicli disgiunti della forma
 	\[
-	\sigma = \cycle{a_1, a_2, a_3, a_4, a_5}
+	\sigma_5 = \cycle{a_1, a_2, a_3, a_4, a_5}, \quad \sigma_3 = \cycle{b_1, b_2, b_3}, \quad \sigma_2 = \cycle{c_1, c_2}\cycle{d_1, d_2}
 	\]
-	\[
-	\tau = \cycle{b_1, b_2, b_3}
-	\]
-	\[
-	\rho = \cycle{c_1, c_2}\cycle{d_1, d_2}
-	\]
-	e l'identità. Vediamo come sono fatte le loro classi di coniugio in $\mathcal{A}_5$.
-	Chiaramente $\Cl_{\mathcal{A}_n}(id) = \Cl_{\mathcal{S}_n}(id) = \{id\}$, studiamo quindi
-	le classi di $\sigma, \tau, \rho$ fissate come sopra.
+	
+	Studiamo le classi di coniugio di questi elementi in $\ASym_5$.
 	\begin{itemize}
-		\item $Z_{\mathcal{S}_5}(\sigma) = \langle\cycle{a_1, a_2, a_3, a_4, a_5}\rangle$,
-		infatti 
+		\item si mostra che $\z_{\mathcal{S}_5}(\sigma_5) = \langle\cycle{a_1, a_2, a_3, a_4, a_5}\rangle$,
+		infatti vale che:
 		\[
-		|Z_{\mathcal{S}_5}(\sigma)| = \frac{|\mathcal{S}_5|}{|\Cl_{\mathcal{S}_5}(\sigma)|} = \frac{5!}{4!} = 5
+		\lvert \z_{\mathcal{S}_5}(\sigma_5) \rvert = \frac{\lvert \mathcal{S}_5 \rvert}{\lvert \Cl_{\mathcal{S}_5}(\sigma_5) \rvert} = \frac{5!}{4!} = 5
 		\]
-		Allora $Z_{\mathcal{S}_5}(\sigma)$ contiene solo permutazioni pari, fissata $\psi$
-		una permutazione dispari la sua
-		classe di coniugio in $\mathcal{S}_5$ si scrive come
+		Allora $\z_{\mathcal{S}_5}(\sigma_5)$ contiene solo permutazioni pari.
+		Data dunque una permutazione dispari $\psi \in \Sym_5$, per quanto visto prima, vale dunque che:
 		\[
-		\Cl_{\mathcal{S}_5}(\sigma) = \Cl_{\mathcal{A}_5}(\sigma) \cupdot \Cl_{\mathcal{A}_5}(\psi\sigma\psi^{-1})
+		\Cl_{\mathcal{S}_5}(\sigma_5) = \Cl_{\mathcal{A}_5}(\sigma_5) \cupdot \Cl_{\mathcal{A}_5}(\psi\sigma_5\psi^{-1})
 		\]
-		\item $Z_{\mathcal{S}_5}(\tau)$ non è contenuto in $\mathcal{A}_5$, infatti una
-		trasposizione $\psi$ disgiunta da $\tau$ è una permutazione dispari che
-		appartiene al centralizzatore. Pertanto
+		\item $\z_{\mathcal{S}_5}(\sigma_3)$ non è contenuto in $\mathcal{A}_5$ dal momento
+		che una
+		trasposizione $\psi$ disgiunta da $\sigma_3$ è una permutazione dispari che
+		appartiene al $\z_{\mathcal{S}_5}(\sigma_3)$. Pertanto
+		vale che:
 		\[
-		\Cl_{\mathcal{S}_5}(\tau) = \Cl_{\mathcal{A}_5}(\tau)
+		\Cl_{\mathcal{S}_5}(\sigma_3) = \Cl_{\mathcal{A}_5}(\sigma_3)
 		\]
-		\item $Z_{\mathcal{S}_5}(\rho)$ non è contenuto in $\mathcal{A}_5$, infatti la 
-		trasposizione $\cycle{c_1, c_2}$ è una permutazione dispari che commuta
-		con $\rho$ (infatti $\cycle{c_1, c_2}$ e $\cycle{d_1, d_2}$ commutano in 
-		quanto cicli disgiunti e $\cycle{c_1, c_2}$ commuta con se stessa).
-		Pertanto 
+		\item anche $\z_{\mathcal{S}_5}(\sigma_5)$ non è contenuto in $\mathcal{A}_5$,
+		dal momento che
+		$\cycle{c_1, c_2}$ è una permutazione dispari che commuta
+		con $\sigma_5$. Infatti $\cycle{c_1, c_2}$ e $\cycle{d_1, d_2}$ commutano in 
+		quanto cicli disgiunti e $\cycle{c_1, c_2}$ commuta con se stessa.
+		Pertanto vale ancora che:
 		\[
-		\Cl_{\mathcal{S}_5}(\rho) = \Cl_{\mathcal{A}_5}(\rho)
+		\Cl_{\mathcal{S}_5}(\sigma_5) = \Cl_{\mathcal{A}_5}(\sigma_5)
 		\]
 	\end{itemize}
 	
