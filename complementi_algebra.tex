@@ -1733,7 +1733,7 @@
 	
 	\newpage
 	
-	\subsection{Gruppo simmetrico}
+	\subsection{Gruppo simmetrico e gruppo alterno}
 	
 	\subsubsection{Generatori di $\mathcal{S}_n$ e $\mathcal{A}_n$}
 	
@@ -2136,7 +2136,7 @@
 		
 	\end{itemize}
 	
-	\subsubsection{Classi di coniugio di $\mathcal{S}_5$ a confronto con $\mathcal{A}_5$}
+	\subsubsection{Classificazione delle classi di coniugio di $\mathcal{A}_5$ e di $\mathcal{A}_6$}
 	
 	Illustriamo adesso una tabella che conta le cardinalità delle varie classi di coniugio
 	in $\Sym_5$, che ricordiamo essere esattamente gli insiemi delle permutazioni con
@@ -2148,12 +2148,12 @@
 		\begin{tabular}{c|c}
 			Partizioni di $5$ & Cardinalità della classe di coniugio associata\\
 			\hline
-			5 & $\displaystyle\binom{5}{5}4! = 4! = 24$\\
-			4 + 1 & $\displaystyle\binom{5}{4}3! = 30$\\
-			3 + 2 & $\displaystyle\binom{5}{3}2!\binom{2}{2}1! = 20$\\
-			3 + 1 + 1 & $\displaystyle\binom{5}{3}2! = 20$\\
-			2 + 2 + 1 & $\displaystyle\frac 1 2\binom{5}{2}1!\binom{3}{2}1! = 15$\\
-			2 + 1 + 1 + 1 & $\displaystyle\binom{5}{2}1! = 10$\\
+			5 & $\binom{5}{5} \frac{5!}{5} = 4! = 24$\\
+			4 + 1 & $\binom{5}{4} \frac{4!}{4} = 30$\\
+			3 + 2 & $\binom{5}{3} \frac{4!}{4} \binom{2}{2} \frac{2!}{2} = 20$\\
+			3 + 1 + 1 & $\binom{5}{3} \frac{3!}{3} = 20$\\
+			2 + 2 + 1 & $\frac 1 2\binom{5}{2} \frac{2!}{2} \binom{3}{2} \frac{2!}{2} = 15$\\
+			2 + 1 + 1 + 1 & $\binom{5}{2} \frac{2!}{2} = 10$\\
 			1 + 1 + 1 + 1 + 1 & $1$
 		\end{tabular}
 	\end{center}
@@ -2189,14 +2189,14 @@
 		\[
 		\Cl_{\mathcal{S}_5}(\sigma_3) = \Cl_{\mathcal{A}_5}(\sigma_3)
 		\]
-		\item anche $\z_{\mathcal{S}_5}(\sigma_5)$ non è contenuto in $\mathcal{A}_5$,
+		\item anche $\z_{\mathcal{S}_5}(\sigma_2)$ non è contenuto in $\mathcal{A}_5$,
 		dal momento che
 		$\cycle{c_1, c_2}$ è una permutazione dispari che commuta
-		con $\sigma_5$. Infatti $\cycle{c_1, c_2}$ e $\cycle{d_1, d_2}$ commutano in 
+		con $\sigma_2$. Infatti $\cycle{c_1, c_2}$ e $\cycle{d_1, d_2}$ commutano in 
 		quanto cicli disgiunti e $\cycle{c_1, c_2}$ commuta con se stessa.
 		Pertanto vale ancora che:
 		\[
-		\Cl_{\mathcal{S}_5}(\sigma_5) = \Cl_{\mathcal{A}_5}(\sigma_5)
+		\Cl_{\mathcal{S}_5}(\sigma_2) = \Cl_{\mathcal{A}_5}(\sigma_2)
 		\]
 	\end{itemize}
 	
@@ -2231,7 +2231,70 @@
 	$\cycle{1, 2} \cycle{1, 2, 3, 4, 5} \cycle{1, 2}\inv = \cycle{2, 1, 3, 4, 5}$ è
 	rappresentante dell'altra classe. Dal momento che entrambe hanno la stessa cardinalità
 	e partizionano $\Cl_{\Sym_n}\cycle{1, 2, 3, 4, 5}$, in particolare hanno cardinalità
-	$\frac{24}{2} = 12$.
+	$\frac{24}{2} = 12$. \medskip
+
+	
+	Analogamente a quanto fatto per $\ASym_5$, si possono descrivere le cardinalità
+	delle classi di coniugio di $\ASym_6$. Innanzitutto contiamo le cardinalità delle
+	classi di coniugio degli elementi di $\ASym_6$ in $\Sym_6$:
+	
+	\begingroup
+	\renewcommand{\arraystretch}{2}
+	\begin{center}
+		\begin{tabular}{c|c}
+			Partizioni di $6$ relative a elementi di $\ASym_6$ & Cardinalità della classe di coniugio associata\\
+			\hline
+			5 + 1 & $\binom{6}{5} \frac{5!}{5} = 144 $ \\
+			4 + 2 & $\binom{6}{4} \frac{4!}{4} \binom{2}{2} \frac{2!}{2} = 90$ \\
+			3 + 3 & $\frac{1}{2} \binom{6}{3} \frac{3!}{3} \binom{3}{3} \frac{3!}{3} = 40$ \\
+			3 + 1 + 1 + 1 & $\binom{6}{3} \frac{3!}{3} = 40$ \\
+			2 + 2 + 1 + 1 & $\frac{1}{2} \binom{6}{2} \frac{2!}{2} \binom{4}{2} \frac{2!}{2} = 45$ \\
+			1 + 1 + 1 + 1 + 1 + 1 & $1$
+		\end{tabular}
+	\end{center}
+	\endgroup
+	
+	Si mostra che, eccetto per quella di un $5$-ciclo, tutte le classi di coniugio
+	di $\ASym_6$ coincidono con quelle di $\Sym_6$.
+	
+	\begin{itemize}
+		\item se $\sigma_5$ è un $5$-ciclo, allora $\abs{\z_{\Sym_6}(\sigma_5)} = \frac{6!}{144} = 5$ per il Lemma orbita-stabilizzatore; pertanto
+		$\z_{\Sym_6}(\sigma_5) = \langle \sigma_5 \rangle \subseteq \ASym_6$;
+		\item se $\sigma_{4,2}$ è un prodotto di un $4$-ciclo e di un $2$-ciclo, allora
+		$\sigma_4$ commuta con la trasposizione che compare nella sua decomposizione,
+		e dunque $\z_{\Sym_6}(\sigma_4) \not\subseteq \ASym_6$; lo stesso
+		discorso si applica a un prodotto $\sigma_{2,2}$ di due $2$-cicli;
+		\item se $\sigma_{3,3} = (a_1, a_2, a_3)(b_1, b_2, b_3)$ è prodotto di due $3$-cicli,
+		allora, posto:
+		\[ \tau = (a_1, b_1)(a_2, b_2)(a_3, b_3) \]
+		vale che
+		$\tau \sigma_{3,3} \tau\inv = \sigma_{3,3}$, e quindi $\sigma_{3,3}$ e $\tau$
+		commutano; dacché $\tau \notin \ASym_6$, $\z_{\Sym_6}(\sigma_{3,3}) \not\subseteq \ASym_6$;
+		\item se $\sigma_3$ è un $3$-ciclo, allora $\sigma_3$ commuta con una trasposizione
+		composta da elementi che non compaiono in $\sigma_3$, e quindi ancora
+		$\z_{\Sym_6}(\sigma_{3}) \not\subseteq \ASym_6$.
+	\end{itemize}
+	
+	Si illustrano adesso i numeri degli elementi nelle classi di coniugio di
+	$\ASym_6$, secondo le stesse ragioni impiegate per costruire la tabella
+	relativa a $\ASym_5$:
+	
+	\begingroup
+	\renewcommand{\arraystretch}{1.5}
+	\begin{center}
+		\begin{tabular}{c|c|c}
+			Rappresentante della classe & Cardinalità della classe & Coincide con la classe in $\Sym_n$ \\
+			\hline
+			$\cycle{1, 2, 3, 4, 5}$ & $\frac{144}{2} = 72$ & No \\
+			$\cycle{2, 1, 3, 4, 5}$ & $\frac{144}{2} = 72$ & No \\
+			$\cycle{1, 2, 3, 4} \cycle{5, 6}$ & $90$ & Sì \\
+			$\cycle{1, 2, 3} \cycle{4, 5, 6}$ & $40$ & Sì \\
+			$\cycle{1, 2, 3}$ & $40$ & Sì \\
+			$\cycle{1, 2} \cycle{3, 4}$ & $45$ & Sì \\
+			$\id$ & $1$ & Sì 
+		\end{tabular}
+	\end{center}
+	\endgroup
 	
 	\subsubsection{Semplicità di $\mathcal{A}_n$ per $n \geq 5$}
 	
@@ -2245,24 +2308,56 @@
 		banali.
 	\end{definition}
 	
+	\begin{remark}
+		Gli unici gruppi abeliani finiti semplici sono i gruppi ciclici $\Z{p}$ con
+		$p$ numero primo. Se infatti $G$ fosse un gruppo abeliano finito, detto
+		$n = \abs{G}$, se $n$ non fosse primo esisterebbe un suo divisore proprio e
+		non banale $k$. Inoltre, poiché $k \mid n$, esiste un sottogruppo non banale $H$
+		di ordine $k$ in $G$. Dacché $G$ è abeliano, $H$ è normale, e dunque $G$
+		non è semplice.
+	\end{remark}
 	
 	\begin{proposition}
 		\label{prop1.61}
-		$\mathcal{A}_5$ è un gruppo semplice.
+		$\mathcal{A}_5$ è semplice.
 	\end{proposition}
 	
 	\begin{proof}
 		Un sottogruppo è normale se e solo se è unione disgiunta
 		delle classi di coniugio dei suoi elementi. Pertanto la cardinalità
 		di $N \trianglelefteqslant \mathcal{A}_5$ deve essere somma di alcuni 
-		termini nella seconda colonna della tabella costruita precedentemente,
+		termini nella seconda colonna della tabella costruita precedentemente
+		per le classi di coniugio di $\ASym_5$,
 		comprendendo sempre $1$. D'altra parte $\abs{N}$ deve dividere
 		$\abs{\mathcal{A}_5} = 60$, e quindi vale che:
 		\[ \abs{N} \in \{ 1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60 \} \]
-		Si verifica a mano che nessuna tale somma appartiene all'insieme su desritto
+		Si verifica a mano che nessuna tale somma appartiene all'insieme su descritto
 		eccetto che per i casi in cui $\abs{N} = 1$ o $\abs{N} = 60$, da cui
 		si deduce che $N = \{\id\}$ o $N = \ASym_5$.
 		Pertanto $\mathcal{A}_5$ è semplice.
+	\end{proof}
+	
+	Seguendo la stessa traccia si può dimostrare che anche $\ASym_6$ è semplice, da cui
+	dedurremo successivamente che $\ASym_n$ è semplice per $n \geq 5$.
+
+	\begin{proposition}
+		\label{prop:a_6}
+		$\mathcal{A}_6$ è semplice.
+	\end{proposition}
+	
+	\begin{proof}
+		Come prima, un sottogruppo è normale se e solo se è unione disgiunta
+		delle classi di coniugio dei suoi elementi. Quindi la cardinalità
+		di un sottogruppo normale $N$ di $\mathcal{A}_6$ deve essere somma di alcuni 
+		termini della seconda colonna della tabella costruita appositamente
+		per le classi di coniugio di $\ASym_6$,
+		in cui si ammette sempre $1$. Inoltre $\abs{N}$ deve dividere
+		$\abs{\mathcal{A}_6} = 360$, e quindi vale che:
+		\[ \abs{N} \in \{1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360\} \]
+		Si verifica manualmente che nessuna tale somma appartiene a questo insieme,
+		eccetto che per i casi in cui $\abs{N} = 1$ o $\abs{N} = 60$, da cui
+		si deduce che $N = \{\id\}$ o $N = \ASym_6$.
+		Si conclude dunque che $\mathcal{A}_6$ è semplice.
 	\end{proof}
 	
 	Si illustra adesso un lemma molto utile, che permetterà di dimostrare in modo
@@ -2283,9 +2378,6 @@
 		Pertanto $\pi_N(g) = N$, ossia $g \in N$, da cui la tesi.
 	\end{proof}
 	
-	Illustriamo adesso la dimostrazione alternativa della semplicità di $\mathcal{A}_5$ a
-	cui accennavamo prima:
-	
 	\begin{proof}[Dimostrazione alternativa della \autoref{prop1.61}]
 		Sia $N$ un sottogruppo normale di $\mathcal{A}_5$.
 		Distinguiamo tre casi, in base a se $2$ o $3$ dividono $[\ASym_5 : N]$:
@@ -2303,130 +2395,92 @@
 			colonna della tabella delle classi di coniugio di $\ASym_5$, ammettendo
 			sempre $1$, è $1$ stesso, e quindi $N = \{\id\}$.
 		\end{itemize}
-		In ogni caso $N$ è $\ASym_5$ o $\{\id\}$, e dunque $N$ è semplice.
+		In ogni caso $N$ è $\ASym_5$ o $\{\id\}$, e dunque $\ASym_5$ è semplice.
 	\end{proof}
 	
-	In effetti vale un risultato più generale
+	A partire dal seguente lemma si può poi dimostrare che $\ASym_n$ è semplice per $n \geq 5$:
 	
-	\begin{proposition}
-		$\mathcal{A}_n$ è un gruppo semplice per $n \geq 5$.
-	\end{proposition}
+	\begin{lemma}
+		\label{lemma1.79}
+		Sia $H$ un sottogruppo normale di $\ASym_n$ con $n \geq 5$. Se $H$ contiene un $3$-ciclo,
+		allora $H$ contiene tutti i $3$-cicli, e in particolare $H = \ASym_n$.
+	\end{lemma}
 	
 	\begin{proof}
-		Procediamo per induzione su $n$, per $n = 5$ la tesi è garantita dalla 
-		\hyperref[prop1.61]{Proposizione 1.61}, supponiamo quindi che $\mathcal{A}_n$
-		sia un gruppo semplice e mostriamo che anche $\mathcal{A}_{n + 1}$ lo è.
-		Consideriamo un sottogruppo normale $N \trianglelefteqslant \mathcal{A}_{n + 1}$
-		e i sottogruppi 
-		\[
-		H_i = \{\sigma \in \mathcal{A}_{n + 1}\mid \sigma(i) = i\},~
-		i \in \{1, \ldots, n + 1\}
-		\]
-		questi sono tutti isomorfi a $\mathcal{A}_n$ (infatti
-		gli elementi di $H_i$ sono tutte e sole le permutazioni pari su $n + 1$
-		elementi che fissano l'$i$-esimo, cioè sono permutazioni pari su $n$ elementi).
-		Notiamo che l'azione naturale di $\mathcal{A}_{n + 1}$ su $\{1, \ldots, n + 1\}$
-		\[
-		\psi:\mathcal{A}_{n + 1} \longrightarrow S_{n + 1} :\sigma \longmapsto \sigma
-		\]
-		è transitiva, infatti per $i, j \in \{1, \ldots, n + 1\}$ distinti 
-		la permutazione pari $\rho =\nolinebreak \cycle{i, j}\cycle{h, k}$, con $\cycle{i, j}$
-		disgiunta da $\cycle{h, k}$, è tale che $\rho(i) = j$. Per costruzione 
-		vale $\St(i) = H_i$ per ogni $i \in \{1, \ldots, n + 1\}$, pertanto
-		per la \hyperref[prop1.41]{Proposizione 1.41} abbiamo che gli $H_i$ sono 
-		tutti coniugati.\newline
-		Fissato $i \in \{1, \ldots, n + 1\}$, consideriamo $N \cap H_i$: questo
-		è un sottogruppo normale di $H_i$, infatti per ogni $h \in H_i$ si ha 
-		$h(N\cap H_i)h^{-1} = N\cap H_i$ in quanto $N$ è normale in $\mathcal{A}_{n + 1}$
-		e $h \in H_i$, d'altra parte $H_i \cong \mathcal{A}_n$ è un gruppo semplice
-		per ipotesi induttiva, pertanto $N\cap H_i$ coincide con $\{id\}$ oppure 
-		con $H_i$. \newline
-		Se $N \cap H_i = H_i$ allora $H_i \subseteq N$, pertanto $N$ 
-		contiene almeno un 3-ciclo $\cycle{i, j, k}$ e tutti i suoi coniugati in 
-		$\mathcal{A}_{n + 1}$. Notiamo che una trasposizione $\cycle{a, b}$
-		disgiunta da $\cycle{i, j, k}$ (che esiste in quanto $n \geq 5$) è una
-		permutazione dispari in $Z_{S_{n + 1}}(\cycle{i, j, k})$, pertanto 
-		$\Cl_{\mathcal{A}_{n + 1}}(\cycle{i, j, k}) = \Cl_{S_{n + 1}}(\cycle{i, j, k})$
-		e $N$ contiene l'insieme dei 3-cicli di $S_{n + 1}$, quindi $N = 
-		\mathcal{A}_{n + 1}$ dal momento che contiene un suo insieme di generatori.
-		\newline
-		Altrimenti $N\cap H_i = \{id\}$ per ogni $i \in \{1, \ldots, n + 1\}$,
-		cioè l'unico elemento di $N$ avente almeno un punto fisso è l'identità,
-		vogliamo mostrare che in effetti $N = \{id\}$. Osserviamo che se
-		$\sigma \in N$ ha una decomposizione in cicli disgiunti
-		della forma
-		\[
-		\sigma = \cycle{x_1^{(1)}, \ldots, x_{l_1}^{(1)}}\ldots\cycle{x_1^{(k)}, \ldots, x_{l_k}^{(k)}}
-		\]
-		con $l_1\leqslant l_2\leqslant \ldots\leqslant l_k$, allora i suoi cicli 
-		hanno tutti la stessa lunghezza, cioè $l_i = l_j$ per ogni $i, j \in \{1, \ldots, n + 1\}$.
-		Infatti, posto $r = \min\{l_i\mid 1\leqslant i \leqslant k\} = l_1$, 
-		abbiamo
-		\[
-		\sigma^{l_1} = id \cdot \cycle{x_1^{(2)}, \ldots, x_{l_2}^{(2)}}^{l_1}
-		\ldots\cycle{x_1^{(k)}, \ldots, x_{l_k}^{(k)}}^{l_1}
-		\]
-		Poiché $\sigma^{l_1}$ ha almeno un punto fisso, esiste $i \in \{1, \ldots, n + 1\}$
-		tale che $\sigma^{l_1} \in N\cap H_i = \{id\}$, cioè $\sigma^{l_1} = id$. Pertanto 
-		$l_1 = l_2 = \ldots = l_k$. Fissata $\sigma \in N$ possiamo quindi scrivere
-		$\sigma = \sigma_1\ldots\sigma_k$,
-		dove $\sigma_i$ sono $l$-cicli disgiunti con $l = \displaystyle\frac{n + 1}{k}$.
-		Supponiamo per assurdo $N \neq \{id\}$, distinguiamo tre casi:
-		\begin{itemize}
-			\item se $k = 1$ abbiamo $l = n + 1$, cioè $\sigma$ è un $n + 1$-ciclo.
-			Scriviamo $\sigma = \cycle{a_1, \ldots, a_l}$ e consideriamo la permutazione
-			pari $\tau = \cycle{a_1, a_2}\cycle{a_3, a_4}$, poiché $N$ è normale in 
-			$\mathcal{A}_{n + 1}$ contiene
-			\[
-			\tau\sigma\tau^{-1} = \cycle{a_2, a_1, a_4, a_3, a_5, a_6, \ldots, a_l}
-			\]
-			Consideriamo $\rho = (\tau\sigma\tau^{-1})\sigma \in N$, notiamo che
-			$\rho \neq id$ in quanto
-			\[
-			\rho(a_4) = (\tau\sigma\tau^{-1})(\sigma(a_4)) = (\tau\sigma\tau^{-1})(a_5) = 
-			a_6 \neq a_4
-			\]
-			d'altra parte $a_1$ è un punto fisso per $\rho$, che è assurdo;
-			\item se $k > 1$ e $l > 2$, poiché $\sigma_1^{-1}$ è un $l$-ciclo
-			disgiunto da $\sigma_2, \ldots, \sigma_k$ la permutazione 
-			$\rho = \sigma_1^{-1}\sigma_2\ldots\sigma_k$ è un elemento di $N$. 
-			Consideriamo $\alpha = \rho\sigma \in N$, osserviamo che 
-			\[
-			\alpha = \sigma_2^2\ldots\sigma_k^2 \neq id
-			\]
-			in quanto $\ord(\sigma_i) = l > 2$ per ogni $i \in \{1, \ldots, k\}$,
-			tuttavia $a_1$ è un punto fisso per $\alpha$, che è assurdo;
-			\item se $k > 1$ e $l = 2$, scriviamo $\sigma$ come prodotto di $k$
-			trasposizioni disgiunte
-			\[
-			\sigma = \cycle{a_1, b_1}\ldots\cycle{a_k, b_k}
-			\]
-			Consideriamo la permutazione pari $\tau = \cycle{a_1, a_2, b_1}$,
-			poiché $N$ è normale in $\mathcal{A}_{n + 1}$ contiene
-			\[
-			\rho = \tau\sigma\tau^{-1} = \cycle{a_2, a_1}\cycle{b_1, b_2}
-			\cycle{a_3, b_3}\ldots\cycle{a_k, b_k}
-			\]
-			e anche la permutazione 
-			\[
-			\alpha = \rho\sigma = (\cycle{a_2, a_1}\cycle{b_1, b_2})
-			(\cycle{a_1, b_1}\cycle{a_2, b_2}) = \cycle{a_1, b_2}\cycle{a_2, b_1} \neq id
-			\]
-			ma $a_3$ è un punto fisso per $\alpha$, che è assurdo.
-		\end{itemize}
-		Pertanto $N = \{id\}$, cioè $\mathcal{A}_{n + 1}$ è un gruppo semplice.
+		Sia $\sigma_3 = \cycle{a_1, a_2, a_3}$ il $3$-ciclo contenuto in $H$. Poiché $H$ è normale,
+		$\Cl_{\ASym_n}(\sigma_3) \subseteq H$. Poiché $n \geq 5$, esistono $a_4$ e $a_5$ distinti dagli elementi di $\sigma_3$, e dunque $\sigma_3$ commuta con $\tau = \cycle{a_4, a_5}$, essendo un ciclo distinto. Allora $\z_{\Sym_n}(\sigma_3) \not\subseteq \ASym_n$, e dunque la classe di coniugio di
+		$\sigma_3$ in $\ASym_3$ coincide con quella in $\Sym_n$. Pertanto vale che:
+		\[ \Cl_{\Sym_n}(\sigma_3) = \Cl_{\ASym_n}(\sigma_3) \subseteq H \]
+		e dunque, essendo $\Cl_{\Sym_n}(\sigma_3)$ l'insieme di tutti i $3$-cicli di
+		$\Sym_n$, $H$ contiene tutti i $3$-cicli. In particolare, dacché i $3$-cicli
+		generano $\ASym_n$, $H = \ASym_n$, da cui la tesi.
+	\end{proof}
+	
+	\begin{theorem}
+		\label{th:an_semplice}
+		$\mathcal{A}_n$ è semplice per $n \geq 5$.
+	\end{theorem}
+	
+	\begin{proof}
+		Per $n = 5$ la tesi è garantita dalla \autoref{prop1.61}. Si procede per
+		induzione per $n \geq 6$. Il passo base è già garantito dalla \autoref{prop:a_6}.
+		\medskip
+		
+		Si assuma ora l'ipotesi induttiva. Sia $H \trianglelefteqslant \ASym_{n+1}$
+		con $n \geq 6$. Consideriamo $K_i$ come il sottogruppo delle permutazioni pari
+		di $\ASym_{n+1}$ che fissano un $i$ generico, ovverosia:
+		\[ K_i = \{ \sigma \in \ASym_{n+1} \mid \sigma(i) = i \} \]
+		Questo sottogruppo è naturalmente isomorfo a $\ASym_n$, allo stesso modo in
+		cui il sottogruppo delle permutazioni di $\Sym_{n+1}$ che fissano un $i$ generico
+		è isomorfo in modo naturale a $\Sym_n$. \medskip
+		
+		
+		Dal momento che $H$ è normale, $H \cap K_i$ è normale in $K_i \cong \ASym_n$, che
+		tuttavia è semplice. Pertanto $H \cap K_i$ è banale o è $K_i$ stesso.
+		Se $H \cap K_i$ è $K_i$ per un qualche $i$,
+		allora $K_i \subseteq H$, e dunque $H$ contiene un
+		$3$-ciclo. Allora, per il \autoref{lemma1.79}, $H$ è $\ASym_n$. \medskip
+		
+		
+		Se invece $H \cap K_i$ è banale per ogni $i$, si mostra che $H = \{\id\}$.
+		Se infatti $H$ non fosse composto della sola identità, allora si potrebbe supporre
+		per assurdo che esiste $\sigma \in H \setminus \{\id\}$. Poiché $\sigma \neq \id$,
+		esiste $j \neq 1$ tale per cui $\sigma(1) = j$ (altrimenti $\sigma$ stabilizzerebbe
+		$1$ e apparterrebbe a $H \cap K_1$). \medskip
+		
+		
+		Sia $\tau$ il $3$-ciclo $\cycle{j, k, l}$, dove $j$, $k$, $l$ e $1$ sono elementi
+		distinti. Si consideri il commutatore $[\sigma, \tau] = \sigma \tau \sigma\inv \tau\inv$. Si osserva che $[\sigma, \tau]$ appartiene ad $H$, infatti:
+		\[ [\sigma, \tau] = \underbrace{\sigma}_{\in H} \underbrace{(\tau \sigma\inv \tau\inv)}_{\in H} \in H \]
+		Detto $\rho = (\sigma \tau \sigma\inv)$, $[\sigma, \tau]$ è prodotto di due
+		$3$-cicli, ovverosia $\rho$ e $\tau\inv$, e può dunque contenere nella sua
+		decomposizione al più $6$ elementi non fissi. \medskip
+		
+
+		Poiché $n \geq 6$, $\ASym_{n+1}$ contiene
+		naturalmente $\ASym_{7}$, e quindi $[\sigma, \tau]$ deve ammettere almeno un
+		punto fisso. Poiché però $H \cap K_i$ è banale per ogni $i$, ciò vuol dire
+		che $[\sigma, \tau]$ è l'identità stessa. Pertanto $\sigma$ e $\tau$ devono
+		commutare. \medskip
+		
+		
+		Tuttavia $(\sigma \tau)(1) = \sigma(1) = j$, mentre $(\tau \sigma)(1) = \tau(j) =
+		k \neq j$. Quindi $\sigma$ e $\tau$ non commutano, assurdo. Pertanto
+		$H = \{\id\}$, da cui si deduce che $\ASym_{n+1}$ è semplice. Si conclude
+		dunque induttivamente che $\ASym_n$ è semplice per $n \geq 6$, e dunque che
+		lo è per $n \geq 5$, da cui la tesi.
 	\end{proof}
 	
 	\begin{corollary}
-		L'insieme $X = \{\sigma \in \mathcal{S}_n\mid \sigma \text{ è un 5-ciclo}\}$ genera
-		$\mathcal{A}_n$ per $n \geqslant 5$.
+		L'insieme $X = \{\sigma \in \mathcal{S}_n\mid \sigma \text{ è un }5\text{-ciclo}\}$ genera
+		$\mathcal{A}_n$ per $n \geq 5$.
 	\end{corollary}
 	
 	\begin{proof}
-		Sia $\sigma \in X$ un 5-ciclo, per ogni $\tau \in \mathcal{A}_n$
-		abbiamo che $\tau\sigma\tau^{-1}$ è ancora un elemento di $X$, pertanto
-		$\langle X\rangle$ è un sottogruppo normale di $\mathcal{A}_n$, da cui 
-		$\langle X \rangle = \mathcal{A}_n$ in quanto diverso da $\{id\}$.
+		Si osserva che $\langle X \rangle$ è un sottogruppo normale di
+		$\ASym_n$ che contiene almeno un elemento distinto dall'identità.
+		Allora, per il \autoref{th:an_semplice}, $\langle X \rangle$ è necessariamente
+		$\ASym_n$, da cui la tesi.
 	\end{proof}
 	
 	
