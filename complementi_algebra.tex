@@ -1463,6 +1463,69 @@
 	\end{proof}
 	
 	
+	\subsubsection{Il Lemma normalizzatore-centralizzatore}
+	
+	Si definisce il centralizzatore di un sottogruppo $H$ in $G$:
+	
+	\begin{definition}
+		Sia $H$ un sottogruppo di $G$. Allora si definisce il \vocab{centralizzatore}
+		di $H$ il sottogruppo $\z_G(H) \leqslant G$ così definito:
+		\[ \z_G(H) = \bigcap_{h \in H} \z_G(h) \]
+		ossia come il sottogruppo degli elementi di $G$ che commutano con tutti gli
+		elementi di $H$.
+	\end{definition}
+	
+	\begin{remark}
+		Si osserva che, per $g \in G$, $\z_G(\langle g \rangle)$ e $\z_G(g)$ coincidono.
+		Infatti se $k \in G$ commuta con $g$, $k$ commuta in particolare con ogni sua
+		potenza; viceversa se $k$ commuta con ogni potenza di $g$, commuta in particolare
+		con $g$ stesso.
+	\end{remark}
+	
+	Si illustra una relazione fondamentale tra il normalizzatore e il centralizzatore
+	di un sottogruppo $H$ di $G$:
+	
+	\begin{proposition}[Lemma normalizzatore-centralizzatore]
+		\label{prop:norm_centr}
+		Sia $H$ un sottogruppo di $G$. Allora $\z_G(H)$ è normale in $\N_G(H)$ ed
+		esiste un omomorfismo iniettivo da $\faktor{\N_G(H)}{\z_G(H)}$ in
+		$\Aut(H)$, ovverosia:
+		\[ \faktor{\N_G(H)}{\z_G(H)} \mono \Aut(H) \]
+	\end{proposition}
+	
+	\begin{proof}
+		Consideriamo l'omomorfismo $\alpha : \N_G(H) \to \Inn(G)$ tale per cui
+		$g \overset{\alpha}{\mapsto} \varphi_g$. Si osserva che per ogni $g \in \N_G(H)$, $\varphi_g$ può
+		essere ristretto su $H$ dacché $\varphi_g(H) = gHg\inv = H$. Inoltre
+		$\restr{\varphi_g}{H}$ è ancora un omomorfismo, ed è in particolare un
+		automorfismo di $H$, ossia un elemento di $\Aut(H)$. \medskip
+		
+		
+		Si considera pertanto l'omomorfismo $\beta : \N_G(H) \to \Aut(H)$ ottenuto
+		restringendo $\varphi_g$ su $H$, ovverosia l'omomorfismo tale per cui
+		$g \overset{\beta}{\mapsto} \restr{\varphi_g}{H}$. \medskip
+		
+		
+		Si studia il nucleo di $\beta$. Sia $g \in \ker \beta$, allora $\restr{\varphi_g}{H} = \id_H$, e dunque $ghg\inv = h$ per ogni $h \in H$, ovverosia $g \in \z_G(H)$.
+		Viceversa, per $g \in \z_G(H)$, $\restr{\varphi_g}{H}$ è l'identità di $H$, dacché
+		$g$ commuta con ogni elemento di $H$. Pertanto $\ker \beta = \z_G(H)$. \medskip
+		
+		
+		Pertanto, $\z_G(H)$ è normale in $\N_G(H)$ e per il Primo Teorema di Omomorfismo
+		esiste un omomorfismo iniettivo da $\faktor{\N_G(H)}{\z_G(H)}$ in
+		$\Aut(H)$, da cui la tesi.
+	\end{proof}
+	
+	\begin{remark}
+		Non è difficile verificare a mano che $\z_G(H)$ è normale in $\N_G(H)$. Infatti,
+		se $h \in H$, $z \in \z_G(H)$ e $n \in \N_G(H)$, allora vale che:
+		\[ [h, nzn\inv] = h (nzn\inv) h\inv (nzn\inv)\inv= hnzn\inv h\inv n z\inv n\inv \]
+		e quindi che:
+		\[ [h, nzn\inv] = hz n n\inv h\inv n n\inv z\inv = hzh\inv z\inv = [h, z] = e \]
+		da cui si deduce che $nzn\inv \in \z_G(H)$, ovverosia che $\z_G(H)$ è normale
+		in $\N_G(H)$.
+	\end{remark}
+	
 	\subsubsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
 	
 	In questa sezione illustriamo una dimostrazione alternativa, che fa uso del concetto di
@@ -2355,7 +2418,7 @@
 		$\abs{\mathcal{A}_6} = 360$, e quindi vale che:
 		\[ \abs{N} \in \{1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20, 24, 30, 36, 40, 45, 60, 72, 90, 120, 180, 360\} \]
 		Si verifica manualmente che nessuna tale somma appartiene a questo insieme,
-		eccetto che per i casi in cui $\abs{N} = 1$ o $\abs{N} = 60$, da cui
+		eccetto che per i casi in cui $\abs{N} = 1$ o $\abs{N} = 360$, da cui
 		si deduce che $N = \{\id\}$ o $N = \ASym_6$.
 		Si conclude dunque che $\mathcal{A}_6$ è semplice.
 	\end{proof}
@@ -2472,6 +2535,7 @@
 	\end{proof}
 	
 	\begin{corollary}
+		\label{cor:5_cicli}
 		L'insieme $X = \{\sigma \in \mathcal{S}_n\mid \sigma \text{ è un }5\text{-ciclo}\}$ genera
 		$\mathcal{A}_n$ per $n \geq 5$.
 	\end{corollary}
@@ -2483,6 +2547,12 @@
 		$\ASym_n$, da cui la tesi.
 	\end{proof}
 	
+	\begin{remark}
+		Vale in generale una tesi più forte di quella del \autoref{cor:5_cicli},
+		ovverosia, se $k$ è un numero dispari maggiore o uguale di $5$,
+		$\ASym_n$ è generato dai $k$-cicli per $n \geq k$, con la stessa dimostrazione
+		presentata per il corollario citato.
+	\end{remark}
 	
 	\subsubsection{Sottogruppi normali di $\mathcal{S}_n$}
 	
@@ -2505,51 +2575,50 @@
 	\end{proof}
 	
 	\begin{proposition}
-		Per $n\geq 5$, gli unici sottogruppi normali di $\mathcal{S}_n$ sono $\{id\}$,
+		Per $n = 3$ e $n \geq 5$, gli unici sottogruppi normali di $\mathcal{S}_n$ sono $\{\id\}$,
 		$\mathcal{A}_n$ e $\mathcal{S}_n$.
 	\end{proposition}
 	
 	\begin{proof}
-		Sia $N$ un sottogruppo normale di $\mathcal{S}_n$, consideriamo $K= N \cap \mathcal{A}_n$.
-		$K$ è normale in $\mathcal{A}_n$, pertanto $K = \{id\}$ oppure $K = \mathcal{A}_n$,
-		distinguiamo 2 casi:
+		Sia $N$ un sottogruppo normale di $\mathcal{S}_n$ e consideriamo $K = N \cap \mathcal{A}_n$. Poiché $N$ è normale in $\mathcal{S}_n$, $K$ è normale
+		in $\mathcal{A}_n$. Si osserva che $\ASym_n$ è semplice per tutte le scelte
+		di $n$: se $n \geq 5$, la tesi è garantita dal \autoref{th:an_semplice}; se
+		$n = 3$, $\ASym_3$ ha ordine
+		$3$, e quindi è ciclico di ordine primo, e in quanto tale è semplice.
+		Pertanto, $K = \{\id\}$ oppure $K = \mathcal{A}_n$. Distinguiamo ora $2$ casi:
 		\begin{itemize}
-			\item se $K = \mathcal{A}_n$ allora $\mathcal{A}_n \leqslant N$: per il
+			\item se $K = \mathcal{A}_n$, allora $\mathcal{A}_n \leqslant N$: per il
 			Teorema di Corrispondenza i sottogruppi di $\mathcal{S}_n$ contenenti $\mathcal{A}_n$
-			sono in bigezione con i sottogruppi di $\faktor{\mathcal{S}_n}{\mathcal{A}_n}\cong \Z2$,
-			pertanto $N = \mathcal{A}_n$ oppure $N = \mathcal{S}_n$;
-			\item se $K = \{id\}$, poiché $[\mathcal{S}_n:\mathcal{A}_n] = 2$ per la 
-			\hyperref[prop1.49]{Proposizione 1.49} vale $[N:K] \in \{1, 2\}$, 
-			da cui $|N| \leq 2$. Se $|N| = 1$ allora $N = \{id\}$, se $|N| = 2$
-			consideriamo l'azione di coniugio di $\mathcal{S}_n = N_{\mathcal{S}_n}(N)$ su $N$
-			\[
-			\varphi: N_{\mathcal{S}_n}(N)\longrightarrow Aut(N): g \longmapsto \varphi_g
-			\]
-			dove $\varphi_g$ è la mappa
-			\[
-			\varphi_g:N \longrightarrow N :h \longmapsto ghg^{-1}
-			\]
-			il nucleo di $\varphi$ coincide con $Z_{\mathcal{S}_n}(N)$. Per il Primo Teorema
-			di Omomorfismo allora abbiamo un omomorfismo iniettivo
-			\[
-			\psi :\frac{N_{\mathcal{S}_n}(N)}{Z_{\mathcal{S}_n}(N)}\longhookrightarrow \Aut(N)
-			\]
-			Poiché $|N| = 2$ abbiamo $N \cong \Z2$, pertanto $\Aut(N) = \{id\}$. 
-			Dato che $N_{\mathcal{S}_n}(N) = \mathcal{S}_n$ per la normalità di $N$ questo implica che
-			sia $Z_{\mathcal{S}_n}(N) = \mathcal{S}_n$, cioè che $N \subseteq Z(\mathcal{S}_n)$, ma questo è assurdo
-			in quanto $Z(\mathcal{S}_n) = \{id\}$ per il \hyperref[lemma1.65]{Lemma 1.65}.
+			sono in bigezione con i sottogruppi di $\faktor{\mathcal{S}_n}{\mathcal{A}_n}\cong \Z2$;
+			pertanto le uniche possibilità sono $N = \mathcal{A}_n$ oppure $N = \mathcal{S}_n$;
+			\item se $K = \{\id\}$, dacché $[\mathcal{S}_n:\mathcal{A}_n] = 2$, per la 
+			\autoref{prop1.49} vale che $[N : K] \in \{1, 2\}$, 
+			da cui si deduce che $\abs{N} \leq 2 \abs{K} = 2$. Se $\abs{N} = 1$, allora $N = \{\id\}$; se invece $\abs{N} = 2$, per il \nameref{prop:norm_centr}, esiste
+			un'immersione tale per cui:
+			\[ \faktor{\N_{\Sym_n}(N)}{\z_{\Sym_n}(N)} \mono \Aut(N) \]
+			Poiché $\abs{N} = 2$, abbiamo $N \cong \Z2$, e quindi pertanto $\Aut(N) \cong (\Z2)^\times$ è di ordine $1$. Pertanto l'immersione è un isomorfismo e
+			vale l'identità
+			$\N_{\Sym_n}(N) = \z_{\Sym_n}(N)$.
+			Dal momento che $N$ è normale in $\Sym_n$, $\N_{\mathcal{S}_n}(N) = \mathcal{S}_n$,
+			e quindi $\z_{\mathcal{S}_n}(N) = \mathcal{S}_n$, ovverosia $N \subseteq \z(\mathcal{S}_n)$; tuttavia ciò è assurdo
+			in quanto $\abs{N} = 2$ e $\z(\mathcal{S}_n) = \{\id\}$ per il \autoref{lemma1.65}.
 		\end{itemize}
+		Pertanto $N$ può essere solo $\{\id\}$, $\ASym_n$ o $\Sym_n$ stesso, e tutti
+		questi tre sottogruppi sono normali in $\Sym_n$, da cui la tesi.
 	\end{proof}
 	
 	\begin{remark}
-		L'enunciato è vero anche per $n = 3$ con la stessa dimostrazione, infatti
-		$\mathcal{A}_3 \cong \Z3$ è un gruppo semplice, mentre per $n = 4$ è falso.
-		Infatti $\mathcal{A}_4$ non è semplice, e il sottogruppo di Klein
+		L'enunciato è falso per $n = 4$.
+		Infatti $\mathcal{A}_4$ non è semplice e ammette come sottogruppo normale il \textit{gruppo di Klein} $V_4$, ovverosia:
 		\[
-		V_4 = \{id, \cycle{1, 2}\cycle{3, 4}, \cycle{1, 3}\cycle{2, 4}, \cycle{1, 4}\cycle{2, 3}\}
+		V_4 = \{\id, \cycle{1, 2}\cycle{3, 4}, \cycle{1, 3}\cycle{2, 4}, \cycle{1, 4}\cycle{2, 3}\} \trianglelefteqslant \ASym_4
 		\]
-		è un suo sottogruppo normale non banale. Notiamo che $V_4$ è normale in 
-		$\mathcal{S}_4$ in quanto unione delle classi di coniugio di tutti i suoi elementi.
+		Chiaramente $V_4$ è semplice in $\Sym_4$, dal momento che $V_4$ è un sottogruppo che contiene tutte le doppie
+		trasposizioni di $\Sym_4$. Inoltre, se $\sigma = \cycle{1, 2}\cycle{3, 4}$, $\z_{\Sym_4}(\sigma)$ ha ordine $8$. Dal momento che $8$ non divide $12 = \abs{\ASym_4}$,
+		$\z_{\Sym_4}(\sigma)$ non è contenuto in $\ASym_4$, e quindi la classe
+		di coniugio di $\sigma$ in $\ASym_4$ coincide con quella in
+		$\Sym_4$. Poiché allora $V_4 = \Cl_{\ASym_4}(\id) \cupdot \Cl_{\ASym_4}(\sigma)$,
+		$V_4$ è normale in $\ASym_4$.
 	\end{remark}
 	
 	
