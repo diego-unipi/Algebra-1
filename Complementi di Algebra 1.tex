@@ -1479,7 +1479,8 @@
 		Si osserva che, per $g \in G$, $\z_G(\langle g \rangle)$ e $\z_G(g)$ coincidono.
 		Infatti se $k \in G$ commuta con $g$, $k$ commuta in particolare con ogni sua
 		potenza; viceversa se $k$ commuta con ogni potenza di $g$, commuta in particolare
-		con $g$ stesso.
+		con $g$ stesso. Se $H \leqslant G$, vale inoltre che $\z(H) \subseteq \z_G(H)$,
+		ed in particolare $\z(H) = H \cap \z_G(H)$.
 	\end{remark}
 	
 	Si illustra una relazione fondamentale tra il normalizzatore e il centralizzatore
@@ -1798,7 +1799,7 @@
 	
 	\subsection{Gruppo simmetrico e gruppo alterno}
 	
-	\subsubsection{Generatori di $\mathcal{S}_n$ e $\mathcal{A}_n$}
+	\subsubsection{Generatori di \texorpdfstring{$\mathcal{S}_n$}{Sₙ} e \texorpdfstring{$\mathcal{A}_n$}{Aₙ}}
 	
 	Esibiamo alcuni insiemi di generatori per $\mathcal{S}_n$, con $n \geq 2$:
 	
@@ -1871,7 +1872,7 @@
 		Pertanto $\langle G_2 \rangle = \langle G_1 \rangle = \ASym_n$.
 	\end{itemize}
 	
-	\subsubsection{Significato del coniugio in $\Sym_n$}
+	\subsubsection{Significato del coniugio in \texorpdfstring{$\mathcal{S}_n$}{Sₙ}}
 	
 	Illustriamo inoltre una relazione fondamentale di $\Sym_n$, che permette di
 	caratterizzarne le classi di coniugio, come già visto negli \href{https://github.com/diego-unipi/Algebra-1}{\textcolor{purple}{Appunti di Algebra 1}}:
@@ -1921,7 +1922,7 @@
 		sono esattamente quelli che permutano i simboli. 
 	\end{remark}
 	
-	\subsubsection{Sottogruppi abeliani transitivi di $\Sym_n$}
+	\subsubsection{Sottogruppi abeliani transitivi di \texorpdfstring{$\mathcal{S}_n$}{Sₙ}}
 	
 	\begin{definition}
 		Un sottogruppo $G\leqslant \mathcal{S}_n$ si dice \vocab{transitivo} se l'azione
@@ -1959,7 +1960,7 @@
 		$\abs{G} = \abs{\Stab(1)} \cdot \abs{\Orb(1)} = 1 \cdot n = n$, da cui la tesi.
 	\end{proof}
 	
-	\subsubsection{Sottogruppi abeliani massimali di $\mathcal{S}_{3m}$ $\star$}
+	\subsubsection{Sottogruppi abeliani massimali di \texorpdfstring{$\mathcal{S}_{3m}$}{S₃ₘ} $\star$}
 	
 	Vogliamo studiare i sottogruppi abeliani di $\mathcal{S}_{3m}$, caratterizzando in particolare
 	i suoi sottogruppi abeliani massimali.
@@ -2116,7 +2117,7 @@
 		per ogni $i \in \{1, \ldots, n - 2\}$, pertanto $G$ e $G'$ sono coniugati.
 	\end{remark}
 	
-	\subsubsection{Classi di coniugio in $\mathcal{A}_n$}
+	\subsubsection{Classi di coniugio in \texorpdfstring{$\mathcal{A}_n$}{Aₙ}}
 	
 	Studiamo le classi di coniugio in $\mathcal{A}_n$. In particolare,
 	fissato $\sigma \in \mathcal{A}_n$, vogliamo determinare una relazione tra
@@ -2199,7 +2200,7 @@
 		
 	\end{itemize}
 	
-	\subsubsection{Classificazione delle classi di coniugio di $\mathcal{A}_5$ e di $\mathcal{A}_6$}
+	\subsubsection{Classificazione delle classi di coniugio di \texorpdfstring{$\mathcal{A}_5$}{A₅} e di \texorpdfstring{$\mathcal{A}_6$}{A₆}}
 	
 	Illustriamo adesso una tabella che conta le cardinalità delle varie classi di coniugio
 	in $\Sym_5$, che ricordiamo essere esattamente gli insiemi delle permutazioni con
@@ -2359,7 +2360,7 @@
 	\end{center}
 	\endgroup
 	
-	\subsubsection{Semplicità di $\mathcal{A}_n$ per $n \geq 5$}
+	\subsubsection{Semplicità di \texorpdfstring{$\mathcal{A}_n$}{Aₙ} per \texorpdfstring{$n \geq 5$}{n≥5}}
 	
 	Si illustra in questa sezione un risultato fondamentale per
 	$\mathcal{A}_n$ con $n \geq 5$, che permetterà successivamente
@@ -2554,7 +2555,7 @@
 		presentata per il corollario citato.
 	\end{remark}
 	
-	\subsubsection{Sottogruppi normali di $\mathcal{S}_n$}
+	\subsubsection{Sottogruppi normali di \texorpdfstring{$\mathcal{S}_n$}{Sₙ}}
 	
 	\begin{lemma}
 		\label{lemma1.65}
@@ -2575,6 +2576,7 @@
 	\end{proof}
 	
 	\begin{proposition}
+		\label{prop:sottogruppi_normali_sn}
 		Per $n = 3$ e $n \geq 5$, gli unici sottogruppi normali di $\mathcal{S}_n$ sono $\{\id\}$,
 		$\mathcal{A}_n$ e $\mathcal{S}_n$.
 	\end{proposition}
@@ -2622,51 +2624,86 @@
 	\end{remark}
 	
 	
-	\subsubsection{Sottogruppi isomorfi a $\Sym_{n - 1}$}\footnote{
-		Non sono sicuro di essere stato chiarissimo in questa sezione, se ci 
-		sono dei passi che ritenete poco comprensibili fatemelo sapere :)
-	}
+	\subsubsection{Sottogruppi di \texorpdfstring{$\Sym_n$}{Sₙ} isomorfi a \texorpdfstring{$\mathcal{S}_{n-1}$}{Sₙ₋₁}}
 	
-	Abbiamo osservato più volte che $S_{n - 1}$ si immerge naturalmente in $\mathcal{S}_n$,
-	vediamo adesso un risultato che generalizza questo fatto ad alcuni sottogruppi di 
-	$\mathcal{S}_n$.
+	In precedenza avevamo osservato che $\Sym_{n - 1}$ si immergeva naturalmente in $\mathcal{S}_n$.
+	In questa sezione mostriamo invece un risultato che permette di identificare esattamente tutte le
+	immersioni di $\Sym_{n-1}$ in $\Sym_n$, come mostra la:
 	
 	\begin{proposition}
 		\label{prop1.68}
 		Dato un sottogruppo $H\leqslant \mathcal{S}_n$ con $n \geq 5$, se $[\mathcal{S}_n : H] = n$ allora $H$ è 
-		isomorfo a $S_{n - 1}$.
+		isomorfo a $\Sym_{n - 1}$.
 	\end{proposition}
 	
 	\begin{proof}
-		Consideriamo l'azione di moltiplicazione a sinistra di $\mathcal{S}_n$ sull'insieme
-		quoziente $\faktor{\mathcal{S}_n}{H}$:
+		Si consideri l'azione di moltiplicazione a sinistra di $\mathcal{S}_n$ sull'insieme
+		quoziente $\faktor{\mathcal{S}_n}{H}$, ovverosia l'omomorfismo:
 		\[
-		\varphi: \mathcal{S}_n\longrightarrow\mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \mathcal{S}_n
+		\varphi: \mathcal{S}_n \to \mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \mathcal{S}_n
 		\]
-		tale azione è transitiva in quanto per ogni $\sigma, \rho \in \mathcal{S}_n$ vale
+		tale per cui:
 		\[
-		\varphi(\sigma\rho^{-1})(\rho H) = \sigma \rho\rho^{-1}H = \sigma H
+			\varphi(\sigma)(\rho H) = \sigma \rho H, \quad \forall \sigma, \rho \in \Sym_n
 		\]
-		in particolare $\ker \varphi \neq \mathcal{S}_n$. Poiché $\ker\varphi \trianglelefteqslant \mathcal{S}_n$
-		allora il nucleo di $\varphi$ è banale oppure è $\mathcal{A}_n$. D'altra 
-		parte se fosse $\ker \varphi = \mathcal{A}_n$ avremmo $|\mathrm{Im}\varphi| = 2$,
-		pertanto l'orbita di ogni elemento di $\faktor{\mathcal{S}_n}{H}$ contiene al più 
-		due elementi, ma questo è assurdo in quanto per la transitività di $\varphi$
-		si ha $\Orb(\rho H) = \faktor{\mathcal{S}_n}{H}$ per ogni $\rho \in \mathcal{S}_n$, che contiene almeno $5$ elementi.
-		Pertanto $\ker\varphi = \{id\}$, cioè $\varphi$ è un omomorfismo iniettivo e
-		in particolare un isomorfismo.
-		Notiamo che $H$ è lo stabilizzatore della classe $H$, infatti
-		\[
-		\St(H) = \{\sigma \in \mathcal{S}_n \mid \sigma H = H\} = \{\sigma \in H\} = H
-		\]
-		pertanto $\varphi(H)$ è lo stabilizzatore di un elemento di $\faktor{\mathcal{S}_n}{H}$
-		per l'azione naturale di $\mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right)$ su $\faktor{\mathcal{S}_n}{H}$.
-		Tramite la corrispondenza tra $\faktor{\mathcal{S}_n}{H}$ e $\{1, \ldots, n\}$
-		possiamo identificare $\varphi(H)$ con le permutazioni di $\mathcal{S}_n$ che fissano
-		un elemento di $\{1, \ldots, n\}$, che a loro volta costituiscono un 
-		gruppo isomorfo a $S_{n - 1}$, pertanto $H \cong S_{n - 1}$.
+		Tale azione è chiaramente transitiva dal momento che $\rho H = \rho \sigma\inv \sigma H = \varphi(\rho \sigma\inv)(\sigma H)$.
+		In particolare $\ker \varphi \neq \mathcal{S}_n$ (altrimenti le orbite sarebbero tutte distinte e composte da un unico elemento). Poiché $\ker\varphi$ è un sottogruppo normale di $\Sym_n$, per la
+		\autoref{prop:sottogruppi_normali_sn}
+		il nucleo di $\varphi$ è banale oppure è $\mathcal{A}_n$. \medskip
+		
+		
+		Si esclude il caso in cui $\ker \varphi = \ASym_n$. Se così fosse, dato $\sigma \in \Sym_n$,
+		varrebbe che:
+		\[ \ASym_n = \ker \varphi = \bigcap_{\rho H \in \faktor{\Sym_n}{H}} \Stab(\rho H) \subseteq \Stab(\sigma) \subseteq \Sym_n \]
+		In particolare, per il Teorema di corrispondenza, $\Stab(\rho H)$ è $\ASym_n$ o $\Sym_n$. In entrambi
+		i casi,
+		per il Lemma orbita-stabilizzatore varrebbe che:
+		\[ \abs{\Orb(\sigma)} = \frac{\abs{\Sym_n}}{\abs{\Stab(\sigma)}} \leq \frac{n!}{\frac{n!}{2}} = 2 \]
+		che è assurdo, dal momento che per la transitività di $\varphi$ vale che $\Orb(\sigma) = \faktor{\Sym_n}{H}$, che ha, per ipotesi, almeno $5$ elementi. Pertanto $\ker \varphi = \{\id\}$,
+		e dunque $\varphi$ induce un isomorfismo da $\Sym_n$ a $\Sym_n$, dacché
+		$\mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \mathcal{S}_n$. \medskip
+
+		Si consideri $\alpha = \restr{\varphi}{H} : H \to \mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \Sym_{n-1}$,
+		ossia la restrizione di $\varphi$ ad $H$. Dal momento che $\varphi$ è un omomorfismo iniettivo, anche
+		$\alpha$ è iniettivo, ovverosia rappresenta un'azione fedele. Si osserva inoltre che
+		$\Stab(H)$ è esattamente $H$, e quindi che $\Orb(H) = \{H\}$. In particolare, $H$ fissa sempre
+		$H$ come elemento\footnote{
+			Quest'affermazione rappresenta il punto cruciale di tutta la dimostrazione. Si sta infatti
+			mostrando che, dato un insieme di rappresentanti delle classi laterali di $H$, $H$ è un gruppo di permutazioni su $\{h_1 H, \ldots, h_{n-1} H, h_n H\} \leftrightarrow \{1, \ldots, n-1, n\}$ che fissa
+			sempre $H \leftrightarrow n$, suggerendo che $H$ è un'immersione naturale di $\Sym_{n-1}$ in $\Sym_n$.
+		} di $\faktor{\mathcal{S}_n}{H} \setminus \{H\}$. \medskip
+		
+		
+		Pertanto, ``eliminando'' $H$
+		dall'insieme $\faktor{\mathcal{S}_n}{H}$ si induce ancora un'azione fedele, ovverosia
+		l'omomorfismo $\beta : H \to \Sym\left(\faktor{\mathcal{S}_n}{H} \setminus \{H\}\right) \cong \Sym_{n-1}$
+		tale per cui $\beta(h)(\sigma H) = h \sigma H$ per ogni $h \in H$. Infatti $\beta$ è ben definito,
+		dacché se valesse $h \sigma H = H$, $\sigma$ sarebbe un elemento di $H$, e dunque $\sigma H$ sarebbe
+		$H$, che non appartiene all'insieme su cui agisce $H$. \medskip
+		
+		
+		Dunque $\beta$ è un omomorfismo iniettivo tra $H$ e $\Sym\left(\faktor{\mathcal{S}_n}{H} \setminus \{H\}\right)$. Poiché $\abs{H} = (n-1)! = \abs{\Sym\left(\faktor{\mathcal{S}_n}{H} \setminus \{H\}\right)}$, $\beta$ è in particolare un isomorfismo. 
+		Dal momento che $\Sym(\faktor{\mathcal{S}_n}{H} \setminus \{H\}) \cong
+		\Sym_{n-1}$, allora $H$ è isomorfo a $\Sym_{n-1}$, da cui la tesi.
 	\end{proof}
 	
+	\begin{remark}
+		La tesi della precedente proposizione è ancora valida per $n < 5$. Infatti, per $n = 1$
+		o $n = 2$, la tesi è del tutto ovvia. Per $n = 3$, i sottogruppi di indice $3$ sono
+		i sottogruppi di ordine $2$, isomorfi dunque a $\Z{2} \cong \Sym_2$. Per $n = 4$, i
+		sottogruppi di indice $4$ sono i suoi sottogruppi di ordine $6$; dal momento che in $\Sym_4$ non
+		esistono elementi di ordine $6$, tali sottogruppi non possono essere ciclici, e quindi sono
+		tutti isomorfi a $\Sym_3$.
+	\end{remark}
+	
+	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{$n \neq 6$}{n ≠ 6}}
+	
+	%TODO: ricostruire totalmente la seguente sezione, aggiungendo:
+	% - lemma: automorfismi che mandano trasp in trasp = automorfismi interni
+	% - per n div da 2 e 6, automorfismi mandano trasp in trasp -> inn = aut -> aut = sn
+	% - per n = 2 considerazioni
+	% - per n = 6, costruzione aut esterno + unicità (ossia out(sn) ha ordine 2)
+	% - descrizione di aut(s6) come prod semidiretto (?)
 	Utilizzando il seguente teorema (di cui non diamo la dimostrazione) possiamo
 	dire qualcosa di più forte nei casi $n \neq 2$ e $n \neq 6$.
 	
@@ -2699,7 +2736,7 @@
 	e ognuno è lo stabilizzatore di un elemento per l'azione naturale di $\mathcal{S}_n$
 	su $\{1, \ldots, n\}$.
 	
-	\subsubsection{Costruzione di un automorfismo esterno di $\mathcal{S}_6$}
+	\subsubsection{Costruzione di un automorfismo esterno di \texorpdfstring{$\mathcal{S}_6$}{S₆}}
 	
 	Abbiamo visto che i casi $n = 2$ e $n = 6$ sono gli unici per cui non vale 
 	che $\mathcal{S}_n \cong \Aut(\mathcal{S}_n)$. Per $n = 2$ il motivo è semplice, infatti essendo
@@ -2760,7 +2797,7 @@
 	
 	\subsection{Prodotti semidiretti}
 	
-	\subsubsection{Descrizione di $\mathcal{S}_4$ come prodotto semidiretto}
+	\subsubsection{Descrizione di \texorpdfstring{$\mathcal{S}_4$}{S₄} come prodotto semidiretto}
 	
 	Per ogni $n \geq 2$ vale in generale la relazione 
 	\[
@@ -2827,7 +2864,7 @@
 	g: (1, 0)\longmapsto (1, 0), (0, 1) \longmapsto (1, 1)
 	\]
 	
-	\subsubsection{Automorfismi di $\Dn$}
+	\subsubsection{Automorfismi di \texorpdfstring{$\Dn$}{Dₙ}}
 	
 	Consideriamo il gruppo 
 	\[
@@ -5130,23 +5167,28 @@
 	
 	\begin{lemma}
 		\label{lemma3.18}
-		Dato $p$ un primo, $S_p$ è generato da un $p$-ciclo e da una trasposizione.
+		Se $p$ è un numero primo, allora $\Sym_p$ è generato da un $p$-ciclo e da una trasposizione.
 	\end{lemma}
 	
 	\begin{proof}
-		Per motivi di notazione, consideriamo $S_p$ come l'insieme delle permutazioni
-		dell'insieme $\{0, 1, \ldots, p - 1\}$, che pensiamo come $\FF_p$. Siano
-		$\sigma = \cycle{0, 1, \ldots, p - 1}$ un $p$-ciclo e $\tau = \cycle{a, b}$
-		una trasposizione, poiché $\sigma^k\tau\sigma^{-k} = \cycle{a + k, b + k}$
-		ed esiste $h \in \FF_p$ tale che $a + h = 0$, possiamo supporre
-		$\tau = \cycle{0, \alpha}$ senza perdita di generalità. Notiamo che gli 
-		elementi $\sigma^k\tau\sigma^{-k}$ sono tutti della forma $\cycle{k, \alpha + k}$,
-		in particolare $\langle\sigma, \tau\rangle$ contiene le permutazioni 
-		$\cycle{k\alpha, (k + 1)\alpha}$ al variare di $k \in \FF_p$. Possiamo
-		quindi costruire in modo iterativo le permutazioni $\cycle{0, k\alpha}$,
-		ad esempio
+		Consideriamo $S(p)$ come il gruppo delle permutazioni di $\Z{p}$. Si osserva preliminarmente
+		che $\Sym_p$ è isomorfo a $S(p)$. In particolare, un $p$-ciclo di $\Sym_p$ può essere fatto
+		corrisposto al $p$-ciclo $\sigma = \cycle{0, 1, \cdots, p-1}$
+		di $S(p)$. A partire da questa corrispondenza, ad una trasposizione di $\Sym_p$ corrisponderà
+		una trasposizione $\tau = \cycle{a, b}$ di $S(p)$, con $a \neq b$. Si pone $H = \langle \sigma, \tau \rangle$. \medskip
+		
+		
+		Si osserva che $\sigma^k \tau \sigma^{-k}$ è $\cycle{a+k, b+k}$. Pertanto, in
+		$H$ vi appartiene in particolare $\rho = \cycle{0, \alpha}$, dove si è posto
+		$\alpha = b-a$ e $k = -a$.
+		Analogamente si osserva che $\tau_j = \sigma^j \rho \sigma^{-j} = \cycle{j, \alpha + j} \in H$. In
+		particolare $\tau_{i \alpha} = \cycle{i \alpha, (i+1) \alpha} \in H$. \medskip
+		
+		
+		A partire da queste trasposizioni si possono costruire iterativamente tutte le trasposizioni
+		delle forma $\cycle{0, n\alpha}$:
 		\[
-		\cycle{0, \alpha}\cycle{\alpha, 2\alpha}\cycle{0, \alpha} = \cycle{0, 2\alpha}
+		\cycle{0, \alpha}\cycle{\alpha, 2\alpha}\cycle{0, \alpha} = \tau \tau_{1} \tau\inv = \cycle{0, 2\alpha}
 		\]
 		\[
 		\cycle{0, 2\alpha}\cycle{2\alpha, 3\alpha}\cycle{0, 2\alpha} = \cycle{0, 3\alpha}
@@ -5154,11 +5196,19 @@
 		\[
 		\cycle{0, 3\alpha}\cycle{3\alpha, 4\alpha}\cycle{0, 3\alpha} = \cycle{0, 4\alpha}
 		\]
-		e così via. Poiché $\FF_p$ è un campo e $\alpha \neq 0$ (altrimenti $\tau$ 
-		non sarebbe una trasposizione) esiste $h \in \FF_p$ tale che $h\alpha = 1$,
-		pertanto $\cycle{0, 1} \in \langle\sigma, \tau\rangle$. Poiché 
-		$\langle\cycle{0, 1}, \sigma\rangle = S_p$ si ha la tesi.
+		\[ \ldots \]
+		 Poiché $a \neq b$, $\alpha = b - a$ è
+		diverso da zero, e dunque è invertibile in $\Z{p}$. Se allora $n$ è un inverso moltiplicativo
+		di $\alpha$, $\cycle{0, 1} = \cycle{0, n \alpha}$ è un elemento di $H$.
+		Quindi $H$ contiene sia $\sigma$ che $\cycle{0, 1}$, che generano $S(p)$. Pertanto $H = S(p)$,
+		e così anche $\Sym_p$ è generato dal $p$-ciclo e dalla trasposizione corrispondente dall'inizio.
 	\end{proof}
+	
+	\begin{remark}
+		In generale, se $n$ non è necessariamente primo, è ancora sufficiente che alla trasposizione
+		corrisponda in $S(n)$ un elemento $\cycle{a, b}$ con $b-a$ invertibile modulo $n$, ossia
+		con $(b-a, n) = 1$. 
+	\end{remark}
 	
 	\begin{lemma}
 		\label{lemma3.19}
