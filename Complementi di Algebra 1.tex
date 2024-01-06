@@ -1919,7 +1919,7 @@
 		In
 		realtà, per $n$ diverso da $2$ e $6$ vale un risultato ancora più forte, ossia
 		$\Aut(\Sym_n) \cong \Sym_n$, e dunque \textit{tutti} i morfismi bigettivi di tali $\Sym_n$
-		sono esattamente quelli che permutano i simboli. 
+		sono esattamente quelli che permutano i simboli, come dimostra il \autoref{th:aut_sn}. 
 	\end{remark}
 	
 	\subsubsection{Sottogruppi abeliani transitivi di \texorpdfstring{$\mathcal{S}_n$}{Sₙ}}
@@ -1960,7 +1960,7 @@
 		$\abs{G} = \abs{\Stab(1)} \cdot \abs{\Orb(1)} = 1 \cdot n = n$, da cui la tesi.
 	\end{proof}
 	
-	\subsubsection{Sottogruppi abeliani massimali di \texorpdfstring{$\mathcal{S}_{3m}$}{S₃ₘ} $\star$}
+	\subsubsection{Sottogruppi abeliani massimali di \texorpdfstring{$\mathcal{S}_{3m}$}{S₃ₘ} \texorpdfstring{$\star$}{★}}
 	
 	Vogliamo studiare i sottogruppi abeliani di $\mathcal{S}_{3m}$, caratterizzando in particolare
 	i suoi sottogruppi abeliani massimali.
@@ -2696,7 +2696,7 @@
 		tutti isomorfi a $\Sym_3$.
 	\end{remark}
 	
-	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{$n \neq 6$}{n ≠ 6}}
+	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{$n \neq 6$}{n≠6}}
 	
 	%TODO: ricostruire totalmente la seguente sezione, aggiungendo:
 	% - lemma: automorfismi che mandano trasp in trasp = automorfismi interni
@@ -2704,21 +2704,100 @@
 	% - per n = 2 considerazioni
 	% - per n = 6, costruzione aut esterno + unicità (ossia out(sn) ha ordine 2)
 	% - descrizione di aut(s6) come prod semidiretto (?)
-	Utilizzando il seguente teorema (di cui non diamo la dimostrazione) possiamo
-	dire qualcosa di più forte nei casi $n \neq 2$ e $n \neq 6$.
+	
+	In questa sezione si descrive il gruppo degli automorfismi di $\Sym_n$ per $n \neq 6$.
+	Per $n = 2$, $\Sym_2 \cong \Z{2}$, e dunque $\Aut(\Sym_2)$ è banale. Si presenta
+	ora un lemma molto importante nello studio degli automorfismi di $\Sym_n$, che permetterà
+	in seguito di dimostrare che $\Aut(\Sym_n) = \Inn(\Sym_n)$ per $n \neq 6$.
+	
+	\begin{lemma}
+		\label{lemma:trasp_in_trasp}
+		Sia $\varphi$ un automorfismo di $\Sym_n$ con $n \geq 2$ che manda trasposizioni in trasposizioni.
+		Allora $\varphi$ è un automorfismo interno di $\Sym_n$
+	\end{lemma}
+	
+	\begin{proof}
+		Se $n = 2$, la tesi è banale, e dunque si dimostra la tesi per $n > 2$.
+		Si considerino $\varphi\cycle{1, 2} = \cycle{a, b}$ e $\varphi\cycle{1, 3} = \cycle{c, d}$.  \medskip
+		
+
+		Si mostra che $\{a, b\} \cap \{c, d\}$ è un singoletto. Chiaramente tale intersezione non può avere
+		due elementi, altrimenti $\cycle{1, 2}$ e $\cycle{1, 3}$ avrebbero la stessa immagine tramite
+		$\varphi$. Allo stesso modo l'intersezione non può essere vuota, perché altrimenti
+		$\varphi\cycle{1, 2}$ e $\varphi\cycle{1, 3}$ commuterebbero in quanto cicli distinti, mentre
+		$\cycle{1, 2}$ e $\cycle{1, 3}$ non commutano. Pertanto $\{a, b\} \cap \{c, d\}$ è un singoletto,
+		e poniamo, senza perdita di generalità, $a = c$. Si pongono inoltre $a_1 := a$, $a_2 := b$ e
+		$a_3 := d$, in modo tale che $a_2 \neq a_3$. \medskip
+		
+		
+		Si mostra che $a_1$ è un elemento della trasposizione di $\varphi\cycle{1, k}$ per ogni $3 < k \leq n$.
+		Se infatti $a_1$ non fosse un elemento di $\varphi\cycle{1, k}$, allora, analogamente a prima,
+		poiché $\varphi$ è iniettiva e $\cycle{1, k}$ non commuta con $\cycle{1, 2}$, $a_2$ sarebbe un elemento
+		di $\varphi\cycle{1, k}$. Analogamente lo sarebbe anche $a_3$, da cui si deduce che $\varphi\cycle{1, k} = \cycle{a_2, a_3}$, dacché $a_2 \neq a_3$. Tuttavia ciò è assurdo, dal momento che:
+		\[ \varphi\cycle{1, k} = \cycle{a_2, a_3} = \cycle{a_1, a_2} \cycle{a_1, a_3} \cycle{a_1, a_2}\inv =
+		\varphi\cycle{1, 2}\varphi\cycle{1, 3}\varphi\cycle{1, 2} = \varphi\cycle{2, 3} \]
+		e quindi $\cycle{1, 2}$ avrebbe la stessa immagine di $\cycle{2, 3}$ tramite $\varphi$, pur
+		essendone distinto. Pertanto $a_1$ è elemento di $\varphi\cycle{1, k}$, che dunque si rappresenta
+		come $\cycle{a_1, a_k}$, con $a_k$ distinto\footnote{
+			Altrimenti si violerebbe l'iniettività di $\varphi$.
+		} per ogni $k$. \medskip
+		
+		
+		Sia $\sigma : \{1, \ldots, n\} \to \{1, \ldots, n\}$ la permutazione di $\Sym_n$ tale per cui
+		$k \overset{\sigma}{\mapsto} a_k$. Si mostra che l'azione di coniugio $\varphi_\sigma$ coincide
+		con $\varphi$ sull'insieme dei generatori $\{\cycle{1, k}\}_{2 \leq k \leq n}$ di
+		$\Sym_n$:
+		\[ \varphi_\sigma\cycle{1, k} = \sigma \cycle{1, k} \sigma\inv = \cycle{a_1, a_k} = \varphi\cycle{1, k}  \]
+		Pertanto $\varphi = \varphi_\sigma$ è un automorfismo interno, da cui la tesi.
+	\end{proof}
 	
 	\begin{theorem}
-		Per $n \notin \{2, 6\}$ i gruppi $\mathcal{S}_n$ e $\Aut(\mathcal{S}_n)$ sono isomorfi, e 
-		l'isomorfismo è dato dall'azione di coniugio
-		\[
-		\varphi: \mathcal{S}_n \longrightarrow \Aut(\mathcal{S}_n): \sigma \longmapsto \varphi_{\sigma}
-		\]
+		\label{th:aut_sn}
+		Sia $n \neq 6$. Allora $\Aut(\Sym_n) = \Inn(\Sym_n)$, ed in particolare, per
+		$n \neq 2$, $\Aut(\Sym_n)$ è isomorfo a $\Sym_n$ tramite l'azione di coniugio.
 	\end{theorem}
 	
-	\begin{remark}
-		In particolare gli automorfismi di $\mathcal{S}_n$ sono tutti interni nei casi $n \notin \{2, 6\}$,
-		cioè sono coniugi per elementi di $\mathcal{S}_n$
-	\end{remark}
+	\begin{proof}
+		Se $n = 1$, la tesi è ovvia. Sia pertanto $n \geq 2$.
+		Sia $\varphi$ un automorfismo di $\Sym_n$. Allora $\varphi$ mappa classi di coniugio
+		a classi di coniugio. In particolare, se $T_i$ è la classe di coniugio dei prodotti di $i$ trasposizioni
+		disgiunte,
+		esiste $j > 0$ tale per cui $\varphi(T_1) = T_j$, dal momento che $\varphi$ deve mandare tutte le trasposizioni in elementi di ordine $2$, e dunque in prodotti di trasposizioni.
+		Si mostra che l'unico $j$ possibile
+		è $2$, e dunque che $\varphi$ manda trasposizioni in trasposizioni. \medskip
+		
+		
+		Si osserva che $\abs{T_j} = \frac{n!}{j! 2^j (n-2j)!}$.
+		Poiché $\varphi$ è un automorfismo, in particolare $\varphi$ mantiene le cardinalità degli
+		insiemi e dunque deve valere che:
+		\[ \abs{T_1} = \frac{n!}{1! \, 2 \, (n-2)!} = \frac{n(n-1)}{2} = \frac{n!}{j! \, 2^j \, (n-2j)!} = \abs{T_j} \]
+		In particolare deve valere che:
+		\[ 2^{j-1} = \frac{(n-2)!}{j! (n-2j)!} = \underbrace{\frac{(n-2)!}{(n-j)!}}_a \underbrace{\binom{n-j}{j}}_b = ab \]
+		dove il coefficiente binomiale è ben definito dal momento che\footnote{
+			Infatti una
+			permutazione di $\Sym_n$ è costituita da al più $j$ trasposizioni, e quindi devono essere
+			disponibili almeno $2j$ elementi, indi per cui $n \geq 2j \implies n-j \geq j$.
+		} $n - j \geq j$, e così lo sono anche i fattoriali (infatti $n \geq 2$ e $n \geq 2j > j$).
+		\medskip
+		
+		
+		Se $\varphi$ non mandasse trasposizioni in trasposizioni, $j$ sarebbe maggiore o uguale di $2$,
+		e sia $a$ che $b$ sarebbero degli interi. Per $j = 2$, l'equazione è equivalente
+		a $4 = \binom{n-2}{2} = (n-2)(n-3)$, che non ammette soluzione dal momento che uno dei due
+		fattori è diviso da un primo dispari. Per $j = 3$, l'equazione è la seguente:
+		\[ 4 = \frac{(n-2)!}{(n-3)!} \binom{n-3}{3} = (n-2) \binom{n-3}{3} \]
+		dalla quale si ricava che $n-2$ deve dividere $4$, e quindi che $n$ è $3$, $4$ o $6$; si
+		verifica a mano che l'unica soluzione è $n = 6$, che, per ipotesi, è escluso: quindi $j = $
+		non ammette soluzione. Per $j > 3$, $a$ è prodotto di due interi consecutivi ed è dunque
+		divisibile per un primo dispari, mentre $2^{j-1}$ chiaramente non può esserlo; pertanto
+		l'equazione non ammette mai soluzione, da cui si deduce che $j = 1$, ossia che
+		$\varphi$ manda trasposizioni in trasposizioni. \medskip
+		
+		
+		Dal \autoref{lemma:trasp_in_trasp} questo vuol dire che $\varphi$ è un automorfismo interno,
+		e quindi che $\Aut(\Sym_n) = \Inn(\Sym_n)$. Per $n \geq 3$ $\z(\Sym_n)$ è banale per il \autoref{lemma1.65}, da cui si conclude che l'azione di coniugio induce un isomorfismo tra $\Sym_n$ e $\Inn(\Sym_n) = \Aut(\Sym_n)$,
+		da cui la tesi.
+	\end{proof}
 	
 	Con le stesse notazioni di sopra chiamiamo $\varphi'$ l'isomorfismo tra
 	$\mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right)$ e $\mathcal{S}_n$, componendo $\varphi'$ con $\varphi$ 
@@ -2738,60 +2817,69 @@
 	
 	\subsubsection{Costruzione di un automorfismo esterno di \texorpdfstring{$\mathcal{S}_6$}{S₆}}
 	
-	Abbiamo visto che i casi $n = 2$ e $n = 6$ sono gli unici per cui non vale 
-	che $\mathcal{S}_n \cong \Aut(\mathcal{S}_n)$. Per $n = 2$ il motivo è semplice, infatti essendo
-	$\mathcal{S}_2$ isomorfo a $\Z2$ il suo gruppo di automorfismi è banale, per $n = 6$
-	invece abbiamo che gli automorfismi di $\mathcal{S}_6$ non sono tutti elementi di $\Inn(\mathcal{S}_n)$,
-	vogliamo quindi esibire un automorfismo di $\mathcal{S}_6$ che non sia interno.\newline
+	Abbiamo osservato in precedenza che per $n \neq 6$, ogni automorfismo di $\Sym_n$ è interno.
+	Il caso $n = 6$ è invece del tutto eccezionale, dal momento che ammette una classe di automorfismi
+	esterni, unici a meno di composizione con un automorfismo interno, come si dimostrerà all'interno
+	di questa sezione. \medskip
 	
-	Iniziamo osservando che $\mathcal{S}_5$ contiene 6 5-Sylow, infatti tali sottogruppi 
-	sono isomorfi a $\Z5$ e, essendo i 5-cicli gli unici elementi di ordine 5,
-	$\mathcal{S}_5$ ne contiene esattamente 
-	\[
-	\frac{1}{\phi(5)} \binom{5}{5}4! = 6
-	\]
-	Posto $X = \{P_1, \ldots, P_6\}$ l'insieme dei 5-Sylow di $\mathcal{S}_5$, consideriamo l'azione di coniugio 
-	di $\mathcal{S}_5$ su $X$
-	\[
-	\varphi: \mathcal{S}_5 \longrightarrow \mathcal{S}(X) \cong \mathcal{S}_6
-	\]
-	dove l'isomorfismo tra $\mathcal{S}(X)$ e $\mathcal{S}_6$ è dato dall'associare $P_i$ a $i$, 
-	poniamo $\Phi$ la composizione di $\varphi$ con tale isomorfismo, notiamo
-	che $\Phi$ è un'immersione di $\mathcal{S}_5$ in $\mathcal{S}_6$. L'azione 
-	$\varphi$ è transitiva in quanto i 5-Sylow di $\mathcal{S}_5$ sono tutti coniugati,
-	pertanto $\ker\varphi = \{id\}$ oppure $\ker\varphi = \mathcal{A}_5$. D'altra parte
-	se fosse $\ker\varphi = \mathcal{A}_5$ si avrebbe che $|\mathrm{Im}\varphi| = 2$,
-	pertanto l'orbita di ogni elemento ha cardinalità 2, che è assurdo in quanto
-	$\Orb(P_i) = X$ per ogni $P_i \in X$ per transitività di $\varphi$, quindi l'azione
-	è iniettiva.\newline
-	La transitività di $\varphi$ implica che $\Phi$ sia un'azione transitiva
-	di $\mathcal{S}_5$ sull'insieme $\{1, \ldots, 6\}$, notiamo quindi che $\mathrm{Im}\Phi$
-	non può essere lo stabilizzatore di un elemento di $\{1, \ldots, 6\}$
-	per l'azione naturale di $\mathcal{S}_6$ su tale insieme. Infatti se lo fosse esisterebbe
-	$k \in \{1, \ldots, n\}$ tale che $\Phi(\sigma)(i) = i$ per ogni $\sigma \in \mathcal{S}_5$,
-	ma questo è assurdo in quanto per la \hyperref[prop1.41]{Proposizione 1.41} 
-	$\mathcal{S}_5$ contiene una permutazione che agisce su $\{1, \ldots, 6\}$ senza punti
-	fissi.
 	
-	Abbiamo che $H = \mathrm{Im}\Phi$ è un sottogruppo di $\mathcal{S}_6$ di indice $6$ e possiamo
-	considerare l'azione transitiva e iniettiva di moltiplicazione a sinistra di $\mathcal{S}_6$ su 
-	$\faktor{\mathcal{S}_6}{H}$
-	\[
-	\alpha: \mathcal{S}_6\longrightarrow\mathcal{S}\left(\faktor{\mathcal{S}_6}{H}\right) \cong \mathcal{S}_6
-	\]
-	chiamiamo $\psi: \mathcal{S}_6\longrightarrow \mathcal{S}_6$ l'isomorfismo risultante dalla
-	composizione di $\alpha$ con l'isomorfismo tra $\mathcal{S}\left(\faktor{\mathcal{S}_6}{H}\right)$
-	e $\mathcal{S}_6$. Sia $i \in \{1, \ldots, 6\}$ l'elemento associato alla classe $H$,
-	abbiamo visto nella dimostrazione della \hyperref[prop1.68]{Proposizione 1.68}
-	che $\psi(H) = \St(i)$ per l'azione naturale di $\mathcal{S}_6$ sull'insieme $\{1, \ldots, 6\}$.
-	Concludiamo osservando che se $\psi$ fosse un automorfismo interno di $\mathcal{S}_6$,
-	allora anche $\psi^{-1}$ sarebbe un automorfismo interno, cioè $\psi^{-1}$
+	Innanzitutto si definisce il gruppo degli automorfismi esterni:
+
+	\begin{definition}
+		Sia $G$ un gruppo. Allora si definisce \vocab{gruppo degli automorfismi esterni} di $G$
+		il gruppo $\Out(G) := \faktor{\Aut(G)}{\Inn(G)}$.
+	\end{definition}
+	
+	In particolare si dice automorfismo esterno di $G$ un suo automorfismo non interno, ossia
+	un automorfismo la cui classe laterale rispetto a $\Inn(G)$ non è $\Inn(G)$ stesso. \medskip
+	
+
+	Si esibisce per $\Sym_6$ un automorfismo esterno, e si dimostra in seguito che è unico
+	(ossia che $\Out(\Sym_6)$ ha ordine $2$). Per costruirlo verificheremo l'esistenza di
+	un'immersione di $\Sym_5$ in $\Sym_6$ transitiva, ossia verificheremo l'esistenza di
+	un'azione fedele e transitiva di $\Sym_5$ su $6$ oggetti. \medskip
+	
+
+	Iniziamo osservando che $\mathcal{S}_5$ contiene $6$ $5$-Sylow. Tali sottogruppi hanno infatti
+	ordine $5$ e sono dunque ciclici. Dal momento che gli unici elementi di ordine $5$ in
+	$\Sym_5$ sono i $5$-cicli, tutti questi sottogruppi contengono $\phi(5) = 4$
+	$5$-cicli, e quindi esistono tanti $5$-Sylow quanto vale
+	\[ \frac{1}{\phi(5)} \binom{5}{5}4! = 6 \]
+	Posto $X = \{P_1, \ldots, P_6\}$ l'insieme dei $5$-Sylow di $\mathcal{S}_5$, possiamo considerare
+	l'azione di coniugio di $\Sym_5$ su $X$, e quindi un omomorfismo $\varphi : \Sym_5 \to S(X) \cong \Sym_6$.
+	Per i Teoremi di Sylow, ogni $5$-Sylow è coniugato a ogni altro $5$-Sylow, e quindi $\varphi$ è
+	un'azione transitiva. \medskip
+	
+	
+	Si consideri il nucleo di $\varphi$. Per la \autoref{prop:sottogruppi_normali_sn},
+	$\ker \varphi$ è $\Sym_5$, $\ASym_5$ o $\{\id\}$. Chiaramente il nucleo non può
+	essere $\Sym_5$, poiché altrimenti $\Stab(P_1)$ sarebbe anch'esso $\Sym_5$, e così,
+	per il Lemma orbita-stabilizzatore, $\Orb(P_1)$ avrebbe un singolo elemento, mentre
+	$\varphi$ è transitiva e $\Orb(P_1) = X$. Allo stesso modo $\ker \varphi$ non può
+	essere $\ASym_5$. Se così fosse, varrebbe che:
+	\[ \ASym_n = \ker \varphi = \bigcap_{i=1}^5 \Stab(P_i) \subseteq \Stab(P_1) \subseteq \Sym_n \]
+	In particolare, per il Teorema di corrispondenza, $\Stab(P_1)$ è $\ASym_n$ o $\Sym_n$. In entrambi
+	i casi,
+	per il Lemma orbita-stabilizzatore varrebbe che:
+	\[ \abs{\Orb(P_1)} = \frac{\abs{\Sym_n}}{\abs{\Stab(P_1)}} \leq \frac{n!}{\frac{n!}{2}} = 2 \]
+	che è assurdo, dal momento che per la transitività di $\varphi$ vale che $\Orb(\sigma) = X$, che ha
+	$5$ elementi. Pertanto $\ker \varphi$ è banale, e dunque $\varphi$ è un'azione fedele. In particolare
+	$H = \Im \varphi$ è un sottogruppo di $\Sym_6$ isomorfo a $\Sym_5$. \medskip
+
+	
+	Consideriamo l'azione $\psi$ di moltiplicazione a sinistra di $\mathcal{S}_6$ su 
+	$\faktor{\mathcal{S}_6}{H}$. Come osservato nella dimostrazione della \autoref{prop1.68},
+	$\psi$ è un isomorfismo, e dunque induce un automorfismo $\zeta$ di $\Sym_6$, dal momento che
+	$S\left(\faktor{\mathcal{S}_6}{H}\right) \cong \Sym_6$.
+	Analogamente $\zeta(H) = \Stab(i)$ per l'azione naturale di $\mathcal{S}_6$ sull'insieme $\{1, \ldots, 6\}$.
+	Concludiamo osservando che se $\zeta$ fosse un automorfismo interno di $\mathcal{S}_6$,
+	allora anche $\zeta^{-1}$ sarebbe un automorfismo interno, cioè $\zeta^{-1}$
 	sarebbe il coniugio per un qualche $\sigma \in \mathcal{S}_6$ fissato, da cui
 	\[
-	H = \psi^{-1}(\St(i)) = \sigma\St(i)\sigma^{-1} = \St(\sigma(i))
+	H = \zeta^{-1}(\Stab(i)) = \sigma\Stab(i)\sigma^{-1} = \Stab(\sigma(i))
 	\]
 	che è assurdo in quanto $H$ non può essere uno stabilizzatore per tale azione,
-	pertanto $\psi \notin \Inn(\mathcal{S}_6)$.
+	pertanto $\zeta \notin \Inn(\mathcal{S}_6)$.
 	
 	\newpage
 	
