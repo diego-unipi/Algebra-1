@@ -85,58 +85,60 @@
 	\subsection{Insiemi di generatori}
 	
 	\begin{definition}
-		Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, chiamiamo \vocab{sottogruppo 
-			generato} da $x_1, \ldots, x_n$ il più piccolo sottogruppo $\langle x_1, \ldots x_n
-		\rangle$ di $G$ contenente $x_1, \ldots, x_n$, cioè \[\langle x_1, \ldots, x_n\rangle =
-		\bigcap_{\substack{H\leqslant G\\ \{x_1, \ldots, x_n\} \subseteq H}} H\] 
+		Dati un gruppo $G$ e un sottinsieme $X$ di $G$, definiamo il \vocab{sottogruppo 
+			generato} da $X$ come il più piccolo sottogruppo $\langle X
+		\rangle$ di $G$ contenente $X$, ovverosia: \[\langle X \rangle =
+		\bigcap_{\substack{H\leqslant G\\ X \subseteq H}} H\]
+		Se $X$ è finito e i suoi elementi sono $x_1$, \ldots, $x_n$, si
+		scrive $\langle x_1, \ldots, x_n \rangle$ per indicare
+		$\langle X \rangle$.
 	\end{definition}
 	
 	\begin{remark}
-		La definizione è ben posta, infatti l'intersezione avviene su una 
-		famiglia non vuota di insiemi dal momento che $G$ è un sottogruppo di 
-		se stesso contenente $x_1, \ldots, x_n$. Inoltre l'intersezione non è vuota in 
-		quanto contiene almeno l'identità e gli elementi $x_1, \ldots, x_n$.
+		La definizione è ben posta dal momento che l'intersezione avviene su una 
+		famiglia non vuota di insiemi dacché $G$ è un sottogruppo
+		contenente $X$. Inoltre l'intersezione non è vuota in 
+		quanto contiene almeno l'identità e gli elementi di $X$. \medskip
+		
+		
+		Si osserva inoltre che se $X = \emptyset$, allora $\langle X \rangle = \{e_G\}$, il sottogruppo banale di $G$.
 	\end{remark}
 	
-	La definizione data non dà informazioni su come sono fatti gli elementi di 
-	$\langle x_1, \ldots, x_n\rangle$, cerchiamo quindi di caratterizzare in modo
-	diverso tale sottogruppo. Poiché chiuso per l'operazione indotta da $G$, $\langle x_1, \ldots, x_n\rangle$
-	deve contenere tutti i prodotti finiti, in qualsiasi ordine, delle potenze di
-	$x_1, \ldots, x_n$, cioè deve contenere l'insieme 
-	\[\{g_1^{\pm 1} \ldots g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
-	~\forall i \in \{1, \ldots, r\}\}\]
+	La definizione data non dà direttamente informazioni sulla struttura degli elementi di 
+	$\langle X \rangle$. Detto $X\inv$ l'insieme degli inversi degli elementi di $X$, caratterizziamo dunque tale sottogruppo tramite
+	la:
 	
 	\begin{proposition}
-		Dati un gruppo $G$ e $x_1, \ldots, x_n$ elementi di $G$, allora \[
-		\langle x_1 \ldots x_n\rangle = \{g_1^{\pm 1} \ldots g_r^{\pm 1}\mid r 
-		\in \NN, g_i \in \{x_1, \ldots, x_n\}~\forall i \in \{1, \ldots, r\}\}
+		Dati un gruppo $G$ e $X$ sottinsieme non vuoto di $G$, allora vale che:
+		\[
+		\langle X \rangle = \{x_1 \cdots x_r \mid r 
+		\in \NN, \, x_i \in X \cup X\inv ~\forall 1 \leq i \leq r\}
 		\]
 	\end{proposition}
 	
 	\begin{proof}
-		Poniamo $S = \{g_1^{\pm 1} \ldots g_r^{\pm 1}\mid r \in \NN, g_i \in \{x_1, \ldots, x_n\}
-		~\forall i \in \{1, \ldots, r\}\}$, mostriamo che $S$ è un sottogruppo di $G$. 
-		Effettivamente $e \in S$ in quanto è prodotto di nessuna potenza di $x_1, \ldots, x_n$, 
-		il prodotto di due elementi di $S$ è ancora un elemento di $S$ in quanto
-		prodotto finito di potenze di $x_1, \ldots, x_n$ e l'inverso di un elemento
-		$g_1^{\pm 1}\ldots g_r^{\pm 1} \in\nolinebreak S$ è $(g_1^{\pm 1}\ldots 
-		g_r^{\pm 1})^{-1} = g_r^{\mp 1}\ldots g_1^{\mp 1}$, che è un elemento di $S$.
-		Abbiamo quindi che $S$ è un sottogruppo di $G$ contenente $x_1, \ldots, x_n$,
-		pertanto $\langle x_1, \ldots, x_n\rangle\subseteq S$ per minimalità di $\langle x_1,
-		\ldots, x_n\rangle$. D'altra parte, per quanto osservato sopra abbiamo che
-		tutti gli elementi della forma $g_1^{\pm 1}\ldots g_r^{\pm 1}$ con $r \in \NN$, 
-		$g_i \in \{x_1, \ldots, x_n\}$ per ogni $i \in \{1, \ldots, r\}$ devono essere
-		contenuti in $\langle x_1, \ldots, x_n\rangle$, pertanto i due sottogruppi
-		coincidono.
+		Si mostra innanzitutto che l'insieme del secondo membro, indicato con $S$, è
+		un sottogruppo di $G$. Preliminarmente, si verifica che $S$ non è vuoto,
+		dal momento che $X$ non lo è. Inoltre ogni elemento di $S$ ammette un
+		inverso, infatti $(x_1 \cdots x_r)\inv = x_r\inv \cdots x_1\inv$ è ancora
+		un elemento di $S$. Allo stesso modo, il prodotto di elementi di
+		$S$ è ancora un elemento di $S$. Pertanto $S$ è un sottogruppo di $G$. \medskip
+		
+		
+		Sia $H$ un sottogruppo di $G$ contenente $X$. Allora $H$ contiene ogni prodotto
+		finito di $X \cup X\inv$, e quindi $S$. Si conclude dunque che $\langle X \rangle = S$, da cui la tesi.
 	\end{proof}
 	
 	\begin{remark}
-		Se $G$ è un gruppo ciclico, esiste allora $x \in G$ tale che 
-		$\langle x\rangle = G$, cioè tutti gli elementi di $G$ sono potenze di $x$.
+		Si osserva facilmente che un sottogruppo ciclico $H$ di $G$ è un suo sottogruppo per cui esiste $x \in H$ tale per cui $H = \langle x \rangle$.
 	\end{remark}
 	
-	Diciamo che $x_1, \ldots, x_n \in G$ sono \vocab{generatori} per $G$, o che 
-	l'insieme $\{x_1, \ldots, x_n\}$ \vocab{genera} $G$, se $\langle x_1, \ldots, x_n\rangle = G$.
+	\begin{definition}
+		Sia $G$ un gruppo. Se $X$ è un sottinsieme non vuoto di $G$ tale per
+		cui $G = \langle X \rangle$, allora si dice che $X$ \vocab{genera} $G$,
+		che $X$ è un \vocab{insieme di generatori} per $G$ e che gli
+		elementi di $X$ sono \vocab{generatori} per $G$.
+	\end{definition}
 	
 	\newpage
 	\subsection{Gruppi liberi e presentazioni}
@@ -235,7 +237,7 @@
 	\label{sez1.2}
 	
 	Dato $p$ un primo, vogliamo determinare quanti sono gli automorfismi di 
-	$(\Zp)^n$. Per fare ciò è conveniente osservare che $\Z{p} \cong \FF_p$ è un campo e che
+	$(\Zp)^n$, un $p$-gruppo abeliano elementare. Per fare ciò è conveniente osservare che $\Z{p} \cong \FF_p$ è un campo e che
 	$(\Z{p})^n$ è dunque uno spazio vettoriale, dove il prodotto per scalari $\cdot : \Zp\times (\Zp)^n$ è
 	tale per cui:
 	\[
@@ -1729,6 +1731,21 @@
 		e quindi $\varphi(g) \notin \ASym_{2d}$. Allora
 		$[G : H] = 2$, da cui la tesi.
 	\end{soln}
+	
+	\begin{remark}
+		In realtà, il sottogruppo di indice $2$ in un gruppo di ordine $2d$ con
+		$d$ dispari è
+		unico, e dunque caratteristico. Se infatti $H$ e $K$ sono due sottogruppi
+		di indice $2$, sia $H$ che $K$ sono normali in $G$. Pertanto
+		$HK$ è un sottogruppo di $G$, e dunque, per il Teorema di Lagrange,
+		vale che:
+		\[ \frac{d^2}{\abs{H \cap K}} = \frac{\abs{H} \cdot \abs{K}}{\abs{H \cap K}} = \abs{HK} \mid \abs{G} = 2d \]
+		In particolare, dal momento che per il Teorema di Lagrange $\abs{H \cap K}$ divide
+		$\abs{H} = d$, $\frac{d}{\abs{H \cap K}}$ divide $2$, e dunque
+		$\abs{H \cap K}$ è uguale a $d$ oppure $d = 2 \abs{H \cap K}$. 
+		Dacché per ipotesi $d$ è dispari, deve per forza valere l'identità
+		$\abs{H \cap K} = d$. Pertanto $H = H \cap K = K$.
+	\end{remark}
 	
 	Possiamo generalizzare il ragionamento appena impiegato per dimostrare
 	che $H$ ha indice divisore di $2$:
@@ -3985,52 +4002,6 @@
 	\[
 	(p, f(x)) \text{ con }\overline{f(x)} \text{ irriducibile in }\FF_p[x]
 	\]
-	
-	\newpage
-	
-	\subsection{Criterio di Eisenstein}
-	
-	Conosciamo il Criterio di Eisenstein per verificare che un polinomio a coefficienti
-	interi è irriducibile in $\ZZ[x]$. Lo stesso risultato vale in generale in 
-	ogni anello UFD con praticamente la stessa dimostrazione, che ricordiamo.
-	
-	\begin{proposition}
-		[Criterio di Eisenstein]
-		Siano $A$ un UFD, $p \in A$ un elemento primo e $f(x) = \displaystyle\sum_{i = 0}^n a_ix^i$
-		un polinomio a coefficienti in $A$ se sono verificate le ipotesi
-		\begin{itemize}
-			\item $p \nmid a_n$;
-			\item $p \mid a_i$ per $i \in \{0, \ldots, n - 1\}$;
-			\item $p^2 \nmid a_0$;
-		\end{itemize}
-		allora $f(x)$ è irriducibile in $A[x]$.
-	\end{proposition}
-	
-	%\begin{proof}
-	%    Supponiamo per assurdo che $f(x)$ sia riducibile, allora possiamo scrivere $f(x) = g(x)h(x)$
-	%    con $g(x), h(x) \in A[x]$, $\deg g = m \geq 1$, $\deg h = n - m \geq 1$. 
-	%    Consideriamo l'omomorfismo di proiezione
-	%    \[
-	%        \pi: A[x] \longrightarrow \faktor{A}{(p)}[x]: 
-	%        \sum_{j = 0}^k\alpha_ix^i \longmapsto \sum_{j = 0}^k \overline{\alpha_i}x^i
-	%    \]
-	%    abbiamo che 
-	%    \[
-	%        \pi(f(x)) = \overline{a_n}x^n \neq \overline{0} \qquad\pi(f(x)) = \pi(g(x))\pi(h(x))
-	%    \]
-	%    Scriviamo 
-	%    \[
-	%        g(x) = \sum_{i = 0}^m b_ix^i\qquad h(x) = \sum_{i = 0}^{n - m}c_ix^i
-	%    \]
-	%    poiché $A$ è $UFD$ lo è anche $A[x]$, pertanto le proiezioni di $g(x)$
-	%    e di $h(x)$ sono necessariamente della forma
-	%    \[
-	%        \pi(g(x)) = \overline{b_m}x^m\qquad \pi(h(x)) = \overline{c_{n - m}}x^{n - m}
-	%    \]
-	%    da cui $\overline{b_0} = \overline{c_0} = \overline{0}$, cioè $p \mid b_0$ e
-	%    $p \mid c_0$. D'altra parte $a_0 = b_0c_0$ e quindi $p^2 \mid a_0$, che 
-	%    è assurdo.
-	%\end{proof}
 	
 	\newpage
 	
