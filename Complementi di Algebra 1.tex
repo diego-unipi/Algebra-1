@@ -59,8 +59,9 @@
 	Chiunque volesse aiutare a migliorare questi appunti può farlo segnalando eventuali errori e/o imprecisioni alle mail dei due autori. \medskip
 	
 	Con il simbolo della stella ($\star$) si classificano le sezioni di queste dispense che
-	sono considerate opzionali e che sono state inserite per mettere per iscritto la
-	risoluzione di alcuni esercizi proposti dal prof. Lombardo.
+	sono considerate generalmente opzionali e che sono state inserite per mettere per iscritto la
+	risoluzione di alcuni esercizi proposti dal prof. Lombardo o alcune curiosità
+	affrontate a lezione.
 	
 	\section*{Ringraziamenti}
 	
@@ -2663,7 +2664,7 @@
 		e dunque $\varphi$ induce un isomorfismo da $\Sym_n$ a $\Sym_n$, dacché
 		$\mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \mathcal{S}_n$. \medskip
 
-		Si consideri $\alpha = \restr{\varphi}{H} : H \to \mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \Sym_{n-1}$,
+		Si consideri $\alpha = \restr{\varphi}{H} : H \to \mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right) \cong \Sym_{n}$,
 		ossia la restrizione di $\varphi$ ad $H$. Dal momento che $\varphi$ è un omomorfismo iniettivo, anche
 		$\alpha$ è iniettivo, ovverosia rappresenta un'azione fedele. Si osserva inoltre che
 		$\Stab(H)$ è esattamente $H$, e quindi che $\Orb(H) = \{H\}$. In particolare, $H$ fissa sempre
@@ -2696,14 +2697,9 @@
 		tutti isomorfi a $\Sym_3$.
 	\end{remark}
 	
-	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{$n \neq 6$}{n≠6}}
+	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{$n \neq 6$}{n≠6} \texorpdfstring{$\star$}{★}}
 	
-	%TODO: ricostruire totalmente la seguente sezione, aggiungendo:
-	% - lemma: automorfismi che mandano trasp in trasp = automorfismi interni
-	% - per n div da 2 e 6, automorfismi mandano trasp in trasp -> inn = aut -> aut = sn
-	% - per n = 2 considerazioni
-	% - per n = 6, costruzione aut esterno + unicità (ossia out(sn) ha ordine 2)
-	% - descrizione di aut(s6) come prod semidiretto (?)
+	%TODO: descrizione di aut(s6) come prod semidiretto (?)
 	
 	In questa sezione si descrive il gruppo degli automorfismi di $\Sym_n$ per $n \neq 6$.
 	Per $n = 2$, $\Sym_2 \cong \Z{2}$, e dunque $\Aut(\Sym_2)$ è banale. Si presenta
@@ -2799,23 +2795,29 @@
 		da cui la tesi.
 	\end{proof}
 	
-	Con le stesse notazioni di sopra chiamiamo $\varphi'$ l'isomorfismo tra
-	$\mathcal{S}\left(\faktor{\mathcal{S}_n}{H}\right)$ e $\mathcal{S}_n$, componendo $\varphi'$ con $\varphi$ 
-	otteniamo un isomorfismo
-	\[
-	\psi :\mathcal{S}_n \longrightarrow \mathcal{S}_n
-	\]
-	che, per $n \notin \{2, 6\}$, è il coniugio per un elemento di $\mathcal{S}_n$. Abbiamo
-	quindi che $\psi(H)$ è lo stabilizzatore di un elemento per l'azione naturale
-	di $\mathcal{S}_n$ su $\{1, \ldots, n\}$, ma allora anche $H$ è uno stabilizzatore per tale
-	azione in quanto coniugato a $\psi(H)$\footnote{
-		Notiamo che l'azione naturale di $\mathcal{S}_n$ su $\{1, \ldots, n\}$ è transitiva,
-		pertanto gli stabilizzatori sono tra loro coniugati.
-	}.Pertanto i sottogruppi di $\mathcal{S}_n$ isomorfi a $S_{n - 1}$ sono tra loro coniugati
-	e ognuno è lo stabilizzatore di un elemento per l'azione naturale di $\mathcal{S}_n$
-	su $\{1, \ldots, n\}$.
+	\begin{remark}[Gruppi completi]
+		Un gruppo $G$ si dice \vocab{completo} se ha centro banale e se
+		$\Aut(G) \cong G$. Equivalentemente, $G$ è completo se $\Aut(G) = \Inn(G)$
+		e $\z(G) = \{e_G\}$. Per il \autoref{th:aut_sn} e per il \autoref{lemma1.65}, $\Sym_n$ è completo per $n \neq 2$ e $n \neq 6$. \medskip
+	\end{remark}
 	
-	\subsubsection{Costruzione di un automorfismo esterno di \texorpdfstring{$\mathcal{S}_6$}{S₆}}
+	\begin{remark}[Per $n \neq 2$, $6$, i sottogruppi di indice $n$ di $\Sym_n$ sono tra loro coniugati]
+		Sia $H$ un sottogruppo di $\Sym_n$ di indice $n$. Dalla \autoref{prop1.68}
+		sappiamo già che $H$ è isomorfo a $\Sym_{n-1}$.
+		Sia $\varphi$ l'isomorfismo costruito tra $\Sym_n$ e $S\left( \faktor{\Sym_n}{H} \right)$ e sia $\zeta$ il corrispondente automorfismo di $\Sym_n$ indotto da $\varphi$. \medskip
+		
+		Se $n$ è diverso sia da $2$ che da $6$, per il \autoref{th:aut_sn},
+		$\zeta$ è un automorfismo interno, e dunque esiste $\sigma \in \Sym_n$ tale
+		per cui $\zeta = \varphi_\sigma \in \Inn(\Sym_n)$. Inoltre $H$ è lo stabilizzatore
+		della classe $H$ secondo l'azione $\varphi$, e quindi $\zeta(H)$ fissa un elemento
+		di $\Sym_n$. Allora $H = \zeta\inv(\zeta(H)) = \sigma\inv \zeta(H) \sigma$
+		è coniugato ad uno stabilizzatore, e dunque fissa ancora un elemento di
+		$\Sym_n$. Poiché l'azione naturale di $\Sym_n$ su $\{1, \ldots, n\}$, tutti i suoi
+		stabilizzatori sono coniugati, e quindi i sottogruppi di $\Sym_n$ di indice
+		$n$ sono coniugati tra loro.
+	\end{remark}
+	
+	\subsubsection{Automorfismi esterni di \texorpdfstring{$\mathcal{S}_6$}{S₆} \texorpdfstring{$\star$}{★}}
 	
 	Abbiamo osservato in precedenza che per $n \neq 6$, ogni automorfismo di $\Sym_n$ è interno.
 	Il caso $n = 6$ è invece del tutto eccezionale, dal momento che ammette una classe di automorfismi
@@ -2863,23 +2865,45 @@
 	per il Lemma orbita-stabilizzatore varrebbe che:
 	\[ \abs{\Orb(P_1)} = \frac{\abs{\Sym_n}}{\abs{\Stab(P_1)}} \leq \frac{n!}{\frac{n!}{2}} = 2 \]
 	che è assurdo, dal momento che per la transitività di $\varphi$ vale che $\Orb(\sigma) = X$, che ha
-	$5$ elementi. Pertanto $\ker \varphi$ è banale, e dunque $\varphi$ è un'azione fedele. In particolare
-	$H = \Im \varphi$ è un sottogruppo di $\Sym_6$ isomorfo a $\Sym_5$. \medskip
+	$5$ elementi. Pertanto $\ker \varphi$ è banale, e dunque $\varphi$ è un'azione fedele. In particolare $\varphi$ induce un'immersione $\alpha$ di $\Sym_5$ in
+	$\Sym_6$, dove $H = \im \alpha$ è transitivo, e dunque non può fissare
+	alcun elemento di $\{1, \ldots, 6\}$. \medskip
 
 	
 	Consideriamo l'azione $\psi$ di moltiplicazione a sinistra di $\mathcal{S}_6$ su 
 	$\faktor{\mathcal{S}_6}{H}$. Come osservato nella dimostrazione della \autoref{prop1.68},
 	$\psi$ è un isomorfismo, e dunque induce un automorfismo $\zeta$ di $\Sym_6$, dal momento che
-	$S\left(\faktor{\mathcal{S}_6}{H}\right) \cong \Sym_6$.
-	Analogamente $\zeta(H) = \Stab(i)$ per l'azione naturale di $\mathcal{S}_6$ sull'insieme $\{1, \ldots, 6\}$.
-	Concludiamo osservando che se $\zeta$ fosse un automorfismo interno di $\mathcal{S}_6$,
-	allora anche $\zeta^{-1}$ sarebbe un automorfismo interno, cioè $\zeta^{-1}$
-	sarebbe il coniugio per un qualche $\sigma \in \mathcal{S}_6$ fissato, da cui
-	\[
-	H = \zeta^{-1}(\Stab(i)) = \sigma\Stab(i)\sigma^{-1} = \Stab(\sigma(i))
-	\]
-	che è assurdo in quanto $H$ non può essere uno stabilizzatore per tale azione,
-	pertanto $\zeta \notin \Inn(\mathcal{S}_6)$.
+	$S\left(\faktor{\mathcal{S}_6}{H}\right)$ è isomorfo a $\Sym_6$.
+	Poiché $H \leqslant \Sym_6$ è esattamente lo stabilizzatore della
+	classe $H$, $\zeta(H)$ è a sua volta per la sua azione naturale
+	stabilizzatore di un elemento
+	$i$ in $\{1, \ldots, 6\}$. \medskip 
+
+
+	Se $\zeta$ fosse un automorfismo interno di $\mathcal{S}_6$,
+	allora anche $\zeta^{-1}$ sarebbe un automorfismo interno, e quindi
+	esisterebbe $\sigma \in \Sym_6$ tale per cui $\zeta\inv = \varphi_\sigma$.
+	Se così fosse, però, varrebbe che:
+	\[ H = \zeta\inv(\zeta(H)) = \zeta\inv(\Stab(i)) = \sigma \Stab(i) \sigma\inv = \Stab(\sigma(i)) \]
+	mentre, come osservato prima, $H$ non può fissare alcun elemento di
+	$\{1, \ldots, 6\}$. Pertanto $\zeta$ non è un automorfismo interno,
+	ed è dunque esterno per $\Sym_6$.
+	
+	\begin{remark}
+		Come osservato nella dimostrazione del \autoref{th:aut_sn}, affinché
+		$\zeta$ sia un automorfismo esterno di $\Sym_6$, $\zeta$ deve mappare
+		le trasposizioni alle triple trasposizioni (ossia $\zeta(T_1) = T_3$,
+		l'unica soluzione non banale per $n = 6$). \medskip
+		
+		
+		Pertanto, se $\alpha$ è un altro automorfismo esterno di $\Sym_6$,
+		$\zeta\inv(\alpha(T_1)) = \zeta\inv(T_3) = T_1$, e dunque
+		$\zeta\inv \circ \alpha$ manda trasposizioni in trasposizioni, da cui
+		si deduce, per il \autoref{lemma:trasp_in_trasp}, che $\zeta\inv \circ \alpha$
+		è un automorfismo interno di $\Sym_6$. In particolare ogni automorfismo esterno
+		di $\Sym_6$ appartiene alla stessa classe laterale di $\Inn(\Sym_6)$ in
+		$\Aut(\Sym_6)$. Si conclude dunque che $\Out(\Sym_6) \cong \Z{2}$.
+	\end{remark}
 	
 	\newpage
 	
