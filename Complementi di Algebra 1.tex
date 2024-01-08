@@ -3355,44 +3355,54 @@
 	
 	\subsection{Classificazione dei gruppi semplici di ordine al più $100$}
 	
-	In questa sezione vogliamo determinare quali sono i sottogruppi semplici di 
-	ordine minore o uguale a 100. Facciamo prima una serie di osservazioni che 
-	ci permetterà di ridurre lo studio a pochi casi interessanti.
+	In questa sezione vogliamo classificare tutti i gruppi semplici finiti di 
+	ordine al più $100$. Innanzitutto, illustriamo alcune osservazioni che
+	ci permetteranno di ridurre lo studio a pochi casi interessanti:
 	
 	\begin{itemize}
-		\item Gli unici gruppi abeliani semplici sono i gruppi $\Zp$ con $p$ primo,
-		in quanto i loro sottogruppi sono solo quelli banali e tutti i sottogruppi
-		di un gruppo abeliano sono normali;
-		\item i gruppi $G$ di ordine $p^k$ con $p$ primo e $k > 1$ non sono semplici
-		in quanto hanno centro non banale e il centro è un sottogruppo caratteristico,
-		in particolare normale (alternativamente, dal Teorema di Sylow abbiamo che 
-		$G$ contiene un sottogruppo proprio di ordine $p^{k - 1}$, che è normale in quanto
-		il suo indice è $p$, il più piccolo primo che divide $|G|$);
-		\item i gruppi di ordine $2d$ con $d$ dispari non sono semplici in quanto
+		\item Gli unici gruppi abeliani semplici sono i gruppi isomorfi a $\Zp$ con $p$ primo o sono isomorfi al gruppo banale di ordine $1$;
+		\item I $p$-gruppi di ordine $p^k$ con $k > 1$ non sono semplici dal momento
+		che hanno centro non banale e il centro è un sottogruppo caratteristico,
+		e dunque è un sottogruppo normale; alternativamente, se $k = 2$, $G$ è abeliano (e dunque è già stato trattato prima), e se $k > 2$, dai Teoremi di Sylow,
+		$G$ contiene un sottogruppo proprio di ordine $p^{k - 1}$, normale dal momento che
+		il suo indice è $p$, il più piccolo primo che divide $\abs{G}$ (questo esclude gli ordini $4$, $8$, $9$, $16$, $25$, $27$, $32$, $49$, $64$ e $81$);
+		\item i gruppi di ordine $2d$ con $d \neq 1$ dispari non sono semplici in quanto
 		contengono un sottogruppo di indice $2$, che è normale e non banale, per 
-		l'\hyperref[ex1.48]{Esercizio 1.48};
-		\item i gruppi di ordine $pq$ con $q > p$ primi non sono semplici, in
-		quanto possiamo scriverli come prodotto semidiretto dei loro sottogruppi
-		di Sylow, pertanto almeno uno di questi è normale e non banale;
-		\item $\mathcal{A}_5$ è un gruppo semplice di ordine $60$.
+		l'\autoref{ex1.48} (questo esclude gli ordini $6$, $10$, $14$, $18$, $22$, $26$, $30$, $34$, $38$, $42$, $46$, $50$, $54$, $58$, $62$, $66$, $70$, $74$, $78$, $82$, $86$, $90$, $94$ e $98$);
+		\item I gruppi di ordine $pq$ con $q > p$ e $q$, $p$ primi non sono semplici, in
+		quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunque ha un $q$-Sylow normale (questo esclude gli ordini $6$, $10$, $14$, $15$, $21$, $22$, $26$, $33$, $34$, $35$, $38$, $39$, $46$, $51$, $55$, $57$, $58$, $62$, $65$, $69$, $74$, $77$, $82$, $85$, $86$, $87$, $91$, $93$, $94$ e $95$);
+		\item I gruppi di ordine $4p$ con $p \geq 5$ primo non sono semplici, dal
+		momento che, per i Teoremi di Sylow, $n_p \mid 4$ e $n_p \equiv 1 \pmod{p}$ ha
+		come unica soluzione $n_p = 1$, da cui si deduce che il $p$-Sylow del gruppo
+		è normale (questo esclude gli ordini $20$, $28$, $44$, $52$, $68$, $76$ e $92$);
+		\item I gruppi di ordine $p q^j$ con $p$, $q$ primi e tali per cui
+		$p! < p q^j$, in quanto, per il Teorema di Poincaré, esiste un sottogruppo
+		non banale e normale $N$ di $G$ tale per cui $p \mid \abs{N} \mid p! < p q^j$
+		e contenuto in un $q$-Sylow di $G$ (questo esclude gli ordini $12$, $18$, $24$, $48$, $50$, $54$, $75$, $96$ e $98$);
+		\item I gruppi di ordine $p^2 q^j$ con $p$, $q$ primi e tali per cui
+		$(p^2)! < p^2 q^j$, per lo stesso motivo per cui si escludono i gruppi
+		di ordine $p q^j$ (questo esclude gli ordini $36$ e $100$);
+		\item L'unico gruppo alternante semplice di ordine minore o uguale a $100$ è $\mathcal{A}_5$, di ordine $60$.
 	\end{itemize}
 	
-	Ci riduciamo quindi a studiare i gruppi di ordine 56, 60, 72, 80, 96.
-	\newline\newline
-	\underline{$|G| = 56 = 2^3\cdot 7$}: poiché $n_7 \equiv 1 \pmod 7$ e $n_7 \mid 56$ abbiamo
+	A partire da queste osservazioni, ci riduciamo a studiare i gruppi di ordine $40$, $45$, $56$, $60$, $63$, $72$, $80$, $84$, $88$ e $99$. Tutti questi casi,
+	escludendo $56$, $60$, $72$ e $80$, ammettono, per almeno un primo, un unico
+	sottogruppo di Sylow, che dunque è normale. \medskip
+	
+	
+	Studiamo quindi i gruppi di ordine $56$, $72$ e $80$, per poi studiare
+	alla fine i gruppi di ordine $60$. \medskip
+	
+	\underline{$\abs{G} = 56 = 2^3\cdot 7$}: poiché $n_7 \equiv 1 \pmod 7$ e $n_7 \mid 56$ abbiamo
 	$n_7 \in \{1, 8\}$. Se $n_7 = 1$ allora $G$ contiene un unico 7-Sylow, chè 
 	è quindi un sottogruppo proprio normale di $G$. Se $n_7 = 8$ allora $G$ contiene
 	$6\cdot8 = 48$ elementi di ordine 7 (dato che i 7-Sylow di $G$ sono isomorfi a $\Z7$)
 	pertanto i restanti $7$ elementi non banali devono essere contenuti in un 
 	unico 2-Sylow, che è quindi normale. In entrambi i casi $G$ non è semplice.
 	\newline\newline
-	\underline{$|G| = 96 = 2^5\cdot 3$}: sia $P_2$ un 2-Sylow di $G$, poiché 
-	$[G:P_2] = 3$ per il \hyperref[teorema1.50]{Teorema 1.50} esiste un sottogruppo
-	$N \triangleleft G$ tale che $N \subseteq P_2$ e $3 \mid [G:N] \mid 3!$, da cui
-	$N \neq G$ e $N \neq \{e\}$ in quanto $[G:\{e\}] = |G|$. Pertanto $G$ non 
-	è semplice.
-	\newline\newline
-	\underline{$|G| = 72 = 2^3 \cdot 3^2$}: dalle condizioni 
+	
+
+	\underline{$\abs{G} = 72 = 2^3 \cdot 3^2$}: dalle condizioni 
 	\[
 	\begin{cases}
 		n_2 \equiv 1 \pmod 2\\
@@ -3423,7 +3433,9 @@
 		normali). Pertanto $\ker\varphi$ è un sottogruppo normale non banale di $G$,
 		cioè $G$ non è semplice.
 	\end{itemize}
-	\underline{$|G| = 80 = 2^4\cdot 5$}: dalle condizioni
+	
+
+	\underline{$\abs{G} = 80 = 2^4\cdot 5$}: dalle condizioni
 	\[
 	\begin{cases}
 		n_2 \equiv 1 \pmod 2\\
