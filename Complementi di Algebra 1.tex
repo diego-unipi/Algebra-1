@@ -60,8 +60,8 @@
 	
 	Con il simbolo della stella ($\star$) si classificano le sezioni di queste dispense che
 	sono considerate generalmente opzionali e che sono state inserite per mettere per iscritto la
-	risoluzione di alcuni esercizi proposti dal prof. Lombardo o alcune curiosità
-	affrontate a lezione.
+	risoluzione di alcuni esercizi proposti dal prof. Lombardo, alcune curiosità
+	affrontate a lezione o alcuni esercizi proposti all'esame orale.
 	
 	\section*{Ringraziamenti}
 	
@@ -1530,7 +1530,25 @@
 		in $\N_G(H)$.
 	\end{remark}
 	
-	\subsubsection{Teorema di Cauchy e Piccolo Teorema di Fermat}
+	\begin{exercise}[$\star$]
+		Sia $G$ un gruppo infinito che non ammette sottogruppi normali di indice finito che
+		non siano banali. Si mostri allora che ogni sottogruppo normale $N$ di $G$
+		è contenuto in $\z(G)$, se di cardinalità finita.
+	\end{exercise}
+	
+	\begin{soln}
+		Si consideri il gruppo $K := \N_G(H)/\z_G(H)$. Dacché $H$ è normale,
+		vale che $\N_G(H) = G$, e dunque $K = G/\z_G(H)$.
+		Per il \nameref{prop:norm_centr}, esiste un'immersione di $K$ in $\Aut(H)$, che
+		è un gruppo finito, dal momento che $H$ lo è. Pertanto $[G : \z_G(H)]$ è
+		finito, e quindi, per ipotesi, $\z_G(H)$ è $\{e_G\}$ o $G$ stesso.
+		Se $\z_G(H)$ fosse $\{e\}$, $G$ si immergerebbe in
+		$\Aut(H)$, assurdo dal momento che $G$ è un gruppo infinito e
+		$\Aut(H)$ non lo è. Pertanto
+		$\z_G(H) = G$, ovverosia $H \subseteq \z(G)$, da cui la tesi.
+	\end{soln}
+	
+	\subsubsection{Dimostrazioni alternative del Teorema di Cauchy e del Piccolo Teorema di Fermat}
 	
 	In questa sezione illustriamo una dimostrazione alternativa, che fa uso del concetto di
 	azione, del Teorema di Cauchy e del Piccolo
