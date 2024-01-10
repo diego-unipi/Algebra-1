@@ -2847,10 +2847,108 @@
 		della classe $H$ secondo l'azione $\varphi$, e quindi $\zeta(H)$ fissa un elemento
 		di $\Sym_n$. Allora $H = \zeta\inv(\zeta(H)) = \sigma\inv \zeta(H) \sigma$
 		è coniugato ad uno stabilizzatore, e dunque fissa ancora un elemento di
-		$\Sym_n$. Poiché l'azione naturale di $\Sym_n$ su $\{1, \ldots, n\}$, tutti i suoi
+		$\Sym_n$. Poiché l'azione naturale di $\Sym_n$ su $\{1, \ldots, n\}$ è transitiva, tutti i suoi
 		stabilizzatori sono coniugati, e quindi i sottogruppi di $\Sym_n$ di indice
 		$n$ sono coniugati tra loro.
 	\end{remark}
+	
+	\begin{approf}[Automorfismi centrali e \textit{class-preserving} di $G$ $\star$]
+		Abbiamo appena dimostrato che per $\Sym_n$, con $n \neq 6$, gli automorfismi
+		devono fissare tutte le sue classi di coniugio, e in particolare devono
+		mandare le trasposizioni nelle trasposizioni. In generale, il sottogruppo
+		di $\Aut(G)$ degli automorfismi che fissano \textit{tutte} le classi
+		di coniugio di $G$ è detto sottogruppo dei \vocab{\textit{class-preserving automorphisms}}, denotato con $\Aut_c(G)$. \medskip
+		
+		
+		Si può sempre considerare l'azione naturale $\varphi$ di $\Aut(G)$ sull'insieme $\{C_i\}$ delle
+		classi di coniugio di $G$, tale per cui a $f$ corrisponde la bigezione
+		$\varphi_f : C_i \mapsto f(C_i)$. In particolare, il nucleo di $\varphi$ è
+		esattamente $\Aut_c(G)$, che quindi è un sottogruppo normale di $\Aut(G)$. \medskip
+		
+		
+		Inoltre, ogni automorfismo interno è \textit{class-preserving}, e quindi
+		vale che:
+		\[ \Inn(G) \trianglelefteqslant \Aut_c(G) \trianglelefteqslant \Aut(G). \]
+		Nel caso di $\Sym_n$ con $n \neq 6$, $\Inn(\Sym_n)$ e
+		$\Aut(\Sym_n)$ coincidono, e quindi anche $\Aut_c(\Sym_n)$ coincide
+		con $\Aut(\Sym_n)$. \medskip
+		
+		
+		In generale, vi è sempre una proiezione\footnote{
+			La stessa proiezione si può considerare per $\Aut(G)$ su
+			$\Aut(G/H)$, a patto di rimuovere l'ipotesi di
+			conservazione delle classi di coniugio.
+		} $\pi_{H}^c$ da $\Aut_c(G)$ a qualsiasi
+		$\Aut_c(G/H)$, se $H \trianglelefteqslant G$. Tale proiezione è data
+		dall'associazione ad un automorfismo $\alpha \in \Aut_c(G)$ di
+		un automorfismo $\overline{\alpha} \in \Aut_c(G/H)$ tale per cui:
+		\[ \overline{\alpha}(gH) = \alpha(g)H. \]
+		Dal momento che $\Cl(gH) = \Cl(g) H$, tale automorfismo è infatti
+		ancora \textit{class-preserving}. \medskip
+		
+		
+		Il nucleo della proiezione di $\Aut_c(G)$ su $\Aut_c(G/\z(G))$ è
+		di considerevole importanza, ed è detto sottogruppo degli
+		\vocab{automorfismi \textit{class-preserving} centrali}\footnote{
+			Si definiscono invece gli \vocab{automorfismi centrali} di $\Aut_c(G)$ come
+			gli automorfismi $\alpha$ per $\alpha(g) g\inv \in \z(G)$; ossia
+			non si richiede in generale che siano \textit{class-preserving}. In
+			altre parole, gli automorfismi centrali sono il nucleo della
+			normale proiezione di $\Aut(G)$ su $\Aut(G/\z(G))$.
+			
+			In
+			particolare $\Aut_{c,z}(G) = \Aut_c(G) \cap \Aut_z(G)$. Si dimostra
+			facilmente che gli automorfismi centrali sono esattamente gli
+			automorfismi che commutano con gli automorfismi interni, ossia
+			$\Aut_c(G) = Z_{\Aut(G)}(\Inn(G))$.
+		}, indicato con $\Aut_{c,z}(G)$. Un
+		automorfismo \textit{class-preserving} centrale $\alpha$ è tale se e solo se è
+		\textit{class-preserving} e se
+		$\alpha(g) g\inv \in \z(G)$ per ogni $g \in G$. In particolare,
+		poiché ogni automorfismo \textit{class-preserving} deve fissare
+		ogni elemento del centro (infatti la classe
+		di coniugio di un elemento del centro è composta dall'elemento stesso),
+		se $\alpha \in \Aut_{c,z}(G)$ vale che:
+		\[ \exists z \in \z(G) \mid \alpha(g) = gz, \quad \alpha^i(g) = gz^i \forall i. \]
+	\end{approf}
+	
+	\begin{exercise}[$\star$]
+		Sia $G$ un $p$-gruppo finito. Si dimostri che allora $\Aut_c(G)$ è
+		banale o è anch'esso un $p$-gruppo.
+	\end{exercise}
+	
+	\begin{soln}
+		Sia $\abs{G} = p^n$. Si dimostra la tesi per induzione su $n$.
+		Se $n = 1$, $G$ è ciclico, e dunque abeliano. Pertanto un automorfismo
+		\textit{class-preserving} deve per forza fissare tutti gli elementi di
+		$G$, da cui si deduce che $\Aut_c(G)$ è banale. \medskip
+		
+		
+		Si consideri ora il passo induttivo. Se $G$ è abeliano, $\Aut_c(G)$ è
+		banale, come prima. Altrimenti $\z(G)$ è un $p$-sottogruppo non banale di $G$,
+		dal momento che $G$ è un $p$-gruppo. In tal caso si può considerare
+		la proiezione $\pi_{\z(G)}^c$ degli automorfismi \textit{class-preserving}
+		di $G$ a quelli di $G / \z(G)$. Per l'ipotesi induttiva $\Aut_c(G / \z(G))$
+		è banale o un $p$-gruppo, e quindi anche l'immagine di $\pi_{\z(G)}^c$ lo
+		è. \medskip
+		
+		
+		Si mostra che il nucleo di $\pi_{\z(G)}^c$, ossia il sottogruppo degli
+		automorfismi \textit{class-preserving} centrali, è un $p$-gruppo o è banale. Dato $\alpha \in \Aut_{c,z}(G) = \ker \pi_{\z(G)}^c$, per ogni $g \in G$ abbiamo
+		osservato precedentemente che esiste un unico $z(g) \in \z(G)$ in funzione di $g$ tale per cui
+		$\alpha(g) = gz(g)$. In particolare $\alpha^i(g) = gz(g)^i$, e quindi,
+		detto $p^k$ l'ordine di $z(g) \in \z(G)$, $\alpha^{p^k}(g) = gz(g)^{p^k} = g$. \medskip
+		
+		
+		Se $p^t$ è il minimo comune multiplo degli elementi di $\{\ord(z(g))\}_{g \in G}$, allora $\alpha^{p^t} = \id$, e
+		quindi l'ordine di $\alpha$ è divisore di una potenza di un primo. Pertanto
+		$\Aut_{c,z}(G)$ è un $p$-sottogruppo di $\Aut_c(G)$ o è banale. Per il Primo Teorema di
+		Omomorfismo si conclude allora che:
+		\[ \abs{\Aut_c(G)} = \abs{\Aut_{c,z}(G)} \lvert \im \pi_{\z(G)}^c \rvert, \]
+		e dunque che anche $\Aut_c(G)$ è un $p$-gruppo o è il gruppo banale, da cui la conclusione del
+		passo induttivo e la tesi.
+		
+	\end{soln}
 	
 	\subsubsection{Automorfismi esterni di \texorpdfstring{$\mathcal{S}_6$}{S₆} \texorpdfstring{$\star$}{★}}
 	
