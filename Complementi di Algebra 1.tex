@@ -269,6 +269,7 @@
 	di taglia $n\times n$ a coefficienti in $\Zp$.
 	
 	\begin{proposition}
+		\label{prop:aut_zpn}
 		Dato $p$ un primo, allora \[
 		\bigg| \! \Aut((\Zp)^n) \bigg| = \prod_{i = 0}^{n - 1} (p^n - p^i)
 		\]
@@ -1792,6 +1793,53 @@
 		\end{itemize}
 	\end{proof}
 	
+	\begin{exercise}[$\star$]
+		Sia $G$ un gruppo finito. Si dimostri che $G$ è sempre isomorfo a
+		un sottogruppo di $\GL_n(K)$ per un qualche $n$ e per un campo
+		$K$ qualsiasi.
+	\end{exercise}
+	
+	\begin{soln}
+		Per il Teorema di Cayley, l'\textit{embedding} di Cayley induce un'immersione
+		$\alpha$
+		di $G$ in $\Sym_n$, dove $n = \abs{G}$. Si mostra che a sua volta $\Sym_n$
+		si immerge in $\GL_n(K)$ dove $K$ è un campo qualsiasi. \medskip
+		
+		
+		Si ricorda che vi è una corrispondenza naturale tra una permutazione $\sigma \in \Sym_n$ e la relativa matrice di permutazione\footnote{
+			Per ulteriori approfondimenti si rimanda alla \href{https://it.wikipedia.org/wiki/Matrice_di_permutazione}{{\textcolor{purple}{relativa pagina su Wikipedia}}}.
+		} $P_\sigma$. In particolare $P_{\cycle{1, 2}}$ e $P_{\cycle{1, 2, \ldots, n}}$
+		generano un sottogruppo di $\GL_n(K)$ isomorfo a $\Sym_n$. Pertanto esiste
+		un'immersione $\beta$ di $\Sym_n$ in $\GL_n(K)$.
+		Si conclude allora che $\beta \circ \alpha$ è l'immersione da $G$ a
+		$\GL_n(K)$ ricercata.
+	\end{soln}
+	
+	\begin{approf}[$\star$]
+		La scelta del campo $K$ per immergere $G$ in $\GL_n(K)$ può risultare fondamentale
+		per affrontare alcuni problemi. Consideriamo per esempio il problema di
+		trovare un'immersione consona di un $p$-gruppo $G$ in $\GL_n(K)$. \medskip
+		
+		
+		Se scegliamo $K = \Z{p}$, troviamo un'immersione di $G$ in $\GL_n(\Z{p})$.
+		Chiamiamo $H$ il sottogruppo isomorfo a $K$ trovato in $\GL_n(\Z{p})$.
+		In particolare, poiché $K$ è un $p$-gruppo, anche $H$ lo è, e quindi
+		$H$ è contenuto in un determinato $p$-Sylow di $\GL_n(\Z{p})$. \medskip
+		
+		
+		Poiché $p^{1 + 2 + \ldots + n-1} = p^{\frac{n(n-1)}{2}} \pdiv \abs{\GL_n(\Z{p})}$,
+		come si evince dalla \autoref{prop:aut_zpn}, allora un $p$-Sylow di $\GL_n(\Z{p})$ ha ordine $p^{\frac{n(n-1)}{2}}$. Un tale $p$-Sylow è
+		dato dalle matrici triangolari superiori (o inferiori) di $\GL_n(\Z{p})$ con tutti
+		$1$ sulla diagonale. Detto $P$ questo sottogruppo, allora
+		$H$ è contenuto in un coniugato di $P$, dal momento che per il Teorema
+		di Sylow i coniugati dei
+		$p$-Sylow sono esattamente tutti i $p$-Sylow. In particolare, tramite una
+		mappa di coniugio di può immergere $H$ in $P$. Componendo le varie
+		immersioni si dimostra quindi che un $p$-gruppo $G$ si immerge sempre
+		nel sottogruppo delle matrici triangolari superiori (o inferiori) di
+		$\GL_n(\Z{p})$ con soli $1$ sulla diagonale per $n = \abs{G}$.
+	\end{approf}
+	
 	\subsubsection{Teorema di Poincaré}
 	
 	Illustriamo un teorema che risulterà utile nel futuro nello stabilire se
@@ -2947,7 +2995,6 @@
 		\[ \abs{\Aut_c(G)} = \abs{\Aut_{c,z}(G)} \lvert \im \pi_{\z(G)}^c \rvert, \]
 		e dunque che anche $\Aut_c(G)$ è un $p$-gruppo o è il gruppo banale, da cui la conclusione del
 		passo induttivo e la tesi.
-		
 	\end{soln}
 	
 	\subsubsection{Automorfismi esterni di \texorpdfstring{$\mathcal{S}_6$}{S₆} \texorpdfstring{$\star$}{★}}
@@ -2962,7 +3009,7 @@
 
 	\begin{definition}
 		Sia $G$ un gruppo. Allora si definisce \vocab{gruppo degli automorfismi esterni} di $G$
-		il gruppo $\Out(G) := \faktor{\Aut(G)}{\Inn(G)}$.
+		il gruppo $\Out(G) := \Aut(G) / \Inn(G)$.
 	\end{definition}
 	
 	In particolare si dice automorfismo esterno di $G$ un suo automorfismo non interno, ossia
@@ -3477,6 +3524,8 @@
 	
 	\begin{itemize}
 		\item Gli unici gruppi abeliani semplici sono i gruppi isomorfi a $\Zp$ con $p$ primo o sono isomorfi al gruppo banale di ordine $1$;
+		\item I gruppi di ordine $pq$ con $q > p$ e $q$, $p$ primi non sono semplici, in
+quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunque ha un $q$-Sylow normale (questo esclude gli ordini $6$, $10$, $14$, $15$, $21$, $22$, $26$, $33$, $34$, $35$, $38$, $39$, $46$, $51$, $55$, $57$, $58$, $62$, $65$, $69$, $74$, $77$, $82$, $85$, $86$, $87$, $91$, $93$, $94$ e $95$);
 		\item I $p$-gruppi di ordine $p^k$ con $k > 1$ non sono semplici dal momento
 		che hanno centro non banale e il centro è un sottogruppo caratteristico,
 		e dunque è un sottogruppo normale; alternativamente, se $k = 2$, $G$ è abeliano (e dunque è già stato trattato prima), e se $k > 2$, dai Teoremi di Sylow,
@@ -3485,8 +3534,6 @@
 		\item i gruppi di ordine $2d$ con $d \neq 1$ dispari non sono semplici in quanto
 		contengono un sottogruppo di indice $2$, che è normale e non banale, per 
 		l'\autoref{ex1.48} (questo esclude gli ordini $6$, $10$, $14$, $18$, $22$, $26$, $30$, $34$, $38$, $42$, $46$, $50$, $54$, $58$, $62$, $66$, $70$, $74$, $78$, $82$, $86$, $90$, $94$ e $98$);
-		\item I gruppi di ordine $pq$ con $q > p$ e $q$, $p$ primi non sono semplici, in
-		quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunque ha un $q$-Sylow normale (questo esclude gli ordini $6$, $10$, $14$, $15$, $21$, $22$, $26$, $33$, $34$, $35$, $38$, $39$, $46$, $51$, $55$, $57$, $58$, $62$, $65$, $69$, $74$, $77$, $82$, $85$, $86$, $87$, $91$, $93$, $94$ e $95$);
 		\item I gruppi di ordine $4p$ con $p \geq 5$ primo non sono semplici, dal
 		momento che, per i Teoremi di Sylow, $n_p \mid 4$ e $n_p \equiv 1 \pmod{p}$ ha
 		come unica soluzione $n_p = 1$, da cui si deduce che il $p$-Sylow del gruppo
