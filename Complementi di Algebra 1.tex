@@ -673,7 +673,7 @@
 		Quindi la classificazione è unica e completa.
 	\end{proof}
 	
-	\begin{remark}[numero di sottogruppi di $\Dn$]
+	\begin{remark}[Numero di sottogruppi di $\Dn$]
 		Si contano i sottogruppi di $\Dn$ a partire dal teorema precedente.
 		I sottogruppi della forma $\langle r^k \rangle$
 		con $k \mid n$ sono tanti quanti i divisori di $n$, e quindi sono\footnote{
@@ -3968,7 +3968,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	A meno di ulteriori specificazioni, gli anelli che tratteremo saranno sempre 
 	anelli commutativi con identità.
 	
-	\subsection{Interpolazione polinomiale via TCR}
+	\subsection{Interpolazione polinomiale tramite il TCR}
 	
 	Mostriamo il seguente enunciato di interpolazione utilizzando il Teorema
 	Cinese del Resto.
@@ -4023,66 +4023,107 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	\newpage
 	
 	\subsection{Localizzazione di $\ZZ$ rispetto a un ideale primo}
+
+	\begin{premessa*}
+		Tutta la teoria sviluppata in questa sezione è ancora valida sostituendo a
+		$\ZZ$ un generico PID $R$. Per motivi didattici si è preferito discutere
+		solamente il caso di $\ZZ$. Si invita ciononostante il lettore a
+		riflettere con gli stessi argomenti nel caso più generale e a discutere
+		il caso in cui $R$ è solo un UFD.
+	\end{premessa*}
+
 	
-	Sia $P = (p)$ un ideale primo non nullo di $\ZZ$, consideriamo $S = \ZZ \setminus P$.
-	$S$ è una parte moltiplicativa di $\ZZ$, infatti
+	Sia $P = (p)$ un ideale primo non nullo di $\ZZ$. Consideriamo l'insieme
+	$S = \ZZ \setminus P$ e mostriamo che $S$ è in effetti una parte moltiplicativa
+	di $\ZZ$:
+	
 	\begin{itemize}
-		\item $0 \notin S$ in quanto $0 \in P$;
-		\item $1 \in S$ in quanto $1 \notin P$;
-		\item per ogni $x, y \in S$ vale $xy \in S$, infatti se $x, y \notin P$
-		allora $xy \notin P$ poiché $P$ è un ideale primo.
+		\item $0 \notin S$ dal momento che $0 \in P$;
+		\item $1 \in S$ in quanto $1$ non può appartenere a $P$ (altrimenti $P$ non sarebbe un ideale proprio),
+		\item per ogni $x$, $y \in S$, $xy \in S$: se così non fosse, $xy$ apparterrebbe
+		a $P$, e dunque uno tra $x$ e $y$ non potrebbe appartenere a $S$ dacché
+		$P$ è un ideale primo.
 	\end{itemize}
+
+	Pertanto si può considerare l'anello delle frazioni $S\inv \ZZ$, detto
+	$\ZZ_P$. Si mostra facilmente che $S\inv P = \ZZ_P \setminus (\ZZ_P)^*$. \medskip
 	
-	Per quanto già visto, sappiamo che $S^{-1}\ZZ$ è un anello contenente
-	un unico ideale massimale, detto anche \vocab{anello locale}. Più precisamente,
-	tale ideale è $S^{-1}\ZZ \setminus (S^{-1}\ZZ)^*$ e il gruppo degli elementi
-	invertibili è
-	\[
-	(S^{-1}\ZZ)^* = \left\{\frac a s \Bigm| a, s \in S\right\}
-	\] 
-	Inoltre, gli ideali di $S^{-1}\ZZ$
-	sono tutti della forma $S^{-1}(m)$ con $(m)\subseteq \ZZ$ un ideale, e vale 
+	
+	Infatti per quanto visto nella teoria degli anelli delle frazioni vale che:
+	\[ (\ZZ_P)^* = \left\{ \frac{m}{n} \in \ZZ_P \mid \exists \, t \in \ZZ \mid mt \in S \right\}, \]
+	ovverosia un elemento $\frac{m}{n}$ è invertibile se e solo se esiste un $t \in \ZZ$
+	per cui $mt$ non appartiene a $P$. Tuttavia, poiché $P$ è primo, questo è
+	equivalente a richiedere che $m$ non sia un elemento di $P$, ossia che $p \nmid m$.
+	Pertanto vale che:
+	\[ (\ZZ_P)^* = \left\{ \frac{m}{n} \in \ZZ_P \mid m, n \in S \right\} = S\inv S, \]
+	e dunque che $S\inv P = \ZZ_P \setminus (\ZZ_P)^*$.
+	
+	\begin{remark}[$S\inv P$ è l'unico ideale massimale di $\ZZ_P$]
+		Consideriamo un ideale $I$ di $\ZZ_P$ tale per cui $S\inv P \subseteq I$.
+		Allora $I$ o è $S\inv P$ o contiene un elemento di $\ZZ_P$ che non appartiene
+		a $S\inv P$. Per quanto appena visto, un tale elemento è invertibile, e
+		quindi $I$ sarebbe esattamente $\ZZ_P$. Pertanto $S\inv P$ è un ideale
+		massimale di $\ZZ_P$. \medskip
+		
+		
+		Si mostra che tale ideale è l'unico ideale massimale di $\ZZ_P$. Se $I$
+		è un ideale massimale, allora $I$ non può contenere un invertibile (altrimenti si avrebbe $I = \ZZ_P$).
+		si avrebbe $I = \ZZ_P$. Pertanto $I$ è contenuto in
+		$\ZZ_P \setminus (\ZZ_P)^* = S\inv P$, da cui si deduce che $\ZZ_P = S\inv P$.
+	\end{remark}
+	
+	Per quanto visto, $\ZZ_P$ è dunque in qualche modo ``speciale'' dal punto
+	di vista teorico, dal momento che lo studio dei suoi ideali massimali è
+	decisamente semplificato. Pertanto si dice che $\ZZ_P$ è un \vocab{anello locale}
+	e che è in particolare il \vocab{localizzato} di $\ZZ$ rispetto all'ideale primo
+	$P$. \medskip
+	
+	Gli ideali di $\ZZ_P$
+	sono tutti della forma $S^{-1}(m)$ con $(m)\subseteq \ZZ$ ideale. Vale inoltre
+	che:
 	\[
 	S^{-1}(m) = \left\{\frac{mk}{s} \Bigm|k \in \ZZ, s \in S\right\} = 
 	\left\{m\frac k s\Bigm| \frac k s \in S^{-1}\ZZ\right\} = (m)S^{-1}\ZZ
 	\]
-	Vediamo un esempio esplicito per $P = (2)$, descrivendo esplicitamente gli 
-	ideali di $S^{-1}\ZZ$. 
-	\[
-	S^{-1}\ZZ = \left\{\frac m s \Bigm| s \text{ dispari}\right\}
-	\]
-	Per prima cosa osserviamo che la corrispondenza tra 
-	gli ideali di $\ZZ$ e quelli di $S^{-1}\ZZ$ non è biunivoca, ma solo surgettiva.
-	Infatti alcuni ideali di $\ZZ$ diventano uguali quando localizziamo l'anello
-	rispetto a $S$, in particolare
-	\[
-	S^{-1}(m) = S^{-1}(n) \iff \exists u \in (S^{-1}\ZZ)^* \text{ tale che }
-	m = un \iff u = \frac m n \in (S^{-1}\ZZ)^*
-	\]
-	dove l'ultima uguaglianza è giustificata dal fatto che $S^{-1}\ZZ$ è un 
-	sottoanello di $\QQ$, pertanto esiste $\displaystyle\frac m n$ come numero
-	razionale ed è l'unico valore per cui l'equazione è verificata. D'altra parte
-	abbiamo 
-	\[
-	(S^{-1}\ZZ)^* = \left\{\frac m s \Bigm| m, s \in S\right\} = 
-	\left\{\frac m n \Bigm| m, n\text{ entrambi dispari}\right\}
-	\]
-	pertanto $S^{-1}(m) = S^{-1}(n)$ se e solo se la massima potenza di due che 
-	divide $m$ e $n$ è la stessa\footnote{
-		In tal caso infatti il razionale $\frac m n$, se ridotto ai 
-		minimi termini, ha numeratore e denominatore entrambi dispari, quindi
-		è un'unità dell'anello.
-	}.
-	Gli ideali di $S^{-1}\ZZ$ sono quindi tutti e soli quelli della forma $S^{-1}(2^k)$.
-	Consideriamo la bigezione
-	\[
-	\{\text{Ideali primi di }S^{-1}\ZZ\}\longleftrightarrow 
-	\{\text{Ideali primi } P\subseteq \ZZ \mid P\cap S = \emptyset\}
-	\]
-	poiché gli unici ideali primi di $\ZZ$ che non intersecano $S = \ZZ\setminus(2)$
-	sono $(0)$ e $(2)$, abbiamo che gli unici ideali primi di $S^{-1}\ZZ$ sono
-	$(0)$ e $S^{-1}(2)$.
 	
+	È noto che ogni ideale di un anello di frazioni è indotto da un ideale
+	dell'anello di base. In particolare la mappa $I \mapsto S\inv I$ è surgettiva
+	negli ideali di $S\inv A$ per una qualche parte moltiplicativa $S$ e qualche
+	anello. \medskip
+	
+	Nel
+	caso di un PID, come $\ZZ$, e di una localizzazione rispetto a un ideale primo, si può rafforzare la corrispondenza tra gli ideali dei due anelli. Infatti, se $(m)$ ed $(n)$ sono ideali di $\ZZ$,
+	allora vale che:
+	\[ S\inv (m) = S\inv (n) \iff \exists u \in (S\inv \ZZ)^* \mid m = un \iff \frac{m}{n} \in (S\inv \ZZ)^*, \]
+	ossia i due ideali coincidono se la frazione $\frac{m}{n}$, che corrisponde in modo naturale a un elemento di
+	$\operatorname{Q}(\ZZ) = (\ZZ \setminus \{0\})\inv \ZZ \cong \QQ$, appartiene a $S\inv \ZZ$ ed è invertibile. 
+	
+	\begin{remark}[Localizzazione rispetto a $P = (2)$]
+		Consideriamo il localizzato di $\ZZ$ rispetto all'ideale $P = (2)$, ossia
+		$\ZZ_{(2)} = S\inv \ZZ$ con $S = \ZZ \setminus (2)$. Il suo ideale massimale
+		è $S\inv (2)$, ossia:
+		\[ S\inv (2) = (2) \ZZ_{(2)} = \left\{ 2 \frac{m}{n} \Bigm| m, n \in \ZZ, 2 \nmid n \right\} \]
+		In particolare gli elementi invertibili di $S\inv \ZZ$ sono le frazioni
+		in cui sia nominatore che denominatore sono dispari. Pertanto due ideali
+		$(m) = (n)$ corrispondono allo stesso ideale in $S\inv \ZZ$ se e solo
+		se $\frac{m}{n}$, ridotta ai minimi termini, ha numeratore e denominatore
+		dispari, ovverosia, equivalentemente, se $m$ ed $n$ sono divisi esattamente
+		dalla stessa potenza di $2$ (ossia se $\nu_2(m) = \nu_2(n)$, dove
+		$\nu_2$ indica la valutazione $2$-adica; per esempio, $S\inv (3) = S\inv (1)$, dacché $2^0 \pdiv 1$ e $2^0 \pdiv 3$).
+		Pertanto gli unici ideali di $S\inv \ZZ$ sono quelli della
+		forma $S\inv (2^k)$ con $k \in \NN$. \medskip
+		
+		Si ricorda inoltre che sussiste la seguente bigezione:
+		\[
+			\{\text{ideali primi di }S^{-1}\ZZ\} \leftrightarrow 
+			\{\text{ideali primi } P\subseteq \ZZ \mid P \cap S = \emptyset\}
+		\]
+		dove a un ideale $P$ di $\ZZ$ si fa corrispondere $S\inv P$ in
+		$\ZZ_{(2)}$.
+		Da questa corrispondenza si verifica immediatamente che gli unici ideali
+		primi di $\ZZ_{(2)}$ sono $(0)$ e $(2)$.
+	\end{remark}
+
 	\newpage
 	
 	\subsection{Ideali massimali e primi di $\ZZ[x]$}
@@ -5317,7 +5358,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Gruppo di Galois di un polinomio di grado 3}
+	\subsection{Gruppo di Galois di un polinomio di grado $3$}
 	
 	Consideriamo un polinomio $f(x)$ di grado 3 che non sia completamente fattorizzabile 
 	in $\QQ[x]$, cioè che ha campo di spezzamento $K$ 
