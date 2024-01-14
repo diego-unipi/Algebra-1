@@ -233,7 +233,7 @@
 	
 	\newpage
 	
-	\subsection{Automorfismi di \texorpdfstring{$(\Zp)^n$}{(Z/pZ)ⁿ}}
+	\subsection{Automorfismi di \texorpdfstring{$(\Zp)^n$}{(ℤ/pℤ)ⁿ}}
 	\label{sez1.2}
 	
 	Dato $p$ un primo, vogliamo determinare quanti sono gli automorfismi di 
@@ -4022,7 +4022,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Localizzazione di $\ZZ$ rispetto a un ideale primo}
+	\subsection{Localizzazione di \texorpdfstring{$\ZZ$}{ℤ} rispetto a un ideale primo}
 
 	\begin{premessa*}
 		Tutta la teoria sviluppata in questa sezione è ancora valida sostituendo a
@@ -4126,7 +4126,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 
 	\newpage
 	
-	\subsection{Ideali primi e massimali di $\ZZ[x]$}
+	\subsection{Ideali primi e massimali di {\texorpdfstring{$\ZZ[x]$}{ℤ[x]}}}
 	
 	Si illustra un lemma preliminare che ci permetterà successivamente
 	di classificare gli ideali di $\ZZ[x]$:
@@ -4230,7 +4230,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Domini a ideali principali}
+	\subsection{Corollari sui domini a ideali principali}
 	
 	Si riassumono in questa sezione alcuni risultati interessanti riguardanti
 	i PID, ovverosia i domini a ideali principali.
@@ -4708,7 +4708,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	\end{proof}
 	
 	
-	\subsubsection{Quozienti di $\ZZ[i]$}
+	\subsubsection{Quozienti di {\texorpdfstring{$\ZZ[i]$}{ℤ[i]}}}
 	
 	Abbiamo visto che $\displaystyle\frac{\ZZ[i]}{(1 + i)} \cong \FF_2$, vogliamo
 	determinare le classi di isomorfismo degli altri quozienti di $\ZZ[i]$ per 
@@ -4899,99 +4899,152 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Esempio di dominio non euclideo}
+	\subsection{Un esempio di dominio non euclideo: \texorpdfstring{{$\ZZ\!\left[\frac{1 + \sqrt{-19}}{2}\right]$}}{ℤ{[}(1+√−19)/2{]}}}
 	
-	Consideriamo l'anello $\displaystyle A = \ZZ\left[\frac{1 + \sqrt{-19}}{2}\right]$,
-	vogliamo mostrare che non è un dominio euclideo. 
+	Consideriamo l'elemento $\alpha = \frac{1 + \sqrt{-19}}{2} \in \CC$. Dimostreremo
+	in questa sezione che $\ZZ[\alpha]$ non è un dominio euclideo, ovverosia che
+	non esiste alcuna norma rispetto cui esiste una divisione euclidea per
+	$\ZZ[\alpha]$. \medskip
 	
-	\begin{proposition}
+	
+	Benché il valore $\alpha$ sembri del tutto casuale, vi sono due principali
+	ragioni per cui è stato scelto:
+	\begin{enumerate}[1.]
+		\item Come mostreremo a breve, il polinomio minimo di $\alpha$ su $\QQ$
+		è a coefficienti in $\ZZ$ ed è primitivo; pertanto si possono descrivere
+		in modo semplici gli elementi di $\ZZ[\alpha]$ attraverso
+		l'usuale omomorfismo di valutazioni;
+		\item Esiste una ``seminorma'' $N$ per $\ZZ[\alpha]$, indotta dall'usuale
+		norma complessa, e grazie a $N$ possiamo classificare agevolmente gli
+		invertibili di $\ZZ[\alpha]$.
+	\end{enumerate}
+	Combinando questi due risultati dimostreremo poi che $\ZZ[\alpha]$ non
+	è euclideo. \medskip
+	
+	\begin{remark}[Polinomio minimo di $\alpha$ su $\QQ$]
+		Si ponga $x = \alpha = \frac{1 + \sqrt{-19}}{2}$. Allora vale che:
+		\[ 2x - 1 = \sqrt{-19} \implies 4x^2 + 1 - 4x = -19 \implies x^2 - x + 5 = 0 \]
+		Poiché $\alpha$ non è reale, allora $x^2 - x + 5$ è necessariamente irriducibile ed è dunque il polinomio minimo\footnote{
+			Utilizzando la teoria di Galois si deduce immediatamente che il
+			polinomio minimo di $\alpha$ è $(x-\alpha)(x-\overline{\alpha})  = x^2 - x + 5$,
+			dal momento che $\QQ(\alpha) = \QQ(i)$, la cui unica $\QQ$-immersione
+			è il coniugio complesso.
+		} di $\alpha$ su $\QQ$, che denoteremo come
+		$\mu(x)$. \medskip
+	\end{remark}
+	
+	Come osservato precedentemente, $\mu(x)$ è a coefficienti interi ed
+	è anche primitivo. A partire da questo risultato si dimostra il:
+
+	\begin{lemma}
+		\label{lemma:z_alpha_insieme}
 		\[
-		\ZZ\left[\frac{1 + \sqrt{-19}}{2}\right] = 
-		\left\{a + b\frac{1 + \sqrt{-19}}{2}\Bigm| a, b \in \ZZ\right\}
+		\ZZ[\alpha] = 
+		\{a + b \alpha \mid a, b \in \ZZ\}
 		\]
-	\end{proposition}
+	\end{lemma}
 	
 	\begin{proof}
-		Sia $\alpha = \displaystyle\frac{1 + \sqrt{-19}}{2}$, il polinomio minimo di $\alpha$
-		su $\QQ$ è $\mu(x) = x^2 - x + 5$. Consideriamo l'omomorfismo di valutazione
-		\[
-		\varphi: \ZZ[x]\longrightarrow \CC: p(x) \longmapsto p(\alpha) 
-		\qquad \mathrm{Im\varphi} = \ZZ[\alpha]
-		\]
-		poiché $\varphi$ è la restrizione dell'usuale omomorfismo di valutazione
-		su $\QQ[x]$, che è un PID, abbiamo
-		\begin{multline*}
-			\ker \varphi = \ZZ[x] \cap \{f(x) \in \QQ[x]\mid f(\alpha) = 0\}
-			= \ZZ[x] \cap (x^2 - x + 5)\QQ[x] = (x^2 - x + 5)\ZZ[x]
-		\end{multline*}
-		dove l'ultima uguaglianza è giustificata dal fatto che $\mu(x)$ è un 
-		polinomio a coefficienti interi primitivo e per il Lemma di Gauss.
-		Pertanto per il Primo Teorema di Omomorfismo abbiamo 
-		\[
-		\{a + b\alpha \mid a, b \in \ZZ\} = \frac{\ZZ[x]}{(x^2 - x + 5)} \cong \mathrm{Im\varphi} = 
-		\ZZ[\alpha]
-		\]
+		Si consideri l'omomorfismo di valutazione $\phi$ di $\QQ[x]$ rispetto
+		ad $\alpha$. Poiché $\mu(x)$ è il polinomio minimo di $\alpha$ su $\QQ$,
+		allora $\ker \phi = \mu(x) \QQ[x]$. \medskip
+		
+		
+		Si consideri la restrizione $\psi$ di
+		$\phi$ su $\ZZ[x]$. Chiaramente $\Imm \psi$ coincide con $\ZZ[\alpha]$.
+		Inoltre, $\mu(x) \ZZ[x] \subseteq \ker \psi$. Se $p(x) \in \ker \psi$,
+		allora $p(x)$ appartiene in particolare a $\ker \phi = \mu(x) \QQ[x]$,
+		ed è dunque multiplo di $\mu(x)$ in $\QQ[x]$. Allora, per il Lemma
+		di Gauss, $p(x)$ è multiplo di $\mu(x)$ anche in $\ZZ[x]$, e
+		dunque $p(x) \in \mu(x) \ZZ[x]$. Pertanto $\ker \psi = \mu(x) \ZZ[x]$. \medskip
+
+
+		Si conclude dunque per il Primo Teorema di Omomorfismo che:
+		\[ \frac{\ZZ[x]}{\mu(x)\ZZ[x]} \cong \ZZ[\alpha]  \]
+		e dunque che $1$ e $\frac{1 + \sqrt{-19}}{2}$ formano dunque
+		un insieme di generatori\footnote{
+			Si ricorda che $\ZZ[x]/\mu(x)\ZZ[x]$ \underline{non} è
+			uno spazio vettoriale. Ciononostante il concetto di generatori
+			è ancora ben definito (e in realtà ben approfondito, dal momento
+			che si stanno studiando dei cosiddetti $\ZZ$-moduli).
+		} per $\ZZ[\alpha]$, dal momento che
+		$1$ e $x$ lo sono per $\frac{\ZZ[x]}{\mu(x)\ZZ[x]}$.
 	\end{proof}
 	
 	\begin{remark}
-		Il risultato appena visto non è un fatto ovvio. Consideriamo $\beta = 
-		\displaystyle\frac{1 + \sqrt{3}}{2}$,
-		il suo polinomio minimo su $\QQ$ è $\displaystyle\mu(x) = x^2 - x - \frac 1 2$.
-		Ragionando in modo analogo a quanto fatto sopra, il nucleo della valutazione
-		in $\beta$ è 
-		\[
-		\ZZ[x] \cap \left(x^2 - x - \frac 1 2\right)\QQ[x] =(2x^2 - 2x - 1)\ZZ[x]
-		\]
-		E $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)} \cong \ZZ[\beta]$.
-		D'altra parte 
-		\[
-		\ZZ[\beta] \neq \{a + b\beta\mid a, b \in \ZZ\}
-		\]
-		in quanto il quoziente $\displaystyle\frac{\ZZ[x]}{(2x^2 - x - 1)}$
-		contiene delle classi di resto della forma $\overline{x^k}$ per ogni $k \in \NN$,
-		in quanto $x^k$ e $2x^2 - x - 1$ sono coprimi in $\ZZ[x]$. Notiamo che
-		il risultato di sopra non è valido in questo caso in quanto il polinomio
-		minimo di $\beta$ non ha coefficienti interi.
+		Il risultato appena visto non vale se si sostituisce ad $\alpha$ un
+		generico elemento che in $\QQ$ ha come polinomio minimo un polinomio
+		\underline{non} a coefficienti interi. Se consideriamo per esempio $\beta = 
+		\frac{1 + \sqrt{3}}{2}$,
+		il suo polinomio minimo su $\QQ$ è $x^2 - x - \frac 1 2$, che genera
+		lo stesso nucleo di $2x^2 - 2x - 1$. In tal caso il nucleo della
+		valutazione su $\ZZ[x]$ rispetto ad $\alpha$ è ancora
+		$(2x^2 - 2x - 1) \ZZ[x]$, ma $\ZZ[x]/(2x^2 - 2x - 1)\ZZ[x]$ non
+		è finitamente generato, dacché $2x^2 - 2x - 1$ non ha un coefficiente
+		di testa invertibile.
 	\end{remark}
 	
-	Mostriamo che $A$ non è un domino euclideo. Sia $\omega = 
-	\displaystyle\frac{1 + \sqrt{-19}}{2}$, consideriamo l'applicazione
-	\[
-	N: A \longrightarrow \NN: a + b\omega \longmapsto (a + b\omega)(a + b\overline{\omega}) =
-	a^2 + 5b^2 + ab
-	\]
-	$N$ è la restrizione all'anello $A$ dell'usuale norma su $\CC$,
-	pertanto è moltiplicativa. Osserviamo inoltre che se $u \in A^*$ si ha 
-	$N(u)= 1$, infatti se $v \in A$ è tale che $uv = 1$ allora $N(uv) = N(u)N(v) = 1$
-	da cui $N(u) = N(v) = 1$ necessariamente. D'altra parte l'equazione 
-	\[
-	a^2 + ab + 5b^2 = \left(a + \frac 1 2 b\right)^2 + \frac{19}{4} b^2 = 1
-	\]
-	ha soluzione se e solo se $a = \pm 1$ e $b = 0$, pertanto $A^* = \{-1, 1\}$.
+
+	\begin{lemma}
+		\label{lemma:z_alpha_invertibili}
+		Gli unici invertibili di $\ZZ[\alpha]$ sono $1$ e $-1$.
+	\end{lemma}
 	
-	Supponiamo per assurdo che $A$ sia un dominio euclideo, cioè che esista
-	un'applicazione 
-	\[
-	\mathcal{N}: A\setminus \{0\} \longrightarrow \NN
-	\]
-	che rispetta gli assiomi di norma euclidea, ricordiamo che gli elementi 
-	invertibili di $A^*$ sono gli elementi di norma $\mathcal{N}$ minima. 
-	Consideriamo l'insieme $X = \{\mathcal{N}(x)\mid x \in A\setminus A^*\}$,
-	poiché $X$ è un sottoinsieme non vuoto di $\NN$ esiste un elemento minimo 
-	$m \in X$, sia $x \in A\setminus A^*$ tale che $\mathcal{N}(x) = m$.
-	Per definizione di dominio euclideo, per ogni $a \in A$ esistono $q, r \in A$
-	tali che $a = qx + r$, con $r = 0$ oppure $\mathcal{N}(r) < \mathcal{N}(x)$.
-	Se $r \neq 0$ allora $r \in A^*$ per minimalità di $\mathcal{N}(x)$, pertanto 
-	l'insieme dei possibili resti della divisione per $x$ è $\{0, 1, -1\}$.
-	Abbiamo quindi che l'insieme $\{0, 1, -1\}$ è un insieme di rappresentanti, 
-	possibilmente con ripetizioni, per gli elementi del quoziente $\faktor{A}{(x)}$,
-	che è quindi isomorfo a $\FF_2$ oppure $\FF_3$.\newline
-	Il polinomio $\mu(x) = x^2 - x + 5$ ha come soluzioni in $A$ $\omega$ e $\overline{\omega}$,
-	pertanto è riducibile in $A[x]$. Da questo si ricava che le classi di $\omega$
-	e $\overline{\omega}$ nel quoziente $\faktor{A}{(x)}$ sono le radici della 
-	classe del polinomio $\mu(x)$, che è assurdo in quanto $\mu(x)$ è irriducibile
-	in $\FF_2[x]$ e in $\FF_3[x]$. Pertanto $A$ non è un dominio euclideo.
+	\begin{proof}
+		Consideriamo la mappa $N : \ZZ[\alpha] \to \NN$ tale per
+		cui $N(a + b \alpha) = \abs{a + b \alpha}^2 = a^2 + 5 b^2 + ab$, ossia
+		l'usuale norma quadrata complessa\footnote{
+			La ben definitezza della mappa proviene dal fatto che ogni
+			elemento di $\ZZ[\alpha]$, per la \autoref{lemma:z_alpha_insieme},
+			si scrive proprio come $a + b \alpha$ per $a$, $b \in \ZZ$.
+		}.
+		Si osserva immediatamente che $N$ è moltiplicativa, infatti vale che:
+		\[ N((a+b\alpha)(c+d\alpha)) = \abs{(a+b\alpha)(c+d\alpha)}^2 = \abs{a+b\alpha}^2 \abs{c+d\alpha}^2 = N(a+b\alpha) N(c+d\alpha) \]
+		Pertanto, se $u$ è invertibile in $A^*$, e dunque esiste $v \in A$ tale per
+		cui $uv = 1$, vale che:
+		\[ N(u) N(v) = N(uv) = N(1) = 1 \]
+		e dunque $N(u)$ è necessariamente $1$. D'altronde vale che:
+		\[ N(a+b\alpha) = 1 \iff \left( \!a + \frac{b}{2} \right)^2 + \left( \frac{19}{2} b\right)^2 = a^2 + 5 b^2 + ab = 1 \]
+		e dunque $a+b\alpha$ può essere invertibile solo se $a = \pm 1$ e $b = 0$,
+		le uniche soluzioni dell'equazione appena descritta. Chiaramente sia $1$ che
+		$-1$ sono invertibili, e sono dunque tutti e soli gli invertibili di $\ZZ[\alpha]$.
+	\end{proof}
+
+
+	\begin{proposition}
+		$\ZZ[\alpha]$ non è un dominio euclideo.
+	\end{proposition}
 	
+	\begin{proof}
+		Supponiamo per assurdo che $\ZZ[\alpha]$ sia un dominio euclideo, e
+		sia $d : \ZZ[\alpha] \to \NN$ la sua norma. Si consideri allora
+		l'insieme:
+		\[ X = \{ d(x) \mid x \in \ZZ[\alpha] \setminus \ZZ[\alpha]^* \} \]
+		Dal momento che $X \subseteq \NN$, per il Principio del Minimo $X$
+		ammette un minimo, e dunque un $t \in \ZZ[\alpha] \setminus \ZZ[\alpha]^*$
+		tale per cui $d(t)$ è minimo. \medskip
+		
+		
+		Dal momento che si è supposto che $\ZZ[\alpha]$ è euclideo, per
+		ogni $a \in \ZZ[\alpha]$ esistono
+		$p$, $q \in \ZZ[\alpha]$ tali per cui $a = p t + q$ con
+		$q = 0$ o $d(q) < d(t)$, se $q \neq 0$. Se $q \neq 0$, allora
+		$d(q)$ è strettamente minore di $d(t)$ e dunque, per ipotesi di minimalità,
+		$q$ deve appartenere a $\ZZ[\alpha]^*$, che è uguale a $\{\pm 1\}$ per
+		il \autoref{lemma:z_alpha_invertibili}. Pertanto
+		$q \in \{-1, 0, 1\}$. \medskip
+		
+		
+		Anche se $1$ e $-1$ fosse equivalenti modulo $t$, $\ZZ[\alpha]/(t)$ avrebbe
+		comunque al più $3$ rappresentanti, e quindi sarebbe isomorfo come anello
+		a $\ZZ/2\ZZ$ o a $\ZZ/3\ZZ$. Dal momento che $\mu(x) = x^2 - x + 5$ ha $\alpha$
+		e $\overline{\alpha}$ come
+		soluzioni in $\ZZ[\alpha]$, allora $\mu(x)$ è riducibile in almeno uno tra
+		$\ZZ_2[x]$ e $\ZZ_3[x]$. Tuttavia questo è assurdo, dal momento
+		che $x^2 - x + 5$ è irriducibile sia in $\ZZ_2[x]$ che in $\ZZ_3[x]$,
+		e dunque $\ZZ[\alpha]$ non è un dominio euclideo.		
+	\end{proof}
+
 	\newpage
 	
 	\section{Campi}
@@ -5634,7 +5687,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Estensioni quadratiche di $\QQ$}
+	\subsection{Estensioni quadratiche di \texorpdfstring{$\QQ$}{ℚ}}
 	
 	\begin{theorem}
 		Siano $p_1, \ldots, p_n \in \ZZ$ primi distinti, poniamo $K_n = 
