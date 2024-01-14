@@ -4232,46 +4232,80 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\subsection{Domini a ideali principali}
 	
+	Si riassumono in questa sezione alcuni risultati interessanti riguardanti
+	i PID, ovverosia i domini a ideali principali.
+	
 	\begin{proposition}
+		\label{prop:pid_ideali}
 		Sia $A$ un PID, ogni ideale primo diverso da $(0)$ di $A$ è un ideale 
-		massimale
+		massimale.
 	\end{proposition}
 	
 	\begin{proof}
-		Sia $P = (p)$ un ideale primo non nullo, supponiamo per assurdo che esista
-		un ideale $M$ tale che 
+		Sia $P = (p)$ un ideale primo non nullo. Sia
+		$M$ un ideale tale per cui:
 		\[
-		P \subsetneq M \subsetneq A
+		P \subseteq M \subseteq A
 		\]
-		Poiché $A$ è un dominio a ideali principali, esiste $x \in A$ tale che 
-		$M = (x)$, quindi $x \mid p$ dato che $P \subsetneq M$. Poiché $P$ è 
-		un ideale primo si ha che $p \in A$ è un elemento primo, quindi 
-		irriducibile. Sia $q \in A$ tale che $p = xq$, dato che $x \notin A^*$ abbiamo che 
-		$q \in A^*$, cioè $(x) = (p)$, che è assurdo.
+		Poiché $A$ è un PID, $M = (m)$ per un qualche $m \in A$. Dal momento che
+		$P = (p) \subseteq (m) = M$, allora $m$ divide $p$, e quindi, dacché
+		$p$ è in particolare anche irriducibile, o $m$ è
+		un'unità, e dunque $M = A$, o $m$ è un associato di $p$, e dunque $M = P$.
+		Pertanto $M$ è massimale.
+	\end{proof}
+	
+	\begin{proof}[Dimostrazione alternativa]
+		Sia $M$ un ideale di $A$. Allora $M = (p)$ con $p$ primo in $A$, dacché
+		$A$ è un PID. Inoltre, sempre perché $A$ è un PID, $p$
+		è in particolare irriducibile. Pertanto $A/(p)$ è un campo\footnote{
+			Se $a$ è un elemento irriducibile di un PID $A$, allora
+			$A/(a)$ è un campo. Infatti, $A/(a)$ è un dominio di integrità
+			dacché $a$ è primo (in un PID i primi e gli irriducibili coincidono),
+			e inoltre l'inverso di un elemento $b + (a)$ con $b \notin (a)$ è dato dall'identità
+			di Bezout che si ricava dall'identità $(a, b) = (1)$.
+		}, e dunque
+		$(p)$ è massimale.
 	\end{proof}
 	
 	\begin{corollary}
-		Siano $A$ un PID e $B$ un dominio di integrità e $\varphi: A \longrightarrow B$
-		un omomorfismo di anelli surgettivo, allora $\varphi$ è un isomorfismo
+		Se $A$ è un PID, $B$ è un dominio di integrità e
+		$\varphi: A \longrightarrow B$ è un omomorfismo surgettivo,
+		allora $\varphi$ è un isomorfismo
 		oppure $B$ è un campo. 
 	\end{corollary}
 	
 	\begin{proof}
-		Notiamo che $\ker \varphi$ è un ideale primo di $A$ in quanto $\faktor{A}{\ker\varphi}
-		\cong B$ è un dominion di integrità. Se $\ker\varphi = (0)$, allora 
-		$\varphi$ è un isomorfismo di anelli. Altrimenti $\ker\varphi$ è un ideale
-		massimale, pertanto $\faktor{A}{\ker\varphi}\cong B$ è un campo.
+		Dal momento che $A / \ker \varphi \cong B$ è un dominio, $\ker \varphi$
+		è un ideale primo. Se $\ker \varphi = (0)$, allora $\varphi$ è un
+		isomorfismo; altrimenti $\ker \varphi$ è massimale per la
+		\autoref{prop:pid_ideali}, e dunque $B \cong A / \ker \varphi$ è
+		un campo.
 	\end{proof}
 	
+	\begin{example}
+		Un classico esempio di omomorfismo di questo tipo è l'omomorfismo che
+		descrive la caratteristica di un dominio di integrità $B$, ossia
+		l'omomorfismo
+		$\varphi : \ZZ \to B$ univocamente determinato dall'identità
+		$\varphi(1) = 1_B$. In tal caso $\operatorname{char} B$ è definito come il generatore
+		non negativo di $\ker \varphi$, e, per il corollario appena dimostrato,
+		o è $0$, o è $p$. In particolare, se $\operatorname{char} B$ è primo,
+		sicuramente $B$ è un campo.
+	\end{example}
+	
 	\begin{corollary}
-		Se $C$ è un anello tale che $C[x]$ è un PID, allora $C$ è un campo.
+		Se $C$ è un anello, allora $C[x]$ è un PID se e solo se $C$ è un campo.
 	\end{corollary}
 	
 	\begin{proof}
-		Dall'inclusione $C \subseteq C[x]$ abbiamo che $C$ è un dominio di integrità.
-		L'ideale $(x)$ è quindi primo in $C[x]$ in quanto $\faktor{C[x]}{(x)} \cong C$
-		è un dominio, quindi è massimale dato che $C[x]$ è un PID. Pertanto 
-		$C$ è un campo.
+		Se $C$ è un campo, allora si verifica facilmente che $C[x]$ è un PID,
+		dal momento che è un dominio euclideo. \medskip
+		
+		Se invece $C[x]$ è un PID,
+		dall'immersione naturale $C \mono C[x]$ ricaviamo che $C$ è un dominio di integrità. Pertanto
+		l'ideale $(x)$ è primo in $C[x]$, dacché $C[x] / (x) \cong C$
+		è un dominio. Poiché $(x) \neq (0)$, $(x)$ è massimale, e dunque
+		$C \cong C[x] / (x)$ è un campo.
 	\end{proof}
 	
 	\newpage
