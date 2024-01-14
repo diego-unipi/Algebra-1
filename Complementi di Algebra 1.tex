@@ -4096,7 +4096,16 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	allora vale che:
 	\[ S\inv (m) = S\inv (n) \iff \exists u \in (S\inv \ZZ)^* \mid m = un \iff \frac{m}{n} \in (S\inv \ZZ)^*, \]
 	ossia i due ideali coincidono se la frazione $\frac{m}{n}$, che corrisponde in modo naturale a un elemento di
-	$\operatorname{Q}(\ZZ) = (\ZZ \setminus \{0\})\inv \ZZ \cong \QQ$, appartiene a $S\inv \ZZ$ ed è invertibile. 
+	$\operatorname{Q}(\ZZ) = (\ZZ \setminus \{0\})\inv \ZZ \cong \QQ$, appartiene a $S\inv \ZZ$ ed è invertibile. \medskip
+	
+	Si ricorda inoltre che sussiste la seguente bigezione:
+	\[
+	\{\text{ideali primi di }S^{-1}\ZZ\} \leftrightarrow 
+	\{\text{ideali primi } P\subseteq \ZZ \mid P \cap S = \emptyset\}
+	\]
+	dove a un ideale $P$ di $\ZZ$ si fa corrispondere $S\inv P$ in
+	$\ZZ_P$. Da questa corrispondenza si verifica immediatamente che gli
+	unici ideali primi di $\ZZ_P$ sono $S\inv (0)$ e $S\inv P$.
 	
 	\begin{remark}[Localizzazione rispetto a $P = (2)$]
 		Consideriamo il localizzato di $\ZZ$ rispetto all'ideale $P = (2)$, ossia
@@ -4110,114 +4119,114 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 		dispari, ovverosia, equivalentemente, se $m$ ed $n$ sono divisi esattamente
 		dalla stessa potenza di $2$ (ossia se $\nu_2(m) = \nu_2(n)$, dove
 		$\nu_2$ indica la valutazione $2$-adica; per esempio, $S\inv (3) = S\inv (1)$, dacché $2^0 \pdiv 1$ e $2^0 \pdiv 3$).
-		Pertanto gli unici ideali di $S\inv \ZZ$ sono quelli della
-		forma $S\inv (2^k)$ con $k \in \NN$. \medskip
-		
-		Si ricorda inoltre che sussiste la seguente bigezione:
-		\[
-			\{\text{ideali primi di }S^{-1}\ZZ\} \leftrightarrow 
-			\{\text{ideali primi } P\subseteq \ZZ \mid P \cap S = \emptyset\}
-		\]
-		dove a un ideale $P$ di $\ZZ$ si fa corrispondere $S\inv P$ in
-		$\ZZ_{(2)}$.
-		Da questa corrispondenza si verifica immediatamente che gli unici ideali
-		primi di $\ZZ_{(2)}$ sono $(0)$ e $(2)$.
+		Pertanto gli unici ideali di $S\inv \ZZ$ sono $(0)$ e quelli della
+		forma $S\inv (2^k)$ con $k \in \NN$, mentre gli ideali primi sono
+		soltanto $S\inv (0)$ e $S\inv (2)$.
 	\end{remark}
 
 	\newpage
 	
-	\subsection{Ideali massimali e primi di $\ZZ[x]$}
+	\subsection{Ideali primi e massimali di $\ZZ[x]$}
+	
+	Si illustra un lemma preliminare che ci permetterà successivamente
+	di classificare gli ideali di $\ZZ[x]$:
 	
 	\begin{lemma}
 		\label{lemma2.3}
 		Se $A \subseteq R$ sono due anelli e $P \subseteq R$ è un ideale primo
-		di $R$ allora $P\cap A$ è un ideale primo di $A$.
+		di $R$, allora $P\cap A$ è un ideale primo di $A$.
 	\end{lemma}
 	
 	\begin{proof}
-		$P\cap A$ è un ideale di $A$ in quanto controimmagine di $P$ tramite
-		l'omomorfismo di anelli
-		\[
-		\varphi: A \longhookrightarrow R: a \longmapsto a
-		\]
-		Poiché $P$ è un ideale primo di $R$, per ogni $a, b \in A$ tali che 
-		$ab \in P\cap A$ si ha $a \in P$
-		oppure $b \in P$, cioè $a \in P \cap A$ oppure $b \in P\cap A$, quindi
-		$P \cap A$ è un ideale primo di $A$.
+		Chiaramente $P \cap A$ è un ideale di $A$. Uno dei modi per verificarlo è
+		considerare l'omomorfismo di inclusione naturale da $A$ in $R$ ed osservare
+		che $P \cap A$ è esattamente la controimmagine di $P$ tramite questa
+		mappa. \medskip
+		
+
+		Se allora $xy$ appartiene a $P \cap A$ con $x$ e $y \in A$, allora
+		uno tra $x$ e $y$ deve appartenere a $P$, essendo $P$ primo in
+		$R$. Pertanto uno tra $x$ e $y$ deve appartenere a $P \cap A$, e dunque
+		$P \cap A$ è primo in $A$.
 	\end{proof}
 	
 	
-	Consideriamo $P \subseteq \ZZ[x]$ un ideale primo, studiamo l'intersezione
-	$P \cap \ZZ$. Questo è un ideale primo di $\ZZ$ per il 
-	\hyperref[lemma2.3]{Lemma 2.3}, pertanto $P\cap \ZZ = (0)$ oppure esiste un
-	primo $p \in \ZZ$ tale che $P\cap\ZZ = (p)$. Se non è l'ideale nullo allora
-	$(p)\ZZ[x]$ è un ideale contenuto in $P$, per il Teorema di 
-	Corrispondenza gli ideali primi di $\ZZ[x]$ contenenti $(p)\ZZ[x]$ sono in 
-	bigezione con gli ideali primi del quoziente $\faktor{\ZZ[x]}{(p)\ZZ[x]} \cong \FF_p[x]$
-	e vale la stessa cosa per gli ideali massimali. 
-	Poiché $\FF_p[x]$ è un dominio a ideali principali, i suoi ideali primi 
-	sono $(\overline{0})$ e quelli generati da un polinomio irriducibile, in particolare
-	tutti i suoi ideali primi non nulli sono anche massimali. Pertanto se $\overline{f(x)} \in \FF_p[x]$ è un polinomio
-	irriducibile allora $(\overline{f(x)})$ è un ideale primo di $\FF_p[x]$
-	e quindi $(p, f(x))$ è un ideale primo e massimale di $\ZZ[x]$. Abbiamo quindi che 
-	l'insieme degli ideali massimali di $\ZZ[x]$ contenenti $p$ è
-	\[
-	\mathcal{M}_p = \{(p, f(x))\mid \overline{f(x)}\text{ è irriducibile in }
-	\FF_p[x]\}
-	\]
-	mentre l'insieme degli ideali primi di $\ZZ[x]$ contenenti $p$ è
-	\[
-	\mathcal{P}_p = \mathcal{M}_p \cup\{(p)\ZZ[x]\}
-	\]
+	Consideriamo un ideale primo $P$ di $\ZZ[x]$. Per\footnote{
+		In realtà $\ZZ$ non è esattamente un sottoinsieme di $\ZZ[x]$,
+		ma ciononostante vi ci immerge in modo del tutto naturale
+		($\ZZ[x]$ estende in questo senso $\ZZ$). Continueremo dunque
+		a usare il simbolo $\ZZ$ per l'identificazione naturale di $\ZZ$
+		in $\ZZ[x]$.
+	} il \autoref{lemma2.3}
+	$P \cap \ZZ$ è un ideale primo di $\ZZ$, e dunque è $(0)$ o è generato
+	da un primo $p \in \ZZ$. \medskip
 	
-	Supponiamo adesso che $P$ sia un ideale primo di $\ZZ[x]$ tale che 
-	$P \cap \ZZ = (0)$. $S = \ZZ\setminus \{0\}$ è una parte moltiplicativa di 
-	$\ZZ$ e l'ipotesi appena data su $P$ può essere espressa come $P \cap S = \emptyset$.
-	Consideriamo la bigezione 
-	\[
-	\{\text{Ideali primi di }S^{-1}\ZZ[x]\}\longleftrightarrow 
-	\{\text{Ideali primi } P\subseteq \ZZ[x] \mid P\cap S = \emptyset\}: 
-	\mathfrak{P}\longmapsto \mathfrak{P}\cap\ZZ[x]
-	\]
-	poiché $S^{-1}\ZZ[x] = \QQ[x]$ abbiamo che $P$ corrisponde a un unico ideale
-	primo di $\QQ[x]$. Essendo $\QQ[x]$ un dominio a ideali principali, questi sono
-	l'ideale nullo e gli ideali generati da polinomi irriducibili. Se $f(x)\in \QQ[x]$
-	è un polinomio irriducibile il cui ideale corrisponde a $P$ allora, posto 
-	$m$ il minimo comune denominatore dei suoi coefficienti, abbiamo che 
-	$P = (f(x))\QQ[x] \cap \ZZ[x] = (mf(x))\QQ[x]\cap\ZZ[x] = (mf(x))\ZZ[x]$. 
-	In particolare $P$ è generato da un polinomio irriducibile.
-	Gli ideali primi di $\ZZ[x]$ possono quindi avere la seguente forma:
+	
+	Ipotizziamo\marginnote{$\boxed{P \cap \ZZ = (p)}$} di essere nel caso in cui $P \cap \ZZ = (p)$. Allora $(p) \subseteq P$,
+	e dunque, per il Teorema di Corrispondenza, $P$ corrisponde all'ideale primo $P' := P/p\ZZ[x]$
+	di $\ZZ[x]/p\ZZ[x] \cong \ZZ_p[x]$. Se $P'$ è l'ideale nullo, allora $P = (p)$,
+	che è dunque primo, ma non massimale (infatti $(0)$ non è massimale in $\ZZ_p[x]$). \medskip
+	
+	Se invece $P'$ non è nullo,
+	poiché $\ZZ_p[x]$ è un PID (e in particolare,
+	anche un dominio euclideo), $P'$ è massimale oltre che primo, e dunque è generato da un polinomio
+	irriducibile $\overline{f(x)} \in \ZZ_p[x]$. Allora a $P'$ corrisponde
+	$P = (p) + (f(x)) = (p, f(x))$, che è dunque massimale anche in $\ZZ[x]$. \medskip
+	
+	Pertanto gli ideali primi di $\ZZ[x]$ contenenti un ideale primo $(p)$ di $\ZZ$
+	sono:
 	\begin{itemize}
-		\item $(0)$;
-		\item $(p)\ZZ[x]$ con $p \in \ZZ$ primo;
-		\item $(p, f(x))$ con $p \in \ZZ$ primo e $\overline{f(x)}$ irriducibile
-		in $\FF_p[x]$;
-		\item $(f(x))$ con $f(x)$ irriducibile in $\ZZ[x]$.
+		\item $(p)$ stesso, che non è massimale,
+		\item $(p, f(x))$ con $f(x)$ irriducibile in $\ZZ_p[x]$, che è massimale.
 	\end{itemize}
 	
-	Mostriamo che gli ideali primi di quest'ultimo tipo non sono massimali.\newline
-	Siano $f(x) \in \ZZ[x]$ un polinomio irriducibile, non costante,
-	$a \in \ZZ$ tale che $f(a) \notin\{-1, 0, 1\}$, $p \in \ZZ$ un primo che 
-	divide $f(a)$ e consideriamo le applicazioni
-	\[
-	\varphi: \ZZ[x]\longrightarrow \faktor{\ZZ[x]}{(p)\ZZ[x]}: 
-	g(x)\longmapsto \overline{g(x)}
-	\] 
-	\[
-	\psi: \faktor{\ZZ[x]}{(p)\ZZ[x]}\longrightarrow \FF_p: 
-	\overline{g(x)}\longmapsto g(a)
-	\]
-	Osserviamo che $(\psi\circ\varphi)(f(x)) = f(a) \equiv 0 \pmod{p}$ e che 
-	$(\psi\circ\varphi)(p) = p \equiv 0 \pmod{p}$, pertanto $p, f(x) \in 
-	\ker{\psi\circ\varphi}$ e quindi $(p, f(x)) \subseteq \ker(\psi\circ \varphi) \neq \ZZ[x]$.
-	Abbiamo quindi $(f(x)) \subseteq (p, f(x))$, se $(f(x))$ fosse massimale allora
-	conterrebbe $p$, che è assurdo in quanto $\deg f \geq 1$.
+	Supponiamo\marginnote{$\boxed{P \cap \ZZ = (0)}$} adesso che $P$ sia un ideale primo di $\ZZ[x]$ tale per cui 
+	$P \cap \ZZ = (0)$. Si ricorda che $S = \ZZ\setminus \{0\}$ è una parte moltiplicativa di 
+	$\ZZ$ (e quindi a maggior ragione di $\ZZ[x]$) e si osserva che $S\inv \ZZ[x] \cong \QQ[x]$. Inoltre gli ideali primi di $\QQ[x]$ corrispondono agli ideali primi $I$
+	di $\ZZ[x]$ tali per cui $I \cap S = \emptyset$, come, per l'appunto,
+	$P$. Pertanto $P$ corrisponde a un ideale primo di $\QQ[x]$, che, essendo un PID,
+	dispone di $(0)$ e degli ideali generati da irriducibili come unici suoi
+	ideali primi. Se $S\inv P = (0)$, allora $P$ era già $(0)$ in partenza; se
+	invece $S\inv P$ era non nullo, $S\inv P = (f(x))$ con $f(x)$ irriducibile
+	su $\QQ[x]$. \medskip
 	
-	Poiché gli ideali di questo tipo non sono massimali, gli ideali massimali di
-	$\ZZ[x]$ sono tutti e soli quelli della forma
-	\[
-	(p, f(x)) \text{ con }\overline{f(x)} \text{ irriducibile in }\FF_p[x]
-	\]
+	Se $g(x)$ è un associato di $f(x)$ a coefficienti interi\footnote{
+		Tale $g(x)$ esiste sempre: è sufficiente moltiplicare $f(x)$ per il minimo
+		comune multiplo dei denominatori dei suoi coefficienti.
+	}, allora $S\inv P = (g(x)) S\inv \ZZ[x] = S\inv (g(x))$, e dunque $P = (g(x))$. 
+	
+	
+	\begin{remark}[$(f(x))$ non è massimale in $\Zx$]
+		Mostriamo che gli ideali della forma $(f(x))$ non sono massimali in
+		$\ZZ[x]$. Sia $a \in \ZZ$ tale per cui $f(a)$ sia divisibile da un
+		primo $p$. Consideriamo i due omomorfismi $\varphi$ e $\psi$ tali
+		per cui:
+		\[ \varphi : \ZZ[x] \to \ZZ[x]/(p)\ZZ[x] \cong \ZZ_p[x], g(x) \mapsto \overline{g(x)}, \]
+		\[ \psi : \ZZ[x]/(p)\ZZ[x] \to \ZZ/p\ZZ, \overline{g(x)} \mapsto g(a). \]
+		
+		Per ipotesi, $(\psi \circ \varphi)(f(x)) = \overline{f(a)} \equiv 0$, 
+		dunque $f(x) \in \ker (\psi \circ \varphi)$. Inoltre $(\psi \circ \varphi)(p)
+		= \overline{p} \equiv 0$, da cui si deduce che $p \in \ker (\psi \circ \varphi)$.
+		Dal momento che $\ker (\psi \circ \varphi)$ è diverso da $\ZZ[x]$ e che
+		$I = (f(x)) \subseteq \ker (\psi \circ \varphi)$, allora, se $I$ fosse
+		massimale, si avrebbe l'uguaglianza $I = \ker (\psi \circ \varphi)$. Pertanto
+		$p$ apparterrebbe a $I$, assurdo.
+	\end{remark}
+	
+
+	Si riassume allora la classificazione degli ideali primi e massimali di $\ZZ[x]$:
+	\begin{itemize}
+		\item $(0)$ è un ideale primo non massimale,
+		\item $(p)$, con $p \in \ZZ$ primo, è primo non massimale,
+		\item $(p, f(x))$, con $p \in \ZZ$ primo e $\overline{f(x)}$ irriducibile
+		in $\ZZ_p[x]$, è primo e massimale,
+		\item $(f(x))$, con $f(x)$ irriducibile in $\ZZ[x]$, è primo non massimale.
+	\end{itemize}
+	
+	
+	
+	Mostriamo che gli ideali primi di quest'ultimo tipo non sono massimali.
+	Se $P = (f(x))$ con $f(x)$ irriducibile fosse massimale in $\ZZ[x]$, potre
 	
 	\newpage
 	
