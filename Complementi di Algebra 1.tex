@@ -4312,44 +4312,43 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\subsection{Operazioni tra ideali}
 	
-	Ricordiamo che in un anello commutativo con identità $A$, sono ben definite
-	le seguenti operazioni su due ideali $I, J$ e danno luogo a un terzo ideale
-	(possibilmente uguale a uno dei due):
+	Sia $A$ un anello commutativo con identità. Allora sono ben definite le
+	seguenti operazioni su due ideali $I$ e $J$:
 	\begin{itemize}
-		\item $I\cap J = \{k \in A \mid k \in I, k \in J\}$;
-		\item $I + J = (I, J) = \{i + j \mid i \in I, j \in J\}$;
-		\item $IJ = (\{ij\mid i \in I, j \in J\})$;
-		\item $\sqrt{I} = \{x \in A \mid \exists n \in \NN \text{ per cui } x^n \in I\}$;
-		\item $(I : J) = \{x \in A \mid xJ \subseteq I\}$.
+		\item $I\cap J = \{k \in A \mid k \in I, k \in J\}$, l'\vocab{intersezione} tra
+		$I$ e $J$,
+		\item $I + J = (I, J) = \{i + j \mid i \in I, j \in J\}$, ovverosia la \vocab{somma} tra $I$ e $J$,
+		\item $IJ = (\{ij\mid i \in I, j \in J\})$, ossia il \vocab{prodotto} tra $I$ e $J$, che si ricorda \underline{non} essere
+		un'estensione di $I$ (anzi, $IJ \subseteq I$, $J$, e quindi $IJ \subseteq I \cap J$),
+		\item $\sqrt{I} = \{x \in A \mid \exists n \in \NN \text{ per cui } x^n \in I\}$,
+		detto il \vocab{radicale} di $I$ in $A$,
+		\item $(I : J) = \{x \in A \mid xJ \subseteq I\}$, il cosiddetto \vocab{quoziente} tra ideali.
 	\end{itemize}
 	
 	\begin{proposition}
-		Dati $A$ un anello commutativo con identità, $I, J \subseteq A$ due ideali,
-		allora
+		Se $A$ è un anello commutativo con identità e $I$ e $J \subseteq A$ sono due suoi ideali,
+		allora vale che:
 		\[
 		\sqrt{IJ} = \sqrt{I\cap J} = \sqrt{I}\cap \sqrt{J}
 		\]
 	\end{proposition}
 	
 	\begin{proof}
-		Poiché vale l'inclusione $IJ \subseteq I\cap J$ abbiamo che $\sqrt{IJ}
-		\subseteq \sqrt{I\cap J}$. Viceversa, se $a \in \sqrt{I\cap J}$ allora
-		esiste $n \in \NN$ tale che $a^n \in I\cap J$, allora abbiamo 
+		Dal momento che $IJ \subseteq I \cap J$, allora $\sqrt{IJ} \subseteq \sqrt{I \cap J}$. Sia ora $a \in \sqrt{I \cap J}$. Per ipotesi esiste $n \in \NN$ tale
+		per cui $a^n \in I \cap J$. Allora vale che:
 		\[
-		a^{2n} = \underset{\in I}{\underbrace{a^n}} \cdot \underset{\in J}{\underbrace{a^n}}
+		a^{2n} = \underbrace{a^n}_{\in I} \cdot \underbrace{a^n}_{\in J}
 		\in IJ
 		\]
-		da cui $\sqrt{I\cap J} \subseteq \sqrt{IJ}$ e quindi l'uguaglianza.\newline
-		Consideriamo adesso $b \in \sqrt{I}\cap \sqrt{J}$, allora esistono $m, n \in \NN$
-		tali che $b^m \in I$ e $b^n \in J$, da cui
-		\[
-		b^{m + n} = \underset{\in I}{\underbrace{b^m}}\cdot
-		\underset{\in J}{\underbrace{b^n}} \in I\cap J
-		\]
-		Pertanto $\sqrt{I}\cap \sqrt{J} \subseteq \sqrt{I\cap J}$. Viceversa, Se
-		$c \in \sqrt{I\cap J}$ allora esiste $n \in \NN$ tale che $c^n \in I\cap J$, 
-		in particolare $c^n \in I$ e $c^n \in J$, quindi $c \in \sqrt{I}\cap\sqrt{J}$,
-		da cui l'uguaglianza.
+		e dunque $a \in \sqrt{IJ}$, da cui si conclude che $\sqrt{IJ} = \sqrt{I} \cap \sqrt{J}$. \medskip
+		
+		
+		Poiché $I \cap J \subseteq I$, $J$, allora $\sqrt{I \cap J} \subseteq \sqrt{I}$,
+		$\sqrt{J}$, e dunque $\sqrt{I \cap J} \subseteq \sqrt{I} \cap \sqrt{J}$. Se
+		$a \in \sqrt{I} \cap \sqrt{J}$, allora esistono $m$, $n \in \NN$ tali per
+		cui $a^m \in I$ e $a^n \in J$. In particolare $a^{m+n} = a^m a^n$ appartiene
+		ad $IJ$, e quindi $I \cap J$; pertanto $a \in \sqrt{I \cap J}$. Si conclude
+		dunque che $\sqrt{I} \cap \sqrt{J} = \sqrt{I \cap J}$, da cui la tesi.
 	\end{proof}
 	
 	\begin{proposition}
@@ -5502,10 +5501,11 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Possibili gruppi di Galois}
+	\subsection{Realizzabilità dei gruppi come gruppi di Galois}
 	
-	Vogliamo vedere quali gruppi finiti si possono realizzare come gruppi di 
-	Galois di un'estensione di campi. 
+	In questa sezione studiamo quali gruppi finiti possono realizzarsi come gruppi di 
+	Galois di un'estensione di campi qualsiasi. Il seguente lemma risulterà
+	fondamentale in questo intento. 
 	
 	\begin{lemma}
 		\label{lemma3.18}
@@ -5554,21 +5554,22 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\begin{lemma}
 		\label{lemma3.19}
-		Dati $p$ un primo e $f(x) \in \QQ[x]$ un polinomio irriducibile di grado
-		$p$, se $f(x)$ ha esattamente $p - 2$ radici reali e 2 radici non reali
-		e $K$ è il suo campo di spezzamento su $\QQ$ allora $\Gal(K/\QQ) \cong S_p$.
+		Sia $p$ un primo e sia $f(x) \in \QQ[x]$ un polinomio irriducibile di grado
+		$p$. Se $f(x)$ ha esattamente $p - 2$ radici reali e $2$ radici non reali
+		e $K$ è il suo campo di spezzamento su $\QQ$, allora $\Gal(K/\QQ) \cong \Sym_p$.
 	\end{lemma}
 	
 	\begin{proof}
-		Poiché $\deg f = p$ esiste un omomorfismo iniettivo 
-		\[
-		\Phi: \Gal(K/\QQ) \longhookrightarrow S_p
-		\]
-		inoltre $p \mid [K:\QQ]$ in quanto $f(x)$ è irriducibile su $\QQ$, pertanto 
-		$\Phi(\Gal(K/\QQ))$ contiene un $p$-ciclo. Notiamo che contiene anche una
-		trasposizione, che corrisponde alla restrizione del coniugio complesso 
-		in $\Gal(K/\QQ)$. Allora $\Phi(\Gal(K/\QQ)) = S_p$ per il 
-		\hyperref[lemma3.18]{Lemma 3.18}, cioè $\Gal(K/\QQ) \cong S_p$.
+		Ricordiamo che $\Gal(K/\QQ)$ agisce in modo naturale e fedele sulle radici di
+		$f(x)$, e quindi $\Gal(K/\QQ)$ si immerge naturalmente in un sottogruppo
+		$H$ di
+		$\Sym_p$. Dal momento che $p$ divide $\abs{\Gal(K/\QQ)}$ il sottogruppo $H$
+		contiene
+		un $p$-ciclo. Inoltre, il coniugio complesso ristretto a $K$ è
+		un elemento di $\Gal(K/\QQ)$ che corrisponde a scambiare le uniche due
+		radici non reali di $f(x)$, e dunque a una trasposizione in $H$. Poiché
+		$H$ contiene una trasposizione e un $p$-ciclo,
+		$H$ è esattamente $\Sym_p$ per il \autoref{lemma3.18}, da cui la tesi.
 	\end{proof}
 	
 	\begin{lemma}
