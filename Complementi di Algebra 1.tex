@@ -3962,6 +3962,8 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	
 	\newpage
+	\ %
+	\newpage
 	
 	\section{Anelli}
 	
@@ -4322,7 +4324,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 		un'estensione di $I$ (anzi, $IJ \subseteq I$, $J$, e quindi $IJ \subseteq I \cap J$),
 		\item $\sqrt{I} = \{x \in A \mid \exists n \in \NN \text{ per cui } x^n \in I\}$,
 		detto il \vocab{radicale} di $I$ in $A$,
-		\item $(I : J) = \{x \in A \mid xJ \subseteq I\}$, il cosiddetto \vocab{quoziente} tra ideali.
+		\item $(I : J) = \{x \in A \mid xJ \subseteq I\}$, il cosiddetto \vocab{quoziente} (o \textit{colon}) tra ideali.
 	\end{itemize}
 	
 	\begin{proposition}
@@ -4512,6 +4514,88 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 			\]
 		\end{enumerate}
 	\end{proof}
+	
+	\begin{remark}[Un quoziente non banale di {$\QQ[x,y]$} isomorfo a $\QQ$]
+		Consideriamo l'omomorfismo $\varphi : \QQ[x, y] \to \QQ$ che
+		associa a $f(x, y)$ la valutazione $f(1, 1)$. Chiaramente sia
+		$x-1$ che $y-1$ appartengono al nucleo di $\varphi$, e dunque
+		vale che $(x-1, y-1) \subseteq \ker \varphi$. \medskip
+		
+		
+		Siano $\alpha : \QQ[x, y] \to \QQ[x]$ e $\beta : \QQ[x] \to \QQ$
+		due omomorfismi intermedi per $\varphi$ tali per cui
+		$f(x, y) \overset{\alpha}{\mapsto} f(x, 1)$ e $p(x) \overset{\beta}{\mapsto} p(1)$. Allora $\varphi = \beta \circ \alpha$, e dunque $\alpha$ e $\beta$ fanno commutare il seguente diagramma:
+		
+		\[\begin{tikzcd}[cramped]
+			{\mathbb{Q}[x, y]} && {\mathbb{Q}} \\
+			\\
+			{\mathbb{Q}[x]}
+			\arrow["\alpha", from=1-1, to=3-1]
+			\arrow["\beta", from=3-1, to=1-3]
+			\arrow["\varphi"', from=1-1, to=1-3]
+		\end{tikzcd}\]
+		
+		In particolare vale che $\ker \beta = (x-1)$. \medskip
+		
+		
+		Studiamo adesso
+		$\ker \alpha$. Chiaramente $y-1 \in \ker \alpha$, e dunque
+		$(y-1) \subseteq \ker \alpha$. Mostriamo che vale esattamente
+		l'uguaglianza. Se $f(x,y) \in \ker \alpha$, allora $f(x,y)$ può
+		identificarsi come polinomio $p(y)$ a coefficienti in $\QQ[x]$,
+		che, essendo un dominio euclideo, è in particolare un UFD. \medskip
+		
+		
+		Dal momento che $f(x, y) \in \ker \alpha$, vale che $p(1) = 0$,
+		e dunque $y-1$ divide $p$ in $\QQ(x)[y]$ per il Teorema di Ruffini.
+		Tuttavia $y-1$ è un elemento primitivo di $\QQ[x][y] \cong \QQ[x, y]$,
+		e dunque $y-1$ divide $p$ anche in $\QQ[x][y]$ per il Lemma di Gauss.
+		Pertanto $y-1$ divide $f \equiv p$, e quindi $\ker \alpha = (y-1)$. \medskip
+		
+		
+		Poiché il diagramma commuta, vale che:
+		\[ \ker \varphi = \ker (\beta \circ \alpha) = \{ f(x, y) \in \QQ[x, y] \mid \alpha(f(x,y)) \in \ker \beta \} = \alpha\inv(\ker \beta) \]
+		Pertanto $\ker \varphi = \alpha\inv((x-1)) = (x-1) + \underbrace{(y-1)}_{=\ker \alpha} = (x-1, y-1)$. \medskip
+		
+		
+		Allora, per il Primo Teorema di Omomorfismo vale che:
+		\[ \frac{\QQ[x, y]}{(x-1, y-1)} \cong \QQ \]
+		e poiché $\QQ$ è un campo, si deduce anche $(x-1, y-1)$ è un ideale primo
+		e massimale di $\QQ[x, y]$.
+		
+	\end{remark}
+	
+	\begin{remark}[Un quoziente non banale di {$\QQ[x, y]$} isomorfo a {$\QQ[x]$}]
+		Consideriamo l'omomorfismo $\varphi : \QQ[x, y] \to \QQ[x]$ che
+		associa a $f(x, y)$ la valutazione $f(x, x)$. Chiaramente
+		$(x - y)$ è contenuto in $\ker \varphi$. \medskip
+
+
+		Mostriamo che anche
+		$\ker \varphi$ è contenuto in $(x - y)$. Sia $f(x, y) \in \ker \varphi$.
+		Allora vale che:
+		\[ f(x, y) = \sum_{i,j} a_{ij} x^i y^j = \sum_{i,j} a_{ij} x^i (y^j - x^j + x^j) = \underbrace{\sum_{i,j} a_{ij} x^{i+j}}_{=0} + \sum_{i,j} a_{ij} x^i (y^j - x^j) \]
+		dove la prima somma è nulla dal momento che $f(x, x) = 0$. Pertanto,
+		dacché $y-x \mid y^j - x^j$, $f(x, y)$ è divisibile per $y-x$, e dunque
+		$\ker \varphi \subseteq (x-y)$. \medskip
+
+
+		Alternativamente $f$ può essere visto come un polinomio $p(y)$ a coefficienti in
+		$\QQ[x]$, che è un UFD. Dal momento che $f \in \ker \varphi$, allora $p(x) = 0$, e
+		dunque $p$ è diviso, per il Teorema di Ruffini, da $x - y$ in
+		$\QQ(x)[y]$. Tuttavia $x - y$ è primitivo in $\QQ[x]$, e dunque
+		$p$ è diviso da $x - y$ anche in $\QQ[x][y] \cong \QQ[x, y]$ per il
+		Lemma di Gauss. Pertanto $f \equiv p$ è divisibile per $x - y$,
+		da cui si conclude che $\ker \varphi = (x - y)$. \medskip
+		
+		
+		Per il Primo Teorema di Omomorfismo allora vale che:
+		\[ \frac{\QQ[x, y]}{(x - y)} \cong \QQ[x] \]
+		
+		
+		Dal momento che $\QQ[x]$ è un dominio, ma non un campo,
+		$(x-y)$ è un ideale primo non massimale di $\QQ[x, y]$.
+	\end{remark}
 	
 	\newpage
 	
@@ -4902,7 +4986,10 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	\subsection{Un esempio di dominio non euclideo: \texorpdfstring{{$\ZZ\!\left[\frac{1 + \sqrt{-19}}{2}\right]$}}{ℤ{[}(1+√−19)/2{]}}}
 	
 	Consideriamo l'elemento $\alpha = \frac{1 + \sqrt{-19}}{2} \in \CC$. Dimostreremo
-	in questa sezione che $\ZZ[\alpha]$ non è un dominio euclideo, ovverosia che
+	in questa sezione che $\ZZ[\alpha]$ non è un dominio euclideo\footnote{
+		Questo esempio è notevole: $\ZZ[\alpha]$ è infatti un PID che non
+		è un dominio euclideo.
+	}, ovverosia che
 	non esiste alcuna norma rispetto cui esiste una divisione euclidea per
 	$\ZZ[\alpha]$. \medskip
 	
@@ -4995,7 +5082,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 		cui $N(a + b \alpha) = \abs{a + b \alpha}^2 = a^2 + 5 b^2 + ab$, ossia
 		l'usuale norma quadrata complessa\footnote{
 			La ben definitezza della mappa proviene dal fatto che ogni
-			elemento di $\ZZ[\alpha]$, per la \autoref{lemma:z_alpha_insieme},
+			elemento di $\ZZ[\alpha]$, per il \autoref{lemma:z_alpha_insieme},
 			si scrive proprio come $a + b \alpha$ per $a$, $b \in \ZZ$.
 		}.
 		Si osserva immediatamente che $N$ è moltiplicativa, infatti vale che:
@@ -5045,6 +5132,8 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 		e dunque $\ZZ[\alpha]$ non è un dominio euclideo.		
 	\end{proof}
 
+	\newpage
+	\ %
 	\newpage
 	
 	\section{Campi}
@@ -5325,20 +5414,24 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Gruppo di Galois del traslato e del composto}
+	\subsection{Gruppi di Galois in uno stesso diagramma a confronto}
+	
+	In questa sezione si mettono in correlazione i gruppi di Galois del traslato
+	e del composto di un diagramma di campi.
 	
 	\begin{proposition}
 		\label{prop3.13}
 		Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione
-		finita, allora
+		finita. Allora vale che:
 		\begin{enumerate}[(1)]
-			\item $\faktor{KL}{L}$ è un'estensione di Galois;
+			\item $\faktor{KL}{L}$ è un'estensione di Galois finita,
 			\item $\Gal(KL/L) \cong \Gal(K/K\cap L)$.
 		\end{enumerate}
 	\end{proposition}
 	
 	\begin{proof}
-		Consideriamo il seguente diagramma di campi, mostriamo i due enunciati separatamente
+		Consideriamo il seguente diagramma di campi:
+
 		\begin{center}
 			\begin{tikzpicture}
 				\node (Q1) at (0,0) {$F$};
@@ -5357,97 +5450,100 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 				\draw (Q4)--(Q3);
 			\end{tikzpicture}
 		\end{center}
-		\begin{enumerate}[(1)]
-			\item poiché $\faktor K F$ è un'estensione di Galois finita possiamo scrivere
-			$K$ come $F(\alpha_1, \ldots, \alpha_n)$, dove $\alpha_1, \ldots, \alpha_n \in \ol{K}$
-			sono le radici di un certo polinomio $p(x) \in F[x]$. Allora abbiamo che
-			$KL = L(\alpha_1, \ldots, \alpha_n)$ è il campo di spezzamento di 
-			$p(x)$ su $L$, pertanto $\faktor{KL}{L}$ è un'estensione di Galois;
-			\item l'estensione $\faktor{K}{K\cap L}$ è di Galois, in quanto lo è $\faktor K F$. Consideriamo la mappa di restrizione
-			\[
-			\Phi: \Gal(KL/L) \longrightarrow \Gal(K/K\cap L): \varphi\longmapsto \varphi_{\mid K}
-			\]
-			questa è ben definita in quanto ogni immersione $KL \longhookrightarrow \ol{F}$
-			che fissa $L$ fissa anche $K\cap L$. Chiaramente $\Phi$ è un omomorfismo di gruppi, mostriamo che in realtà è un isomorfismo.
-			$\Phi(\varphi) = id$ se e solo se $\varphi_{\mid K} = id$, ma questo è possibile se e solo se $\varphi = id$ in quanto se 
-			$\varphi$ è la mappa identità su $K$ e su $L$ allora lo è anche sul composto $KL$, pertanto $\Phi$ è iniettivo. Mostriamo adesso
-			che è anche surgettivo. Sia $H = \mathrm{Im}\Phi$, il sottocampo di $K$ fissato da $H$ è
-			\[
-			K^H = \{x \in K \mid \psi(x) = x~\forall \psi \in H\}
-			\]
-			Poiché $H$ contiene le restrizioni a $K$ degli elementi di $\Gal(KL/L)$, si ha
-			\begin{multline*}
-				K^H = \{x \in K \mid \psi(x) = x~\forall \psi \in \Gal(KL/L)\} = \\ = K\cap\{x \in KL \mid \psi(x) = x~\forall \psi \in \Gal(KL/L)\} =\\=
-				K \cap (KL)^{\Gal(KL/L)} = K\cap L
-			\end{multline*}
-			pertanto $H = \Gal(K/K\cap L)$ per il Teorema di Corrispondenza di Galois. Quindi $\Phi$ è surgettivo, di conseguenza è un isomorfismo
-			tra $\Gal(KL/L)$ e $\Gal(K/K\cap L)$.
-		\end{enumerate}
+		
+		Dal momento che $\faktor{K}{F}$ è un'estensione finita, anche
+		$\faktor{KL}{L}$ lo è. Inoltre, poiché sia $\faktor{K}{F}$ che
+		$\faktor{L}{F}$ sono normali, allora anche
+		$\faktor{KL}{L}$ lo è, e dunque è di Galois. \medskip
+		
+		
+		Consideriamo la seguente mappa di restrizione:
+		\[ \Phi : \Gal(KL/L) \to \Gal(K/K \cap L), \; \varphi \mapsto \restr{\varphi}{K} \]
+		Tale mappa è ben definita, dal momento che $\restr{\varphi}{K}$ è una
+		mappa che fissa $L$ e dunque anche $K \cap L$. Inoltre $\Phi$ è chiaramente
+		un omomorfismo di gruppi. \medskip
+		
+		
+		Mostriamo che $\Phi$ è iniettiva. Sia $\varphi \in \ker \Phi$, allora
+		$\restr{\varphi}{K} = \id_K$. Poiché allora $\varphi$ fissa anche
+		$L$ per ipotesi, $\varphi = \id_{KL}$, e dunque il nucleo di
+		$\Phi$ è banale. Pertanto $\Phi$ è iniettiva. \medskip
+		
+		
+		Consideriamo adesso $H = \im \Phi$. Il sottocampo di $K$ fissato
+		da $H$ è $K^H$, ovverosia:
+		\[ K^H = \{x \in K \mid \psi(x) = x \; \forall \, \psi \in H \} \]
+		Dal momento che $H$ è formato da tutte le restrizioni a $K$ degli
+		elementi di $\Gal(KL/L)$, ciò è equivalente ad esprimere $K^H$
+		come:
+		\begin{multline*}
+			 K^H = \{x \in K \mid \varphi(x) = x \; \forall \, \varphi \in \Gal(KL/L)\} =
+			 K \cap (KL)^{\Gal(KL/L)} = K \cap L
+		\end{multline*}
+		Pertanto, per il Teorema di Corrispondenza di Galois, vale che $H = \Gal(K/K^H) = \Gal(K/K \cap L)$, e dunque $\Phi$ è surgettiva. Si conclude che $\Phi$ è
+		un isomorfismo, da cui la tesi.
 	\end{proof}
 	
 	\begin{corollary}
-		Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione finita, se $K\cap L = F$ allora $[KL:F] = [K:F][L:F]$.
+		\label{cor:3.14}
+		Siano $\faktor K F$ un'estensione di Galois finita e $\faktor L F$ un'estensione finita. Se $K\cap L = F$, allora $[KL:F] = [K:F][L:F]$.
 	\end{corollary}
 	
 	\begin{proof}
-		Consideriamo il seguente diagramma di campi
-		\begin{center}
-			\begin{tikzpicture}
-				\node (Q1) at (0,0) {$F$};
-				\node (Q2) at (-1.5,1.5) {$K$};
-				\node (Q3) at (1.5,1.5) {$L$};
-				\node (Q4) at (0,3) {$KL$};
-				\draw (Q1)--(Q2);
-				\draw (Q1)--(Q3);
-				\draw (Q1)--(Q4);
-				\draw (Q2)--(Q4);
-				\draw (Q3)--(Q4);
-			\end{tikzpicture}
-		\end{center}
-		per il Teorema delle Torri abbiamo $[KL:F] = [KL:L][L:F]$. Poiché 
-		$\Gal(KL/L) \cong \Gal(K/K\cap L) = \Gal(K/F)$ per la 
-		\hyperref[prop3.13]{Proposizione 3.13}, in particolare $[KL:L] = [K:F]$,
-		quindi $[KL:F] = [K:F][L:F]$.
+		Per la \autoref{prop3.13} vale che $\Gal(KL/L) \cong \Gal(K/K \cap L) =
+		\Gal(K/F)$, e dunque che $[KL : L] = [K : F]$. Pertanto, per il Teorema
+		delle Torri algebriche vale che:
+		\[ [KL : F] = [KL : L] [L : F] = [K : F] [L : F] \]
+		da cui la tesi.
 	\end{proof}
 	
 	\begin{proposition}
 		\label{prop3.15}
-		Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ estensioni di Galois finite, 
-		allora $\faktor{K_1K_2}{F}$ è un'estensione di Galois. Inoltre:
+		Siano $\faktor{K_1}{F}$, $\faktor{K_2}{F}$ due estensioni di Galois finite. 
+		Allora vale che:
 		\begin{enumerate}[(1)]
-			\item esiste un'immersione $\Phi: \Gal(K_1K_2/F) \longhookrightarrow 
-			\Gal(K_1/F)\times\Gal(K_2/F)$;
+			\item $\faktor{K_1K_2}{F}$ è un'estensione di Galois,
+			\item esiste un'immersione $\Phi: \Gal(K_1K_2/F) \mono 
+			\Gal(K_1/F)\times\Gal(K_2/F)$,
 			\item $\Gal(K_1K_2/F)\cong \Gal(K_1/F)\times\Gal(K_2/F)$ se e solo 
 			se $K_1\cap K_2 = F$. 
 		\end{enumerate}
 	\end{proposition}
 	
 	\begin{proof}
-		Poiché $\faktor{K_1}{F}$ e $\faktor{K_2}{F}$ sono estensioni normali, 
-		esistono $p_1(x), p_2(x) \in F[x]$ tali che $K_1$ e $K_2$ 
-		sono rispettivamente i campi di spezzamento di $p_1(x)$ e $p_2(x)$ su 
-		$F$. Allora il composto $K_1K_2$ è il campo di spezzamento  
-		del polinomio $p_1(x)p_2(x)$ su $F$, quindi $\faktor{K_1K_2}{F}$ è un'estensione 
-		di Galois.
+		Si dimostrano i tre risultati separatamente.
+
 		\begin{enumerate}[(1)]
-			\item Consideriamo la mappa
-			\[
-			\Phi: \Gal(K_1K_2/F)\longrightarrow \Gal(K_1/F)\times 
-			\Gal(K_2/F): \varphi\longmapsto (\varphi_{\mid K_1}, \varphi_{\mid K_2})
-			\]
-			chiaramente $\Phi$ è un omomorfismo di gruppi, mostriamo quindi che 
-			il suo nucleo è banale. $\Phi(\varphi) = (id_{K_1}, id_{K_2})$
-			se e solo se $\varphi_{\mid K_1} = id_{K_1}$ e $\varphi_{\mid K_2} =
-			id_{K_2}$, ma allora $\varphi$ è l'identità anche sul composto
-			$K_1K_2$, pertanto $\Phi$ è iniettivo;
-			\item poiché i gruppi in questione sono finiti, è sufficiente mostrare 
-			che hanno la stessa cardinalità per concludere che sono isomorfi.
-			Per il Teorema delle Torri abbiamo $[K_1K_2:F] = [K_1K_2:K_1][K_1:F]$,
-			d'altra parte $[K_1K_2:K_1] = [K_2:K_1\cap K_2]$ per
-			la \hyperref[prop3.13]{Proposizione 3.13}. Pertanto $|\Gal(K_1K_2/F)| =
-			|\Gal(K_1/F)|\cdot |\Gal(K_2/F)|$ 
-			se e solo se $[K_2:K_1\cap K_2][K_1:F] = [K_1:F][K_2:F]$, cioè se e 
-			solo se $[K_2:K_1\cap K_2] = [K_2:F]$, ovvero $K_1\cap K_2 = F$.
+			\item Dal momento che $\faktor{K_1}{F}$ è un'estensione finita,
+			anche $\faktor{K_1 K_2}{K_2}$ lo è. Poiché allora sia $\faktor{K_1 K_2}{K_2}$
+			che $\faktor{K_2}{F}$ sono estensioni finite, per il Teorema delle
+			Torri algebriche, $\faktor{K_1 K_2}{F}$ è un'estensione finita. Dacché
+			sia $\faktor{K_1}{F}$ che $\faktor{K_2}{F}$ sono normali, anche
+			$\faktor{K_1 K_2}{F}$ lo è, ed è dunque di Galois.
+
+			\item Consideriamo la mappa:
+			\[ \Phi : \Gal(K_1 K_2 / F) \to \Gal(K_1 / F) \times \Gal(K_2 / F), \; \varphi \mapsto \left(\restr{\varphi}{K_1}, \restr{\varphi}{K_2}\right) \]
+			Chiaramente $\Phi$ è un omomorfismo di gruppi ed è ben definito dal momento
+			che $\varphi$ fissa $F$. \medskip
+
+
+			Sia $\varphi \in \ker \Phi$. Allora $\varphi$ agisce come identità
+			sia su $K_1$ che su $K_2$. Pertanto $\varphi$ agisce come identità
+			anche su $K_1 K_2 = K_1(K_2)$, e dunque $\varphi = \id_{K_1 K_2}$.
+			Si conclude dunque che $\varphi$ è iniettiva e che dunque è
+			un'immersione. 
+
+			\item Dal momento che tutti i gruppi in questione sono finiti e che
+			per il punto (2) esiste un'immersione di uno nel prodotto degli altri,
+			l'isomorfismo sussiste se e solo se questi due gruppi hanno la stessa
+			cardinalità, ossia se e solo se:
+			\[ [K_1 K_2 : F] = [K_1 : F] [K_2 : F] \]
+			Per il \autoref{prop3.13}, $[K_1 K_2 : F] = [K_1 K_2 : K_2] [K_2 : F]
+			= [K_1 : K_1 \cap K_2] [K_2 : F]$. Pertanto l'isomorfismo sussiste
+			se e solo se:
+			\[ [K_1 : K_1 \cap K_2] = [K_1 : F] \]
+			Dal momento che $F \subseteq K_1 \cap K_2$, ciò accade se e solo se
+			$K_1 \cap K_2 = F$, da cui la tesi.
 		\end{enumerate}
 	\end{proof}
 	
@@ -6155,7 +6251,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	\end{example}
 	
 	\newpage
-	\subsection{Risoluzione delle equazioni di terzo grado}
+	\subsection{Risoluzione delle equazioni di terzo grado \texorpdfstring{$\star$}{★}}
 	Si illustra adesso il metodo risolutivo delle equazioni di terzo grado,
 	tramite la cosiddetta \textbf{formula di Cardano-Tartaglia-Del Ferro}.\medskip
 	
