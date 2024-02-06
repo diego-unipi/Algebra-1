@@ -1215,7 +1215,7 @@
 			derivato} di $G$, detto anche \vocab{sottogruppo dei commutatori} di $G$,
 		il sottogruppo $G'$ generato da tutti i commutatori di $G$, ossia
 		\[
-		G' = \langle\{[x, y]\mid x, y \in G\}\rangle
+		G' = [G, G] = \langle\{[x, y]\mid x, y \in G\}\rangle
 		\]
 	\end{definition}
 	
@@ -2174,7 +2174,7 @@
 		\cycle{1, 4}\cycle{2, 3}, id\}
 		\]
 		è un sottogruppo abeliano non ciclico di $\mathcal{S}_4$, chiamato 
-		\vocab{gruppo di Klein} o \vocab{Klein 4-group}. Pertanto un sottogruppo
+		\vocab{gruppo di Klein} (o \textit{Klein 4-group}). Pertanto un sottogruppo
 		abeliano di ordine massimo deve avere una di queste due forme.
 	\end{remark}
 	
@@ -2200,6 +2200,72 @@
 		\]
 		per ogni $i \in \{1, \ldots, n - 2\}$, pertanto $G$ e $G'$ sono coniugati.
 	\end{remark}
+	
+	\subsubsection{I sottogruppi derivati di $\Sym_n$ e di $\ASym_n$}
+	
+	In questa sezione si studiano i gruppi derivati di $\Sym_n$ e di
+	$\ASym_n$. \medskip
+	
+	
+	Per $n = 2$, la discussione è del tutto banale. Infatti
+	$\Sym_2 \cong \Z{2}$, e quindi $\Sym_2' = \{\id\} = \ASym_2 = \ASym_2'$. \medskip
+	
+	
+	Sia adesso $n \geq 3$. Siano $\tau_1 = \cycle{i,j}$ e $\tau_2 = \cycle{j,k}$ due trasposizioni
+	di $\Sym_n$ con $i$, $j$ e $k$ distinti. Allora vale che:
+	\[ [\tau_1, \tau_2] = \cycle{k, i, j}^2 = \cycle{k, j, i}. \]
+	Pertanto, al variare di $i$, $j$ e $k$ si possono realizzare tutti i $3$-cicli
+	di $\Sym_n$ come commutatore di due trasposizioni. Allora, poiché
+	i $3$-cicli generano $\ASym_n$ per $n \geq 3$, vale che $\ASym_n \subseteq \Sym_n'$.
+	Pertanto $\Sym_n'$ è $\ASym_n$ o $\Sym_n$. \medskip
+	
+	
+	Allo stesso tempo, l'omomorfismo $\sgn$ ha come codominio un gruppo abeliano
+	e come nucleo $\ASym_n$. Pertanto $\Sym_n' \subseteq \ker \sgn = \ASym_n$. Si
+	conclude dunque che vale:
+	\[ \Sym_n' = \ASym_n, \quad \forall n \geq 3. \]
+	
+	\begin{remark}
+		Dall'ultimo risultato si può immediatamente dedurre che, se $G$ è
+		un gruppo abeliano, allora gli omomorfismi da $\Sym_n$ a $G$ sono
+		in bigezione con gli omomorfismi da $(\Sym_n)_{ab} = \Sym_n / \Sym_n' \cong \Z{2}$
+		a $G$, tramite il Primo teorema di Omomorfismo.
+	\end{remark}
+	
+	Per $\ASym_n$, la questione si complica. Infatti, come vedremo,
+	$\ASym_n$ è molto ``non abeliano'', ossia, per $n \geq 5$,
+	$\ASym_n$ e il suo derivato coincidono. \medskip
+	
+	
+	Sia infatti $n \geq 5$. Allora, se $x = \cycle{a, c, b}$ e
+	$y = \cycle{b, c}\cycle{d, e}$, per $a$, $b$, $c$, $d$ ed $e$ distinti,
+	vale che:
+	\[ [x, y] = \cycle{c, a} \cycle{b, c, a} \cycle{b, c} \cycle{d, e}^2 = \cycle{b, c, a}, \]
+	e dunque, al variare di $a$, $b$, $c$, ogni $3$-ciclo di $\ASym_n$ può scriversi
+	come commutatore. Pertanto, poiché i $3$-cicli generano ancora $\ASym_n$, $\ASym_n \subseteq \ASym_n' \subseteq \ASym_n$, e dunque vale che\footnote{
+		Questo risultato diviene totalmente ovvio una volta che si dimostra
+		che $\ASym_n$ è semplice per $n \geq 5$, come mostra il
+		\autoref{th:an_semplice}.
+	}:
+	\[ \ASym_n' = \ASym_n, \quad \forall n \geq 5. \]
+	Per $n = 4$, la situazione è totalmente diversa. Infatti $V_4$, il gruppo
+	di Klein, è un sottogruppo normale di $\ASym_4$. In particolare
+	$[\ASym_4 : V_4] = 3$, e dunque $\ASym_4 / V_4 \cong \Z{3}$. Dal momento
+	che $\Z{3}$ è abeliano, $\ASym_4' \subseteq V_4$. Inoltre $\ASym_4'$ non
+	può essere banale dacché $\ASym_4$ non è abeliano; pertanto esiste
+	una doppia trasposizione $\sigma$ in $\ASym_4'$. Dal momento che
+	$\ASym_4'$ è normale in $\ASym_4$, $\Cl_{\ASym_4}(\sigma) \subseteq \ASym_4$,
+	e dunque $V_4 \subseteq \ASym_4$. Si conclude dunque che $\ASym_4' = V_4$.
+	Per $n = 3$, invece, $\ASym_3 \cong \Z{3}$, e dunque $\ASym_3'$ è banale. \medskip
+	
+	
+	La classificazione è dunque la seguente:
+	\begin{itemize}
+		\item se $n \geq 5$, $\ASym_n' = \ASym_n$;
+		\item se $n = 4$, $\ASym_4' = V_4$;
+		\item se $n = 3$, $\ASym_3' = \{\id\}$. 
+	\end{itemize}
+	 
 	
 	\subsubsection{Classi di coniugio in \texorpdfstring{$\mathcal{A}_n$}{Aₙ}}
 	
