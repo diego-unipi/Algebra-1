@@ -1880,6 +1880,49 @@
 	
 	\newpage
 	
+	\subsection{Il Lemma di Burnside \texorpdfstring{$\star$}{★}}
+	
+	Si introduce adesso il concetto di \textit{punti fissi} di un dato $g \in G$, a cui
+	seguirà il \textbf{Lemma di Burnside}, un risultato utile per contare il numero
+	di orbite di un'azione.
+	
+	\begin{definition}[Punti fissi di $g$]
+		Si definisce l'insieme $X^g = \Fix(g)$ come il sottoinsieme di $X$ dei punti
+		lasciati fissi da $g$, ossia:
+		\[ X^g = \{ x \in X \mid g \cdot x = x \}. \]
+	\end{definition}
+	
+	\begin{proposition}[Lemma di Burnside]
+		$\abs{\faktor{X}{\sim}} = \frac{1}{\abs{G}} \sum_{g \in G} \abs{X^g}$.
+	\end{proposition}
+	
+	\begin{proof}
+		L'idea chiave risiede nell'osservare che $\sum_{g \in G} \abs{X^g}$ conta
+		gli elementi dell'insieme $S$, dove:
+		\[ S = \{ (g, x) \in G \times X \mid g \cdot x = x \} \subseteq G \times X. \]
+		Infatti, gli stessi elementi sono contati da $\sum_{x \in X} \abs{\Stab(x)}$.
+		Applicando allora il Lemma orbita-stabilizzatore, ed indicando
+		con $\mathcal{R}$ un insieme dei rappresentanti delle orbite, la
+		somma si riscrive come:
+		\[ \sum_{g \in G} \abs{X^g} = \sum_{x \in X} \abs{\Stab(x)} =
+		\sum_{r \in \mathcal{R}} \sum_{x \in \Orb(r)} \abs{\Stab(x)},
+		\]
+		da cui si deduce che:
+		\[  \sum_{g \in G} \abs{X^g} = \sum_{r \in \mathcal{R}} \sum_{x \in \Orb(r)} \frac{\abs{G}}{\abs{\Orb(x)}} = \sum_{r \in \mathcal{R}} \sum_{x \in \Orb(r)} \frac{\abs{G}}{\abs{\Orb(r)}} = \abs{G} \abs{\faktor{X}{\sim}}, \]
+		dove è stato cruciale osservare che, per $x \in \Orb(r)$, $\Orb(x) = \Orb(r)$.
+		Da ciò segue immediatamente la tesi.
+	\end{proof}
+	
+		Utilizzando la nozione di centralizzatore, si può contare ``facilmente'' il numero
+		di classi di coniugio di un gruppo. Infatti, si osserva crucialmente che
+		$G^g$ per l'azione di coniugio
+		è lo stesso insieme $\z_G(g)$. Infatti vale che:
+		\[ G^g = \{ h \in G \mid gh = hg \} = \z_G(g). \]
+		Allora, per il Lemma di Burnside, se $k(G)$ è il numero di classi di coniugio di $G$, vale che:
+		\[ k(G) = \frac{1}{\abs{G}} \sum_{g \in G} \abs{\z_G(g)}. \]
+	
+	\newpage
+	
 	\subsection{Gruppo simmetrico e gruppo alterno}
 	
 	\subsubsection{Generatori di \texorpdfstring{$\mathcal{S}_n$}{Sₙ} e \texorpdfstring{$\mathcal{A}_n$}{Aₙ}}
