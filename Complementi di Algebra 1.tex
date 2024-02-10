@@ -1842,8 +1842,7 @@
 	
 	\subsubsection{Teorema di Poincaré}
 	
-	Illustriamo un teorema che risulterà utile nel futuro nello stabilire se
-	un gruppo ammette sottogruppi normali.
+	Illustriamo adesso uno strumento fondamentale per stabilire se un gruppo ammette sottogruppi normali.
 	
 	\begin{theorem}
 		[Teorema di Poincaré]
@@ -2201,7 +2200,7 @@
 		per ogni $i \in \{1, \ldots, n - 2\}$, pertanto $G$ e $G'$ sono coniugati.
 	\end{remark}
 	
-	\subsubsection{I sottogruppi derivati di $\Sym_n$ e di $\ASym_n$}
+	\subsubsection{I sottogruppi derivati di \texorpdfstring{$\mathcal{S}_n$}{Sₙ} e di \texorpdfstring{$\mathcal{A}_n$}{Aₙ}}
 	
 	In questa sezione si studiano i gruppi derivati di $\Sym_n$ e di
 	$\ASym_n$. \medskip
@@ -3325,64 +3324,66 @@
 		pertanto i due gruppi sono proprio isomorfi.
 	\end{proof}
 	
-	\subsubsection{Prodotti semidiretti isomorfi}
+	\subsubsection{Prodotti semidiretti isomorfi al prodotto diretto}
 	
-	Dati due gruppi, può succedere che il loro prodotto diretto sia isomorfo a 
-	un loro prodotto semidiretto non banale.\newline
-	Consideriamo il gruppo $GL_3(\RR)$ e $N = SL_3(\RR) = \{M \in GL_3(\RR)
-	\mid \det M = 1\}$, $N$ è un sottogruppo normale di $GL_3(\RR)$ in quanto è il nucleo
-	dell'omomorfismo
-	\[
-	\det: GL_3(\RR) \longrightarrow \RR^*
-	\]
-	mostriamo che $GL_3(\RR) \cong SL_3(\RR)\times\RR^*$. Consideriamo il sottogruppo
+	Dati due gruppi, non è sempre detto che un prodotto semidiretto indotto da un omomorfismo
+	non banale non sia isomorfo al prodotto diretto. \medskip
+	
+	
+	Consideriamo per esempio il gruppo $\GL_3(\RR)$ e il suo sottogruppo $N = \SL_3(\RR) = \{M \in \GL_3(\RR)
+	\mid \det M = 1\}$. $N$ è un sottogruppo normale di $\GL_3(\RR)$ dacché è il nucleo
+	dell'omomorfismo $\det : \GL_3(\RR) \to \RR^*$. \medskip
+	
+
+	Mostriamo innanzitutto che $\GL_3(\RR) \cong \SL_3(\RR) \times \RR^*$. Sia
+	$H$ il sottogruppo così definito:
 	\[
 	H = \left\{\begin{pmatrix}
 		\lambda & 0 & 0\\
 		0 & \lambda & 0\\
 		0 & 0 & \lambda
-	\end{pmatrix}\Bigm| \lambda \in \RR^* \right\}
-	\]isomorfo a $\RR^*$, abbiamo che:
+	\end{pmatrix}\Bigm| \lambda \in \RR^* \right\}.
+	\]
+	Tale sottogruppo è chiaramente isomorfo a $\RR^*$. Inoltre si verifica che:
 	
 	\begin{itemize}
-		\item $N \cap H = \{Id\}$ in quanto $M = \lambda Id \in N\cap H$ è tale
-		che $\det M = \lambda^3 = 1$, cioè $\lambda = 1$ e quindi $M = Id$;
-		\item $H$ è un sottogruppo normale di $GL_3(\RR)$, in quanto tutti i suoi elementi
-		sono multipli scalari della matrice identità e quindi commutano con gli
-		elementi di $GL_3(\RR)$;
-		\item $GL_3(\RR) = NH$, infatti per ogni $M \in GL_3(\RR)$ possiamo scrivere $M = S(\lambda Id)$,
-		dove $\lambda = \nolinebreak(\det M)^{\frac 1 3}$ e $S = (\det M)^{-\frac 1 3} M \in N$.
+		\item $N \cap H = \{\id\}$, dacché si avrebbe $\lambda^3 = 1$ che in $\RR$
+		ammette come unica soluzione $\lambda = 1$;
+		\item $H$ è un sottogruppo normale di $\GL_3(\RR)$ dacché $H \subseteq \z(\GL_3(\RR))$;
+		\item $\GL_3(\RR) = NH$, dacché $M \in \GL_3(\RR)$ può scriversi come
+		$((\det M)^{-1/3} M) (\det M)^{1/3} \id$; infatti
+		$\det ((\det M)^{-1/3} M) = ((\det M)^{-1/3})^3 \det M = 1$, e dunque
+		$(\det M)^{-1/3} M \in \SL_3(\RR)$.
 	\end{itemize}
 	
-	Possiamo quindi scrivere 
-	\[
-	GL_3(\RR) \cong SL_3(\RR) \times H \cong SL_3(\RR)\times \RR^*
-	\]
-	Consideriamo adesso il sottogruppo di $GL_3(\RR)$
-	
+	Possiamo quindi decomporre $\GL_3(\RR)$ nel prodotto isomorfo $\SL_3(\RR) \times H \cong \SL_3(\RR) \times \RR^*$. \medskip
+
+
+	Consideriamo adesso il sottogruppo $K$ di $\GL_3(\RR)$ definito in questo modo:
 	\[
 	K = \left\{\begin{pmatrix}
 		\lambda & 0 & 0\\
 		0 & 1 & 0\\
 		0 & 0 & 1
-	\end{pmatrix}\Bigm| \lambda \in \RR^* \right\}
+	\end{pmatrix}\Bigm| \lambda \in \RR^* \right\},
 	\]
-	anch'esso isomorfo a $\RR^*$. Ragionando in modo analogo abbiamo $N \cap H = \{Id\}$, 
-	inoltre $GL_3(\RR) = NK$ in quanto per ogni $M \in GL_3(\RR)$ possiamo scrivere
+	anch'esso isomorfo a $\RR^*$. Ragionando in modo analogo deduciamo che $N \cap H = \{\id\}$. 
+	Inoltre $\GL_3(\RR) = NK$, dacché ogni $M \in \GL_3(\RR)$ può scriversi come
 	$M = (MA^{-1})A$ con 
 	\[
 	A = \begin{pmatrix}
 		\det M & 0 & 0\\
 		0 & 1 & 0\\
 		0 & 0 & 1
-	\end{pmatrix} \in K, \quad MA^{-1} \in N
+	\end{pmatrix} \in K, \quad MA^{-1} \in N \impliedby \det(MA\inv) = \det(M) \det(M)\inv = 1.
 	\]
-	Possiamo quindi scrivere 
+	Applicando allora il Teorema di decomposizione in prodotto semidiretto, deduciamo
+	che: 
 	\[
-	GL_3(\RR) \cong SL_3(\RR)\rtimes K
+	\GL_3(\RR) \cong \SL_3(\RR) \rtimes K,
 	\]
-	Notiamo che l'azione di coniugio di $K$ su $SL_3(\RR)$ non è banale, in 
-	quanto
+	dove l'omomorfismo impiegato è l'azione di coniugio di $K$ su $\SL_3(\RR)$.
+	Tale azione di coniugio non è banale dal momento che per $\lambda \neq 0$, $1$ vale che:
 	\[
 	\begin{pmatrix}
 		\lambda & 0 & 0\\
@@ -3407,54 +3408,95 @@
 		1 & 1 & 0\\
 		0 & 1 & 0\\
 		0 & 0 & 1
-	\end{pmatrix},\quad \lambda \neq 0, 1
+	\end{pmatrix}.
 	\]
-	quindi il prodotto non è diretto.\newline
+	Quindi tale prodotto semidiretto non è diretto, e dunque corrisponde,
+	dal momento che $K \cong \RR^*$, a un prodotto altrettanto semidiretto
+	$\SL_3(\RR) \rtimes \RR^*$, isomorfo però a $\SL_3(\RR) \rtimes \RR^*$. \medskip
 	
 	
-	È in realtà relativamente semplice costruire prodotti diretti e prodotti semidiretti
-	isomorfi a partire da un gruppo non abeliano, diamo l'esempio di una possibile
-	procedura nella seguente dimostrazione.
+	Dato un gruppo non abeliano, è relativamente semplice costruire un prodotto
+	semidireto isomorfo al prodotto diretto, come mostra la:
 	
 	\begin{proposition}
-		Dato un gruppo $G$ non abeliano, esiste un omomorfismo
+		\label{prop:coniugio_isomorfo}
+		Sia $G$ un gruppo. Allora l'azione di coniugio $\varphi : G \to \Inn(G) \subseteq \Aut(G)$ induce un prodotto semidiretto tale per cui:
 		\[
-		\varphi: G\longrightarrow \Aut(G)
+		G \times G \cong G \rtimes_\varphi G,
 		\]
-		non banale tale che $G\times G \cong G\rtimes_{\varphi} G$.
+		dove $(g, h) \in G \times G$ corrisponde a $(gh\inv, h) \in G \rtimes_\varphi G$
+		(e $(g, h) = (ghh\inv, h) \in G \rtimes_\varphi G$ corrisponde a $(gh, h)$).
 	\end{proposition}
 	
 	\begin{proof}
-		Consideriamo i sottogruppi $N = G\times\{e\}$, $H = \{(g, g) \mid g \in G\}$,
-		notiamo che $N$ è un sottogruppo normale di $G\times G$. Inoltre 
-		$N\cap H = \{e, e\}$ e $NH = G\times G$, in quanto per 
-		ogni elemento $(g_1, g_2) \in G\times G$ abbiamo
-		\[
-		(g_1, g_2) = (g_1g_2^{-1}, e)(g_2, g_2)
-		\]
-		con $(g_1g_2^{-1}, e) \in N$ e $(g_2, g_2) \in H$, pertanto possiamo 
-		scrivere $G \times G = N \rtimes_{\varphi} H$, dove $\varphi$ è un omomorfismo
-		\[
-		\varphi: H \longrightarrow \Aut(N)
-		\]
-		Tale $\varphi$ è banale se e solo se $\varphi(h) = id$ per ogni $h \in H$,
-		se e solo se $hnh^{-1} = n$ per ogni $h \in H$, per ogni $n \in N$.
-		Questo è equivalente a richiedere 
-		\[
-		(g, g)(h, e)(g^{-1}, g^{-1}) = (ghg^{-1}, e)= (h, e)~\forall g, h \in G
-		\]
-		cioè $g \in Z(G)$ per ogni $g \in G$,
-		ma questo è assurdo in quanto $G$ non è abeliano, pertanto $\varphi$
-		non è l'omomorfismo banale. Poiché $N \cong H \cong G$ abbiamo quindi
-		\[
-		G \times G \cong G\rtimes_{\varphi'}G
-		\]
-		dove
-		\[
-		\varphi':G \longrightarrow \Aut(G)
-		\]
-		è l'omomorfismo non banale corrispondente a $\varphi$.
+		Consideriamo i sottogruppi $N = G \times \{e\}$ e $H = \{(g, g) \mid g \in G\}$ di
+		$G \times G$. Il sottogruppo $N$ è ovviamente normale, e dunque l'insieme
+		$NH$ ammette la struttura di sottogruppo. Inoltre, per ogni coppia
+		$(g, h) \in G \times G$ vale che:
+		\[ (g, h) = \underbrace{(g h\inv, e)}_{\in N} \underbrace{(h, h)}_{\in H}. \]
+		Dunque $G \times G = NH$. Inoltre vale chiaramente che $N \cap H = \{e\}$.
+		Allora, per il Teorema di decomposizione in prodotto
+		semidiretto vale che:
+		\[ G \times G \cong N \rtimes_\psi H, \]
+		dove $(g, h)$ corrisponde a $((g h\inv, e), (h, h))$ tramite $\psi$. \medskip
+		
+		
+		Chiaramente $N \cong H \cong G$. Dunque vale che:
+		\[ N \rtimes_\psi H \cong G \rtimes_\varphi G, \]
+		dove $((n, e), (h, h))$ corrisponde a $(n, h)$. La mappa
+		$\varphi : G \to \Aut(G)$ è tale per cui
+		$\varphi = \beta \circ \psi \circ \alpha$, dove $\alpha$ e
+		$\gamma$ sono gli isomorfismi naturali tra $G$ e $H$ e
+		tra $G$ e $N$ e $\beta$ è l'isomorfismo naturale tra $\Aut(G)$ e
+		$\Aut(N)$ indotto da $\gamma$. \medskip
+		
+		
+		Si verifica che $\varphi$ è effettivamente l'azione di coniugio di
+		$G$. Infatti vale che:
+		\begin{multline*}
+			\varphi(g)(h) = (\beta(\psi(\alpha(g))))(h) = (\gamma\inv \circ \psi(\alpha(g)) \circ \gamma)(h)
+			= \gamma\inv(\psi(\alpha(g))(\gamma(h))) = \\ = \gamma\inv(\psi((g, g)(h, e))) =
+			\gamma\inv((g, g) (h, e) (g\inv, g\inv))
+			= \gamma\inv(ghg\inv, e) = ghg\inv.
+		\end{multline*}
+		
+		Infine $(g, h) \in G \times G$ corrisponde prima a
+		$((gh\inv, e), (h, h)) \in N \rtimes_\psi H$ e poi
+		a $(gh\inv, h) \in G \rtimes_\varphi G$.
 	\end{proof}
+	
+	\begin{exercise}[Esame scritto del 19 gennaio 2024, 1]
+		Consideriamo l'omomorfismo $\varphi : \Sym_3 \to \Aut(\Sym_3)$ che manda
+		un elemento $x$ nel coniugio per $x$, ovvero:
+		\[ \varphi : x \mapsto [g \mapsto xgx\inv]. \]
+		Siano poi $G = \Sym_3 \rtimes_\varphi \Sym_3$ e $\sigma = \cycle{1, 2, 3}$.
+		
+		\begin{itemize}
+			\item Sia $C$ il centralizzatore in $G$ dell'elemento $(\sigma, \id)$.
+			Determinare la cardinalità di $C$.
+			\item Determinare il numero $n_3$ dei $3$-Sylow di $G$.
+		\end{itemize}
+	\end{exercise}
+	
+	\begin{soln}
+		Questo esercizio si può risolvere anche più direttamente. Usando
+		però la \autoref{prop:coniugio_isomorfo}, possiamo usare che
+		$G \cong \Sym_3 \times \Sym_3 =: H$ e che $(\sigma, \id) \in G$ corrisponde
+		a $(\sigma \cdot \id, \id) = (\sigma, \id) \in H$. \medskip
+		
+		Chiaramente
+		$\z_H((\sigma, \id)) = \z_{\Sym_3}(\sigma) \times \z_{\Sym_3}(\id) =
+		\z_{\Sym_3}(\sigma) \times \Sym_3$. Per il Lemma orbita-stabilizzatore
+		vale che:
+		\[ \abs{\z_{\Sym_3}(\sigma)} = \frac{3!}{\binom{3}{3} \frac{3!}{3}} = 3, \]
+		e dunque $\abs{\z_G((\sigma, \id))} = \abs{\z_H((\sigma, \id))} = 3 \cdot 3! = 18$. \medskip
+		
+		
+		Infine $\ASym_3 \times \ASym_3$ è un $3$-Sylow di $H$. Dacché
+		è normale, $H$ ha un solo $3$-Sylow, e così anche $G$.
+	\end{soln}
+	
+	\subsubsection{Criteri di isomorfismo tra prodotti semidiretti}
 	
 	Vediamo adesso un criterio che stabilisce una condizione sufficiente affinché 
 	i prodotti semidiretti di due gruppi siano isomorfi.
