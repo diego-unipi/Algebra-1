@@ -66,7 +66,7 @@
 	\section*{Ringraziamenti}
 	
 	Si ringraziano Diego Monaco, Niccolò Nannicini, Pietro Crovetto, Leonardo Alfani,
-	Daniele Lapadula, Francesco Sorce, Alessandro Moretti, Matteo Gori, Lorenzo Bonetti e \textbf{Rubens Martino}.
+	Daniele Lapadula, Francesco Sorce, Alessandro Moretti, Matteo Gori, Lorenzo Bonetti e \textbf{Rubens Martino}, Alessandro Avellino.
 	
 	\mbox{}
 	\vfill
@@ -85,7 +85,7 @@
 	\subsection{Insiemi di generatori}
 	
 	\begin{definition}
-		Dati un gruppo $G$ e un sottinsieme $X$ di $G$, definiamo il \vocab{sottogruppo 
+		Dati un gruppo $G$ e un sottoinsieme $X$ di $G$, definiamo il \vocab{sottogruppo 
 			generato} da $X$ come il più piccolo sottogruppo $\langle X
 		\rangle$ di $G$ contenente $X$, ovverosia: \[\langle X \rangle =
 		\bigcap_{\substack{H\leqslant G\\ X \subseteq H}} H\]
@@ -109,7 +109,7 @@
 	la:
 	
 	\begin{proposition}
-		Dati un gruppo $G$ e $X$ sottinsieme non vuoto di $G$, allora vale che:
+		Dati un gruppo $G$ e $X$ sottoinsieme non vuoto di $G$, allora vale che:
 		\[
 		\langle X \rangle = \{x_1 \cdots x_r \mid r 
 		\in \NN, \, x_i \in X \cup X\inv ~\forall 1 \leq i \leq r\}
@@ -134,7 +134,7 @@
 	\end{remark}
 	
 	\begin{definition}
-		Sia $G$ un gruppo. Se $X$ è un sottinsieme non vuoto di $G$ tale per
+		Sia $G$ un gruppo. Se $X$ è un sottoinsieme non vuoto di $G$ tale per
 		cui $G = \langle X \rangle$, allora si dice che $X$ \vocab{genera} $G$,
 		che $X$ è un \vocab{insieme di generatori} per $G$ e che gli
 		elementi di $X$ sono \vocab{generatori} per $G$.
@@ -261,7 +261,7 @@
 	per ogni $\lambda \in \Zp$. Pertanto vale la seguente uguaglianza insiemistica
 	\[
 	\Aut((\Zp)^n) = \GL((\Zp)^n) = \{\varphi: (\Zp)^n\longrightarrow(\Zp)^n
-	\mid\varphi\text{ isomorfismo di sp. vett.}\}
+	\mid\varphi\text{ isomorfismo di sp. vet.}\}
 	\]
 	
 	Poiché $\GL((\Zp)^n) \cong \GL_n(\Zp) = \{M \in \M_{n}(\Zp)\mid \det M \neq 0\}$,
@@ -474,7 +474,7 @@
 		Abbiamo mostrato che effettivamente $\Dn = \langle r, s\rangle$, quindi i
 		suoi elementi sono tutti della forma $r^k$, $sr^h$ al variare di $h, k \in \ZZ$. In
 		particolare gli elementi distinti di $\Dn$ sono tutti gli $r^k$ e i $sr^h$ con
-		$1 \leq r, k \leq n-1$, insieme all'identità.
+		$0 \leq h, k \leq n-1$.
 	\end{remark}
 	
 	\begin{remark}
@@ -726,7 +726,7 @@
 	
 	\begin{remark}
 		A dire il vero, $\mathcal{R} = \langle r \rangle$ non solo è normale in $\Dn$,
-		ma è anche per $n \geq 3$.
+		ma è anche caratteristico per $n \geq 3$.
 		Infatti per ogni $\varphi \in \Aut(\Dn)$ allora
 		$\ord(\varphi(r)) = \ord(r) = n$.
 		Se $\varphi(r)$ non appartenesse a $\mathcal{R}$, avremmo $\ord(\varphi(r)) = 2$,
@@ -1270,7 +1270,7 @@
 	
 	\begin{remark}[serie derivata]
 		Si può reiterare la costruzione del gruppo derivato su $G'$ stesso, ottenendo
-		$(G')'$. Reiterando indefinitivamente questa costruzione per $G$ finito
+		$(G')'$. Reiterando indefinitamente questa costruzione per $G$ finito
 		si ottiene la
 		\vocab{serie derivata} (o \textit{serie dei derivati}) di $G$, ossia una sequenza
 		\[ G^{(n)} \triangleleft G^{(n-1)} \triangleleft \cdots \triangleleft G^{(1)} \triangleleft G^{(0)} \]
@@ -1863,7 +1863,7 @@
 		ponga $N = \ker \psi$.
 		\begin{enumerate}[(1)]
 			\item $N = \ker \psi$ è l'intersezione di tutti gli stabilizzatori dell'azione,
-			e quindi è in particolare un sottinsieme di $\Stab(H) = H$. Pertanto
+			e quindi è in particolare un sottoinsieme di $\Stab(H) = H$. Pertanto
 			$N \leqslant H \leqslant G$.
 			\item Dal momento che $\ker\psi \leqslant H$, si verifica che $n = [G:H] \mid [G:\ker\psi]$. Dal Primo Teorema di Omomorfismo vale che
 			\[ \faktor{G}{N} = \faktor{G}{\ker\psi} \cong \im \psi \mono \Sym_n \]
@@ -2888,7 +2888,7 @@
 		tutti isomorfi a $\Sym_3$.
 	\end{remark}
 	
-	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{$n \neq 6$}{n≠6} \texorpdfstring{$\star$}{★}}
+	\subsubsection{Automorfismi di $\Sym_n$ per \texorpdfstring{n \textbackslash neq 6}{n≠6} \texorpdfstring{star}{★}}
 	
 	%TODO: descrizione di aut(s6) come prod semidiretto (?)
 	
@@ -2923,7 +2923,7 @@
 		di $\varphi\cycle{1, k}$. Analogamente lo sarebbe anche $a_3$, da cui si deduce che $\varphi\cycle{1, k} = \cycle{a_2, a_3}$, dacché $a_2 \neq a_3$. Tuttavia ciò è assurdo, dal momento che:
 		\[ \varphi\cycle{1, k} = \cycle{a_2, a_3} = \cycle{a_1, a_2} \cycle{a_1, a_3} \cycle{a_1, a_2}\inv =
 		\varphi\cycle{1, 2}\varphi\cycle{1, 3}\varphi\cycle{1, 2} = \varphi\cycle{2, 3} \]
-		e quindi $\cycle{1, 2}$ avrebbe la stessa immagine di $\cycle{2, 3}$ tramite $\varphi$, pur
+		e quindi $\cycle{1, k}$ avrebbe la stessa immagine di $\cycle{2, 3}$ tramite $\varphi$, pur
 		essendone distinto. Pertanto $a_1$ è elemento di $\varphi\cycle{1, k}$, che dunque si rappresenta
 		come $\cycle{a_1, a_k}$, con $a_k$ distinto\footnote{
 			Altrimenti si violerebbe l'iniettività di $\varphi$.
@@ -2951,7 +2951,7 @@
 		disgiunte,
 		esiste $j > 0$ tale per cui $\varphi(T_1) = T_j$, dal momento che $\varphi$ deve mandare tutte le trasposizioni in elementi di ordine $2$, e dunque in prodotti di trasposizioni.
 		Si mostra che l'unico $j$ possibile
-		è $2$, e dunque che $\varphi$ manda trasposizioni in trasposizioni. \medskip
+		è 1, e dunque che $\varphi$ manda trasposizioni in trasposizioni. \medskip
 		
 		
 		Si osserva che $\abs{T_j} = \frac{n!}{j! 2^j (n-2j)!}$.
@@ -3459,7 +3459,7 @@
 	
 	
 	Dato un gruppo non abeliano, è relativamente semplice costruire un prodotto
-	semidireto isomorfo al prodotto diretto, come mostra la:
+	semidiretto isomorfo al prodotto diretto, come mostra la:
 	
 	\begin{proposition}
 		\label{prop:coniugio_isomorfo}
@@ -5165,7 +5165,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 		Poiché $\alpha$ non è reale, allora $x^2 - x + 5$ è necessariamente irriducibile ed è dunque il polinomio minimo\footnote{
 			Utilizzando la teoria di Galois si deduce immediatamente che il
 			polinomio minimo di $\alpha$ è $(x-\alpha)(x-\overline{\alpha})  = x^2 - x + 5$,
-			dal momento che $\QQ(\alpha) = \QQ(i)$, la cui unica $\QQ$-immersione
+			dal momento che $\QQ(\alpha) = \QQ(\sqrt{-19})$, la cui unica $\QQ$-immersione
 			è il coniugio complesso.
 		} di $\alpha$ su $\QQ$, che denoteremo come
 		$\mu(x)$. \medskip
@@ -5335,13 +5335,6 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	di $\faktor L K$ come il gruppo delle immersioni $\varphi:L\longhookrightarrow \ol{K}$
 	che fissano $K$. Questo coincide con il gruppo degli automorfismi di $L$
 	che fissano $K$, e il suo ordine è pari al grado dell'estensione.
-	
-	\begin{remark}
-		Un'estensione quadratica è sempre un'estensione normale. Infatti se $K$ 
-		è un campo (perfetto) e $\alpha \in \ol{K}$ è tale che $\sqrt{\alpha}\notin K$,
-		allora $K(\alpha)$ è il campo di spezzamento del polinomio $x^2 - \alpha$.
-		Quindi $\faktor{K(\alpha)}{K}$ è normale e $\Gal(K(\alpha)/K) \cong \Z2$.
-	\end{remark}
 	
 	Diamo qualche esempio di calcolo del gruppo di Galois di un'estensione.
 	
@@ -5603,9 +5596,9 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 		\end{center}
 		
 		Dal momento che $\faktor{K}{F}$ è un'estensione finita, anche
-		$\faktor{KL}{L}$ lo è. Inoltre, poiché sia $\faktor{K}{F}$ che
-		$\faktor{L}{F}$ sono normali, allora anche
-		$\faktor{KL}{L}$ lo è, e dunque è di Galois. \medskip
+		$\faktor{KL}{L}$ lo è. Inoltre, poiché $\faktor KF$ è normale essa è il campo di spezzamento di
+		certi polinomi a coefficienti in $F$. Di conseguenza anche $\faktor{KL}{L}$ è normale essendo il campo di spezzamento dei polinomi sopracitati che,
+		avendo coefficienti in $K$, hanno a maggior ragione coefficienti in $L$. Dunque $\faktor{KL}{L}$ è di Galois. \medskip
 		
 		
 		Consideriamo la seguente mappa di restrizione:
@@ -5700,7 +5693,7 @@ quanto possiamo scriverli come prodotto semidiretto di $\Z{q}$ e $\Z{p}$, e dunq
 	
 	\newpage
 	
-	\subsection{Gruppo di Galois di un polinomio di grado $3$}
+	\subsection{Gruppo di Galois di un polinomio di grado 3}
 	
 	Consideriamo un polinomio $f(x)$ di grado 3 che non sia completamente fattorizzabile 
 	in $\QQ[x]$, cioè che ha campo di spezzamento $K$ 
